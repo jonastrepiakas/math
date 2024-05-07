@@ -1,0 +1,299 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+%Redeclaring Span and image
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+
+\title{Assignment 3}
+\author{Jonas Trepiakas - hvn548@alumni.ku.dk}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+    \textbf{Homework 7:} Let $X$ and $Y$ be topological spaces. We say that $X$ 
+    has property (*) if every compact subset of $X$ is closed in $X$. Prove:
+    \begin{enumerate}[label=(\roman*)]
+        \item If $X$ has property (*), then $X$ is $T_1$.
+        \item If $X$ has property (*) and $f  \colon Y \to X$ is a continuous
+            map, then for every compact subset $A \subseteq Y$ we have that
+            $f(A) \subseteq X$ is closed in $X$.
+        \item A finite topological space has property (*) if and only if its
+            topology is the discrete topology.
+    \end{enumerate}
+
+\textit{Solution:}\\
+(i) Let $x \in X$ be any element of $X$. Equip $\left\{ x \right\} $ with the
+subspace topology from $X$. Let $\mathcal{A}$ be any open covering of $\left\{
+x \right\} $ - such a covering exists since e.g. $\mathcal{A} = \left\{ X \cap
+\{x\} \right\} $ is an open covering since $X$ is open in $X$.
+Now since $\bigcup_{A \in \mathcal{A}} A = \left\{ x \right\} $, we can choose
+an $A \in \mathcal{A}$ such that $x \in A$. But since
+$\bigcup_{A \in \mathcal{A}} A = \{x\} \subseteq A \subseteq \bigcup_{A \in
+\mathcal{A}} \{x\}$, we have that $\{x\} = A$, so $\{A\}$ is a finite open
+subcovering of $\{x\}$. Hence $\{x\}$ is compact with the subspace topology. By
+assumption, $X$ has property (*), so $\{x\}$ is closed. Since $x \in X$ was
+arbitrary, all one-point sets are closed in $X$, i.e. $X$ is $T_1$.\\
+\linebreak
+(ii) Let $A \subseteq Y$ be compact. If $f  \colon Y \to X$ is continuous, then
+$f|_{A}  \colon A \to X$ under the restriction is continuous since
+$f|_{A}^{-1} (U) = A \cap f^{-1}(U)$ is open in $A$ since $f$ is continuous for any open set $U
+\subseteq X$. Thus by proposition 9.12, $f(A) = f|_{A}(A)$ is compact in $X$.
+Assuming $X$ has property (*), we thus find that $f(A)$ is closed in $X$.\\
+\linebreak
+(iii) Assume $X$ is a finite topological space with property (*). We saw in (i)
+that $X$ is $T_1$. We further claim that the one-point sets are open.
+Let $x \in X$. Then $\bigcup_{y \in X -\{x\}} \{y\}$ is a finite (since $X$ is
+finite) union of closed sets (since $X$ is $T_1$ ). Hence by proposition
+5.2.(c), $\bigcup_{y \in X -\{x\}} \{y\}$ is closed, so by definition 5.1, its
+complement $X - \bigcup_{y \in X - \{x\}} \{y\} = X - \left( X - \{x\} \right)
+= \{x\}$ is open. Since $x$ was arbitrary, all one-point sets are also open.\\
+Now let $A$ be any nonempty subset of $X$. Then $A = \bigcup_{a \in A} \{a\}$ 
+is a finite union of simultaneously open and closed sets, so it is open by
+definition 2.1.(b). Thus the topology on $X$ is the power set of $X$, so by
+example 2.5, the topology on $X$ is the discrete topology.\\
+\linebreak
+Conversely, if $X$ is a finite topological space equipped with the discrete
+topology, then every set is closed and open by example 5.4, so in particular,
+if $A$ is a subset of $X$, then $A = \bigcup_{a \in A} \{a\}$ which is a finite
+union of closed sets and hence closed by proposition 5.2. So all subsets of $X$
+are closed and thus, in particular, all compact subsets of $X$ are closed in
+$X$. So $X$ has property (*).\\
+\linebreak
+\textbf{Homework 8:} Let $X = \mathbb{N}$ with the discrete topology, and let
+$X^{+} = X \cup \{\infty \}$ denote the one-point compactification of $X$. Let
+$Y$ be another topological space. Given a sequence $\left( y_n \right)_{n \in
+\mathbb{N}}$ in $Y$ and a point $y \in Y$, define $f \colon X^{+} \to Y$ by
+$f(n) = y_n$ when $n \in X$ and $f(\infty) = y$.\\
+Show that the sequence $(y_n)_{n \in \mathbb{N}}$ converges to $y$ in $Y$ if
+and only if $f \colon X^{+} \to Y$ is continuous.\\
+\linebreak
+\textit{Solution:} Assume that $(y_n)_{n \in \mathbb{N}}$ converges to $y$ in
+$Y$. Let $U \subseteq Y$ be any open set. Then $f^{-1}(U) = f^{-1}\left( U
+\cap \left( (y_n)_{n \in \mathbb{N}}\cup y \right) \right) $. Thus it suffices
+to show that $f$ is continuous when restricting the range to the subspace
+$A = \left\{ y_n  \mid n \in \mathbb{N} \right\} \cup \{y\}$. 
+Let $U$ be an open set in $A$. If $y \not\in U$, then $f^{-1}(U) \subseteq X$,
+and since the open sets of $X$ are open in $X^{+}$ since $X$ is open in $X^{+}$, and all subsets of $X$ are
+open in $X$ since it is equipped with the discrete topology, we have
+$f^{-1}(U)$ is open in $X^{+}$.\\
+If $y \in U$, then $f^{-1} (U) = \{\infty\} \cup f^{-1}\left( U - \{y\} \right)
+$. We claim that the complement of $f^{-1}(U)$ is closed in $X^{+}$.
+The complement is contained in $X$ since $\infty \in f^{-1}(U)$, so it is in
+particular closed by example 5.4. Since the complement of $f^{-1}(U)$ is closed
+in $X^{+}$, $f^{-1}(U)$ is open in $X^{+}$ by definition 5.1.\\
+Thus $f \colon X^{+} \to Y$ is continuous.\\
+\linebreak
+Assume conversely that $f \colon X^{+} \to Y$ is continuous. Let $U$ be any
+neighborhood of $y$. Then $f^{-1}(U)$ is open in $X^{+}$ and in particular
+contains $\infty$. Thus its complement is contained in $X$, and since $X$ is
+equipped with the discrete topology, example 5.4 gives that the complement of
+$f^{-1}(U)$ is closed. We further claim that the complement of $f^{-1}(U)$ is
+bounded above by an element $M$.\\
+Let $A \subseteq X$ be any infinite subset of $X$. Then
+$\bigcup_{a \in A} \{a\}$ is an open covering of $A$ with no finite subcover,
+so $A$ is not compact. Thus any infinite subset of $X$ is not compact.\\
+ However, since all one-point sets are open, $X$ is
+Hausdorff. Thus all closed subsets of $X$ are compact by theorem 9.9. Since
+the complement of $f^{-1}(U)$ is a closed subspace of $X$, it can thus not be infinite. Thus by
+the total ordering of $\mathbb{N}$, there exists a maximal element $M \in \mathbb{N}$ in the
+complement of
+$f^{-1}(U)$. Since
+$f^{-1}\left( Y-U \right) = f^{-1}(Y) - f^{-1}(U) = X^{+} - f^{-1}(U)$, we thus
+have that $\mathbb{N} \cap [M+1, \infty) \subseteq f^{-1}(U)$, since
+$X^{+} = f^{-1}(U) \cup X^{+} - f^{-1}(U) = f^{-1}(U) \cup f^{-1}\left( Y-U
+\right) $. Thus for all $n \ge M+1$, $y_n = f(N+1) \in f \left( 
+\mathbb{N} \cap [M +1, \infty) \right) \subseteq U$.\\
+Since $U$ was arbitrary, $y_n$ converges to $y$ by definition 5.14.\\
+\linebreak
+\textbf{Homework 9:} Investigate which of the following statements are true in
+general, and accordingly either give a proof or find a counterexample:
+
+\begin{enumerate}[label=(\roman*)]
+    \item If $(X,\mathcal{T}_1)$ is a connected space, and $\mathcal{T}_2$ is
+        another topology on $X$ which is coarser than $\mathcal{T}_1$, then
+        $(X, \mathcal{T}_2)$ is also connected.
+    \item If $(X, \mathcal{T}_1)$ is a path-connected space, and
+        $\mathcal{T}_2$ is another topology on $X$ which is coarser than
+        $\mathcal{T}_1$, then $(X, \mathcal{T}_2)$ i s also path-connected.
+    \item If $(X, \mathcal{T}_1)$ is a path-connected space, and
+        $\mathcal{T}_2$ is another topology on $X$ which is finer than
+        $\mathcal{T}_1$, then $(X, \mathcal{T}_2)$ is also path-connected.
+    \item Suppose $A_n, n \in \mathbb{N}$ is a sequence of connected subsets of
+        $\mathbb{R}^2$ (where $\mathbb{R}^2$ is equipped with the standard
+        topology) satisfying $A_n \supseteq A_{n+1}$ for all $n \in
+        \mathbb{N}$. Then $\bigcap_{n \in \mathbb{N}} A_n$ is connected.
+\end{enumerate}
+\textit{Solution:}\\
+(i) This is true. Assume there is a separation $U,V$ of $X$ where $U$ and $V$
+are disjoint nonempty open subsets of $X$ whose union is $X$. Then since
+$\mathcal{T}_2$ is coarser than $\mathcal{T}_1$, $U$ and $V$ are also in
+$\mathcal{T}_1$ and thus would also form a separation of $X$. However, $(X,
+\mathcal{T}_1)$ is connected, so no such separation exists. Thus $(X,
+\mathcal{T}_2)$ is connected.\\
+\linebreak
+(ii) This is true. Let $x $ and $y$ be any points of $X$. Then by assumption there exists
+a path, i.e. a continuous function, $f \colon [a,b] \to X$ where $X$ is equipped with the topology
+$\mathcal{T}_1$ and $f(a) = x$ and $f(b) = y$. Since a continuous function is
+also continuous when the range is equipped with any coarser topology by
+proposition 2.12, this path
+is also a path when $X$ is equipped with the topology $\mathcal{T}_2$. Hence
+$(X, \mathcal{T}_2)$ is path connected.\\
+\linebreak
+(iii) This is false. For example, the function $f \colon [0,1] \to \mathbb{R}$ 
+given by $f(t) = x + t(y-x)$ is a path (continuous since polynomial, example
+1.12) connecting any points  $x,y$ of
+$\mathbb{R}$ when $\mathbb{R}$ is equipped with the standard topology. 
+Now let $\mathbb{R}_d$ denote $\mathbb{R}$ equipped with the discrete topology.
+Let $t \in [0,1]$. The set $\{f(t)\}$ is open in $\mathbb{R}_d$, but
+$f^{-1} \left( \{f(t)\} \right) = \{t\}$ is not open in $[0,1]$. 
+For example
+the complement of $\{t\}$ is not closed in $[0,1]$ since it has $t$ as
+a limit point; or alternatively, if $\{t\}$ were open, it would contain a basis
+element (proposition 3.2), but any basis element is an interval by definition
+of the order topology, and since $t$ has no immediate
+successor or precessor in $[0,1]$, it thus contains a point
+different from $t$; since this point is not in $\{t\}$, $\{t\}$ cannot be
+open.\\
+\linebreak
+(iv) This is false. Let $A_n$ be the sets
+\[
+    A_n = \mathbb{R}_- \times 0 \cup \mathbb{R}_+ \times 0 \cup 
+    \left\{ x \times y  \mid y \in (0, \frac{1}{n}) \right\}.
+\] 
+We will show that $A_n$ is path connected by showing that each $A_n$ is
+star-shaped domain with respect to the point $(0, \frac{1}{2n})$. Then, since
+path-connectedness is an equivalence relation by the section following
+definition 8.12, it will follow that there exists
+a path between any points of $A_n$ and hence that it is path-connected and then
+since every path-connected space is connected by theorem 8.13, it follows that
+$A_n$ is connected.\\
+For any point $x \in A_n$, define $\gamma_x  \colon [0,1] \to A_n$ to be the function
+\[
+\gamma_x (t) = \left(0,\frac{1}{2n} \right) t + (1-t) x.
+\] 
+For all $t \in [0,1]$, this is clearly contained in $A_n$ since for $t=0$,
+$\gamma_x (0) = x \in A_x$ and for all other $t$, the $y$-coordinate of
+$\gamma_x (t)$ is in $(0,\frac{1}{n})$, so in particular
+$\gamma_x (t) \in \mathbb{R} \times \left( 0, \frac{1}{n} \right) 
+\subset A_n$. The function is furthermore continuous since it's a polynomial in
+each coordinate,
+$\mathbb{R} \to \mathbb{R}^2$ (example 1.12), and therefore also from the
+subspace $[0,1]$. Thus it is a path. 
+Now by the section following definition 8.12, the reverse path
+$\tilde{\gamma}_x  \colon [0,1] \to A_n$ by $\tilde{\gamma}_x (t) = \gamma_x
+(1-t)$ is a path. Thus for any points $x,y \in A_n$, we can form the path
+$\gamma (t) = \begin{cases}
+    \gamma_x (2t) & t \le \frac{1}{2}\\
+    \tilde{\gamma}_y (2t-1) & t>\frac{1}{2}
+\end{cases}$ 
+which is a path connecting $x$ and $y$ by the section following definition
+8.12.\\
+Thus we conclude $A_n$ to be connected for all $n \in \mathbb{N}$ and clearly
+$A_{n+1} \subseteq A_n$ for all $n$, but
+$\bigcap_{n \in \mathbb{N}} A_n = \mathbb{R}_- \times 0 \cup \mathbb{R}_+
+\times 0$
+which is clearly separable by $\left\{ x \times y  \mid x >0 \right\} 
+\cap \mathbb{R}_- \times 0$ and $\left\{ x \times y  \mid
+    x<0 \right\} \cap \mathbb{R}_+ \times 0
+    $, where $\{x \times y  \mid x >0\}$ and $\{x \times y  \mid x < 0\}$
+    are clearly open since for any point $x \times y$ in these
+    sets, the ball of radius $x$ is contained in the sets. For each set, taking the union
+    over these balls, we find that they are each open.
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

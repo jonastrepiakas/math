@@ -1,0 +1,196 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+%Redeclaring Span and image
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\title{Aflevering 4}
+\author{Jonas Trepiakas - hvn548@alumni.ku.dk}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+    \textbf{1.} Vi har, at 
+     \[
+         \left( n, n+6, n+12, n+18, n+24 \right) 
+         \equiv \left( n, n+1, n+2, n+3, n+4 \right) \pmod{5}.
+    \] 
+    Dvs. de 5 primtal har forskellige rester modulo $5$. Per skuffe princippet,
+    må en af disse da være kongruent med $0$ modulo $5$, så $5$ går op
+    i primtallet, men dermed må primtallet være $5$. Da $n+6k > 5$ for $k\ge
+    1$, må $n = 5$.\\
+    \linebreak
+    \textbf{2.} Lad $p$ og $q$ være to forskellige primtal. Da har vi
+    $\Lambda (pq) = 0$ per definition, men
+    $\log (p)$ og $\log(q) \neq 0$, da $\log(1)=0$ og $\log$ er injektiv på
+    $(0,\infty)$. Dermed er $\Lambda(pq) \neq \log (p) \log(q) = 
+    \Lambda(p) \Lambda(q)$. Så $\Lambda$ er ikke multiplikativ.\\
+    Vi har nu, at da $\log (mn) = \log (m) + \log(n)$ for all $m,n \in \left(
+    0,\infty \right) $, har vi for $n= p_1^{\alpha_1} \ldots p_k^{\alpha_k}$
+    \begin{align*}
+        \log (n)
+        &= \sum_{i=1}^{k} \log \left( p_i^{\alpha_i} \right)\\
+        &= \sum_{i=1}^{k} \alpha_i \log\left( p_i \right) \\
+    \end{align*}
+    Lad nu $d$ være en divisor af $n$. Da kan vi skrive
+    $d = p_1^{\beta_1} \ldots p_k^{\beta_k}$ med 
+    $0\le \beta_i \le \alpha_i$ for alle $i \in \left\{ 1,\ldots, k \right\} $.
+    Hvis vi for $1 \le i < j \le k$ har $\beta_i, \beta_j > 0$, er
+    $\Lambda (d) = 0$ per definition. Dermed er
+    $$\sum_{d \mid n} \Lambda(d) = 
+    \sum_{i=1}^{k} \sum_{j=1}^{\alpha_i} \Lambda(p_i^{j})
+    = \sum_{i=1}^{k} \sum_{j=1}^{\alpha_i} \log (p_i)
+    = \sum_{i=1}^{k} \alpha_i \log (p_i).$$
+    Hvormed vi får $\sum_{d \mid n} \Lambda(d) = \log(n)$.\\
+    Vi bemærker, at
+    \[
+    \Lambda * u (n) = \sum_{d \mid n} \Lambda (d) = \log (n).
+    \] 
+    Da $\Lambda$ og $u$ er aritmetiske funktioner, fås ved Möbius inversion, at
+    $\Lambda (n) = \log * \mu (n)$.
+    Nu har vi, at $\left| \log n \right| \le n$ for alle $n$; $\left| \mu(n)
+    \right| \le 1$ og $\left| \Lambda (n) \right| \le n$ for alle $n$ udfra
+    definitionen. Altså er de alle begrænset af $n$. Ved sætning 5.2.3 fås nu
+    for $\sigma $ tilstrækkeligt stor, at
+
+    \begin{align*}
+        \sum_{n=1}^{\infty} \frac{\Lambda (n)}{n^{s}} 
+        &= \sum_{n=1}^{\infty} \frac{\log (n)}{n^{s}}
+        \sum_{n=1}^{\infty} \frac{\mu (n)}{n^{s}}.
+    \end{align*}
+
+    Som givet i opgaven kan vi udregne $\zeta (s)$ ved ledvis differentiering
+    for $\Re(s) > 1$:
+    \[
+    \zeta'(s) = \frac{d}{ds} \sum_{n=1}^{\infty} \frac{1}{n^{s}}
+    = \sum_{n=1}^{\infty} \frac{d}{ds} e^{- \log (n) s}
+    = \sum_{n=1}^{\infty} \frac{-\log (n)}{n^{s}}
+    \] 
+    Kombinerer vi dette med eksempel 5.5, fås for $\sigma>1$ tilstrækkeligt
+    stort, at
+
+    \begin{align*}
+        \sum_{n=1}^{\infty} \frac{\Lambda (n)}{n^{s}} 
+        &= \sum_{n=1}^{\infty} \frac{\log (n)}{n^{s}}
+        \sum_{n=1}^{\infty} \frac{\mu (n)}{n^{s}}\\
+        &= - \frac{\zeta'(s)}{\zeta(s)}
+    \end{align*}
+
+
+    \textbf{3.} Idet $\mathbb{F}_{523}$ er et integritetsområde, har ligningen
+    løsninger, hvis og kun hvis enten $8x^2 + 6x +4 \equiv 0 \pmod{523}$ har
+    løsninger eller $x^2 + 7x +10 \equiv 0 \pmod{523}$ har løsninger. 
+    Vi undersøger $x^2 + 7x +10 \equiv 0 \pmod{523}$. Vi har
+    \[
+    0 = x^2 + 7x +10 = \frac{1}{4}\left( \left( 2x +7 \right)^2
+    - \left( 7^2 - 40 \right) \right).
+    \] 
+    Så ligningen har løsninger, hvis og kun hvis 
+    $7^2 -40 = 9$ er en kvadratisk rest modulo 523, men det er den trivielt, da
+    $9 = 3^2$. Dermed er f.eks.
+    $2x + 7 \equiv 3 \pmod{523} \iff x \equiv -2 \equiv 521\pmod{523}$ en
+    løsning, så specielt er $521$ en løsning til systemet. Her har vi brugt, at
+    $(523,2)=1$ til eksistensen af en invers.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

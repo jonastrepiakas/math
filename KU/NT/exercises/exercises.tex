@@ -1,0 +1,367 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+%Redeclaring Span and image
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\begin{document}
+    \textbf{5.3:} Is $2^{10} \cdot \left( 2^{11}-1 \right) $ perfect?\\
+    \linebreak
+    \textit{Solution:} If it were perfect, then by theorem 5.1.2, 
+    $2^{11}-1$ would have to be prime. Now, since $\varphi(23)=22=2 \cdot 11$ 
+    and
+    $(2,23)=1$, we have $2^{22}-1 \equiv 0 \pmod{23}$, so
+    if $2^{11}-1$ is prime, $23$ must divide $2^{11}+1$, i.e. $2$ must be
+    a primitive root modulo 23. However, we find
+    $2^{5} = 32 \equiv 9 \to -5 \to -10 \to 3 \to 6 \to 12 \to 1 \equiv 2^{11} 
+    \pmod {23}$, so $\ord(2) = 11$, and hence $2$ is not a primitive root.\\
+    \linebreak
+    \textbf{Exercise 5.4:} Show that $\sum_{d \mid n} \left| \mu (d) \right| 
+    = \Pi_{p  \mid n}2$.\\
+    \linebreak
+    \textit{Solution:} Assume $n= p_1^{\alpha_1} p_2^{\alpha_2} \ldots
+    p_k^{\alpha_k}$. Then
+    \[
+    \sum_{d \mid n} \left| \mu (d) \right| 
+    = \sum_{d  \mid p_1 p_2 \ldots p_k} \left| \mu(d) \right| 
+    = \sum_{d  \mid p_1 \ldots p_k} 1
+    = \tau (p_1 \ldots p_k) 
+    \stackrel{prop. 5.1.1}{=} \Pi_{i=1}^{k} 2 = \Pi_{p  \mid n} 2
+    .\] 
+    \textbf{Exercise 5.5:}\\
+    Assume that there exists a complex sequence $s_k = \sigma_k + it_k$ with
+    $\sigma_k \to \infty$ when $k\to \infty$ satisfying that $D_f (s_k)=0$ for
+    all $k$ sufficiently large. We will show that this implies that $f(n)=0$ 
+    for all $n$.\\
+    \linebreak
+    (i) Assume that $f$ is not identically zero, and choose $N \in \mathbb{N}$
+    minimal such that $f(N) \neq 0$. Then for all $k$ sufficiently large. we
+    have
+    \begin{align*}
+        0 &= \sum_{n=N}^{\infty} f(n) n^{-s_k}\\
+        \iff f(N) &= - N^{s_k} \sum_{n=N+1}^{\infty} f(n)n^{-s_k}.
+    .\end{align*}
+    (ii) Let $c > \sigma_a$. Then for $k$ sufficiently large, we have
+    \begin{align*}
+        \left| f(N) \right| 
+        &\leq -N^{\sigma_k}  \sum_{n=N+1}^{\infty} \left| f(n)\right| \left|
+        n^{-(\sigma_k - c)} \right| \left| n^{-c} \right| \\
+        &\le -N^{\sigma_k} \left( N+1 \right)^{-(\sigma_k -c)}
+        \sum_{n=N+1}^{\infty} \left| f(n) \right|  n^{-c} 
+    .\end{align*}
+    (iii) Since $\left( \frac{N}{N+1} \right)^{\sigma_k} \to 0$ for
+    $\sigma_k \to \infty$ which is equivalent to letting $k \to \infty$ by
+    assumption. Since this is true for all $k$ sufficiently large, we let $k\to
+    \infty$ and find $\left| f(N) \right| \le 0$ since
+    $\sum_{n=N+1}^{\infty} |f(n)| n^{-c}<\infty$ as $c> \sigma_a$, hence $f(n) = 0$ for all $n
+    \in \mathbb{N}$.\\
+    \linebreak
+    \textbf{Exercise 5.6:} We will show that the sum of reciprocal of primes,
+    $\sum_{p\text{ prime}} p^{-1}$, diverges.\\
+    Let $p_n$ denote the n'th prime. Assume that
+    $\sum_{n=1}^{\infty} p_n^{-1}$ is convergent with sum $l$.\\
+    \linebreak
+    (i) By assumption, since $\sum_{n=1}^{\infty} p_n^{-1} = l$, there must
+    exist $N \in \mathbb{N}$ such that
+    \[
+    \left| \sum_{n>N} p_n^{-1} \right| = \left| l - \sum_{n=1}^{N} p_n^{-1} \right| 
+    \le \frac{1}{2}.
+    \] 
+    (ii) Now
+    \[
+    \sum_{k=1}^{\infty} \left| \sum_{n>N} p_n^{-1} \right|^{k}
+    \le \sum_{k=1}^{\infty} \left( \frac{1}{2} \right)^{k} = 1,
+    \] 
+    so $\sum_{k=1}^{\infty} \left( \sum_{n>N} p_n^{-1} \right)^{k}$ is
+    absolutely convergent.\\
+    \linebreak
+    (iii) Let $W = p_1 \ldots p_N$. For $r \in \mathbb{N}$ consider $Wr +1$.
+    Since all $p_i  \mid W$, we have $p_i \nmid Wr+1$.\\
+    \linebreak
+    (iv) Now, by Cauchy multiplication, we have
+    \begin{align*}
+        \left( \sum_{n>N} p_n^{-1} \right)^{k}
+        &= \sum_{n_1, \ldots, n_k > N} \left( p_{n_1} \ldots p_{n_k}
+        \right)^{-1}\\
+        &= \sum_{\substack{n = q_1 \ldots q_k \\ q_i \text{ prime}\\
+        q_i > p_N}} \frac{1}{n}.
+    .\end{align*}
+    (v) Now, for the sum
+    \[
+    \sum_{r=1}^{\infty} \frac{1}{Wr+1},
+    \] 
+    we find that it is a sum of reciprocals of numbers whose prime factors are
+    all greater than $p_N$, so each term is contained in the series
+    \[
+    \sum_{\substack{n=q_1 \ldots q_k\\ q_i \text{ prime} \\ q_i > p_N}}
+    \frac{1}{n}
+\]
+for some $k$ (by the fundamental theorem of arithmetic), so
+\begin{align*}
+    \sum_{r=1}^{\infty} \frac{1}{Wr+1}
+    &\le \sum_{k=1}^{\infty} 
+    \sum_{\substack{n=q_1 \ldots q_k\\ q_i \text{ prime} \\ q_i > p_N}}
+    \frac{1}{n}\\
+    &= \sum_{k=1}^{\infty} \left( \sum_{n>N} p_n^{-1} \right)^{k}
+.\end{align*}
+(vi)   
+Now 
+\begin{align*}
+    \infty 
+    &= \frac{1}{W} \sum_{r=1}^{\infty} \frac{1}{r+1}\\
+    &= \sum_{r=1}^{\infty} \frac{1}{Wr + W}\\
+    &\le \sum_{r=1}^{\infty} \frac{1}{Wr+1}\\
+    &\le \sum_{k=1}^{\infty} \left( \sum_{n>N} p_n^{-1} \right)^{k}
+.\end{align*}
+This contradicts (ii), so we are done.\\
+\linebreak
+\textbf{Exercise 5.7:} Let $g(n)$ be the sum of primitive nth roots of $1$,
+i.e.
+\[
+    g(n) = \sum_{\substack{\zeta^{n}=1 \\ \zeta^{m}\neq 1\\ 
+    \text{for } 0<m<n}} \zeta.
+\] 
+Claim: $\mu(n) = g(n)$.\\
+\textbf{Proof:} We have
+\[
+    g(n) = \sum_{\substack{\zeta^{n}=1\\ \zeta^{m}\neq 1\\
+    0 < m < n}} \zeta 
+    = \sum_{\substack{\gcd(k,n)=1\\ 0<k<n}} \zeta_{n}^{k}.
+\] 
+
+We prove that $g$ is multiplicative first.\\
+Assume $n = st$ where $(s,t)=1$. Let $a,b \in \mathbb{Z}$ such that
+$(a,s)=1=(b,t)$. Then $e^{\frac{2\pi i}{s}a} e^{\frac{2 \pi i}{t}b}
+= e^{\frac{2\pi i \left( at + bs  \right) }{n}}$. We claim
+$\gcd(at+bs ,n)=1$. If $p  \mid at+bs  \mid n$, then $p  \mid s$ or $p \mid t$.
+Assume wlog $p  \mid s$. Then $p  \mid at$, but since $(s,t)=1$, $p  \mid a$,
+however $(a,s)=1$. Contradiction. So $\gcd(at+bs,n)=1$.\\
+Conversely, if $(k, st)=1$ then since $(s,t)=1$, write $us+vt = 1$, then
+$s(uk)+ t(vk)=k$, so
+$e^{\frac{2\pi i \left( suk + tvk \right) }{st}} = e^{\frac{2\pi i}{t}uk}
+e^{\frac{2 \pi i}{s}vk}$. Now, $(k,st)=1$ so $(k,t)=1$ and $(u,t)=1$ since 
+$(u,t)  \mid 1$. Similarly $(s,vk)=1$.\\
+Thus we have
+\[
+    g(st) = \sum_{\substack{\gcd(k,st)=1\\ 0 < k < st}} \zeta_{st}^{k}
+    = \sum_{\substack{\gcd(k,s)=1\\ 0 < k < s}} \zeta_{s}^{k} \cdot 
+    \sum_{\substack{\gcd(k,t)=1\\ 0 < k <t}} \zeta_{t}^{k} 
+    = g(s) g(t).
+\] 
+Now, firstly we have for any prime  $p$ that
+$g(p) = \sum_{\substack{\gcd(k,p)=1 \\ 0 < k <p}} \zeta_p^{k}
+= \zeta_p + \zeta_p^2 + \zeta_p^3 + \ldots + \zeta_{p}^{p-1}
+= \frac{\zeta_{p}^{p} - \zeta_p}{\zeta_p - 1} = \frac{1- \zeta_p}{\zeta_p - 1} 
+= -1$.\\
+It thus just remains to show that for any $\alpha \ge 2$, 
+$g\left( p^{\alpha} \right) =0$. Now
+\begin{align*}
+    g\left( p^{\alpha} \right) 
+    &= \sum_{\substack{\gcd(k,p^{\alpha})\\ 0<k<p^{\alpha}}}
+    \zeta_{p^{\alpha}}^{k}\\
+    &= \sum_{k=0}^{p^{\alpha}-1} \zeta_{p^{\alpha}}^{k} 
+    - \sum_{n=0}^{\alpha - 1} \zeta_{p^{\alpha}}^{k}\\
+    &= \frac{\zeta_{p^{\alpha}}^{p^{\alpha}}-1}{\zeta_{p^{\alpha}-1}}
+    - \frac{\zeta_{p^{\alpha}}^{p^{\alpha}}-1}{\zeta_{p^{\alpha}}-1}\\
+    &= 0.
+\end{align*}
+Combining these 3 results we find $g(n) = \mu(n)$.
+
+
+\textbf{Exercise 5.9:} Prove Gottschalck's theorem: Let $n$ be a $k$-perfect
+number such that $2$ divides $n$ precisely $m$ times. Then
+$2^{m} \left( 2^{m+1}-1 \right) $ divides $kn$.\\
+\linebreak
+\textit{Solution:} By proposition 5.1.1, we have have for $n = 2^{m}r$,
+\[
+    nk = \sigma (2^{m}r) \stackrel{\text{multiplicative}}{=} \sigma(2^{m})
+    \sigma(r) \stackrel{5.1.1}{=} (2^{m+1}-1) \sigma(r).
+\]
+Now, since $2^{m} \nmid 2^{m+1}-1$ but $2^{m} \mid n$, we must have
+$2^{m} \mid \sigma(r)$, thus we get
+$nk = (2^{m+1}-1) 2^{m}\sigma(r)'$ from which the result follows.
+
+
+\textbf{7.7:} Prove theorem 7.1.5 by showing - using propositions 7.1.1 and
+7.1.2, combined with (7.6) - that
+\[
+\left| c_n - c_m \right| \le \sqrt{2} \sum_{k=m}^{n} \frac{1}{2^{k}},
+\] 
+and conclude that $c_n$ is a Cauchy sequence.\\
+\linebreak
+\textit{Solution:}  
+We proceed by induction. We have
+\[
+\left| c_{n+1}-c_n \right| = \left| \frac{p_{n+1}q_n - p_n q_{n+1}}{q_n q_{n+1}} \right| 
+\le \frac{\sqrt{2} }{2^{n}} = \sqrt{2} \sum_{k=n}^{n} \frac{1}{2^{k}}.
+\] 
+Now we claim that for $m>n$, $\left| c_m - c_n \right| \le \sqrt{2} \sum_{k=n}^{m-1}
+\frac{1}{2^{k}}$ which is stronger than what we wanted for $m >n$.\\
+It is true when $m=n+1$. Assume it is true for $m=N > n$. Then for $m=N+1$,
+\[
+|c_{m}-c_n| \le \left| c_{N+1} - c_N \right| + \left| c_N - c_n \right| 
+\le \frac{\sqrt{2} }{2^{N}} + \sqrt{2}  \sum_{k=n}^{N-1} \frac{1}{2^{k}}
+= \sqrt{2}  \sum_{k=n}^{N} \frac{1}{2^{k}}.
+\] 
+Hence the result follows when $n\neq m$. If $n=m$, it is trivial.
+
+
+\textbf{Exercise 6.6} Show that the average value of $r_2 (n)$ equals $\pi$,
+i.e. that
+\[
+\frac{1}{n} \sum_{m=1}^{n} r_2 (m) \to \pi \quad \text{as }n \to \infty.
+\] 
+\textit{Solution:} Let $N(n)$ denote the number of lattice points inside the
+circle of radius $n$. Then
+ \[
+N (r) = \sum_{n=0}^{r^2} r_2(n)
+\] 
+And geometrically, we can say that on average, if we place a random unit square
+or disc of area 1, we would expect it to cover $1$ lattice point, so since the
+number of unit discs that can fit inside a circle of radius $r$ approaches its
+area as $r$ grows, we get
+that $N(r) \approx \pi r^2$ for $r$ large, so
+\[
+\pi = \lim_{r \to \infty} \frac{N(r)}{r^2} = \frac{1}{r^2} \sum_{n=0}^{r^2} r_2
+(n).
+\] 
+Since $\frac{1}{r^2} \sum_{n=0}^{r^2} r_2(n)$ is a monotone (positive)
+subsequence of $\frac{1}{r} \sum_{n=0}^{r} r_2(n)$, we also have
+\[
+\lim_{n \to \infty} \frac{1}{n} \sum_{m=0}^{n} r_2(m) = \pi.
+\] 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\textbf{Exercise from class:} Write $5+i$ as a product of irreducibles in
+$\mathbb{Z}[i]$.\\
+\linebreak
+\textit{Solution:} $N(5+i) = 25^2 + 1 = 26 = 2 \cdot 13 = (1+i)(1-i)
+(2+3i)(2-3i)$. Now we simply guess and find
+$(1-i)(2+3i) = 5+i $.\\
+\linebreak
+
+
+
+
+
+
+
+
+
+    
+
+$r_2 (n) = 4 \cdot u * \chi_4 (n)$ where
+$\chi_4(n) = \begin{cases}
+    0 & (n,2)>0\\
+    \left( -1 \right)^{\frac{n-1}{2}} & \text{otherwise}
+\end{cases}$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,202 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+%Redeclaring Span and image
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+
+\title{Aflevering 1}
+\author{Jonas Trepiakas - hvn548@alumni.ku.dk}
+\date{}
+
+
+\begin{document}
+\maketitle
+\newpage
+    \textbf{Opgave 1:} Vi har
+    \begin{align*}
+        (1216,551) &= (1216 - 551 \cdot 2, 551)\\
+                   &= (114, 551)\\
+                   &= (114, 551 - 4\cdot 114)\\
+                   &= (114,95)\\
+                   &= (114-95, 95)\\
+                   &= (19,95)\\
+                   &= (19,0)\\
+                   &= 19,
+    \end{align*}
+ved gentagen brug af proposition 1.2.3. Da $19 \nmid  56$ findes ingen
+heltallige løsninger ifølge sætning 1.3.1. til
+$1216 x+ 551y = 56$. Da $19 \cdot 4 = 76$, har vi $19  \mid 76$, og ifølge
+sætning 1.3.1 er samtlige løsninger givet ved:
+\[
+    (x,y) = 4 \left( x_0, y_0 \right) + n \left(
+    \frac{551}{19},-\frac{1216}{19} \right),
+\] 
+hvor $(x_0,y_0)$ er en vilkårlig løsning til systemet. En sådan løsning finder
+vi ved:
+\begin{align*}
+    19 &= 114 - 95\\
+       &= (1216-551 \cdot 2) - (551 - 4\cdot 114)\\
+       &= (1216 - 551\cdot 2) - (551 - 4\cdot (1216- 551\cdot 2))\\
+       &= 5 \cdot 1216 - 11\cdot 551
+.\end{align*}
+Hvormed $76 = 19\cdot 4 = 20 \cdot 1216 - 44 \cdot 551$, så $(x_0,
+y_0)=(20,-44)$ er en løsning.
+
+
+Samtlige reelle løsninger findes ved
+\[
+    1216 x + 551 y = 76
+    \iff y = \frac{76-1216x}{551}
+\]
+og
+\[
+1216 x + 551 y = 56 \iff y = \frac{56-1216x}{551}
+.\] 
+Hvormed $(x,y) = \left( x, \frac{76-1216x}{551} \right) , (x,y)=(x,
+\frac{56-1216x}{551})$ for $x \in \mathbb{R}$ er samtlige løsninger til
+ligningssystemerne
+$1216x+551y=76$ og $1216x+551y=56$ henholdsvis.\\
+\linebreak
+\textbf{Opgave 2:} 
+Vi har
+\[
+51 \cdot 41 = 2091 = 110\cdot 19 + 1,
+\] 
+så $51 \cdot 41 \equiv 1 \pmod{110}$, dvs. $51^{-1} \equiv 41 \pmod{110}$,
+hvormed
+\[
+    51 x \equiv 4 \iff x \equiv 4 \cdot 41 \equiv 164 \equiv 54 \pmod{110}
+.\] 
+Dermed er samtlige løsninger til kongruensligningen netop $x=54 +110n, n \in
+\mathbb{Z}$.\\
+\linebreak
+\textbf{Opgave 3:} Vi har $3 \cdot 5 = 15 \equiv 1 \pmod{7}$, så
+ligningssystemet er ækvivalent med
+\begin{align*}
+    x &\equiv 2 \pmod{13}\\
+    x &\equiv 5\cdot 5 \equiv 4 \pmod{7}
+.\end{align*}
+Da $(13,7)=1$, eksisterer en løsning til systemet, der er unikt modulo $13\cdot
+7$
+ifølge den kinesiske restklassesætning.
+Vi har $2 + 13 t \equiv 4 \pmod{7} \iff 13 t \equiv 2 \pmod{7} \iff t \equiv
+6\cdot 2 \equiv 5 \pmod{7}$, så
+$x = 2+13\cdot 5 = 67$ løser systemet. Samtlige løsninger er dermed givet ved
+\[
+x = 67 + 13\cdot 7 n = 67 + 91 n, \quad n \in \mathbb{Z}
+.\] 
+\textbf{Opgave 4:} Vi har $4^2 + 7^2 = 16 + 49 = 65$. Nu har vi fra sætning
+1.4.6, at de primitive heltallige løsninger til
+\[
+X^2 + Y^2 = 65^2
+\] 
+med $X$ ulige og $Y$ lige, er netop
+\[
+    (X,Y,65) = \left( p^2 - q^2 , -2pq, p^2 + q^2 \right) \] 
+hvor $(p,q)=1$ med  $p\ge 0$ og $p-q$ er ulige. Vi har, at $p=7, q=4$ opfylder
+betingelserne, så $(X,Y) = \left( 7^2 - 4^2, -2\cdot 4\cdot 7 \right)
+=(33,-56)$ løser ligningen med $\gcd(X,Y)=1$.\\
+\linebreak
+\textbf{Opgave 5:} Antag, at en Pythagoræisk tripel $(x,y,z)$ findes med
+$z \ge 0$ og $ z\equiv 2 \pmod{4}$ eller $z\equiv 3 \pmod{4}$. Da er
+\[
+    x^2 + y^2 = z^2 \equiv 2 \text{ eller } 3 \pmod{4}
+.\] 
+Men da $2$ og $3$ ikke er kvadratiske rester modulo 4, findes ingen heltalige
+løsninger til systemet og dermed ingen Pythagoræisk tripel med ovenstående
+betingelser.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

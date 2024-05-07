@@ -1,0 +1,599 @@
+\documentclass[a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[dutch]{babel}
+\usepackage{amsmath, amssymb}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+\newcommand{\incfig}[1]{%
+    \def\svgwidth{\columnwidth}
+    \import{./figures/}{#1.pdf_tex}
+}
+
+\pdfsuppresswarningpagegroup=1
+
+\begin{document}
+    \subsection{Ch. 14-16}
+    \textbf{1.} 
+        Let $(X,\mathcal{T}), (Y, \mathcal{T}_Y), (A, \mathcal{T}_A)$ be the
+        topological spaces in question, where $\mathcal{T}_A$ is the topology
+        inherited from $Y$.\\
+        Let $U \in \mathcal{T}_A$. Then $U= A \cap U'$, where $U' \in
+        \mathcal{T}_Y$, and thus $U' = Y \cap U''$ where $U'' \in \mathcal{T}$.
+        Hence
+        $U = A \cap \left( Y \cap  U'' \right) $, and since $A \subset Y$, we
+        have
+        $U = A \cap U''$ which is in the topology inherited as a subspace from
+        $X$ by $A$.\\
+        Assume now that $A \cap U$ is in the topology inherited as a subspace
+        from $X$, so $U \in \mathcal{T}$. Since $A \subset Y$, $A \cap
+        U = A \cap \left( Y \cap U \right) \in \mathcal{T}_A$.\\ Hence we are
+        done.\\
+        \linebreak
+        \textbf{2.} Let $\mathcal{T}_Y, \mathcal{T'}_Y$ be the corresponding
+        topologies. Let $U \cap Y \in \mathcal{T}_Y$. Since $U \in T \subset
+        T'$, we have $U \cap Y \in \mathcal{T'}_Y$. Since the additional open
+        sets in $\mathcal{T}'$ may collapse under intersection with $Y$, this
+        is not necessarily strictly finer. E.g. take $T'$ to be the order
+        topology on the real line, and $T$ to be the order topology on
+        $(-1,1)$ and $Y = (-1,1)$. Then $\mathcal{T}_Y = \mathcal{T}_Y'$.\\
+        Or e.g. on $X=\left\{ a,b,c \right\} $, the topologies
+        $T' = \left\{ \varnothing, X, \{a\}, \{b\}, \{c\}, \{a,b\}, \{b,c\},
+            \{a,c\}
+        \right\},\\
+        T = \left\{ \varnothing, X, \{a\}, \{a,b\} \right\}  $.\\
+        Here $T \subset T'$ strictly, but for $Y= \{a\}$, $\mathcal{T}_Y = \left\{ \varnothing,
+        Y \right\} 
+        = \mathcal{T}_Y'$.\\
+        \linebreak
+        \textbf{3.} $A = \left(-1, -\frac{1}{2} \right) \cup (\frac{1}{2},1)$
+        which is open in both $Y$ and $\mathbb{R}$.\\
+        $B = (-2, -\frac{1}{2}) \cup (\frac{1}{2}, 2)$ in $Y$, hence it is
+        open. Since $1 \in B$ which is not maximal in $\mathbb{R}$, and $B$ 
+        does not contain numbers greater than $1$, $B$ is not open in
+        $\mathbb{R}$.\\
+        $C = (-1, -\frac{1}{2}] \cup [\frac{1}{2},1)$ is not open in $Y$ or
+        $\mathbb{R}$ since any basis containing $\frac{1}{2}$ would contain
+        numbers strictly less than $\frac{1}{2}$ in size.\\
+        $D$ is not open for same reason as $C$.\\
+        Let $x \in E$. Then there exists $N \in \mathbb{N} \colon \frac{1}{N+1}
+        < |x| < \frac{1}{N}$, so assuming wlog $x > 0$ and choosing
+        $a \in (\frac{1}{N+1},x), b \in (x,\frac{1}{N})$, we have
+        $x \in (a,b)$ which is a basis element of $\mathbb{R}$ contained in $E
+        \subset Y$. Thus $E$ is an open set for both $Y$ and $\mathbb{R}$.\\
+        \linebreak
+        \textbf{4.} Let $U\times V$ be an open set in the product topology of
+        $X \times Y$. Since the collection of cartesian products of open sets
+        from $X$ and $Y$ is a basis for the product topology, 
+        $U \times V$ can be written $U\times V = \bigcup_{i \in  I} U_i \times
+        V_i = \bigcup_{i \in  I} U_i \times \bigcup_{i \in  I} V_i$ where $U_i,
+        V_i$ are open in $X$ and $Y$ respectively. Hence
+        \[
+        \pi_1 \left( U\times V \right) = \bigcup_{i \in  I} U_i, \qquad
+        \pi_2 (U\times V) = \bigcup_{i \in  I} V_i
+        .\] 
+        which are open in $X$ and $Y$ respectively.\\
+        \linebreak
+        \textbf{Alternative:}
+        We want to show that for any open set $U \subset X \times Y$ and any $x
+        \in U$, there exists an open neighbourhood around $\pi_1 (x)$ such that
+        it is contained in $\pi_1 (U)$; similarly for $\pi_2$.\\
+        Let $x \in \pi_1(U)$. Then there exists $y \in \pi_2(U)$ such that
+        $(x,y) \in U$.
+        Since $U$ is
+        open, there exists a basis element $U'$ in the topology of $X \times Y$ 
+        such that $(x,y) \in U' \subset U$ and $\pi_1 (U'), \pi_2 (U')$ are open.
+        Hence since $x \in \pi_1(U') \subset \pi_1 (U)$, we get what we wanted.
+        Equivalent arguement for $\pi_2(U)$.\\
+        \linebreak
+        \textbf{5.} Let $(x,y) \in U\times V \subseteq X \times Y \subset X'
+        \times Y'$, where
+        $U\times V$ is open in $X\times Y$. Then $U$ is  an open subset of $X$ and hence
+        belongs to $\mathcal{T} \subset \mathcal{T}'$. Similarly, $V \in
+        \mathcal{U}'$. Hence $U\times V$ is also an open set in the product
+        topology on $X' \times Y'$, and since these are the basis elements, we
+        have by lemma 13.3 that $\mathcal{T}'$ is finer than $\mathcal{T}$.\\
+        \textbf{Alternative:} Let $U \subset X \times Y$ be open and $u \in U$.
+        Then there exists a basis element $U'$ in $X \times Y$ such that $x \in
+        U' \subset U$, and since $\mathcal{T} \subset \mathcal{T}'$, $U'$ is in
+        $X' \times Y'$, hence $x \in U' \subset U$, and thus $U$ is open in
+        $X' \times Y'$ too. \\
+        \linebreak
+        For the converse: we have that $X$ and $X'$ denote a single set in the
+        topologies $\mathcal{T}$ and $\mathcal{T}'$ respectively, which,
+        apparently, means that $\mathcal{T}$ and $\mathcal{T}'$ are topologies
+        on $X$ and $X'$ respectively, and $X = X'$ as sets. In this case,
+        assume $X' \times Y'$ is finer than $X \times Y$. Let
+        $U \in \mathcal{T}$. We want to show that $U \in \mathcal{T}'$.
+        For any $V \in \mathcal{U}$, we have that $U \times V$ is open in
+        $X \times Y$ and hence in $X' \times Y'$. Thus for any
+        $x \in U$, choose $y \in V$ such that $(x,y) \in U \times V \subset X'
+        \times Y'$. Then there exists a basis element $U' \times V'$ in
+        $X' \times Y'$ such that
+        $(x,y) \subset U' \times V' \subset U \times V$, since $U \times V$ is
+        open in $X' \times Y'$. Since $\pi_1$ is an open mapping, we find
+        $x \in U' \subset U$, so $U$ is open in $X'$. Similarly for
+        $\mathcal{U} \subset \mathcal{U}'$.\\
+        \linebreak
+        \textbf{16.6:} Let $(x,y) \in U\times V$ be an open set in $\mathbb{R}^2$ under
+        the product topology. We have by 16.4, that $x \in U$ is open in
+        $\mathbb{R}$, so there exists a basis element $(a,b)$ such that
+        $x \in (a,b) \subset U$ and similarly there exists $(c,d)$ such that
+        $y \in (c,d) \subset V$. We can choose $a,b,c,d$ to be rational without
+        loss of generality, since between any two real numbers, there are
+        infinitely many rational and irrational numbers, so between, say, $a$ 
+        and $x$ we can find an alternative $a$ that is rational such that
+        $x \in (a,b)$. Now we thus have $(x,y) \in 
+        (a,b) \times (c,d) \subset U \times V$, and since $(a,b) \times (c,d)$ 
+        is open in $U \times V$, we get that it generates the collection
+        generates the product topology on $\mathbb{R}^2$ by 13.2.\\
+        \linebreak
+        \textbf{16.7:} No, e.g. $X = \mathbb{Q}$ with the order topology. Then
+        $Y = (\sqrt{2} , \pi) \cap \mathbb{Q} \subset X$ is convex in $X$, but since
+        $\sqrt{2} , \pi \not\in \mathbb{Q}$, $(\sqrt{2} ,\pi) \cap \mathbb{Q}$
+        is not an interval or ray in $X$.\\
+        To see where this went wrong, we can see that if $Y \subset X$ is
+        convex, then by theorem 16.4, the order topology on $Y = 
+        (\sqrt{2} ,\pi) \cap \mathbb{Q}$ is the same as the topology $Y$ 
+        inherits as a subspace from $X=\mathbb{Q}$. Since open intervals and
+        half-open intervals or rays are a basis of the order topology on
+        $Y$, $Y$ itself is a union of intervals. But we cannot guarantee that
+        the union of intervals will be an interval in $Y$ and hence an interval
+        in $X$. For example in the example $Y=(\sqrt{2} ,\pi) \cap \mathbb{Q}$,
+        we can choose a sequence of intervals in $\mathbb{Q}$, $\left( 
+        (q_i, p_i)\right)_{i \in \mathbb{N}}$ such that
+        $\bigcup_{i \in \mathbb{N}} (q_i, p_i) =  (\sqrt{2} ,\pi)$, however
+        this is not a interval in
+        $\mathbb{Q}$. So the incompleteness of $\mathbb{Q}$ is a problem.\\
+        \linebreak
+        \textbf{16.8:}
+
+
+
+        \subsection{Week 2}
+        \textbf{Exercise 6:}\\
+        (i) Assume $\mathcal{T}_2 \subset \mathcal{T}_1$. Let $x \in U \in S_2$.
+        Since $U \in S_2$, it is particularly also open in the topology
+        generated by the subbasis $S_2$, i.e. $U \in T_2 \subset T_1$. Hence
+        there exist $\left\{ V_i \right\}_{i \in I} \subset T_1 $ where
+        each $V_i = \bigcap_{j=1, \ldots, m_i} S_{j,i}$ where
+        $S_{j,i} \in S_1$, and
+         \[
+        U = \bigcup_{i \in  I} V_i
+        .\] 
+        Hence, there exists $i \in I$ such that $x \in V_i$, so
+        \[
+        x \in \bigcap_{j=1, \ldots, m_i} S_{j,i} \subset U
+        .\] 
+        Conversely, since $\bigcap_{i= 1, \ldots, n} V_i$ is open for
+        $\left\{ V_1, \ldots, V_n \right\} \subset S_1$, if $ x \in U \in
+        \mathcal{S}_2$, and letting
+        $W_x = \bigcap_{i= 1, \ldots, n} V_i$ where
+        $x \in \bigcap_{i = 1, \ldots, n} V_i \subset U$, we then get
+        \[
+        U = \bigcup_{x \in U} \left\{ x \right\} 
+        \subset \bigcup_{x \in U} W_x
+        \subset U
+        .\] 
+        Hence
+        $U \in T_1$, so $S_2 \subset T_1$, and thus the topology generated by
+        $S_2$ is coarser than $T_1$, i.e. $T_2 \subset T_1$.\\
+        \linebreak
+        (ii) Since for all $x,y \in \mathbb{R}$ with $x<y$,
+        $[x,y] \in \mathcal{S}$, we have for any $x \in \mathbb{R}$ that
+        $\{x\} = [z,x] \cap [x,y] \in \mathcal{T}$, hence for any subset $
+        U \subset \mathbb{R}$, we have
+        \[
+        U = \bigcup_{x \in U} \left\{ x \right\} \in \mathcal{T}.
+        .\] 
+        Thus $\mathcal{T}$ is the discrete topology on $\mathbb{R}$.\\
+        \linebreak
+        \textbf{Exercise 7:} \\
+        (i) Let $x \in \pi_X (U)$. There then exists $y \in Y$ such that
+        $x \times y \in U$.\\
+        Let $x \times y \in U \subset X \times Y$ be open. There exists by
+        assumption a basis element $A \times B \subset X \times Y$ where
+        $A$ is open in $X$ and $B$ is open in $Y$ such that
+        $x \times y \in A \times B \subset U$. Then
+         \[
+        x \in A \subset \pi_X (U)
+        .\] 
+        Similarly for $y \in B \subset \pi_Y (U)$. Hence $\pi_X(U), \pi_Y(U)$ 
+        are open.\\
+        \linebreak
+        (ii) Let $X=Y=\mathbb{R}$ with standard topology. 
+        Let $Z = \left\{ x \times x \in \mathbb{R}^2 \mid x>0 \right\} $. $Z$ is
+        clearly not open since any basis element $(a,b)\times (c,d)$ containing
+        $x \times x$ contains elements outside of $Z$, but $\pi_X (Z) = \mathbb{R}_+$ and
+        $\pi_Y (Z) = \mathbb{R}_{+}$ which are open, since $\mathbb{R}_+ =
+        \bigcup_{n = 1}^{\infty} \left( \frac{1}{n},n \right) $.\\
+        \linebreak
+        \textbf{Exercise 8.}  Assume $U$ is open in the subspace $Z$ of $X$.
+        Then $U = V \cap Z$ with $V$ open in $X$. Hence
+        \[
+        U = Z \cap V = Z \cap (Y \cap V)
+        .\] 
+        Hence $U$ is open in the subspace topology of $Z$ in $Y$ as a subspace
+        of $X$.\\
+        Assume conversely that $U$ is open in the subspace $Z$ of $Y$ as
+        a subspace of $X$. Then $U = Z \cap V$ where $V$ is open in $Y$.\\
+        But then $V = Y \cap T$ where $T$ is open in $X$, hence
+        \[
+        U = Z \cap V = Z \cap \left( Y \cap T \right) 
+        = Z \cap T
+        .\] 
+        So $U$ is open in the subspace $Z$ of $X$.\\
+        The conclusion follows.\\
+        \linebreak
+        \textbf{Exercise 9:} We show that the topologies are not comparable:\\
+        $\left( \mathcal{T}_{lexi} \not \subset \mathcal{T}_{sub} \right) $ : 
+        We have $(0\times 0 , 0\times 2) \cap I^2 = (0\times 0 , 0\times 1]$ 
+        which is not contained in $\mathcal{T}_{lexi}$, since any neighborhood
+        of $0\times 1$ here contains an element $c\times d$ with $c>0$.\\
+        ($\mathcal{T}_{sub} \not \subset \mathcal{T}_{lexi}$ ):
+        We have $ 0\times 1 \in  \left( 0 \times \frac{1}{2}, \frac{1}{2}\times
+        0 \right) $,
+        however if some basis element $(a \times b, c\times d)$
+        of the subspace topology contained
+        $0\times 1$ and was contained in this set, then
+        $a=0$ and $\frac{1}{2}\le b < 1$ and either  $c>0$ or $c=0$ and $d>1$.
+        Assume $c>0$, then $0 \times 2 \in (a\times b, c\times d)$ hence
+        $(a \times b, c\times d)$ is not contained in the set.\\
+        If $c=0$ and $d=1$, let $1 < e < d$, then
+        $0 \times e \in (a \times b, c\times d)$, and thus it is not contained
+        in the set.\\
+
+
+        \textbf{Exercise 19:} \\
+        (i) It is clear that it is a basis since
+        $\bigcup_{n \in \mathbb{N}} (-n,n) = \mathbb{R}$ and
+        $(a,b) \cap (c,d) = \left( \max\{a,c\}, \min\{b,d\} \right) $ and
+        $(a,b) \backslash A \cap (c,d) = \left( \max\{a,c\}, \min\{b,d\}
+        \right) \backslash A$.\\
+        Now, let $a,c \in X$ and assume wlog. $a<c$. Take any $b \in
+        \mathbb{R}$ with $a<b<c$; then
+        $a \in (-\infty, b)$ and $c \in (b, \infty)$, so $X$ is Hausdorff.\\
+        \linebreak
+        (ii) Let $\rho  \colon X \to X /A$ be the quotient map. Let $x \in X /A$ 
+        and $x$ not be the point $A$ collapsed to. Then $\rho^{-1}\left( \{x\} \right) 
+        = \{x\}$ which is closed, so $\{x\}$ is closed in $X / A$.\\
+        If $b$ is the point $A$. Then $\rho^{-1} (b) = A$ which is also closed
+        in $\mathbb{R}_{K}$, since $0 \in (-1,1) -A$ is not a limit point of
+        $A$ in $\mathbb{R}_{K}$. Alternatively, $A$ is the complement of the
+        open set
+        \[
+        \bigcup_{n \ge 2} \left[ \left( -n, n \right) -A \right]
+        .\] 
+        One way to see that $X /A$ is not Hausdorff is to notice that if
+        $U$ is any neighborhood of the point $A$ collapsed to and $V$ is any
+        neighborhood of $0$, then $\rho^{-1} (V)$ must contain 
+        $(0,q) -A$ 
+        with $q>0 \not\in A$. Not let  $0 < \frac{1}{N} < q$. Then
+        since $\frac{1}{N} \in \rho^{-1}(U)$, there exists a basis element
+        containing $\frac{1}{N}$ contained in $\rho^{-1}(U)$. Any such basis
+        element contains elements less than $\frac{1}{N}$ and thus must
+        intersect
+        $(0,q)$ since $\frac{1}{N} \in (0,q)$.\\
+        \linebreak
+        (iii) Assume it were a quotient map. Then
+        \begin{align*}
+            \rho^{-1} \left( \Delta \right)
+            &= \left\{ x \times y \in X \times X  \mid \rho (x) = \rho(y)
+            \right\} \\
+            &= \left\{ x \times y \in X \times X  \mid x =y \lor x,y \in A \right\} 
+        .\end{align*}
+
+        \textbf{Exercise 20:}
+
+        Define the map $g  \colon D_n \to S^{n}$ by
+        $g (x) = A \left( \frac{x}{\|x\|}\right) $ where
+        $A$ is the matrix
+
+        \textbf{Exercise 21:} 
+
+        \textbf{26.8:} Theorem: Let $f \colon X \to Y$ ; let $Y$ be compact
+        Hausdorff. Then $f$ is continuous iff the graph of $f$,
+        \[
+        G_f = \left\{ x \times f(x)  \mid x \in X \right\} 
+        \] 
+        is closed in $X \times Y$.
+
+        \textit{Solution:} Assume $f$ is continuous and $x \times y \in
+        X \times Y$ is a limit point of $G_f$ that is not in $G_f$.\\
+        Since $Y$ is Hausdorff, take disjoint neighborhoods $U,V$ around 
+        $f(x)$ and $y$, respectively, which are not equal by assumption. Since $f$ is
+        continuous, $f^{-1}(U)$ is open and contains $x$, so
+        $f^{-1}(U) \times V$ is open in $X \times Y$. \\
+        If $u \times v \in f^{-1}(U) \times V$ then $f(u) \in U$ and 
+        $v \in V$, so since disjoint, $f(u)\neq v$, so $f^{-1}(U) \times V \cap
+        G_f = \varnothing$. So $G_f$ is closed.\\
+        Conversely, assume $G_f$ is closed. Let $B \subseteq Y$ be closed. Then
+        $X \times B$ is closed in $X \times Y$, so
+        $X \times B \cap G_f$ is closed, so by exercise 26.7, 
+        $C= \pi_X \left( X \times B \cap G_f \right) $ is closed.
+        We claim $f^{-1}(B) = C$ which would prove continuity of $f$.\\
+        Take $x \in C$, then  since the only element in $G_f$ containing $x$ in
+        its first coordinate is $x \times f(x)$, we have $f(x) \in B$.
+        Thus $x \in f^{-1}(B)$.\\
+        Now, if conversely $x \in f^{-1}(B) \subseteq X$, then $f(x) \in B$, so
+        $x \times f(x) \in (X \times B) \cap G_f$, hence $x \in C$.\\
+        \linebreak
+        \textbf{26.9:} Generalize the tube lemma as follows:\\
+        Theorem: Let $A$ and $B$ be subspaces of $X$ and $Y$, respectively; let
+        $N$ be an open set in $X \times Y$ containing $A \times B$. If $A$ and
+        $B$ are compact, then there exist open sets $U$ and $V$ in $X$ and $Y$,
+        respectively, such that
+        \[
+        A \times B \subset U \times V \subset N.
+        \] 
+        \textit{Solution:} We have that $a \times B$ is homeomorphic to $B$ for
+        any $a \in A$ and thus compact. For any $a\times b \in a \times B$, we
+        can find a basis element $U_a \times V_{b}$ containing $a\times b$ and
+        contained in $N$. Then the union of these covers $a \times B$, so there
+        is a finite subcovering
+        \[
+        a \times B \subset \bigcup_{i \in S} U_i \times V_{i} \subset N
+        \] 
+        where $S$ is finite. Now taking the union over $a \in A$, we get
+        a covering of $A \times B$ in $N$, and since the product of compact
+        spaces is compact, there exists a finite subcovering
+        \[
+        A \times B \subset \bigcup_{i \in T} \bigcup_{j \in S_i} U_j \times
+        V_{j} \subset N
+        \] 
+        where $T$ and all $S_i$ are finite. Since all $V_j$ contain $B$, we 
+        can let $V$ be the intersection of all $V_j$. Then
+        \[
+        A \times B \subset \bigcup_{i \in T} \bigcup_{j \in S_i} U_j \times
+        V = U \times V \subset N
+        \] 
+       \newpage 
+        \textbf{10.} (a) Prove the following partial converse to the uniform
+        limit theorem:\\
+        Theorem: Let $f_{n}  \colon X \to \mathbb{R}$ be a sequence of
+        continuous functions, with $f_n (x) \to f(x)$ for each $x \in X$.
+        If $f$ is continuous, and if the sequence $f_n$ is monotone increasing,
+        and if $X$ is compact, then the convergence is uniform.\\
+        We say that $f_n$ is monotone increasing if $f_n (x) \le f_{n+1}(x)$ 
+        for all $n$ and $x$.\\
+        \linebreak
+        \textit{Solution:} Define the continuous non-negative monotone
+        decreasing function
+        $g_n (x) = f(x) - f_n(x).$ Assume there does not exist $N \in
+        \mathbb{N}$ such that for all $n\ge N$, 
+        $g_n^{-1}\left( \left( \varepsilon , \infty \right)  \right) =
+        \varnothing$. Since $g_n$ is monotone decreasing, we have for all $n
+        \in \mathbb{N}$ that $g_n^{-1}\left(  \left( \varepsilon ,\infty
+        \right)  \right) \neq \varnothing$.
+
+        Now, take any finite open subcover of the open set
+        $g_n^{-1}\left( \left( \varepsilon, \infty \right)  \right) $; say
+        $A_1, \ldots, A_{m_n}$.  We have that any compact subspace of a metric
+        space is bounded and closed, so in particular
+        $g_n \left( X \right) $ is bounded and closed, and
+        $g_n \left( \overline{A_i} \right) $ is bounded and closed for all
+        $i$.\\
+        Then $C_i = \bigcap_{n \in \mathbb{Z}_+} g_n \left( \overline{A_i} \right)
+        $ is bounded and closed for all $i$.
+        Pick $y$ to be maximal in $C_i$ (if $y=0$, we move on to another $A_i$ 
+        until we have one where $y\neq 0$ ; such an $A_i$ must exist since some
+        element in $\bigcup_{i\le n} A_i$ is contained in $\bigcap_{n \in
+        \mathbb{Z}_+} g_n^{-1}\left( \left( \varepsilon, \infty \right)  \right)
+        $). Let
+        $D = \bigcap_{n \in \mathbb{Z}_+} g_n^{-1}(\{y\})$. It is closed and
+        by assumption empty. But it is a nested sequence in a compact space
+        having the finite intersection property. This contradicts that $X$ is
+        compact.\\
+        \linebreak
+        (b) Give an example to show that this theorem fails if you delete the
+        requirement that $X$ be compact, or if you delete the requirement that
+        the sequence be monotone.\\
+        \textit{Solution:} We showed in 21.9 that
+        \[
+            f_n (x) = \frac{-1}{n^3 [x - \left( \frac{1}{n} \right) ]^2 +1 }
+        \] 
+        converges to $0$, is monotonically increasing and the limit function is
+        $0$. However, the convergence is not uniform because the domain
+        $\mathbb{R}$ is not compact.\\
+
+        \textbf{26.11:} Theorem: Let $X$ be a compact Hausdorff space. Let
+        $\mathcal{A}$ be a collection of closed connected subsets of $X$ that
+        is simply ordered by proper inclusion. Then
+        \[
+        Y = \bigcap_{A \in \mathcal{A}} A
+        \] 
+        is connected.\\
+        \linebreak
+        \textit{Solution:} Assume $Y = C \cup D$ is a separation of $Y$.
+        Then since $C$ and $D$ are open in $Y$, there exist open sets
+        $U$ and $V$ in $X$ such that $C = U \cap Y$ and $D=V \cap Y$.
+        If the collection is finite, the intersection is one of the $A$ and we
+        are done. Assume the collection is infinite. 
+        Since all  $A$ are ordered by proper inclusion,
+        $A - U \cup V$ is nonempty for all $A$ and in particular closed. Now
+        take any finite collection
+         \[
+        \left\{ A_1 - U\cup V, A_2 - U\cup V, \ldots, A_n - U\cup V \right\}.
+        \] 
+        These are all finite and by the total ordering, there exists an $1\le
+        i\le n$ such that
+        \[
+        \bigcap_{k\le n} A_k - U\cup V = A_i - U \cup V.
+        \] 
+        Thus the collection has the finite intersection property, but then
+        \[
+            \varnothing = \bigcap_{A \in \mathcal{A}} A - U\cup V \neq
+            \varnothing.
+        \] 
+        Contradiction.
+
+
+        \textbf{29.4:} Show that $\left[ 0,1 \right]^{\omega}$ is not locally
+        compact in the uniform topology.\\
+        \linebreak
+        \textit{Solution:} Assume $0 \in U \subset C$ where
+        $U$ is open and $C$ is compact. Now let
+        $B_{\overline{\rho}} (0, \varepsilon) \subseteq U$.
+        Let $A$ be the set of sequences with which is  $0$ everywhere except at
+        precisely one point where it is $\frac{\varepsilon}{2}$. Then
+        $A \subset U \subseteq C$ and is clearly closed hence also compact.
+        Furthermore, $\left[ 0,1 \right]^{\omega}$ is a metric space, so
+        $A$ is sequentially compact, however clearly the sequence $x_n$ with
+        $0$ everywhere except at the  n'th coordinate has no convergent
+        subsequence. Alternatively, any limit point of $A$ is in $A$ however,
+        any point of $A$ contains a $\frac{\varepsilon}{4}$- neighborhood
+        around it and is thus isolated.\\
+        \linebreak
+        \textbf{29.11:}Prove the following:\\
+        (a) \textit{Lemma:} If $p  \colon X \to Y$ is a quotient map and if $Z$ 
+        is locally compact Hausdorff, then the map
+        \[
+        \pi = p \times i_Z  \colon X \times Z \to Y \times Z
+        \] 
+        is a quotient map.\\
+        \linebreak
+        \textit{Solution:} Let $A \subset Y \times Z$  be open.
+        Let $x \times y \in \pi^{-1}(A)$. Choose any basis element
+        $\pi (x \times y) \in U \times V \subset A$. Then $\pi^{-1}(U \times V) = p^{-1}(U) \times
+        V$ which is open. So $x \times y \in \pi^{-1}\left( U \times V \right) 
+        \subset \pi^{-1}(A)$.\\
+        Now assume $x \times y \in \pi^{-1}(A) \subset X \times Z$ is open. 
+        $\pi_Z (A)$ is open in $Z$ so choose a neighborhood $V$ of
+        $y$ such that $\overline{V}$ is compact. Similarly,
+        $\pi_X (A)$ is open, so $U_1 = p^{-1}\left( \pi_X (A) \right) $ is open.
+        Now, $x \times y \in U_1 \times V \subset U_1 \times \overline{V}
+        \subset \pi^{-1}(A)$. Consider $p^{-1}\left( p(U_1) \right) $.
+        Since if $x \in p^{-1}(p(U_1))$, we have
+        $p(x) \in p(U_1) = \pi_X (A)$, we have
+        $x \times \overline{V} \subset \pi^{-1}(A)$, so 
+        $\pi^{-1}(A) \cap X \times \overline{V}$ is an open set in
+        $X \times \overline{V}$ containing $x \times \overline{V}$, so by the
+        tube lemma, we can find a neighborhood $W_x$ of $x$ such that
+        $W_x \times \overline{V} \subset \pi^{-1}(A) \cap X \times
+        \overline{V}$. Taking the union 
+        \[
+        U_2 \times \overline{V} = \bigcup_{x \in p^{-1}\left( p(U_1) \right) } 
+        W_x \times \overline{V}.
+        \] 
+        We have $x \times y \in U_2 \times V \subset U_2 \times \overline{V}
+        \subset \pi^{-1}(A)$.
+        Continuing, we let $U = \bigcup_{i \in \mathbb{N}} U_i$.
+        We claim $U \times V$ is saturated.
+        Assume $\pi^{-1}\left( u \times v \right) \cap U \times V \neq
+        \varnothing$. Then for some $x \in p^{-1}\left( u \right) $, we have
+        $x \times v \in U \times V$. Now so for some  $n \in \mathbb{N}$, 
+        $x \times v \in U_n \times V$. Then
+        $p^{-1}\left( p(x) \right) = p^{-1}(u) \subset U_{n+1} \subset U$, so
+        $p ^{-1}(u) \times v \subset U \times V$, therefore
+        $\pi^{-1}\left( u\times v \right) =
+        p^{-1}(u) \times v \subset U \times V$; so $U \times V$ is saturated.
+        Therefore
+        So for all $x \times y \in \pi^{-1}(A)$, we can find
+        $(U \times V)_{x \times y}$ saturated open containing $x \times y$.
+        Then
+         \[
+        A \subset \bigcup_{x \times y \in \pi^{-1}(A)} \pi \left( \left(
+        U \times V \right)_{x \times y} \right)  
+        \subset A
+        \] 
+        And since the union is open since $p(U)$ is open as $U$ is saturated
+        and $V$ is open in $Z$, we find that $A$ is open.\\
+        \linebreak
+        (b) Theorem. Let $p  \colon A \to B$ and $q  \colon C\to D$ be quotient
+        maps. If $B$ and $C$ are locally compact Hausdorff spaces, then
+        $p \times q  \colon A \times C \to B \times D$ is a quotient map.\\
+        \linebreak
+        \textit{Solution:} We have 
+        $p \times i_C  \colon A \times C \to B \times C$ is a quotient map by
+        (a) and
+        $i_B \times q  \colon B \times C \to B \times D$ is a quotient map by
+        (a), hence the composite map
+        $p \times q = (i_B \times q) \circ \left( p \times i_C \right) $ 
+        is a quotient map.
+        
+
+
+
+        \textbf{31.7:} Let $p  \colon X \to Y$ be a closed continuous
+        surjective map such that $p^{-1} \left( \left\{ y \right\}  \right)
+        $ is compact for each $y \in Y$. (Such a map is called a perfect
+        map).\\
+        \textbf{a:} Show that if $X$ is Hausdorff, then so is $Y$.\\
+        \textit{Solution:}
+
+
+
+        \textbf{Week 7, exercise 29:} Let $Y$ be a Hausdorff space and $X
+        \subset Y$ and open subspace. Assume $X$ is locally compact. Let
+        $X^{+}$ denote the one-point compactification of $X$, and let $\infty$ 
+        denote the point $X^{+}-X$. Define $f \colon Y\to X^{+}$ by
+        \[
+        f(y) \begin{cases}
+            y& \text{if } y \in X\\
+            \infty & \text{else}.
+        \end{cases}
+        \] 
+        Show that  $f$ is continuous.\\
+        \textit{Solution:} Let $U$ be an open set in $X^{+}$. If
+        $U$ is an open set in the subspace $X$ of $Y$, then $f^{-1}(U) = U$ is
+        open in $X$ and since $X$ is open in $Y$, we have that $f^{-1}(U)$ is
+        open in $Y$.\\
+        If $\infty \in U$, then $U = X^{+} - C$ where $C$ is a compact subspace
+        of $X$. Then
+        $f^{-1}\left( U \right) = f^{-1}\left( X^{+} - C \right) 
+        = Y - f^{-1}(C)$. Now, since $C$ is compact in a Hausdorff space, it is
+        closed, so $f^{-1}(C)$ is closed in $Y$, hence $Y- f^{-1}(C)$ is open
+        in $Y$ so $f^{-1}(U)$ is open. Thus $f$ is continuous.\\
+        \linebreak
+        
+        
+
+
+        \textbf{32.4:} Every regular Lindelöf space is normal.\\
+        \linebreak
+        \textit{Solution:}
+        Let $X$ be regular Lindelöf. Let $A,B \subset X$ be closed.
+        For all $a \in A$ choose $U_a, V_{B_a}$ open s.t. $a \in U_a, B \subset
+        V_{B_a}$ and $U_a \cap V_{B_a} = \varnothing$. Then
+        $\bigcup_{a \in A} U_a$ covers $A$. We can do the same for
+        $B$ and find a collection $V_b$ such that $\bigcup_{b \in B} V_b$ 
+        covers $B$ and each $V_b$ is disjoint from $A$. Now,
+        for each point outside of $A,B$ choose a neighborhood disjoint from
+        $A\cup B$ which is closed (using regularity). Now the full collection
+        is an open covering of $X$, so since $X$ is Lindelöf, it contains
+        a countable subcover. Of this countable subcover, only element of the
+        form $U_a$ intersect $A$ and only elements of the form $V_b$ intersect
+        $B$, so we must have that $\bigcup_{i \in \mathbb{N}} U_{a_i}$ contains
+        $A$ and $\bigcup_{i \in \mathbb{N}} V_{b_{i}}$ contains $B$. These
+        might not be disjoint however, but let
+        \[U_n = \bigcup_{i \in \mathbb{N}} U_{a_i} - \bigcup_{i = 1}^{n}
+        \overline{V_{b_i}} \quad
+    V_n = \bigcup_{i \in \mathbb{N}} V_{b_i}- \bigcup_{i=1}^{n}
+\overline{U_{a_i}}. \]
+
+Then $U = \bigcup_{n \in \mathbb{N}} U_n$ and $V = \bigcup_{n \in \mathbb{N}}
+V_n$ are open disjoint sets that cover $A$ and $B$, respectively. Hence $X$ is
+normal.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

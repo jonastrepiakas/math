@@ -1,0 +1,365 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+%Redeclaring Span and image
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\usepackage{enumitem}
+
+\title{Assignment 1}
+\author{Jonas Trepiakas - hvn548@alumni.ku.dk}
+\date{}
+
+
+
+\begin{document}
+\maketitle
+\newpage
+     \textbf{Homework 1:} Decide which of the following $\mathcal{B}$ are
+     a basis for some topology on the respective given sets $X$.
+    \begin{enumerate}[label=(\roman*)]
+    \item $X= \mathbb{N}, \mathcal{B} = \left\{ U \subseteq \mathbb{N}  \mid 
+        10 \le \# \left( \mathbb{N} \backslash U \right) <\infty \right\} $;
+    \item $X = \mathbb{N}, \mathcal{B} = \left\{ U \subseteq \mathbb{N}
+         \mid \# \left( \mathbb{N} \backslash U \right) \le 10 \right\} $ ;
+     \item $X = \mathbb{R}^2, \mathcal{B} = \left\{ 
+         B_r (0)  \mid r > 0\right\} $ where $B_r (0)$ denotes the open disk of
+         radius $r$ around $0$ in $\mathbb{R}^2$ with respect to the Euclidean
+         metric.
+    \end{enumerate}
+    \textit{Solution:} We will freely use that if $A \subseteq B$, the
+    inclusion function is injective and thus $\#A \le \# B$.\\
+    (i) We claim $\mathcal{B}$ is a basis for a topology on $X$.
+    We check the requirements in theorem 3.6:\\
+    We have that any $U \in \mathcal{B}$ is by definition a subset of $X$.
+    Now,\\
+    (a) Let $U_x = \mathbb{N} \backslash \{x, x+1, x+2, \ldots, x+9\}$ 
+    for $x \in \mathbb{N}$. Then
+    $U_x \subseteq \mathbb{N}$ and $\# \left( \mathbb{N} \backslash U_x \right) 
+    = \# \{x, x+1, x+2, \ldots, x+9\} = 10$, so $U_x \in \mathcal{B}$, and
+    \[
+    X = \bigcup_{x \in X} \left\{ x \right\} 
+    \subseteq \bigcup_{x \in X} U_x \subseteq \bigcup_{U \in \mathcal{B}} U \subseteq X
+    .\] 
+    Hence $\bigcup_{U \in \mathcal{B}} U = \bigcup_{x \in X} U_x = X$.\\
+    (b) Let $U, V \in \mathcal{B}$ and let $x \in U \cap V$ (if $U \cap
+    V = \varnothing$, the requirement is satisfied trivially).
+    We have 
+    \[
+    \# \mathbb{N} \backslash \left( U \cap V \right) 
+    \stackrel{\text{De Morgan}}{=} \# \mathbb{N} \backslash U \cup \mathbb{N} \backslash V \ge \# \mathbb{N}
+\backslash U \ge 10\]
+and
+\[
+\# \mathbb{N} \backslash \left( U \cap V \right) 
+\stackrel{\text{De Morgan}}{=} \# \mathbb{N} \backslash
+U \cup \mathbb{N} \backslash V \stackrel{\text{PIE}}{\le} \# \mathbb{N} \backslash U + \#  \mathbb{N}
+\backslash V < \infty
+,\] 
+where PIE stands for the principle of inclusion-exclusion (sætning 469,
+dismat).
+Thus $U \cap V \in \mathcal{B}$ and the condition is satisfies with $W = U\cap
+V$ since
+$x \in U \cap V \subseteq U \cap V$.\\
+Now the claim follows by theorem 3.6.\\
+\linebreak
+(ii) We claim $\mathcal{B}$ is not a basis for a topology on $\mathbb{N}$.\\
+Let $U = \left\{ x \in \mathbb{N}  \mid x \ge 11 \right\} ,
+V = \left\{ x \in \mathbb{N}  \mid x \ge 21 \lor x \le 10 \right\} $. Then
+\[
+\# \mathbb{N} \backslash U = \# \left\{ 1, 2, \ldots, 10 \right\} = 10,
+\qquad \# \mathbb{N} \backslash V = \# \left\{ 11, 12, \ldots, 20 \right\} = 10
+.\] 
+Thus $U, V \in \mathcal{B}$. Now,
+\[
+U \cap V = \left\{ x \in \mathbb{N}  \mid x \ge 11 \land \left( x\ge 21 \lor
+x \le 10 \right)  \right\} = \left\{ x \in \mathbb{N}  \mid x \ge 21 \right\}.
+.\] 
+Then $21 \in U \cap V$, and assume $\exists W \in \mathcal{B}$ such that
+$21 \in W \subseteq U \cap V = \left\{ x \in \mathbb{N}  \mid x \ge 21 \right\}
+$. Then $W \cap \left( U \cap V \right)^{c} = \varnothing$, so
+\[
+\left\{ 1, 2, \ldots, 20 \right\} \subseteq \mathbb{N} \backslash W
+.\] 
+Hence $20 = \# \left\{ 1, \ldots, 20 \right\} \le \# \mathbb{N}\backslash W$,
+so
+$W \not\in \mathcal{B}$ in contradiction with the assumption.\\
+Now the claim follows by theorem 3.6.\\
+\linebreak
+(iii) We claim $\mathcal{B}$ is a basis for a topology on $\mathbb{R}^2 = X$.\\
+Any element in $\mathcal{B}$ is by definition a subset of $X$. Now,
+we claim $\bigcup_{r \in \mathbb{N}} B_r (0) = \mathbb{R}^2$: since
+$B_r (0) \subseteq \mathbb{R}^2$, $\bigcup_{r \in \mathbb{N}} B_r (0) \subseteq
+\mathbb{R}^2$ trivially.\\
+Now assume $x \in \mathbb{R}^2$. Then $|x| \in \mathbb{R}$, so there exists
+$N \in \mathbb{N}$ such that $|x| < N$ (take e.g. $N = \left\lceil |x|
+\right\rceil +1$ ). Then $x \in B_N (0)$ by definition and thus $x \in
+\bigcup_{r \in \mathbb{N}} B_r (0) $. Hence $\mathbb{R}^2 \subseteq 
+\bigcup_{r \in \mathbb{N}} B_r (0)$. Thus the claim follows.\\
+Now we have
+\[
+\mathbb{R}^2 = \bigcup_{r \in \mathbb{N}} B_r (0)
+\subseteq \bigcup_{U \in \mathcal{B}} U \subseteq \mathbb{R}^2
+.\] 
+Thus $\bigcup_{U \in \mathcal{B}} U = \mathbb{R}^2$, so (a) in theorem 3.6 is
+satisfied.\\
+\linebreak
+Now let $B_r(0), B_s(0) \in \mathcal{B}$. We claim
+$B_r (0) \cap B_s(0) = B_{\min\{r,s\}}(0)$:\\
+Let $x \in B_r(0) \cap B_s(0)$, then $x \in B_r(0)$ and $x \in B_s(0)$ so
+by definition  $|x| < r$ and $|x| < s$, hence, since $\min\{r,s\} \in \{r,s\}$,
+$|x| < \min \{r,s\}$, so  $x \in B_{\min \{r,s\}}(0)$.\\
+Conversely, if $x \in B_{\min \{r,s\}}(0)$ then 
+$|x| < \min\{r,s\} \le r,s$, so by transitivity (or simply equality if $r=s$ ),
+$|x| < r$ and $|x| < s$, hence
+$x \in B_r(0)$ and $x \in B_s(0)$ so $x \in B_r(0) \cap B_s(0)$.\\
+Now condition (b) in theorem 3.6 is satisfied by choosing $W
+= B_{\min\{r,s\}}(0)$ (since $r,s > 0$ also $\min\{r,s\} >0$ so it is in
+$\mathcal{B}$) since for any $x \in B_r(0) \cap B_s(0), x \in
+B_{\min\{r,s\}}(0) \subseteq B_r(0) \cap B_s(0)$.\\
+Now the claim follows by theorem 3.6.\\
+\linebreak
+\textbf{Homework 2}. Let $X$ be a non-empty set and fix a point $x_0 \in X$.
+Define
+\[
+    \mathcal{B} := \left\{ \{x_0\} \right\} \cup \left\{ \{x_0, x\}  \mid 
+    x \in X \backslash \{x_0\} \right\} 
+.\] 
+(i) Prove that $\mathcal{B}$ is the basis for some topology on $X$ which we
+will denote by $\mathcal{T}$.\\
+\linebreak
+\textit{Solution:} We check the conditions in theorem 3.6:\\
+All sets in $\mathcal{B}$ are subsets of $X$.\\
+\linebreak
+Assume first $X \backslash \{x_0\} \neq \varnothing$.\\
+Now, let $U_x = \{x_0, x\}$ for $x \in X \backslash \{x_0\}$, then
+$x \in U_x \in \mathcal{B}$, so
+\[
+    X = \bigcup_{x \in X} \{x\} \subseteq \bigcup_{x \in X \backslash \{x_0\}}
+    U_x \subseteq \bigcup_{U \in \mathcal{B}} U \subseteq X
+\] 
+where the first inclusion follows by the above and because $x_0 \in U_x$ for
+any $x \in X \backslash \{x_0\}$.
+Thus $\bigcup_{U \in \mathcal{B}} U = X$, so (a) is satisfied.\\
+Let  $U,V \in \mathcal{B}$. If either $U$ or $V$ are $\{x_0\}$, then
+$U\cap V = \{x_0\}$. If $U = \{x_0, x\}, V = \{x_0, y\}$ for $x,y \in
+X \backslash \{x_0\}$ with $x \neq y$ then also $U \cap V = \{x_0\}$. In these
+cases, setting $W = \{x_0\}$, $W \in \mathcal{B}$ and satisfies the condition
+(b) of theorem 3.6: $x_0 \in W \subseteq U \cap V$.\\
+If $x=y$ above, then $U\cap V = U \in \mathcal{B}$, hence for all
+$x \in U\cap V = U$, $x \in U \subseteq U\cap V$, so $W=U$ satisfies (b).\\
+This exhausts all cases, hence (b) is checked and it follows that
+$\mathcal{B}$ is a basis for some topology on $X$ by theorem 3.6.\\
+\linebreak
+If $X \backslash \{x_0\} = \varnothing$, then $\mathcal{B}= \{X\}$ which
+clearly is a basis for the trivial topology on $X$ since $\mathcal{B} \subseteq
+\{\varnothing, X\}$ and for any $x \in X$ and every neighborhood $U$ of $x$,
+$U$ must be $X$ and thus the condition in definition 3.1 is satisfied with $U'
+= X \in \mathcal{B}$ since $x \in U' \subseteq U$.\\
+\linebreak
+(ii) Find all subsets of $X$ which are simultaneously open and closed with
+respect to $\mathcal{T}$.\\
+\linebreak
+\textit{Solution:} If $A \subseteq X$ is simultaneously open and closed with
+respect to $\mathcal{T}$, then $A \in \mathcal{T}$ and $A^{c} = X \backslash A \in
+\mathcal{T}$. Since $X \backslash \varnothing = X \in \mathcal{T}, X \backslash
+X = \varnothing \in \mathcal{T}$, we have that $X, \varnothing$ are
+simultaneously open and closed.\\
+\linebreak
+Assume now $A$ is neither $X$ nor $\varnothing$ - in particular we are dealing
+with the case $X \backslash \{x_0\} \neq \varnothing$ from (i).\\
+Thus by proposition 3.2 and theorem 3.6.(a),
+$A = \bigcup_{U \in S} U, A^{c} = \bigcup_{U \in T} U$ where
+$S,T \subsetneq \mathcal{B}$ and $S,T \neq \varnothing$. Then
+\[
+\varnothing = A \cap A^{c} = \bigcup_{U \in S} U \cap \bigcup_{V \in T} V
+\stackrel{(7.52) \text{ dismat}}{=} \bigcup_{U \in S, V \in T}  \underbrace{U \cap V}_{\text{contains }x_0}
+.\] 
+The last equality follows by using the distribute law for sets ((7.52) in the
+dismat book twice).\\
+We saw in (i) that any intersection of basis elements contains $x_0$, hence the
+union above contains $x_0$ and hence cannot equal the empty set. Thus, no such
+$A$ can exist. So the only subsets of $X$ that are simultaneously open and closed with
+respect to $\mathcal{T}$ are $X$ and $\varnothing$.\\
+\linebreak
+(iii) Let $Y = X \backslash \{x_0\}$. Prove that the subspace topology on $Y$
+obtained from $(X, \mathcal{T})$ equals the discrete topology on $Y$.\\
+\linebreak
+\textit{Solution:} We note that any topology on $Y$ is coarser than the
+discrete topology on $Y$ (Remark 2.11), hence we must only show that the discrete topology on
+$Y$ is coarser than the subspace topology on $Y$ obtained from $(X,
+\mathcal{T})$.\\
+Let $A$ be any open set in the discrete topology on
+$Y$; let $y \in A$. Since $A \subseteq X \backslash \{x_0\}$, $A \cap \{x_0\}
+= \varnothing$, so $y \in \{x_0, y\} \cap Y \subseteq A$, and since
+$\{x_0, y\}$ is a basis element in $X$, it is open in the topology generated by
+the basis by definition 3.7, hence
+$\{x_0, y\} \cap Y$ is open in the subspace
+topology on $Y$ by definition 4.1. Letting $A_y = \{x_0, y\} \cap Y$, we thus
+get
+\[
+    A = \bigcup_{y \in A} \{y\} \subseteq \bigcup_{y \in A} A_y
+    \subseteq A
+.\] 
+Hence $A = \bigcup_{y \in A} A_y$ which is open as it is the union of open
+sets.
+So $A$ is open in the subspace topology.\\
+\linebreak
+\textbf{Homework 3}. Let $(X, <)$ be a totally ordered set. Assume that $X$ has
+a maximal element with respect to $<$ which we call $x_{max}$. Let
+\[
+    \mathcal{S} = \left\{ (x, x_{max}]  \mid x \in X \backslash \{x_{max}\} \right\} 
+.\] 
+Under what condition does $\mathcal{S}$ define a subbasis for some topology on
+$X?$ In the case that it defines a subbasis, compare, if possible, the topology
+generated by $\mathcal{S}$ with the order topology on $X$.\\
+\linebreak
+\textit{Solution:} By lemma 3.11, $\mathcal{S}$ is a subbasis for some topology
+on $X$ if it satisfies (a) of definition 3.10.\\
+Assume $X$ has no minimal element. Then let $x \in X$. We then have
+$x \in (y, x_{max}] \in \mathcal{S}$ where $y \in X$ with $y<x$ (such an
+element exists since otherwise $x$ would be a minimal element). Since $x \in X$
+was arbitrary, we can for any $x \in X$ find $S_x \in \mathcal{S}$ such that
+$x \in S_x$.
+Hence
+\[
+    X = \bigcup_{x \in X} \{x\} \subseteq \bigcup_{x \in X} S_x
+    \subseteq \bigcup_{S \in \mathcal{S}} S \subseteq X
+.\] 
+So (a) of definition 3.10 is satisfied.\\
+\linebreak
+Assume that $X$ has a minimal element, call it $x_{min}$. Then $x_{min} \in X$
+but there does not exist $x \in X \backslash \{x_{max}\}$ such that
+$x_{min} \in (x, x_{max}]$ since if such an $x$ existed, $x < x_{min}$ by
+definition of intervals, and this contradicts the minimality of $x_{min}$. Thus
+$x \not\in \bigcup_{S \in \mathcal{S}} S$, so $\bigcup_{S \in \mathcal{S}}
+S \neq X$ and thus (a) of definition 3.10 is not satisfied; so $\mathcal{S}$ is
+not a subbasis for some topology $\mathcal{T}$ on $X$.\\
+Hence $\mathcal{S}$ defines a subbasis for some topology on $X$ if and only if
+$X$ does not have a minimal element.\\
+\linebreak
+Assume now that $\mathcal{S}$ does define a subbasis for some topology on
+$X$.\\
+Then $X$ has no minimal element, so the order topology on $X$ is generated by
+the basis containing all intervals of the form $(x,y)$ with $x,y \in X, x<y$
+and all intervals of the for $(x, x_{max}], x \in X \backslash \{x_{max}\}$
+(basis by proposition 4.13). Hence $\mathcal{S}$ is contained in this basis,
+and thus $\mathcal{S}$ is contained in the order topology on $X$. Hence, since
+topologies are closed under finite intersections, the basis generated by the
+subbasis $\mathcal{S}$ is also contained in the order topology, and again,
+since topologies are closed under finite intersections and arbitrary unions,
+the topology generated by $\mathcal{S}$ (the topology generated by the basis
+generated by $\mathcal{S}$ ) is contained in the order topology.\\
+\linebreak
+Thus, the order topology on $X$ is finer than the topology generated by
+$\mathcal{S}$ on $X$. We claim it is strictly finer:
+since $X$ has no minimal element and is totally
+ordered, we can choose $x \in X$ such that $x < x_{max}$. Since $x$ is not
+minimal, we can choose $y \in X$ such that $y < x < x_{max}$. Again, since $y$
+is not minimal, we can choose $z \in X$ with $z < y < x < x_{max}$. Now
+$y \in (z,x)$ which is open in the order topology.\\
+\linebreak
+We claim that $\mathcal{S}$
+is, in fact, even a basis for the topology it generates. For this it suffices
+to show that the basis it generates is equal to $\mathcal{S}$.
+Let $(x_1, x_{max}], \ldots, (x_n, x_{max}]$ be a finite collection of elements
+from $\mathcal{S}$, then since $X$ is totally ordered, we can order $x_1,
+\ldots, x_n$, and assume without loss of generality that
+$x_1 \le x_2 \le \ldots \le x_n$. Then
+\[
+    \bigcap_{i=1}^{n} (x_i, x_{max}] = (x_n, x_{max}] \in \mathcal{S}
+.\] 
+Hence $\mathcal{S}$ is closed under finite intersections and is thus equal to
+the basis it generates.\\
+Thus if the topologies were equal, there would exist a basis element $(a,
+x_{max}]$ of the topology generated by $\mathcal{S}$ such that
+$y \in (a, x_{max}] \subseteq (z,x)$ (by definition 3.1);
+however then $x_{max} < x < x_{max}$
+which is a contradiction. Hence the order topology is strictly finer than the
+topology generated by $\mathcal{S}$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

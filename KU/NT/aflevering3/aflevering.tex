@@ -1,0 +1,230 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+%Redeclaring Span and image
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\begin{document}
+\textbf{1.} Da $19$ er et primtal, eksisterer en primitiv rod
+i $\mathbb{F}_{19}$ ifølge sætning 2.4.4. Ifølge proposition 2.4.6 er da netop
+$\varphi \left( \varphi (19) \right) = \varphi \left( 18 \right) =
+\varphi (3^2 \cdot 2) = (3-1) 3^{2-1} (2-1) 2^{1-1}= 2 \cdot 3 = 6$ af
+sideklasserne  $\overline{1}, \overline{2}, \ldots, \overline{18}$ primitive rødder modulo
+$19$.\\
+Nu finder vi
+\begin{align*}
+    2^{9} &= 16 \cdot 32 \equiv -3 \cdot 13 \equiv -1 \pmod{19}, 2^2 \equiv
+    4 \pmod{19}.\\
+.\end{align*}
+Da $\mathbb{F}_{p}^{\times }$ er cyklisk ifølge korollar 2.4.5, må ordenen af
+$2$ desuden gå op i $18= 2\cdot 3^2$, hvormed $\ord(2) = 18$.\\
+\linebreak
+Dermed er $2$ en primitiv rod modulo $19$, eller ækvivalent er $2$ en generator
+for den cykliske gruppe $\mathbb{F}_{19}^{\times }$, hvormed vi har at alle andre
+generatorer er netop $2^{a}$ hvor $\gcd(a,18)=1$. Så vi har, at
+$2^{5}, 2^{7}, 2^{11}, 2^{13}, 2^{17}$ er de resterende primitive rødder, som
+netop bliver
+\begin{align*}
+    2^{5} &= 32 \equiv 13 \pmod{19}\\
+    2^{7} &= 13 \cdot 4 \equiv 52 \equiv 14 \pmod{19}\\
+    2^{11} &= -5 \cdot 2^{4} = (-5) (-3) = 15 \pmod{19}\\
+    2^{13} &= (-4) \cdot 4 \equiv -16 \equiv 3 \pmod{19}\\
+    2^{17} &= 3 \cdot (-3) \equiv 10 \pmod{19}
+.\end{align*}
+Altså er $2,3,10,13,14,15$ samtlige primitive rødder modulo $19$.\\
+\linebreak
+\textbf{2.} Vi har
+\begin{align*}
+    x^2 + 20x + 211 
+    &= \frac{1}{4} \left( \left( 2x+20 \right)^2 - \left( 20^2 - 4 \cdot 211 \right)  \right) 
+.\end{align*}
+Så ligningen har løsninger hvis og kun hvis
+$20^2 - 4\cdot 211 = -444 \equiv 82 \pmod{263}$ er en kvadratisk rod modulo
+$263$, altså hvis og kun hvis $\binom{82}{263} = 1$. Ifølge kvadratisk
+reciprocitet (sætning 4.2.1) fås
+\begin{align*}
+    \binom{82}{263}
+    &= \binom{2}{263} \binom{41}{263}\\
+    &= (-1)^{\frac{263^2 -1}{8}} \left( -1 \right)^{\frac{40 \cdot 262}{4}}
+    \binom {263}{41}
+.\end{align*}
+Da $263^2 -1 = 262 \cdot 264 = 262 \cdot 8 \cdot 33$ fås
+\begin{align*}
+    \binom{82}{263} 
+    &= \binom{263}{41}\\
+    &= \binom{17}{41}\\
+    &= (-1)^{\frac{16 \cdot 40}{4}} \binom{41}{17}\\
+    &= \binom{7}{17}\\
+    &= (-1)^{\frac{6 \cdot 16}{4}} \binom{17}{7} \\
+    &= \binom{3}{7}\\
+    &= (-1)^{\frac{2 \cdot 6}{4}} \binom{7}{3}\\
+    &= -1 \binom{1}{3}\\
+    &= -1
+.\end{align*}
+Altså eksisterer ingen heltallige løsninger til ligningen ved en lokal
+obstruktion.\\
+\linebreak
+\textbf{3.} (a) Da $p$ er et primtal, er $\mathbb{F}_{p}^{\times }$ cyklisk
+ifølge korollar 2.4.5, så lad $g \in \mathbb{F}_{p}^{\times }$ være en primitiv
+rod, dvs. $\ord (g) = p-1 = 5k$ for $k \in \mathbb{Z}$ (hvor vi har brugt, at
+$p \equiv 1 \pmod{5} \implies p-1 = 5k$ for et $k \in \mathbb{Z}$ ).\\
+Lad nu  $c = g^{k}$. Da har vi $c^{5} = g^{5k}= g^{p-1} \equiv 1 \pmod{p}$, så
+$\ord (c) \le 5$. Antag nu, at $d = \ord(c) < 5$. Da har vi
+\[
+1 \equiv c^{d} \equiv g^{kd},
+\] 
+hvormed $\ord(g) \le kd < 5k = p-1$, som er i modstrid med, at $g$ er en
+primitiv rod. Dermed må $\ord(c) = 5$.\\
+\linebreak
+(b) Lad $g = 2 \cdot \left( c+c^{-1} \right) +1$. Da har vi
+\begin{align*}
+    g^2 -5 &= 4 \left( c+c^{-1} \right)^2 + 4 (c+c^{-1}) -4\\
+        &= 4 \left[ (c+c^{-1})^2 + (c+c^{-1}) -1 \right]\\
+        &\equiv 4 \left[ c^2 + c^{-2} + 2 + c+ c^{-1} -1 \right]\\
+        &\equiv 4 \left[ c^2 +c +1 + c^{-1} + c^{-2} \right] \\
+        &\equiv4 c^{k} \left[ c^2 + c + 1 + c^{-1} + c^{-2} \right], \quad \forall
+        k \in \mathbb{Z}
+.\end{align*}
+Hvor sidste ækvivalens følger af, at $c$ har orden $5$ og
+$c^2 + c + 1 + c^{-1} + c^{-2} \equiv 1 + c+ c^2 + c^{3} + c^{4} \pmod{p}$.\\
+Dvs for alle  $k \in \mathbb{Z}$ er $c^{k} \left( g^{2}-5 \right) \equiv
+g^{2}-5 \pmod{p}$. Hvis $g^2 \not \equiv 5 \pmod{p}$, har $g^2 -5$ en invers
+modulo $p$, hvormed vi får $c^{k} \equiv 1 \pmod{p}$ for alle $k$, dvs 
+$c \equiv 1 \pmod{p}$, som er en modstrid med, at $c$ er et element af orden
+$5$. Dermed må $g^2 \equiv 5 \pmod{p}$.\\
+\linebreak
+(c) Da vi har fundet et element $g = 2 \cdot (c+c^{-1}) +1$, med
+$g^2 \equiv 5 \pmod{5}$, er $5$ per definition en kvadratisk rod modulo  $p$,
+så per definition er $\binom{5}{p} = 1$.\\
+Ved kvadratisk reciprocitet har vi desuden, at
+\begin{align*}
+    \binom{5}{p}
+    &= \left( -1 \right)^{\frac{4 (p-1)}{4}} \binom{p}{5}\\
+    &= \binom{p}{5} \tag{Da $p \equiv 1 \pmod{5} \implies p \neq 2$, så $p-1$ 
+    er lige}\\
+    &\stackrel{\alpha}{=} \binom{5k+1}{5}\\
+    &= \binom{1}{5}\\
+    &= 1,
+\end{align*}
+hvor $\alpha$ følger af, at $p\equiv 1 \pmod{5} \implies p-1 = 5k \implies
+p = 5k+1$ for et $k \in \mathbb{Z}$.\\
+\linebreak
+\textbf{4.} Antag for modstrid, at $n$ er en primitiv rod modulo $p$, dvs. 
+$\ord (n) = p-1 = 2k$ for et $k \in \mathbb{Z}$, da $p$ var antaget at være
+ulige.
+Da $\binom{n}{p}=1$, eksisterer $m \in \mathbb{Z}$, så
+$m^2 \equiv n \pmod{p}$. Bemærk, at da  $n$ er en primitiv rod, må $m \not
+\equiv 0 \pmod{p}$, da vi ellers ville have $n \equiv 0 \pmod{p}$. Dermed fås
+fra Fermats lille sætning, at
+\[
+    1 \equiv m^{p-1} = m^{2k} = \left( m^2 \right)^{k} \equiv n^{k} \pmod{p}
+.\] 
+Men da har vi $\ord(n) \le k < 2k = \ord(n)$, som er en modstrid.\\
+Altså er $n$ ikke en primitiv rod modulo $p$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
