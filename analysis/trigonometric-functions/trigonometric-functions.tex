@@ -1,0 +1,229 @@
+\documentclass[reqno]{amsart}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb, amsthm, amscd}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+%%For code (e.g. python) in latex:
+%\usepackage{listings}
+%
+%Usage: 
+%\begin{lstlisting}[language=Python]
+%\end{lstlisting}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+\theoremstyle{plain}% default
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\Arctan}{Arctan}
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\Hom}{{\mathrm{Hom}}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\Mod}{{\mathrm{Mod}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\begin{document}
+    \begin{definition}[Tangent]
+        We define the tangent function as $\tan  \colon
+        \mathbb{C} - \left\{ \frac{\pi}{2} + \pi \mathbb{Z} \right\} 
+        \to \mathbb{C}$ by
+        \[
+        \tan z = \frac{\sin z}{\cos z}
+        \] 
+    \end{definition}
+    The function $\tan z$ is holomorphic on its whole domain
+    $\mathbb{C} - \left\{ \frac{\pi}{2} + \pi \mathbb{Z} \right\} $ by
+    theorem 1.18 in. \cite{Berg}
+
+    \begin{problem}[Problem 3.5 in \cite{Berg}]
+        Use Goursat's lemma to show the following: Let
+        $G$ be a star-shaped open set around $z_0$. For every
+        $z \in G$, let $\left[ z_0, z \right] $ be the straight
+        line from $z_0$ to $z$ parametrized by
+        $\gamma (t) = \left( 1-t \right) z_0 + tz$. Show that
+        if $f$ is holomorphic on $G$, then
+        $F  \colon G \to \mathbb{C}$ defined by
+        \[
+        F(z) = \int_{\left[ z_0, z \right] } f
+        \] 
+        is an antiderivative to $f$ which satisfies
+        $F(z_0) = 0$.
+    \end{problem}
+    
+
+    \begin{problem}[Inverse of tangent, Arctan, problem 3.8 in
+        \cite{Berg}]
+    Consider the path-connected open set
+    \[
+    G = \mathbb{C} - \left\{ iy  \mid y\in \mathbb{R},
+    \left| y \right| \ge 1 \right\} .
+    \] 
+    Define the function $\Arctan  \colon G \to \mathbb{C}$ by
+    \[
+    \Arctan z = \int_{0}^{1}  \frac{z dt}{1+ t^2 z^2}. 
+    \] 
+    Show that $\Arctan$ is holomorphic on $G$ with derivative
+    \[
+    \frac{d}{dz} \Arctan z = \frac{1}{1+ z^2}.
+    \] 
+    Show that $\Arctan |_{\mathbb{R}}$ is the inverse
+    function to $\tan  \colon \left( -\frac{\pi}{2},\frac{\pi}{2} \right)
+    \to \mathbb{R}$ by showing that $\Arctan$ maps $G$ bijectively
+    onto the strip
+    \[
+    \left\{ z = x+iy  \mid 
+    -\frac{\pi}{2} < x < \frac{\pi}{2} \right\} ,
+    \] 
+    and showing that it is inverse to $\tan $.\\
+    Now show that
+    \[
+    \Arctan z = z - \frac{z^3}{3} + \frac{z^{5}}{5} -\ldots 
+    \quad \text{for} \quad \left| z \right| <1.
+    \] 
+    
+    
+    
+    
+    \end{problem}
+
+\begin{remark}
+    Since holomorphic functions are analytic, $\Arctan|_{\mathbb{R}}$ 
+    is in particular smooth, and since $\tan  \colon
+    \left( - \frac{\pi}{2}, \frac{\pi}{2} \right) \to \mathbb{R}$ 
+    is smooth, we see that both are diffeomorphisms.\\
+    Thus we get that the open cube
+    $\left( -\frac{\pi}{2},\frac{\pi}{2} \right)^{n}$ is diffeomorphic
+    with $\mathbb{R}^{n}$ by the map
+    $f (x_1,\ldots, x_n) = \left( \tan x_1, \ldots, \tan x_n \right) $.
+\end{remark}
+
+
+
+
+
+
+
+
+
+
+\newpage
+\bibliography{trigonometric-functions}
+\end{document}

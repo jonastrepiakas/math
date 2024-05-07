@@ -1,0 +1,175 @@
+\documentclass[reqno]{amsart}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb, amsthm, amscd}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+%%For code (e.g. python) in latex:
+%\usepackage{listings}
+%
+%Usage: 
+%\begin{lstlisting}[language=Python]
+%\end{lstlisting}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+\theoremstyle{plain}% default
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\Hom}{{\mathrm{Hom}}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\Mod}{{\mathrm{Mod}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\begin{document}
+    \begin{theorem}[Linear function $\mathbb{R}^m \to \mathbb{R}$]
+       A linear function $f  \colon \mathbb{R}^{m} \to \mathbb{R}$
+       is uniformly continuous.
+    \end{theorem}
+
+    \begin{proof}
+        Let $e_1, \ldots, e_m$ be the usual basis for $\mathbb{R}^{m}$.
+        By linearity, 
+        \begin{align*}
+            \left| f(x) \right|^2 
+            &= \left| x_1 f(e_1) + \ldots + 
+            x_m f(e_m) \right|^2\\
+            &\le \left( x_1^2 + \ldots + x_m^2 \right) 
+            \left( f\left( e_1 \right)^2 + \ldots +
+            f\left( e_m \right)^2 \right) \tag{Cauchy-Schwarz}
+        \end{align*}
+    \end{proof}
+    So for all $x \in \mathbb{R}$, we have
+    \[
+    \left| f(x) \right| \le M \|x\|, \quad M
+    = \left( f(e_1)^2 +\ldots + f(e_m)^2 \right)^{\frac{1}{2}}.
+    \] 
+    It follows that
+    \[
+    \left| f(x) - f(x_0) \right| = 
+    \left| f\left( x-x_0 \right)  \right| 
+    \le M \|x - x_0\|.
+    \] 
+    
+    
+
+%\bibliography{refs}
+\end{document}

@@ -1,0 +1,712 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+%%For code (e.g. python) in latex:
+%\usepackage{listings}
+%
+%Usage: 
+%\begin{lstlisting}[language=Python]
+%\end{lstlisting}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+\theoremstyle{plain}% default
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem*{corollary}{Corollary}
+
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{exercise}[example]{Exercise}
+
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+
+
+
+
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\begin{document}
+\subsection*{Remarks}
+In the text, a topological space is presumed to be $T_0$ axiomatically; thus,
+any time space is mentioned, one means a $T_0$ topological space.\\
+\linebreak
+\textbf{Def.} A topological group $G$ is a group $(G,\cdot )$ such that the
+underlying set of $G$ forms a topological ( $T_0$ ) space, and such that the
+maps $\mu  \colon G \times G \to G$ by $\mu(x,y) = x\cdot y$ and
+$i  \colon G \to G$ by $i(x) = x^{-1}$ are continuous.\\
+\linebreak
+
+
+
+
+    \textbf{1.11.1.} If $H$ is a subgroup of $G$ and if $x,y \in \overline{H}$,
+    then $xy \in \overline{H}$.\\
+    \textit{Proof:} Since multiplication is continuous, we have that
+    for any open $U \subset G$ containing $xy$,
+    $x \in \pi_1 (\mu^{-1}(U))$ and
+    $y \in \pi_2 \left( \mu^{-1}(U) \right) $, and as these are open,
+    there exist $h_1,h_2 \in H$ with $h_1 \in \pi_1 \left( \mu^{-1}(U) \right) $ 
+    and $h_2 \in \pi_2 \left( \mu^{-1}(U) \right) $, so
+    $h_1 h_2 \in U$ so
+    $U \cap H \neq \varnothing$, hence
+    $xy \in \overline{H}$.\\
+    \linebreak
+    Similarly, $x^{-1}$ belongs to the closure.\\
+    Thus, $\overline{H}$ is a group, and we shall call $\overline{H}$ 
+    a \textbf{closed} subgroup.\\
+    \linebreak
+    \subsubsection*{Examples of topological groups}
+    \textbf{1.} The sets $M_n(\mathbb{R})$ and $M_n(\mathbb{C})$ of $n \times
+    n$ matrices over $\mathbb{R}$ and $\mathbb{C}$ under addition with the
+    distance of $A = \left( a_{i j} \right) $ and
+    $B = \left(  b_{i j} \right) $ defined by
+    \[
+    d\left( A,B \right) = \max_{i,j} \left| a_{ij} - b_{i j} \right| 
+    \] 
+    gives a topological group whose topological space is metrizable.\\
+    The spaces of these two groups are homeomorphic to $E_{n^2}$ and
+    $E_{2n^2}$. They are in fact the sets of real or complex vectors with
+    $n^2$ coordinates, and hence are vector spaces as well as groups. Another
+    example is the set $H$ of continuous real valued functions on a compact
+    metric space under addition.\\
+    In this example, the multiplication function on the topological group is
+    addition, so $\mu (A,B) = A+B$ and
+    $i(A) = -A$. Let $(A,B) \in M_n(\mathbb{R}) \times M_n(\mathbb{R})$ and 
+    take an $\varepsilon$-neighborhood of $A+B$, so
+    $X \in B(A+B,\varepsilon)$ iff
+     \[
+    \max_{i,j} \left| a_{ij} + b_{ij} - x_{i j} \right| < \varepsilon.
+    \] 
+    Take an $\frac{\varepsilon}{2}$-neighborhood of $A$ and $B$, then
+    $U=B(A, \frac{\varepsilon}{2}) \times B(B, \frac{\varepsilon}{2})$ is an open
+    set in $M_n(\mathbb{R}) \times M_n(\mathbb{R})$ containing $(A,B)$. And
+    furthermore, if $(C,D) \in U$, then
+    \[
+    d(\mu(C,D), \mu(A,B)) =
+    \max_{i,j} \left| c_{ij} + d_{i j} - a_{i j} - b_{i j} \right| 
+    \le \max_{i,j} \left| a_{ij} - c_{ij} \right| +
+    \max_{i,j} \left| b_{ij}-d_{ij} \right| 
+    < \frac{\varepsilon}{2}+ \frac{\varepsilon}{2} = \varepsilon.
+    \] 
+    
+    Thus $\mu$ is continuous.\\
+    \linebreak
+    For $i  \colon M_n(\mathbb{R}) \to M_n(\mathbb{R})$, suppose
+    $A \in M_n(\mathbb{R})$. Take any
+    $B \in B(A, \varepsilon)$. Thus
+    $\max_{i,j} \left| a_{ij}-b_{ij} \right| < \varepsilon$. Then
+    \[
+    d\left( i(A), i(B) \right) 
+    = \max_{i,j} \left| -a_{i,j} - (-b_{i,j}) \right| 
+    < \varepsilon.
+    \] 
+    Hence $i$ is continuous too.\\
+    \linebreak
+
+    \textbf{2.} The set of non-singular real or complex $n \times n$ matrices
+    $GL(n,\mathbb{R}), GL(n,\mathbb{C})$ under multiplication; these are
+    subsets
+    of $M_n(\mathbb{R})$ and $M_n(\mathbb{C})$
+    induced topology. They are open subsets and are therefore locally compact
+    and locally euclidean (\textbf{1.27}).\\
+    \linebreak
+    Suppose $\mu  \colon M_n(\mathbb{R}) \times M_n(\mathbb{R}) \to
+    M_n(\mathbb{R})$ is matrix multiplication. Here $M_n(\mathbb{R})$ is
+    isomorphic to $\mathbb{R}^{n^2}$ and can be thought of as such. A map
+    into $\mathbb{R}^{n^2}$ is continuous if each coordinate function is
+    continuous. Now, each coordinate function is of the form
+    \[
+    \sum_{r=1}^{n} a_{ir} b_{rj}
+    \] 
+     which is the $i,j$ coordinate of $\mu(A,B)$. The sum and product of
+     continuous function into $\mathbb{R}$ is continuous, so if we can show
+     that
+     the map $p_{ij}  \colon M_n(\mathbb{R}) \times
+     M_n(\mathbb{R}) \to M_n(\mathbb{R})$ is continuous where 
+      $p_{ij}(A,B) = a_{ij}$, then we are done.\\
+      Suppose $\varepsilon > 0$. Then
+      let  $B(A, \varepsilon) \times M_n(\mathbb{R})$ is an open neighborhood
+      of $(A,B)$ and for any $(C,D) \in B(A,\varepsilon) \times
+      M_n(\mathbb{R})$, we have
+       \[
+      \left| p_{ij}(A,B) - p_{ij}(C,D) \right| 
+      = \left| a_{ij} - c_{ij} \right| <
+      \max_{r,k} \left| a_{rk} - c_{rk} \right| 
+      < \varepsilon
+      \] 
+      so $p_{ij}$ is continuous.\\
+      \linebreak
+      The restriction to subspaces does not affect continuity, so
+      $\mu  \colon GL(n,\mathbb{R}) \times GL(n, \mathbb{R}) \to
+      GL(n,\mathbb{R})$ is continuous.\\
+      \linebreak
+      
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    \textbf{3.} Let $S$ be a compact metric space and let
+    $G$ be the group of all homeomorphisms of $S$ onto itself topologized as
+    a subspace of the space of continuous maps of $S$ into itself.\\
+    \linebreak
+    \subsection*{1.12 \quad Isomorphism of topological groups}
+    The spaces associated with two topological groups may be homeomorphic but
+    the groups essentially different, for example, one abelian and the other
+    not.\\
+    \linebreak
+    \textbf{Example.} The matrices
+    \[
+    \begin{pmatrix} 
+        a & 0\\
+        0 & b
+    \end{pmatrix} , \quad a,b \in \mathbb{R}
+    \] 
+    under addition is an abelian group with $E_2$ as space where
+    $E_n = \underbrace{E_1 \times  \ldots \times E_1}_{n\text{ times}}$ and
+    $E_1$ is the set of all real numbers in its customary topology.\\
+    The matrices
+    \[
+    \begin{pmatrix} 
+        e^{a} & b\\
+        0 & e^{-a}
+    \end{pmatrix} , \quad a,b \in \mathbb{R}
+    \] 
+    under multiplication forms a non-abelian group with $E_2$ as space as
+    well.\\
+    \linebreak
+    To show that this is homeomorphic to $E_2$, define a map
+    $f  \colon \mathbb{R}^2 \to X = \left\{ 
+    \begin{pmatrix} 
+        e^{a} & b \\
+        0 & e^{-a}
+    \end{pmatrix}  \mid a,b \in \mathbb{R} \right\} $ by
+    $f(x,y) = \begin{pmatrix} 
+        e^{x} & y\\
+        0 & e^{-x}
+    \end{pmatrix}  $.\\
+    \linebreak
+    Suppose $\varepsilon > 0$. Then
+    $f(x',y') \in B(f(x,y),\varepsilon)$ if and only if
+    $\left| e^{x}-e^{x'} \right| , \left| e^{-x}-e^{-x'} \right| ,
+    \left| y-y' \right| < \varepsilon$. Now, since
+    $\exp$ is continuous, there exists $\delta_1 > 0$ such that
+    $\left| x- x' \right| < \delta_1 \implies
+    \left| e^{x} - e^{x'} \right| < \varepsilon$ and
+    $\delta_2 > 0$ such that $\left| x -x' \right| < \delta_2 \implies
+    \left| e^{-x} - e^{-x'} \right| < \varepsilon$. Let
+    $\delta = \min \left\{ \delta_1, \delta_2, \varepsilon \right\} $. Then
+    supposeing $x' \in B(x,\delta)$ and $y' \in B(y,\delta)$, we get
+    \[
+    \left| f(x',y') - f(x,y) \right| \le 
+    \min \left\{ \left| e^{x}-e^{x'} \right| , \left| y-y' \right| ,
+    \left| e^{-x}-e^{-x'} \right| \right\} 
+    < \varepsilon
+    \] 
+    so $f$ is continuous. Now, define
+    $g  \colon X \to \mathbb{R}^2$ by $g\left( \begin{pmatrix} 
+            x & b\\
+            0 & y
+    \end{pmatrix}  \right) = (\ln(x),b)$.\\
+    Now, 
+    \begin{align*}
+        \left| \ln(x)-\ln(x') \right| < \varepsilon
+        &\iff \left| \ln(\frac{x}{x'}) \right| < \varepsilon\\
+        &\iff e^{-\varepsilon} < \frac{x}{x'} < e^{\varepsilon}\\
+        &\iff x' e^{-\varepsilon} < x < x' e^{\varepsilon}, \quad \text{if }x'
+        \in R_+\\
+        &\iff x' (e^{-\varepsilon}-1) < x-x' < x'\left( e^{\varepsilon}-1 \right) 
+    \end{align*}
+    Let $A = \begin{pmatrix} 
+        e^{a} & b \\
+        0 & e^{-a}
+    \end{pmatrix} , B=\begin{pmatrix} 
+        e^{c}&d\\
+        0 & e^{-c}
+    \end{pmatrix} $.\\
+    So letting
+    $\delta = \min \left\{ \varepsilon, \left| x' \left( e^{-\varepsilon}-1
+    \right)  \right| ,
+\left| x' \left( e^{\varepsilon}-1 \right)  \right| \right\} $, we have
+$B \in B(A, \delta)$ implies
+\[
+    d_{max}(g(B),g(A))
+    = \max \left\{ \left| b-d \right| ,
+    \left| a-c  \right| \right\} < \varepsilon.
+\] 
+Hence $g$ is also continuous, and clearly,
+$g \circ f = \mathbbm{1}$ and
+$f \circ g = \mathbbm{1}$, so
+$f$ is a homeomorphism.\\
+\linebreak
+If we give the space in this example (or example 1) the discrete topology, we
+obtain a new topological group with the same algebraic structure.\\
+\linebreak
+\textbf{Example 3.} In the additive group of integers, for each pair
+of distinct integers $h$ and $k$, let the set $\left\{ h + nk  \colon
+n \in \mathbb{Z} \right\} $ be called an open set, and let the collection of
+all these sets be taken as a basis for open sets.\\
+\linebreak
+\textbf{Example 4.} Introduce a metric into the additive group of integers,
+depending on the prime number $p$, defined thus:
+\[
+d(a,b) = \frac{1}{p^{n}}
+\] 
+if $a\neq p$ and $p^{n}$ is the highest power of $p$ which is a factor of
+$a-b$, i.e. $n = v_p(a,b)$.\\
+\linebreak
+\textbf{Example 5.} Let $G$ be the integers under addition with the
+finite-complement topology. Algebraically $G$ is a group and it is also
+a topological space; however, it is not a topological group because addition is
+now not simultaneously continuous: suppose $\mu (n,m) = n+m$. Then
+$\mu^{-1}\left( \mathbb{Z}- \left\{ 0 \right\}  \right) 
+= \left\{ \left( -n,n \right)  \mid n \in \mathbb{Z} \right\}^{c}$. Now,
+$\mathbb{Z} - \left\{ 0 \right\} $ is open as the complement is finite;
+however,
+$\left\{ \left( -n,n \right)  \mid n \in \mathbb{Z} \right\}^{c}$ is not open
+as its complement is infinite. Hence, $\mu$ is not continuous.\\
+It is true, however, that addition is continuous in each variable separately.\\
+For some types of group spaces, separate continuity implies simultaneous
+continuity. I is not known whether this is true for a compact Hausdorff group
+space.\\
+\linebreak
+\textbf{Definition.} Two topological groups will be called isomorphic if there
+is a bijective correspondence between their elements which is a group
+isomorphism and a space homeomorphism.\\
+\linebreak
+\subsection*{1.13 \quad Set products}
+If $G$ is a group, $A \subset G$, let $A^{-1}$ denote the inverse set
+$\left\{ a^{-1} \colon a \in A \right\} $. If
+$B \subset G$, let $AB = \left\{ ab  \mid a \in A, b \in B \right\} $. If
+$B = \varnothing$ then $AB = \varnothing$.\\
+A set $H$ in $G$ is called \textbf{invariant} if $gH = Hg$ for every $g \in G$,
+or equivalently, if $gHg^{-1} = H$.\\
+\linebreak
+\textbf{Theorem 1.} Let $G$ be a topological group and let
+$A \subset G$ be an open set. Then $A^{-1}$ is open.\\
+\linebreak
+\textit{Proof:} Since inverses are unique, we have
+$i^{-1}\left( A \right) = A^{-1}$, so since $A$ is open, $A^{-1}$ is open.\\
+\linebreak
+In a slightly different way, suppose $x \in A^{-1}$; then $x^{-1} \in A$, so
+by continuity of the inverse, there exists an open set containing $x$, say $U$,
+such that $b \in U$ implies $b^{-1} \in A$. Hence
+$U^{-1} \subset A$, so $x \in U \subset A^{-1}$. Thus
+$A^{-1}$ is open.\\
+\linebreak
+\textbf{Corollary.} The map $x \mapsto x^{-1}$ is a homeomorphism.\\
+\linebreak
+\textbf{Lemma.} Let $G$ be a topological group, $A$ an open subset,
+$b$ an element. Then $Ab$ and $bA$ are open.\\
+\linebreak
+\textit{Proof:} 
+If $f  \colon X \times Y \to Z$ is continuous, then
+$g  \colon X \to Z$ defined by $g(x) = f(x,y_0)$ is continuous for any $y_0 \in
+Y$.\\
+Define the map $k  \colon X \to X \times Y$ by
+$k(x) = \left( x,y_0 \right) $. Thus
+if $k = (k_1, k_2)$, then $k_1 = \mathbbm{1}$ and
+$k_2 = y_0$. Since both maps are continuous, $k$ is continuous. And since
+$\mu$ is continuous, $\mu \circ k  \colon X \to Z$ is continuous as the
+composition of continuous maps.\\
+\linebreak
+Now, define the map $k  \colon G \to G \times G$ by
+$k(g) = (g,b)$. Then
+we claim that the map $r_b  \colon G \to G$ by
+$r_b (g) = gb$ is a homeomorphism.\\
+It is continuous since $r_b = \mu \circ k$ which is a composition of continuous
+maps, and 
+it is bijective clearly. The inverse, is given by
+$r_{b^{-1}} = \mu \circ l$ where $l  \colon G \to G \times G$ is
+$l (g) = \left( g, b^{-1} \right) $.\\
+\linebreak
+Thus it is a homeomorphism. Since
+$Ab = r_b (A)$, it is open. Similarly for  $bA$.\\
+\linebreak
+\textbf{Corollary.} For each $a \in G$, the left and right translations:
+$x \mapsto ax, x\mapsto xa$ are homeomorphisms.\\
+\linebreak
+\textbf{Theorem 2.} Let $G$ be a topological group and let
+$A$ and $B$ be subsets. If $A$ or $B$ is open then $AB$ is open.\\
+\linebreak
+\textit{Proof:} If $A$ is open, then
+$Ab$ is open for all $b$, so
+$AB = \bigcup_{b \in B} Ab$ is open. Similarly for the case where $B$ is
+open.\\
+\linebreak
+\textbf{Corollary.} Let $A$ be a closed subset of a topological group. Then
+$Ab$ and $bA$ are closed.\\
+\linebreak
+\textbf{Example.} Let $E_1$ be the additive group of real numbers and $G$
+a topological group. A continuous homomorphism, $h(t)$, of
+$E_1$ into $G$, is called a \textbf{one-parameter group} in $G$. If
+$h$ is defined only on an open interval around zero satisfying
+$h(xy) = h(x) h(y)$ for $x,y \in E_1$ so far as it has meaning, then
+$h(t)$ is called a local one-parameter group in $G$. If
+$h(t)$ is a one-parameter group, the image of $E_1$ may consist of $e$ alone
+and then $h(t)$ is a trivial one-parameter group. If this is not the case and
+if for some $t_1 \neq 0, h(t_1) = e$, then the image of $E_1$ is homeomorphic
+to  $S^{1}$. In case $h(t) = e$ only for $t=0$, the image of
+$E_1$ is a bijective image of the line which may be a homeomorphism of the line
+or a very complicated imbedding of the line. 
+To illustrate this, let $G$ be a torus which we obtain from
+the plane vector group $E_2$ by reducing mod one in both the $x$ and $y$
+directions. In $E_2$ any line through the origin is a subgroup isomorphic to
+$E_1$ and after reduction, the line $y = ax$ is mapped onto the torus $G$ thus
+giving a one-parameter group in $G$. If $a$ is rational the image is a simple
+closed curve but if $a$ is irrational, the image is everywhere dense on the
+torus.
+
+\subsection*{1.14 \quad Products of closed sets}
+If $A,B$ are subgroups of a group $G$, $AB$ is not necessarily a subgroup.
+However, if $A$ is an invariant subgroup, i.e., $g^{-1}Ag = A, \forall g \in
+G$, and $B$ is a subgroup, then $AB$ is a subgroup.\\
+\linebreak
+The product of closed subsets, even if they are subgroups, need not be
+closed.\\
+E.g.: $G = \left( \mathbb{R},+ \right) $, let $H_1 = \left( \mathbb{Z},+
+\right) $ and
+$H_2 = \left( \left\{ \pm n \sqrt{2}  \colon n \in \mathbb{Z} \right\} ,+
+\right) $. Then $H_1 H_2$ is countable and a subgroup, but it is not closed as
+it is dense in $\mathbb{R}$.\\
+For example, we have that $\mathbb{Z}\left[ \sqrt{2}  \right] $ has infinitely
+many units, so there exist infinitely many
+$m,n \in \mathbb{Z}$ such that
+$n ^2 - 2 m^2 = 1$, so 
+$(m + \sqrt{2} n) (m-\sqrt{2} n) = 1$, and hence
+$\left( m - \sqrt{2} n \right) = \frac{1}{m + \sqrt{2} n}$. Suppose
+$m > >0$. If $n < <0$ then $m - \sqrt{2} n$ is large, so
+$m + \sqrt{2} n = \frac{1}{m - \sqrt{2} n}$ is small. If $n$ is not large and
+negative, then $m + \sqrt{2} n$ is large, so
+$m - \sqrt{2} n = \frac{1}{m + \sqrt{2} n}$ is small. In particular, we can
+make
+$m \pm n \sqrt{2}  \in \left( 0, \varepsilon \right) $ for any $\varepsilon
+>0$. Now, since $\mathbb{Z} \left[ \sqrt{2}  \right] $ is closed under
+addition, we have that this gives that the set is dense.\\
+\linebreak
+It will be shown later that if $A$ is a compact invariant subgroup and $B$ is
+a closed subgroup then $AB$ is a closed subgroup.\\
+\linebreak
+\subsection*{1.15 \quad Neighborhoods of the identity}
+Let $G$ be a topological group and $U$ an open subset containing the identity
+$e$. We showed in 1.13 that $xU$ is open and clearly $x \in xU$. Conversely, if
+$x \in O$ and $O$ is open, then  $U = x^{-1}O$ is open and contains $e$.\\
+\linebreak
+If a collection of open sets $\left\{ U_{\alpha} \right\} $ is a basis for open
+sets at $e$ then every open set of $G$ is a union of open sets of the form
+$x_{\alpha} U_{\alpha}, x_{\alpha} \in G, U_{\alpha} \in \left\{ U_{\alpha}
+\right\} $, and the topology of $G$ is completely determined by the basis at
+$e$. In particular, the collection $\left\{ x U_{\alpha} \right\} $ is a basis
+for open sets at $x$ (so also i  $\left\{ U_{\alpha}x \right\} $ ).\\
+If $U$ is a neighborhood of $e$, $U^{-1}$ is a neighborhood of $e$ and
+$U \cap U^{-1}$ is a symmetric neighborhood of $e$.\\
+\linebreak
+\textbf{Theorem.} Let $G$ be a topological group and $U$ a neighborhood of $e$.
+There exists a symmetric neighborhood $W$ of $e$ such that
+$W^2 \subset U$.\\
+\linebreak
+\textit{Proof:}  Let $\mu^{-1}(U) = U'$. There exists a basis element
+$V \times W \subset U'$ with $V,W$ open. Then by definition
+$e = e\cdot e \in  VW \subset U$. Let
+$W = V \cap V^{-1} \cap W \cap W^{-1}$. Then
+$W^2 \subset U$ as $VW \subset U$ and it is symmetric as the intersection of 
+symmetric neighborhoods of $e$.\\
+\linebreak
+\textbf{Corollary.} Let $G$ be a topological group. If $x \neq e$, there
+exists a neighborhood $W$ of $e$ such that $W \cap xW = \varnothing$.\\
+\linebreak
+\textit{Proof:} Since $G$ is $T_0$, there either exists an open set $W_1$
+containing $x$ but not $e$ or an open set $W_2$ containing $e$ but not $x$. If
+$W_2$ exists, there exists by the previous theorem a symmetric neighborhood $W$
+of $e$ such that $W^2 \subset W_2$. Suppose $w \in W \cap xW$. Then
+$w = xw'$ so $x = w w'^{-1} \in W^2 \subset U$, contradiction.\\
+\linebreak
+Thus, suppose $W_1$ exists. Then $i^{-1}\left( W_1 \right) = W_1^{-1}$ is open,
+and $xW_1^{-1}$ is a neighborhood around $e$ not containing $x$. By the
+previous theorem, there exists a symmetric neighborhood $W$ around $e$ such that
+$W^2 \subset x W_1^{-1}$. Suppose $w \in W \cap xW$. Then
+$w = xw'$ so $x = w w'^{-1} \in W^2 \subset x W_1^{-1}$, but
+$x W_1^{-1}$ does not contain $x$; contradiction.
+
+
+
+
+\textbf{1.15.1}  If $G$ is a topological group then a set $S$ of open
+neighborhood s
+$\left\{ V \right\} $ which forms a basis at the identity $e$ has the following
+properties:
+\begin{enumerate}
+    \item The intersection of all $V$ in $S$ is $\left\{ e \right\} $.
+    \item The intersection of two sets of $S$ contains a third set of
+        $S$.
+    \item Given $U \in S$ there is a $V$ in $S$ such that
+        $V V^{-1} \subset U$.
+    \item If $U \in S$ and $a \in U$ then there is a $V \in S$ such that
+        $Va \subset U$.
+    \item If $U \in S$ and $a \in G$, there is a $V \in S$ such that
+        $a V a^{-1} \subset U$.
+\end{enumerate}
+Conversely, a system of subsets of an abstract group having these properties
+may be used to determine a topology in $G$ as follows:\\
+\textbf{Theorem.} Let $G$ be an abstract group in which there is given a system
+$S$ of subsets satisfying 1-5 above. If open sets in $G$ are defined as unions
+of sets of the form $Va, a \in G$, then $G$ becomes a topological space with
+$S$ as a basis for open sets at $e$. This is the only topology making $G$
+a topological group with $S$ a basis at $e$.\\
+\linebreak
+\textit{Proof:} Suppose $G$ is a topological group with $S$ the basis at $e$.\\
+Then if $x \in G - \left\{ e \right\} $, we get by the previous corollary that
+there exists a neighborhood $W$ of $e$ such that $W \cap xW = \varnothing$.
+Now,
+since $e \in W$, we have $x \in xW$, so $x \not\in W$. As $S$ is a basis, there
+exist open sets $\left\{ U_{\alpha} \right\} \subset S$ such that
+$W = \bigcup U_{\alpha} $, so 
+$x \not\in U_{\alpha}$ for any $\alpha$, hence
+$x \not\in  \bigcap U_{\alpha} \supset \bigcap_{V \in S} V$. Since
+$e$ is in any $V \in S$, we have
+$e \in \bigcap_{V \in S}V $, giving 1.\\
+2. is clear as the intersection of two open sets at $e$ is an open set at $e$ 
+   hence contains a basis open set of $S$.\\
+   \linebreak
+   3. This follows from the theorem above. There exists open symmetric $W$ such
+      that $W W^{-1} = W^2 \subset U$. Let
+      $W = \bigcup_{V_{\alpha} \in S} V_{\alpha}$. Then
+      $V_{\alpha}V_{\alpha}^{-1} \subset W W^{-1} = W^2 \subset U$.\\
+      \linebreak
+      4. Suppose $U \in S$ and $a \in U$. Then 
+      $e \in U a^{-1}$, so there exists a $V \in S$ such that
+      $V \subset U a^{-1}$. Hence
+      $Va \subset U$.\\
+      \linebreak
+      5. If $U \in S$ then $e \in U$, so
+      $e = a^{-1} e a \in a^{-1} U a$ and hence there exists $V \in S$ such
+      that
+      $V \subset a^{-1} U a$ so
+      $a V a^{-1} \subset U$.\\
+      \linebreak
+      Now, suppose $G$ is a group with a system $S$ of subsets satisfying 1-5.
+      We claim $\left\{ gU  \mid g \in G, U \in S \right\} $ is a basis for
+      a topology. Firstly, for any $g \in G$, $g \in gU$ for any
+      $U \in S$ as $e \in U$, so the union of all such sets gives the whole
+      space $G$.\\
+      Now, suppose $x \in gU \cap g' U'$. Then
+      $e \in \left( x^{-1}g \right) U \cap \left( x^{-1}g' \right) U'$, so
+      by the second property, there exists a $U'' \in S$ such that
+      $e \in U'' \subset \left( x^{-1}g \right) U \cap 
+      \left( x^{-1}g' \right) U'$, so
+      $x \in x U'' \subset gU \cap g' U'$.\\
+      \linebreak
+      This gives that $\left\{ gU  \mid  g\in G, U \in S \right\} $ is a basis
+      for a topology on $G$.\\
+      Suppose $e,x \in gU$. We want to find $U' \in S$
+      with $x \in U' \subset gU$.
+
+
+
+
+
+
+
+
+
+
+
+    \subsection*{1.16 \quad Coset spaces}
+    Let $G$ be a group and $H$ a subgroup.
+    The sets $xH$ and $yH$ for $x,y \in G$ either coincide or are mutually
+    exclusive; and $xH = yH$ iff $x y^{-1} \in H$.\\
+    \linebreak
+    \textbf{Def 1.16.1.} By the natural map $T$ of a group onto the coset space
+    $G /H$, $H$ being a subgroup of $G$, we mean the map
+    \[
+    T  \colon x \to xH, \quad x \in G, xH \in G /H.
+    \] 
+    For any subset $U \subset H$ we have
+    \[
+    T^{-1}\left( T(U) \right) = UH \subset G.
+    \] 
+    It will become clear as we proceed that unless the group $H$ is a closed
+    subgroup of $G$, it will not be possible in general to have $T$ continuous
+    and $G /H$ a topological space; for this reason, only the case where $H$
+    is closed will be considered.\\
+    \linebreak
+    
+    \textbf{Theorem.} $T  \colon G \to  G /H$ is open, and if 
+    $xH \neq yH$, there exist neighborhoods $W_1$ and $W_2$ of $xH$ and
+    $yH$ respectively, such that $W_1 \cap W_2 = \varnothing$.\\
+    \linebreak
+    \textit{Proof:} 
+    Let $U \subset G$ be open. We must show that
+    $T(U)$ is open. But since $T$ is a quotient map, $T(U)$ is open if and only
+    if $T^{-1} \left( T(U) \right) $ is open in $G$. Now
+    since for any $\overline{g} \in G /H$,
+    $T^{-1}(\overline{g})
+    = \bigcup_{T(x) = \overline{g}} \left\{ x \right\} 
+    = \bigcup_{x g^{-1} \in H} \left\{ x \right\} 
+    = Hg$, we have
+    \[
+    T^{-1} \left( T(U) \right) 
+    = \bigcup_{g \in U}  Hg
+    = \bigcup_{h \in H} hU
+    \] 
+    and since $g \mapsto hg$ is a homeomorphism $G \to G$, we have that
+    $hU$ is open, so $T^{-1} \left( T(U) \right) $ is open. So
+    $T$ is open.\\
+    \linebreak
+    Now, we wish to show that if $xH \neq yH$ then there
+    exist open neighborhoods $W_1$ and $W_2$ around $xH$ and $yH$,
+    respectively, such that $W_1 \cap W_2 = \varnothing$.\\
+    Since $xH \neq yH$, we have $x \not\in yH$, so since
+    $yH$ is closed, we have that $\tilde{W}=(G - yH)x^{-1}$ is an open set around $e$.
+    By the theorem in 1.15, there exists a symmetric neighborhood $W$ of $e$ 
+    such that $W^2 \subset \tilde{W}$.
+    So $Wx$ is an open set around $x$ with $Wx \cap yH = \varnothing$ since
+    $\tilde{W}x \cap yH = \varnothing$. We claim
+    $WxH \cap WyH = \varnothing$. Otherwise, $wxh = w'yh'$ so
+    $(w'^{-1}w) x =y (h'h^{-1})$; but $\left( w'^{-1} w \right) \in W^2
+    \subset \tilde{W}$ and $h'h^{-1} \in H$ as $H$ is a subgroup. So
+    $\tilde{W} x \cap yH \neq \varnothing$, contradiction.
+    Hence $WxH \cap WyH = \varnothing$, and $Wx,Wy$ are open, so
+    $T(Wx),T(Wy)$ are open and
+    $T(Wx) \cap T(Wy) = T\left( WxH \cap WyH \right) = \varnothing$. This gives
+    the result.\\
+    \linebreak
+    \textbf{Corollary.} A topological group $G$ and a coset-space
+    $G /H$, with  $H$ closed in $G$, are Hausdorff spaces.\\
+    \linebreak
+    \textbf{Corollary.} Suppose that $G$ is a topological group and
+    $H$ a closed invariant (normal) subgroup. Then with the customary definition of
+    product $\left( xH \right) \left( yH \right) = xyH$, $G /H$ becomes
+    a topological group. The natural map of $G$ into $G /H$ is a continuous and
+    open homomorphism.
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

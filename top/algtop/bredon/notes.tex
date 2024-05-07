@@ -1,0 +1,224 @@
+\documentclass[reqno]{amsart}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb, amsthm, amscd}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+%%For code (e.g. python) in latex:
+%\usepackage{listings}
+%
+%Usage: 
+%\begin{lstlisting}[language=Python]
+%\end{lstlisting}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+\theoremstyle{plain}% default
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\Hom}{{\mathrm{Hom}}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\Mod}{{\mathrm{Mod}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\begin{document}
+    \begin{proposition}[13.19]
+        If $f  \colon X \to Y$ is an identification map and $K$ is
+        a locally compact Hausdorff space then $f\times 1  \colon
+        X \times K \to Y \times K$ is an identification map.
+    \end{proposition}
+
+    \begin{proof}
+        Let $\pi = \left( f \times 1 \right) $.
+        Let $A \subset Y \times K$ such that $\pi^{-1}(A) $ is open.
+        Let $\left( x,y \right) \in \pi^{-1}(A)$ and choose open sets
+         $U_1,V$ such that $\left( x,y \right) \in U_1 \times V$
+         and $U_1 \times \overline{V} \subset \pi^{-1}(A)$.
+         Now suppose $u \in f^{-1}\left( f \left( U_1 \right)  \right) $. Then
+         $f(u) \times \overline{V} \subset A$, so
+         $u \times \overline{V} \subset  \pi^{-1}(A)$ which is open in
+         $U_1 \times \overline{V}$. By the tube lemma, we can find
+         an open set $U_u$ around $u$ in $X$ such that
+         $U_u \times \overline{V} \subset \pi^{-1}(A)$. 
+         Let $U_2 = \bigcup_{u \in f^{-1}\left( f(U_1) \right) } U_u$. This is
+         open and $U_2 \times \overline{V} \subset \pi^{-1}(A)$. Continuing
+         for $U_i$ with $i>2 $ in the same way, we let
+         $U = \bigcup_{i \in \mathbb{N}} U_i$. Then
+         clearly $U \times \overline{V} \subset \pi^{-1}(A)$.\\
+         Now suppose $u' \in f^{-1}\left( f(U) \right) $, so
+         there exists $u \in U$ such that $f(u') = f(u)$. But then
+         there exists  $i \in \mathbb{N}$ such that
+         $u \in U_i$ and hence $u' \in U_{i+1}$ by construction, so
+         $u' \in U$. Hence $f^{-1}\left( f\left( U \right)  \right) = U$, so
+         $U$ is saturated. Therefore
+         $\pi \left( U \times V \right) $ is an open set contained in $A$ which
+         contains $\left( f(x), y \right) $. As $f$ is surjective,
+         we can for any $(y',y) \in A$ find $(x',y) \in X$ and repeat the above
+         to obtain some open set whose image is contained in $A$ and contains 
+         $\left( y',y \right) $. Therefore $A$ is open.
+     \end{proof}
+
+     \begin{exercise}[13.2]
+         If $X,Y$ are normal, $A \subset X$ is closed, and $f  \colon A \to Y$ 
+         is a map, show that $Y \cup_f X$ is normal.
+     \end{exercise}
+
+     \begin{proof}
+        \[
+        Y \cup_f X = Y + X / \sim
+        \] 
+
+        \subsection{Homotopy}
+        Let $C$ denote the constant homotopy, whichever one makes sense
+        in the current context, i.e., $C  \colon X \times I \to Y$ is $\rel X$.
+        \begin{proposition}[14.13]
+            We have $F * C \simeq F \rel X \times \partial I$, and, similarly,
+            $C * F \simeq F \rel X \times \partial I$.
+        \end{proposition}
+        
+        \begin{proof}
+        We have a map $\varphi_1  \colon \left( I, \partial I \right) \to 
+        \left( I, \partial I \right) $ given by
+        \[
+        \varphi_1 \left( t \right) 
+        =
+        \begin{cases}
+            2t,& t \in \left[ 0, \frac{1}{2} \right] \\
+            1,& t\in \left[ \frac{1}{2},1 \right] 
+        \end{cases}
+        \] 
+        Then $\varphi_1$ is continuous, and we have
+        \[
+        F * C \simeq F * C \left( x, \varphi_1 (t) \right) 
+        =
+        \] 
+        
+        \end{proof}
+         
+
+
+
+     \end{proof}
+
+
+
+%\bibliography{refs}
+\end{document}
