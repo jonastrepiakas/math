@@ -1,0 +1,157 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+%\usepackage{tikz-cd}
+%%For code (e.g. python) in latex:
+%\usepackage{listings}
+%
+%Usage: 
+%\begin{lstlisting}[language=Python]
+%\end{lstlisting}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+%Redeclaring Span and image
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Hom}{Hom}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\begin{document}
+    \textbf{1.5.ix:} Show that any category that is equivalent to a locally
+    small category is locally small.\\
+    \linebreak
+    \textit{Solution:} Let $C$ be a locally small category that is equivalent
+    to a category $D$. Let
+    $d$ and $d'$ be objects of $D$. Since $C$ and $D$ are equivalent, we have
+    by theorem 1.5.9 that
+    the functor defining an equivalence between $C$ and $D$ is fully faithful
+    and
+    essentially surjective. Let $F  \colon C \to D$ be a functor defining
+    an equivalence between $C$ and $D$.\\
+    Since $F$ is essentially surjective, we can find objects
+    $c, c' \in C$ such that $F(c) \cong d$ and $F(c') \cong d'$. Since
+    $F$ is fully faithful, we have
+    that the map $C\left( c,c' \right) \to D\left( d,d' \right) $ is
+    bijective, and since $C\left( c,c' \right) $ is a set, $D(d,d')$ is
+    a set.\\
+    Since $d$ and $d'$ were arbitrary, we find that $D$ is locally small.\\
+    \linebreak
+    \textbf{1.5.x:} Characterize the categories that are equivalent to discrete
+    categories. A category that is connected and essentially discrete is called
+    chaotic.\\
+    \linebreak
+    \textit{Solution:} Let $C$ be a category that is equivalent to a discrete category $D$.\\
+    The skeleton of $C$ and $D$ are isomorphic, so since the skeleton of $D$ is
+    $D$ itself - since each isomorphism class only contains a single object -,
+    we have $\sk C \cong \sk D \cong D$, so the skeleton of $C$ is discrete.
+    If for two objects $c, c' \in C$ there was a non-isomorphic morphism
+    $c \to c'$, there would be a morphism in the skeleton from the isomorphism
+    class of $c$ to the isomorphism class of $c'$, so since the skeleton is
+    discrete, we conclude that all morphisms in $C$ are isomorphisms.\\
+    Furthermore, since the functor taking $C$ to $D$ in the equivalence is
+    faithful, we have that since $\left| \Hom (d,d) \right| = 1$ for all $d \in
+    D$, $\left| \Hom (c,c') \right| = 1$ for any two isomorphic $c,c'$ in
+    $C$.\\
+    \linebreak
+    \textit{Claim:} The categories that are equivalent to discrete categories
+    are precisely all groupoids with hom-sets of order less than or equal to $1$.\\
+    \linebreak
+    \textit{Proof:} We have shown  the inclusion $\subset $. For the converse,
+    suppose $C$ is a groupoid with hom-sets of order $\le 1$.
+    Let $d, d' \in \sk C$ be distinct. Then since
+    the skeleton of $C$ is equivalent to $C$, let $F  \colon \sk C \to C$ be
+    a functor defining the equivalence. If there were a morphism
+    $d \to d' \in \Hom (d,d')$, then
+    there exists a morphism $Fd \to Fd' \in \Hom \left( Fd, Fd' \right) $, but
+    since $C$ is a groupoid, this is then an isomorphism. Now let  $G$ be the
+    other part of the functor defining the equivalence  with $F$. Then
+    $G$ maps isomorphisms to isomorphisms, so
+    $G \left( Fd \right) \to G\left( Fd' \right) $ is an isomorphism, but
+    by equivalence $\alpha  \colon GF \simeq \mathbbm{1}_{\sk C}$, so
+    letting  $f  \colon d \to d'$, we have
+    $\alpha_{d'} GF(f) \alpha_{d}^{-1} = f$, so since each of the morphisms on
+    the left are isomorphisms, $f$ is an isomorphism. But this contradicts
+    that $d$ and $d'$ are distinct.\\
+    \linebreak
+    Chaotic categories is thus a connected groupoid with hom-sets of order less
+    than or equal to $1$. This groupoid is thus all mapped to the discrete
+    category of a single object
+    with the identity as the only morphism. Since the functor
+    defining the equivalence is full, there must furthermore exist a morphism
+    between each pair of objects in the connected groupoid. So it is simply
+    the groupoid where each object is isomorphic to every other object. 
+    
+
+
+
+
+
+
+\end{document}

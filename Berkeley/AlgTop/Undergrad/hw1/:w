@@ -1,0 +1,182 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%% for identity function 1:
+%\usepackage{bbm}
+%%For category theory diagrams:
+%\usepackage{tikz-cd}
+%%For code (e.g. python) in latex:
+%\usepackage{listings}
+%
+%Usage: 
+%\begin{lstlisting}[language=Python]
+%\end{lstlisting}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+%Redeclaring Span and image
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\begin{document}
+
+    \textbf{p. 31}\\
+    \textbf{1.:} Verify each of the following for arbitrary subsets $A,B$ of
+    a space $X:$ \\
+    \linebreak
+    (a) $\overline{A \cup B} = \overline{A} \cup \overline{B}$.\\
+    (c) $\overline{ \overline{A}} = \overline{A}$.\\
+    (d) $\left( A \cup B \right)^{\circ} \supseteq A^{\circ}
+    \cup B^{\circ}$.\\
+    \linebreak
+    \textit{Solution:}\\
+    (a) Let  $x$ be a limit point of $A \cup B$. If any neighborhood of 
+    $x$ intersects $A - \left\{ x \right\} $, then $x \in \overline{A} \subset 
+    \overline{A} \cup \overline{B}$, so assume there exists a neighborhood
+    $N_A$
+    of $x$ that does not intersect $A - \left\{ x \right\} $. If
+    there exists a neighborhood $N_B$ of $x$ that does not intersect
+    $B - \left\{ x \right\} $, then
+    $x \in N_A \cap N_B$ and $N_A \cap N_B$ does not intersect
+    $A - \left\{ x \right\} \cup B - \left\{ x \right\} =
+    A \cup B - \left\{ x \right\} $ and is a neighborhood as finite
+    intersections of neighborhood are again neighborhoods. But this contradicts
+    $x \in \overline{A \cup B}$, hence there does not exists such
+    a neighborhood $N_B$, so $x \in \overline{B} \subset \overline{A}\cup
+    \overline{B}$.\\
+    
+    
+    Conversely, if $x \in \overline{A}\cup \overline{B}$ then
+    $x \in \overline{A}$ or $x \in \overline{B}$. Assume without loss of
+    generality that $x \in \overline{A}$. Then any neighborhood of $x$ 
+    intersects
+    $A - \left\{ x \right\} \subset A \cup B - \left\{ x \right\} $, so
+    $x \in \overline{A \cup B}$.\\
+    \linebreak
+    (c) By theorem 2.3, $\overline{A}$ is a closed set. Then by another
+    use of theorem 2.3,
+    $\overline{\overline{A}}$ is the smallest closed set containing
+    $\overline{A}$ which is thus $\overline{A}$ as it is closed, so
+    $\overline{\overline{A}} = \overline{A}$.\\
+    Alternatively, we can note:
+    $x \in \overline{\overline{A}}$ if and only if $x$ is a limit point of 
+    $\overline{A}$, and this happens if and only if $x \in \overline{A}$
+    since $\overline{A}$ is closed by theorem 2.3 and thus
+    contains all its limit points.\\
+    \linebreak
+    (d) Let $x \in A^{\circ} \cup B^{\circ}$, then assume without loss of
+    generality that $x \in A^{\circ}$. By definition, $x$ is thus contained
+    in the union of all open sets contained in $A$ and hence is contained in
+    some
+    open set, say $U$, contained in $A$. Then $x \in U \subset A \subset A \cup
+    B$, and by definition $U \subset \left( A \cup B \right)^{\circ}$, so
+    $x \in \left( A\cup B \right)^{\circ}$.\\
+    \linebreak
+    \textbf{3:} Specify the interior, closure, and frontier of each of the
+    following subsets of the plane:\\
+    \linebreak
+    (a) $A = \left\{ (x,y)  \mid 1 < x^2 + y^2 \le 2 \right\} $ \\
+    (b) $B = \mathbb{E}^2$ with both axes removed\\
+    (c) $C = \mathbb{E}^2 - \left\{ (x, \sin (\frac{1}{x}) )  \mid x > 0 \right\}
+    $.\\
+    \linebreak
+    \textit{Solution:}\\
+    (a) By definition, the interior of $A$ is the union of all open sets
+    contained in $A$. We claim $A^{\circ} =
+    \left\{ (x, y)  \mid 1 < x^2 + y^2 < 2 \right\}$. Let the right hand side
+    be denoted by $\tilde{A}$. Define
+    $f \colon \mathbb{E}^2 \to \mathbb{E}$ by $f(x,y) = x^2 + y^2$. This is
+    continuous as the sum of continuous functions - or alternatively since it
+    is the square of the norm which is a composition of continuous functions. Thus
+    $ \tilde{A} = f^{-1} \left( (1,2) \right) $ is open as the preimage of an
+    open set of $\mathbb{E}$; hence $\tilde{A} \subset A^{\circ}$. We
+    claim that $A^{\circ}\subset \tilde{A}$. Let $(x,y) \in A^{\circ}$. 
+    If $x^2 + y^2 = 2$ then for any neighborhood $U$ of $(x,y)$, we can
+    find an open ball at $(x,y)$, $B((x,y) , \varepsilon)$ with
+    $(x,y) \in B\left( (x,y) , \varepsilon \right) \subset U$. However,
+    $(x',y') = (x + \frac{\varepsilon}{\sqrt{3}
+    }    , y + \frac{\varepsilon}{\sqrt{3} } )
+    \in B\left( (x,y) , \varepsilon \right) $ since
+    $\| (x', y') - (x,y)\| = \| \left( \frac{\varepsilon}{\sqrt{3} } ,
+    \frac{\varepsilon}{\sqrt{3} } \right)  \| = \sqrt{\frac{2}{3}}  \varepsilon <
+    \varepsilon
+     $
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

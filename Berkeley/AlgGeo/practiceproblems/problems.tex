@@ -1,0 +1,670 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+%\usepackage{tikz-cd}
+%%For code (e.g. python) in latex:
+%\usepackage{listings}
+%
+%Usage: 
+%\begin{lstlisting}[language=Python]
+%\end{lstlisting}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\begin{document}
+    \textbf{1:} Let $F = x^3 + y^3 - 2xyz$, and consider $\mathbb{V}(F)
+    \subset \mathbb{P}_{\mathbb{C}}^2$.\\
+    (a) The tangent line to $\mathbb{V}(F)$ at $\left[ 1 : 1 : 1 \right] $ is
+    the projective closure of the tangent line to $V(f)$ at $(1,1)$ where
+    $f = x^3 + y^3 - 2xy$. The tangent line to $V(f)$ at $(1,1)$ is
+    $f_x(1,1) (x-1) + f_y(1,1) (y-1)$. Now
+    $f_x = 3x^2 - 2y$ and $f_y = 3y^2 - 2x$, so $f_x(1,1) = 1 = f_y (1,1)$, so
+    $T_{(1,1)}V(f) = V\left( x+y-2 \right) $. Hence
+    the tangent line to $\mathbb{V}(F)$ becomes
+    $\mathbb{V}(x+y-2z)$.\\
+    \linebreak
+    (b) $P$ is a singular point of $\mathbb{V}(F)$ if and only if
+    $F(P) = F_x(P) = F_y(P) = F_z(P) = 0$.\\
+    Now,  $F_x = 3x^2 - 2yz, F_y = 3y^2 - 2xz$ and
+    $F_z = -2xy$. If $x = 0$ then $y = 0$, so $z\neq 0$. If
+    $y = 0$ then $x=0$ so $z\neq 0$. Since $F_z$ must be zero at a singular
+    point, either no singular point is in $U_3^{c}$.\\
+    So the only singular point is
+    $\left[ 0 : 0 : 1 \right]$. \\
+    \linebreak
+    (c) The multiplicity of $\left[ 0:0:1 \right] $ is
+    the multiplicity of $(0,0)$ for $f = x^3 + y^3 - 2xy$ which is
+    $2$ and the tangent cone is $V(xy) = V(x) \cup V(y)$.\\
+    \linebreak
+    \textbf{2:} Let $f = y^{4} + y^3 - x^2$, and consider $V(f) \subset 
+    \mathbb{A}_{\mathbb{C}}^2$.\\
+    (a) The homogenization of $f$ is
+    $F = y^{4} + y^{3}z - x^2 z^2$, so the projective closure of
+    $V(f)$ is $\mathbb{V}(y^{4}+y^3 z - x^2 z^2)$.\\
+    \linebreak
+    (b) $F$ is Eisenstein in $x^2$, and hence irreducible. Now
+    $F_x = -2x z^2, F_y = 4y^3 + 3y^2 z$ and
+    $F_z = y^3 - 2zx^2$.\\
+    If $x = 0$ then $y = 0$, so $z\neq 0$. If
+    $z = 0$ then $y = 0$, so $x \neq 0$. So the only singular points are
+    $\left[ 0 : 0 : 1 \right] $ and $\left[ 1 : 0 : 0 \right] $.\\
+    \linebreak
+    (c) The multiplicity of $\left[ 0 : 0 : 1 \right] $ is the multiplicity of
+    $(0,0)$ of $f$ which is $2$ and the
+    tangent cone is $V(x^2) = V(x)$ so the tangent cone for
+    $\left[ 0:0:1 \right] $ is
+    $\mathbb{V}(x)$.\\
+    The mult of $\left[ 1 : 0 : 0 \right] $ is the mult of $(0,0)$ of
+    $g = y^{4} + y^3 z - z^2$ which is $2$ and the tangent cone of
+    $\left[ 1 : 0 : 0 \right] $ is $\mathbb{V}(z)$.\\
+    \linebreak
+    \textbf{3:}\\
+    (a) 
+    \begin{align*}
+        I_P (xy+y^3, x^2 + 2xy + y^3)
+        &= I_P \left( y(x+y^2) , x(x+y) \right)\\
+        &= I_P(y,x) + I_P(y,x+y) + I_P(x+y^2,x) + I_P(x+y^2 , x+y)\\
+        &= 1 + 1 + 2 + I_P(y(y-1), x+y)\\
+        &= 4 + \underbrace{I_P(y,x+y)}_{=1} + I_P(y-1, x+y)\\
+        &= 5.
+    \end{align*}
+    If we instead follow the algorithm:\\
+    First reduce to
+    $I_P(y,x^2 + 2xy + y^3) + I_P(x + y^2, x^2 + 2xy + y^3)$ by (6).\\
+    Now, the first one reduces to $I_P(y,x^2) = 2$.\\
+    The second is $I_P (x+y^2, 2xy) = I_P (x+y^2, x) + I_P(x+y^2, y)
+    = 2 + 1 = 3$.\\
+    So we recover $I_P\left( xy + y^3, x^2 + 2xy + y^3 \right) = 5 $.\\
+    \linebreak
+    (b) We have
+    that the tangent cone of $y^2 - x^3$ is $V(y)$ and
+    the tangent cone of $xy + x^{4} + y^{4}$ is 
+    $V(x) \cup V(y)$.\\
+    Let $f = y^2 - x^3$ and $g = xy + x^{4} + y^{4}$. Then
+    $f(x,0) = -x^3$ and $g(x,0) = x^{4}$.\\
+    We have case 2 in (6), with $\deg f \le \deg g$, so write
+    $h_2 = g + xf = xy + y^{4} + xy^2$. Then
+    $I_P(f,g) = I_P(f,h_2)$.\\
+    Now back to step (2).\\
+    $h_2 = y (x+y^3 + xy)$, so  $h_2$ and $f$ have no common factor.\\
+    (3)  $(0,0) \in V(f) \cap V(h_2)$.\\
+    (4) Now the tangent cone of  $h_2$ is $V(xy) = V(x)\cup  V(y)$, so
+    $V(y)$ is again in common. Now $h_2(x,0) = 0$, so
+    $\deg h_2(x,0) \le \deg f(x,0)$. Write
+    $h_2 = y h$, so $h = x+ y^3 + xy$. Now, by (6), we have
+    $I_P(f,h_2) = I_P(y, f) + I_P(h,f)$, and
+    $I_P(y,f) = 3$, and
+    $I_P(h,f) = I_P(x+y^3 + xy, y^2 - x^3)$. Back to (2).\\
+    Tangent cone of $x+y^3 + xy$ is $V(x)$ and tangent cone of
+    $y^2 - x^3$ is $V(y)$. No lines in common, so
+    $I_P(x+y^3 + xy, y^2 - x^3) = \text{mult}_{(0,0)}(x+y^3 + xy)
+    \text{mult}_{(0,0)}(y^2 - x^3) = 2$. Thus
+    $I_P(f,g) = 3+2 = 5$.\\
+    \linebreak
+    (c) Let $f = x^2 + y^2 + x^{4}y^{4}$ and $g = x^3 - y^3 + 3xy^{5}$.\\
+    We have that the tangent cone of $f$ at $P$ is
+    $V(x^2 + y^2)$ and the tangent cone of $g$ at $P$ is
+    $V(x^3 - y^3) = V((x-y)(x^2 + xy + y^2)) = V(x-y) \cup V(x^2 + xy + y^2)$.
+    Since they have no lines in common, we have
+    $I_P(f,g) = \text{mult}_P(f) \text{mult}_P(g) = 
+    2 \cdot  3 = 6$.\\
+    \linebreak
+    \textbf{4:} Let $\alpha = \frac{x^2 + xy}{3y^2} \in k(\mathbb{P}^{1})$.
+    What is the value of $\alpha$ at $\left[ 1:3 \right] \in \mathbb{P}^{1}$?
+    Where is $\alpha$ defined?\\
+    \linebreak
+    \textit{Solution:} Since $\alpha$ is a fraction of
+    homogeneous polynomials and $3y^2$ is nonzero at
+    $\left[ 1:3 \right] $, we have that $\alpha$ is defined at
+    $\left[ 1:3 \right] $ and is given by
+    $\frac{1^2 + 1 \cdot 3}{3 \cdot 3^2}= \frac{4}{27}$. Now  $\alpha$ is
+    defined whenever $y\neq 0$, so
+    $\alpha$ is defined on $U_2$.\\
+    \linebreak
+    \textbf{5:} It is by definition of closure an algebraic set.\\
+    Suppose $\overline{\varphi(X)} =
+    U \cup V$ with $U$ and $V$ algebraic sets which are both proper subsets
+    of $\overline{\varphi(X)}$. We have
+    $\varphi^{-1}(U \cup V) = \varphi^{-1}(U) \cup \varphi^{-1}(V) \supset X$,
+    hence $X = U' \cup V'$ where $U' = \varphi^{-1}(U) \cap X$ and
+    $V' = \varphi^{-1}(V) \cap X$ which are both open. Hence
+    $U' = X$ without loss of generality. So
+    $\varphi^{-1}(U) = X$, but then
+    $\varphi(X) = \varphi\left( \varphi^{-1}(U) \right) 
+    \subset U$, so $\overline{\varphi(X)} 
+    \subset \overline{U}$. Now
+    We know $U$ is open, and since $U \cup V = \overline{\varphi(X)}$, we have
+    that $U$ is closed in $\overline{\varphi(X)}$, so since
+    $\overline{\varphi(X)}$ is closed in $\mathbb{A}^{m}$, we have that
+    $U$ is closed in $\mathbb{A}^{m}$ too. So $U$ is both closed and open.
+    Hence $\overline{U} = U$, so
+    $\overline{\varphi(X)} = U$, contradiction.\\
+    \linebreak
+    \textbf{6:} Let $\varphi  \colon \mathbb{A}^{1} \to \mathbb{A}^{3}$ be the
+    morphism given by $t \mapsto \left( t, t^2, t^3 \right) $. Let
+    $x,y,z$ be the coordinates on $\mathbb{A}^3$.\\
+    (a) We have that $\Gamma(\mathbb{A}^3) = 
+    k\left[ x,y,z \right] / I\left( \mathbb{A}^3 \right) 
+    = k\left[ x,y,z \right] / (0) = k\left[ x,y,z \right] $, and similarly,
+    $\Gamma(\mathbb{A}^{1}) = k\left[ t \right] $.\\
+    Now $\varphi^{*}(x)(t) =
+    x \left( \varphi(t) \right) = x(t,t^2,t^3) = t$,
+    $\varphi^{*}(y)(t) = y \left( t,t^2,t^3 \right) =t^2$ and similarly,
+    $\varphi^{*}(z)(t) = t^3$.\\
+    \linebreak
+    (b) The image of $\varphi$ is indeed closed as it is
+    $V\left( y-x^2, z-x^3 \right) $. Namely, for any
+    $t \in \mathbb{A}$, we have $\varphi(t) = \left( t, t^2, t^3 \right)
+    $ which clearly lies in $V(y-x^2, z-x^3)$. Conversely, if
+    $(x,y,z) \in V(y-x^2, z-x^3)$ then
+    $y = x^2$ and $z = x^3$, so $(x,y,z) = (x, x^2, x^3) =
+    \varphi(x) \in \Ima \varphi$.\\
+    In fact, this also follows directly from the fact that
+    $\varphi^{*}$ maps $x \mapsto t$ and is thus surjective. By a proposition,
+    we then have that $\Ima \varphi$ is an algebraic set and even that
+    $\varphi$ is an isomorphism of the domain onto its image.\\
+     \linebreak
+     (c) This follows from the last comment of (b).\\
+     Alternatively,
+     the map $\psi  \colon \mathbb{A}^3 \to \mathbb{A}^{1}$ by
+     $(x,y,z) \mapsto x$ is a polynomial map given by
+     $P \mapsto \left( T(P) \right) $ where $T(x,y,z) = x$. Furthermore,
+     suppose $(x,y,z) \in \Ima \varphi$. Then
+     $\varphi \circ \psi (x,y,z)
+     = \varphi(x) = (x,x^2, x^3)
+     = (x,y,z)$, and
+     $\psi \circ \varphi(x)
+     =\psi (x,x^2,x^3) = x$, so
+     indeed $\varphi$ is an isomorphism.\\
+     \linebreak
+     (d) We have
+     \[
+     \varphi^{-1}\left( V(yz-x^5) \right) 
+     = V\left( \varphi^{*}(yz-x^{5}) \right) 
+     = V\left( t^2 t^3 - t^{5} \right) 
+     = V(0) = \mathbb{A}^{1}.
+     \] 
+     \textbf{7:} Let $X = V\left( x^2 z, x^2 + xz + yz + y^2 \right) 
+     \subset \mathbb{A}_{\mathbb{C}}^3$. If $x^2 z = 0$ then either
+     $x = 0$ or $z = 0$. Suppose $x = 0$, then
+     $yz + y^2 = y (z+y) = 0$, so either $y = 0$ or $z = -y$.\\
+     If instead $z = 0$ then
+     $x^2 + y^2 = (x+iy)(x-iy) = 0$, so either $x = -iy$ or $x = iy$. Thus
+     \[
+    X = V(x, z+y) \cup V(x+iy) \cup V(x-iy)
+     \] 
+     where $V(x,y) \subset V(x+iy)$.\\
+     These are irreducible since $\Gamma(V(x, z+y)) \cong k\left[ x \right]
+     $ which is an integral domain, so
+     $I\left( V\left( x, z+y \right)  \right) $ is prime and hence
+     $V(x, z+y)$ is irreducible. Now
+     $V(x+iy)$ and $V(x-iy)$ are irreducible since
+     $\Gamma(V(x+iy)) \cong k\left[ t,s \right] \cong
+     \Gamma(v(x-iy))$ which is also an integral domain.\\
+     \linebreak
+     \textbf{8:} Let $J = \left( y^2 - x^2, y^2 + x^2 \right) 
+     \subset \mathbb{C}\left[ x,y \right] $.\\
+     \linebreak
+     (a) If $(x,y) \in V(J)$ then $y^2 - x^2 = 0 = y^2 + x^2$ so
+     $x = 0$ and hence $y = 0$. So
+     $V(J) = \left\{ (0,0) \right\} $.\\
+     \linebreak
+     (b) 
+     \[
+     \dim_{\mathbb{C}} \mathbb{C}\left[ x,y \right] / J
+     = \dim_{\mathbb{C}}\mathbb{C}\left[ x,y \right] / \left( y^2 - x^2 , y^2
+     + x^2 \right) 
+     \]
+     In $\mathbb{C}\left[ x,y \right] / J$, we have that
+     $y^{n} = y^{2} y^{n-2} = 0$ for $n\ge 2$ since $\frac{1}{2} \left[ y^2 -x^2 + y^2 +x^2 \right] 
+     = y^2 \in J$ and
+     similarly  $x^{2} = 0$. Hence
+      $\mathbb{C}\left[ x,y \right] / J$ is generated by
+      $\left\{ 1, x, y, xy \right\} $, so
+      $\dim_{\mathbb{C}} \mathbb{C}\left[ x,y \right] /J = 4$.\\
+      \linebreak
+      (c) 
+      \[
+      I_{(0,0)}\left( y^2 - x^2, y^2 + x^2 \right) 
+      = I_{(0,0)}\left( y^2 - x^2 , 2y^2 \right) 
+      = I_{(0,0)}\left( -x^2 , 2y^2 \right) 
+      = I_{(0,0)}(x^2 , y^2)
+      = 4 I_{(0,0)}(x,y) = 4.
+      \] 
+      (d) We have that
+      $\mathbb{V}(J)$ is the projectivization of $V(J) = \left\{ (0,0) \right\}
+      $, so
+      $\mathbb{V}(J) = \varnothing$.\\
+      \linebreak
+      \textbf{9:} Find the projective closure of
+      $V(x+y^3 + z) \subset \mathbb{A}^3$ in $\mathbb{P}^3$. Is it smooth?\\
+      \linebreak
+      \textit{Solution:} The projective closure is the vanishing of the
+      homogenization:
+      \[
+      \mathbb{V} \left( xw^2 + y^3 + zw^2 \right) \subset \mathbb{P}^3
+      \] 
+      This is smooth if it has no singular points. Now
+      $x w^2 + y^3 + z w^2$ is Eisenstein in $w^2$, and hence has no repeated
+      factors. So a point $P\in \mathbb{P}^3$ is singular if and only if
+      for  $F = xw^2 + y^3 + zw^2$, we have
+      $F(P) = F_x(P) = F_y(P) = F_z(P) = 0$. Now
+      $F_x = w^2, F_y = 3y^2, F_z = w^2, F_w = 2xw + 2zw$. So
+      if  $P = \left[ x,y,z,w \right] $ then
+      $w = y = 0$. So
+      any points of the form $\left\{ a : 0 : b : 0 \right\} $ for either
+      $a\neq 0$ or $b \neq 0$ is singular. Hence the closure is not smooth.
+      This can be verified since e.g. $\left[ 1 : 0 : 0 : 0 \right] 
+      \in U_1$ and hence letting $f = w^2 + y^3 + z w^2$, we have that
+      $f_y = 3y^2, f_z = w^2, f_w = 2w + 2zw$ all of which disappear at
+      $(0,0,0)$, so
+      $(0,0,0)$ is a singular point of $V(f)$ and hence
+      $\left[ 1 : 0 : 0 : 0 \right] $ is a singular point of
+      $\mathbb{V}\left( xw^2 + y^3 + zw^2 \right) $.\\
+      \linebreak
+      \textbf{10:}\\
+      (1) Suppose $L$ is a finite extension of $k$. This means that
+      $\left[ L : k \right] $ is finite, i.e., that
+      $L$ as a $k$-vector space has finite dimension, which means that there
+      exist $l_1, \ldots, l_n$ such that
+      $L = \sum k l_i$, i.e., $L$ is finitely generated as a $k$-module. Now,
+      $L$ is an algebraic extension over $k$ if for any $l \in L$, there
+      exists some polynomial $f \in k\left[ x \right] $ such that
+      $f(l) = 0$. Now,  $1, l, l^2, \ldots, l^{n}$ are linearly dependent as
+      the dimension of the $k$-vector space $L$ is $n$, so there exist
+      $k_0, \ldots, k_n$ such that
+      $k_0 + k_1 l + \ldots + k_n l^{n} = 0$ and hence
+      the polynomial $f = k_0 + k_1 x+ \ldots + k_n x^{n} \in k\left[ x \right]
+      $ is a polynomial such that $f(l)=0$, so $l$ is algebraic over
+      $k$. As $l$ was arbitrary, we have that $L$ is an algebraic extension of
+      $k$.\\
+      \linebreak
+      (2) False. Not all algebraic extensions are finite.\\
+      Consider $k = \mathbb{Q}$ and 
+      $L = \mathbb{Q}\left[ \sqrt{2} , \sqrt[3]{2},
+      \sqrt[4]{2}, \ldots \right] $. Then $L$ is clearly algebraic over
+      $k$; however, $L$ is not a finite extension as a basis is
+      the infinte set $\left\{ \sqrt[n]{2}  \right\}_{n \ge 2}$.\\
+      \linebreak
+      (3) True. Suppose $\varphi  \colon X \to Y$ is an isomorphism with
+      inverse
+      $\psi  \colon Y \to X$. Let first  $y \in Y$. Then
+      $\varphi \left( \psi (y) \right) = y$, so
+      $\varphi$ is surjective. Now
+      If $x,x' \in X$ with $\varphi(x) = \varphi(x')$ then
+      $x = \psi\left( \varphi(x) \right) = \psi(\varphi(x')) = x'$. So
+      $\varphi$ is injective.\\
+      \linebreak
+      (4) Consider the map 
+      $\varphi  \colon \mathbb{A}^{1} \to V\left( y^3 - x^2 \right) $ by
+      $t \mapsto (t^2, t^3)$. This is a bijection on points, however, 
+      $\varphi$ is not an isomorphism, since 
+      \[
+      \Gamma(A^{1}) = k\left[ x \right] \not \cong k\left[ x,y \right] /(y^3
+      - x^2)
+      \] 
+      
+      since the first is UFD, however, in $k\left[ x,y \right] / (y^3 - x^2)$,
+      we have $y^3 = x^2$, so since
+      $y$ and $x$ are irreducible, we have that $y$ is associate to $x$, which
+      is a contradiction.\\
+      \linebreak
+      (5) False. E.g. $I$ is closed in the classical topology on
+      $\mathbb{A}^{1}$, however not in the Zariski topology since an infinite
+      solution set implies that the function is identically zero.\\
+      \linebreak
+      (6) True. The Zariski topology is coarser than the classical topology.
+      This follows as polynomial maps are continuous.\\
+      \linebreak
+      (7) False. $(xy) \subset (x)$ but
+      $(1,0) \in V((xy))$ while
+      $(1,0) \not\in V(x)$, so
+      $V((xy)) \not \subset V(x)$.\\
+      \linebreak
+      (8) True.\\
+      (9) False. $\left[ 0 : 1 \right] \in 
+      Y = \left\{ \left[ 1  : 0 \right] , \left[ 0 : 1 \right]  \right\} $, however
+      $C(Y) = V(x) \cup V(y) \not \subset V(y)$ since
+      $(0,1) \in C(Y)$ but $(0,1) \not\in V(y) = C(X)$.\\
+      \linebreak
+      (10) False.
+      $x$ vanishes on $\mathbb{V}(x)$ and
+      $y$ vanishes on $\mathbb{V}(y)$ but
+      $x+y \in \mathbb{I}\left( \mathbb{V}(x) \right) +
+      \mathbb{I}\left( \mathbb{V}(y) \right) =
+      (x) + (y)$ does not vanish one
+      $\mathbb{V}(x) \cup \mathbb{V}(y)$ since
+      $\left[ 1:0 \right] \in \mathbb{V}(x) \cup \mathbb{V}(y)$ but
+      $(x+y) \left( \left[ 1:0 \right]  \right) 
+      = 1 \neq 0$.\\
+      \linebreak
+      (11) True.\\
+      \linebreak
+      (12) False. Let $J = (x^2 y^2)$. 
+      Then $\left[ 1 : 0 \right] \in \mathbb{V}(J)$ and
+      so $x \in \mathbb{I}\left( \mathbb{V}(J) \right) $, however,
+      $x \not\in \left( x^2 y^2 \right) $ since we are dealing with an integral
+      domain, so the degrees add.\\
+      \linebreak
+      (13) It suffices to show it in the affine variety, since
+      the projective tangent space of a projective alg set $X \subset
+      \mathbb{P}^{n}$ at $P \in X$ with $P \in U_i$ is the projective closure
+      of $T_P \left( X \cap U_i \right) \subset U_i$ and
+      the projective tangent cone of $X$ at $P$ is 
+      the projective closure of $TC_P \left( X \cap U_i \right) $.\\
+      In the affine case, if we write $f = f_1 + \ldots f_m$, then
+      if $f_1 \neq 0$, we have that $T_P \left( X \cap U_i \right) 
+      = TC_P\left( X\cap U_i \right) $. If
+      $f_1 = 0$ then $T_P\left( X \cap U_1 \right) =\mathbb{A}^{n+1}$ and
+      $TC_P\left( X \cap U_i \right) \subset \mathbb{A}^{n+1}$.\\
+      \linebreak
+      (14) Not true. E.g. for $x^2 \in k\left[ x,y \right] $, the tangent
+      space is $\mathbb{A}^{2}$ but the tangent cone is $V(x)$ which does not
+      contain all of $\mathbb{A}^2$.\\
+      \linebreak
+      (15) True.\\
+      (16) Not true. For example, $(xy)$ is a radical ideal, however,
+       it is not prime since $xy \in (xy)$ while neither $x$ nor $y$ are in
+       $(xy)$.\\
+       It is radical since if $f^{n} \in (xy)$ then
+       $f^{n} = xy \alpha$ so
+       $x, y  \mid f^{n}$ and as $x$ and $y$ are irreducible, we have
+       $x,y  \mid f$ so $f \in (xy)$.\\
+       \linebreak
+       \textbf{11:} Let $C = V\left( (x-x_0)^2 + (y-y_0)^2 - r^2 \right) 
+       \subset \mathbb{A}_{\mathbb{C}}^2$ be a circle with center
+       $\left( x_0, y_0 \right) $ and radius $r$.\\
+       \linebreak
+       (a) Let $\overline{C} \subset \mathbb{P}_{\mathbb{C}}^2$ be the
+       projective closure of $C$, given by
+       $\mathbb{V}\left( (x-zx_0)^2 + (y-zy_0)^2 - (zr)^2 \right) $. Then, the
+       tangent line to $\overline{C}$ at
+       $\left[ 1:i:0 \right] $ is the tangent line to
+       $V\left( (1-zx_0)^2 + (y-zy_0)^2 - (zr)^2 \right) $ at
+       $(i,0)$. Let
+       $\varphi  \colon \mathbb{A}^2 \to \mathbb{A}^2$ be the translation
+       $(0,0) \mapsto (i,0)$. Then
+       the tangent line $T_{(i,0)}
+       V\left( (1-zx_0)^2 + (y-zy_0)^2 - (zr)^2 \right) $ is
+       \[
+           \varphi\left( T_{(0,0)}V
+       \left( (1-zx_0)^2 + (y+i - zy_0)^2 - (zr)^2 \right) \right) 
+   \]
+      Inserting $(0,0)$, we get $0$, and the degree one polynomial part is
+      $-2zx_0 + 2iy - 2i y_0 z
+      = 2 \left( -z \left( x_0 + iy_0 \right) + iy \right) $. So the tangent
+      line is
+      $V\left( -z(x_0 +iy_0) + iy \right) $ which maps under $\varphi$ to
+      $V\left( -z (x_0 + iy_0) + i(y-i) \right) $ whose projective closure is
+      \[
+      \mathbb{V} \left( -z (x_0 +iy_0) + i(y-xi) \right) 
+      \] 
+      Similarly, for $\left[ 1 : -i : 0 \right] $, we get
+      \[
+      \varphi \left( T_{(0,0)}
+      V \left( (1-zx_0)^2 + (y-i-zy_0)^2 - (zr)^2 \right) \right) 
+      \] 
+      so the internal polynomial becomes 
+      $2x_0 z-2iy_0z +2iy$ which is mapped to
+      \[
+      V\left( 2x_0 z - 2iy_0 z + 2i (y+i) \right) 
+      \] 
+      whose projective closure becomes
+      \[
+      \mathbb{V}\left( 2x_0 z - 2iy_0 z + 2i (y+ix) \right) 
+      = \mathbb{V}\left( z (x_0 - iy_0) + i(y+ix) \right) 
+      \] 
+      (b) In (a) we found that the projective tangent line is not dependent on
+      the radius $r$, so $\overline{C_1}$ and $\overline{C_2}$ have the
+      same tangent line at $\left[ 1 : i : 0 \right] $ and
+      $\left[ 1 : -i : 0 \right] $ and are thus tangent at these points.\\
+      \linebreak
+      (c) Let
+      $f$ be the equation for the circle $C_1$ and
+      $g$ the equation for the circle $C_2$. Let
+      $F$ and $G$ be the homogenizations. The intersection of $C_1$ and $C_2$ in
+      $\mathbb{A}_{\mathbb{C}}^2$ is empty if
+      \[
+      \sum_{P \in \mathbb{A}_{\mathbb{C}}^2} I_P(f, g) = 0
+      \] 
+      by (2) in intersection multiplicities. But
+      
+      \[
+      \sum_{P \in \mathbb{A}_{\mathbb{C}}^2} I_P(f, g)  
+      = \sum_{P \in \mathbb{P}^2} I_P\left( F,G \right) 
+      \] 
+      Now, Bezout's theorem gives that
+      $\sum_{P \in \mathbb{P}^2}I_P\left( F,G \right) 
+      = 4$ if $\mathbb{V}(F,G)$ is finite, i.e. if $F$ and $G$ share no
+      components. But if
+      $\alpha  \mid F,G$ then
+      $\alpha  \mid G-F
+      = \left( zr_F \right)^2 - \left( zr_G \right)^2
+      = z^2 \left( r_F + r_G \right) (r_F - r_G)$, so
+      assume wlog. that $\alpha = z$. However,
+      $z \nmid F,G$ since
+      $z \nmid 1 + y^2$.\\
+      Thus $\sum_{P \in \mathbb{P}^2}I_P(F,G) = 4$. Now,
+      we want to calculate $I_{\left[ 1 : i : 0 \right] }(F,G)$. We will
+      assume without loss of generality that $P = (0,0)$. Thus
+       $F$ becomes $x^2 + y^2 - (zr_F)^2$ and
+       $G$ becomes $x^2 + y^2 - (zr_G)^2$. Now, we want to calculate
+       \begin{align*}
+    I_{(i,0)} (1 + y^2 - (zr_F)^2, 1+ y^2 - (zr_G)^2)
+    &= I_{(0,0)} \left( \varphi^{*}\left( 1 + y^2 - (zr_F)^2 \right) ,
+    \varphi^{*} \left( 1 + y^2 - (zr_G)^2 \right) \right) \\
+    &= I_{(0,0)}\left( 1 + (y-i)^2 - (zr_F)^2, 1+ (y-i)^2 - (zr_G)^2 \right) \\
+       &= I_{(0,0)}(1+(y-i)^2 - (zr_F)^2, z^2 (r_F - r_G)(r_F + r_G))\\
+       &= I_{(0,0)}\left( y^2 -2iy, z^2 (r_F - r_G)(r_F + r_G) \right) \\
+       &= I_{(0,0)}\left( y, z^2 \right) + \underbrace{I_{(0,0)}\left( y-2i,
+       z^2 \right)}_{=0, \text{ by (2) since it does not vanish at }(0,0)}\\
+       &= 2
+       \end{align*}
+       Hence the intersection multiplicities are each $2$, so
+       in particular, by (2), no other points is a common vanishing of both
+       curves.\\
+       \linebreak
+       \textbf{12:} Let
+       \[
+       F = a \left( x^2 + y^2 \right) + cxz + eyz + fz^2
+       \in k\left[ x,y,z \right] .
+       \] 
+       Let $x' = x + \alpha z$ and
+       $y' = y + \beta z$ and
+       $z' = rz$ for constants $\alpha, \beta, r$. Write
+       \[
+       F = a' \left( x'^2 + y'^2 \right) +c'x'z' + e'y'z' + f' z'^2
+       \] 
+       for coefficients $a',c',e',f'$ (which are themselves polynomials in
+       $a,c,e,f$ ). Prove that the map
+       $\left[ a : c : e :f \right] \mapsto 
+       \left[ a' : c' : e' : f' \right] $ is a projective change of
+       coordinates.\\
+       \linebreak
+       \textit{Solution:} We must show that the map
+       $(a,c,e,f) \mapsto (a',c',e',f')$ is a linear change of coordinates,
+       i.e., an invertible linear transformation.\\
+       We have
+       \begin{align*}
+           F
+           &= a'\left( \left( x+\alpha z \right)^2 + 
+           \left( y+\beta z \right)^2 \right) 
+           + c' (x+ \alpha z) rz + e' (y+ \beta z) rz
+           +f' (rz)^2\\
+           &= a' \left( x^2 + y^2 \right) +
+           \left( 2a \alpha + c' r \right) xz +
+           \left( 2a \beta + e' r \right) yz
+           + \left( a \left( \alpha^2 + \beta^2 \right) + c' \alpha r +
+           e' \beta r + f' r^2 \right) z^2 \\
+       \end{align*}
+       Comparing coefficients, we have
+       $a' = a$, so considering the map
+       $T  \colon \mathbb{A}^{4} \to \mathbb{A}^{4}$, we have
+       $T_1 (a,c,e,f) = a$.\\
+       Assume $r \neq 0$.\\
+       We have $c = 2 a \alpha + c' r$, so
+       $c' = \frac{c}{r} - \frac{2 \alpha}{r} a $, so
+       $T_2 \left( a,c,e,f \right) 
+       = \frac{1}{r}c - \frac{2 \alpha}{r} a$.\\
+       We have $e = 2 a \beta + e' r$, so
+       $e' = \frac{e - 2 a \beta}{r}
+       = \frac{1}{r} e - \frac{2 \beta}{r} a = T_3 (a,c,e,f)$.\\
+       We have $f = a \left( \alpha^2 + \beta^2 \right) 
+       + \left( \frac{1}{r} c - \frac{2 \alpha}{r} a \right) \alpha r
+       + \left( \frac{1}{r} e - \frac{2 \beta}{r} a \right) \beta r
+       + f' r^2$, and again we can isolate $f'$ to be a 
+       linear polynomial in $a,c,e$ and $f$, namely
+       \[
+       f' = \frac{1}{r^2} \left[ f - a \left( \alpha^2 + \beta^2 \right) -
+       \left( \frac{1}{r} c - \frac{2 \alpha}{r} a \right) \alpha r 
+   - \left( \frac{1}{r} e - \frac{2 \beta}{r}a \right) \beta r \right] 
+       \] 
+       We have $T_4 \left( 1, 0, 0, 0 \right) 
+       = - \frac{\alpha^2 + \beta^2}{r^2}
+       + \frac{2 \alpha^2}{r^2} + \frac{2 \beta^2}{r^2}
+       = \frac{\alpha^2 + \beta^2}{r^2}$,\\
+       $T_4 \left( 0, 1, 0 ,0 \right) 
+       = -\frac{1}{r^2}$,\\
+       $T_4 \left( 0, 0, 1, 0 \right) 
+       = - \frac{\beta}{r^2}$ and
+       $T_4 \left( 0,0,0,1 \right) 
+       = \frac{1}{r^2}$, so the matrix
+       $\left( T_{ij} \right) $ then becomes
+       \[
+       T =
+       \begin{pmatrix} 
+           1 & 0 & 0 & 0\\
+           -\frac{2 \alpha}{r} & \frac{1}{r} & 0 & 0\\
+           - \frac{2 \beta}{r} & 0 & \frac{1}{r} & 0\\
+           \frac{\alpha^2 + \beta^2}{r^2} & \frac{-1}{r^w} &
+           \frac{- \beta}{r^2} & \frac{1}{r^2}
+       \end{pmatrix} 
+       \] 
+       which has determinant
+       $\frac{1}{r^{4}}\neq 0$.\\
+       \linebreak
+       If $r = 0$, we find
+       \[
+       F = a' \left( x'^2 + y'^2 \right) 
+       = a \left( (x+ \alpha z)^2 + \left( y+ \beta z \right)^2 \right) 
+       \] 
+       so we find
+       that $T$ does not become invertible. . . 
+       So it is a projective change of coordinates if
+       $r \neq 0$.
+       
+       
+
+       
+
+       
+      
+
+
+      
+      
+      
+      
+
+     
+     
+     
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

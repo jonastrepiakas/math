@@ -1,0 +1,545 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+%\usepackage{tikz-cd}
+%%For code (e.g. python) in latex:
+%\usepackage{listings}
+%
+%Usage: 
+%\begin{lstlisting}[language=Python]
+%\end{lstlisting}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Frac}{Frac}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\begin{document}
+    \textbf{1.} Let $X = V\left( xw - yz \right) \subset 
+    \mathbb{A}^{4}$ and $f = \frac{\overline{x}}{\overline{y}}
+    \in k(X)$.\\
+    We assume $k$ is algebraically closed throughout.\\
+    (a) Let
+    \[
+    J_f = \left\{ g \in \Gamma (X)  \colon g f
+    \in \Gamma (X) \right\} .
+    \] 
+    By lecture note 11 page 7, $V(J_f)$ is the pole set of $f$.\\
+    \linebreak
+    We thus claim $V(y,w) = V\left( J_f \right) $.\\
+    \linebreak
+    \textit{Proof:} Claim $\left( \overline{y}, \overline{w} \right) \subset   J_f$.\\
+    We have that $\overline{y} f = \overline{y} \frac{\overline{x}}{\overline{y}}
+    = \overline{x} \in \Gamma(X)$, since $\overline{y} \overline{x} = \overline{x}
+    \overline{y}$ and hence the last equality follows in $k(X)$ by
+    definition.\\
+    Now, since $\overline{x} \overline{w} - \overline{y} \overline{z} = 0$ in $\Gamma(X)$, we have
+    $\frac{\overline{x}}{\overline{y}}
+    = \frac{\overline{z}}{\overline{w}}$ in $k(X)$. Therefore
+    $f = \frac{\overline{z}}{\overline{w}}$ in $k(X)$, so
+    $\overline{w} f = \overline{w} \frac{\overline{z}}{\overline{w}}
+    = \overline{z} \in \Gamma(X)$ since $\overline{w} \overline{z} = \overline{z}
+    \overline{w}$, and thus the last equality follows by definition in $k(X)$.
+    Therefore
+    $\overline{y}, \overline{w} \in J_f$.\\
+    \linebreak
+    Claim: $J_f \subset \left( \overline{y}, \overline{w} \right) $. Let
+    $I_X (W)$ denote the image of an ideal $W$ in $\Gamma(X)$.\\
+    The result follows if we can show  $V(J_f) \supset V\left( \overline{y},
+    \overline{w} \right) = V(y,w) \cap X = \left\{ (x,0,z,0)  \colon x,z \in 
+\mathbb{A} \right\} = A $. Let $g \in J_f$. Then $gf = l \in \Gamma(X)$, so 
+$g \overline{x} = l \overline{y} \in \Gamma(X)$. Letting $P \in A$, we find
+that $g(P) \overline{x}(P) = l\left( P \right) \overline{y}(P) = 0$, so
+letting $P$ range over $\left\{ \left( x,0,z,0 \right)  \colon x,z \in
+    \mathbb{A}, x \neq 0 \right\} $, we get $g \in I_X \left( 
+\left\{ \left( x, 0, z, 0 \right)  \colon x,z \in \mathbb{A}, x\neq 0 \right\}
+\right)  $.\\
+Similarly, using the expression $f = \frac{\overline{z}}{\overline{w}}$, we get
+$g \in I_X \left( \left\{ \left( x, 0, z, 0 \right)  \colon w\neq 0 \right\}
+\right) $.\\
+Thus $g$ is zero on the $x,z$ plane except possibly at $0 = (0,0,0,0)$, but as
+that is a dense open set in the $x,z$ plane, $g$ is zero one all of the $x,z$
+plane. Alternatively, we can note that
+$g(x,0,0,0)$ is zero for every nonzero $x$, and as $k$ is algebraically closed
+it is infinite by problem 1.6 in Fulton, hence $g(x,0,0,0)$ has infinitely many
+roots so by problem 1.8 in Fulton, it is the zero polynomial. Hence $g(0,0,0,0)
+= 0$ as well.\\
+Thus we get
+$g \in I_X (A)$ and hence $A \subset V \left( I_X \left( A \right)  \right) 
+\subset V(g)$, so $A \subset \bigcap_{g \in J_f} V(g) = 
+V\left( \bigcup_{g \in J_f} \{g\} \right) = V\left( J_f \right) $.\\
+\linebreak
+Thus $A \subset V(J_f)$, and hence $J_f 
+\subset \sqrt{J_f} \subset I_X \left( V\left( J_f \right)  \right) 
+\subset I_X(A) = \left( \overline{y}, \overline{w} \right) $,
+where we used Nullstellensatz as $k$ is algebraically closed.\\
+\linebreak
+(b) Assume it were possible to write $f = \frac{a}{b}$ for $a,b \in \Gamma(X)$
+where
+$b (P) \neq 0$ for every $P$ where $f$ is defined. Then
+$V(b)$ is precisely the set of poles of $f$: $V(b) = V\left( J_f \right)
+= V\left( \overline{y}, \overline{w} \right) $, and
+so $\sqrt{\left( b \right) } = \sqrt{\left( \overline{y},\overline{w} \right)
+} \supset (\overline{y}, \overline{w})$. Thus $b  \mid \overline{y}^{k}$ and $b
+\mid \overline{w}^{l}$. Let $b' \in k\left[ x,y,z,w \right] $ be such that $b$ is the image of $b'$ in
+$\Gamma(X)$. Then there exists $h,j \in k\left[ x,y,z,w \right] $  such that
+$b' h - y^{k} = (xw-yz) j$. As the $y^{k}$ term on the right hand side has
+coefficient $0$, we have that $b'h$ contains a $y^{k}$ term with $k\ge 1$, i.e.
+$b'  \mid y^{k}$. Similarly we get $b'  \mid w^{l}$.
+But as $k\left[ x,y,z,w \right] $ is UFD and $\gcd(y^{k},w^{l}) = 1$, we have
+that $b'$ is constant. Hence $b$ is constant, but then
+$V(b) = V(b') \cap X = X$, however, $f$ has poles at
+ $V(y,w) \subset X$, contradicting $V(J_f) = V(b) = X$ being the pole set of
+ $f$.\\
+ Alternatively,
+ assume such $b$ existed. Then we claim that there exists a point in
+  $V(xw-yz) - V(y,w)$ such that $b$ vanishes at the point. Now,
+  $b(0,0,0,0) = 0$ as shown, so $b(0,y,0,w)$ is either constant $0$ or has infinitely
+  many zeros as a function $b(0,y,0,w) \in k\left[ y,w \right] $ by problem
+  1.14 in Fulton. If it were non constant, there thus exists a nonzero point
+  in $V(xw-yz)- V(y,w)$  such that $b$ vanishes at the point. Hence $b$ cannot
+  be defined such $f = \frac{a}{b}$ everywhere where $f$ is defined.\\
+  \linebreak
+ \textbf{2.}\\
+ (a) We must show that $\mathcal{O}_{P}(X)$ is nonempty, closed under
+ subtraction and under multiplication.\\
+ Firstly, the function $1 = \frac{1}{1} \in k(X)$ is defined everywhere, so
+$1 \in \mathcal{O}_P (X)$, hence $\mathcal{O}_P (X)$ is nonempty.\\
+Now assume $\frac{a}{b}, \frac{c}{d} \in \mathcal{O}_P(X)$. Then
+$b(P) \neq 0 \neq d(P)$. Now
+\[
+\frac{a}{b} - \frac{c}{d} = \frac{ad - c b}{bd}
+\] 
+by definition of subtraction in rings of fractions, and $(bd)(P) = b(P) d(P) \neq 0$ as both
+$b(P)$ and $d(P)$ are nonzero at $P$ and $k$ is a field and thus especially an
+integral domain, so there are no zero divisors. Thus $\frac{a}{b} - \frac{c}{d}
+\in \mathcal{O}_P (X)$.\\
+For multiplication, we have
+\[
+\frac{a}{b} \cdot \frac{c}{d} = \frac{ac}{bd}
+\] 
+by definition of multiplication in rings of fractions. Now $(bd)(P) = b(P) d(P) \neq 0$ with the
+same argument as above.\\
+Thus $\frac{a}{b}\cdot \frac{c}{d} \in \mathcal{O}_P(X)$.\\
+\linebreak
+(b) We have $R = \mathcal{O}_0 (V(0))$, so by the previous exercise,
+$R$ is a subring of $k(V(0))$.\\
+Let $I\subset R$ be all elements of $R$ that are non-units.\\
+Assume $\frac{a}{b} \in I$. Since $\frac{a}{b} \in I \subset R$, we in
+particular have that $b(0)\neq 0$. Now, if $a(0) \neq 0$, then
+$\frac{b}{a} \in R$ and hence $\frac{a}{b} \cdot \frac{b}{a} = \frac{ab}{ab}
+= \frac{1}{1} = 1$, so $\frac{a}{b}$ would be a unit. Thus by contraposition,
+we must have that if $a$ is not a unit then $a(0)=0$.\\
+Conversely, suppose $a(0) = 0$. Then if $\frac{ab}{cd} = \frac{a}{b} \cdot \frac{c}{d}
+= \frac{1}{1}=1$, we would have
+$$0 = \frac{0}{\underbrace{c(0) d(0)}_{\neq 0}} = \frac{a(0) b(0)}{c(0)d(0)}
+=  \frac{(ab)(0)}{(cd)(0)} = \frac{1(0)}{1(0)} = \frac{1}{1} = 1$$
+which is a contradiction as $R$ contains $1 \in k$ and is thus not the zero
+ring. Hence $\frac{a}{b}$ is not a unit.\\
+Thus we see that $\frac{a}{b} \in R$ is a non-unit if and only if $a(0) = 0$, i.e.
+\[
+I = \left\{ \frac{a}{b} \in k(x)  \mid a,b \in k\left[ x \right] , a(0) = 0,
+b(0)\neq 0 \right\} 
+\] 
+We must show that $I$ is a subring and closed under left and right
+multiplication by elements of $R$.\\
+Firstly, $I$ is nonempty since $0=\frac{0}{1} \in I$ by the above arguments.\\
+Now, if $\frac{a}{b},\frac{c}{d} \in I$ then
+\[
+\frac{a}{b} - \frac{c}{d} = \frac{ad - bc}{bd}
+\] 
+$(ad-bc)(0) = \underbrace{a(0)}_{=0} d(0) - b(0) \underbrace{c(0)}_{=0} = 0-0 = 0$ and $(bd)(0) = b(0) d(0) \neq 0$
+since $R$ $k(x)$ is an integral domain, we have
+$\frac{a}{b} - \frac{c}{d} \in I$.\\
+Similarly, we have 
+\[
+\frac{a}{b} \cdot \frac{c}{d} = \frac{ac}{bd}
+\] 
+and $(ac)(0) = a(0) c(0) = 0$ as both are  zero, and $(bd) (0) = b(0) d(0) \neq
+0$ as both are nonzero and $k(x)$ is an integral domain. Hence also
+$\frac{a}{b} \cdot \frac{c}{d} \in I$.\\
+Thus $I$ is a subring of $R$.\\
+\linebreak
+Now let $\frac{a}{b} \in I$ and $\frac{r}{s} \in R$. Then
+$\frac{a}{b} \cdot \frac{r}{s} = \frac{ar}{bs}$ and
+as $ar(0) = \underbrace{a(0)}_{=0} r(0) = 0$ and
+$(bs)(0)= \underbrace{b(0)}_{\neq 0} \underbrace{s(0)}_{\neq 0} \neq 0$ by
+definition of $R$, we have
+$\frac{a}{b} \cdot \frac{r}{s} \in I$.\\
+Noting that $k (x) $ is commutative, we also get
+$\frac{r}{s} \cdot \frac{a}{b} \in I$, so $I$ is indeed an ideal. By the
+definition/lemma
+in section 2.4 in Fulton, $R$ is thus a local ring.\\
+\linebreak
+\textbf{3:} Assume $I$ is prime in $\mathcal{O}_P (X)$.
+We claim that $I \cap \Gamma(X)$ is prime in $\Gamma(X)$.\\
+If $a,b \in \Gamma(X)$ with $ab \in I \cap \Gamma(X)$, then $ab \in I$ in particular, and as $I$ is
+prime
+in  $\mathcal{O}_P (X)$ and $a,b \in \mathcal{O}_P(X)$, we have
+$a \in I$ or $b \in I$, so either
+$a \in I \cap \Gamma(X)$ or $b \in I \cap \Gamma(X)$. Thus
+$I \cap \Gamma(X)$ is prime in $\Gamma(X)$.\\
+\linebreak
+We now show that $I \cap \Gamma(X)$ generates $I$.\\
+By problem 1.22, $\Gamma(X)$ is Noetherian, so choose generators
+$f_1, \ldots, f_r$ for the ideal $I \cap \Gamma(X)$ of $\Gamma(X)$. 
+For any $f \in I \subset \mathcal{O}_P(X)$, there is
+$b \in \Gamma(X)$ with $b(P) \neq 0$ and $b f \in \Gamma(V)$, so
+$bf \in \Gamma(V) \cap I$, so $bf = \sum a_i f_i, a_i \in \Gamma(V)$ and so
+$f = \sum \left( \frac{a_i}{b} \right) f_i$.\\
+\linebreak
+
+
+
+Now, 
+by problem 5 on homework 5, we have that there is a bijection between the
+algebraic subsets of $X$ and radical ideals in $\Gamma(X)$. We claim that this
+induces a bijection between subvarieties of $X$ and
+prime ideals in $\Gamma(X)$.\\
+We do this two-step: firstly, by the solution to problem 5 homework 5, 
+the bijection between radical ideals containing $I(X)$ and algebraic subsets
+of  $X$ is given by sending an algebraic subset  $Z \subset X$ to
+$I(Z) \supset I(X)$ which is radical, and sending
+a radical ideal $J \supset I(X) $ to $V(J) \subset X$ which is algebraic.\\
+Now by problem 1 homework 3, there is a bijection between
+radical ideals in $k\left[ x_1, \ldots, x_n \right] $ containing $I(X)$ and
+radical ideals in $\Gamma(X)$ given by the canonical homomorphism
+$\pi  \colon k\left[ x_1, \ldots, x_n \right] \to \Gamma(X)$.\\
+We thus find that if $P$ is a prime ideal in $\Gamma(X)$ then
+$\pi^{-1} (P)$ is a radical ideal in $k\left[ x_1, \ldots, x_n \right]
+$ containing $I(X)$. We further claim it is prime.\\
+Let $ab \in \pi^{-1}(P)$, then $\pi(a) \pi(b) \in P$ which is prime and hence
+$\pi(a) \in P$ or $\pi(b) \in P$, i.e. $a \in \pi^{-1}(P)$ or $b\in
+\pi^{-1}(P)$.\\
+Similarly, if $P'$ is a prime ideal in $k\left[ x_1, \ldots, x_n
+\right] $ containing $I(X)$ then we claim $P = \pi(P')$ is a prime ideal.\\
+Suppose $ab \in P$, then since $a,b \in \Gamma(X)$, we can find
+$a', b' \in k\left[ x_1, \ldots, x_n \right] $ such that
+$\pi(a') = a$ and $\pi(b') = b$, so $\pi(a' b') \in P$, so there
+exists $p \in P'$ such that $\pi(a'b') = \pi(p)$ so
+$\pi(a'b' - p) = 0$ and thus
+$a'b' - p \in I(X) \subset P'$ so since $p \in P'$, we have
+$a'b' \in P'$, and since $P'$ is prime, we have $a' \in P'$ or $b' \in P'$, so
+$a \in \pi(P') = P$ or $b \in \pi(P') = P$, so $P$ is a prime ideals.\\
+\linebreak
+Now, consider a prime ideal $J$ in $k\left[ x_1, \ldots, x_n \right] $ containing
+$I(X)$, then
+by the first bijection, this maps to
+$V(J) \subset V\left( I\left( X \right)  \right) = X $, and $V(J)$ is
+irreducible since $J$ is prime - by the proposition on lecture note 3, page
+2.\\
+Conversely, if $W \subset X$ is a subvariety of $X$ then
+the first bijection maps this to the prime ideal
+$I(W) \supset I(X)$ - again using the aforementioned proposition.\\
+
+
+Let $I$ be a prime ideal in $\mathcal{O}_P(X)$. This corresponds
+to a prime ideal $I \cap \Gamma(X)$ in $\Gamma(X)$. The corresponding
+subvariety is $V\left( \pi^{-1}\left( I \cap \Gamma(X) \right)  \right) $ which
+contains $P$ if and only if $\pi^{-1}\left( I \cap \Gamma(X) \right) $ is
+contained in $I(P)$ if and only if
+$\pi\left( I(P) \right) $ contains $I \cap \Gamma(X)$. Now, $I$ is
+a proper ideal by definition of being prime, so it contains no units, and hence it indeed only consists
+of fractions $\frac{a}{b}$ such that $a(P) = 0$.\\
+\linebreak
+
+If conversely, $W$ is a subvariety of $X$ that passes through $P$, then
+$W$ corresponds to the prime ideal $I_X(W) = \pi \left( I(W) \right) $ 
+in $\Gamma(X)$ whose elements vanish at $P$ since
+if $\overline{f} \in \pi\left( I(W) \right) $ then
+$\overline{f}(P) = f(P) = 0$ as $f \in I(W)$ and $P \in W$.
+ Now we claim that the ideal $\pi\left( I(W) \right) $ generates in
+ $\mathcal{O}_P (X)$ is prime:\\
+ \linebreak
+ \textbf{Lemma:} Let $R$ be a commutative ring with $1$. Prime ideals in 
+ $D^{-1}R$ for a multiplicatively closed subset $D \subset R$ are precisely 
+ the subsets $D^{-1}P$ with $P$ are prime ideal of $R$ and $P \cap
+ D = \varnothing$.\\
+ \linebreak
+ \textit{Proof:} Suppose $J$ is prime in $D^{-1}R$. Let $P = J\cap R$.
+ $P$ is prime in $R$ since if $a,b \in R$ with $ab \in P = J \cap R$ then
+ in particular, $ab \in J$ so as $J$ is prime, $a \in J$ or $b \in J$ and hence
+ $a \in J \cap R = P$ or $b \in J \cap R = P$, so $P$ is prime.\\
+ If $d \in P \cap D$ then $\frac{d}{1} \in J$ and $\frac{1}{d} \in D^{-1}R$, so
+ $\frac{1}{d} \frac{d}{1} = 1 \in J$, hence $J = D^{-1}R$, but $J$ is prime
+ and hence proper, contradiction. Thus $P \cap D = \varnothing$.\\
+ \linebreak
+Now let $j \in J$, so $j = \frac{r}{d}$ for $r \in R$ and $d \in D$. Then
+$\frac{r}{1} = \frac{r}{d} \cdot \frac{d}{1} \in J$, so $r \in J \cap R = P$,
+so
+$\frac{r}{d} \in D^{-1}P$, so $J \subset D^{-1}P$.\\
+\linebreak
+Conversely, if $r \in D^{-1}P$ then there exist $p \in P = J \cap R$ and $d \in D$ such
+that
+$r = \frac{p}{d}$, hence in particular $\frac{p}{1} \in J$ and since 
+$J$ is an ideal, $\frac{p}{d} = \frac{1}{d} \frac{p}{1} \in J$, so
+$D^{-1}P \subset J$.\\
+\linebreak
+Therefore $D^{-1}P = J$, so all prime ideals in $D^{-1}R$ are of this form.\\
+\linebreak
+If $P$ now is a prime in $R$ with $P \cap D = \varnothing$, then we claim $D^{-1}P$ is prime in $D^{-1}R$.\\
+Let $\frac{a}{b}, \frac{c}{d} \in D^{-1}R$ with $\frac{ac}{bd} \in D^{-1}P$.
+There exists $p,d'$ with $d' \in D, p \in P$ such that $ac d' = bd p \in P$, so
+either $ac \in P$ or $d' \in P$, however, by assumption, $P \cap
+D = \varnothing$, so
+$ac \in P$ and thus either $a \in P$ or $c \in P$. Therefore $\frac{a}{b} \in
+D^{-1} P$ or $\frac{c}{d} \in D^{-1}P$.\\
+\linebreak
+Since $\pi \left( I\left( W \right)  \right) $ consists purely of non-units,
+and $\mathcal{O}_P (X)$ is the ring of fractions $R = \Gamma(X)$ with
+$D$, the multiplicatively closed set, being the set of functions not vanishing
+at $P$, we have $\pi \left( I(W) \right) \cap D = \varnothing$, so the ideal it
+generates in $\mathcal{O}_P(X)$ is prime.\\
+\linebreak
+We thus get the complete bijective correspondence between prime ideals in 
+$\mathcal{O}_P(X)$ and prime ideals in $\Gamma(X)$ of functions that vanish on
+$P$. By composing with the other bijection, this gives the complete bijective correspondence between
+prime ideals in $\mathcal{O}_P(X)$ and subvarieties of $X$ that pass through
+$P$.\\
+\linebreak
+\textbf{4:}\\
+(a) Let $f = y^3 - y^2 + x^3 - x^2 + 3xy^2 + 3x^2 y + 2xy$.\\
+Then $f_y = 3y^2 - 2y + 6xy + 3x^2 + 2x$ and
+$f_x = 3x^2 - 2x + 6yx + 3y^2 +2y$. Now if
+$f_y (P) = 0 = f_x(P)$, then
+$-2y + 2x = -2x + 2y$, so  $x=y$. Thus
+$f_y$ becomes $3y^2 + 6y^2 + 3y^2 + 2y - 2y =  12y^2 $ and
+$f_x$ becomes $12 x^2$. These are both zero if and only if $y=x=0$. Thus
+$V(f_x, f_y) = \left\{ (0,0) \right\} $, so $(0,0)$ is the only singular point
+of
+$V(f)$.\\
+Since $f_2 = -y^2 -x^2 + 2xy \neq 0$, $f_2$ is the lowest term of $f$, so
+$2$ is the multiplicity of $(0,0) \in V(f)$.\\
+The tangent cone is
+$V(f_2) = V\left( y^2 + x^2 - 2xy \right) = V\left( (y-x)(y-x) \right) 
+= V(y-x) $ which is a line.\\
+\linebreak
+(b) Let $g = x^{4} + y^{4} - x^2 y^2$. Then $g_y = 4y^3 - 2x^2 y$ and
+$g_x = 4x^3 - 2y^2 x$. If
+$g_x(P) = 0 = g_y(P)$ for $P = (x,y)$ then
+$y (2y^2 - x^2) = 0 = x (2x^2 - y^2)$. If
+$2y^2 - x^2 = 0$, then $x = \pm \sqrt{2} y$ and
+if $2x^2 - y^2 = 0$ then $y = \pm \sqrt{2} x 
+\in \left\{ \pm 2 y^2 \right\} $, so $y = 0$ and so $x = 0$. Similarly, if
+$y = 0$ then $x(2x^2 ) = 0$ implies $x = 0$ and likewise if $x = 0$ we get
+$y=0$.\\
+Thus the only singular point of $g$ is $(0,0)$.\\
+\linebreak
+Now the lowest term of $g$ is $g_4$ since $g= g_4 = x^{4} + y^{4} - x^2 y^2$,
+so
+the multiplicity of $(0,0) \in V(g)$ is $4$, and letting
+$\omega = e^{i \frac{2 \pi}{3}} $, we have
+$x^{4} + y^{4} - x^2 y^2 = 
+(y- i \omega x)(y + i \omega x) (y -i \omega^2 x) (
+y + i\omega^2 x)$, so
+\[
+V(g) = V(y- i \omega x) \cup V\left( y + i \omega x \right) 
+\cup  V\left( y - i \omega^2 x \right) 
+\cup V\left( y + i \omega^2 x \right).
+\] 
+each of which is a line.\\
+\linebreak
+(c) Let $h = x^3 + y^3 - 3x^2 - 3y^2 + 3xy +1$. Then
+$h_x = 3x^2 - 6x + 3y $ and $h_y = 3y^2 - 6y + 3x$.
+If $h_x (x,y) = 0 = h_y(x,y)$ then
+$-3 (y^2 -x^2) -9x + 9y = 3(y-x) (- (y+x) + 3) = 0$, so
+either $y=x$ or $y+x = -3$. Now if $y = -3-x$ then
+$0 = h_x = 3x^2 - 6x + 3(-3-x)$ and
+$0 = h_y = 3y^2 - 6y + 3(-3-y)$ implies
+$x,y \in \left\{ \frac{3}{2} - \frac{\sqrt{21} }{2},
+\frac{3}{2}+ \frac{\sqrt{21} }{2}\right\} $, but then
+$x+y \neq -3$, so we find that $y = x$ is the only possibility. In this case
+$0 = h_x = 3x^2 -3x = 3 x (x-1)$, so $y=x = 0$ or $y=x=1$. And this also
+satisfies
+$h_y = 0$. Thus the two singular points are
+$(0,0)$ and $(1,1)$. Now, at $(0,0)$,  $h$ is $1$, so $(0,0) \not\in V(h)$ and
+thus it does not have a multiplicity or tangent cone defined.\\
+However, $h(1,1) = 1+1-3-3+3+1 = 0$, so $(1,1) \in V(h)$.
+Now the multiplicity of $(1,1) \in V(h)$ is the multiplicity
+of $(0,0) \in V\left( \varphi^{*} h \right) $ with $\varphi$ being the
+translation $(x,y) \to (x+1, y+1)$. Thus
+$V\left( \varphi^{*}h \right) = V\left( h(x+1,y+1) \right) $. Now,
+ $h(x+1,y+1) = (x+1)^3 + (y+1)^3 -3 (x+1)^2 - 3(y+1)^2 + 3(x+1)(y+1) +1
+ = x^3 + 3xy + y^3$. This has lowest degree term $3xy$ which is degree $2$, so
+ the multiplicity of $(0,0)$ in $V\left( \varphi^{*}h \right) $ which is the
+ degree of $(1,1)$ in $V(h)$ is $2$. Now, the tangent cone
+ to $V(h)$ at $(1,1)$ is
+the image under $\varphi$ of the tangent cone of
+$V\left( \varphi^{*}h \right) $ at $(0,0)$. Now
+Now, the tangent cone of $V\left( \varphi^{*}h \right) $ at $(0,0)$ is
+$V\left( 3xy \right) = V(x) \cup V(y)$. So the tangent cone of $V(h)$ at
+$(1,1)$ is
+$\varphi \left( V(x) \cup V(y) \right) 
+= \varphi \left( V(xy) \right) = V\left( \varphi^{*}(xy) \right) 
+= V\left( \varphi^{*}x \varphi^{*}y \right) 
+= V\left( (x+1) (y+1) \right) = V(x+1) \cup V(y+1)
+= \left\{ (x,y)  \mid x,y \in \mathbb{C}, x= -1 \lor y=-1 \right\} $.
+So the tangent cone of $V(h)$ at $(1,1)$ is the union of the lines
+$V(x+1)$ and $V(y+1)$.
+
+
+
+
+
+
+\textbf{5:}\\
+(a) Since $(\varphi^{*}f) (P) = f\left( \varphi(P) \right) 
+= f(Q) = $ as $Q \in V(f)$, we have $P \in V\left( \varphi^{*}f \right) $.\\
+\linebreak
+(b) Let $T$ be the translation sending $(x,y) \to (x,y) + P$.
+The multiplicity of $V \left( \varphi^{*}f \right) $ at $P $ is the
+multiplicity of $V\left( T^{*}\varphi^{*}f \right) = V\left( \left( \varphi
+\circ T \right)^{*} f \right) $ at $0$. Now,
+$\varphi \circ T$ is the map sending $0 \to P \to Q$, so
+this is precisely the multiplicity of $V(f)$ at $Q$ since the composition of
+translation maps is a translation map (so $\varphi \circ T$ is a translation
+sending $(x,y) \to \varphi ((x,y) + P) = (x,y) + P + (Q-P) = (x,y) + Q$.)\\
+\linebreak
+(c) First, assume $P, Q = (0,0)$. Since $\varphi$ is a polynomial map, we can
+write $\varphi = \left( \varphi_1, \varphi_2 \right) $ with 
+$\varphi_1, \varphi_2 \in k\left[ x,y \right] $ such that
+$\varphi (R) = \left( \varphi_1 (R), \varphi_2(R) \right) $ for all points
+$R \in \mathbb{A}^2$. Since $\varphi(0,0) = \left( \varphi_1 (0,0),
+\varphi_2(0,0) \right)   =  (0,0)$, we have that
+$\varphi_1 (0,0) = 0$ and $\varphi_2 (0,0) = 0$, so both $\varphi_1$ and
+$\varphi_2$ have zero constant term. Then composing with $\varphi$ does
+not decrease the lowest degree term of $f$ since for any
+homogenous polynomial $f_i$, $f_i \circ \varphi$ will have terms of degree $\ge
+i$ only. So the multiplicity of $V\left( \varphi^{*}f \right) $ at
+$(0,0)$ is greater than or equal to the multiplicity of $V(f)$ at $(0,0)$.\\
+\linebreak
+
+
+
+
+Now assume either $Q \neq (0,0)$ or $P\neq (0,0)$. Let
+$T$ be the translation sending  $(0,0) \to Q$ and $S$ the translation sending
+$(0,0) \to P$. Then by (b), we have
+that the multiplicity of $V\left( T^{*} \varphi^{*}f \right) $ at $(0,0)$ is
+the same as the multiplicity of $V\left( \varphi^{*}f \right) $ at $Q$, and
+the multiplicity of $V\left( S^{*} f \right) $ at $(0,0)$ is the same as
+the multiplicity of $V( f)$ at $P$. Now, as $S$ is a translation, it is
+invertible and its inverse is a translation sending $P \to (0,0)$. Thus
+$R = S^{-1} \circ \varphi \circ T$ is a polynomial map sending
+$(0,0) \to Q \to P \to (0,0)$, so letting $\psi = \left( S \right)^{*}f = 
+f \circ S$ which is a polynomial map as the composition of polynomial maps
+is a polynomial map by a previous homework exercise. Now
+by by the case $P,Q = (0,0)$ before, we have
+that the multiplicity of $V\left( R^{*} \psi \right) 
+= V\left( \left( S^{-1} \circ \varphi \circ T \right)^{*} \psi \right) 
+= V\left( T^{*} \varphi^{*} \left( S^{-1} \right)^{*} \psi  \right) $ is
+greater
+than or equal to the multiplicity of $V \left( S^{*}f \right) = V(\psi)$ at
+$(0,0)$ which by (b) is equal to the multiplicity of $V(f)$ at $Q$.
+Now $V\left( T^{*} \varphi^{*} \left( S^{-1} \right)^{*} \psi \right) 
+= V\left( T^{*} \varphi^{*} \left( f \circ S \circ S^{-1} \right)  \right) 
+= V\left( T^{*} \varphi^{*} f \right) $, and by an application of (b) again, we
+find that the multiplicity of $V(R^{*}\psi)$ at $(0,0)$ is equal to
+the multiplicity of $V\left( \varphi^{*}f \right) $ at $P$.\\
+Thus we find that the multiplicity of 
+$V\left( \varphi^{*}f \right) $ at $P$ is greater than or equal to the
+multiplicity of
+$V(f)$ at $Q$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

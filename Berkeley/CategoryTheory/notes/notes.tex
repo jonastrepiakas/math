@@ -1,0 +1,622 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+%%For code (e.g. python) in latex:
+%\usepackage{listings}
+%
+%Usage: 
+%\begin{lstlisting}[language=Python]
+%\end{lstlisting}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\begin{document}
+    \subsection*{Representable functors}
+P. 52\\
+\textbf{Example (iv):} Is the forgetful functor
+$U  \colon \Ring \to \Set$ representable?\\
+\linebreak
+\textit{Solution:} We want to find an element $R$
+in $\Ring$ such that
+the forgetful functor is naturally isomorphic to
+the functor represented by $R$.\\
+What are some natural considerations? $\mathbb{Z}$ again?\\
+Suppose we map each
+$f \in C(\mathbb{Z}, R)$ to the unique
+element $f(1) \in U(R)$. This induces a well defined
+map $\alpha_R  \colon C(\mathbb{Z}\to R) \to U(R)$ which is
+bijective and hence an isomorphism. We have the following natural isomorphism
+\[\begin{tikzcd}
+	{C(\mathbb{Z}\to R)} && {U(R)} \\
+	\\
+	{C(\mathbb{Z}\to S)} && {U(S)}
+	\arrow["{\alpha_R}", from=1-1, to=1-3]
+	\arrow["{\phi_*}"', from=1-1, to=3-1]
+	\arrow["{U(\phi)}", from=1-3, to=3-3]
+	\arrow["{\alpha_{S}}"', from=3-1, to=3-3]
+\end{tikzcd}\]
+Naturality follows as
+for an $f  \colon \mathbb{Z} \to R$ a ring homomorphism,
+$\alpha_{S} \circ \varphi_* f$ maps to
+the element
+$\varphi \left( f(1) \right) \in U(S)$ and
+$U(\varphi) \circ \alpha_R (f) =
+U(\varphi) (f(1)) =
+\varphi \left( f(1) \right) \in U(S)$, so it is indeed a natural isomorphism.
+
+\textbf{Example (v):} The functor $U(-)^{n}  \colon
+\Group \to \Set$ that sends a group $G$ to the set of $n$-tuples of
+elements of $G$ is represented by the free group $F_n$ on $n$ generators
+where $\alpha_G$ sends
+the map which sends the generator $x_i \to g_i$ to
+the set $(g_1, \ldots, g_n) \in \Ima U(-)^{n}$.
+\[\begin{tikzcd}
+	{C(F_n,G)} && {U(G)^n} \\
+	\\
+	{C(F_n,H)} && {U(H)^n}
+	\arrow["{\varphi_*}", from=1-1, to=3-1]
+	\arrow["{U(\varphi)^n}", from=1-3, to=3-3]
+	\arrow["{\alpha_G}"{description}, from=1-1, to=1-3]
+	\arrow["{\alpha_H}"{description}, from=3-1, to=3-3]
+\end{tikzcd}\]
+
+Now, since for a map
+$f \in C(F_n, G)$ which maps
+$x_i \to g_i$, we have
+$\alpha_H \circ \varphi_* (f) = 
+\alpha_H \left( \varphi \circ f \right) 
+= \left( \varphi(g_1), \ldots, \varphi(g_n) \right) $ and
+$U\left( \varphi \right)^{n} \circ
+\alpha_G \left( f \right) = 
+U\left( \varphi \right)^{n} \left( g_1, \ldots, g_n \right) 
+= \left( \varphi(g_1), \ldots, \varphi(g_n) \right) $, the
+square is indeed commutative, so as $\alpha_G$ is a bijection, 
+we indeed have a natural isomorphism.\\
+\linebreak
+
+\textbf{Example (vi)} Given any group presentation such as
+\[
+S_3 := \langle s,t  \mid s^2 = t^2 =1, sts =tst \rangle
+\] 
+defines a functor $F  \colon \Group \to \Set$ that carries a group $G$ to the set
+\[
+\left\{ \left( g_1, g_2 \right) \in G^2  \mid 
+g_1^2 = g_2^2 = e, g_1g_2g_1 = g_2g_1g_2 \right\} .
+\] 
+The functor is represented by the group admitting the given presentation, in
+this case by $S_3$.\\
+The presentation tells us that homomorphisms $S_3 \to G$ are
+classified by pairs of elements $g_1, g_2 \in G$ satisfying the listed
+relations.\\
+\linebreak
+\textbf{(vii)} The functor $(-)^{\times }  \colon \Ring \to \Set$ that sends
+a unital ring to its set of units is represented by the ring
+$\mathbb{Z} \left[ x, x^{-1} \right] $ of Laurent polynomials in one variable.
+
+\[\begin{tikzcd}
+	{C(\mathbb{Z}[x,x^{-1}],G)} && {G^{\times}} \\
+	\\
+	{C(\mathbb{Z}[x,x^{-1}],H)} && {H^{\times}}
+	\arrow["{\varphi_*}", from=1-1, to=3-1]
+	\arrow["{\varphi^{\times}}", from=1-3, to=3-3]
+	\arrow["{(x \to u) \to u}"{description}, from=1-1, to=1-3]
+	\arrow["{(x \to v) \to v}"{description}, from=3-1, to=3-3]
+\end{tikzcd}\]
+
+Let $f$ be the map sending $\varphi \in C\left( \mathbb{Z}[x,x^{-1}] ,G \right) $ 
+to $\varphi(u)$ and $g$ similarly but with $H$ instead of $G$.\\
+Then for $k \in C\left( \mathbb{Z}[x,x^{-1}],G \right) $,
+$g \circ \varphi_* (k) = 
+g \left( \varphi \circ k \right) 
+= \varphi \left( k(x) \right) $ and
+$\varphi^{\times }\circ f (k) =
+\varphi^{\times } \left( k(x) \right) $ and since 
+$k(x)$ is a unit in $G$, this last part is well-defined and equals
+$\varphi \left( k(x) \right) $, hence we have naturality if $f,g$ are
+bijections.\\
+It suffices, by symmetry, to show it for $f$.\\
+If $\varphi  \colon \mathbb{Z}[x,x^{-1}] \to G$ is a homomorphism, then
+$1 = \varphi(1) = \varphi(x) \varphi(x^{-1})$, so
+$\varphi(x)$ is a unit; so $f$ is indeed well-defined.\\
+Injectivity follows since if $f(\varphi) = f (\psi)$, then
+$\varphi(x) = \psi(x)$, so given any
+$p \in \mathbb{Z}\left[ x,x^{-1} \right] $, we have
+$p = \sum_{k\neq 0} a_k x^{k}$, so
+$\varphi(p) = \sum_{k\neq 0} a_k \varphi(x)^{k}
+= \sum_{k\neq 0} a_k \psi(x)^{k} = \psi(p)$, so
+$\varphi = \psi$.\\
+For surjectivity, simply note that
+letting $\varphi(x) = u$ for some $u \in G^{\times }$, determines
+a well-defined homomorphism, so $f$ is surjective.\\
+This gives the result.\\
+\linebreak
+Thus this representation gives that any ring homomorphism
+$\mathbb{Z}\left[ x,x^{-1} \right] \to R$ may be defined by sending 
+$x$ to any unit of $R$ and is completely determined by the assignment,
+moreover, there are no ring homomorphisms that carry $x$ to a non-unit.\\
+\linebreak
+\textbf{Example (viii)} The forgetful functor
+$U  \colon \Top \to \Set$ is represented by the singleton space: there is
+a natural bijection between elements of a topological space and continuous
+functions from the one-point space:
+
+\[\begin{tikzcd}
+	{C(\{x\}, X)} && {U(X)} \\
+	\\
+	{C(\{x\},Y)} && {U(Y)}
+	\arrow["{f_*}", from=1-1, to=3-1]
+	\arrow["{U(f)}", from=1-3, to=3-3]
+	\arrow[from=1-1, to=1-3]
+	\arrow["{(x \to y') \to \{y' \}}"{description}, from=3-1, to=3-3]
+	\arrow["{(x \to x') \to \{x' \}}"{description}, from=1-1, to=1-3]
+\end{tikzcd}\]
+
+First, we check commutativity. Let $f$ denote the map
+sending a $\varphi \in C(\left\{ x \right\} ,X)$ to
+$\left\{ \varphi(x) \right\} \in U(X)$ and
+$g$ likewise for $Y$.\\
+Now for a continuous map $h  \colon \left\{ x \right\} \to X$, we have
+$g \circ f_* (h) = g \left( f \circ h \right) 
+= f(h(x))$ and
+$U(f) \circ f (h) = U(f) \circ h(x)
+= f(h(x))$.\\
+\linebreak
+Bijectivity is clear, so we have a natural isomorphism.
+
+\textbf{Example xiii:} The forgetful funcotr $U  \colon \Set_* \to \Set$ is
+represented by the two-element based set:
+
+\[\begin{tikzcd}
+	{C(\{*,y\}\to U_*)} && U \\
+	\\
+	{C(\{*,y\}\to V_*)} && V
+	\arrow["{f_*}", from=1-1, to=3-1]
+	\arrow["f", from=1-3, to=3-3]
+	\arrow["{((*,y)\to(*,u))\to u}", from=1-1, to=1-3]
+	\arrow["{((*,y)\to(*,v))\to v}"', from=3-1, to=3-3]
+\end{tikzcd}\]
+
+
+\textbf{Example (xiv)} The functor $\text{Path}  \colon \Top \to \Set$ that
+carries a topological space to its set of paths and the functor
+$\text{Loop} \colon \Top_* \to \Set$ that carries a based space to its set of
+based loops are each representable by definition, by the unit interval $I$ and
+the based circle $S^{1}$, respectively.\\
+\linebreak
+\subsubsection*{Free categories}
+\textbf{Example (ix), (x) and (xi):}\\
+The functors $\ob, \text{mor}, \text{iso}  \colon \Cat \to \Set $ that take
+a locally small category to, respectively, its set of objects,
+its set of morphisms and its set of isomorphisms (point in a specified
+direction) are represented, respectively, by the terminal category
+$\mathbbm{1} $, the category $\mathbbm{2}$ and
+the category $\mathbbm{I}$. In this sense, $\mathbbm{2}$ is the \textbf{free}
+or \textbf{walking arrow}, and the category $\mathbbm{I}$ is the \textbf{free}
+or \textbf{walking isomorphism}.\\
+\linebreak
+The adjective "free" is reserved for universal properties expressed by
+covariant represented functors. It could be applied to any of the objects
+listed above: e.g. $\mathbbm{2}$ is the free category with an arrow,
+$S^{1}$ is the free space containing a loop. The dual term
+"cofree" for universal properties expressed by contravariant represented
+functors is less commonly used.\\
+\linebreak
+The following contravariant functors are representable:\\
+\linebreak
+\textbf{Example (i)} The contravariant power set functor
+$P  \colon \Set^{op} \to \Set$ is represented by the set
+$\\Omega = \left\{ \perp, \top \right\} $ with two elements.\\
+The natural isomorphism $\Set (A, \Omega) \cong PA$ is defined by
+the bijection that associates a function $A \to \Omega$ with the subset that is
+the preimage of $\perp$ ; reversing perspectives, a subset $A' \subset A$ is
+identified iwth its \textbf{classifying function}
+$\chi_{A'}  \colon A \to \Omega$ which sends exactly the elements
+of $A'$ to the element $\perp$. The naturality condition
+stipulates that for any function $f  \colon A \to B$, the diagram
+
+\[\begin{tikzcd}
+	{\text{Set}(B, \Omega)} && PB \\
+	\\
+	{\text{Set}(A, \Omega)} && PA
+	\arrow["{f^*}", from=1-1, to=3-1]
+	\arrow["{f^{-1}}", from=1-3, to=3-3]
+	\arrow["\cong", from=1-1, to=1-3]
+	\arrow["\cong"', from=3-1, to=3-3]
+\end{tikzcd}\]
+commutes. That is, naturality asserts that given a function
+$\chi_{B'}  \colon B \to \Omega$ classifying the subset
+$B' \subset B$, the composite function
+$A \stackrel{f}{\to } B \stackrel{\chi_{B'}}{\to } \Omega$ classifies the
+subset
+$f^{-1}(B') \subset A$. That is, that
+$f^{-1}(B')$ is the same as
+$P\circ f^{*} (\chi_{B'}) = 
+P \left( \chi_{B'}\circ f \right) 
+$ which is presicely
+$(\chi_{B'} \circ f)^{-1}(\perp) =
+f^{-1} \left( \chi_{B'}^{-1}(\perp) \right) 
+= f^{-1} \left( B' \right) $.\\
+\linebreak
+\textbf{Example (ii):} The functor
+$\mathcal{O}  \colon \Top^{op} \to \Set$ that sends a space to its set of open
+subsets is represented by the \textbf{Sierpinski space} $S$, the topological
+space with two points, one closed and one open. The natural bijection
+$\Top (X, S) \cong \mathcal{O}(X)$ associates a continuous function
+$X \to S$ to the preimage of the open points.
+
+\[\begin{tikzcd}
+	{Top(X,S)} && {O(X)} \\
+	\\
+	{Top(Y,S)} && {O(Y)}
+	\arrow["{f^{-1}}", from=3-3, to=1-3]
+	\arrow["{f^*}", from=3-1, to=1-1]
+	\arrow["\cong"', from=3-1, to=3-3]
+	\arrow["\cong", from=1-1, to=1-3]
+\end{tikzcd}\]
+
+Let $S = \left\{ 0,1 \right\} $ where $0$ is open. Then
+naturality asserts that
+for a map $g  \colon Y \to S$, the set
+$f^{-1}(g^{-1}(0))$ is the same as
+$(f^{*} (g))^{-1}(0) =
+(g \circ f)^{-1}(0)
+= f^{-1} \left( g^{-1}(0) \right) $.\\
+\linebreak
+\textbf{Example (iii):} The Sierpinski space also represents the functor
+$\mathcal{C}  \colon \Top^{op} \to \Set$ that sends a space to its set of
+closed subsets. Composing the natural isomorphism
+$\mathcal{O} \cong \Top (-,S) \cong \mathcal{C}$, we see that
+the closed set and open set functors are naturally isomorphic. The
+composite natural isomorphism carries an open subset to its complement, which
+is closed. This recovers the natural isomorphism described in Example
+1.4.3(v).\\
+\linebreak
+\textbf{Example (iv)} The functor
+$\Hom (-\times A, B)  \colon \Set^{op} \to \Set$ that sends
+a set $X$ to the set of functions
+$X \times A \to B$ is represented by the set
+$B^{A}$ of functions from $A$ to $B$. That is, there is a natural bijection
+between functions $X \times A \to B$ and functions $X \to B^{A}$. This
+natural isomorphism is referred to as
+\textbf{currying} in computer science; by fixing a variable in a two-variable
+function, one obtains a family of functions in a single variable.
+
+\[\begin{tikzcd}
+	{C(X, B^A)} && {\text{Hom}(X \times A,B)} \\
+	\\
+	{C(Y,B^A)} && {\text{Hom}(Y \times A,B)}
+	\arrow["{f_*}", from=1-1, to=3-1]
+	\arrow["{(f,id)_*}", from=1-3, to=3-3]
+	\arrow["\cong", from=1-1, to=1-3]
+	\arrow["\cong"', from=3-1, to=3-3]
+\end{tikzcd}\]
+
+Suppose $g  \colon C(X,B^{A}) \to \Hom(X\times A,B)$ sends
+$k \in C(X, B^{A})$ to
+the map $X \times A \to B$ defined by
+$(x,a) \to k(x)(a)$. This gives for any map
+in  $C(X, B^{A})$ a map in $\Hom(X \times A,B)$.\\
+Define $h  \colon C(Y, B^{A}) \to \Hom(Y \times A,B)$ similarly.\\
+\linebreak
+Conversely, for any $\varphi \in \Hom(X \times A,B)$, we can define
+$k \in C(X, B^{A})$ by
+sending $x \to \varphi(x, -)  \colon A \to B$.\\
+We thus have an injection both ways, so by Cantor-Bernstein, the
+sets are in bijections.\\
+Naturality then asserts that for a $k \in C(X, B^{A})$,
+$h \circ f_* (k) = h\left( k \circ f \right) $ which sends
+$(y,a)$ to $k\circ f(y)(a)$ is the same as
+$(f,id)_* g(k)$ which sends
+$(y,a)$ to $(f(y), a)$ and then to
+$k(f(y))(a) = k\circ f (y) (a)$.\\
+\linebreak
+\textbf{Example (v)} The functor $U(-)^{*}  \colon 
+\Vect_{k}^{op} \to \Set$ that sends a vector space to the set of vectors in its
+dual space is represented by the vector space $k$, i.e., linear maps
+$V \to k$ are, by definition, precisely the vectors in the dual space
+$V^{*}$.
+
+\[\begin{tikzcd}
+	{C(V,k)} && {U(V^*)} \\
+	\\
+	{C(W,k)} && {U(W^*)}
+	\arrow["{f_*}", from=3-1, to=1-1]
+	\arrow["{U(f_*)}"', from=3-3, to=1-3]
+	\arrow[from=3-1, to=3-3]
+	\arrow[from=1-1, to=1-3]
+\end{tikzcd}\]
+
+
+\textbf{2.2.2:} Suppose we have a $G$-set $X  \colon BG \to \Set$. Suppose now
+we have a natural transformation $\varphi  \colon G \implies X$, which is a 
+$G$-equivariant map $\varphi  \colon G \to X$. 
+Now $\varphi (g) = g \cdot \varphi(e)$. Is the functor $G$ representable?
+
+We have
+
+\begin{equation*}
+\begin{tikzcd}
+    C(e,g) \arrow[d, "f_*"] \arrow[r, "\alpha \to G(\alpha( e))"] & G(g) \arrow[d, "G(f)"]\\
+    C(e,h) \arrow[r] & G(h)
+\end{tikzcd}
+\end{equation*}
+
+\textbf{Exercise 1.4.iv:} Prove that distinct parallel morphisms
+$f, g  \colon c \to d$ define distinct natural transformations
+\[
+f_*, g_*  \colon C(-,c) \implies C(-,d) \quad
+\text{and} \quad f^{*}, g^{*}  \colon C(d,-) \implies C(c,-)
+\] 
+\textit{Solution:}
+
+\begin{equation*}
+\begin{tikzcd}
+    C(x,c) \arrow[r, "f_{*}"] \arrow[d, "h^{*}"] & C(x,d) \arrow[d,
+    "h^{*}"]\\
+    C(y,c) \arrow[r, "f_*"] & C(y,d)
+\end{tikzcd}
+\end{equation*}
+Two natural transformations are distinct if the components are distinct.
+But all components for $f_*$ are $f_*$ and similarly for $g_*$.\\
+So in particular, $\alpha_c = f_*$, so
+if the components were the same, then
+$f =f \circ 1_{c} = f_* \left( 1_c \right) 
+= g_* \left( 1_c \right) 
+= g \circ 1_c = g$, contradiction.\\
+\linebreak
+\textbf{Proof of Cayley's theorem using the Yoneda embedding:}\\
+Regard a group $G$ as a one-object category
+$BG$. Since there is a single object in $BG$ whose endomorphisms define the
+group $G$, there is a unique contravariant represented functor
+$BG^{op} \to \Set$ which by example 1.3.9 corresponds to a right
+$G$-set, with $G$ acting by right multiplication.\\
+This is the image of the covariant Yoneda embedding
+$BG \to \Set^{BG^{op}}$. Corollary 2.2.8 then tells us that the only
+$G$-equivariant endomorphisms of the right $G$-set $G$ are those maps defined
+by left multiplication by a fixed element of $G$, i.e. it is of the form
+$g_*$ with $g \in G$.\\
+In particular, any $G$-equivariant endomorphism of $G$ must be an automorphism,
+a fact that is not otherwise obvious.\\
+The Yoneda embedding thus defines an isomorphism between
+$G$ and the automorphism group of the right $G$-set $G$, an object in
+$\Set^{BG^{op}}$. Composing with the faithful forgetful functor
+$\Set^{BG^{op}} \to \Set$, we obtain an isomorphism between
+$G$ and a subgroup of the automorphism group
+$\text{Sym}(G)$ of the set $G$.\\
+\linebreak
+\textbf{Exercise 2.2.iv:} Prove that the following are equivalent.\\
+(i) $f  \colon x \to y$ is an iso in $C$.\\
+(ii) $f_*  \colon C(-,x) \implies C(-,y)$ is a natural iso.\\
+(iii) $f^{*}  \colon
+C(y,-) \implies C(x,-)$ is a natural iso.\\
+\linebreak
+\textit{Solution:} 
+$\left(i \right) \implies (ii)$ : 
+for a morphism $h  \colon c \to d$ in $C$,
+\begin{equation*}
+\begin{tikzcd}
+    C(d,x) \arrow[r, "f_*"] \arrow[d, "h^{*}"] & C(d,y) 
+    \arrow[d, "h^{*}"]\\
+    C(c,x) \arrow[r, "f_*"] & C(c,y)
+\end{tikzcd}
+\end{equation*}
+and $(f^{-1})_* f_* = \mathbbm{1}$, so
+$f_*$ is an iso. Hence $f_*$ is a natural iso with clear commutativity.\\
+\linebreak
+$(i) \implies (iii)$ similarly.\\
+\linebreak
+$(iii) \implies (i)$ : the Yoneda embedding gives a full and faithful embedding
+sending $f$ to $f^{*}$. Since $f^{*}$ i a natural iso,
+there exists a morphism $g'$ in 
+$\Hom \left( C(-,d), C(-,c) \right) \cong \Hom (d,c)$, with corresponding
+$g$ in $\Hom(d,c)$ such that $g_* = g$. Thus
+$1 = g_* f_* = (gf)_*$ and similarly  $1 = (fg)_*$. Hence
+$f$ is an iso.\\
+Similarly for $(ii) \implies (i)$.\\
+\linebreak
+\textbf{Universal properties and universal elements:} this shows that
+isomorphic objects $x \cong y$ are \textbf{representably isomorphic}, meaning
+that $C(-,x) \cong C(-,y)$ and $C(x,-) \cong C(y,-)$ (exercise 2.2.iv).\\
+The Yoneda lemma supplies the converse:\\
+\textbf{Proposition 2.3.1}: Consider a pair of objects $x$ and $y$ in a locally
+small category $C$.\\
+(i) If either the co- or contravariant functors represented by $x$ and $y$ are
+naturally isomorphic, then $x$ and $y$ are isomorphic.\\
+(ii) In particular, if $x$ and $y$ represent the same functor, then $x$ and $y$
+are isomorphic.\\
+\linebreak
+\textit{Proof:} The full and faithful Yoneda embeddings $C\to 
+\Set^{C^{op}}$ and
+$C^{op} \to \Set^{C}$ create isomorphism since fully faithful functors create
+isomorphisms (exercise 1.5.iv), so an (natural) isomorphism between represented
+functors is induced by a unique isomorphism between their representing objects,
+which in particular must be isomorphic, proving (i) (uniqueness by
+the fact that the Yoneda embeddings are faithful).\\
+Now (ii) is an immediate consequence since given a functor represented by
+both $x$ and $y$, the representing natural isomorphisms compose to demonstate
+that $x$ and $y$ are represntably isomorphic.\\
+ \linebreak
+\begin{center}
+    There may be many isomorphisms between the objects $x$ and $y$ appearing in
+    the proof of proposition 2.3.1, but there is a unique natural isomorphism
+    commuting with the chosen representations. On account of this, one
+    typically refers to \textit{the} representing object of a representable
+    functor. Category theorists often use the definite article "the" in
+    contexts where the object in question is well-defined up to canonical
+    isomorphism.
+\end{center}
+\textbf{Corollary 2.3.2:} The full subcategory of $C$ spanned by its terminal
+objects is either empty or is a contractible groupoid. In particular, any two
+terminal objects in $C$ are uniquely isomorphic.\\
+\textbf{Def:} A \textbf{contractible groupoid} is a category that is equivalent
+to the terminal category $\mathbbm{1}$. Explicitly, a contractible groupoid is
+a category with a unique morphism in each hom-set.\\
+\linebreak
+
+\textbf{Proof:} For any terminal objects $t,t'$,
+$C(t,t')$ is a singleton by definition. Proposition 2.3.1 then implies that
+this morphism is an isomorphism: the objects $t$ and $t'$ are terminal iff they
+represent the functor $*  \colon C^{op} \to \Set$ that is constant at the
+singleton set.\\
+\linebreak
+\textbf{Def 2.3.3:} A \textbf{universal property} of an object $c \in C$ is
+expressed by a representable functor $F$ together with a \textbf{universal
+element} $x \in Fc$ that defines a natural isomorphism
+$C(c, -) \cong F$ or $C(-,c) \cong F$, as appropriate, via the Yoneda lemma.\\
+\linebreak
+\subsection*{Limits and colimits}
+
+\textbf{Def 3.1.1:} For any object $c \in C$ and any category
+$J$, the \textbf{constant functor} $c  \colon J \to C$ sneds every object of
+$J$ to $c$ and every morphism in $J$ to the identity morphism $1_c$. The
+constant functors define an embedding $\Delta  \colon C 
+\to C^{J}$ (recall an embedding is a faithful functor that is injective on
+objects) that sends an object $c$ to the constant functor at $c$ and a morphism
+$f  \colon c \to c'$ to the \textbf{constant natural transformation}, in
+which each component is defined to be the morphism $f$; i.e.
+$\Delta (f)  \colon \text{constant }c \implies \text{constant }c'$ has
+components $f = \Delta(f)_j  \colon
+\text{constant }c (j) \to \text{constant }c'(j)
+= c \to c'$.\\
+\linebreak
+\textbf{Def 3.1.2:} A \textbf{cone over} a diagram
+$F  \colon J \to C$ with \textbf{summit} or \textbf{apex} $c \in C$ is
+a natural transformation $\lambda  \colon c \implies F$ whose domain is the
+constant functor at $c$. The components 
+$\left( \lambda_j  \colon c \to Fj \right)_{j \in J}$ of the natural
+transformation are called the \textbf{legs} of the cone.\\
+Explicitly:
+\begin{itemize}
+    \item The data of a cone over $F  \colon J \to C$ with summit $c$ is
+        a collection of morphisms $\lambda_j  \colon C \to Fj$, indexed by the
+        objects $j \in J$.
+    \item A family of morphisms $\left( 
+        \lambda_j  \colon c \to Fj \right)_{j \in J}$ defines a cone over $F$ 
+        if and only if, for each morphism $f  \colon j\to k$ in $J$, the
+        following triangle commutes in $C$ :
+\end{itemize}
+
+\begin{equation*}
+\begin{tikzcd}
+    & c \arrow[dl, "\lambda_j"] \arrow[dr, "\lambda_k"] & \\
+    Fj \arrow[rr, "Ff"] & & Fk 
+\end{tikzcd}
+\end{equation*}
+Dually, a \textbf{cone under} $F$ with \textbf{nadir} $c$ is a natural
+transformation $\lambda F \implies c$, whose \textbf{legs} are the components 
+$\left( \lambda_j  \colon F_j \to c \right)_{j \in J}$. The naturality
+condition asserts that, for each morphism $f  \colon j \to k$ of $J$, the
+triangle
+\begin{equation*}
+\begin{tikzcd}
+    Fj \arrow[rr, "Ff"] \arrow[dr, "\lambda_j"] & & Fk \arrow[dl,
+    "\lambda_k"]\\
+                                                & c &
+\end{tikzcd}
+\end{equation*}
+commutes in $C$.\\
+Cones under a diagram are also called \textbf{cocones} - a cone under
+$F  \colon J \to C$ is precisely a cone over
+$F  \colon J^{op} \to C^{op}$.
+
+
+
+\subsection*{Questions}
+
+\begin{enumerate}
+    \item On page 75, it says: "By the Yoneda lemma, a limit consists of an
+        object $\text{lim}F \in C$ together with a universal cone
+        $\lambda  \colon \text{lim} F \implies F$, called the limit cone,
+        . . ." What does "universal" specifically mean here?
+    \item 
+\end{enumerate}
+
+\textbf{Note:} I believe the proof of proposition 2.3.1 shows that an
+isomorphism between represented functors is induced by a \textit{unique}
+isomorphism between their representing objects, which in particular must be
+isomorphic.
+
+
+
+\end{document}

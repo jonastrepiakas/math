@@ -1,0 +1,247 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%% for identity function 1:
+%\usepackage{bbm}
+%%For category theory diagrams:
+%\usepackage{tikz-cd}
+%%For code (e.g. python) in latex:
+%\usepackage{listings}
+%
+%Usage: 
+%\begin{lstlisting}[language=Python]
+%\end{lstlisting}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+%Redeclaring Span and image
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\begin{document}
+
+    \textbf{1.2.4:} 
+    Firstly project all points in $\mathbb{R}^3 - X$ 
+    radially onto $S^{2}$ by the map
+    $(x,t) \to x(1-t) + t \frac{x}{\|x \|}$. This is a deformation retraction, so
+    the fundamental group is isomorphic to
+    $\pi_1 \left( \mathbb{R}^3 -X \right) $.
+    Our resulting space is the $2$-sphere with $2n$ 
+    points removed, where $n$ is the number of lines
+    in $X$. Choose any removed point and stereohraphically project the sphere
+    with $2n$ holes onto $\mathbb{R}^2$ with
+    $2n-1$ holes removed - this is a homeomorphism, so the fundamental group is
+    invariant.\\
+    \linebreak
+    
+
+    \textbf{Solution 1:} Let $X'$ denote this space. 
+    We can now define a path $\gamma  \colon I
+    \to X'$ which in the interval $\left[ \frac{k}{2n-1},
+    \frac{k+1}{2n-1} \right] $ completes a loop around the $k$ th hole
+    where we enumerate the holes in some arbitrary way.
+    The resulting image is  $\lor_{2n-1}S^{1}$. Now, we define a 
+    deformation retraction of $\mathbb{R}^2$ minus the holes onto
+     $\gamma(I)$. For points not inside one of the circles, we
+     send it to the closest point on $\gamma(I)$. For
+     points inside $\gamma(I)$, we project from the hole radially out
+     onto $\gamma(I)$, and on $\gamma(I)$ we let the deformation retraction be
+     the identity. Then this function deformation retracts
+     our space $X'$ onto $\lor_{2n-1}S^{1}$, so in particular,
+     the fundamental groups are isomorphic, and by van Kampen, we
+     have $\pi_1 (X') \cong \pi \left( \lor_{2n-1}S^{1} \right) 
+     \cong *_{2n-1} \mathbb{Z} $ by example 1.21.\\
+     \linebreak
+     
+
+
+
+
+     I hope it is okay if I include a second solution which I originally wrote
+     that I'm not completely sure whether works.\\
+     \textbf{Solution 2:}
+    Now let $d$ denote the minimal distance between
+    the $2n-1$ points. Then for each hole, $x_i$, we define
+    $(x,t) \to \begin{cases}
+        (t-1) x + t (\frac{x-x_0}{\| x - x_0 \|} \frac{d}{3} + x_0), & \|x
+        - x_i\| \le \frac{d}{3}\\
+        x, & \|x - x_i\| > \frac{d}{3}
+    \end{cases} $
+    for all $x$ in the plane with $2n-1$ holes,
+    which is a deformation
+    retraction that expands the holes into removed disks in the plane.\\
+    \linebreak
+    Now, the closed disks are compact, so there exists $R>0$ such that
+    all the removed disks are within
+    $B(0, R)$ in our space. Now deformation retract the space
+    by
+    $(x,t) \to x $ for all $t$ if $x \in B(0,R)$ and
+    $(x,t) \to x (1-t) + R \frac{x}{\|x\|}t$ if $x \in 
+    B\left( 0,R \right)^{c}$.
+
+ Let $Y$ denote the space $D(0,R)$ with $2n-1$ disks removed. $Y$ is
+ path-connected, so choose a basepoint $x_0 \in Y$
+ and connect it to one circle which we then connect to the next circle by
+ a path and so on with a path from the last circle to $x_0$, forming a loop.
+ We wish to build $Y$ as a CW-complex, so to attach a 2-cell, we attach
+ another edge with a point on its free end to any point on the 1-skeleton.
+ To the free point, we attach an edge whose endpoints are both the free point,
+ thereby creating a loop.\\
+ \linebreak
+ 
+ Thus $Y$ can be built as a CW-complex with $2n+1$ 0-cells
+ (one for each circle that is the boundary of the removed disk, and one for the
+ chosen basepoint and one for the free point), $4n$ 1-cells connecting, $2n-1$ used to construct circles and
+ $2n-1$ used to connect the circle to the basepoint and $2$ used for the
+ attaching map to attach to. To this
+ $1$-skeleton, we attach a $2$-cell to get a disk with $4$
+ open disks removed where we can view the disk as a square, letting one edge
+ wrap around the original 1-skeleton, 2 edges fusing onto the last added edge
+ and the fourth edge fusing onto the last added loop.\\
+ Since $X^{1}$ is path-connected, we then find by proposition
+ 1.26 that $X^{1} \to X^{2}$ induces a surjection
+ $\pi_1 \left( X^{1} \right) \to \pi_1 \left( X^2 \right) $
+ whose kernel is generated by the attaching loop which can be decomposed as
+ $a= a_1 a_2 \ldots a_{2n}$ where each $a_i$ is a generating loop for the
+ corresponding circle's fundamental group. Thus
+ the fundamental group of the space 
+ is isomorphic to the fundamental group of
+ the $1$-skeleton modulo $a$. Now, as each edge in the 1-skeleton is
+ contractible, we get by page 11 that the quotient space obtained by collapsing
+ this to a point is homopy equivalent to the one skeleton $X^{1}$; and
+ by proposition 1.18, $\pi_1 (X^{1})$ is isomorphic to the fundamental group of
+ the quotient space which is $\pi_1 \left( \lor_{2n} S^{1} \right) 
+ = *_{2n} \mathbb{Z}$.  Therefore the fundamental group of the
+ space is
+ \[
+ \pi_1 \left( X^2 \right) \cong
+ *_{2n}\mathbb{Z} / \left( a_1 a_2 \ldots a_{2n} \right) 
+ \cong *_{2n-1} \mathbb{Z}.
+ \] 
+ 
+ \textbf{1.2.22:} Since $X$ is a deformation retract
+ of $\mathbb{R}^3 - K$ by assumption, we wish to calculate
+ $\pi_1 (X)$. Firstly, $X$ is path connected, so pick any
+  $p \in X$ on the plane. Next deformation retract
+  the plane onto $p$ by
+  $(x,t) \to (1-t)x + tp$. This collapses the edges of
+  the $R_i$ to $p$ as well. Now, each
+  $R_i$ is a rectangular piece, and we can deformation retract
+  this to its edge - i.e. we deformation retract it along its length.
+  Since the edges connect to the plane $T$ are identified, we end up with
+  a circle for each $R_i$, wrapping around $K$ once. For the relation,
+  choose a concrete point, say on the plane in the image where
+  $R_i$ intersects $R_k$, i.e. the leftmost corner in the diagram from
+  Hatcher. Then taking the path $x_i x_j x_i^{-1}$ gives a loop
+  that is homotopy equivalent to the path $x_k$ by sliding the loop
+  across the crossing using $S_l$.
+  Thus $x_i x_j x_i^{-1} = x_k$ for each square $S_l$ where
+  the indices are as in the figure in Hatcher.\\
+  \linebreak
+  (b) We have
+  \[
+  \pi_1 \left( \mathbb{R}^3 - K \right) 
+  \cong \pi_1 (X) \cong
+  \langle x_1, x_2, \ldots, x_n  \mid x_i x_j x_i^{-1} x_k^{-1}
+  , \text{ for all } S_{l} \rangle
+  \] 
+  
+  Abelianization of this results from letting the basis be the basis of a free
+  abelian group. In this case, all relations
+  for $S_l$ become
+  \[
+  x_i x_j x_i^{-1} x_k^{-1} = x_i x_i^{-1} x_j x_k^{-1}
+  = x_j x_k^{-1}
+  \] 
+  So for any bridge, identify loops on each side.
+  Since all rectangles are separated by some amount of rectangles and bridges,
+this makes all loops identify, so we simply get
+  $\pi_1 \left( \mathbb{R}^3 - K \right) \cong
+  \langle x \rangle = \mathbb{Z}$
+  
+  under abelianization.
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

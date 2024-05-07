@@ -1,0 +1,427 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+%\usepackage{tikz-cd}
+%%For code (e.g. python) in latex:
+%\usepackage{listings}
+%
+%Usage: 
+%\begin{lstlisting}[language=Python]
+%\end{lstlisting}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\begin{document}
+    \textbf{p. 95:}\\
+    \textbf{10:} Let $\gamma, \sigma$ be two paths in the space $X$ which begin
+    at the point $p$ and end at $q$. As in the proof of theorem
+    (5.6), these paths induces isomorphisms $\gamma_*, \sigma_*$ of
+    $\pi_1 (X, p)$ with $\pi_1(X,q)$. Show that
+    $\sigma_*$ is the composition of $\gamma_*$ and the inner automorphism
+    of $\pi_1 (X,q)$ induced by the element $\langle \sigma^{-1}\gamma
+    \rangle$.\\
+    \linebreak
+    \textit{Solution:}
+    The isomorphisms induces by $\gamma$ and $\sigma$ are given by
+    $\gamma_* \left( \langle \alpha \rangle  \right) 
+    = \langle \gamma^{-1} \alpha \gamma \rangle $ and
+    $\sigma_* \left( \langle \alpha \rangle  \right) 
+    = \langle \sigma^{-1} \alpha \sigma \rangle $, respectively.\\
+    The inner automorphism of $\pi_1 (X,q)$ induced by
+    $\langle \sigma^{-1} \gamma \rangle$ is
+    given by
+    $\langle \alpha \rangle \to 
+    \langle \sigma^{-1} \gamma \rangle \langle \alpha \rangle
+    \langle \sigma^{-1} \gamma\rangle^{-1}
+    = \langle \sigma^{-1} \gamma \rangle 
+    \langle \alpha \rangle \langle \gamma^{-1} \sigma \rangle 
+    \langle \sigma^{-1} \gamma \alpha \gamma^{-1} \sigma \rangle 
+    = \sigma_* \gamma^{-1}_* \langle \alpha \rangle $, so denoting this
+    inner
+    automorphism by $\beta$, we get
+    $\langle \alpha \rangle \stackrel{\gamma_*}{\to }
+    \langle \gamma^{-1}\alpha \gamma \rangle 
+    \stackrel{\beta}{\to }
+    \sigma_* \gamma^{-1}_* \langle \gamma^{-1} \alpha \gamma \rangle 
+    = \sigma_* \langle \gamma \gamma^{-1} \alpha \gamma \gamma^{-1} \rangle 
+    = \sigma_* \langle \alpha \rangle $, hence
+    $\sigma_* = \beta \circ \gamma_*$, so
+    $\sigma_*$ is the composition of
+    $\gamma_*$ and the inner automorphism of
+    $\pi_1 \left( X, q \right) $ induces by
+    $\langle \sigma^{-1} \gamma \rangle $.\\
+    \linebreak
+    
+    \textbf{p. 102:}\\
+    \textbf{18:} Let $\pi  \colon X \to Y$ be a covering map. So each point $y
+    \in Y$ has a neighborhood $V$ for which $\pi^{-1}(V)$ breaks up as a union
+    of disjoint open sets, each of which maps homeomorphically onto $V$ under
+    $\pi$. Call such a neighborhood 'canonical'. If $\alpha$ is a path in $Y$,
+    show how to find points $0 = t_0 < t_1 < \ldots < t_m = 1$ such that
+    $\alpha \left( \left[ t_i, t_{i+1} \right]  \right) $ lies in a canonical
+    neighborhood for $0 \le i \le m-1$. Hence lift $\alpha$ piece by piece to a
+    (unique) path in $X$ which begins at any preassigned point of
+    $\pi^{-1}\left( \alpha(0) \right) $.\\
+    \linebreak
+    \textit{Solution:} For each $y \in Y$, let
+    $V_y$ denote a canonical open neighborhood for $y$ under
+    $\pi$ (we can assume $V_y$ is open since $\pi$ restricting to
+    a homeomorphism also gives a homeomorphic correspondence of open sets).
+    By assumption, $\bigcup_{y \in Y} V_y$ covers $Y$, so
+    since $\alpha$ maps $I \to Y$, we have
+    $\bigcup_{y \in Y} \alpha^{-1}(V_y)$ is an open covering of $I $, so as $I$ is a compact
+    metric space, there exists a Lebesgue number $ \delta > 0$
+ for the covering. Subdivide $I = \left[ 0,1 \right] $ into intervals
+ $0 = t_0 < t_1 \ldots < t_m = 1$ such that
+ $\left| t_{i+1}-t_i \right| < \delta$ for all $i$ (for example we can choose
+ some $N \in \mathbb{N}$ such that
+ $\frac{1}{N} < \delta$ and let
+ $t_i = \frac{i}{N}$ for $i = 0, \ldots, N$ ).\\
+ \linebreak
+ Now, by construction
+any $\left[ t_i, t_{i+1} \right] $ lies in
+some $\alpha^{-1}(V_y)$, so
+$\alpha \left( \left[ t_i, t_{i+1} \right]  \right) 
+\subset V_y$ which is a canonical neighborhood.\\
+\linebreak
+Now, let $x_0$ be an arbitrary point in $\pi^{-1}\left( \alpha (0) \right) \subset 
+X$, and suppose $\alpha(\left[ 0, t_1 \right] ) \in V_{y_1}$. Then $x_0$ lies
+in some $U \subset \pi^{-1} (V_{y_1})$ such that
+$U$ is mapped homeomorphically by $\pi$ onto $V_{y_1}$. Let
+$f$ be the inverse of $\pi|_{U}  \colon U \to V_{y_1}$.
+
+
+Define
+$\tilde{\alpha} (t) = f \circ \alpha(t)$ for $t \in \left[ 0, t_1 \right] $.
+Then for $t \in \left[ 0, t_1 \right] $, we have
+$\pi \circ \tilde{\alpha}(t) = 
+\pi \circ f \circ \alpha(t) =
+\alpha(t)$, so
+$\tilde{\alpha}$ is a lift on
+$\left[ 0, t_1 \right] $.\\
+\linebreak
+
+
+Suppose we have defined $\tilde{\alpha}$ on $\left[ 0,t_N \right] $ for
+$1 \le N < m$. Thus
+$\alpha|_{\left[ 0, t_N \right] }
+= \pi \circ \tilde{\alpha}$ on $\left[ 0,t_N \right] $.
+We want to define $\tilde{\alpha}$ on
+$\left[ t_{N}, t_{N+1} \right] $. Suppose
+$\alpha \left( \left[ t_{N}, t_{N+1} \right]  \right) 
+\subset  V_y$. Then 
+$\tilde{\alpha}(t_N) \in \pi^{-1}(V_y)$, so let
+$\tilde{\alpha}(t_N) \in U \subset \pi^{-1}(V_y)$ such that $\pi$ maps $U$
+homeomorphically onto $V_y$. Let $g$ be the inverse of
+$\pi|_{U}  \colon U \to V_y$. Let
+$\tilde{\alpha}(t) = g\circ \alpha(t)$ for $t \in \left[ t_N, t_{N+1} \right] $. 
+Since $g \circ \alpha(t_N)$ agrees with
+on $\tilde{\alpha}(t_N)$, the gluing lemma ensures continuity of
+$\tilde{\alpha}$ on all
+of $\left[ 0, t_{N+1} \right] $.\\
+\linebreak
+With this construction
+$\pi \circ \tilde{ \alpha}(t) =
+\pi \circ g \circ \alpha(t) = \alpha(t)$ on $\left[ t_N, t_{N+1} \right] $, so
+$\tilde{\alpha}$ is a lift on $\left[ t_N, t_{N+1} \right] $.\\
+\linebreak
+By repeating $m$ times, we thus have constructed 
+$\tilde{\alpha}$ on all of $I = \left[ 0,1 \right] $,
+with $\alpha = \pi \circ \tilde{\alpha}$ and thus $\tilde{\alpha}$ is a lift starting at
+$x_0$.\\
+\linebreak
+For uniqueness, we notice that for $x_0$, we had that
+$\alpha \left( \left[ 0, t_1 \right]  \right) $ lies in some $V_{y_1}$, so
+$x_0 \in \pi^{-1}(V_{y_1})$ which, by assumption, is a disjoint union of sets each
+homeomorphic to $V_y$ by $\pi$. Since these are disjoint, $x_0$ is in precisely
+one of them, say $U$. So supposing $\beta $ is another lift of $\alpha$ on
+$\left[ 0, t_1 \right] $ starting at $x_0$, we get
+$\pi \circ \beta = \alpha = \pi \circ \tilde{\alpha}$. Since
+$(\pi \circ \beta) (\left[ 0, t_1 \right] ) =
+\alpha \left( \left[ 0, t_1 \right]  \right) 
+= \left( \pi \circ \tilde{\alpha} \right) \left( \left[ 0, t_1 \right]  \right)
+$ lies in some  $V_{y_1}$ and if $f$ is the inverse of $\pi|_{U}  \colon U \to
+V_{y_1}$ (which exists as $\pi$ is a homeomorphism of $U$ onto $V_{y_1}$ ),
+then
+$\beta =f \circ \pi \circ \beta = f \circ \pi \circ \tilde{\alpha}
+= \tilde{\alpha}$ on $\left[ 0, t_1 \right] $. Hence there is a unique
+extension of $\tilde{\alpha}$ over $\left[ 0, t_1 \right] $.\\
+Similarly, for arbitrary  $1 \le i \le m-1$,
+$\alpha \left( \left[ t_{i}, t_{i+1} \right]  \right) 
+\subset V_y$ for some $y$, so, as above,
+$\tilde{\alpha}(t_i) \in U \subset \pi^{-1}(V_y)$ where $\pi$ maps $U$
+homeomorphically onto $V_y$. Suppose now $\beta$ is another lift of
+$\alpha$ on $\left[ t_i, t_{i+1} \right] $ starting at
+$\tilde{\alpha}(t_i)$. We have
+$\pi \circ \beta = \alpha = \pi \circ \tilde{\alpha}$ on $\left[ t_i, t_{i+1}
+\right] $, so as this takes values in $V_y$, let
+$g$ be the inverse of $\pi|_{U}  \colon U \to V_y$; giving
+$\beta = g \circ \pi \circ \beta = g \circ \pi \circ \tilde{\alpha}
+= \tilde{\alpha}$ on $\left[ t_i, t_{i+1} \right] $. As we showed
+uniqueness for the base case $i = 0$ and
+this inductive step ensures
+that gives a unique extension
+$\tilde{\alpha}|_{\left[ 0, t_N \right] }$ there
+exists a unique extension
+$\tilde{\alpha}|_{\left[ 0, t_{N+1} \right] }$ 
+of $\tilde{\alpha}|_{\left[ 0,t_N \right] }$
+over $\left[ t_N, t_{N+1} \right] $.
+Repeating this $m$ times gives uniqueness of
+$\tilde{\alpha}$.\\
+\linebreak
+\textbf{21:} Describe the homomorphism
+$f_*  \colon \pi_1 \left( S^{1},1 \right) 
+\to \pi_1 \left( S^{1}, f(1) \right) $ induces by each of the following maps:\\
+(a) The antipodal map $f\left( e^{i \theta} \right) 
+= e^{i \left( \theta + \pi \right) }, 0 \le \theta \le 2 \pi$.\\
+\linebreak
+(b) $f(e^{i \theta}) =
+e^{i n \theta}, 0 \le \theta \le 2 \pi$ where $n \in \mathbb{Z}$.\\
+\linebreak
+(c) $f\left( e^{i \theta} \right) 
+= \begin{cases}
+    e^{i \theta}, & 0 \le \theta \le  \pi\\
+    e^{i \left( 2 \pi -\theta \right) }, & \pi \le \theta \le  2\pi
+\end{cases}$.\\
+\linebreak
+\textit{Solution:}\\
+\linebreak
+In the following, let
+$\langle g \rangle $ denote a generator for
+$\pi_1 \left( S^{1}, 1 \right) $ with $g  \colon I \to S^{1}$ given by
+$g(t) = e^{2 \pi i t}$.\\
+For any induced homomorphism
+$f_*  \colon \pi_1\left( S^{1},1 \right) 
+\to \pi_1 \left( S^{1},f(1) \right) $, let $\gamma
+ \colon I \to S^{1}$ be the loop
+ $f \circ g$.\\
+ Then for any $\alpha \in \pi_1(S^{1}, 1)$, we have
+ that there exists an $n \in \mathbb{Z}$ such that
+ $\langle \alpha \rangle 
+ = \langle g \rangle^{n}
+ = \langle g^{n} \rangle $, so
+ $f_* \langle \alpha \rangle 
+ = \langle f \circ g^{n} \rangle 
+ = \langle f \circ g \rangle^{n}
+ = \langle \gamma \rangle^{n}$, so 
+ $\langle \gamma \rangle $ is a generator for the image
+ of $f_*$.\\ Hence
+ $f_*$ on the generator  $\langle g \rangle $, i.e.
+ $f \circ g$, gives a complete description of the homomorphism
+  $f_*  \colon \pi_1 \left( S^{1},1 \right) \to 
+  \pi_1 \left( S^{1},f(1) \right) $.\\
+ \linebreak
+ 
+
+ (a)
+We claim that the image of  $f_*$ is isomorphic to $\mathbb{Z} 
+\cong \pi_1 (S^{1}, -1)$.\\
+\linebreak
+Let $\alpha  \colon I \to S^{1}$ be the path
+$\alpha(t) = e^{i \pi t}$. Then the isomorphism induces by $\alpha$ is given by
+\[
+\alpha_* \langle \beta \rangle 
+= \langle \alpha^{-1} \beta \alpha \rangle 
+\] 
+which is an isomorphism of $\pi_1 (S^{1}, 1)$ and
+$\pi_1 \left( S^{1},-1 \right) $. We claim that
+$f_* \left( \langle \beta \rangle  \right) 
+= \alpha_* \left( \langle \beta \rangle  \right) $. For this, it suffices to
+show that it is true on the generator of $\pi_1 \left( S^{1},1 \right) $ since
+$f_*$ and $\alpha_*$ are homomorphisms. 
+We want to produce a homotopy between
+$f \circ g$ and $\alpha^{-1} g \alpha$. Define
+the map
+
+
+\[
+F(s,t)
+= 
+\begin{cases}
+    e^{i \pi (1-4s)}, & s \in  \left[ 0, \frac{1-t}{4} \right] \\
+    e^{i \pi \left( \frac{4 (2-t)s + 4t - 2}{1+t} \right) }, & s \in \left[
+    \frac{1-t}{4} , \frac{1}{2} \right] \\
+        e^{i \pi (2s-1)}, & s \in \left[ \frac{1}{2},1 \right]
+\end{cases}.
+\] 
+This is continuous and a homotopy between
+$F(s,0) = \alpha^{-1} \gamma \alpha$ and
+$F(s,1) = f \circ g$.
+
+
+
+
+
+\[
+F(s,t) = 
+\begin{cases}
+    e^{ i \pi (1-4s)}, & s \in \left[ 0, \frac{1-t}{4} \right] \\
+    e^{i \pi \frac{8s - 4st + 4t - 2}{1+s}}, & s \in \left[ \frac{1-t}{4},
+    \frac{1}{2} \right] \\
+        e^{i \pi (2s-1)}, & s \in \left[ \frac{1}{2},1 \right] 
+\end{cases}
+\] 
+Hence, $f_*  \colon \pi_1 \left( S^{1}, 1 \right) 
+\to \pi_1 \left( S^{1},-1 \right) $ is the map sending a generator to
+a generator.\\
+\linebreak
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+(b) We have
+\[
+f \circ g (t) = 
+e^{2 \pi i n t} = g(t)^{n}, \quad t \in \left[ 0,1 \right] 
+\] 
+which is the loop that winds around $S^{1}$ counterclockwise 
+$n$ times.\\
+Thus $f_*$ maps $g \to g^{n}$ - or, identifying $\pi_1 \left( S^{1},1 \right)
+$ with $\mathbb{Z}$, maps $1 \to n$.\\
+This generates the image group of $f_*$ which thus is
+$\langle g^{n} \rangle 
+\le \pi_1 \left( S^{1},1 \right) $.
+
+
+
+
+
+(c) 
+\[
+\gamma(t) := f \circ g(t) =
+\begin{cases}
+    e^{2 \pi i t}, & t \in \left[ 0, \frac{1}{2} \right] \\
+    e^{i 2 \pi (1-t)}, & t \in \left[ \frac{1}{2},1 \right] 
+\end{cases}
+\] 
+is the loop that goes counterclockwise from $1$ to $-1$ along $S^{1}$ 
+during $\left[ 0, \frac{1}{2} \right] $ and then
+reversing direction going from $-1$ to $1$ clockwise during $\left[
+\frac{1}{2},1 \right] $.\\
+Now $\gamma$ is homotopic to the constant loop by
+the homotopy
+$F  \colon I \times I \to S^{1}$ given by
+$F(s,t) =
+\gamma(st)$, so since $\langle 1 \rangle 
+= \langle \gamma \rangle $ generates the image subgroup, we find that
+$f_*$ is the homomorphism mapping everything to the constant loop.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

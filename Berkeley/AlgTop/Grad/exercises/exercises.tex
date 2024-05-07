@@ -1,0 +1,183 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{bbm}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+%Redeclaring Span and image
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\begin{document}
+    
+
+\textbf{Problem 1:} Show homotopy equivalence is an equivalence relation.\\
+\linebreak
+\textit{Solution:}
+Let $A \simeq B \simeq C$. Let $f  \colon A \to B, g  \colon B\to A$ and
+$\overline{f}  \colon B \to C, \overline{g}  \colon C \to B$ with
+$fg \simeq \mathbbm{1}$ and $\overline{f}\overline{g} \simeq \mathbbm{1}$ by
+$\gamma_1 = \mathbbm{1}, \gamma_0 = fg$ and $\alpha_1 = \mathbbm{1}, \alpha_0 =
+\overline{f}\overline{g}$. Then
+\[
+F_t = \begin{cases}
+    g \alpha_{2t} f,& t \in \left[ 0, \frac{1}{2} \right]\\
+    \gamma_{2t -1},& t \in \left[ \frac{1}{2},1 \right] 
+\end{cases}
+\] 
+is a homotopy equivalence between $A$ and $C$ hence showing transitivity.\\
+\linebreak
+
+
+
+
+
+
+
+\textbf{1.1.7:} The homotopy
+\[
+F  \colon \left( S^{1} \times  I \right) \times I \to S^{1} \times I
+\] 
+by
+\[
+F \left( \theta , s, t \right) =  \left( \theta + 2 \pi s t, s \right) 
+\] 
+Then $F\left( \theta , s , 0 \right) = \mathbbm{1}$ while
+$F\left( \theta, s , 1 \right) = f\left( \theta , s \right) $ and
+$F$ is continuous hence a homotopy - also, it fixed the circle for $s=0$.\\
+\linebreak
+Rest done on paper.\\
+\linebreak
+
+\textbf{1.1.8:} No, the proof of borsuk-ulam fails
+when we conclude $\eta$ is nullhomotopic on $S^{1} \times S^{1}$ which it is
+not.\\
+More specifically, the natural projection of the torus onto the
+2d-plane works.
+
+
+
+
+
+\textbf{1.1.18:} Assume $\alpha \in \pi_1 \left( X \right) $.
+Let $\varphi  \colon S^{1} \to X$ be the attaching map.
+We can let $p  \colon I \to S^{1}$ by $t \to \left( \cos 2\pi t, \sin
+2 \pi t\right) $. Then $\varphi \circ p$ is the attaching loop.\\
+Let $x_0 = \left( \varphi \circ p \right) (0) \in A$.
+Now, since $A$ is path-connected, there exists
+a path $\gamma  \colon I \to A$ from $\alpha (0)$ to $x_0$.\\
+Then $\gamma \alpha \overline{\gamma}$ is a loop
+at $x_0$ in $A$.\\
+\linebreak
+
+Now choose a neighborhood around $x_0$ and let
+$A_1$ be the union of this neighborhood and the attached
+$n$-cell. Let $A_2$ be an $\varepsilon$-neighborhood of
+$A$ in $X$ that deformation retracts onto $A$ - this
+becomes $A$ union an annulus of the attached $n$-cell. 
+And the annulus deformation retracts onto the attaching
+circle of $A$.\\
+
+
+The intersection of $A_1$ and $A_2$ is path-connected
+ - the union of the annulus with the neighborhood around $x_0$ -, so
+by lemma 1.15, the loop can be decomposed into running
+in $A_1$ and $A_2$. Any loop in $A_1$ however is 
+nullhomotopic in $X$, so it can be decomposed into loops
+running in $A_2$ only. Now deformation retract $A_2$ to
+$A$ and we find the loop  $\alpha$ can be decomposed
+into loops running in $A$ only.\\
+\linebreak
+
+
+
+
+
+
+
+
+
+\textbf{1.1.19:} Let $\gamma  \colon I \to X$ be a 
+loop in $X$. The CW complex is composed of
+a 0-skeleton with edges which are path connected.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

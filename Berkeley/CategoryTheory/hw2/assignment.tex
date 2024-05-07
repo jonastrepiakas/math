@@ -1,0 +1,183 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+%\usepackage{tikz-cd}
+%%For code (e.g. python) in latex:
+%\usepackage{listings}
+%
+%Usage: 
+%\begin{lstlisting}[language=Python]
+%\end{lstlisting}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+%Redeclaring Span and image
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\begin{document}
+    \textbf{1.2.ii:} \\
+    (i) If $f  \colon x \to y$ is a split epimorphism then
+    there exists $g  \colon y \to x$ such that $fg = \mathbbm{1}_{y}$.\\
+    Let $c \in C$ be arbitrary, then for any
+    $h \in C(c,y)$, we have
+    $h = \mathbbm{1}_y h = fg h = f_* \left( gh \right) $ with $gh \in C(c,x)$
+    by
+    composition. So $f_*$ is surjective.\\
+    \linebreak
+    Conversely, if $f_*  \colon C(c,x) \to C(c,y)$ is surjective for
+    all $c \in C$, then
+    letting $c = y$, we get a map $f_*  \colon C(y,x) \to C(y,y)$ that is
+    surjective. Since  $\mathbbm{1}_y \in C(y,y)$, let $
+    g \in C(y,x)$ such that $fg = f_* (g) = \mathbbm{1}_y$. Then
+    $f$ is a split epimorphism.\\
+    \linebreak
+    \textbf{1.2.iii:} \\
+    (i): if  $f \colon x \to y$ and $g  \colon y\to x$ are monomorphisms, then
+    if for maps $h,k$ we have
+    $fg h = fg k$, then $gh = gk$ since $f$ is monic and then
+    $h = k$ since $g$ is monic. Thus $gf  \colon x \to z$ is
+    monic.\\
+    \linebreak
+    (ii) Assume $f  \colon x \to y$ and $g  \colon y \to z$ are morphisms so
+    that
+    $gf$ is monic. Now assume
+    $fh = fk$ for some maps $h,k$ with codomain $x$. Then
+    composing with $g$ on the left we get
+    $gf h = gfk$ and since $gf$ is monic, we get $h =  k$. Therefore
+    $f$ is monic.\\
+    \linebreak
+    We thus have
+    if for  $f^{op}  \colon y \to x$ and $g^{op}  \colon z\to y$ monic, we have
+    $\left( fg \right)^{op} = g^{op} f^{op}  \colon z \to x$ is
+    monic.\\
+    Taking the dual, noting that the dual of a monic function is an epic
+    function, we get:
+    if $f  \colon x \to y$ and $g  \colon y \to z$ are epic, then
+    $fg  \colon x \to z$ is epic too.\\
+    \linebreak
+    Similarly, we have from (ii):
+    if $f^{op}  \colon y\to x$ and $g^{op}  \colon z \to y$ are morphisms so
+    that
+    $\left( gf \right)^{op} =f^{op}g^{op}$ is monic, then
+    $g^{op}$ is monic.\\
+    \linebreak
+    Taking the dual we get:
+    if $f \colon x \to y$ and $g  \colon y \to z$ are morphisms so that
+    $gf$ is epic then $g$ is epic.\\
+    \linebreak
+    Restricting the morphisms of a category to only its monomorphisms or
+    restricting to only its epimorphisms thus gives a subcategory since
+    composition is well defined by (i) and (i') and the identities are trivial
+    monomorphisms and epimorphisms; the rest of the requirements follow
+    directly from the parent category.\\
+    \linebreak
+    \textbf{1.3.i:} Any functor between groups must send the single group
+    object to the single group object - so there is one possible map of
+    objects. By the functoriality axioms, we must have that the identity
+    of the group is mapped to the identity of the other group.\\
+    The mapping of any morphism (any group element) must also fulfill 
+    $F (g_1 g_2) = F(g_1) F(g_2)$ which simply says that $F$ is a group
+    homomorphism.\\
+    \linebreak
+    Conversely, any group homomorphism also gives a functor between groups:
+    if $\varphi  \colon G \to H$ is a group homomorphism. Then the
+    corresponding
+    functor, $F$, maps the single object $G$ to the single object $H$ and
+    the morphism $g_1$ of $G$ is mapped to $\varphi (g_1)$. By this, we
+    have $F(e_G) = \varphi(e_G) = e_H$ and
+    $F(g_1 g_2) = \varphi (g_1 g_2) = \varphi (g_1) \varphi(g_2) = F(g_1)
+    F(g_2)$
+    so the functoriality
+    axioms are satisfied. Hence $F$ is a functor, so group homomorphisms
+    correspond to functors between group categories.
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

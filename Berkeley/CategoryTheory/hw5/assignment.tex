@@ -1,0 +1,227 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+%\usepackage{tikz-cd}
+%%For code (e.g. python) in latex:
+%\usepackage{listings}
+%
+%Usage: 
+%\begin{lstlisting}[language=Python]
+%\end{lstlisting}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+%Redeclaring Span and image
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\sk}{sk}
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\begin{document}
+    \textbf{1.5.iv:} Show that a full and faithful functor
+    $F  \colon C \to D$ both reflects and creates isomorphisms. That is,
+    show:\\
+    (i) If $f$ is a morphism in $C$ so that $Ff$ is an isomorphism
+    in $D$, then $f$ is an isomorphism.\\
+    \linebreak
+    (ii) If $x$ and $y$ are objects in $C$ so that $Fx$ and
+    $Fy$ are isomorphic in $D$, then $x$ and $y$ are
+    isomorphic in $C$.\\
+    \linebreak
+    \textit{Solution:}\\
+    (i) Assume $f  \colon c\to c'$, so
+    $Ff  \colon F(c) \to F(c')$. \\
+    Since $Ff$ is an isomorphism in $D$ there
+    exists a morphism $g  \colon F(c') \to F(c)$ in $D$ such that
+    $Ff \circ g = \mathbbm{1}_{F(c')}$ and
+     $g \circ Ff = \mathbbm{1}_{F(c)}$.\\
+     Now, $F$ is full, so since $g \in \Hom 
+     (F(c'), F(c))$ implies that there exists a morphism
+     $g' \in \Hom (c', c)$ such that
+     $F(g') = g$.\\
+     Now by functoriality, 
+     $F\left( f\circ g' \right) 
+     = Ff \circ Fg' = Ff \circ g = \mathbbm{1}_{F(c')}$ and
+     $F\left( g' \circ f \right) 
+     = Fg' \circ Ff = g \circ Ff = \mathbbm{1}_{F(c)}$.\\
+     So by faithfulness, 
+     $f \circ g' = \mathbbm{1}_{c'}$ and
+     $g' \circ f = \mathbbm{1}_{c}$ since
+     by functoriality, $F$ takes $\mathbbm{1}_{c'}$ and
+     $\mathbbm{1}_{c}$ to $\mathbbm{1}_{F(c')}$ and
+     $\mathbbm{1}_{F(c)}$, respectively. Thus
+     $f$ is by definition an isomorphism with inverse
+     $g'$.\\
+     \linebreak
+     (ii) Assume $Fx$ and $Fy$ are isomorphic in $D$.\\
+     Let $f  \colon Fx \to Fy$ and $g  \colon Fy \to Fx$ such
+     that $fg = \mathbbm{1}_{Fy}$ and $gf = \mathbbm{1}_{Fx}$.\\
+     Again by fullness, there exist
+     $f'  \colon x \to y$ and $g'  \colon y\to x$ such that
+     $Ff' = f$ and $Fg' = g$.\\
+     Now $F\left( f' g' \right) =
+     Ff' Fg' = fg = \mathbbm{1}_{Fy}$ and
+     $F\left( g' f' \right) = Fg' Ff' = gf = \mathbbm{1}_{Fx}$.\\
+     Again by faithfulness, 
+     $f' g' = \mathbbm{1}_y$ and $g' f' = \mathbbm{1}_x$ since
+     by functoriality, 
+     $F \mathbbm{1}_x = \mathbbm{1}_{Fx}$ and
+     $F \mathbbm{1}_y = \mathbbm{1}_{Fy}$.\\
+     Hence $x$ and $y$ are isomorphic.\\
+     \linebreak
+     \textbf{1.6.i:} Show that any map from a terminal object in a category
+     to an initial one is an isomorphism. An object that is both 
+     initial and terminal is called a \textbf{zero object}.\\
+     \linebreak
+     \textit{Solution:} Let $C$ be an arbitrary category
+     and let $c,d \in C$ with $c$ initial and $d$ terminal.\\
+     Assume that $f  \colon d \to c$ is a morphism.\\
+     Since $c$ is initial, for every $a \in C$ there
+     exists a unique morphism $c \to a$, so in particular, for
+     $a = c$, there exists only the unique morphism
+     $\mathbbm{1}_{c}  \colon c \to c$ 
+     in $\Hom (c,c)$. Similarly, since
+     $d$ is terminal, for every $a \in C$ there exists
+     a unique morphism $a \to d$. Hence for $a = d$, there
+     exists only the unique morphism $\mathbbm{1}_{d}  \colon 
+     d \to d$ in $\Hom (d,d)$. I.e.  $\left| 
+     \Hom (c,c) \right| = 1 = \left| \Hom (d,d) \right|$.\\
+     Now, in particular, choosing
+     $a = d$ in the initial condition for $c$, 
+     we have that there exists a unique map
+     $g  \colon c \to d$. Since $C$ is a category,
+     there exists a composition
+     $gf  \colon c\to c \in \Hom (c,c) = \left\{ \mathbbm{1}_c \right\} $,
+     so $gf = \mathbbm{1}_c$, and
+     there exists a composition
+     $fg  \colon d\to d \in \Hom(d,d) = \left\{ \mathbbm{1}_d \right\} $,
+     so $fg = \mathbbm{1}_d$. Thus
+     $f$ is an isomorphism with inverse $g$.\\
+     \linebreak
+     \textbf{1.6.ii:} Show that any two terminal objects
+     in a category are connected by a unique
+     isomorphism.\\
+     \linebreak
+     \textit{Solution:} Let $C$ be an arbitrary category, and
+     let $d, d' \in C$ be two terminal object.\\
+     By definition, since $d$ and $d'$ are terminal, for every
+     $c \in C$ there exists a unique
+     morphism $c \to d$ and a unique morphism
+     $c \to d'$. I.e.  $\left| \Hom(c,d) \right| =
+     1 = \left| \Hom (c,d') \right| $ for all $c \in C$. Choosing
+     $c = d$, we thus find that there exists
+     a unique morphism $f  \colon d \to d'$ and
+     the unique identity morphism
+     $\mathbbm{1}_d  \colon d \to d$, and
+     choosing $c = d'$, we find that there exists a unique
+     morphism $g  \colon d' \to d$ and
+     the unique morphism $ \mathbbm{1}_{d'}
+      \colon d' \to d'$.\\
+      Explicitly,
+      \begin{align*}
+          \Hom (d,d') &= \left\{ f \right\}\\
+          \Hom (d',d) &= \left\{ g \right\}\\
+          \Hom (d,d) &= \left\{ \mathbbm{1}_d \right\}\\
+          \Hom (d',d') &= \left\{ \mathbbm{1}_{d'} \right\}.
+      \end{align*}
+      Now, by the axioms of $C$ being a category, there
+      exists a composition map
+      $gf  \colon d \to d \in \Hom (d,d) = \left\{ \mathbbm{1}_d \right\} $,
+      so $gf = \mathbbm{1}_{d}$, and
+      there exists a composition map
+       $fg  \colon d' \to d' \in 
+       \Hom (d',d') = \left\{ \mathbbm{1}_{d'} \right\} $, so
+       $fg = \mathbbm{1}_{d'}$.\\
+       Therefore $f$ is an isomorphism $d \to d'$ and
+        $g$ is an isomorphism $d' \to d$,
+        and since these are the unique maps
+        in the hom-sets $\Hom(d,d')$ and
+        $\Hom (d',d)$, respectively, these isomorphisms
+        connecting the objects
+        are unique.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

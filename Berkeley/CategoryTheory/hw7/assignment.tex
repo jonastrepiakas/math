@@ -1,0 +1,222 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+%%For code (e.g. python) in latex:
+%\usepackage{listings}
+%
+%Usage: 
+%\begin{lstlisting}[language=Python]
+%\end{lstlisting}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\begin{document}
+    \textbf{2.2.i} State and prove the dual to Theorem 2.2.4, characterizing
+    natural transformations $C(-, c) \implies F$ for a contravariant functor
+    $F  \colon C^{op} \to \Set$.\\
+    \linebreak
+    \textit{Solution:} Taking the dual of the theorem, we have that
+    for any contravariant functor 
+    $F  \colon C^{op} \to \Set$, whose domain
+    $C^{op}$ is locally small and any object $c \in C^{op}$, there
+    is a bijection
+    \[
+    \Hom \left( C^{op}(-,c), F \right) \cong Fc
+    \] 
+    that associates a natural transformation
+    $\alpha  \colon C^{op}\left( -, c \right) 
+    \implies F$ to the element $\alpha_c (1_c^{op}) \in Fc$. Moreover, this
+    correspondence is natural in both $c$ and $F$.\\
+    \linebreak
+    For the proof, we insert $C^{op}$ in the Yoneda lemma and
+    choosing a covariant functor
+    $F  \colon C^{op} \to \Set$, so we get
+    \[
+    \Hom \left( C^{op}(-,c),F \right) 
+    = \Hom\left( C(c,-),F\right) \cong
+     Fc.
+    \] 
+    But a covariant functor $F  \colon C^{op} \to \Set$ is just a contravariant
+    functor $C \to \Set$ (which we usually just denote
+    $F  \colon C^{op} \to \Set$ as in the statement of the dual theorem above),
+    giving the desired bijection.\\
+    We check naturality in the functor and object.\\
+
+    
+    Naturality in the functor asserts that given
+    a natural transformation
+    $\gamma  \colon F \implies G$, the element
+    of $Gc$ representing the composite natural transformation
+    $\gamma \alpha  \colon C^{op}(-,c) \implies F \implies G$ is the image
+    under $\gamma_c  \colon Fc \to Gc$ of the element
+    $Fc$ representing
+    $\alpha  \colon C^{op}(-,c) \implies F$, i.e the diagram
+    \begin{equation*}
+    \begin{tikzcd}
+        \Hom\left( C^{op}(-,c),F \right) 
+        \arrow[r, "\Phi_F"] \arrow[d, "\gamma_*"] & Fc \arrow[d,
+        "\gamma_c"] \\
+        \Hom\left( C^{op}(-,c), G \right) \arrow[r, "\Phi_G"]
+                            & Gc
+    \end{tikzcd}
+    \end{equation*}
+    commutes in $\Set$. By definition,
+    $\Phi_G \left( \gamma \alpha \right) 
+    = \left( \gamma \alpha \right)_{c}\mathbbm{1}_{c}$ which is
+    $\gamma_c (\alpha_c \mathbbm{1}_c)$ by the definition of vertical
+    composition, and this is
+    $\gamma_c \left( \Phi_F \left( \alpha \right)  \right) $.\\
+    \linebreak
+    Naturality in the object asserts that given a morphism
+    $f  \colon d \to c$ in $C$, the element of
+    $Fd$ representing the composite natural transformation
+    $\alpha f_*  \colon C^{op} \left( -,d \right) 
+    \implies C^{op} \left( -,c \right) \implies F$ is the image
+    under $Ff  \colon Fc \to Fd$ of the element of $Fc$ that represents
+    $\alpha$, i.e. the diagram
+    
+     \begin{equation*}
+    \begin{tikzcd}
+        \Hom\left( C^{op}(-,d),F \right) \arrow[r, "\Phi_d"] \arrow[d, "(f_*)^{*}"] &
+        Fd \arrow[d, "Ff"] \\
+        \Hom\left( C^{op}(-,c),F \right) \arrow[r, "\Phi_c"] & Fc
+    \end{tikzcd}
+    \end{equation*}
+    commutes. Letting
+    $\beta \in \Hom\left( C^{op}(-,d),F \right) $, we get
+    $Ff \left( \beta_d (\mathbbm{1}_d) \right) $ along the top right, and
+    $\Phi_c \left( \beta f_* \right) 
+    = \left( \beta f_* \right)_c \left( \mathbbm{1}_c \right) $ along the
+    bottom left. But
+    $(\beta f_*)_c \left( \mathbbm{1}_c \right) $ by definition of vertical
+    composition is the function
+    $\mathbbm{1}_c \mapsto f \mapsto \beta_c (f)$ and
+    $\beta_c (f) = Ff \left( \beta_d \left( \mathbbm{1}_d \right)  \right) $
+    by the commutative square (2.2.6) on page 58 in Riehl.\\
+    This gives naturality in the object.\\
+    \linebreak
+    
+    
+    
+
+
+
+    
+
+
+
+    \textbf{2.2.ii:} Explain why the Yoneda lemma does not dualize to classify
+    natural transformations from an arbitrary set-valued functor to
+    a represented functor.\\
+    \linebreak
+    \textit{Solution:}
+    When we formulated the dual version, we replaced $C$ with $C^{op}$ and
+    considered covariant functors $C^{op} \to \Set$. Taking the dual
+    thus changed the direction of the morphisms in our category and
+    the variance of our functor (as covariant $C^{op}\to \Set$ is the same as
+    contravariant $C \to \Set$ ), but the direction of the functors
+    (i.e. going $C \to \Set$ or $C^{op}\to \Set$ ) and natural
+    transformations did not change, so the statement does not dualize to natural
+    transformations going
+    $F \implies C(c,-)$.
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

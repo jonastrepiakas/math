@@ -1,0 +1,454 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+%\usepackage{tikz-cd}
+%%For code (e.g. python) in latex:
+%\usepackage{listings}
+%
+%Usage: 
+%\begin{lstlisting}[language=Python]
+%\end{lstlisting}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\begin{document}
+    \textbf{p. 109:}\\
+    \textbf{25:} Show that the punctured torus deformation-retracts onto the
+    one-point union of two circles.\\
+    \linebreak
+    \textit{Solution:} 
+    Let $X = I^2 - (\frac{1}{2}, \frac{1}{2})$. Then we can
+    give  $X$ the usual partition for the torus (i.e. we paste opposite sides
+    of the square) inducing an identification space $X^{*}$ for the punctured
+    torus where we can assume without loss of generality that the usual image
+    in the torus of
+     $(\frac{1}{2}, \frac{1}{2})$ is the removed point. Let $\pi  \colon X \to X^{*}$ denote
+     the identification map.\\
+     Now, define a map
+    $F  \colon X \times I \to X$ given by
+    \[
+    F((x,y),t) = \left( \frac{t}{2 \max \left\{ 
+    \left| x - \frac{1}{2} \right| ,
+\left| y - \frac{1}{2} \right| \right\} }
++ 1 -t \right) \left(x-\frac{1}{2}, y - \frac{1}{2} \right) + \left( \frac{1}{2},
+\frac{1}{2} \right).
+    \] 
+    This is continuous. Furthermore,
+    $F\left( (x,y), 1 \right) 
+    \in \partial I^2$, and
+    for $(x,y) \in \partial I^2$,
+    $\max \left\{ 
+    \left| x- \frac{1}{2} \right| ,
+\left| y - \frac{1}{2} \right| \right\} = \frac{1}{2}$, so
+    \[
+    F((x,y), 1)
+    = (x,y).
+    \] 
+    Hence $F$ is a deformation retraction of $X$ onto
+    $\partial I^2$. Thus
+    $\pi \circ F$ is a deformation retraction of
+    $X$ onto $\pi \left( \partial I^2 \right) $.\\
+    \linebreak
+    We wish to show that $\pi \circ F$ factors through $X^{*}$.\\
+    \linebreak
+    For any $x',y' \in X$ with $x'\neq y'$ such that $\pi(x') = \pi(y')$, we have
+    that $x',y' \in \partial I^2$ and are symmetric about either the line
+    $x = \frac{1}{2}$ or the line $y = \frac{1}{2}$. But 
+    $\pi \circ F$ maps such points to the same point, so we can define
+    a map $\tilde{f}  \colon X^{*} \times I \to \pi\left( \partial I^2 \right) $ such
+    that
+    $\pi \circ F = \tilde{f} \circ \left( \pi, \mathbbm{1} \right) $ and by theorem 4.1, 
+    $\tilde{f}$ is continuous - $\left( \pi, \mathbbm{1} \right) $ is
+    an identification map as a consequence of exercise 11, section 29 in
+    Munkres,
+    and since $I = \left[ 0,1 \right] $ is a locally compact
+    Hausdorff space.\\
+    \linebreak
+    Thus $\tilde{f}(\pi (x),0) = \pi(x)$,
+    $\tilde{f}\left( \pi (x),1 \right) 
+    = \pi \left( F(x,1) \right) \in \pi \left( \partial I^2 \right) $, and
+    for $\pi(x) \in \pi \left( \partial I^2 \right) $, we have
+    $\tilde{f}\left( \pi (x), 1 \right) 
+    = \pi \left( F(x,1) \right) 
+    = \pi(x)$, so $\tilde{f}$ is a deformation retraction of
+    $X^{*}$ onto $\pi \left( \partial I^2 \right) $.\\
+    \linebreak
+    \textbf{26:} Consider the following examples of a circle $C$ embedded in
+    a surface $S$ :\\
+    (a) $S =$ Möbius strip, $C=$ boundary circle;\\
+    (b) $S =$ torus, $C=$ diagonal circle $=\left\{ \left( x,y \right) 
+    \in S^{1} \times S^{1}  \mid x=y \right\} $ ;\\
+    (c) $S =$ cylinder, $C=$ one of boundary circles.\\
+    \linebreak
+    In each case, choose a base point in $C$, describe generators for the
+    fundamental groups of $C$ and $S$, and write down in terms of these
+    generators the homomorphisms of fundamental groups induced by the inclusion
+    of $C$ in $S$.\\
+    \linebreak
+    \textit{Solution:} \\
+    (a) Consider the Möbius strip as the identification space of
+    $X = I^2$ with $(0,t)$ and $(1,1-t)$ identified for all $t$. Suppose we choose
+    as a base point for $C$ the point
+    $p = (0,0)$ and let $\pi  \colon X \to X^{*} = S$ be the identification map.\\
+    \linebreak
+    Then letting $\gamma  \colon I \to X$ be given by
+     \[
+    \gamma(t) = \begin{cases}
+        (2t,0), & t \in \left[ 0, \frac{1}{2} \right] \\
+        (2t-1, 1), & t\in \left[ \frac{1}{2},1 \right] 
+    \end{cases},
+    \] 
+    $\pi \circ \gamma  \colon I \to X^{*}$ is the boundary circle.\\
+    \linebreak
+    Now, consider the path $\alpha  \colon I \to X$ given by
+    \[
+    \alpha (t) = (t, t).
+    \] 
+    Since $(0,0)$ and $(1,1)$ are identified, 
+    $ g := \pi \circ \alpha$ is a loop in $S$.\\
+    \linebreak
+    Define the map $F  \colon X \times I \to X$ by
+     \[
+    F((x,y),t) =
+    (x,y + t (x-y)).
+    \] 
+    $F$ is a deformation retraction of 
+    $X$ onto the image of $\alpha$. Now, since
+    \begin{align*}
+        \pi \circ F((0,s),t) 
+        &= \pi \left( 0, s (1-t) \right) \\
+   &= \pi \left( 1, 1 - (1-t)s \right)\\
+   &= \pi \left( 1, 1 -s +ts \right) \\
+   &= \pi \left( 1, (1-s) + t (1 - (1-s)) \right) \\
+   &= \pi \circ F \left( (1, 1-s), t \right)  
+    \end{align*}
+    we have that $\pi \circ F$ factors through
+    $X^{*} \times I$, so there exists
+    a map $\tilde{f}  \colon X^{*} \times I \to X^{*}$ such that
+    \[
+    \pi \circ F = \tilde{f} \circ \left( \pi, \mathbbm{1} \right).
+    \] 
+    Again, we have that $\tilde{f}$ is continuous as in problem 25, so
+    $\tilde{f}$ is a deformation retraction of
+    $X^{*}$ onto the image of $\pi \circ \alpha$ which is a circle.\\
+    Thus $\pi_1 \left( S, p(0,0) \right) \cong \mathbb{Z}$ and furthermore,
+    since $\tilde{f} (-,1)_*$ is an isomorphism according to theorem 5.18, we
+    have that
+    $\tilde{f} \left( -, 1 \right)_* \left( \pi \circ \alpha \right) 
+    = \pi \circ \alpha$ which is an generator of the image of
+    $\tilde{f}\left( -, 1 \right)$ which is $\pi \circ \alpha$. Hence
+    $\pi \circ \alpha$ is also a generator for
+    $X^{*} = S$.\\
+    Let $i  \colon C \to S$ be the inclusion map.\\
+    Then $i \circ \pi \circ \gamma$ is a path in $S$ and
+    $$\tilde{f} \left( i \circ \pi \circ \gamma (s) ,t \right) 
+    = \pi \circ F \left( \gamma (s), t \right) 
+    = \pi \circ 
+    \begin{cases}
+        \left( 2s, 2t s \right), & t\in \left[ 0, \frac{1}{2} \right] \\
+        \left( 2s -1, 1 + t \left( 2s - 2 \right)  \right),& t \in \left[
+        \frac{1}{2},1 \right] 
+    \end{cases} $$
+   is a homotopy of $\pi \circ \gamma$ to
+   $\pi \circ \alpha. \alpha$. Thus
+   $\langle \pi \circ \gamma \rangle 
+   = \langle \pi \circ \alpha . \alpha \rangle $, so
+    the generator $\pi \circ \gamma$ in $C$ is equivalent to
+    winding around the Möbius strip twice. I.e. the inclusion induces the map
+    $i_*  \colon \mathbb{Z} \cong \pi_1 (C, p(0,0)) \to \pi_1 \left( S, p(0,0) \right)
+    \cong \mathbb{Z}$ given
+    by
+    $i_* (1) = 2$.\\
+    \linebreak
+    (b) We have $\pi_1 (S) = \pi_1 (S^{1} \times S^{1})
+    \cong \pi_1 (S^{1}) \times \pi_1 \left( S^{1} \right) 
+    \cong \mathbb{Z} \times \mathbb{Z}$ and
+    the fundamental group of  $C$ is $\mathbb{Z}$ as it is a circle.\\
+    Let $X = \mathbb{R}^2$ and identify $(a,b+t) \sim (c,d+t)$ and
+    $(a+s,b) \sim (c+s,d)$  for $a,b,c,d \in Z$ and $s,t \in I$, giving the identification space of the
+    torus. Let $\pi  \colon X \to X^{*} = S$ be the identification map.\\
+    Let $\pi(0,0)$ be the chosen base point.\\
+    Then the diagonal circle  $C$ is given by $\pi \circ \alpha$ with
+    $\alpha  \colon I \to X$ given by $\alpha(t)
+    = (t,t)$, and $\langle \pi \circ \alpha \rangle $ is a generator for
+    $\pi_1 \left( C, p(0,0) \right) $\\
+    \linebreak 
+    Now, we can view the above in terms of orbit space by letting
+    $\mathbb{Z} \times \mathbb{Z}$ act
+    on the plane as a group of homeomorphisms. As in the proof of theorem 5.13,
+    we then find that defining $\varphi  \colon G \to 
+    \pi_1 \left( X /G, \pi(x_0) \right) $ by
+    $\varphi (g) = \langle \pi \circ \gamma \rangle $ where 
+    $x_0 \in X$ and $\gamma$ is a path joining $x_0$ to $g(x_0)$ given some $g
+    \in G$ gives an isomorphism of
+    $G$ and $\pi_1 \left( X /G, \pi (x_0) \right) $.
+    Now, $(1,0)$ and $(0,1)$ generate $\mathbb{Z} \times \mathbb{Z}$,
+    so their images generate 
+    $\pi_1 \left( X /G , \pi(x_0) \right) 
+    = \pi_1 \left( S , \pi(0,0) \right) $.\\
+    Since $(1,0).(0,0) = (1,0)$ where the left element is a group element of
+    $\mathbb{Z} \times \mathbb{Z}$ acting on the right element $(0,0)$ which is
+    our base point in $\mathbb{R}^2$, and in the same way
+    $(0,1).(0,0) = (0,1)$, we have that
+    letting $\beta  \colon I \to X$ be the straight line connecting
+    $(0,0)$ and $(0,1)$ and $\delta  \colon I \to X$ be the straight line
+    connecting $(0,0)$ and $(1,0)$,
+    $\varphi (0,1) = \langle \pi \circ \beta \rangle $ and
+    $\varphi (1,0) = \langle \pi \circ \delta \rangle $ generate
+    $\pi_1 (S)$ which correspond to the meridean and longitudinal circle on the
+    torus. Furthermore, commutativity in $\mathbb{Z} \times \mathbb{Z}$ of
+    $(0,1)$ and $(1,0)$ implies commutativity 
+    $\langle \pi \circ \beta \rangle $ and $\langle \pi \circ \delta \rangle
+    $ in
+    $\pi_1 (S)$.\\
+    Let $i  \colon C \to S$ denote the inclusion. We claim that
+    $\langle i \circ \pi \circ \alpha \rangle 
+    = \langle \pi \circ \delta \rangle \langle \pi \circ \beta \rangle $.\\
+   We can define a map
+   $F((x,y),t) = (x,y) + t \left( 
+   \left( \frac{x+y}{2}, \frac{x+y}{2} \right) - (x,y)\right) $. This is a
+   homotopy rel $\left\{ 0,1 \right\} $ of
+   $\alpha$ and $\delta . \beta_1$ where
+   $\beta_1(t)$ is given by $\beta (t) + (1,0)$. Now, $
+   \pi \left( \beta \right) 
+   = \pi \left( \beta_1 \right) $, so 
+   $\langle i \circ \pi \circ \alpha \rangle 
+   = \langle \pi \circ \delta. \beta_1 \rangle 
+   = \langle \pi \circ \delta . \pi \circ \beta_1 \rangle 
+   = \langle \pi \circ \delta . \pi \circ \beta \rangle 
+   = \langle \pi \circ \delta \rangle 
+   \langle \pi \circ \beta \rangle $.\\
+   \linebreak
+   Hence $i_*  \colon \mathbb{Z} \cong 
+   \pi_1 \left( C, \pi(0,0) \right) 
+   \to  \pi_1 \left( S, \pi(0,0) \right) 
+   \cong \mathbb{Z} \times \mathbb{Z}$ is given by
+   $i_*(1) = (1,1)$, so
+   $i_*(n) = (n,n)$.\\
+   \linebreak
+   (c) We consider the cylinder as embedded as
+   $S^{1} \times I$, so $S = S^{1} \times I$. Let
+   $C = S^{1} \times  \left\{ 0 \right\} $, and let 
+   $(1,0)$ be the base point. Then $\gamma  \colon
+   I \to S^{1} \times I$ by
+   $\gamma (t) = \left( e^{2 \pi i t},0 \right) $ defines a loop
+   giving the boundary circle $C$.\\
+   \linebreak
+   Define $F  \colon S \times I \to S$ by
+   $F\left( \left( e^{2 i \pi \theta},s \right) , t \right) 
+   = \left( e^{2 i \pi \theta}, s (1-t) \right) $. This is a deformation
+   retraction of $S$ onto $S^{1} \times \left\{ 0 \right\} \subset S$ (the
+   boundary circle, $C$). Thus
+   $\pi_1 (S, (1,0)) \cong \pi_1 (C, (1,0)) \cong \mathbb{Z}$. Now, by example
+   4 on page 104, $S$ and $C$ have the same homotopy type, so
+   by theorem 5.18 and its proof, we have that
+   $\left( F(-,1) \right)_*$ is an isomorphism of
+   $\pi_1 (S, (1,0))$ and $\pi_1 (C,(1,0))$. Now,
+   $\left( F(-,1) \right)
+   \left( \langle \gamma \rangle  \right) 
+   = \langle F(-,1) \circ \gamma  \rangle 
+   = \langle \gamma \rangle $ which is a generator of
+   $\pi_1 \left( C, (1,0) \right) $ and thus
+   $\langle \gamma \rangle $ is also a generator of
+   $\pi_1 (S, (1,0))$ as $\left( F(-,1) \right)_*$ is an isomorphism. Thus,
+   with these generators,
+   $i_*  \colon \mathbb{Z} \to \mathbb{Z}$
+ is given by $i_*(1) = 1$, and hence $i_*(n) = n$.\\
+ \linebreak
+ \textbf{p. 111:}\\
+ \textbf{33:} Which of the following spaces have the fixed-point property?\\
+ (a) The 2-sphere\\
+ (b) the torus\\
+ (c) the interior of the unit disc\\
+ (d) the one-point union of two circles.\\
+ \linebreak
+ \textit{Solution:}\\
+ (a) Let $S^{2} = 
+ \left\{ (x,y,z)  \mid x^2 + y^2 + z^2 = 1 \right\} $. Define a map
+ $f  \colon S^{2} \to S^{2}$ by
+ $f(x,y,z) = \left( -x,-y,-z \right) $. This is continuous as each coordinate
+ function is continuous, and has no fixed point since if
+ $f(x,y,z)=(x,y,z)$ then $-x = x, -y=y$ and $-z = z$ imply $(x,y,z)=(0,0,0)
+ \not\in S^{2}$. Thus the 2-sphere does not have the fixed-point property.\\
+  \linebreak
+  (b) The torus does not have the fixed-point property either. For example,
+  consider the map
+  $f  \colon S^{1} \times S^{1} \to S^{1} \times S^{1}$ by
+  $f(e^{i \theta}, e^{i \alpha}) =
+  \left( e^{i (\theta + \frac{\pi}{2})},
+  e^{i \alpha} \right) $. This map is continuous as its coordinate maps are
+  continuous, and has no fixed point since
+  $e^{i \theta}= e^{i \left( \theta + \frac{\pi}{2} \right) 
+  =i e^{i \theta}} \implies
+  1 = i$ since $\left| e^{i \theta} \right| =1$ and thus dividing is
+    possible.\\
+    We thus derive a contradiction, so the map has no fixed point.\\
+    \linebreak
+    (c) The interior of the unit disc does not have the fixed point property:\\
+    Consider  $D^2 = \left\{ (x,y) \in \mathbb{R}^2  \mid 
+    x^2 + y^2 \le \le 1\right\} $. 
+    Define the map 
+    $f \colon \left( D^2 \right)^{\circ}
+    \to \left( D^2 \right)^{\circ}$ by
+    $f(x,y) = \left( \frac{x^2 + y^2 +1}{2},0 \right) $. This is continuous as
+    the coordinate functions are contiuous. However,
+    $(x,y) = f(x,y) = \left( \frac{x^2 + y^2 +1}{2},0 \right) $ implies
+    $y = 0$ so $\frac{x^2 + 1}{2}= x$ which implies $x=1$, however
+    $(1,0) \not\in \left( D^2 \right)^{\circ}$.\\
+    \linebreak
+    (d) Suppose we identify the two copies of $S^{1}$ at $1$. Define a map
+    $f  \colon S^{1} \vee S^{1} \to S^{1} \vee S^{1}$ by
+    sending $x \mapsto -x$ for $x$ in the first copy of $S^{1}$ (i.e. each
+    point is mapped to its antipodal point in the first copy) and
+    $x \mapsto -1$ for $x$ in the second copy of $S^{1}$. This map is
+    continuous on each of the circles separately, and agree on $1$, so 
+    $f$ is continuous and has no fixed point.
+    
+    
+    
+
+    
+    
+    
+    
+ 
+
+
+
+
+
+    \newpage
+    
+    \textbf{Lemma:} If $p  \colon X \to Y$ is an identification map and if
+    $Z$ is a locally compact Hausdorff space, then the map
+    \[
+    \pi = p \times \mathbbm{1}_{Z}  \colon X \times Z
+    \to Y \times Z
+    \] 
+    is a quotient map.\\
+    \linebreak
+    \textit{Proof:} Firstly, $\pi$ is continuous. Let
+    $A \subset Y \times Z$ and
+    $\pi^{-1}(A)$ be open and suppose it contains
+    $x \times y$ which we will write for  $(x,y)$.
+    Now, choose open sets $U_1$ and $V$ with
+    $\overline{V}$ compact such that
+    $x \times y \in U_1 \times V$ and
+    $U_1 \times \overline{V} \subset \pi^{-1}(A)$ (we can find such a $V$ 
+    because $Z$ is locally compact).\\
+    Now, given 
+
+
+
+    
+    
+   
+    
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,198 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%% for identity function 1:
+%\usepackage{bbm}
+%%For category theory diagrams:
+%\usepackage{tikz-cd}
+%%For code (e.g. python) in latex:
+%\usepackage{listings}
+%
+%Usage: 
+%\begin{lstlisting}[language=Python]
+%\end{lstlisting}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+%Redeclaring Span and image
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\begin{document}
+\textbf{1.1.1:} 
+If $d_E$ and $d_T$ induce the same topology, then any function is continuous
+with respect to one if and only if it is continuous with respect to the
+other.\\
+We show that the topologies are each finer than the other:\\
+\linebreak
+Let $x = (x_1, \ldots, x_n), y = (y_1, \ldots, y_n)$. 
+Let $z_k = \left( x_1, \ldots, x_k, y_{k+1}, y_{k+2}, \ldots y_n \right) $. Then
+by repeated application of the triangle inequality, we get
+\begin{align*}
+    \sqrt{\sum_{i=1}^{n} \left( x_i - y_i \right)^2} 
+    = d_E (x,y) &\le d_E \left( x, \left( x_1, y_2, \ldots, y_n \right)  \right) 
++ d_E \left( \left( x_1, y_2, \ldots, y_n \right) , y \right) \\
+&= d_E\left( x, z_1 \right) + d_E \left( z_1, y \right) \\
+&\le d(x, z_2) + d(z_2, z_1) + d\left( z_1, y \right) \\
+&\vdots\\
+&\le d(x,z_{n-1}) + d\left( z_{n-1}, z_{n-2} \right) +
+\ldots + d\left( z_2, z_1 \right) + d(z_1, y)\\
+&= \sum_{i}^{n} \left| x_i - y_i \right| 
+\end{align*}
+
+
+
+By Cauchy-Schwarz, we have
+\[
+\sum_{i=1}^{n} \left| x_i-y_i \right| \le \sqrt{\sum_{i=1}^{n} \left( x_i - y_i
+\right)^2} \sqrt{n},
+\] 
+so we have $B_{d_T}(x,\varepsilon) \subset B_{d_E}(x,\varepsilon)$ and
+$B_{d_E}(x, \frac{\varepsilon}{\sqrt{n} }) \subset B_{d_T}(x, \varepsilon)$
+. Since $x$ was arbitrary, we thus have
+$\tau_{d_T} \subset \tau_{d_E} \subset \tau_{d_T}$ by lemma 13.3 in Munkres, so the topologies are
+equal.\\
+\linebreak
+
+
+
+
+    \textbf{1.1.2:} Assume first it is continuous in the metric sense. 
+    Let $f  \colon X \to Y$ be continuous. Let $V \subset Y$ be open. Then
+    it is the union of basis elements: $V = \bigcup_{i \in  I} B_i(x_i,
+    \varepsilon_i)$. Let $U = f^{-1} (V) = \bigcup_{i \in I} f^{-1} \left( 
+    B_i (x_i, \varepsilon_i\right) )$. Let $x \in U$. Then $f(x) \in B_i (x_i,
+    \varepsilon_i)$ for some $i \in I$. Since $B_i\left( x_i, \varepsilon_i
+    \right) $ is open, we can choose a ball $B\left( f(x), \varepsilon_x \right)  \subset B_i \left( x_i,
+    \varepsilon_i \right) $. By definition of our continuity, we now can find
+    a $\delta_x$ such that $B\left( x, \delta_x \right) \subset 
+    f^{-1} \left( B \left( f(x), \varepsilon_x \right)  \right) 
+    \subset f^{-1}(V) = U$. Now since $x$ was arbitrary, we can find such
+    a $\delta_x$ for any $x \in U$. Then
+    \[
+    U = \bigcup_{x \in U} \left\{ x \right\} \subset \bigcup_{x \in U} B\left(
+    x, \delta_x \right) \subset U
+    \] 
+    so $\bigcup_{x \in U} B\left( x, \delta_x \right) = U$ and thus $U$ is
+    a union of open sets and hence open.\\
+    Hence $f$ is continuous the topological sense also.\\
+    \linebreak
+    Now assume $f$ is continuous in the topological sense and we show it is
+    continuous in the metric sense.\\
+    \linebreak
+    Let $x \in X$ and $\varepsilon > 0$. Then  $B\left( f(x), \varepsilon
+    \right) $ is an open set and thus $ U = f^{-1}\left( B\left( f(x),\varepsilon
+    \right)  \right) $ is open. Thus we can write it as a union of open balls
+    $U = \bigcup_{i \in  I} B\left( x_i, \delta_i \right) $. Then there exists
+    some $i \in I$ such that $x \in B\left( x_i, \delta_i \right) $. Now since
+    $B\left( x_i, \delta_i \right) $ is open, we can choose a basis element
+    $B\left( x, \delta \right) \subset B\left( x_i, \delta_i \right) $. Now
+    $f\left( B\left( x, \delta \right)  \right) 
+    \subset f\left( B\left( x_i, \delta_i \right)  \right) 
+    \subset f(U) \subset B\left( f(x), \varepsilon \right) $, which satisfies
+    the requirement.\\
+    \linebreak
+    \textbf{1.2.1:} Firstly, since  $\varnothing, X \in \tau_i$ for all $i \in
+    I$, we have
+    $\varnothing, X \in \bigcap_{i \in  I} \tau_i$.\\
+    \linebreak
+    Now let $\left\{ U_{\alpha} \right\}_{\alpha \in J}$ be a collection of
+    sets in $\bigcap_{i \in  I} \tau_i$. Then 
+    for all $\alpha \in J$, we have $U_{\alpha} \in \tau_i$ for all $i$, and
+    hence $\bigcup_{\alpha \in J} U_{\alpha} \in \tau_i$ for all $i$ since
+    each $\tau_i$ is a topology and hence closed under arbitrary unions. But
+    then
+    $\bigcup_{\alpha \in J} U_{\alpha} \in \bigcap_{i \in  I} \tau_i$.
+    So $\bigcap_{i \in I} \tau_i$ is closed under arbitrary unions of open
+    sets.\\
+    \linebreak
+    Now let $U_1, \ldots, U_n$ be a finite collection of open sets in
+    $\bigcap_{i \in  I} \tau_i$.
+    Then for all $i \in I$, we have $U_k \in \tau_i$ for all $k = 1,\ldots ,n$,
+    and therefore
+    $\bigcap_{k=1}^{n}U_k \in \tau_i$ for all $i$ since each $\tau_i$ is
+    a topology and thus closed under finite intersections. Then
+    $\bigcap_{k=1}^{n} U_k \in \bigcap_{i \in  I} \tau_i$, so $\bigcap_{i \in
+    I} \tau_i$ is closed under finite intersections.\\
+    So $\bigcap_{i \in  I} \tau_i$ is a topology on $X$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+\end{document}

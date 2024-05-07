@@ -1,0 +1,139 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{bbm}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+%Redeclaring Span and image
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\title{Assignment 1}
+\author{Jonas Trepiakas - 3039733855 - jtrepiakas@berkeley.edu}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+
+
+\textbf{5:} Let $F  \colon X \times I \to X$ be a deformation retraction of $X$ onto
+$x_0$ such that $F(x,0) = \mathbbm{1}$ and $F (X,1) = x_0$ and $F(x_0,t)= x_0$
+for all $t$. Let $U \subset X$ be a neighborhood of $x_0$ in $X$. Since
+$F$ is continuous, $F^{-1}(U)$ is open and nonempty as $x_0 \in F^{-1}(U)$,
+and since $U$ is open and $I$ is open
+in $I$, we have by definition of the product topology that
+$U \times I$ is open in $X \times I$ and thus $F^{-1}(U) \cap U \times I$ is
+open and nonempty as $\left\{ x_0 \right\}  \times I \subset F^{-1}(U) \cap
+U \times I$. We can thus write $F^{-1}(U) \cap U \times I$ as a union of basis
+elements $\bigcup_{\alpha} 
+V_{\alpha} \cup W_{\alpha}$ where all $V_{\alpha}$ are open in $X$ and
+$W_{\alpha}$ open in $I$. Since $\left\{ x_0 \right\} \times I \subset
+F^{-1}(U)$, we have $\bigcup_{\alpha} W_{\alpha} = I$, and since $I$ is
+compact, there exist $\alpha_1, \ldots, \alpha_n$ such that
+$W_{\alpha_1} \cup \ldots \cup W_{\alpha_n} = I$. Then
+$V = V_{\alpha_1} \cap \ldots \cap V_{\alpha_n} $ is open as the finite
+intersection of open sets and nonempty as all contain $x_0$, and we find that
+$F (V \times I) \subset U$ since for any $(x,t) \in V \times I$, there exists a 
+$1 \le i \le n$ such that $(x,t) \in V_{\alpha_i} \times W_{\alpha_i}$ and
+$F\left( V_{\alpha_1} \times W_{\alpha_1} \right) \subset F \left( F^{-1}\left(
+U\right) \cap U \times I \right) \subset U$. Now $V \times I$ is open and satisfies
+that the restriction $F|_{V \times I}  \colon V \times I \to U$ is well-defined and a homotopy between the
+inclusion map
+$\mathbbm{1}_{V}  \colon V \to U$  and the constant function sending $V$ to
+$x_0$ since
+$F(x,0) = \mathbbm{1}_{V}$ and $F(x,1) = x_0$, and it is continuous since
+ for any open set $W$ of the subspace $U$, we have
+ $F|_{V \times I}^{-1}\left( W \right) =
+ F^{-1}\left( W \right) \cap V \times I$ which is the intersection of open sets
+ and thus open.\\
+ Hence the inclusion map $\mathbbm{1}_{V}  \colon V \to U$ is nullhomotopic.\\
+\linebreak
+\textbf{15:} We have $S^{\infty} = \bigcup_{n} S^{n}$ and each
+$S^{n}$ can be built inductively from $S^{n-1}$ by attaching two $n$-cells (by
+the procedure on page 7, Hatcher). If now $A$ is a subcomplex of  $S^{\infty}$ 
+that contains an $n$-cell, it must also contain the boundary of this $n$-cell
+since a subcomplex is a closed subspace. The boundary of an $n$-cell,
+$\partial e^{n}$, is an $(n-1)$-cell which in the $n$-skeleton $S^{n}$ would be
+$S^{n-1}$ in this cell structure. So if the subcomplex $A$ has finite dimension
+$n$, then it is of the form $e_1^{n} \bigcup_{i<n} e_1^{i}\cup e_2^{i}$ or
+$e_1^{n}\cup e_2^{n} \bigcup_{i<n} e_1^{i}\cup e_2^{i}$. If $A$ is infinite
+dimensional, it must be $S^{\infty}$ since it is a union of cells and assume it
+does not contain a cell $e_{z}^{l}$. Since it is not finite dimensional, it must
+contain a cell $e^{j}$ with $j>l$ and hence by the finite case, it must contain
+$\bigcup_{i < j} e_1^{i}\cup e_2^{i}$ which contains $e_{z}^{j}$.
+          
+
+
+
+
+
+
+
+
+
+
+\end{document}

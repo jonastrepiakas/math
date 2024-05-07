@@ -1,0 +1,340 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+%\usepackage{tikz-cd}
+%%For code (e.g. python) in latex:
+%\usepackage{listings}
+%
+%Usage: 
+%\begin{lstlisting}[language=Python]
+%\end{lstlisting}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\SO}{SO}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+
+\title{Assignment 6}
+\author{Jonas Trepiakas - jtrepiakas@berkeley.edu - Student ID: 3039733855}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+    
+\textbf{p. 78:}\\
+\textbf{16:} Prove that $O(n)$ is homeomorphic to 
+$\SO (n) \times Z_2$. Are these two isomorphic as topological groups?\\
+\linebreak
+\textit{Solution:} 
+We have that an orthogonal matrix $A$ has property
+$A A^{T} = I$, so $\det A \det A^{T} = 1$ and
+$\det A^{T} = \det A$, so $\det A = \pm 1$. Now, for any
+$A \in O(n)$, either $A \in \SO (n)$ or $X A \in SO (n)$ where
+$X$ has $-1$ as its $1,1$ coordinate, $1$ as its $i,i$ coordinate for
+$2 \le i \le n$ and $0$ as its $i,j$ coordinate for $i \neq j$. Thus we can
+define a map
+$f  \colon \SO (n) \times Z_2 \to O(n)$ by
+$f(A,0) = A$ and $f(A,1) = X A$. By the above, this is a surjective function. 
+Since $O(n)$ is compact and  $\SO (n) \times Z_2$ is Hausdorff, we will have
+that
+$f$ is a homeomorphism if and only if  $f$ is continuous. Now, given
+an open set $U \subset O(n)$, we have that
+$O(n) = \det^{-1}(-1) \cup \det^{-1}(1)$, so
+$\det^{-1}(-1)$ and $\det^{-1}(1)$ are open in $O(n)$ and separate $O(n)$, so
+$U \cap \det^{-1}(-1)$ and $U \cap \det^{-1}(1)$ separate $U$ as disjoint open
+sets. Let $V = \left\{ -x  \mid x \in U \cap \det^{-1}(-1) \right\} $. Then
+$f^{-1}(U) = (U \cap \det^{-1}(1), 0) \cup (V, 1)$ which are open, so
+$f$ is continuous. Hence $f$ is a homeomorphism.\\
+\linebreak
+Now, we claim that
+$f$ is an isomorphism of topological groups if $n$ is odd, and that
+if $n$ is even, then $O(n)$ is not isomorphic to $\SO (n) \times Z_2$ as
+topological groups.\\
+\linebreak
+We first consider the case where $n$ is odd:\\
+Define the map $g  \colon \SO (n) \times Z_2 \to O(n)$ by
+$g(A,0) = A$ and $g(A,1) = -A$. Since $n$ is odd, we have
+$\det (-A) = - \det (A)$, we again this is surjective, and continuity is
+checked similarly, so we find that $g$ is a homeomorphism.\\
+Furthermore, we have
+ \[
+g \left( (A,t) * (B,s) \right) 
+= g \left( (AB, t+s) \right) 
+= (-1)^{t+s} AB
+= (-1)^{t} A (-1)^{s}B
+= f(A,t) f(B,s).
+\] 
+Thus $O(n) \cong \SO(n) \times Z_2$ as topological groups.\\
+\linebreak
+Now suppose $n$ is even. In this case we do not have $\det (-A) = - \det (A)$,
+so we can't make use of the map $g$ which gives us the niceness of
+commutativity in matrix multiplication to make the group homomorphism work.\\
+Indeed, in this case, suppose $O(n) \cong \SO(n) \times Z_2$ with isomorphism
+$\varphi  \colon \SO (n) \times Z_2 \to O(n)$.\\
+Now, suppose $X \in O(n)$ is in the center. Thus
+$X A = AX$ for all $A \in O(n)$. Then
+$X = AXA^{T}$, so
+ \[
+x_{ij} = \sum_{k=1}^{n} \left( AX \right)_{ik} a_{jk} 
+= \sum_{k=1}^{n} \sum_{r=1}^{n} a_{ir}x_{rk}a_{jk}
+\] 
+Now, taking $A$ to be the matrix with $a_{i 1} = a_{1 i} = 1$ and all other
+entries equal $0$, we get
+\[
+x_{ii} = a_{i 1} x_{1 1} a_{i 1}
+\] 
+so the diagonal entries for $X$ are all equal, and furthermore, for $j \neq i$
+\[
+x_{ij} = x_{ji} = 0.
+\] 
+Furthermore, $X$ has determinant $\pm 1$, so the product of the diagonal
+entries is $\pm 1$, so
+$x_{ii} = x_{ii}^{n} = \pm 1$. I.e., 
+the center of $O(n)$ is precisely $\left\{ I, -I \right\} $.\\
+Now, clearly $I, -I$ are in the center of
+$\SO (n)$ as well, however, we thus get
+the four elements $(I,0), (I,1), (-I,0), (-I,1)$ in the center
+of $\SO(n) \times Z_2$. Now, if
+we have groups $G, H$ and $g \in G$ is in the center of $G$ then
+for $ \psi  \colon G\to H$
+ and isomorphism, we have $\psi(g) \psi(x) =\psi (gx) 
+ = \psi(xg) = \psi(x) \psi(g)$ for all $x \in G$, so 
+ $\psi (g)$ is in the center of $H$.\\ However, as
+ $\varphi$ is injective, this thus gives $4$ distinct elements in the
+ center of $O(n)$ as the images of $(\pm I, 0)$ and $(\pm I, 1)$, contradicting
+ the cardinality of the center being $2$.\\ So no such isomorphism exists.\\
+ \linebreak
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        \textbf{85:}\\
+        \textbf{27:} Find an action of $Z_2$ on the torus with orbit space the
+        cylinder.\\
+        \linebreak
+        \textit{Solution:} Consider the torus identified with
+        $S^{1} \times S^{1} = T$ and the action of $Z_2$ on $S^{1} \times S^{1}$ 
+        given
+        by $g(e^{i \theta}, e^{i \alpha}) = \left( e^{i \theta}, e^{- i \alpha} \right) $
+        where $g$ is a generator for
+        $Z_2$.\\
+        We check the conditions of definition 4.14:\\
+        since for $h \in Z_2$, 
+        $h \left( e^{i \theta}, e^{i \alpha} \right) 
+        = \left( e^{i \theta}, e^{(-1)^{h} i \alpha} \right) $, we have
+        $(h+g) \left( x, e^{i \alpha} \right) 
+        = (x, e^{(-1)^{h+g} i \alpha})
+        = \left( x, e^{(-1)^{h} (-1)^{h} i \alpha} \right) 
+        = h \left( (x, e^{(-1)^{g}i \alpha} \right) 
+        = h \left( g \left( x, e^{i \alpha} \right)  \right) $.\\
+        \linebreak
+        (b) $0 \left( x, e^{i \alpha} \right) 
+        = g^2 \left( x, e^{i \alpha} \right) 
+        = g \left( g\left( x, e^{i \alpha} \right)  \right) 
+        = g \left( x, e^{-i \alpha} \right) 
+        = \left( x, e^{i \alpha} \right) $.\\
+        \linebreak
+        (c) Let $Z_2 \times T \to T$ be given by
+        $(h,x) \stackrel{f}{\to } h(x)$. Then
+        for an open set $U \subset T$, we have
+        $f^{-1}(U)$ is 
+        $(0,U) \cup (1,V)$ where
+        $V = \left\{ \left( x, e^{- i \alpha} \right)  \mid 
+        \left( x, e^{i \alpha} \right) \in U \right\} $.\\
+        Now, define the map
+        $\varphi  \colon T \to T $ by
+        $\varphi \left( x, e^{i \alpha}  \right) $. Now, as the component
+        functions are continuous (identity and conjugation), $\varphi$ is
+        continuous and $V = \varphi^{-1}(U)$, so
+        $(0,U) \cup (1,V)$ is open. Hence
+        $f$ is continuous.\\
+        \linebreak
+        The orbits are precisely
+        \begin{align*}
+            &\left\{ (x, e^{i \alpha}), (x, e^{- i \alpha} \right\},
+            \alpha \in (0, \pi), x \in S^{1} \\
+            & \left\{ (x,1) \right\}, x \in S^{1}\\
+            & \left\{ (x,-1) \right\}, x \in S^{1}.
+        \end{align*}
+        Now define a map
+        $g  \colon S^{1} \times S^{1} \to S^{1} \times I$ by
+        $g\left( e^{i \theta}, e^{i \alpha} \right) 
+        = \left( e^{i \theta}, \frac{\left| \alpha - \pi \right| }{\pi} \right)
+        $. Now, consider
+        $g_2 = \pi_2 g$ which maps $e^{i \alpha} \to \frac{\left| \alpha - \pi
+        \right| }{\pi}$. Then
+        $g_2^{-1}(J)$ for any closed interval $J \subset I$ is the union of two closed
+        arcs on $S^{1}$ which is closed, so $g_2$ is continuous and hence
+        the components of $g$ are continuous, so $g$ is continuous.\\
+        Now, given any $(x, t) \in S^{1} \times I$ we further have
+        that  $\pi - \pi t \in \left[ 0, \pi \right] $, so
+        $g\left( x, e^{i \left( \pi - \pi t \right) } \right) 
+        = \left( x, \frac{\left| \pi - \pi t - \pi \right| }{\pi} \right) 
+        = \left( x, t \right) $, so $g$ is surjective. As
+        $S^{1} \times S^{1}$ is compact as the product of compact sets,
+        and $S^{1} \times I$ is Hausdorff as the product of Hausdorff spaces,
+        we have by corollary 4.4 that $g$ is an identification map.\\
+        \linebreak
+        Now, the induced identification space of $g$ on $S^{1} \times S^{1}$ is precisely
+        the orbits of $f$ with the identification topology, so by theorem 4.2.(a), we have that
+        the orbit space of  $f$ is homeomorphic to
+        $S^{1} \times I$ which is the cylinder.\\
+        \linebreak
+        \textbf{31:} The stabilizer of a point $x \in X$ consists of those
+        elements $g \in G$ for which $g(x) = x$. Show that the stabilizer of
+        any point is a closed subgroup of $G$ when $X$ is Hausdorff, and that
+        points in the same orbit have conjugate stabilizers for any $X$.\\
+        \linebreak
+        \textit{Solution:} Let $G_x$ denote the set of stabilizers of
+        $x \in X$. Firstly, $G_x \le G$ algebraically and can be checked as
+        $e \in G_x$ and if $g,h \in G_x$ then
+        since $h^{-1}(x) =  h^{-1} (h (x))
+        \stackrel{4.14.(a)}{=} (h^{-1}*h) (x)= e (x) = x$, we have
+        $h^{-1} \in G_x$, so
+        $gh^{-1} \in G_x$, so $G_x \le G$.\\
+        Suppose $X$ is Hausdorff, and let
+        $m  \colon G \times X \to X$ by
+        $m(g,x) = g(x)$. Since $X$ is Hausdorff and Hausdorff implies $T_1$,
+        singletons are closed, so $X - \left\{ x \right\} $ is open. Now let
+        $g \in G - G_x$. Then
+        $(g,x) \in m^{-1}\left( X - \left\{ x \right\}  \right) $ which
+        is open, so since $\pi_1$ is an open map, we have that
+        $g \in \pi_1 \left( m^{-1}\left( X - \left\{ x \right\}  \right)
+        \right) $ which is open in $G$. Furthermore,
+        if $h \in \pi_1 \left( m^{-1}\left( X- \left\{ x \right\}  \right)
+        \right) $, then $\left\{ h \right\} \times X \cap 
+        m^{-1}\left( X-\left\{ x \right\}  \right) \neq \varnothing$, so there
+        exists $x' \in X$ such that $m(h,x') = h(x') \in X - \left\{ x \right\}
+        $, so $h \not\in G_x$. Thus
+        $\pi_1 \left( m^{-1}\left( X- \left\{ x \right\}  \right)  \right) 
+        \cap G_x = \varnothing$, so
+        $G - G_x \subset \pi_1 \left( m^{-1}\left( X- \left\{ x \right\}  \right)  \right) 
+        \subset G-G_x$, so
+        $G - G_x = \pi_1 \left( m^{-1}\left( X - \left\{ x \right\}  \right)
+        \right) $ is open, and hence
+        $G_x = G - \left( G-G_x \right) $ is closed.\\
+        \linebreak
+        Now, suppose $x,y$ are in the same orbit. Hence
+        there exists $g \in G$ such that
+        $g(x) = y$. Now, let $h \in G_x$. Then
+        $(ghg^{-1})(y) = (gh)(g^{-1}(y)) =
+        (gh)(x) = g(h(x)) = g(x) = y$, so
+        $ghg^{-1} \in G_y$, hence
+        $g G_x g^{-1} \subset G_y$. Conversely, if
+        $h \in G_y$, then
+        $\left( g^{-1} h \left( g^{-1} \right)^{-1} \right) (x)
+        = \left( g^{-1}hg \right) (x)
+        = \left( g^{-1}h \right) (g(x))
+        = \left( g^{-1}h \right) (y)
+        = g^{-1}\left( h(y) \right) 
+        = g^{-1}(y) = x$, so
+        $g^{-1} G_y g \subset G_x$ and thus
+        $G_y \subset g G_x g^{-1}$, so
+        $g G_x g^{-1} = G_y$, so
+        points in the same orbit have conjugate stabilizers for any $X$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

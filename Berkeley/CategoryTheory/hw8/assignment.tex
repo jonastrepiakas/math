@@ -1,0 +1,316 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+%%For code (e.g. python) in latex:
+%\usepackage{listings}
+%
+%Usage: 
+%\begin{lstlisting}[language=Python]
+%\end{lstlisting}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\begin{document}
+    \textbf{B (3.1.ii):} For a fixed diagram $F \in C^{J}$, show that the cone
+    functor $\Cone (-, F)$ is naturally isomorphic to
+    $\Hom \left( \Delta (-), F \right) $, the restriction of the hom functor
+    for the category $C^{J}$ along the constant functor embedding defined in
+    3.1.1. Do you find this result surprising? Why or why not?\\
+    \linebreak
+    \textit{Solution:} We want to define a natural isomorphism
+    $\alpha  \colon \Cone(-,F) \implies \Hom \left( \Delta (-),F \right) $.\\
+    When we look at the definition of a cone over a diagram $F$ with apex $c$,
+    we find it is a natural transformation $c \implies F$ which is
+    in the set $\Hom \left( \Delta(c) , F \right) $, so we suspect that the
+    natural isomorphism will be quite obvious when we write things out.\\
+    \linebreak
+    Suppose we have a cone $\lambda
+    = \left( \lambda_i  \colon c \to Fi \right)_{i \in J}
+    \in \Cone(c,F)$. This is locally, for
+    a morphism $f  \colon i \to j$ in $J$, is of the form
+    \begin{equation*}
+    \begin{tikzcd}
+        & c \arrow[dl, "\lambda_i"] \arrow[dr, "\lambda_j"] &\\
+        Fi \arrow[rr, "Ff"] & & Fj
+    \end{tikzcd}
+    \end{equation*}
+    Similarly, a natural transformation
+    $\beta  \colon \Delta(c) \implies F$ is a collection of morphisms
+    $\beta_i  \colon c \to F i$ such that for any $f  \colon i \to j$ in $J$, the following diagram commutes
+    \begin{equation*}
+    \begin{tikzcd}
+        c \arrow[r, "\beta_i"] \arrow[d, "\mathbbm{1}_{\Delta c}"] & F(i) \arrow[d,
+        "Ff"] \\
+        c \arrow[r, "\beta_j"] & F(j)
+    \end{tikzcd}
+    \end{equation*}
+    We note that the data of the cone $\Cone(c,F)$ is a collection of morphisms
+    $\left( \lambda_i  \colon c \to F i \right)_{i \in J}$ which by definition
+    define a natural transformation $\Delta(c) \implies F$. Now, since
+    $J$ is small by definition of a diagram, we have that the collection
+    $J$ has only a set's worth of arrow. Since any object has an identity
+    morphism, we thus deduce that $J$ also only has a set's worth of objects,
+    so we can conclude that
+    $\left( \lambda_i  \colon c \to F_i \right)_{i \in J}$ is of set size.
+    Therefore,
+    we can consider the collection of morphisms as a set
+    $\left\{ \lambda_i  \colon c \to F_i \right\}_{i \in J}
+    \in \Set$ which is
+    an element of $\Hom\left( \Delta(c), F \right) $.\\
+    Now, define a collection of maps
+    \begin{align*}
+        \alpha_c  \colon \Cone(c,F) &\to \Hom (\Delta(c),F)\\
+        \lambda = \left( \lambda_i  \colon c \to Fi \right)_{i \in J} 
+        &\mapsto \left\{ \lambda_i  \colon c \to F_i  \colon i\in J \right\} 
+    \end{align*}
+    We claim that $\alpha$ is a natural isomorphism.\\
+    \linebreak
+    Consider a cone $\lambda = \left( \lambda_i  \colon c \to F_i \right)_{i
+    \in J} \in \Cone(c,F)$. Then naturality asserts that for a morphism
+    $f  \colon d \to c$ in $C$, we have
+    $\Hom\left( \Delta(-), F \right)(f) \circ \alpha_c \left( \lambda \right) 
+    = \alpha_d \circ \Cone(-,F)(f) (\lambda)$.\\
+    Now
+    \begin{align*}
+        \Hom\left( \Delta(-), F \right) (f) \circ \alpha_c (\lambda)
+        &= \Hom\left( \Delta(-),F \right)(f) \left( \left\{ \lambda_i  \colon c \to
+        F i \right\}_{i \in J} \right) \\
+        &= \left\{\lambda_i \circ f  \colon d \to Fi  \right\}_{i \in J}.
+    \end{align*}
+    And
+    \begin{align*}
+        \alpha_d \circ \Cone(-,F)(f)(\lambda)
+        &= \alpha_d \left( \lambda_i \circ f  \colon d \to F_i \right)_{i \in
+        J}\\
+        &= \left\{ \lambda_i \circ f  \colon d \to F_i \right\}_{i \in J}.
+    \end{align*}
+    This gives naturality.\\
+    \linebreak
+    To see that $\alpha$ is an isomorphism, we must check that $\alpha_c$ is
+    a bijection. We note that
+    for any set $\left\{ \lambda_i  \colon c \to Fi  \colon
+    i \in J\right\} \in \Hom\left( \Delta(c),F \right) $, the collection
+    $\left( \lambda_i  \colon c \to Fi \right)_{i \in J}$ defines
+    a cone over $F$ with summit $c$ since for any morphism $f  \colon j\to k$ in $J$, the
+    square
+    \begin{equation*}
+    \begin{tikzcd}
+        \Delta(c)(j) = c \arrow[r, "\lambda_j"] \arrow[d
+        , "\Delta(c)(f) = \mathbbm{1}_c"] & F(j) \arrow[d,
+        "Ff"]\\
+        \Delta(c)(k) = c \arrow[r, "\lambda_k"] & F(k)
+    \end{tikzcd}
+    \end{equation*}
+    commutes, and hence the following triangle commutes:
+    \begin{equation*}
+    \begin{tikzcd}
+        & c \arrow[dl, "\lambda_i"] \arrow[dr, "\lambda_j"] &\\
+        Fi \arrow[rr, "Ff"] & & Fj
+    \end{tikzcd}
+    \end{equation*}
+    which by the comment on page 74 means that the family of
+    morphisms  $\left( \lambda_i  \colon c \to Fi \right)_{i \in J}$ defines
+    a cone over $F$ with summit $c$. So define a map
+    $\beta_c  \colon \Hom(\Delta(c), F) \to \Cone(c,F)$ which maps
+    $\left\{ \lambda_i  \colon c \to F i \right\}_{i \in J}$ to
+    the cone $\lambda$. Then this is a two-sided inverse to  $\alpha_c$, so
+    $\alpha_c$ is a bijection. Hence each
+    $\alpha_c$ is invertible. So $\alpha$ is a natural isomorphism.\\
+    \linebreak
+    I don't find this result particularly surprising since cones over $F$ with
+    summit $c$ is indeed just a natural transformation
+    $c \implies F$, i.e. elements of
+    $\text{Mor}(c, F)$. The only thing to note is that
+    this seems to boil down to the fact that we are dealing with a diagram
+    which is defined on a small category, thus making our collection of
+    morphisms into a set; however, this is also clear from the
+    definition of a cone, so it's still not particularly surprising.\\
+    \linebreak
+    \textbf{2.4.x:} Fixing two objects $A,B$ in a locally small category $C$,
+    we define a functor
+    \[
+    C(A,-) \times C(B,-)  \colon C \to \Set
+    \] 
+    that carries an object $X$ to the set
+    $C(A,X) \times C(B,X)$ whose elements are pairs of maps
+    $a  \colon A \to X$ and $b  \colon B \to X$ in $C$. What would it mean for
+    this functor to be representable?\\
+    \linebreak
+    \textit{Solution:} We will write $f \times g$ for $(f,g)$.\\
+    Suppose
+    $C\left( A,- \right) \times C\left( B,- \right) $ is representable by
+    an element $c \in C$, so there is a natural isomorphism
+    \[
+        C(c,-) \stackrel{\alpha}{\cong} C(A,-) \times C(B,-).
+    \] 
+    This means that for any morphism
+    $f  \colon X\to Y$ between two objects $X,Y \in C$, the following square commutes
+    \begin{equation*} \begin{tikzcd}
+        C(c,X) \arrow[r, "\alpha_X"] \arrow[d, "f_*"] & C(A,X) \times C(B,X) \arrow[d,
+        "f_* \times f_*"]\\
+        C(c,Y) \arrow[r, "\alpha_Y"] & C(A,Y) \times C(B,Y)
+    \end{tikzcd}
+    \end{equation*}
+    Now, since $C$ is locally small, Yoneda gives that
+    any such natural isomorphism $\alpha$ is in
+    bijection with some element in
+    $C(A,c) \times C(B,c)$, namely $\alpha_c \left( \mathbbm{1}_c \right) $.
+    Thus there exists some morphisms $g  \in  C(A,c)$ and
+    $h \in C(B,c)$ that uniquely represent and determine
+    $\alpha$, so $\alpha_c \left( \mathbbm{1}_c \right) 
+    = g \times h$.\\
+    Now, suppose we have morphisms $p  \colon A \to Y$ and
+    $q  \colon B \to Y$. Since $\alpha$ was an isomorphism, we can let
+    $k = \alpha_Y^{-1}(p \times q) \in C(c,Y)$. Then letting
+    $X = c$ we get that
+
+    \begin{equation*} \begin{tikzcd}
+        C(c,c) \arrow[r, "\alpha_c"] \arrow[d, "k_*"] & C(A,c) \times C(B,c) \arrow[d,
+        "k_* \times k_*"]\\
+        C(c,Y) \arrow[r, "\alpha_Y"] & C(A,Y) \times C(B,Y)
+    \end{tikzcd}
+    \end{equation*}
+    commutes,
+    so 
+    \[
+    k \circ g \times  k \circ h =
+    \alpha_Y (k) = p \times q
+    \] 
+    We can depict this as
+    \begin{equation*}
+    \begin{tikzcd}
+        A \arrow[r, "g"] \arrow[dr, "p"] & c \arrow[d, "\exists ! k"] &  B \arrow[l, "h"]
+        \arrow[dl,
+        "q"]\\
+         & Y &
+    \end{tikzcd}
+    \end{equation*}
+    commuting. Here $k$ is unique since if $k'$ also makes the above commute,
+    then
+    \[
+    k' = k'_{*} \mathbbm{1}_c =
+    \alpha_Y^{-1} \left( k_* \times k_* \right) \alpha_c \mathbbm{1}_c
+    = \alpha_Y^{-1} \left( k_* \times k_* \right) 
+    \left( g \times h \right) 
+    = \alpha_Y^{-1} \left( k \circ g \times k \circ h \right) 
+= \alpha_Y^{-1} \left( \alpha_Y (k) \right)  = k\]
+    This universal property precisely determines
+    $c$ together with the unique maps
+    $g  \colon A \to c$ and
+    $h  \colon B \to c$ to be the coproduct of $A$ and $B$, i.e.,
+    $c = A \sqcup B$, where
+    the underlying diagram is a discrete category of
+    two elements.\\
+    So a representation of
+    $C(A,-) \times C(B,-)$ corresponds to a coproduct of
+    $A$ and $B$.
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

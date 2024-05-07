@@ -1,0 +1,214 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%% for identity function 1:
+%\usepackage{bbm}
+%%For category theory diagrams:
+%\usepackage{tikz-cd}
+%%For code (e.g. python) in latex:
+%\usepackage{listings}
+%
+%Usage: 
+%\begin{lstlisting}[language=Python]
+%\end{lstlisting}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+%Redeclaring Span and image
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\begin{document}
+    \textbf{3.0.1:}\\
+    (i) Let $f  \colon \tilde{X} \to Y$ be a map, and 
+    $q  \colon X \to \tilde{X}$ be a quotient map.\\
+    If $f$ is continuous then
+    $f \circ q$ is continuous as the composition of continuous
+    maps.\\
+    If conversely $f \circ q$ is continuous, let
+    $V \subset Y$ be open. Then
+     $\left( f \circ q \right)^{-1}(V) = 
+     q^{-1} \circ f^{-1}(V)$ is open, and
+     by definition $q^{-1}\left( f^{-1}(V) \right) $ is
+     open if and only if $f^{-1}(V)$ is open
+     in $\tilde{X}$, so $f^{-1}(V)$ is open, hence
+     $f$ is continuous.\\
+     \linebreak
+     (ii) 
+     Choose arbitrary $x \neq y$ of $X$ and let
+     $f$ be the corresponding continuous function satisfying
+     $f(x)\neq f(y)$. \\
+     Since $f$ is continuous, 
+     $U = f^{-1}\left( (-\infty, \frac{x+y}{2} ) \right) $ 
+     and $ V = f^{-1}\left( \left( \frac{x+y}{2}, \infty \right)  \right) $ 
+     are open, disjoint and 
+     $U$ contains $\min \{x,y\}$ while
+     $V$ contains $\max \{x,y\}$. Hence
+     $X$ is Hausdorff as $x,y$ were arbitrary.\\
+     \linebreak
+     (iii) Define
+     $\rho_{w} (P)
+     = d(P,w) =  \min \left\{ d(w,p) \mid p \in P \right\}  $
+     where $d$ denotes standard metric
+     inherited from $\mathbb{R}^{n}$.\\
+     This is continuous and gives the euclidean distance
+     from $w$ to $P$ - it is in particular well defined as
+     a minimum since there exists some
+     closed ball $D^{n}$ containing
+     $w$ and points from $P$ - the intersection of
+     $D^{n}$ and $P$ is closed hence compact, and 
+     thus by the extreme value theorem, the distance function
+     attains a maximum on the compact subspace - which is clearly
+     smaller than any distance outside the ball.\\
+     By (i) we have that
+     $\rho_w$ is continuous if and only if
+     $\rho_w \circ q$ is continuous where $q  \colon
+     V_{k}^{O} \left( \mathbb{R}^{n} \right) 
+     \to Gr_{k}\left( \mathbb{R}^{n} \right) $ is the
+     quotient map.\\
+     Now, for any interval
+     $\left( a,b \right) \subset R$, we have
+     $\left( \rho_w \circ q \right)^{-1}
+     \left( a,b \right) $ is precisely
+     all $k$-tuples of northonormal vectors in
+     $\mathbb{R}^{n}$ such that their span contains
+     a point whose distance to $w$ is in $(a,b)$.\\
+     \linebreak
+     $\rho_w$ is naturally equal to the
+     orthogonal projection $P_U$ sending
+     a vector $v = u +w$ with $u \in U$ and $w \in U^{\perp}$ 
+     with $U$ as subspace of $V$ to $u$, i.e. $P_U(v) = u$.\\
+     By 6.55 in LADR, we have
+     that if we pick an orthonormal basis $\left( v_1, \ldots, v_k \right)
+     $ representing the $k$-plane, we have
+     $\rho_w (P) = P_P (w) = \langle w, v_1 \rangle v_1 +
+     \ldots + \langle w, v_k \rangle v_k $ which is continuous
+     as it is linear (6.55.(i) and (a)).\\
+     \linebreak
+     
+     
+
+
+
+
+
+
+     (iv):
+     Let $P_1, P_2 \in Gr_{k}\left( \mathbb{R}^{n} \right) $
+     be distinct. Choose any point $w \in P_1 - P_2$. Then
+     $\rho_w (P_1) = 0 < \rho_w (P_2)$ where we can conclude strict
+     inequality since we have $\min$ in our definition for
+     $\rho_w$.\\
+     \linebreak
+     (i) 
+     For a $1$-plane in $Gr_1 \left( \mathbb{R}^2 \right) $,
+     we have $P \in U_X$ if it has trivial intersection
+     with $X^{\perp}$ which is the orthogonal line of $X$ through
+     $0$. Any line that is not $X^{\perp}$ will trivial
+     intersection with $X^{\perp}$, so any
+     1-dimensional subspace of $\mathbb{R}^2$ that
+     is not $X^{\perp}$ will be in $U_X$.\\
+     \linebreak
+     (ii) 
+     Any
+     set in
+     $\left\{ P \in Gr_{k}\left( \mathbb{R}^{n} \right) 
+      \colon P \cap X^{\perp} = \left\{ 0 \right\} \right\} $ 
+      is of the form
+      $\Gamma (A) = \{ Ax + x$ with $x \in X\}$
+      where $A  \colon X \to X^{\perp}$ is
+      a linear map. Defining
+      $\varphi (A) = \Gamma (A)$, we find
+      this is a bijection, so since
+      the dimension of  $\mathcal{L}(X, X^{\perp})$ is
+      $(n-k) \cdot k$ by identifying it with
+      its matrix representation getting
+      $M \left( (n-k) \times k, \mathbb{R} \right) $, we find that
+      $U_X \cong \mathbb{R}^{(n-k) k}$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

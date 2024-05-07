@@ -1,0 +1,238 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%% for identity function 1:
+%\usepackage{bbm}
+%%For category theory diagrams:
+%\usepackage{tikz-cd}
+%%For code (e.g. python) in latex:
+%\usepackage{listings}
+%
+%Usage: 
+%\begin{lstlisting}[language=Python]
+%\end{lstlisting}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+%Redeclaring Span and image
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\begin{document}
+    \textbf{1.} \\
+    (a) Assume $i (a) = i(b)$, then $\frac{a}{1} = \frac{b}{1}$, so
+    $a = a \cdot 1 = b\cdot 1 = b$.\\
+    \linebreak
+    (b) Let $\beta \left( \frac{a}{b} \right) = 
+    \varphi(a) \varphi(b)^{-1}$.\\
+    \linebreak
+    Clearly, for any $a \in R$,
+    $\beta \circ i (a) = \beta\left( \frac{a}{1} \right) 
+    = \varphi (a) \varphi(1)^{-1} = \varphi(a)$.\\
+    To show that it is well-defined:\\
+    if $\frac{a}{b}= \frac{a'}{b'}$, then $ab' = ba'$, so
+    $\varphi(a) \varphi(b') = \varphi(b) \varphi(a')$, hence
+    $\frac{\varphi (a)}{\varphi(b)} = \frac{\varphi(a')}{\varphi(b')}$ where
+    we can divide by $\varphi(b)\varphi(b')$ since
+    neither is $0$ as $\varphi(0) = 0$ and $\varphi$ is injective.\\
+    \linebreak
+    \textbf{2:} \\
+    (a) Suppose $\varphi$ is not the zero map.\\
+    Let $\varphi(1) = e$. Assume $\varphi(a) = 0$. Then
+    $\varphi(1) = \varphi(a a^{-1}) = \varphi(a) \varphi(a^{-1}) = 0$. However,
+    then
+    $\varphi(r) = \varphi(r) = \varphi (r) \varphi(1) = 0$ for all
+    $r$, so $\varphi$ is the zero map. Contradiction. So $\varphi$ is
+    injective.\\
+    \linebreak
+    (b) Assume such a $\varphi$ exists. Firstly we show that there
+    exist infinitely many irreducible polynomials in $k\left[ y \right] $.
+    Assume only finitely many exist, let these be $f_1, \ldots, f_n$. Then
+    $f_1 \cdot \ldots \cdot f_n + 1$ is a polynomial of nonzero degree.\\
+    Since this is by assumption reducible, we must have that there
+    exists $f_i$ such that $f_i  \mid f_1 \ldots f_n + 1$, but this means
+    $f_i  \mid 1$ which is a contradiction since $k$ is an integral domain - so
+    degrees don't match up.\\
+    \linebreak
+    Now if such a $\varphi$ existed, then for any irreducible polynomial
+    $f$ in $k\left[ x \right] $, we would have that there exists
+    $f' \in k\left[ x_1, \ldots, x_n \right] $ such that
+    $\varphi(f') = \frac{1}{f}$. Choose $f$ irreducible such that
+    $f$ does not divide any denominator of $\varphi(x_i)$ for any $i$. Then
+    $ \frac{1}{f} = k_1 \varphi(x_1) + \ldots + k_n \varphi(x_n)$, but
+    multiplying with the product of the denominators of each
+    $\varphi(x_n)$, we get that the right hand side is in
+    $k\left[ y \right] $ while the left hand side is not. Contradiction.\\
+    \linebreak
+    \textbf{3:} We claim that
+    $k\left[ x \right] / (f) = \left\{k_0 \overline{1} + k_1 \overline{x}+
+     \ldots + k_{n-1} \overline{x}^{n-1}  \mid k_i \in k \right\} $.\\
+     $(\subset )$ : Let $g$ be any polynomial and assume
+     there does not exist a representative in its equivalence class
+     in $k\left[ x \right] / (f)$ of the form on the right hand side.
+     Then $\overline{g}$ is of degree $m \ge n$. Now let
+     $f = a_0 + \ldots + a_n x^{n}$. Then letting
+     $\overline{g} = b_{m} \overline{x}^{m} +\ldots + b_0 \overline{1}$, we 
+     get 
+     $\overline{g} = b_m \overline{x}^{m} + \ldots + b_0 \overline{1}
+     - \frac{b_m}{a_n} \overline{f}$ which has degree
+     $< m$, contradicitng the assumption on $g$.\\
+     \linebreak
+     $\left( \supset \right) $ : This is clear.\\
+     \linebreak
+     (b) We claim that the dimension is
+     $\frac{(d+1)(d+2)}{2}$.\\
+     \linebreak
+     We claim that $k\left[ x,y \right] /I$ is generated
+     by the basis
+     \begin{align*}
+         &1, x, \ldots, x^{d}\\
+          &y, yx, \ldots, yx^{d-1}\\
+          &\vdots \\
+               &y^{d-1}, y^{d-1}x\\
+               &y^{d}.
+     \end{align*}
+     For any $\overline{f} \in k\left[ x,y \right] /I$, if there is a term
+     of degree $\ge d$, then it is of the form
+     $\sum_{i=0}^{m} a_i x^{i}y^{m-i}$, for $m\ge d$. But then
+     this any term in this is of the form
+     $a_i x^{i} y^{m-i}$ for $m\ge d$, but then if $i\le d-1$, we have
+     $x^{i} y^{m-i} = x^{i} y^{d-i} y^{m-d} = 0$, and if 
+     $i\ge d$ then $x^{i} y^{m-i} = x^{d} x^{i-d} y^{m-i} = 0$, so
+     \[
+     \sum_{i=0}^{m} a_i x^{i}y^{m-i} = 0.
+     \] 
+     Conversely, any linear combination of the basis is clearly in
+     $k\left[ x,y \right] / I$. Thus the result follows since
+     the basis is precisely
+     $\frac{(d+1) (d+2)}{2}$ elements.\\
+     \linebreak
+     (c) The number of ways to put $k$ objects into $n$ bins is 
+     given by the ball-and-urn formula:
+     \[
+         \binom{n+k-1}{n-1}.
+     \] 
+     We can think of the dimension of $I$ as the number of ways to put
+     $d$ objects into $n+1$ bins which is
+     \[
+         \binom{d+n}{n}
+     \] 
+     We see that for $n = 2$ this corresponds, as we saw in (b), to
+     $\frac{(d+2)(d+1)}{2}$.\\
+     \linebreak
+     \textbf{4:} 
+     For points $P_1, P_2$, we can define the polynomials
+     $f_1(x) = \frac{x-P_2}{P_1 - P_2}$ and
+     $f_2 (x) = \frac{x - P_1}{P_2 - P_1}$. These satisfy the condition.\\
+     Fix some $j$.
+     Now we thus can find for each $i$ a function $F_{ij}$ s.t. 
+     $F_{ij}(P_i) = 0$ and $F_{ij}(P_j) = 1$.\\
+     Then $\Pi_{i \neq j} F_{ij}$ vanishes on $P_i$ for $i\neq j$ and
+     is $1$ at $P_j$.\\
+     \linebreak
+     \textbf{5:}\\
+     (a) There exist polynomials
+     $T_1, \ldots, T_m \in k\left[ x_1, \ldots, x_n \right] $ such that
+     $\varphi (P) = \left( T_1(P), \ldots, T_m(P) \right) $ for
+     all $P \in X$. Similarly, there exist $S_1, \ldots, S_r \in k\left[ x_1,
+     \ldots, x_m \right] $ such that
+     $\psi (P) = \left( S_1 (P), \ldots, S_r(P) \right) $ for all
+     $P \in Y$. Hence
+     $\psi \circ \varphi (P) = 
+     \left( S_1 \left( T_1 (P), \ldots, T_m(P) \right) ,
+     \ldots, 
+ S_r \left( T_1 (P), \ldots, T_m(P) \right) \right) $ for all $P \in X$, and
+ since compositions of polynomials is a polynomial, we find that
+ $\psi \circ \varphi$ is a polynomial map.\\
+ \linebreak
+ (b) This is clear as
+ $\left( \psi \circ \varphi \right)^{*}(f) (P)
+ = f\left( \psi \circ \varphi(P) \right) 
+ = \psi^{*} \left( f \left( \varphi \right)  \right) (P)
+ = \psi^{*} \left( \varphi^{*} f \right) (P)
+ = \psi^{*} \circ \varphi^{*} (f) (P)$.
+
+     
+
+
+      
+     
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

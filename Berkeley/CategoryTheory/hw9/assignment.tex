@@ -1,0 +1,306 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+%%For code (e.g. python) in latex:
+%\usepackage{listings}
+%
+%Usage: 
+%\begin{lstlisting}[language=Python]
+%\end{lstlisting}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\begin{document}
+\textbf{Exercise 3.1.ix:} Show that if $J$ has an initial object, then the
+limit of any functor indexed by $J$ is the value of that functor at an initial
+object. Apply the dual of this result to describe the colimit of a diagram
+indexed by a successor ordinal.\\
+\linebreak
+\textit{Solution:} Suppose $J$ has initial object $1$ and
+let $F  \colon J \to C$ be a functor indexed by $J$.
+We want to show that $F(1) = \lim F$, i.e., that there exists
+a universal cone $\lambda  \colon F(1) \implies F$.\\
+Firstly, we define the cone $\lambda$ by letting
+$\lambda_j = F(f_j)$ where
+$f_j$ is the unique morphism $1 \to j$ in $J$ (uniqueness by $1$ being initial,
+and hence $\left| \Hom(1,j) \right| = 1$ for all $j \in J$.\\
+Then we want to show that
+for any $j,j' \in J$ with a morphism $f  \colon j \to j'$, the following commutes
+
+\begin{equation}
+\begin{tikzcd}
+     & F(1) \ar[dl, "F(f_j)"] \ar[dr, "F(f_{j'})"] &\\
+    Fj \ar[rr, "Ff"] & & Fj'
+\end{tikzcd}
+\end{equation}
+To show commutativity, we note that since
+$f \circ f_j$ is a map $1 \mapsto j \mapsto j'$, we have
+$f \circ f_j \in \Hom\left( 1,j' \right) = \left\{ f_{j'} \right\} $, so
+$f \circ f_j = f_{j'}$, and since functors distribute over composition, we have
+\[
+    F(f) \circ F\left( f_j \right) 
+    = F(f \circ f_j) = F(f_{j'})
+\] 
+giving commutativity of (1).\\
+\linebreak
+To show uniqueness, suppose there exists
+an element $A \in J$ and a cone  of $F$ over $A$ with
+components $A_j  \colon A \to F(j)$ such that
+for any $j,j' \in J$ with a morphism $f  \colon j \to j'$, the following
+diagram commutes
+\begin{equation}
+\begin{tikzcd}
+    & A \ar[dl, "A_j"] \ar[dr, "A_{j'}"] & \\
+    Fj \ar[rr, "Ff"] & & Fj'
+\end{tikzcd}
+\end{equation}
+Then in particular,  there exists a map
+$A_1  \colon A \to F(1)$. We claim that $A_1$ is the unique morphism such that
+\begin{equation}
+\begin{tikzcd}
+    & A \ar[ddl, "A_j"] \ar[ddr, "A_{j'}"] \ar[d, "A_1"] &\\
+    & F(1) \ar[dl, "Ff_j"] \ar[dr, "Ff_{j'}"] &\\
+    Fj \ar[rr, "Ff"] & & Fj'
+\end{tikzcd}
+\end{equation}
+commutes.\\
+Firstly, $F f_{j} \circ A_1 = A_j$ and
+$F f_{j'} \circ A_1 = A_{j'}$ by (2), and
+$F f \circ Ff_{j} = Ff_{j'}$ by (1), so (3) commutes.\\
+Suppose there exists another morphism
+$B  \colon A \to F(1)$ such that
+
+\begin{equation}
+\begin{tikzcd}
+    & A \ar[ddl, "A_j"] \ar[ddr, "A_{j'}"] \ar[d, "B"] &\\
+    & F(1) \ar[dl, "Ff_j"] \ar[dr, "Ff_{j'}"] &\\
+    Fj \ar[rr, "Ff"] & & Fj'
+\end{tikzcd}
+\end{equation}
+Then choosing $j$ to be $1$, and
+letting $f$ be the unique morphism $f  \colon 1 \to j'$, we get that
+the following commutes
+
+\begin{equation}
+\begin{tikzcd}
+    & A \ar[ddl, "A_1"] \ar[ddr, "A_{j'}"] \ar[d, "B"] &\\
+    & F(1) \ar[dl, "F \mathbbm{1}_{1}"] \ar[dr, "Ff_{j'}"] &\\
+    F(1) \ar[rr, "Ff"] & & Fj'
+\end{tikzcd}
+\end{equation}
+where we can conclude $F f_j = F f_{1}$ to be $F \mathbbm{1}_1$ since
+$f_1 \in \Hom\left( 1, 1 \right) 
+= \left\{ \mathbbm{1}_1 \right\} $ as $1$ is initial.\\
+Hence we get $B = B \circ \mathbbm{1}_{F(1)} = B \circ F \mathbbm{1}_1 = A_1$,
+where
+the first and second equalities follow by definition of a functor. Thus we get
+uniqueness. So
+$F(1)$ is the limit of the functor $F$ with
+$\left\{ F(f_j) \right\}_{j \in J}$ being the legs of the universal cone
+$\lambda  \colon F(1) \implies F$.\\
+\linebreak
+The dual of this result then states that
+if $J$ has a terminal object, then the colimit of any functor
+indexed by $J$ is the value of that functor at a terminal object.\\
+\linebreak
+Now, suppose we have a finite successor ordinal $\mathbbm{n}$ freely generated
+by
+\begin{equation*}
+\begin{tikzcd}
+    0 \to 1 \to 2 \to \ldots \to n-1
+\end{tikzcd}
+\end{equation*}
+Then $n-1$ is a terminal object, since by (iv) on page 5, every non-identity
+morphism can be uniquely factored as a composite of morphisms in the displayed
+graph, so
+if $f_j  \colon j \to n-1$ is a morphism, then
+$f_j$ factors uniquely as the composite
+$j \to j+1 \to \ldots \to  n-1$ in the graph above, and hence
+if we call the composition $j\to j+1 \to \ldots \to n-1$ for $g_j$ then
+$\Hom\left( j, n-1 \right) 
+= \left\{ g_j \right\} $. In particular, $g_j$ exists for all
+$j$ (since $n-1$ must also have an identity morphism and for any other $j$, we
+have a morphism as a composition of morphisms in the graph). Since
+$\left| \Hom(j, n-1) \right| = 1$ for all $j$, $n-1$ is a terminal object.\\
+Since an infinite successor ordinal, $\alpha$, is a successor 
+of the infinite ordinal, we do not run into the problem of not having a
+right-most object, as in for $\mathbbm{\omega}$, instead we get
+ \begin{equation*}
+\begin{tikzcd}
+    0 \to 1 \to 2 \to \ldots \to \alpha -1
+\end{tikzcd}
+\end{equation*}
+for $\alpha$, so $\alpha-1$ becomes the terminal object with a completely
+equivalent reasoning as for the finite case.\\
+\linebreak
+Now the dual version states that the colimit of any functor $F$
+indexed by a successor ordinal, call it $\alpha$, is the value
+$F\left( \alpha -1 \right) $ where
+the legs of the universal cone are
+$F(g_j)$.\\
+\linebreak
+\textbf{Exercise 3.2.iii}: For any pair of morphisms $f  \colon a \to b,
+g  \colon c \to d$ in a locally small category $C$, construct the set of
+commutative squares $\text{Sq}(f,g)$ :
+\begin{equation*}
+\begin{tikzcd}
+    a \ar[d, "f"] \ar[r] & c \ar[d, "g"]\\
+    b \ar[r] & d
+\end{tikzcd}
+\end{equation*}
+from $f$ to $g $ as a pullback in $\Set$.\\
+\linebreak
+\textit{Solution:} 
+We wish to find the set
+\[
+\left\{ (k,l) \in 
+\Hom(b,d) \times  \Hom(a,c)  \mid l \circ f = g \circ k \right\} 
+\] 
+since any such $(k,l)$ define a commutative square of $\text{Sq}(f,g)$ and
+conversely, any commutative square must define such a tuple of morphisms.\\
+\linebreak
+
+Consider the diagram
+\begin{equation*}
+\begin{tikzcd}
+    \Hom(b,d) \ar[r, "f^{*}"] & \Hom(a,d) & \ar[l, "g_*"] \Hom(a,c)
+\end{tikzcd}
+\end{equation*}
+By example 3.2.11, elements of the pullback of this pair of functions are
+cones
+\begin{equation*}
+\begin{tikzcd}
+    1 \ar[r] \ar[d] & \Hom(a,c) \ar[d, "g_*"] \\
+    \Hom(b,d) \ar[r, "f^{*}"] & \Hom(a,d)
+\end{tikzcd}
+\end{equation*}
+The data of this consists by example 3.2.11 of a pair of morphisms
+$k \in \Hom(a,c)$ and $l \in \Hom(b,d)$ such that
+$g \circ k = l \circ f$. I.e. the pullback is
+ \[
+\Hom(b,d) \times_{\Hom(a,d)} \Hom(a,c)
+:= \left\{ (k,l) \in 
+\Hom(b,d) \times  \Hom(a,c)  \mid l \circ f = g \circ k \right\} 
+\] 
+which is in bijective correspondence given by to the set of commutative squares
+$\text{Sq}(f,g)$ :
+ \[
+     \left( k, l \right) 
+     \in \Hom(b,d) \times_{\Hom(a,d)} \Hom(a,c)
+     \leftrightarrow 
+     \begin{tikzcd}
+         a \ar[r, "k"] \ar[d,"f"] & c \ar[d, "g"]\\
+         b \ar[r, "l"] & d
+     \end{tikzcd}
+\] 
+by the definition since $l \circ f = g \circ k$ for all
+$(k,l)  
+     \in \Hom(b,d) \times_{\Hom(a,d)} \Hom(a,c)$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

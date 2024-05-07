@@ -1,0 +1,399 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+%\usepackage{tikz-cd}
+%%For code (e.g. python) in latex:
+%\usepackage{listings}
+%
+%Usage: 
+%\begin{lstlisting}[language=Python]
+%\end{lstlisting}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\begin{document}
+    \textbf{1:} Choose a representation for
+    each $P_i = (a_{i1}, a_{i2}, a_{i3})$ and
+    for each $Q_i = (b_{i 1}, b_{i 2}, b_{i 3})$.
+    Since $P_1, P_2$ and $P_3$ (resp. $Q_1$, $Q_2$ and $Q_3$ ) do not lie on
+    a line, three points lying in the corresponding subset in $\mathbb{A}^3$ 
+    for
+    $P_1, P_2$ and $P_3$ span
+    $\mathbb{A}^3$, so choosing these as basis for
+    $\mathbb{A}^3$, we can define a linear map
+    sending $P_i \to Q_i$. This is clearly invertible with
+    the linear map sending $Q_i \to P_i$, and
+    sends $0 \to 0$, so it induces a projective change
+    of coordinates. And since
+    $T(\lambda P_i) = \lambda T(P_i) =
+    \lambda Q_i$, we have that it maps
+    the line through $P_i$ to the line through $Q_i$, and thus
+    that the induced map $\mathbb{P}^2 \to \mathbb{P}^2$ maps
+    the points $P_i \to Q_i$.\\
+    \linebreak
+
+    Similarly, if $P_1, \ldots, P_{n+1}$ are points in 
+    $\mathbb{P}^{n}$ not lying on a hyperplane, points on the represented lines
+    in
+    $\mathbb{A}^{n+1}$ are linearly independent, so
+    they define a basis for $\mathbb{A}^3$. We can again define a map
+    sending  $P_i \to Q_i$ which is invertible with
+    $Q_i \to P_i$ and $0 \to 0$. Thus it induces a projective
+    change of coordinates mapping
+    $P_i \to Q_i$.\\
+
+
+
+
+    \textbf{2. Duals:}\\
+    (a) We first show that $\left( P^{*} \right)^{*} = P$.\\
+    As stated in the problem,
+    assigning $\left[ a_1 : \ldots : a_{n+1} \right] 
+    \in \mathbb{P}^{n}$ to
+    $\Lambda = \mathbb{V}\left( a_1 x_1 +\ldots
+    + a_{n+1} x_{n+1} \right) $ sets up a one-to-one correspondence between
+    $\left\{ \text{hyperplanes in }\mathbb{P}^{n} \right\} $ 
+    and $\mathbb{P}^{n}$ - since
+    $(a_1, \ldots, a_{n+1})$ is determined by $\Lambda$ up to scaling since it
+    must be perpendicular to the vector
+    $(x_1, \ldots, x_n)$ and thus can be freely scaled.\\
+    \linebreak
+    Now,
+    $P^{*} = \mathbb{V}\left( 
+    a_1  : \ldots : a_{n+1}\right) $ which we assign
+    to $\left[ a_1 : \ldots : a_{n+1} \right] = P$ by construction.\\
+    \linebreak
+    For $\left( \Lambda^{*} \right)^{*} = \Lambda$, note that
+    $\Lambda^{*} = \left[ a_1  : \ldots : a_{n+1} \right] $, so
+    $\left( \Lambda^{*} \right)^{*} = 
+    \mathbb{V} \left( a_1 x_1 + \ldots
+     + a_{n+1} x_{n+1} \right) = \Lambda$.\\
+     \linebreak
+     (b) Suppose 
+     $P = \left[ a_1 : \ldots : a_{n+1} \right] $ and
+     $\Lambda = \mathbb{V}
+     (l_1 x_1 + \ldots + l_{n+1} x_{n+1})$. Then
+     $P \in \Lambda$ if and only if
+     $l_1 a_1 + \ldots + l_{n+1}a_{n+1} = 0$ if and only if
+     $\Lambda^* =
+     \left[ l_1 : \ldots : l_{n+1} \right] 
+     \in \mathbb{V}\left( a_1 x_1 + \ldots +
+     a_{n+1} x_{n+1} \right) 
+     = P^{*}$.\\
+     \linebreak
+     \textbf{3:} Write $P_i = \left[ p_{i 1} :
+     p_{i 2} : p_{i 3} \right] $. Then the lines
+     passing through $P_i$ in $\mathbb{P}^2$ is precisely
+     the hyperplane corresponding to $P_i$, i.e.
+     $P_i^{*}$.\\
+     Now, by problem 2.(b),
+     $\forall i  \colon P_i \not\in \Lambda \iff
+     \forall i  \colon \Lambda^* \not\in  P_i^{*}
+     \iff \Lambda^{*} 
+     \not\in P_1^{*} \cup \ldots \cup 
+     P_r^{*}$.\\
+     Thus, if we can show that there exists
+     a point $\Lambda^{*}$ not in the union of hyperplanes
+     $P_1^{*} \cup \ldots \cup P_r^{*}$, then this gives the existence of the
+     line $\Lambda = \left( \Lambda^{*} \right)^{*}$ not passing through any of
+     the points $P_i$.\\
+     \linebreak
+     Now
+     \[
+     P_1^{*} \cup \ldots \cup P_r^{*}
+     = \mathbb{V}\left( p_{1 1} x +
+     p_{1 2} y + p_{1 3}z\right) \cup 
+     \ldots \cup 
+     \mathbb{V}\left( p_{r 1}x+ p_{r 2}y + p_{r 3}z \right) 
+     = \mathbb{V}\left( 
+     \Pi_i \left( p_{i 1}x + p_{i 2}y + p_{i 3}z \right)   \right) 
+     \] 
+     
+     So if there does not exist a point $\Lambda^{*}$, then
+     \[
+     \mathbb{P}^2 =
+     \mathbb{V} \left( \Pi_i
+     \left( p_{i 1} x+ p_{i 2}y + p_{i 3}z \right) \right) 
+     \] 
+     Consider the polynomial
+     $f \in k\left[ x,y,z \right] $ given by
+     $f = \Pi_i
+     \left( p_{i 1}x + p_{i 2}y + p_{i 3}z \right) $.
+    We have
+    $\mathbb{V} (f) = \mathbb{P}^2$ if and only if
+    $V(f) = \mathbb{A}^3$, so
+    $f$ is constant zero. Thus one of the points
+    $\left( p_{i 1}, p_{i 2}, p_{i 3} \right) $ must be
+    $0$, however
+    then $P_i = \left[ 0:0:0 \right] \not\in  \mathbb{P}^2$, contradiction.
+    Thus such a $\Lambda^{*}$ exists, and hence
+    for all $i$, we have
+    $P_i \not\in \Lambda$, so
+     $\Lambda$ is a line in $\mathbb{P}^2$ not passing through any
+     of the $P_i$.\\
+     \linebreak
+     
+
+ 
+
+     \textbf{4:}\\
+     (a) We must give an inverse to
+     $v_{1,3}  \colon \mathbb{P}^{1} \to \mathbb{P}^3$ by
+     $\left[ s : r \right] \to 
+     \left[ s^3 : s^2 t : s t^2 : t^3 \right] $.\\
+     Let $Y$ denote the image under
+     $v_{1,3}$. Consider the map
+     $\varphi  \colon Y \to \mathbb{P}^{1}$ by
+     \[
+     \begin{cases}
+         \left[ s^3 : s^2 t \right], & s \neq 0 \text{ (i.e. in } U_1)\\
+         \left[ s t^2 : t^3 \right], & t\neq 0
+         \text{ (i.e. in } U_4)
+     \end{cases}
+     \] 
+     
+     This map covers its image by definition and 
+     also agrees on $U_1 \cap U_4$ since
+     then
+     $\left[ s^3 : s^2 t \right] 
+     = \left[ s : t \right] 
+     = \left[ s t^2 : t^3\right] $.\\
+     \linebreak
+     Now for an arbitrary element in the
+     image $Y$, there exist $s,t \in k$ such that
+     $v_{1,3} [s:t] = 
+     \left[ s^3 : s^2 t : s t^2 : t^3 \right] $ represents
+     the element and hence
+     \[
+     v_{1,3} \circ \varphi
+     (\left[ s^3 : s^2 t : s t^2 : t^3 \right] )
+     = \begin{cases}
+         v_{1,3} \left[ s^3 : s^2 t \right] & s\neq 0\\
+         v_{1,3} \left[ s t^2  : t^3 \right] & t\neq 0
+     \end{cases}
+     = v_{1,3} \left[ s : t \right] 
+     = \left[ s^3 : s^2 t : s t^2 : t^3 \right]     
+     \] 
+     and
+     \[
+     \varphi \circ v_{1,3} \left[ s:t \right] 
+     = \varphi \left[ s^3 : s^2 t : s t^2 : t^3 \right] 
+     = \begin{cases}
+         \left[ s^3 : s^2 t \right] & s\neq 0\\
+         \left[ s t^2 : t^3 \right] & t\neq 0
+     \end{cases}
+     = \left[ s:t \right] 
+     \] 
+     where either $s \neq 0$ or $t \neq 0$ since
+     $\left[ 0 : 0 \right]  \not\in  \mathbb{P}^2$.\\
+     Hence $\varphi$ is the inverse to $v_{1,3}$, so
+     $v_{1,3}$ is an isomorphism onto its image.\\
+     \linebreak
+     (b) By writing out relations such as
+     $z_1 z_6 - z_2 a_3 = 0$ which are clear by definition, we
+     find the matrix
+     \[
+         A = \begin{pmatrix} z_1 & z_3 & z_4\\
+         z_2 & z_3 & z_7\\
+     z_3 & z_8 & z_9\\
+ z_4 & z_9 & z_{10}
+\end{pmatrix} 
+     \] 
+     Every $2\times 2$ minor in this matrix vanishes, while 
+     some $1\times 1$ minor does not, so
+     the rank of $A$ is $1$. Consider
+     \[
+     Y = \left\{ \left[ x_1 : \ldots : x_{10} \right] 
+      \colon 
+  \rank A \le 1 \right\} 
+     \] 
+    Now, by definition
+    $v_{2,3} (\mathbb{P}^3) \subset 
+    Y$.\\
+    Furthermore, for an arbitrary
+    $\left[ z_1 : \ldots : z_{10} \right] \in Y$, either
+    $z_1, z_5, z_8$ or $z_{10}$ is nonzero since
+    otherwise all entries would be  $0$, but $
+    \left[ 0 : \ldots : 0 \right] \not\in  \mathbb{P}^{9}$.\\
+    If $z_1 \neq 0$ then
+    $v_{2,3} \left( \left[ z_1 : z_2 : z_3 : z_4 \right]  \right) 
+    = \left[ z_1 : \ldots : z_{10} \right] $. If
+    $z_5 \neq 0$, then
+    $v_{2,3}\left( \left[ z_2 : z_5 : z_6 : z_7 \right]  \right) 
+    = \left[ z_1 : \ldots : z_{10} \right] $.\\
+    If $z_8 \neq 0$ then
+    $v_{2,3} \left( \left[ z_3 : z_6 : z_8 : z_9 \right]  \right) 
+    = \left[ z_1 :\ldots : z_{10} \right] $.\\
+    If $z_{10} \neq 0$, then
+    $v_{2,3} \left( \left[ z_4 : z_7 : z_9 : z_{10} \right]  \right) 
+    = \left[ z_1 : \ldots : z_{10} \right] $, so
+    $Y \subset v_{2,3} \left( \mathbb{P}^3 \right) $. Hence
+    $Y$ is precisely the image of $v_{2,3}$.
+     
+
+     \newpage
+     (c) Since $z_1 = x_1^2,
+     z_3 = x_1 x_3, z_7 = x_2 x_4$ and
+     $z_9 = x_3 x_4$, we have
+     \[
+     v_{3,2}^{-1}\left( 
+     \mathbb{V} \left( z_1 + 4z_3 - 2z_7+ 5 z_9 \right) \right) 
+     = \mathbb{V}
+     \left( x_1^2 - 4x_1 x_3 - 2
+     x_2 x_4 + 5 x_3 x_4\right) 
+     \] 
+
+     \textbf{5:}\\
+     (a) 
+     \linebreak
+     By the comment in the beginning on lecture note 22, 
+     we have that
+     $\Gamma_h (\overline{X}) \cong
+     \Gamma_h (\overline{Y})$, so
+     $\Gamma(C(\overline{X})) =
+     \Gamma \left( C(\overline{Y}) \right) $. Hence
+     $C(\overline{X}) \cong C(\overline{Y})$ by the lemma on lecture note 8. Thus there
+     exist morphisms $\varphi  \colon C(\overline{X}) \to C(\overline{Y})$ and
+     $\psi  \colon C\left( \overline{Y} \right) \to 
+     C\left( \overline{X} \right) $ with
+     $\varphi \circ \psi = \mathbbm{1}$ and
+     $\psi \circ \varphi = \mathbbm{1}$.\\
+     There exist polynomials $T_1, \ldots, T_{n+1} \in k\left[ x_1, \ldots,
+     x_{n+1} \right] $ 
+     such that
+     $\varphi (P ) = \left( T_1(P),\ldots, T_{n+1}(P) \right) $ 
+     and polynomials 
+     $S_1, \ldots, S_{n+1} \in k\left[ x_1, \ldots, x_{n+1} \right] $ such that
+     $\psi(P) = \left( S_1 (P), \ldots, S_{n+1}(P) \right) $.
+     The image
+     $\varphi \left( \overline{X}\cap U_{n+1} \right) $ is isomorphic to
+     $Y$ as this is
+     $\varphi(\overline{X}) \cap \varphi (U_{n+1}) = \overline{Y} 
+     \cap \varphi(U_{n+1}) $.\\
+     Restricting to $P$ having final coordinate $1$ then gives us an
+     isomorphism
+     $X \to Y$ with the polynomials $T_1, \ldots, T_{n}$ and
+     $S_1, \ldots, S_n$.\\
+     As $\overline{X}$ and $\overline{Y}$ are equivalent, there exists
+     $G  \colon \mathbb{P}^{n} \to \mathbb{P}^{n}$ restricting to an
+     isomorphism $\overline{X} \to \overline{Y}$. 
+     
+\newpage
+     
+     (b) We have $V(x - y^2) \simeq V(x)$ as affine plane
+     curves. However,
+     their projective closures are
+     $Y =\mathbb{V}(xz-y^2)$ and $\mathbb{V}(x)$. Now
+     $\Gamma_h (Y) = k\left[ x,y,z \right] /(xz-y^2)$ and
+     $\Gamma_h (\mathbb{V}(x)) = k\left[ x,y,z \right] /(x)
+     \simeq k\left[ y,z \right] 
+     $
+     Now, $k\left[ x,y,z \right] / (xz-y^2)$ is not UFD while
+     $k\left[ y,z \right] $ is UFD, so
+     $\Gamma_h (Y)$ and $\Gamma_h (\mathbb{V}(x))$ are not isomorphic. However,
+     by
+     page 8 on lecture note 21, we have that
+     if  $\overline{X}$ and $\overline{Y}$ are projectively equivalent, then
+     $\Gamma_h (\overline{X})$ and $\Gamma_h (\overline{Y})$ are isomorphic, so
+     by contraposition, $\overline{X}$ and $\overline{Y}$ are not projectively
+     equivalent.
+     
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,396 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+%\usepackage{tikz-cd}
+%%For code (e.g. python) in latex:
+%\usepackage{listings}
+%
+%Usage: 
+%\begin{lstlisting}[language=Python]
+%\end{lstlisting}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\sk}{sk}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\begin{document}
+    \textbf{1:}\\
+    (a) We have that the polynomial map $\varphi  \colon X \to Y$
+    induces a homomorphism $\varphi^{*}  \colon \Gamma(Y) \to 
+    \Gamma(X)$. Now by the last page on lecture note 12, the
+    homomorphism $\varphi^{*}$ extends to a well-defined
+    map $\mathcal{O}_Q(Y) \to \mathcal{O}_P(X)$. 
+    This map is in particular also a homomorphism, as
+    if $\frac{f}{g}, \frac{f'}{g'} \in \mathcal{O}_Q(Y)$, then
+     \[
+    \varphi^{*} \left( \frac{f}{g} + \frac{f'}{g'} \right) 
+    = \varphi^{*} \left( \frac{fg' + f'g}{g g'} \right) 
+    = \frac{\varphi^{*} \left( f g' + f' g \right) }{\varphi^{*}\left( 
+    g g'\right) }
+    = \frac{\varphi^{*}(f) \varphi^{*}(g') + 
+    \varphi^{*}(f') \varphi^{*}(g)}{\varphi^{*}(g) \varphi^{*}(g')}
+    = \frac{\varphi^{*}(f)}{\varphi^{*}(g)}
+    + \frac{\varphi^{*}(f')}{\varphi^{*}(g')}
+    = \varphi^{*} \left( \frac{f}{g} \right) 
+    + \varphi^{*}\left( \frac{f'}{g'} \right) 
+    \] 
+    and
+    \[
+    \varphi^{*}\left( \frac{f}{g}\cdot \frac{f'}{g'} \right) 
+    = \varphi^{*}\left( \frac{ff'}{g g'} \right) 
+    = \frac{\varphi^{*} (ff')}{\varphi^{*}\left( g g' \right) }
+    = \frac{\varphi^{*}(f) \varphi^{*}(f')}{\varphi^{*}(g) \varphi^{*}(g')}
+    = \frac{\varphi^{*}(f)}{\varphi^{*}(g)}
+    \cdot \frac{\varphi^{*}(f')}{\varphi^{*}(g')}
+    = \varphi^{*}(\frac{f}{g}) \cdot \varphi^{*}\left( \frac{f'}{g'} \right),
+    \] 
+    where in both cases we used from the lecture notes that
+    $\varphi^{*} \left( \frac{f}{g} \right) 
+    = \frac{\varphi^{*}(f)}{\varphi^{*}(g)}$ for any
+    $\frac{f}{g} \in \mathcal{O}_Q(Y)$.\\
+    \linebreak
+    We claim this homomorphism is an isomorphism.\\
+    Injectivity: 
+    \[
+    \varphi^{*}\left( \frac{f}{g} \right) = 0 \iff 
+    \frac{\varphi^{*}(f)}{\varphi^{*}(g)} = \frac{0}{1}
+    \iff \varphi^{*}(f) = 0,
+    \] 
+    and as $\varphi$ is an isomorphism, so is $\varphi^{*}
+     \colon \Gamma(Y) \to \Gamma(X)$, so
+     $\varphi^{*}(f) = 0 \iff f = 0$. Hence
+     $\frac{f}{g} = \frac{0}{g} = 0$, so $\varphi^{*} 
+      \colon \mathcal{O}_Q(Y) \to \mathcal{O}_P(X)$ is injective.\\
+      \linebreak
+      Surjectivity: if $\frac{f}{g} \in \mathcal{O}_P(X)$, then
+      $ \varphi^{*}(g) (Q)= g(\varphi (Q)) = g(P) \neq 0$, so
+      $\varphi^{*}(\frac{f}{g}) = \frac{\varphi^{*}(f)}{\varphi^{*}(g)} \in
+      \mathcal{O}_Q(Y)$.\\
+      \linebreak
+      (b) By definition, we have
+      \[
+      I_P (x,y) = \dim_{k} \left( \frac{\mathcal{O}_P
+      (\mathbb{A}^2)}{(\frac{x}{1},\frac{y}{1})} \right).
+      \] 
+      Let $\frac{f'}{g'} \in \mathcal{O}_P\left( \mathbb{A}^2 \right) $ be any
+      element such that $f'$ does not vanish at $P$.\\
+      \linebreak
+      Let $\frac{f}{g} \in \mathcal{O}_P (\mathbb{A}^2)$ be arbitrary
+      with
+      $f,g \in \Gamma(\mathbb{A}^2) = k\left[ x,y \right] $ and
+      $g(P) \neq 0$. We claim that
+      $\frac{f}{g} - c \frac{f'}{g'} \in (\frac{x}{1}, \frac{y}{1})$ 
+      for some $c \in k$.\\
+      Now for $c = \frac{- f_0 g_0'}{f_0' g_0} $, we get $\frac{f}{g} -  c \frac{f'}{g'} = \frac{f g' - c f' g}{g g'}
+  = \frac{f_0 g_0' + (fg' - f_0 g_0') - c f_0' g_0 - ( cf'g - c f_0' g_0)}{g g'}
+  = \frac{\left( fg' - f_0 g_0' \right) 
+  - c \left(  f' g - f_0' g_0 \right) }{g g'}$,
+  and as $fg' - f_0 g_0' \in (x,y) $ and $f'g - f_0' g_0 \in (x,y)$, and
+  $g g'$ does not vanish at $P$ since neither $g$ nor $g'$ vanish at $P$ and
+  $\Gamma\left( \mathbb{A}^2 \right) = k\left[ x,y \right]  $ is an integral
+  domain, we have also  $\frac{1}{g g'} \in \mathcal{O}_P\left( \mathbb{A}^2
+  \right) $, so
+  $\frac{f}{g} - c \frac{f'}{g'} = \frac{\left( fg' -f_0 g_0' \right) 
+  - c \left( f' g - f_0' g_0 \right) }{g g'} = 
+\frac{1}{g g'} \cdot \left[ \left( fg' -f_0 g_0' \right) 
+- c \left( f' g - f_0' g_0 \right) \right] \in \left( \frac{x}{1}, \frac{y}{1} \right)
+\subset \mathcal{O}_P(\mathbb{A}^2),
+  $ since $\left( \frac{x}{1},\frac{y}{1} \right) $ is an ideal.\\
+  Thus  we have that 
+  $\mathcal{O}_P \left( \mathbb{A}^2 \right) / \left( \frac{x}{1}, \frac{y}{1} \right) 
+  = \Span \left( \frac{f'}{g'} \right) $, so
+  $I_P (x,y) = \dim_K \left( \frac{\mathcal{O}_P\left( \mathbb{A}^2 \right) }{
+  \left( \frac{x}{1}, \frac{y}{1} \right) } \right) 
+  = \dim_K \left( \Span\left( \frac{f'}{g'} \right)  \right) = 1$.\\
+  \linebreak
+  (c) $P$ is smooth in $V(f)$ and $V(g)$, so
+  $f_1 \neq 0 \neq g_1$. Now, for $\varphi  \colon \mathbb{A}^2 \to
+  \mathbb{A}^2$ being the translation $\varphi (x,y) = (x,y) + P$, we have
+  that since the tangent lines of $V(f)$ and $V(g)$ at $P$ are distinct,
+  we have $
+  TC_{(0,0)}V\left( \varphi^{*} f \right) = V\left( \varphi^{*}f_1 \right) \neq V\left(
+  \varphi^{*}g_1 \right) = TC_{(0,0)} V\left( \varphi^{*}f \right) 
+  $.\\
+  Since
+  $V(f)$ and $V(g)$ have distinct tangent lines at $P$, we have
+  $I_P (f,g) = mult_{(0,0)} (\varphi^{*} f) mult_{(0,0)}(\varphi^{*} g)$.
+  Now, since $\varphi$ is a translation, 
+  $\varphi^{*}f$ and $\varphi^{*}g$ are still smooth at
+  $(0,0)$, so $mult_{(0,0)}\left( \varphi^{*}f \right) = 1
+  = mult_{(0,0)}\left( \varphi^{*}g \right) $ (not $0$ as both
+  vanish at $(0,0)$ ).\\
+  \linebreak
+  \textbf{2:}\\
+  (a) 
+  $x^2 -y$ and $y^2 - x^3$ have no common factors as $y^2 - x^3 + y(x^2 - y) = 
+  -x^3 + yx^2 = x^2 (y-x)$ and $(x^2 -y)$ have no common factors.\\
+  $P$ is a root of both, and we now have
+  $TC_P V(x^2 - y) = V(y)$ and $TC_P V(y^2 - x^3) = V(y^2) = V(y)$, so
+  proceeding by the algorithm, we find
+  letting  $f = x^2 -y$ and $g = y^2 - x^3$ that
+  $f(x,0) = x^2$ and $g(x,0) = -x^3$, so
+  let $h = g + xf = y^2 - x^3 + x\left( x^2 - y \right) = y^2 -xy$. Then
+  $I_P(f,g) = I_P(f,h)$ and also
+  $TC_P V(h) = V(y^2 - xy) = V(y) \cup V(y-x)$, so $V(y)$ is still in common.
+  Now $f(x,0) = x^2$ and $h(x,0) = 0$, so proceeding by (6) case 1, we have
+  $I_P (f,h) = I_P(y ,f) + I_P(y-x, f)$. Now
+   writing $f$ of the form $g = A x^{m} + By$ with $A(P) \neq 0$, we find
+   $m = 2$, and thus
+   $I_P(y,g) = a\cdot m = 1 \cdot 2 = 2$ where $a$ is the exponent of $y$ in
+   the expression for $h$. Now, $V(y-x)$ and $V(f) = V(x^2 - y)$ have no
+   common tangent cone lines, so $I_{P}(y-x, f) = mult_P(y-x) mult_P(f)
+   = 1 \cdot 1 = 1$. Hence
+   $I_P(f,g) = 2+1 = 3$.\\
+   \linebreak
+   (b) We have $I_P(x-y^2 , x+y^2) \stackrel{7}{=} I_P(x-y^2, 2x)
+   \stackrel{7}{=} I_P(-y^2, x) \stackrel{6}{=} 
+   2 I_P(-y, x) \stackrel{1.b}{=} 2\cdot 1 = 2$.\\
+   In the last part we also used that $\left( \frac{-y}{1},\frac{x}{1} \right) 
+   = \left( \frac{y}{1}, \frac{x}{1} \right) $.\\
+   \linebreak
+   (c) Let $f = x^3 + xy$ and $g = 3x^2 y + xy^2$. Since
+   $V(x) \subset V(x(x^2 + y)) = V(f)$ and $V(x) \subset 
+   V(x(3xy + y^2)) = V(g)$, and $V(x)$ passes through $P=(0,0)$, we have by property (1) that
+   $I_P(f,g) = \infty$.\\
+   \linebreak
+   (d) Let $f = x+y+y^2 x$ and $g = x+y+x^2 - y^2 +y^3$.\\
+   We have that $f$ and $g$ share no common factors and both vanish at $P$.\\
+   $TC_P V(f) = V(x+y)$ and $TC_P V(g) = V(x+y)$.\\
+   Now let $z = x+y$. Then $x = z-y$, so
+   $f = x+y + y^2 x = z + y^2 (z-y)$ and
+   $g = x+y+x^2 - y^2 +y^3 = z + (z-y)^2 - y^2 + y^3$. Then
+   $TC_P V(f) = V(z)$ and $TC_P V(g) = V(x+y) = V(z)$ so
+    viewing $f,g \in k\left[ y,z \right] $, we have
+    $f(y,0) = -y^3$ and $g(y,0) =  y^3$.\\
+    \linebreak
+    Now let $h = g+f = z + (z-y)^2 - y^2 + y^3 + z + y^2 (z-y)
+    = 2z + (z-y)^2 - y^2 + y^2z
+    = 2z + z^2 - 2yz + y^2 z = z \left( 2 + z - 2y + y^2 \right) $. Then
+    $I_P (f,g) = I_P(f,h)$ by property (7).\\
+    Again $f$ and $h$ share no common factors and both vanish at $P$.\\
+    Now $TC_P V(h) = V(2z) = V(z)$. We find
+    $h(y,0) = 0$, so proceeding by (6) case 1, we find
+    that writing  $f$ as $Ay^{m} + Bz$ with $A(P) \neq 0$,
+    we have $m = 3$, so
+    $I_P (f,h) = I_P(f, z) + I_P(f, 2+z-2y + y^2)$. As $m=3$, we
+    find $I_P(f,z) = a\cdot m = 3$ where $a$ is the maximal exponent of  $z$ 
+    such that $z^{a}$ divides $h$. Now, as 
+    $P \not\in V(2 + z - 2y +y^2)$, we have
+    $I_P\left( f, 2+z-2y + y^2 \right) = 0$ by property (2). Hence
+    $I_P(f,g) = 3$.\\
+    \linebreak
+    \textbf{3:} Let $g = A + yB$ where $y \nmid A$, so $A = g(x,0)$, then by
+    property (7), we have $I_P (y,g) = 
+    I_P (y, A+ yB) = I_P(y, A + yB - yB) =I_P (y,g(x,0)) $ which
+    becomes the exponent of  the smallest term of $g(x,0)$ by property (5)
+    since
+    $TC_P(y) = V(y)$ and $TC_P V(g(x,0)) = V(x)$ are distinct lines. Hence
+    $I_P(y,g+h)$ is the smallest exponent of
+    $g(x,0) + h(x,0)$. Now, writing
+    $g(x,0) = \sum_{n=0}^{\infty} a_n x^{n} $ and
+    $h(x,0) = \sum_{n=0}^{\infty} b_n x^{n}$, we find that if
+    the smallest exponent of $g(x,0) + h(x,0)$ is $m$ then
+    $0 \neq a_m + b_m$, so either $a_m$ or $b_m$ is greater than $0$ and
+    hence the smallest exponent of either $g(x,0)$ or
+    $h(x,0)$ - which is equal to $I_P(y,g)$ and $I_P(y,h)$ respectively -
+    is smaller than or equal to $m$.\\
+    Thus we have
+    \[
+    I_P(y, g+h) \ge \min \left\{ I_P(y,g), I_P(y,h) \right\}.
+    \] 
+    (b) Let  $f = xy$, $g = x$ and $h = y$. Then
+    $I_P(f,g) = \infty = I_P(f,h)$. But
+    $I_P(f, g+h) = I_P(xy, x+y)$, now,
+    $TC_P V(xy) = V(xy) = V(x) \cup V(y)$ and
+    $TC_P V(x+y) = V(x+y)$, so  $xy$ and $x+y$ do not share any 
+    tangent cone lines. By property (5) we thus get
+    $I_P(f,g+h) = mult_P(xy) mult_P(x+y) = 2 \cdot 1 = 2 < \infty$.
+    Thus we find
+    \[
+    I_P (f,g+h) = 2 < \infty = \min \left\{ I_P(f,g), I_P(f,h) \right\} 
+    \] 
+
+    \textbf{4. Nodes:} Assume $P = (0,0)$. Then
+    $P$ has multiplicity 2 in $V(f)$ if $f_2$ is the smallest nonzero term.
+    Write $f_2 = ax^2 + cyx+ by^2$.\\
+    Now, solving this for $x$, we find
+    \[
+    x = \frac{-cy \pm \sqrt{c^2 y^2 - 4 aby^2} }{2a}.
+    \] 
+    $f_2$ factors into two lines if and only if 
+    $x$ has two distinct roots here which means
+    $c^2 y^2 - 4aby^2 \neq 0$. Now,
+   $f_{xy} = c$, $f_{xx} = 2a$ and $f_{yy} = 2b$, so
+   $c^2 y^2 - 4aby^2 \neq 0 \iff
+   c^2 y^2 \neq 4 ab y^2 \stackrel{y \neq 0}{\iff} c^2 \neq 4 ab \iff
+   f_{xy}(P)^2 \neq f_{x x}(P) f_{yy} (P)$ (where $y\neq 0$ since if
+   $y = 0$ then $f_2 = ax^2$, but then the tangent cone of $f$ at $P$ does not
+   have two distinct lines).\\
+   If $P$ is not $(0,0)$, let $\varphi$ be the translation $(x,y) \to (x,y)
+   + P$. Then $P$ has multiplicity $2$ in $V(f)$ if and only if
+   $(0,0)$ has multiplicity $2$ in $V\left( \varphi^{*}f \right) $, and
+   $\varphi^{*}f = f((x,y)+P)$ has the same derivatives evaluated at $(0,0)$ as
+   $f$ has evaluated at $P$ by the rule of differentiating compositions, so we get the
+   same result.\\
+   \linebreak
+   \textbf{5:}\\
+   (a)
+   We have
+   \[
+   I_P (f, L) \ge mult_P(f) mult_P(L).
+   \] 
+   Since the tangent cone to $V(f)$ is $V(L)$ which is the tangent cone to
+   $L$ as well ($L$ has no constant term as it vanishes at $(0,0)$ ), we have
+   that the inequality above is strict by property (5) of $I_P$, so
+   $I_P(f,L) > mult_P(f) mult_P(L)$.\\
+   \linebreak
+   Let $\varphi  \colon \mathbb{A}^2 \to \mathbb{A}^2$ be the translation
+   $(x,y) \to (x,y) + P$. By definition then
+   $mult_P(f) = mult_{(0,0)}\left( \varphi^{*}f \right) ,
+   mult_P(L) = mult_{(0,0)}\left( \varphi^{*}L \right) $, and since
+   $P \in V(f) \cap V(L)$, we have
+   $(0,0) \in V\left( \varphi^{*}f \right) \cap V\left( \varphi^{*}L \right) $,
+   hence
+   $mult_{(0,0)}\left( \varphi^{*}f \right) , mult_{(0,0)}\left( \varphi^{*}L \right) 
+   \ge 1$. Since $P$ is a
+   point of multiplicity 2 in $V(f)$, we have
+   that the lowest term of  $\varphi^{*}f$ is of degree $2$, hence we in
+   particular get
+   \[
+       I_P(f,L) > \underbrace{mult_P(f)}_{= 2} \underbrace{mult_P(L)}_{= 1} = 2
+   \] 
+   Thus $I_P(f,L)\ge 3$.\\
+   \linebreak
+   (b) Suppose $V(f)$ has a cusp at $P = (0,0)$ with  $I_P(f,y) = 3$.\\
+   Now,  $P$ is a point of multiplicity $2$ in $V(f)$, so $f_2$ is the lowest
+   degree term of $f$; let $f_2 = ax^2 + bxy + cy^2$. Then
+   $TC_P V(f) = V(f_2) = V(y)$, so $a = 0$, and hence if $f_3 = \gamma x^3
+   + \ldots$, we have
+    $I_P (f,y) = I_P(f(x,0), y) = I_P( \gamma x^3 + x^{4} B, y)$, and as
+    $TC_P V\left( \gamma x^3 + x^{4} B \right) 
+    = V(x)$ and $TC_P V(y) = V(y)$, we get
+    $3= I_P(f,y) =I_P(f(x,0),y) = I_P \left( \gamma x^3 + x^{4}B , y \right) = mult_P\left( 
+    \gamma x^3 + x^{4} B \right) mult_P(y) = mult_P (\gamma x^3 + x^{4} B)$. Hence
+    $\gamma \neq 0$, so $f_{x x x}(P) = 6 \gamma \neq 0$.\\
+    \linebreak
+    
+
+
+  Now suppose $f_{x x x}(P) \neq 0$. Since $TC_P V(f) = V(L)$ and as $L$ is a line through $P=(0,0)$ we have
+$TC_P V(L) = V(L)$. But as $f_{xxx} (P) \neq 0$, we have
+that if we write $f_3 = a x^3 + b x^2 y + c x y^2 + d y^3$ then $a \neq 0$, so
+$mult_P (f(x,0)) \leq 3$ hence by (a),
+$mult_P(f(x,0)) = 3$, so as $mult_P (L) = 1$, and as $TC_P V(f(x,0)) \not
+\supset V(y)$, we have $I_P(f(x,0), L) = mult_P (f(x,0)) mult_P(L) = 3$ by
+property (5).\\
+\linebreak
+(c) Assume $P$ is a cusp, so
+$I_P(f,L) = 3$ for a $L$ giving the line $V(L) = TC_P V(f)$.\\
+Assuming $k$ is algebraically closed, we can write
+$f = f_1^{n_1} \ldots f_{r}^{n_r}$ and then by corollary 3 in section 1.6,
+Fulton, we have
+that $V(f_1) \cup \ldots \cup  V(f_r)$ is the composition of $V(f)$ into
+irreducible components and $f \in \sqrt{(f)} 
+= I\left( V(f) \right) = (f_1 \ldots f_r)$.
+In particular, assume $f = hg$ where $h$ and $g$ vanish at $P$.\\
+Then $3 = I_P(f, L ) = I_P(g,L) + I_P(h,L)$, so we can assume without loss of
+generality that $I_P(g,L) \in \left\{ 0,1 \right\} $. Now
+$I_P(g,L) = 1$ implies that the tangent line to $g$ at $P$ is not $L$.
+But then $TC_P V(f) = TC_P V(gh) = TC_P V(h) \cup  TC_P V(g)$ is not just
+$V(L)$, contradiction.
+Thus $I_P (g, L)=0$, so $P \not\in V(g) \cap V(L)$ and hence
+$P \not\in V(g)$, contradiction. Hence
+$V(f)$ has only one irreducible component that passes through $P$.
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

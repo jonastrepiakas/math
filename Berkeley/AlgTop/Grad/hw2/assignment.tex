@@ -1,0 +1,240 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+%\usepackage{tikz-cd}
+%%For code (e.g. python) in latex:
+%\usepackage{listings}
+%
+%Usage: 
+%\begin{lstlisting}[language=Python]
+%\end{lstlisting}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+%Redeclaring Span and image
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\begin{document}
+    \textbf{16:}\\
+    (a) Assume there is a retraction $r  \colon \mathbb{R}^3 \to A$ where $A
+    \cong S^{1}$. Then by proposition 1.17, the 
+    homomorphism $i_*  \colon \pi_1 \left( \mathbb{R}^3 \right) 
+    \to \pi_1\left( A \right) $ induced by the inclusion 
+    $i  \colon A \to X$ is injective. However, since $A \cong S^{1}$, we have
+    $\pi_1 \left( A \right) \approx \pi_1 \left( S^{1} \right) \approx
+    \mathbb{Z} $,
+    while $\pi\left( \mathbb{R}^3 \right) = 0$ since $\mathbb{R}^3$ is convex
+    (example 1.4) - we dropped basepoints because both spaces are
+    path-connected.\\
+    Therefore there would be an injective map $\mathbb{Z} \to \left\{
+    0 \right\}  $ by proposition 1.17 which is impossible.\\
+    \linebreak
+    (b) We have $\pi \left( S^{1} \times D^2 \right) \cong \pi\left( S^{1} \right)
+    \times \pi \left( D^2 \right) \cong \pi(S_1) \cong \mathbb{Z}$.\\
+    On the other hand, $\pi \left( S^{1} \times S^{1} \right) 
+    \cong \pi\left( S^{1} \right) \times  \pi\left( S^{1} \right) \cong
+    \mathbb{Z} \times \mathbb{Z}$.\\
+
+    Where the first isomorphism in both cases follows from proposition 1.12 and the fact that
+    $S^{1}$ and $D^2$ are path-connected, and the last isomorphism follows from
+    theorem 1.7.\\
+    If there existed a retraction from $S^{1}\times D^2$ to $S^{1}\times
+    S^{1}$, then by proposition 1.17, there would exist an injective
+    homomorphism from $\pi_1 \left( S^{1}\times S^{1} \right) \cong \mathbb{Z}
+    \times \mathbb{Z}$ to
+    $\pi_1 \left( S_1 \times D^2 \right) \cong \mathbb{Z}$ which is impossible:
+    assume $\varphi  \colon \mathbb{Z} \times \mathbb{Z} \to \mathbb{Z}$ is an
+    injective homomorphism. 
+    Let $\varphi(1,0) = a, \varphi(0,1) = b$ with $a,b \neq 0$ since
+    $\varphi$ is assumed to be injective. Then
+    $\varphi (x,y) = ax + by$, and hence $\varphi(b,-a) = ab - ab = 0$, so 
+    $a,b = 0$, contradiction.\\
+    \linebreak
+    (c) We first have that
+    $\pi_1 \left( S^{1} \times D^2 \right) 
+    \cong \pi_1 \left( S^{1} \right) \times \pi_1 \left( D^2 \right)  
+    \cong \pi_1 \left( S_1 \right) \cong \mathbb{Z}$.\\
+    Explicitly, we have:
+    let $\varphi  \colon S^{1} \times D^2 \to S^{1}$ be the map of
+    the filled torus to its central circle, i.e. the map which collapses each
+    meridian circle
+    $\{x\} \times S^{1} $ to a point. This is a deformation retraction,
+    and we can thus for any loop $f  \colon I \to S^{1} \times D^2$
+    compose $f$ with $\varphi$ to get a loop on
+    $S^{1}$.\\
+    Now take the
+    loop in $A$ : $\gamma  \colon I \to A$ that completes exactly one cycle. Then
+    with the inclusion $i  \colon A \to S^{1} \times D^2$, we
+     have $i \gamma  \colon I \to S^{1} \times D^2$ is a loop in
+     $S^{1} \times D^2$. Therefore
+     $\left[ i \gamma \right] \in  \pi_1 \left( S^{1}\times D^2 \right) $.
+     Now $\varphi$ induces a homomorphism $\varphi_*  \colon \pi_1 \left(
+     S^{1}\times D^2 \right) \to \pi_1 \left( S^{1} \right)$ by
+     $\varphi_* \left[ f \right] = \left[ \varphi f \right] $. So
+     $\varphi_* \left[ i \gamma \right] = \left[ \varphi i \gamma \right] $.\\
+     Thus $\varphi i \gamma$ is generated by the generating element
+     of $\pi_1 \left( S^{1} \times D^2 \right) $, call it $a$ - where we have
+     used theorem 1.7. By the
+     projection, we see that $\varphi i \gamma$ corresponds to $a a^{-1}$ which
+     is nullhomotopic to the constant loop at  $\varphi i \gamma (0)$ which we
+     choose freely as our basepoint as $S^{1}$ is path-connected. Therefore
+     $\left[ \varphi i \gamma \right] = \left[ 0 \right] $ where $0$ denotes
+     the constant loop at the basepoint. Since $\varphi$ is
+     a deformation retraction, the induced homomorphism is an isomorphism, so
+      $\left[ i \gamma \right] = \left[ 0 \right] $.\\
+      Now, if $S^{1} \times D^2$ were retractible to $A$, then the induced
+      inclusion homomorphism $i_*  \colon \pi_1 \left( A \right) \to \pi_1
+      \left( S^{1}\times D^2 \right) $ would map $\left[ 0 \right] $ and
+      $\left[ \gamma \right] $ to different homotopy classes, but as we have
+      seen, $\left[ i \gamma \right] = \left[ 0 \right] $ in $\pi_1 \left(
+      S^{1} \times D^2 \right) $, and thus $i_*$ is not injective, so
+      $S^{1}\times D^2$ is not retractible to $A$.
+    \\
+     \linebreak
+     (d) Both $D^2 \lor D^2$ and $S^{1} \lor S^{1}$ are path-connected, so we
+     can consider $\pi_1 \left( D^2 \lor D^2 \right) $ and $\pi_1 \left( 
+     S^{1} \lor S^{1} \right) $. Since $D^2 \lor D^2$ is star shaped with
+     respect to the connecting point, it is deformation retractible to a point
+     and thus has trivial fundamental group. If we can show that $\pi_1 \left(
+     S^{1} \lor S^{1} \right) $ is non-trivial, then we are done since the
+     induced inclusion  $i_*  \colon \pi_1 \left( S^{1}\lor S^{1} \right) \to
+     \left\{ 0 \right\} $ cannot be injective, and then the result follows
+     by proposition 1.17.\\
+     \linebreak
+     Let $r|_{S_1^{1}}  \colon S_1^{1} \to S^{1}\lor S^{1}$ be the map sending one of
+     the spheres of $S^{1}\lor S^{1}$ to the connecting point of $S^{1}\lor
+     S^{1}$. Let $r|_{S_2^{1}} \colon S_2^{1} \to S^{1}\lor S^{1}$ be the
+     identity on the other sphere. Since $S^{1}$ is closed and the intersection
+     of the domains is the connecting point which is a closed set, we find by
+     the pasting lemma a retraction $r \colon S^{1}\lor S^{1} \to S^{1} \lor
+     S^{1}$ where $r(S^{1} \lor S^{1}) = S^{1}$ and $r|_{S_2^{1}}
+     = \mathbbm{1}$.\\
+      So there is
+     a retraction onto $S^{1}$, but thus we get an injective inclusion
+     $i_*  \colon \pi_1 \left( S^{1} \right)  \to  \pi_1 \left( S^{1} \lor
+     S^{1} \right) $ from proposition 1.17, and since $\pi_1 \left( S^{1} \right) \cong \mathbb{Z}$, 
+     $\pi_1 \left( S^{1} \lor S^{1} \right) $ cannot be trivial.\\
+     \linebreak
+     (e) Assume that $X$ is $S_1$ where $(0,1)$ and $(0,-1)$ are identified.
+     Then there is a deformation retraction 
+     $F((x,y),t) = t(\sqrt{1 - y^2} , y) + (1-t) \left( x,y \right) $ sending
+     $S^{1}$ to the right side of $S^{1}$.\\ 
+     Since the ends of this curve are identified, this is just a $1$-cell
+     attached to a $0$-cell which is $S^{1}$.\\
+     \linebreak
+     Hence we have that if there is a retraction from the disk with two points
+     on its boundary identified to its boundary $S^{1} \lor S^{1}$, then
+     by proposition 1.17, it induces an injective homomorphism
+     $i_*  \colon \pi_1 \left( S^{1} \lor S^{1} \right) \to \pi_1 \left( S^{1}
+     \right) $; however, by the van Kampen Theorem (Example 1.21), we have
+     $\pi_1 \left( S^{1} \lor S^{1} \right) \cong \mathbb{Z} * \mathbb{Z}$, and
+     a map from $\mathbb{Z} * \mathbb{Z}$ into $\mathbb{Z}$ cannot be
+     injective since the image would have to be an abelian subgroup, e.g.\\
+     \linebreak
+     
+     
+     
+
+ 
+\textbf{20:} By lemma 1.19, we have $f_{0*} = \beta_h f_{1*}$. Let $x_0 \in X$
+be any point and let $\left[ g \right]  \in \pi_1 \left( X, x_0 \right) $. Then
+since $f_0$ and $f_1$ are identity maps, we have $f_{0*}$ and $f_{1*}$ are
+identity maps, so
+\[
+\left[ g \right] = f_{0*} \left[ g \right] = \beta_h f_{1*}\left[ g \right] 
+= \beta_h \left[ g \right] = \left[ h \cdot g \cdot \overline{h} \right]
+= \left[ h \right] \left[ g \right] \left[ \overline{h} \right]
+\] 
+
+If we apply $\left[ h \right] $ on the right side, we get
+\[
+\left[ g \right] \left[ f_t(x_0) \right]
+= \left[ g \right] \left[ h \right] = \left[ h \right] \left[ g \right] 
+\left[ \overline{h} \right] \left[ h \right] 
+= \left[ h \right] \left[ g \right] = \left[ f_t(x_0) \right] \left[ g \right] 
+\] 
+Since $\left[ g \right] \in \pi_1 \left( X, x_0 \right) $ and $x_0 \in X$ were
+arbitrary,
+we find that $f_t(x_0)$ is in the center of $\pi_1 \left( X, x_0 \right) $ for
+any $x_0 \in X$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

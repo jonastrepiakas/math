@@ -1,0 +1,223 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%% for identity function 1:
+%\usepackage{bbm}
+%%For category theory diagrams:
+%\usepackage{tikz-cd}
+%%For code (e.g. python) in latex:
+%\usepackage{listings}
+%
+%Usage: 
+%\begin{lstlisting}[language=Python]
+%\end{lstlisting}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+%Redeclaring Span and image
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\begin{document}
+   \textbf{2.1.1:} Let $\left\{ U_i \right\}_{i \in I}$ be an open covering of $X \times Y$ equipped
+   with the product topology. Fix an $x \in X$.\\
+   Then for each $y \in Y$, there exists some $U_{y}$ containing
+    $(x,y)$, and since this is open, and 
+    $$\left\{ V_i \times W_i  \mid V_i \text{ open in } X \text{ and }
+    W_i \text{ open in } Y \right\} $$
+    forms a basis for the product topology,
+    we can find $V_{y} \times W_y$ with $V_y$ open in $X$ and $W_y$ open in
+    $Y$ such that $(x,y) \in V_y \times W_y \subset U_y$. Then
+    since $\bigcup_{y \in Y} W_y = Y$, and $Y$ is compact, we can find a finite
+    subcollection $y_1, \ldots, y_n$ such that
+    $Y = W_{y_1} \cup \ldots \cup W_{y_n}$. Then
+    $V_x = V_{y_1} \cap \ldots V_{y_n}$ is nonempty and open as $x \in  V_x$ 
+    and
+    it is the intersection of a finite collection of open sets. 
+    We then get
+    \[
+    V_x \times Y = V_x \times W_{y_1} \cup \ldots \cup V_x \times W_{y_n}
+    \subset U_{y_1} \cup \ldots \cup U_{y_n}.
+    \] 
+    What this means is that for any $x \in X$, there exists
+    a finite subcollection $\mathcal{A}_x \subset 
+    \left\{ U_i \right\}_{i \in I}$, such that
+    $V_x \times Y \subset \bigcup_{A \in \mathcal{A}_x} A$.\\
+    Now since $\bigcup_{x \in X} V_x = X$ and $X$ is compact, there exist some 
+    finite subcollection $V_{x_1}, \ldots, V_{x_n}$ such that
+    $V_{x_1} \cup \ldots \cup V_{x_n} = X$.
+    Hence
+    \[
+    X \times Y = \bigcup_{i=1}^{n} V_x \times Y
+    \subset \bigcup_{i}^{n} \bigcup_{A \in \mathcal{A}_{x_i}} A \subset
+    X \times Y,
+    \] 
+    so
+    \[
+    X \times Y = \bigcup_{i}^{n} \bigcup_{A \in \mathcal{A}_{x_i}} A
+    \] 
+    which is a finite subcover of $\left\{ U_i \right\}_{i \in I}$.
+    Thus $X \times Y$ is compact.\\
+    \linebreak
+    \textbf{2.1.2:} Let
+    $\left( x_n \right) \subset I$ be any sequence in $I$.
+    If $(x_n)$ converges in $I$, we are done, so we may assume $(x_n)$ does not
+    converge. In particular, $(x_n)$ thus consists of infinitely many distinct
+    points. Therefore, either $\left[ 0, \frac{1}{2} \right] $ or
+    $\left[ \frac{1}{2},1 \right] $ must contain infinitely many distinct
+    points
+    of the sequence. Let $I_1$ denote a half of $I_0$ satisfying this.\\
+    Now define for a general  $n \in \mathbb{Z}_+$, $I_n$ to be
+    a half of $I_{n-1}$ which contains infinitely many distinct points
+    - such an $I_n$ must exist, as otherwise
+    $I_{n-1}$ contains only finitely many points in contradiciton with
+    its construction.\\
+    We have a countable collection
+    $\left\{ I_n \right\}_{n \in \mathbb{N}_{0}}$ with
+    $I_0 \supset I_1 \supset I_2 \supset \ldots$.
+    By the axiom of countable choice, we can choose a
+    sequence $\left( x_{n_{k}} \right)_{k \in \mathbb{N}_{0}}$ such that
+    $x_{n_k} \in I_{k}$. We can assume this to be
+    a subsequence of $(x_n)$, i.e. $n_i < n_k$ if $i < k$, since
+    otherwise if $i < k$ with $n_k \le n_i$, we can replace $x_{n_k}$ by $x_{n_i}$ since
+    $I_{n_i} \subset I_{n_k}$.\\
+    \linebreak
+    Now let $\varepsilon > 0$ be arbitrary fixed. By the Archimedean property,
+    there exists $N \in Z_{+}$ such that $\frac{1}{\varepsilon} < N$ and hence
+    $0 < \frac{1}{2^{N}} < \frac{1}{N} < \varepsilon$.
+    For any $r,s \ge N$, assuming without loss of generality that $r \le s$,
+    we have $x_{n_{r}}, x_{n_{s}} \in I_{r}$ and since the diameter
+    of $I_r$ is $\frac{1}{2^{r}}$, we have
+    \[
+    |x_{n_r} - x_{n_s}| \le \frac{1}{2^{r}} \le \frac{1}{2^{N}} < \varepsilon.
+    \] 
+    So $\left( x_{n_k} \right)_{k \in \mathbb{N}_{0}}$ is a cauchy sequence,
+    and
+    since $\mathbb{R}$ is complete, it follows that 
+    $\left( x_{n_k} \right) $ converges to a point in $I$ (since $I$ is closed
+    and the sequence is in $I$ ).\\
+    \linebreak
+    
+    
+    \textbf{2.1.3:} An equatorial cut would produce a mobius strip which is
+    essentially twice the length and has twice the twists of the original
+    strip. An equatorial cut along each of the resulting pieces would create
+    two strips of the same length and same number of twists - i.e. two twists.
+    
+    
+    
+    
+   
+
+   
+   
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

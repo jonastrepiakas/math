@@ -1,0 +1,407 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+%%For code (e.g. python) in latex:
+%\usepackage{listings}
+%
+%Usage: 
+%\begin{lstlisting}[language=Python]
+%\end{lstlisting}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\begin{document}
+    \textbf{p. 183}\\
+    \textbf{11:} Calculate the homology groups of the following complexes:\\
+    (a) three copies of the boundary of a triangle all joined together at
+    a vertex;\\
+    (b) two hollow tetrahedra glued together along an edge.\\
+    \linebreak
+    \textit{Solution:}
+    (a) Let $K$ be the simplicial complex consisting of
+    three copies of the boundary of a triangle all joined together at a vertex
+    - so it has 9 $1$-simplexes constituting the edges and
+    7 $0$-simplexes constituting the vertices.\\
+    By theorem 8.2, we have that
+    $H_0 (K) \cong \mathbb{Z}$.\\
+    Now, since $\left| K \right| $ is connected, we have that
+    $H_1 (K)$ is the abelianization of the fundamental group of
+    $\left| K \right| $. By example 1 on page 136, we have that
+    $\pi_1 (\left| K \right| ) \cong \mathbb{Z} * \mathbb{Z} * \mathbb{Z}$,
+    which has abelianization $\mathbb{Z}$, so
+    $H_1 (K) \cong \mathbb{Z}$.\\
+    Now, since $K$ has no $n$-simplexes for $n \ge 2$, we have
+    that $Z_n (K) = 0$ for $n \ge 2$, so
+    $H_n (K) = 0$ for $n\ge 2$.\\
+    \linebreak
+    (b) Let $K$ denote the simplicial complex for two hollow tetrahedra glued
+    together along an edge.\\
+    Since  $\left| K \right| $ is path-connected, the has only a single
+    component, so $H_0(K) \cong \mathbb{Z}$ by theorem 8.2.\\
+    Now, again, since $\left| K \right| $ is connected, $H_1(K)$ is the
+    abelianization of the fundamental group of
+    $\left| K \right| $.\\
+    Choosing any vertex $v$ of the common edge, and letting
+    $J$ be one polyhedra and $L$ the other polyhedra, we have
+    that $\pi_1 \left( \left| J \right| ,v \right) 
+    = \pi_1 \left( \left| L \right| ,v \right) 
+    = 0$ since each
+    $\left| J \right| = \left| \sum^{2} \right| = \left| L \right|  $ and
+    $\left| \sum^{2} \right| \cong S^{2}$ by example 5 on page 181, and
+    $\pi_1 \left( S^{2} \right) = 0$. Thus
+    $\pi_1 \left( \left| J \cup L \right| ,v \right) 
+    = 0$ by van Kampen. But this naturally also has trivial abelinization, so
+    $H_1 \left( K \right) = 0$.\\
+    Now, choosing an orientation for any two vertices of an edge in our complex $\left| K \right|
+    $, we find that this determines an orientation on all the remaining
+    vertices. Thus our surface is orientable, so by the last comment on page
+    183, $H_2 (K) \cong \mathbb{Z}$. Now, since $K$ has no  $n$-simplexes for
+    $n\ge 3$, we find that $H_n (K) = 0$ for all $n\ge 3$.\\
+    \linebreak
+    \textbf{13:} Show that any graph has the homotopy type of a bouquet of
+    circles, and suggest a formula for the first Betti number of the graph.\\
+    \linebreak
+    \textit{Solution:} Following the definition on page 3,
+    we shall consider a graph as any connected
+    $1$-complex. Let $\left| K \right| $ be the graph with
+    $V$ the set of $0$-simplexes and 
+    $E$ the set of $1$-simplexes. 
+    Take a maximal tree, $L$, of $K$ which, by lemma 6.11,
+    contains all the vertices of $K$. Then by the
+    explanation of $G(K,L)$, any edge in
+    $E - L$ corresponds to a cycle. So $G(K,L)$ is 
+    a free group on $\left| E - L \right| $ generators, and
+    since $G(K,L) \cong \pi_1
+    \left( \left| K \right| ,v \right) $ for $v$ any vertex of
+    $K$, we have that $H_1(K) \cong
+    \mathbb{Z}^{\left| E-L \right| }$. Now,
+    removing each edge of $\left| E-L \right| $ from
+    $K$, we get a tree which has the relation
+    $\left| V \right| - \left| E \right| = 1$, so
+    we get $\left| E-T \right| 
+    = \left| E \right| - \left| V \right| +1$, so
+    $H_1(K) \cong \mathbb{Z}^{\left| E \right| - \left| V \right| +1}$.\\
+    So $\beta_1 = \left| E \right| -\left| V \right| +1$ is the first betti
+    number.\\
+    \linebreak
+    To see the homotopy equivalence, we will prove weakened versions
+    of propositions
+    0.16 and 0.17 in Hatcher which relate to CW-complexes, but work just as
+      well for our simplicial complexes. We show the following two
+      propositions:\\
+    \textbf{Prop 1:} If $(K,e)$ is a graph $K$ and an edge
+    $e$ between two distinct vertices $v_0, v_1$ then
+    $K \times \left\{ 0 \right\} \cup e \times I$ is a deformation retraction
+    of $K \times I$.\\
+    \linebreak
+    \textit{Proof:} Denote by
+    $K^{0}$ the 0-skeleton of $K$. There is a retraction
+    $r  \colon I \times I \to I \times \left\{ 0 \right\} 
+    \cup  \partial I \times I$ by radial projection from
+    $(0,2) \in I \times \mathbb{R}$. Setting
+    $r_t = tr + (1-t) \mathbbm{1}$ gives a deformation retraction of
+    $I \times I$ onto $I \times \left\{ 0 \right\} 
+    \cup \partial I \times I$, which gives rise to a deformation retraction
+    of $K \times I$ onto
+    $K \times \left\{ 0 \right\} \cup 
+    \left( K^{0}\cup e \right) \times I$ since
+    $K \times I$ is obtained from
+    $K \times \left\{ 0 \right\} \cup 
+    \left( K^{0} \cup e \right) \times I$ by attaching copies of
+    $I \times I$.\\
+    \linebreak
+    Now, suppose $X$ is a simplicial complex or a CW-complex such that
+    $A$ is an edge and hence closed in $\left| X \right| $. 
+    If we are given a map
+    $f_0  \colon X \to Y$ and on the subspace
+    $A \subset X$ a homotopy $f_t  \colon A \to Y$ of
+    $f_0 |_A$, we say a pair $(X,A)$ has the homotopy extension property if
+    we can always extend this given homotopy $f_t$ to a homotopy
+    $f_t  \colon X \to Y$ of the given $f_0$.\\
+    \textit{Claim:} A pair $(X,A)$ has the homotopy extension property if and
+    only if $X \times \left\{ 0 \right\} \cup 
+    A \times I$ is a retract of $X \times I$.\\
+    \textit{Proof:} The homotopy extension property for
+    $(X,A)$ implies that the identity
+    $X \times \left\{ 0 \right\} \cup  A \times I
+    \to X \times \left\{ 0 \right\} \cup A \times I$ extends to a map
+    $X \times I \to X \times \left\{ 0 \right\} 
+    \cup  A \times I$.\\
+    For the other direction, since $A$ is closed in our cases
+    in $X$, any two maps
+    $X \times \left\{ 0 \right\} \to Y$ and
+    $A \times I \to Y$ that agree on
+    $A \times \left\{ 0 \right\} $ combined to a map
+    $X \times \left\{ 0 \right\} \cup A \times I \to Y$ whose continuity is
+    guaranteed by the gluing lemma. By composing
+    $X \times \left\{ 0 \right\} \cup A \times I \to Y$ with the retraction
+    $X \times I \to X \times \left\{ 0 \right\} \cup 
+    A \times I$, we get an extesion $X \times I \to Y$, so
+    $(X,A)$ has the homotopy extension property.\\
+    \linebreak
+    With the claim and the proposition, we thus see that
+    for any graph $K$ and any edge $e$ considered as a simplicial complex
+    of the graph,
+    $(K, e)$ has the homotopy extension property.\\
+    \linebreak
+    Now, the following proposition finishes the argument:\\
+    \textbf{Prop 2:} For any pair $(K, e)$ for a graph $K$ and edge
+    $e$ of $K$ such that $e$ is contractible, the quotient map
+    $q  \colon K \to K /e$ is a homotopy equivalence.\\
+    \linebreak
+    \textit{Proof:} 
+    Let $f_t  \colon K \to K$ be a homotopy extending a contraction of
+    $e$ with $f_0 = \mathbbm{1}$. Since
+    $f_t (e) \subset e$ for all $t$, the composition
+    $q f_t  \colon K \to K /e$ sends $e$ to a point and hence
+    factors as a composition
+    $K \stackrel{q}{\to } K /e \to  K /e$. Let the latter map
+    be $\overline{f_t}  \colon K /e \to K /e$. We have
+    $q f_t = \overline{f_t} q$. When
+    $t = 1$, we have $f_1 (e)$ being the point $e$ contracts to, so
+    $f_1$ induces a map $g  \colon K /e \to K$ with
+    $g q = f_1$. It follows that
+    $qg = \overline{f_1}$ since
+    $qg (\overline{x}) = 
+    qgq (x) = q f_1(x) = \overline{f_1}q(x) = \overline{f_1}(
+    \overline{x})$. The maps
+    $g$ and $q$ are inverse homotopy equivalences
+    since $gq = f_1 \simeq f_0 = \mathbbm{1}$ via
+    $f_t$ and $qg = \overline{f_1}
+    \simeq \overline{f_0} = \mathbbm{1}$ via
+    $\overline{f_t}$.\\
+    \linebreak
+    Now, we have that we can take any graph
+    $K$ and contract all edges with non-equal vertices. Continuing this, we
+    eventually arrive at a wedge sum of circles. By
+    proposition 2, we then have that any graph is homotopy
+    equivalent to a wedge sum of circles.\\
+    \linebreak
+    From this it also follows that the fundamental group
+    of $\left| K \right| $ is free, and looking at how we contract the edges
+    above, we see that any loop will eventually contract to a loop, so
+    the number of circles in the wedge sum will be precisely
+    $\left| E \right| - \left| V \right| +1$ as explained at first.\\
+    \linebreak
+    \textbf{p. 188}\\
+    \textbf{20:} Prove the following lemma:\\
+    If $\varphi  \colon C(K) \to C(L)$ is a chain map,
+    and $\psi  \colon C(L) \to C(M)$ is a second chain map then
+    $\psi \circ \varphi  \colon C(K) \to C(M)$ is a chain map and
+    $\left( \psi \circ \varphi \right)_*
+    = \psi_* \circ \varphi_*  \colon
+    H_q(K) \to H_q(M)$.\\
+    \linebreak
+    \textit{Solution:} By definition, $\varphi  \colon C(K) \to C(L)$ being
+    a chain map means that for each $q \ge 0$, we have
+    $\partial \varphi_q = \varphi_{q-1} \partial$.\\
+    Similarly, for each $q\ge 0$, we have
+    $\partial \psi_q = \psi_{q-1} \partial$. We claim that
+    $\partial \left( \psi_q \circ \varphi_q \right) 
+    = \left( \psi_{q-1}\circ \varphi_{q-1} \right) \partial$.\\
+    By commutativity of each square below, we get commutativity of the outer
+    rectangle:
+    \begin{equation*}
+    \begin{tikzcd}
+        C_q(K) \arrow[r, "\varphi_q"] \arrow[d, "\partial"] & C_q (L) \arrow[d,
+        "\partial"] \arrow[r, "\psi_q"] & C_{q}(M)
+        \arrow[d, "\partial"]\\
+        C_{q-1}(K) \arrow[r, "\varphi_{q-1}"] & C_{q-1}(L) \arrow[r,
+        "\psi_{q-1}"] & C_{q-1}(M)
+    \end{tikzcd}
+    \end{equation*}
+    
+    Explicitly written, we have
+    \[
+    \psi_{q-1} \circ \varphi_{q-1} \circ \partial
+    \stackrel{\text{first square}}{=} \psi_{q-1} \circ \partial \circ \varphi_{q}
+    \stackrel{\text{second square}}{=} \partial \circ \psi_q \circ \varphi_q
+    \] 
+    So $\psi \circ \varphi  \colon C(K) \to C(M)$ is a chain map.\\
+    \linebreak
+    For the induced homomorphisms, we first write down explicitly the induced
+    homomorphism:
+    For a chain map $\varphi  \colon C(K) \to C(L)$, we have that
+    for a $q$-cycle $z \in C_q(K)$, we have
+    $\varphi_* \left( \left[ z \right]  \right) 
+    = \left[ \varphi_q (z) \right] $ is a homomorphism.\\
+    \textit{Well-definedness:} We first show that $\varphi$ takes
+    $q$-cycles of $K$ to $q$-cycles of $L$ and boundary q-cycles of $K$ to
+    boundary q-cycles of $L$:\\
+    if $z$ is a $q$-cycle of $K$, so $\partial z = 0$, then by $\varphi$ being
+    a chain map,
+    \[
+    \partial \varphi_q (z) = \varphi_{q-1} \partial z = 0
+    \] 
+    so $\varphi_q (z)$ is a $q$-cycle of $L$.\\
+    Similarly, if $b \in B_q(K)$, then $b = \partial c$ for some
+    $c \in C_{q+1}(K)$, so
+    \[
+    \partial \varphi_{q+1}(c) = 
+    \varphi_{q} \partial c = \varphi_{q} (b)
+    \] 
+    giving $\varphi_q (b) \in B_q(K)$.\\
+    \linebreak
+    Now, suppose 
+    $\left[ z \right] = \left[ w \right] $
+    in $H_q(K)$. Then
+    $z-w \in B_q(K)$ and so since $\varphi_q$ is a homomorphism by assumption
+    of $\varphi$ being a chain map,
+    $\varphi_q (z) - \varphi_q (w) =  \varphi_q (z-w) \in B_q(L)$ as
+    $\varphi_q$ carries boundary $q$-cycles to boundary $q$-cycles by the
+    above; so
+    $\varphi_* \left( \left[ z \right]  \right) 
+    = \left[ \varphi_q (z) \right] =
+    \left[ \varphi_q (w) \right] 
+    = \varphi_* \left( \left[ w \right]  \right) $. Furthermore, it is
+    a homomorphism, since if we let $*$ denote the group operation of
+    $H_q(K)$ and $+$ the group operation of $C_q(K)$, we have
+    $\varphi_* \left( \left[ z \right] * \left[ w \right]  \right) 
+    = \varphi_* \left( \left[ z+w \right]  \right) 
+    = \left[ \varphi (z+w) \right] 
+    = \left[ \varphi(z) + \varphi(w) \right] 
+    = \left[ \varphi(z) \right] *
+    \left[ \varphi(w) \right] 
+    = \varphi_* \left( \left[ z \right]  \right) 
+    * \varphi_* \left( \left[ w \right]  \right) $.\\
+    So $\varphi_*$ is indeed a group homomorphism.\\
+    \linebreak
+    Now, we find directly, that for any
+    element $\left[ z \right] \in 
+    H_q(K)$, we have
+    \[
+        \left( \psi \circ \varphi \right)_*
+        \left( \left[ z \right]  \right) 
+        = \left[ \left( \psi \circ \varphi \right) (z) \right] 
+        = \left[ \psi \left( \varphi\left( z \right)  \right)  \right] 
+        = \psi_* \left( \left[ \varphi(z) \right]  \right) 
+        = \psi_* \circ \varphi_* \left( \left[ z \right]  \right) 
+    \] 
+    giving $\left( \psi \circ \varphi \right)_* =
+    \psi_* \circ \varphi_*  \colon H_q(K) \to H_q(M)$.\\
+    \linebreak
+    \textbf{p. 192}\\
+    \textbf{25:} Suppose $s,t  \colon \left| K \right| \to 
+    \left| L \right| $ are simplicial, and assume we have a homomorphism
+    $d_q  \colon C_q (K) \to C_{q+1}(L)$, for each $q$, such that
+    \[
+    d_{q-1} \partial + \partial d_q = t -s  \colon C_q (K) \to C_q(L).
+    \] 
+    Show that $s$ and $t$ induce the same homomorphisms of homology groups. The
+    collection of homomorphisms $\left\{ d_q \right\} $ is called a
+    \textit{chain homotopy} between $s$ and $t$.\\
+    \linebreak
+    \textit{Solution:} For any $q$-cycle $z$ of $K$, we have
+    $\partial z = 0$, so in particular,
+    $t(z) - s(z) = \left( d_{q-1} \partial + \partial d_q \right) (z)
+    = \partial d_q(z) \in 
+    B_q(L)$, and hence $t_* \left( \left[ z \right]  \right) =
+    \left[ t(z) \right] = \left[ s(z) \right]
+    = s_* \left( \left[ z \right]  \right) $ in
+    $H_q(L)$, so
+    $t(z)$ and $s(z)$ are homologous for all $q$-cycles of $K$, and hence
+     $t$ and $s$ induce the same homomorphisms of homology groups: $H_q(K) \to H_q(L)$ for all
+     $q$.
+    
+    
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,466 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%% for identity function 1:
+%\usepackage{bbm}
+%%For category theory diagrams:
+%\usepackage{tikz-cd}
+%%For code (e.g. python) in latex:
+%\usepackage{listings}
+%
+%Usage: 
+%\begin{lstlisting}[language=Python]
+%\end{lstlisting}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+%Redeclaring Span and image
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+
+
+\title{Assignment 1}
+\author{Jonas Trepiakas - jtrepiakas@berkeley.edu - Student ID: 3039733855}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+    \textbf{p. 31}\\
+    \textbf{1.:} Verify each of the following for arbitrary subsets $A,B$ of
+    a space $X:$ \\
+    \linebreak
+    (a) $\overline{A \cup B} = \overline{A} \cup \overline{B}$.\\
+    (c) $\overline{ \overline{A}} = \overline{A}$.\\
+    (d) $\left( A \cup B \right)^{\circ} \supseteq A^{\circ}
+    \cup B^{\circ}$.\\
+    \linebreak
+    \textit{Solution:}\\
+    (a) Let  $x$ be a limit point of $A \cup B$. If any neighborhood of 
+    $x$ intersects $A - \left\{ x \right\} $, then $x \in \overline{A} \subset 
+    \overline{A} \cup \overline{B}$, so assume there exists a neighborhood
+    $N_A$
+    of $x$ that does not intersect $A - \left\{ x \right\} $. Assume there
+    exists a neighborhood $N_B$ of $x$ that does not intersect $B- \left\{
+    x \right\} $. Then $x \in N_A \cap N_B$ as $x \in N_A$ and $x \in N_B$ and
+    $N_A \cap N_B$ is a neighborhood of $x$ by definition 1.3.(b).\\
+    Assume $y \in \left( N_A \cap N_B \right) \cap A\cup B - \left\{ x \right\}
+    $. Then $y \in N_A$ so since $N_A \cap A -\left\{ x \right\}
+    = \varnothing$, we have $y \not\in A -\left\{ x \right\} $. Similarly,
+    since
+    $y \in N_B$, we have $y \not\in B - \left\{ x \right\} $ as $N_B \cap
+    B - \left\{ x \right\} = \varnothing$.\\
+    Hence $y \not\in  A -\left\{ x \right\} \cup B -\left\{ x \right\} 
+    = A\cup B - \left\{ x \right\} $ which contradicts
+    $y \in \left( N_A \cap N_B \right) \cap A \cup B - \left\{ x \right\} $.
+    Thus $(N_A \cap N_B) \cap A \cup B - \left\{ x \right\} = \varnothing$.\\
+    But then $N_A \cap N_B$ is a neighborhood of $x$ that does not intersect
+    $A\cup B - \left\{ x \right\} $ contradicting $x \in \overline{A \cup B}$.
+    Thus no such $N_B$ can exist, so all neighborhood of $x$ intersect
+    $B - \left\{ x \right\} $, hence $x \in \overline{B} \subset \overline{A}\cup 
+    \overline{B}$.\\
+    
+    
+    
+    Conversely, if $x \in \overline{A}\cup \overline{B}$ then
+    $x \in \overline{A}$ or $x \in \overline{B}$. Assume without loss of
+    generality that $x \in \overline{A}$. Then any neighborhood of $x$ 
+    intersects
+    $A - \left\{ x \right\} \subset A \cup B - \left\{ x \right\} $, so
+    $x \in \overline{A \cup B}$.\\
+    \linebreak
+    (c) By theorem 2.3, $\overline{A}$ is a closed set. Then by another
+    use of theorem 2.3,
+    $\overline{\overline{A}}$ is the smallest closed set containing
+    $\overline{A}$ which is thus $\overline{A}$ as it is closed, so
+    $\overline{\overline{A}} = \overline{A}$.\\
+    Alternatively, we can note:
+    $x \in \overline{\overline{A}}$ if and only if $x$ is a limit point of 
+    $\overline{A}$, and this happens if and only if $x \in \overline{A}$
+    since $\overline{A}$ is closed by theorem 2.3 and thus
+    contains all its limit points by theorem 2.2.\\
+    \linebreak
+    (d) Let $x \in A^{\circ} \cup B^{\circ}$, then assume without loss of
+    generality that $x \in A^{\circ}$. By definition, $x$ is thus contained
+    in the union of all open sets contained in $A$ and hence is contained in
+    some
+    open set, say $U$, contained in $A$. Then $x \in U \subset A \subset A \cup
+    B$, and by definition $U \subset \left( A \cup B \right)^{\circ}$, so
+    $x \in \left( A\cup B \right)^{\circ}$.\\
+    To show that equality need not hold, consider 
+    the set  $X = \left\{ a,b \right\} $ with the indiscrete topology, i.e.
+    $\tau = \left\{ \varnothing, X \right\} $. Then let $A = \{a\}, B = \{b\}$.
+    We have $\left( A \cup B \right)^{\circ} = X^{\circ} = X$, so 
+    $a \in \left( A \cup B \right)^{\circ}$. However, $A^{\circ} = \varnothing$ 
+    and
+    $B^{\circ} = \varnothing$, so $a \not\in A^{\circ}\cup B^{\circ}$.\\
+    \linebreak
+    \textbf{3:} Specify the interior, closure, and frontier of each of the
+    following subsets of the plane:\\
+    \linebreak
+    (a) $A = \left\{ (x,y)  \mid 1 < x^2 + y^2 \le 2 \right\} $ \\
+    (b) $B = \mathbb{E}^2$ with both axes removed\\
+    (c) $C = \mathbb{E}^2 - \left\{ (x, \sin (\frac{1}{x}) )  \mid x > 0 \right\}
+    $.\\
+    \linebreak
+    \textit{Solution:}\\
+    \textbf{Lemma 1:} Let $J = \left\{ (a,b)  \mid a,b \in \mathbb{E}
+    \right\} $ with the convention that if $b \le a$ then $(a,b) = \varnothing$.
+    Then $J \times J$ is a basis for $\mathbb{E}^2$.\\
+    \linebreak
+    \textit{Proof:} We first show that $J \times J$ determines a basis for a
+    topology on $\mathbb{E}^2$ and then show that this topology coincides with
+    the standard topology on $\mathbb{E}^2$.\\
+    \linebreak
+    $J \times J$ is clearly nonempty. Let 
+    $(a_1, b_1) \times (c_1, d_1), \ldots, (a_n, b_n) \times (c_n, d_n)$ be
+    a finite number of members of $J \times J$. Then
+    \[
+        (a_1, b_1) \times (c_1, d_1) \cap \ldots \cap 
+        (a_n, b_n) \times (c_n, d_n)
+        = \left( \max \left\{ a_i \right\} , \min \left\{ b_i \right\}  \right) 
+        \times  \left( \max \left\{ c_i \right\} , \min \left\{ d_i \right\}  \right) 
+        \in J
+    \] 
+    where we again remember the if say $\min \left\{ b_i \right\} \le 
+    \max \left\{ a_i \right\} $ then the intersection becomes the empty set;
+    similarly, for $c_i$ and $d_j$.\\
+    Furthermore, for any $(x,y) \in \mathbb{E}^2$, we have
+    $(x,y) \in (x-1, x+1) \times (y-1,y+1) \in J \times J$, so by
+    theorem 2.5, we get that $J \times J$ determines a topology on
+    $\mathbb{E}^2$.\\
+    \linebreak
+    
+    
+
+
+
+    Now let $U$ be any open set in the standard topology on $\mathbb{E}^2$ and let $x \in U$.\\
+    Then by definition p. 28, we can find $\varepsilon_x > 0$ such that
+    $B(x, \varepsilon_x) \subset U$. Then writing $x = (x_1, x_2)$, we have
+    $ V_x= \left( x_1- \frac{\varepsilon_x}{\sqrt{2} }, x_1
+        + \frac{\varepsilon_x}{\sqrt{2} }
+    \right) \times 
+    \left( x_2 - \frac{\varepsilon_x}{\sqrt{2} }, x_2
+    + \frac{\varepsilon_x}{\sqrt{2} } \right)
+    \subset  B(x, \varepsilon_x)$ since for any
+    $(a,b) \in V$, we have
+    $\|(x_1, x_2) - (a,b)\| < \sqrt{\frac{\varepsilon_x^2}{2}
+    + \frac{\varepsilon_x^2}{2}} = \varepsilon_x$. Hence
+    $x \in V_x \subset B\left( x, \varepsilon_x \right) \subset U$. As $x$ was
+    arbitrary, we can find such a $V_x$ for any $x \in U$. Thus
+    $U = \bigcup_{x \in U} \{x\} \subset \bigcup_{x \in U} V_x \subset U$, so
+    $U = \bigcup_{x \in U} V_x$. 
+    Denoting the standard topology on $\mathbb{E}^2$ by $\tau$ and
+    the topology induced by the basis $J \times J$ by $\tau_J$, we thus have
+    $\tau \subset \tau_J$.\\
+    \linebreak
+    Conversely, for any open set $U \in \tau_J$, we thus have
+    $U = \bigcup_{i \in  I} \left( a_i, b_i \right) \times (c_i,d_i)$. 
+    Let $x = (x_1, x_2) \in U$. Then there exists
+    $i_x \in I$ such that $x \in (a_{i_x}, b_{i_x}) \times (c_{i_x}, d_{i_x})$.\\
+    Then for $\varepsilon_x = \min \left\{ 
+    \left| b_{i_x} - x_1 \right| , \left| a_{i_x}- x_1 \right| ,
+\left| d_{i_x} - x_2 \right| , \left| c_{i_x}- x_2 \right| \right\} $, we have
+    $B(x, \varepsilon_x) \subset 
+    \left( a_{i_x}, b_{i_x} \right) \times \left( c_{i_x}, d_{i_x} \right) 
+    \subset U$. Since $x$ was arbitrary, we can write
+    $U = \bigcup_{x \in U} \{x\} 
+    \subset \bigcup_{x \in U} B\left( x, \varepsilon_x \right) \subset U$, so
+    $U = \bigcup_{x \in X} B\left( x , \varepsilon_x \right) $. Thus
+    $\tau_J \subset \tau$. Thus $J \times J$ is a basis for the standard
+    topology on $\mathbb{E}^2$.\\
+    \linebreak
+
+    \textbf{Lemma 2:} For any $A \subset X$, we have 
+    $\partial A = \overline{A} - A^{\circ}$, where $\partial A$ is the frontier
+    of $A$ : $\partial A = \overline{A} \cap \overline{X -A}$. \\
+    \linebreak
+    \textit{Proof:} We have $x \in \overline{A}$ if and only if
+    any neighborhood of  $x$ intersects $A - \{x\}$ if and only if
+    for any neighborhood $N$ of $x$, either $x \in N \subset A$ or
+    $N \cap A - \{x\} \neq \varnothing \neq N \cap (X-A - \{x\})$.
+    Now the last statement gives that if there exists $N$ such that $x \in
+    N \subset A$, then by definition of a neighborhood, there exists an open
+    set $U$ such that $x \in U \subset N \subset A$ and hence $x \in U \subset
+    A^{\circ}$; if no such $N$ exists, then for all neighborhoods $N$, we have
+    $N \cap A-\{x\} \neq \varnothing \neq N \cap (X-A - \{x\})$ which is
+    equivalent to $x \in \overline{A} \cap \overline{X-A} = \partial A$. Hence
+    $x \in \overline{A}$ if and only if $x \in A^{\circ} \cup \partial A$ and
+    furthermore, these two cases are disjoint: if $x \in A^{\circ}$ then
+    $x \not\in \overline{X-A} \supset \partial A$. And conversely by
+    contraposition: $x \in \partial A$ implies $x \not\in A^{\circ}$.\\
+    Therefore $\partial A = \overline{A} - A^{\circ}$.\\
+    \linebreak
+    
+    
+    
+
+    (a) We claim that $A^{\circ} = \left\{ (x,y)  \mid 1 < x^2 + y^2
+    < 2 \right\} $. Let $\tilde{A}$ denote the right hand side.\\
+    For $(x,y) \in \tilde{A}$, we have that for
+    $\varepsilon = \min \left\{ \sqrt{2} - \|(x,y) \|, \|(x,y) \|-1 \right\} $, 
+    $B((x,y), \varepsilon) \subset \tilde{A} \subset A$. Hence
+    $\tilde{A}$ is open, so $\tilde{A} \subset A^{\circ}$.\\
+    For $(x,y) \in A$ with $\|(x,y)\|^2 = 2$, we have that if $(x,y) \in
+    A^{\circ}$ then there exists an open neighborhood $U$ of $(x,y)$ such that
+    $(x,y) \in U \subset A$. However, since $J \times J$ is a basis for
+    $\mathbb{E}^2$ there must thus exist $(a,b) \times (c,d)$ such that
+    $(x,y) \in (a,b) \times (c,d) \subset U \subset A$, but then
+    for $x' = \begin{cases}
+        \frac{x+b}{2}, & x \ge 0\\
+        \frac{x+a}{2}, & x<0
+    \end{cases}$ and $y' = \begin{cases}
+        \frac{y + d}{2}, & y \ge 0\\
+        \frac{y-c}{2},& y<0
+    \end{cases}$, we have
+    $\| (x',y')\| > 2$ but $(x',y') \in (a,b) \times (c,d) \subset U \subset
+    A$, contradiction. Hence $(x,y) \not\in A^{\circ}$, so
+    $A^{\circ} \subset \tilde{A}$. Thus $A^{\circ} = \tilde{A}$.\\
+    \linebreak
+    We claim the closure of $A$ is $\left\{ (x,y)  \mid 1 \le x^2 + y^2 \le
+    2 \right\} $.
+    Let again $\tilde{A}$ denote the right hand side. By theorem 2.3, the
+    closure of $A$ is the smallest closed set containing $A$, hence
+    $A \subset \overline{A}$. It remains to show that
+    all $(x,y)$ with $\|(x,y)\| = 1$ are limit points of $A$ and that
+    all points $(x,y)$ with $\|(x,y)\|<1$ or $>2$ are not limit points of
+    $A$.\\
+    \linebreak
+    Let $(x,y)$ be such that $\|(x,y)\| = 1$ and let $U$ be any open
+    neighborhood of $(x,y)$. Then we can find a $\varepsilon > 0$ such that
+    $B((x,y), \varepsilon) \subset U$, and in this ball we can find some
+    $(x',y')$ with $1 < \|(x',y')\| \le 2$.\\
+    To be specific, there exists a basis element
+    $(a,b) \times (c,d) \in J\times J$ with
+    $(x,y) \in (a,b) \times (c,d) \subset U$, and again letting say
+    $x' = \begin{cases}
+        \frac{x + \min\{\frac{1}{4}, b \}}{2} , & 0 \le x\\
+        \frac{x + \max\{-\frac{1}{4},a\}}{2}  , & 0> x
+    \end{cases}$ and
+    $y' = \begin{cases}
+        \frac{y + \min\left\{ \frac{1}{4},d \right\} }{2}, & 0 \le y\\
+        \frac{y + \max\left\{ -\frac{1}{4},c \right\} }{2}, & 0> y
+    \end{cases}$ or anything that is simply "close" to $(x,y)$ in $(a,b) \times
+    (c,d)$ while having greater norm which does not exceed $\sqrt{2} $- which is possible to find as $(a,b)
+    \times (c,d)$ is open -,
+    we get $(x',y') \in (a,b) \times (c,d) \subset U$ while $1 < \|(x',y')\|
+    \le \sqrt{2} $ and hence $U$ intersects $A$. Thus
+    $\tilde{A} \subset \overline{A}$.\\
+    \linebreak
+    Now, for points $(x,y)$ with $\|(x,y)\| < 1$, we have
+    $(x,y) \in B\left( (0,0), 1 \right) $ which is open
+    and thus a neighborhood of $(x,y)$ that is disjoint from $A$. Thus
+    $\overline{A} \subset \mathbb{E}^2 -  B\left( (0,0), 1 \right)$. 
+    For points $(x,y)$ with $\|(x,y)\| > \sqrt{2} $, we have that
+    $(x,y) \in \mathbb{E}^2 - \overline{B\left( (0,0), \sqrt{2}  \right) }$ 
+    which is open as its compliment is $\overline{B \left( (0,0), \sqrt{2}
+    \right) }$ which is closed. But $A \subset \overline{B \left( (0,0),
+    \sqrt{2}  \right) }$, and thus $\mathbb{E}^2 - \overline{B \left(
+(0,0)\sqrt{2}  \right) }$ is an open neighborhood that is disjoint from $A$, so
+$(x,y)$ is not a limit point of $A$. Thus
+$\overline{A} \subset \overline{B \left( (0,0), \sqrt{2}  \right) } -
+B \left( (0,0),1 \right) = \tilde{A} \subset A$, hence $\overline{A}
+= \tilde{A}$.\\
+\linebreak
+Now by lemma 2, $\partial A = \overline{A} - A^{\circ}
+= \left\{ (x,y)  \mid x^2 + y^2 \in \left\{ 1,2 \right\}  \right\} $.\\
+\linebreak
+
+
+
+
+
+(b) We claim the interior is $B^{\circ} = B$. For any point $(x,y)$, we have
+that $(x,y) \in B\left( (x,y), \frac{\min \left\{ |x|, |y| \right\} }{2} \right) 
+\subset B$, thus $B$ is open, so $B^{\circ} = B$.\\
+\linebreak
+The closure of $B$ is all of $\mathbb{E}^2$ : the closure contains $B$ by
+theorem 2.3. Now let $(0,x) \in \mathbb{E}^2$ for any $x \in \mathbb{E}$. Then
+for any neighborhood $N$ of $(0,x)$, we can find a basis element $(a,b) \times
+(c,d)$ such that $(0,x) \in (a,b) \times (c,d) \subset N$, so
+letting $y' = x$ if $x \neq 0$ and otherwise $y' = \frac{d}{2}$, and letting
+ $x' = \frac{b}{2}$, we get
+ $(x',y') \in (a,b) \times (c,d) \subset N$ and $(x',y') \in B$, hence
+ any neighborhood of $(0,x)$ intersects $B$ so
+ $\{0\} \times \mathbb{E} \subset \overline{B}$.\\
+ Equivalently, let $(x,0) \in \mathbb{E}^2$ for any $x \in \mathbb{E}$. Then
+ for any neighborhood $N$ of $(x,0)$, we can find a basis element $(a,b) \times
+ (c,d)$ such that $(x,0) \in (a,b) \times (c,d) \subset N$, so letting
+ $x' = x$ if $x\neq 0$ and $x' = \frac{b}{2}$ otherwise, and $y'
+ = \frac{d}{2}$, we get
+ $(x',y') \in (a,b) \times (c,d) \subset N$ and $(x',y') \in B$, so
+ any neighborhood of  $(x,0)$ intersects $B$ hence
+ $\mathbb{E} \times \{0\} \subset \overline{B}$, thus
+ $\mathbb{E}^2 = B \cup \{0\} \times \mathbb{E} \cup \mathbb{E} \times \{0\}
+ \subset \overline{B} \subset \mathbb{E}^2$ and hence $\overline{B}
+ = \mathbb{E}^2$.\\
+ \linebreak
+ By lemma 2, we now get $\partial B = \overline{B}- B^{\circ}
+ = \mathbb{E} \times \{0\} \cup \{0\} \times \mathbb{E}$.\\
+ \linebreak
+ (c) We claim that the interior of $C$ is 
+  $C - \left\{ (x,y)  \mid x=0, |y|\le 1 \right\} $.\\
+  Let $f  \colon (0,\infty) \to \mathbb{E}$ be given by
+  $f(x) = \sin (\frac{1}{x})$ . This is continuous as the composition of
+  continuous functions. Let  $(x,y) \in C$ with $x >0$. We can by continuity
+  find $\delta$ such that $B(x,\delta) \subset  f^{-1}\left( B(f(x), \varepsilon) \right) 
+  $ for any $\varepsilon > 0$. Let $\varepsilon = \frac{\left| y - f(x) \right|
+  }{2}$ (where $|y- f(x)| > 0$ since $(x,y) \not\in \mathbb{E}^2 - C$ ). Then $B \left( (x,y), \min\{\varepsilon, \delta\} \right) \subset C$ 
+  since
+  if $(x',y') \in B\left( (x,y), \min\{\varepsilon, \delta\} \right) \cap 
+  \mathbb{E}^2 - C$, then $|x - x'| \le d\left( (x,y), (x',y') \right) 
+  < \min\{\delta, \varepsilon\} \le  \delta$, and hence
+  \[
+  d \left( (x,y), (x',y') \right)  \ge |y-y'| = |y- f(x')| 
+  \ge |y - f(x)| - \left| f(x) - f(x') \right| 
+  = \varepsilon,
+  \] 
+  which is a contradiction.\\
+  \linebreak
+  For $x = 0$ and $|y| >1$, we can naturally choose
+  $\varepsilon = |y|-1$ and get $B\left( (x,y), \varepsilon \right) \subset C$
+  since any point $(x', f(x')) \in \mathbb{E}^2 - C$ has $|f(x')| \le 1$.\\
+  \linebreak
+  For $x < 0$, we can choose $\varepsilon = |x|$. Then
+  $B\left( (x,y), \varepsilon \right) \subset C$ since any
+  $(x', f(x')) \in \mathbb{E}^2 - C$ has $x' > 0$.\\
+  It remains to show that the points $\left\{ (0,y)  \mid |y|\le 1 \right\}
+  $ are limit points of $\mathbb{E}^2 - C$.\\
+  Take any neighborhood N of a fixed point $(0,y)$ with $|y| \le 1$ and
+  take a basis element $(a,b) \times (c,d) \subset N$ containing $(0,y)$. Then
+  since $\sin$ is periodic with period $2\pi$, we can find $N \in \mathbb{R}_+$ such that
+  $\frac{1}{N} < b$ and $\sin \left( \frac{1}{N} \right) = y$. But then
+  $\left( \frac{1}{N}, y \right) \in (a,b) \times (c,d) \cap \mathbb{E}^2 - C$,
+  and thus any neighborhood of $(0,y)$ intersects $\mathbb{E}^2 - C$, so
+  we get $C^{\circ} = C - \left\{ (x,y)  \mid x = 0, |y| \le 1 \right\}$.\\
+  \linebreak
+
+  \textbf{Lemma 3:} If $A \subset X$ then
+  $\overline{X-A} = X - A^{\circ}$.\\
+  \textit{Proof:} $x \in \overline{X-A}$ if and only if any
+  neighborhood of $x$ intersects $X-A$ if and only if there does not
+  exist a neighborhood $N$ of $x$ such that $x \in N \subset A$ if
+  and only if $x \in X- A^{\circ}$.\\
+  \linebreak
+  Thus $\overline{C} = \mathbb{E}^2 - 
+  \left\{ (x, \sin (\frac{1}{x})  \mid x>0 \right\}^{\circ}$.
+  For any point $(x',y') \in \left\{ (x, \sin (\frac{1}{x}) \mid 
+  x > 0\right\} $, take a neighborhood $N$ of it and let
+  $(a,b) \times (c,d)$ be a basis element with
+  $(x',y') \in (a,b) \times (c,d) \subset N$. Then
+  choose any $y \in (c,d) - \left\{ y' \right\} $. Now
+  $(x', y) \in (a,b) \times (c,d) \subset N$, but
+  $(x', y) \not\in \left\{ \left( x, \sin(\frac{1}{x}) \right)  \mid x >0
+  \right\} $, so $(x',y') \not\in 
+  \left\{ \left( x, \sin(\frac{1}{x}) \right) \mid x > 0  \right\}^{\circ} $,
+  hence $\left\{ \left( x, \sin(\frac{1}{x}) \right)  \mid 
+  x > 0 \right\}^{\circ} = \varnothing$, so
+  $\overline{C} = \mathbb{E}^2$.\\
+  \linebreak
+  Now by lemma 2, 
+  $$\partial C = \overline{C} - C^{\circ}
+  = \left( \mathbb{E}^2 - C \right) \cup 
+  \left\{ \left( x,y \right)  \mid x=0, |y|\le 1 \right\} 
+  = \left\{ \left( x, \sin(\frac{1}{x}) \right)  \mid x>0 \right\} 
+  \cup \left\{ (x,y)  \mid x=0, |y|\le 1 \right\} $$.\\
+  \linebreak
+  \textbf{12:} Show that if $X$ has a countable base for its topology, then
+  $X$ contains a countable dense subset.\\
+  \linebreak
+  \textit{Solution:} Let $\left\{ \beta_i \right\}_{i \in I}$ be a basis
+  for the topology on $X$ with $I$ countable. Now for each $i \in I$, choose
+  an $x_i \in \beta_i$. We claim that the set
+  $\left\{ x_i \right\}_{i \in I}$ is a countable dense subset of $X$.\\
+  \linebreak
+  Assume $x \not\in \overline{\left\{ x_i \right\}_{i \in I}}$. Then there
+  exists
+  a neighborhood $N$ of $x$ such that $N$ does not contain any $x_i$ for $i \in
+  I$. By definition of a neighborhood, there exists an open set $U$ such that
+  $x \in U \subset N$. Now since $U$ is open and $\left\{ \beta_i \right\}_{i
+  \in I}$ is a basis for the topology on $X$, we can write
+  $U = \bigcup_{j \in J} \beta_j$ for some $J \subset I$. But then
+  for all $j \in J$, $x_j \in U \subset N$, so $N$ contains a point
+  $x_i$ with $i \in I$, contradiction. Thus no such $N$ exists, so $x \in 
+  \overline{\left\{ x_i \right\}_{i \in I}}$ and as $x$ was arbitrary, we get
+  $X = \overline{\left\{ x_i \right\}_{i \in I}}$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

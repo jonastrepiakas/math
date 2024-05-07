@@ -1,0 +1,258 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%% for identity function 1:
+%\usepackage{bbm}
+%%For category theory diagrams:
+%\usepackage{tikz-cd}
+%%For code (e.g. python) in latex:
+%\usepackage{listings}
+%
+%Usage: 
+%\begin{lstlisting}[language=Python]
+%\end{lstlisting}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+%Redeclaring Span and image
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\ob}{ob}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\begin{document}
+   \textbf{1.30:}\\
+   (a) In $\mathbb{R}$, $x^2 + y^2 + 1 = 0$ has no solutions, so
+   $V \left( x^2 + y^2 + 1 \right) = \varnothing$ and hence
+   $I \left( V\left( x^2 + y^2 +1 \right)  \right) = I\left( \varnothing \right) 
+   = k\left[ x, y \right] = (1)$.\\
+   \linebreak
+   (b) Let $V$ be an algebraic subset of $\mathbb{A}^2 \left( \mathbb{R}
+   \right) $.
+   By corollary $2$, we have that the algebraic sets are precisely
+   $\mathbb{A}^2 \left( \mathbb{R} \right) , \varnothing$, points and
+   irreducible plane curves $V(F)$ where $F$ is an irreducible polynomial.
+   Since $\mathbb{A}^2 \left( \mathbb{R} \right) = V(0), \varnothing = V(1)$
+   and
+   for any point $\left( a,b \right) \in \mathbb{A}^2 (\mathbb{R})$,
+    $(a,b) = V\left( (x-a)^2 + (y-b)^2 \right) $. Thus for any collection
+    of points $\left\{ \left( a_1, b_1 \right) ,\ldots
+    , \left( a_n, b_n \right) \right\} $, it is the zero locus
+    of 
+    \[\left( (x-a_1)^2 + (y-b_1)^2 \right)\cdot  \left( (x-a_2)^2 + (y-b_2)^2 \right) 
+    \cdots \left( (x-a_n)^2 + (y-b_n)^2 \right) \]
+
+
+\textbf{2.14:}\\
+(b) Assume $V = V(F_1)$.\\
+Now $V^{T} = V \left( I(V(F_1))^{T} \right) 
+= V\left( F_1 \circ T \right)  = V\left( F_1 (T_1, \ldots, T_n) \right) $.
+Write $F_1 = \sum a_i x_i + a_0 $. We can
+let $T_i = \frac{1}{a_i} x_i - \frac{a_0}{l a_i} $ where
+$l$ is the amount of $a_i$ that are nonzero - if $a_i = 0$, let
+$T_i = x_i$. Then
+$F_1 \left( T_1, \ldots, T_n \right) =
+\sum_{a_i \neq 0} x_i $. \\
+\linebreak
+
+
+
+
+
+
+
+
+
+
+
+\textbf{Practice for intersection multiplicities:}\\
+\linebreak
+Consider the case $P = (0,0)$ and 
+$f= (x^2 + y^2)^3 - 4x^2 y^2$ and
+$g = (x^2 + y^2)^3 +3x^2 y -y^3$. Find
+$I_P (f,g)$.\\
+\linebreak
+\textit{Solution:} We follow the algorithm:\\
+(1) $P$ is indeed $(0,0)$.\\
+(2) $f$ and $g$ have no common factors which can be checked by computer.\\
+(3) Indeed $(0,0) \in V(f) \cap V(g)$.\\
+(4) We have
+\begin{align*}
+    TC_P V(f) &= V(-4x^2 y^2) = V(x) \cup V(y)\\
+    TC_P V(g) &= V(3x^2 y - y^3)
+    = V(y) \cup V(\sqrt{3} x-y) \cup V\left( \sqrt{3} x + y \right).
+\end{align*}
+So they have the line $V(y)$ in common.\\
+(5) Since the line is already $V(y)$, we find
+$f(x,0) = x^{6}$ and $g(x,0) = x^{6}$.\\
+\linebreak
+(6) As $r \neq 0$, we let $h = f-g = y^3 - 3x^2 y - 4x^2 y^2 
+= y \left( y^2 - 3x^2 - 4x^2 y \right) $. Then
+$I_P(f,g) = I_P(g,h) = I_P(f,h)$. We will see that
+$I_P(f,h)$ is easier to compute.\\
+\linebreak
+We repeat from step 2:\\
+(2) Again,  $h$ and $g$ have no common divisors.\\
+(3) $P$ is still a common vanishing point.\\
+(4) We now have
+\[
+TC_P V(h) = V\left( y^3 - 3x^2 y \right) 
+= V(y) \cup V\left( y^2 - 3x^2 \right) 
+= V(y) \cup V(y - \sqrt{3} x) \cup V\left( y + \sqrt{3} x \right).
+\] 
+Again $V(y)$ is a common tangent cone line.\\
+(5) We now have $h(x,0) = 0$ and $g(x,0) = x^6$.\\
+(6) We have
+\[
+I_P(h,g) = I_P(y, g) + I_P (y^2 - 3x^2 - 4x^2 y, g)
+\] 
+Now since  $g = x^{6} + y B$, we find
+$I_P(y,g) = 6$.\\
+Now let $h_2 = y^2 - 3x^2 - 4x^2 y$.\\
+Again (2) and (3) are satisfied, and
+\[
+TC_P V(h_2) = V\left( y^2 - 3x^2 \right) 
+= V(y - \sqrt{3} x) \cup V(y + \sqrt{3} x).
+\] 
+Here we see the problem. These tangent cone lines are also tangent cone lines
+for $g$, however, they are not for $f$.\\
+Now, does it matter that we chose $f$ and not $g$?\\
+No, we only care about the vanishings in each case which remain in both cases.
+(5) is still satisfied the same, so we find
+ \[
+I_P (h,g) = I_P(h,f) = 6 + I_P (y^2 - 3x^2 - 4x^2 y, f)
+= 6 + mult_P (h_2) mult_P(f) = 6 + 2\cdot 4 = 14
+\] 
+
+
+\textbf{To show that single points are projective algebraic sets:} 
+We can write the point with last coordinate $1$ if it does not live in
+$\mathbb{V}(z)$: $\left[ a_1 : \ldots : a_n : 1 \right] \in \mathbb{P}^{n}$.\\
+The homogeneous ideal
+$\left( x_n - a_n x_{n+1}, x_{n-1}-a_{n-1} x_{n+1}, \ldots
+, x_1 - a_1 x_{n+1} \right) $
+vanishes at $\left[ a_1 : \ldots : a_n : 1 \right] $ precisely.\\
+If last coordinate is $0$, we can proceed similarly.\\
+\linebreak
+\begin{align*}
+    v_{2,2}^{-1} \left( \mathbb{V}\left( a_1 x_1 + \ldots + 
+    a_6 x_{6} \right)  \right) 
+    &= \left\{ \left[ x:y:z \right]  \colon
+    a_1 x^2 + a_2 xy + \ldots + a_6 + z^2 = 0 \right\} \\
+    &= \mathbb{V} \left( a_1 x^2 + \ldots + a_6 z^{2} \right) 
+\end{align*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

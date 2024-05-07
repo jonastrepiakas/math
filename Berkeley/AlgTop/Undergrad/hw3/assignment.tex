@@ -1,0 +1,211 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+%\usepackage{tikz-cd}
+%%For code (e.g. python) in latex:
+%\usepackage{listings}
+%
+%Usage: 
+%\begin{lstlisting}[language=Python]
+%\end{lstlisting}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\diam}{diam}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\begin{document}
+    \textbf{p. 47, 3:} Use the Heine-Borel theorem to show that an infinite subset of
+    a closed interval must have a limit point.\\
+    \linebreak
+   \textit{Solution:} Assume for contradiction that $I$ is an closed interval
+   and an infinite subset $A \subset I$ has no limit point.\\
+   Now, a point $x \in I$ is a limit point of $A$ if and only if for any
+   neighborhood $N$ of $x$ in $I$, there exists a point $a \in A \cap (N- \left\{
+   x \right\} )$, so negating each side we find that
+   $x \in I$ is not a limit point of $A$ if and only if there exists
+   a neighborhood $N$ of $x$ in $I$ such that 
+   $A \cap \left( N-\left\{ x \right\}  \right) = \varnothing$. Now, since
+   $A$ has no limit point in $I$, we have that for all $x \in I$, we can find
+   a neighborhood  $N_x$ of $x$ in $I$ such that $A\cap (N_x - \left\{ x \right\}
+   ) = \varnothing$; hence
+   $A \cap N_x \subset \left\{ x \right\} $. Now, $I = \bigcup_{x \in I} \left\{ x \right\} 
+   \subset \bigcup_{x \in I} N_x \subset I$, so
+   $I = \bigcup_{x \in I} N_x$. Now, $I$ is compact by Heine-Borell, so
+   there exists a finite subcover $N_{x_1}\cup \ldots \cup N_{x_n} = I$. 
+   Then by construction
+   \[
+       A =  A \cap I = A \cap \left( N_{x_1} \cup \ldots \cup N_{x_n} \right) 
+       = \left( A \cap N_{x_1} \right) \cup \ldots
+       \cup \left( A \cap N_{x_n} \right) 
+   \subset \left\{ x_1 , \ldots , x_n \right\},
+   \] 
+   contradicting $A$ being infinite.\\
+   \linebreak
+   
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\textbf{p. 50., 14:} Let $f  \colon X \to Y$ be an injective continuous map.
+If we restrict it to a function  $f  \colon X \to f(X)$ then
+$f$ is injective and surjective. We have that $X$ is Hausdorff; now we claim
+$f(Y)$ is Hausdorff with the induced subspace topology.\\
+Let $x,y \in f(X)$. Then $x,y \in Y$, so there exist open sets
+$U,V$ in $Y$ such that $x \in U, y \in V$ and $U \cap V = \varnothing$.
+Then the sets $U' = U \cap f(X)$ and $V' = V \cap f(X)$ are open in
+the subspace topology by definition, and as $x,y \in f(X)$, also
+$x \in U'$ and $y \in V'$, and 
+$U' \cap V' \subset U \cap V = \varnothing$, so $U' \cap V' = \varnothing$.
+Hence
+$f(X)$ is Hausdorff. Now by theorem 3.7, 
+$f  \colon X \to f(X)$ is a homeomorphism, so by definition, 
+$f $ is an embedding of $X$ in $Y$.\\
+\linebreak
+\textbf{p. 55. 21:} If $A$ and $B$ are compact, and if $W$ is a neighborhood of
+$A \times B$ in $X \times Y$, find a neighborhood $U$ of $A$ in $X$ and
+a neighborhood $V$ of $B$ in $Y$ such that
+$U \times V \subset W$.\\
+\linebreak
+\textit{Solution:} Fix an $a \in A$. Then
+for each $b \in B$, since $W$ is a neighborhood of $(a,b)$, we can
+find a basis element $(a,b) \in U_b \times V_b \subset W$ with
+$U_b$ and $V_b$ neighborhoods of respectively $a$ and $b$ in respectively $X$
+and $Y$. Now, $\bigcup_{b \in B} V_b$ covers $B$, so as $B$ is compact, there
+exists a finite subcover $V_{b_1} \cup \ldots \cup  V_{b_n}$. Now let
+$V_a  = V_{b_1} \cup \ldots \cup  V_{b_n}$.
+$N_a = U_{b_1} \cap \ldots \cap U_{b_n}$. Then we claim
+$\left\{ a \right\} \times B \subset N_a \times V_a
+\subset W$. Let $(a,b) \in \left\{ a \right\} \times B$. 
+Since $V_a$ covers $B$, we can find a $V_{b_i}$ containing $b$, so
+$(a,b) \in N_a \times V_{b_i} 
+\subset N_a \times V_a$ giving the first inclusion.\\
+Now if $(a',b') \in N_a \times V_a$, then
+there exists $b_i$ such that $(a',b') \in N_a \times V_{b_i}$ and hence
+$(a',b') \in U_{b_i} \times V_{b_i} \subset W$, giving the
+other inclusion.\\
+\linebreak
+Now $\bigcup_{a \in A}  N_a$ covers $A$ with open sets as $N_a$ is a finite
+intersection of open sets, hence as $A$ is compact, there exists a finite
+subcover
+$N_{a_1} \cup \ldots \cup N_{a_m}$. Let $V = V_{a_1} \cap \ldots \cap V_{a_m}$
+and
+$U = N_{a_1} \cup \ldots \cup N_{a_m}$. Both $U$ and $V$ are open as the union
+of open sets and the finite intersection of open sets, and
+we claim $A \times B \subset U \times V \subset W$.\\
+For the first inclusion, let $(a,b) \in A \times B$. 
+Then as $U$ covers $A$, there exists $a_i$ such that
+$a \in N_{a_i}$, and as each $V_{a_j}$ contains $B$, 
+$b \in V_{a_j}$ as well, so $(a,b) \in \left( N_{a_i} \times  V_{a_{1}} \right)
+\cap \ldots \cap \left( N_{a_i} \times  V_{a_m} \right) 
+= N_{a_i} \times  V \subset U \times V$.\\
+\linebreak
+Now, if $(u,v) \in U \times V$, then there exists $N_{a_i}$ such that
+$u \in N_{a_i}$, so
+$(u,v) \in N_{a_i} \times V \subset N_{a_i} \times V_{a_i} \subset W$, giving
+the other inclusion.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

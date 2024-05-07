@@ -1,0 +1,171 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+%Redeclaring Span and image
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+
+\title{Assignment 1}
+\author{Jonas Trepiakas - 3039733855 - jtrepiakas@berkeley.edu}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+    \textbf{1:} \\
+    (a) 6.\\
+    (b) 9.\\
+
+    \textbf{2:} Any line $L \subset \mathbb{A} $ can be written as a graph $y
+    = ax +b$ and is thus the hypersurface defined by
+    $y - (ax + b)$. We thus have
+    \[
+    L \cap C = V\left( y - (ax+b) \right) \cap V(f)
+    = V \left( y - (ax+b), f \right) 
+    \] 
+    So for any pair $(x_1,y_1) \in L \cap C$, we have
+    $y_1 = ax_1 + b$ and thus $0 = f(x_1,y_1) = f(x_1, ax_1+b)$, so
+    $x_1 \in V\left( f(x, ax+b) \right) $. However, $f(x,ax+b)$ is a
+    polynomial in $k[x]$ and as such has either $\mathbb{A}^{1}$ as
+    its zero locus or finitely many zeros - in particular, since roots of
+    $f(x, ax+b)$ correspond to linear factors and $k[x]$ is an integral domain,
+    we have that $f(x, ax+b)$ has at most $d$ roots in $k$ (Dummit and Foote,
+    proposition 17). Since 
+    $L \not \subset C$, we must have that 
+     $f(x,ax+b)$ has at most $d$ roots, and since each $y_i$ is uniquely
+     determined by the corresponding $x_i$, there exists at most $d$ roots
+     of
+     $f(x,y)$ in $L \cap C$.\\
+     \linebreak
+     \textbf{3:} \\
+     (a) $A = \left\{ \left( t, \sin t \right)  \colon t \in \mathbb{R}
+     \right\} \subset \mathbb{A}_{\mathbb{R}}^2$ is not an algebraic set.
+     Assume for contradiction that $A = V(S)$ for some
+     $S \subset k[x,y]$. Let $f$ be any polynomial in $S$.
+     Let $L = V\left( y \right) $ - i.e. a line as in problem \textbf{2} with
+     $a,b = 0$. Then by problem  \textbf{2} $L \cap V(f)$ is finite, however,
+      \[
+ \left\{ \left( \pi k,0 \right)  \colon
+k \in \mathbb{Z} \right\} =
+     \left\{ \left( t, \sin t \right)  \colon
+     t \in \mathbb{R} \right\} \cap \left\{ \left( x,0 \right) x
+ \in \mathbb{R} \right\} = L \cap A = L \cap \bigcap_{g \in S} V(g)
+ \subset L \cap V(f)
+     \] 
+     and $\left\{ \left( \pi k, 0 \right)  \colon k \in \mathbb{Z} \right\}
+     $ is an infinite set hence $L \cap V(f)$ is an infinite set
+     contradicting problem $\textbf{2}$.\\
+     \linebreak
+     (b) Similarly to (a), let $B = \left\{ \left( x,y \right) 
+     \in \mathbb{A}_{\mathbb{C}}^2  \colon x= 0, y\neq 0 \right\} $ 
+     and $L = V\left( x \right) $. Then $L \not \subset B$ since
+     $\left( 0,0 \right)  \not \in B$. \\
+     Assume $B = V(S)$ for some $S \subset k[x,y]$ and let $f \in S$.
+     Then
+     \[
+     B = L \cap B = L \cap V(S) = L \cap \bigcap_{g \in S} V(g)
+     \subset L \cap V(f).
+     \] 
+     Since $B$ is an infinite set, so is $L \cap V(f)$, so by contraposition of
+     problem \textbf{2}, we find $B$ is not an algebraic set.
+     \\
+     \linebreak
+     (c) Similarly to (a) and (b), let $
+     C = \left\{ \left( x,y \right)  \in \mathbb{A}_{\mathbb{R}}^2
+      \colon y = \left| x \right| \right\} $ and
+      $L = V \left( y-x \right) $. Then $L \not \subset C$ since
+      for example  $(-1,-1) \not\in C$ but is in $L$.
+      Assume $C = V(S)$ where $S \subset k[x,y]$ and
+      let $f \in S$. Then
+      \[
+      \left\{ (x,y) \in \mathbb{A}_{\mathbb{R}}^2  \colon
+      y = x, x\ge 0 \right\} \subset L \cap C
+     = L \cap V(S) = L \cap \bigcap_{g \in S} V(g) 
+     \subset L \cap V(f)
+      \] 
+      Since $\left\{ (x,y) \in \mathbb{A}_{\mathbb{R}}^2
+       \colon y = x , x\ge 0 \right\} $ is an infinite set, so
+       is $L \cap V(f)$, so by contraposition of problem \textbf{2},
+       $C$ is not an algebraic set. 
+      \\
+      \linebreak
+      (d) $ D= \left\{ \left( t, t^2, t^3 \right) 
+      \in \mathbb{A}_{k}^3  \colon t\in k \right\} $ is an algebraic set
+      since $D = V \left( y-x^2, z - x^3 \right) $ :\\
+      \linebreak
+       $\left( \subset  \right) $ : for any  $(t,t^2,t^3) \in D$, we
+       have $(t^2) - (t)^2 = 0$ and
+       $(t^3) - (t)^3 = 0$.\\
+       $(\supset)$: For an arbitrary  $(x,y,z) \in D$, we have
+       $y = x^2$ and $z = x^3$ so $(x,y,z)=(x,x^2,x^3)$ giving
+       the inclusion as $x$ ranges over $k$.
+     
+     
+    
+
+\end{document}

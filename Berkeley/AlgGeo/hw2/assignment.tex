@@ -1,0 +1,244 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%% for identity function 1:
+%\usepackage{bbm}
+%%For category theory diagrams:
+%\usepackage{tikz-cd}
+%%For code (e.g. python) in latex:
+%\usepackage{listings}
+%
+%Usage: 
+%\begin{lstlisting}[language=Python]
+%\end{lstlisting}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+%Redeclaring Span and image
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\title{Homework 2}
+\author{Jonas Trepiakas - jtrepiakas@berkeley.edu}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+
+    \textbf{1:}\\
+    (a) Let $f+g \in I+J$ with $f \in I, g \in J$ and let $h \in k\left[ x_1,
+    \ldots, x_n \right] $. Then
+    $h(f+g) = \underbrace{hf}_{\in I} + \underbrace{hg}_{\in  J}$ where
+    $hf \in I$ since $I$ is an ideal and $hg \in J$ since $J$ is an ideal.
+    Commutativity in $k\left[ x_1, \ldots, x_n \right] $ ensures that this is
+    two-sided. It is clearly a ring and thus an ideal.\\
+    \linebreak
+    (b)\\
+    $(\subset )$ : We have $I \cup J \subset I+J$ since $0 \in I,J$, so
+    $V(I + J) \subset V(I \cup J) = V(I) \cap V(J)$.\\
+    \linebreak
+    $\left( \supset \right) $ : For any $a \in V(I) \cap V(J)$, we have
+    for any  $f \in I$ and $g \in J$ that $f(a)= 0 = g(a)$, so
+    $0 = f(a) + g(a) = (f+g)(a)$ and thus $a \in V(f+g)$.
+    Therefore $V(I) \cap V(J) \subset V(f+g)$.\\
+    \linebreak
+    \textbf{2:}\\
+    (a) We first show that $(y-x^2)$ is a prime ideal in $k\left[ x,y \right] $.
+    We claim $k\left[ x,y \right] / (y-x^2) \cong k\left[ x \right] $ which is
+    an integral domain and thus it would follow that $(y-x^2)$ is a prime
+    ideal.\\
+    \textit{Proof of claim:} Let $F \in k \left[ x,y \right] $ with
+    $F (x,y) = \sum_{i,j} a_{ij} x^{i} y^{j}$. Then
+    $\pi (F) = \sum_{i,j} a_{ij} x^{i+2j} \in k \left[ x \right] $, so $\pi$ 
+    here is surjective and has kernel $(y-x^2)$. The result then follows from
+    the first isomorphism theorem.\\
+    Now by problem 3.(d) underneath, any prime ideal is a radical ideal, so by
+    Hilbert's Nullstellensatz, since $\mathbb{C}$ is closed,
+    $I \left( V \left( y-x^2 \right)  \right) = \sqrt{\left( y-x^2 \right) } 
+    = \left( y-x^2 \right) $. By proposition 1 in section 1.5, Fulton, we then
+    have that $V\left( y-x^2 \right) $ is irreducible.\\
+    \linebreak
+    (b) We have that $x^2 = y^{4}$ implies $x = \pm y^2$. hence
+    we find $ 0 = y^{4} - x^2 y^2 + x y^2 - x^3 = y^{4} - y^{6} \pm y^{4} \mp
+    y^{6}$, so $0 = 2 y^{4} - 2y^{6} = 2y^{4} (1-y^2)$ and hence
+    $y \in \left\{ 0,\pm 1 \right\} $.\\
+    For $x = -y^2$, we have the other condition satisfied trivially.\\
+    \linebreak
+    Thus the irreducible components are
+    \[
+    v(x+y^2), \left( 1,1 \right), \left( 1,-1 \right).
+    \] 
+    \textbf{3:} \\
+    (a) Assume  $a^{n} \in I, b^{m} \in I$. Then
+    \[
+        (a+b)^{n+m} = \sum_{i=0}^{n+m} a^{i} b^{n+m-i}
+    \] 
+    If $i \ge n$, then $a^{i} \in I$, so $a^{i}b^{n+m-i} \in I$.
+    If $i<n$, then $n+m-i \ge n+m-i = m$, so $b^{n+m-i} \in I$ and hence
+    $a^{i}b^{n+m-i} \in I$.\\
+    \linebreak
+    (b) We have $0 \in \sqrt{0} $ as $0 \in I$.\\
+    Let $f,g \in \sqrt{I} $ with $f^{k}, g^{j} \in I$. Then $f^{2k}, (-g)^{2j}
+    \in I$, so by $a$,
+    $(f-g)^{2(k+j)} \in I $, so $f-g \in \sqrt{I} $, so $\sqrt{I} $ is closed
+    under subtraction.\\
+    now $(fg)^{kj} = f^{kj}g^{kj} = \left( f^{k} \right)^{j} \left( g^{j}
+    \right)^{k} \in  I$, so $fg \in \sqrt{I} $. Hence $\sqrt{I} $ is a ring.
+    Let $f \in \sqrt{I} $ with $f^{k} \in I$, and $r \in R$.
+    Then $(fr)^{k} = f^{k} r^{k} \in I$, so $fr \in \sqrt{I} $, and
+    $\left( rf \right)^{k} = r^{k} f^{k} \in I$, so $rf \in \sqrt{I} $, hence
+    $\sqrt{I} $ is an ideal.\\
+    \linebreak
+    (c) Let $f^{k} \in \sqrt{I} $. Then there exists an $l \in \mathbb{Z}_+$
+    such that $f^{kl} = \left( f^{k} \right)^{l} \in I$, and hence
+    $f \in \sqrt{I} $. Therefore $\sqrt{I} $ is a radical ideal.\\
+    \linebreak
+    (d) Let $P$ be a prime ideal. Let $r^{k} \in P$. By definition of prime
+    ideal, we thus have that since $r r^{k-1}\in P$, either $r$ or $r^{k-1}$ is
+    in $P$. If $r \in P$, we are done. Assume $r \not\in P$.
+    Then $r^{k-1} \in P$ and we repeat
+    the procedure; subtracting $1$ from the exponent of $r$ each time. After
+    $k-1$ turns, we will find $r \in P$ or $r \in P$, contradicting $r \not\in
+    P$. Hence $r \in P$, so $P$ is a radical ideal as $r$ was arbitrary.\\
+    \linebreak
+    \textbf{4:} Let $X,Y$ be algebraic sets.\\
+    (a) We claim $I \left( X \cup Y \right) = I(X) \cap I(Y)$.\\
+    \textbf{Proof:} 
+    $(\subset )$ : Let $f \in I\left( X \cup Y \right) $. Then for all $x \in
+    X \cup Y$, $f(x) = 0$, and thus since $X,Y \subset X \cup Y$, we have
+    for all  $x \in X$ and for all $y \in Y$, $f(x) = 0 = f(y)$, so
+    $I\left( X\cup Y \right) \subset I(X) \cap I(Y)$.\\
+    $(\supset)$ : Let $f \in I \left( X \right) \cap I(Y)$. Then
+    for all $x \in X$ and all $y \in Y$, we have $f(x)=0=f(y)$, so since
+    for any  $z \in X \cup Y$, $z \in X$ or $z \in Y$, we have
+    that for all $z \in X\cup Y$, $f(z) = 0$.\\
+    \linebreak
+    (b) This is false: Let $X = \left\{ (x,y)  \mid y = 0 \right\} = V(y) $ and
+    $Y = \left\{ (x,y)  \mid y = x^2 \right\} = V(y-x^2) $.
+    Then $I\left( X \cap Y \right) = I \left( (0,0) \right) $ which is all
+    functions that vanish on $\left( 0,0 \right) $.\\
+    However, $I(X) = (y)$ and $I(Y) = \left( y-x^2 \right) $, so
+    $I(X) + I(Y) = \left( y, y-x^2 \right) = \left( x^2 \right) \neq (x,y)
+    = I(X \cap Y)$.\\
+    \linebreak
+    \textbf{5:} Let $I \subset R$ be any ideal. We wish to show that it is
+    finitely generated.\\
+    Choose any $x_0 \in I$ and let $I_0$ be the ideal generated by $x_0$.
+    If $I = I_0$, we are done. Otherwise, choose $x_1 \in I - I_0$ and
+    let $I_1$ be the ideal generated by $x_1$ and $x_0$. Generally, if $I_{n-1}
+    \neq I$, then choose $x_n \in I - I_{n-1}$ and let $I_n = 
+    \left( x_0, \ldots, x_n \right) $. Thus we get an ascending chain of
+    ideals:
+    \[
+    I_0 \subsetneq I_1 \subsetneq I_2 \subsetneq \ldots
+    \] 
+    By assumption this ascending chain ends; say it ends with $I_N$. Then 
+    by construction,  $I_N$ must equal $I$ and hence
+    \[
+    I = \left( x_0, \ldots, x_N \right).
+    \] 
+    Thus $I$ is finitely generated, i.e. Noetherian, and since $I$ was
+    arbitrary, all ideals in $R$ are finitely generated, so $R$ is Noetherian.
+    
+
+    
+    
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

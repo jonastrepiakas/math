@@ -1,0 +1,287 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+%%For code (e.g. python) in latex:
+%\usepackage{listings}
+%
+%Usage: 
+%\begin{lstlisting}[language=Python]
+%\end{lstlisting}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\begin{document}
+    \textbf{2.1.ii} Prove that if $F  \colon C \to \Set$ is representable, then
+    $F$ preserves monomorphisms, i.e., sends every monomorphism in $C$ to an
+    injective function. Use the contrapositive to find a covariant set-valued
+    functor defined on your favorite concrete category that is not
+    representable.\\
+    \linebreak
+    \textit{Solution:} Suppose $F$ is representable by $c \in C$. Thus there
+    is a natural isomorphism between $F$ and
+    $C(c,-)$. Thus
+    
+    \[\begin{tikzcd}
+	{C(c,x)} && {F(x)} \\
+	\\
+	{C(c,y)} && {F(y)}
+	\arrow["{F(f)}", from=1-3, to=3-3]
+	\arrow["{f_*}"', from=1-1, to=3-1]
+	\arrow["\cong", from=1-1, to=1-3]
+	\arrow["\cong"', from=3-1, to=3-3]
+\end{tikzcd}\]
+commutes for any $x,y \in C$ with $f  \colon x\to y$. Now, if
+$f  \colon x\to y$ is a monomorphism, then for any
+$z,w \in C$ with $g  \colon z\to x$ and $h  \colon w \to x$,
+\[
+fg = fh \implies g=h.
+\] 
+This is equivalent to saying that for any
+$z \in C$, post-composition with $f$ defines an injection
+$f_*  \colon C(z,x) \to C(z,y)$. Hence, in the square above, if
+we denote the top isomorphism by $\alpha_x$ and the bottom one by
+$\alpha_y$, then we find that
+$\alpha_y \circ f_* \circ \alpha_x^{-1} = F(f)$, and since isomorphisms between
+sets are bijective functions, and as $f_*$ is injective, we have that
+$F(f) = \alpha_y \circ f_* \circ \alpha_x^{-1}$ is injective.\\
+Taking the contrapositive, we have that if a covariant functor
+$F  \colon C \to \Set$ does not preserve monomorphisms, then
+$F$ is not representable.\\
+\linebreak
+Consider the category $C = \mathbbm{2} = \left\{ 0,1 \right\} $ with the single
+non-identity map $0 \to 1$. Now define a functor
+$F  \colon C \to \Set$ sending $0 \to \left\{ 1,2 \right\} $ and
+$1 \to \left\{ 3 \right\} $. Then $F(0\to 1)$ is not mono since
+the maps $\alpha, \beta  \colon \left\{ -1,-2 \right\} \to \left\{ 1,2 \right\}
+$ by
+$\alpha (-1) = 1, \alpha(-2) = 2$ and $\beta (-1) = 2, \beta(-2) = 1$ each give
+that for  $\gamma  \colon \left\{ 1,2 \right\} \to \left\{ 3 \right\} $,
+$\gamma \alpha = \gamma \beta$, yet $\alpha \neq  \beta$, so
+$\gamma$ is not a monomorphism.\\
+\linebreak
+\textbf{2.1.iii:} Suppose $F  \colon C \to \Set$ is equivalent to $G
+ \colon D \to \Set$ in the sense that there is an equivalence of categories
+ $H  \colon C \to D$ so that $GH$ and $F$ are naturally isomorphic.\\
+ \begin{enumerate}[label=(\roman*)]
+     \item If $G$ is representable, then is $F$ representable?
+     \item If $F$ is representable, then is $G$ representable?
+ \end{enumerate}
+
+ \textit{Solution:}\\
+ We claim both (i) and (ii) are true.\\
+ \linebreak
+ (i) We have that $GH$ and $F$ are naturally isomorphic, so
+ 
+ \[\begin{tikzcd}
+	{GH(c)} && {F(c)} \\
+	\\
+	{GH(c')} && {F(c')}
+	\arrow["{GH(f)}"', from=1-1, to=3-1]
+	\arrow["{F(f)}", from=1-3, to=3-3]
+	\arrow["\cong", from=1-1, to=1-3]
+	\arrow["\cong"', from=3-1, to=3-3]
+\end{tikzcd}\]
+commutes.\\
+Suppose $G$ is representable, so
+there exists some $d \in D$ such that
+\[\begin{tikzcd}
+	{C(d,x)} && {G(x)} \\
+	\\
+	{C(d,y)} && {G(y)}
+	\arrow["{f_*}"', from=1-1, to=3-1]
+	\arrow["{G(f)}", from=1-3, to=3-3]
+	\arrow["\cong", from=1-1, to=1-3]
+	\arrow["\cong"', from=3-1, to=3-3]
+\end{tikzcd}\]
+commutes.\\
+Since $H$ is one part of an equivalence of categories, it is full, faithful
+and essentially surjective on objects by theorem 1.5.9, so there
+exists some $\tilde{c} \in C$ such that
+$H(\tilde{c}) \cong d$. Furthermore, by theorem 1.5.9, it is full and
+faithful, so
+for any $a,b \in C$, 
+$|\Hom(a,b)| = \left| \Hom(H(a),H(b)) \right| $, s
+$C(a,b) \cong C(H(a), H(b))$.\\
+Composing the two commutative squares, and using this last bijection, we find that
+\[\begin{tikzcd}
+	{C(\tilde{c},c)} && {C(H(\tilde{c}),H(c))} && {GH(c)} && {F(c)} \\
+	\\
+	{C(\tilde{c},c')} && {C(H(\tilde{c}),H(c'))} && {GH(c')} && {F(c')}
+	\arrow["{F(f)}", from=1-7, to=3-7]
+	\arrow["\cong", from=1-5, to=1-7]
+	\arrow["{GH(f)}"', from=1-5, to=3-5]
+	\arrow["\cong"', from=3-5, to=3-7]
+	\arrow["\cong", from=1-3, to=1-5]
+	\arrow["{(H(f))_*}"', from=1-3, to=3-3]
+	\arrow["\cong"', from=3-3, to=3-5]
+	\arrow["\cong", from=1-1, to=1-3]
+	\arrow["\cong"', from=3-1, to=3-3]
+	\arrow["{f_*}"', from=1-1, to=3-1]
+\end{tikzcd}\]
+commutes, and since each square commutes, we have that the outer rectangle
+commutes, giving that $F$ is represented by $\tilde{c}$.\\
+\linebreak
+(ii) Suppose $GH$ and $F$ are naturally isomorphic as before, and suppose
+$F$ is representable - suppose it is represented by $c \in C$, so
+ \[\begin{tikzcd}
+	{GH(c)} && {F(c)} \\
+	\\
+	{GH(c')} && {F(c')}
+	\arrow["{GH(f)}"', from=1-1, to=3-1]
+	\arrow["{F(f)}", from=1-3, to=3-3]
+	\arrow["\cong", from=1-1, to=1-3]
+	\arrow["\cong"', from=3-1, to=3-3]
+\end{tikzcd}\]
+and
+
+
+\[\begin{tikzcd}
+	{C(c,x)} && {F(x)} \\
+	\\
+	{C(c,y)} && {F(y)}
+	\arrow["{f_*}"', from=1-1, to=3-1]
+	\arrow["{F(f)}", from=1-3, to=3-3]
+	\arrow["\cong", from=1-1, to=1-3]
+	\arrow["\cong"', from=3-1, to=3-3]
+\end{tikzcd}\]
+commute.\\
+Letting $\alpha_x$ and $\alpha_y$ denote the top and bottom isomorphism,
+respectively, we have
+ \[
+f_* \alpha_x^{-1} =
+\alpha_y^{-1} \alpha_y f_* \alpha_x^{-1}
+= \alpha_y^{-1} F(f) \alpha_x \alpha_x^{-1}
+= \alpha_y^{-1}F(f)
+\] 
+so we can rewrite it as the following diagram commuting:
+\[\begin{tikzcd}
+	{F(x)} && {C(c,x)} \\
+	\\
+	{F(y)} && {C(c,y)}
+	\arrow["{f_*}", from=1-3, to=3-3]
+	\arrow["{F(f)}"', from=1-1, to=3-1]
+	\arrow["\cong", from=1-1, to=1-3]
+	\arrow["\cong"', from=3-1, to=3-3]
+\end{tikzcd}\]
+
+Now let $d',\tilde{d} \in D$ be arbitrary with $g  \colon d' \to \tilde{d}$ a morphism between
+them. As $H$ is essentially surjective on objects and full and faithful by
+theorem 1.5.9., there exist $c', \tilde{c} \in C$ such that
+$H(c') \cong d'$ and $H(\tilde{c}) \cong \tilde{d}$. By fullness and
+faithfullness, $C(c', \tilde{c}) \cong C\left( d', \tilde{d} \right) $, so
+there exists $g'  \colon c' \to \tilde{c}$ with
+$H(g') = g$.  We thus find
+
+\[\begin{tikzcd}
+	{G(d')} && {F(c')} && {C(c,c')} && {C(H(c),d')} \\
+	\\
+	{G(\tilde{d})} && {F(\tilde{c})} && {C(c,\tilde{c})} && {C(H(c),\tilde{d})}
+	\arrow["{G(g)}"', from=1-1, to=3-1]
+	\arrow["{F(g')}", from=1-3, to=3-3]
+	\arrow["\cong", from=1-1, to=1-3]
+	\arrow["\cong"', from=3-1, to=3-3]
+	\arrow["{g'_*}", from=1-5, to=3-5]
+	\arrow["\cong", from=1-3, to=1-5]
+	\arrow["\cong"', from=3-3, to=3-5]
+	\arrow["{g_*}", from=1-7, to=3-7]
+	\arrow["\cong", from=1-5, to=1-7]
+	\arrow["\cong"', from=3-5, to=3-7]
+\end{tikzcd}\]
+commutes with each square commuting. Here the last square
+again follows as $H$ is part of an equivalence and hence both
+faithful and full, so
+$C(c,x) \cong C(H(c), H(x))$ for any $x \in C$.\\
+
+Thus the outer square commutes, so
+$G$ is represented by $G(c)$.
+
+
+
+
+
+
+
+
+
+\end{document}

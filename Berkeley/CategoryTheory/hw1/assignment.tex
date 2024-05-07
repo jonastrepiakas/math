@@ -1,0 +1,144 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+%\usepackage{tikz-cd}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+%Redeclaring Span and image
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\begin{document}
+    \textbf{1.1.i:} (i) 
+Let $\mathcal{A}$ be a category and $A,B \in \ob(\mathcal{A})$. Let
+$f \in \mathcal{A}\left( A,B \right) $ and assume 
+$g,h \in \mathcal{B,A}$ such that
+$fg = \mathbbm{1}_{B} = fh$ and $gf = \mathbbm{1}_{A} = hf$.
+Then
+\[
+    h = h \mathbbm{1}_{B} = h (fg) = (hf) g = \mathbbm{1}_{A} g = g.
+\] 
+
+(ii): Let $f \colon x \to y$ and $g,h  \colon y \to x$ such that
+$gf = \mathbbm{1}_{x}$ and $fh = \mathbbm{1}_{y}$. Then
+\[
+    g = g \mathbbm{1}_{y} = g \left( fh \right) = (gf) h = \mathbbm{1}_{x} h = h
+\] 
+Thus we can denote $g = f^{-1} = h$ and we get
+$f f^{-1} = \mathbbm{1}_{y}$ and $f^{-1}f = \mathbbm{1}_{x}$, so 
+$f$ is an isomorphism by definition with $f^{-1}$ as its inverse.\\
+\linebreak
+\textbf{1.1.iii:}\\
+(i) Let $\ob \left( c /C \right) $ be all morphisms in $C$ with domain $c$.
+Let $c /C \left( f,g \right) $ be all maps in $C$ from the codomain of  $f$ to
+the codomain of $g$. For any $f,g,h \in \ob \left( c /C \right) $ and for any
+$\alpha \in  c /C \left( f,g \right) $ and $\beta \in c /C \left( g,h \right)
+$,
+define the composition of $\alpha$ with $\beta$ as the map
+$\beta \circ \alpha$ in $C$ whose existence is  guaranteed by $C$ being
+a category.\\
+For the identity: since $C$ is a category, we have that for each $x \in \ob(C)$,
+there exists an identity on $x$, and thus since
+for any map  $f \in \ob(c /C)$, say $f  \colon c \to x$, we have $f
+= \mathbbm{1}_{x} f$ in $C$, so  $\mathbbm{1}_{x} \in c /C (f,f)$ where
+$\mathbbm{1}_{x}$ represents the morphism $\left( f \colon c \to x \right) \to 
+\left( f  \colon c \to x \right) $; and since
+$x$ was arbitary, all objects in $c /C$ have an identity.\\
+\linebreak
+For associativity: let $\alpha \in c /C(f,g), \beta \in c /C (g,h), \gamma \in
+c /C (h,k)$. Then the $(\gamma \beta) \alpha = \gamma (\beta \alpha)$ follows
+from associativity of morphism composition in $C$.\\
+Similarly, for the identity laws follow from the identity in $C$ : for any
+$\alpha \in  c /C(f,g)$ where say $c \xrightarrow{f} x_f$ and
+$c \xrightarrow{g} x_g$, we have $\mathbbm{1}_{x_f} \in c /C(f,f)$ and $\mathbbm{1}_{x_g}
+\in  c /C(g,g)$ and $\mathbbm{1}_{x_g} \alpha = \alpha = \alpha
+\mathbbm{1}_{x_f}$ since this is true in $C$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

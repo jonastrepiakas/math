@@ -1,0 +1,279 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+%\usepackage{tikz-cd}
+%%For code (e.g. python) in latex:
+%\usepackage{listings}
+%
+%Usage: 
+%\begin{lstlisting}[language=Python]
+%\end{lstlisting}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+%Redeclaring Span and image
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\title{Assignment 2}
+\author{Jonas Trepiakas - jtrepiakas@berkeley.edu}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+    \textbf{p. 35}\\
+    \textbf{17:} Let $\mathbb{R}_{fc}$ denote the set of all real numbers with the
+    finite-complement topology, and define $f \colon \mathbb{R} \to
+    \mathbb{R}_{fc}$ by
+    $f(x) = x$. Show that $f$ is continuous, but is not a homeomorphism.\\
+    \linebreak
+    \textit{Solution:} Let $U$ be any open set in $\mathbb{R}_{fc}$. Then
+    $f^{-1}(U) = U$ by definition of $f$, so the first part of the problem can be reformulated
+    as: show that the finite-complement topology is coarser than the standard
+    topology on $\mathbb{R}$.\\
+    \linebreak
+    Now, let $U$ be open in $\mathbb{R}_{fc}$ and let $x \in U$ be any point.\\
+    By definition, the complement of $U$ in $\mathbb{R}$ is a finite set, say
+    $\left\{ x_1, \ldots, x_n \right\} $ and $x \neq x_i$ for all $i
+    = 1,\ldots, n$. Let $\delta_i = \left| x - x_i \right| >0$. Then
+    $\delta = \min_{i} \left\{ \delta_i \right\} >0$, and
+    we claim that $B(x, \delta) \subset U$ where the open ball is taken in the
+    standard metric on $\mathbb{R}$.\\
+    \linebreak
+    Let $y \in B\left( x, \delta \right) $. Then
+    \[
+        \left| y- x_i \right| \ge \underbrace{\left| x - x_i \right|}_{
+        \ge \delta} - \underbrace{\left| y - x \right|}_{< \delta}
+        > 0,
+    \] 
+    so $ y \in U$. Hence $B\left( x, \delta \right) \subset U$. 
+    Since $x$ was arbitrary, we can find such a $\delta_x = \delta$ for any
+    $x$, so we can write
+    $U \subset \bigcup_{x \in U} \left\{ x \right\} \subset 
+    \bigcup_{x \in U} B\left( x, \delta_x \right) 
+    \subset U$, and thus $U = \bigcup_{x \in U} B\left( x, \delta_x \right) $,
+    so
+    $U$ is open in the standard topology on $\mathbb{R}$. Therefore
+    $f$ is continuous.\\
+    \linebreak
+    To see that this is not a homomorphism, note that
+    $(0, \infty)$ is open in the standard topology as the union
+    $\bigcup_{x \in (0,\infty)} B\left( x, |x| \right) $, however,
+    $(0, \infty)^{c} = \mathbb{R} - (0, \infty) = (-\infty, 0]$ is not finite,
+    so
+    $(0, \infty)$ is not open in $\mathbb{R}_{fc}$, and since
+    $f\left( (0, \infty) \right) = \left( 0, \infty \right) $, we find that
+    $f$ does not map open sets of $\mathbb{R}$ in the standard topology to open
+    sets in $\mathbb{R}_{fc}$, hence $f^{-1}$  is not continuous, so $f$ is not
+    a homeomorphism.\\
+    \linebreak
+    \textbf{21:} 
+    Define the maps
+    $f  \colon I^{n} = \left[ -1,1 \right]^{n} \to D^{n} = \left\{ 
+    x  \mid \|x\|\le 1 \right\} $ and
+    $g  \colon D^{n} \to I^{n}$, with the euclidean norm, by
+    \[
+    f\left( x \right) 
+    = \begin{cases}
+        \frac{\max_{i}|x_i|}{\|x\|} x,& x \neq 0\\
+        0,& x=0.
+    \end{cases}
+\]
+and
+\[
+g(x) = 
+\begin{cases}
+    \frac{\|x\|}{\max_i |x_i|} x,& x\neq 0\\
+    0, & x=0.
+\end{cases}
+\] 
+
+    $f$ is continuous on $\left[ -1,1 \right]^{n} - \left\{ 0 \right\}
+    $ since
+    it is the composition of continuous functions there - where
+    $\max_i |x_i| $ is the maximal norm, and
+    $g$ is continuous on $D^{n} - \left\{ 0 \right\} $ since it is the
+    composition
+    of continuous functions there as well.\\
+    \linebreak
+    For $x=0$, let $\varepsilon > 0$. Then let
+    $\delta = \varepsilon$. For $\|x\| < \delta$, we have
+    \[
+    \left| \max_i |x_i|  \right|^2
+    \le \sum_{i=1}^{n} x_i^2
+    \] 
+    so $\left| \max_i |x_i| \right| \le 
+    \|x\|$, and thus
+    
+    \[
+        \|f(y_1, \ldots, y_n)\| = \left| \max_i |x_i|  \right| 
+        \le \|x\| < \delta = \varepsilon.   
+    \] 
+    Thus $f$ is continuous at $0$ too.\\
+    For given $\varepsilon > 0$, we can for $g$ choose
+    $\delta = \frac{\varepsilon}{\sqrt{n} }$, where we then get for
+    $0 < \|x\| < \delta$ that since
+    $\sum_{i=1}^{n} x_i^2 \le n \max_i \{x_i^2\}$, we have
+    \[
+    \|g\left( x_1, \ldots, x_n \right) \|
+    = \frac{1}{\max_i |x_i|  }
+     \sum_{i=1}^{n} x_i^2
+     = \sqrt{\frac{\sum_{i=1}^{n} x_i^2}{\max_i x_i^2}} 
+     \sqrt{\sum_{i=1}^{n} x_i^2} 
+     < \sqrt{n} \frac{\varepsilon}{\sqrt{n} } = \varepsilon.
+    \] 
+    Thus $g$ is continuous at $0$ as well.\\
+    Since $f\circ g = \mathbbm{1}_{D^{n}}$ and
+    $g\circ f = \mathbbm{1}_{I^{n}}$, we have that
+    $f$ is a homeomorphism.\\
+    \linebreak
+    \textbf{p. 41:}\\
+    \textbf{28:} If $A,B$ are disjoint closed subsets of a metric space, find
+    disjoint open sets $U,V$ such that $A \subset U$ and $B \subset V$.\\
+    \linebreak
+    \textit{Solution:} By lemma 2.14, we have that since $A,B$ are disjoint
+    closed subsets of a metric space $X$, there exists a 
+    continuous real-valued function on $X$ which takes value $1$ on $A$ and
+    $-1$ on $B$ and values strictly in $(-1,1)$ on $X - \left( A\cup B \right)
+    $.\\
+    Let $f$ denote this function. Then
+    $A \subset f^{-1}\left( (-\infty, 0) \right) = U $ and
+    $B \subset f^{-1}\left( (0, \infty) \right) = V $. Furthermore, since
+    $f$ is continuous and $(-\infty, 0)$ and $(0, \infty)$ are
+    open, we have that
+    $U = f^{-1}\left( (- \infty, 0) \right) $ and
+    $V= f^{-1}\left( (0, \infty) \right) $ are open. Assume
+    $y \in U \cap V $. Then
+    $f(y) \in \left( -\infty, 0 \right) \cap (0, \infty) = \varnothing$, so
+    $U \cap V = \varnothing$. So $U,V$ are open disjoint sets such that
+    $A \subset U$ and $B \subset V$.
+
+    
+
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

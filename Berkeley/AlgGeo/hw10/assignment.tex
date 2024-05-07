@@ -1,0 +1,436 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+%\usepackage{tikz-cd}
+%%For code (e.g. python) in latex:
+%\usepackage{listings}
+%
+%Usage: 
+%\begin{lstlisting}[language=Python]
+%\end{lstlisting}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qed}{\tag*{$\blacksquare$}}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\sk}{sk}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\begin{document}
+    \textbf{1:}\\
+    (a) 
+    Suppose $J \subset k\left[ x_1, \ldots, x_{n+1} \right] $ is an ideal
+    and that $\left( x_1, \ldots, x_{n+1} \right) 
+    \subset \sqrt{J} $. Then by definition of radical ideals,
+    for each $i \in \left\{ 1, \ldots, n+1 \right\} $,
+    there exists $m_i \in \mathbb{N}$ such that
+    $x_{i}^{m_i} \in J$. Then letting $m = \max \left\{ m_1, \ldots, m_{n+1}
+    \right\} $, we have
+    \[
+        \left( x_1 , \ldots, x_{n+1} \right)^{(n+1)m}
+        = \left\{ x_1^{k_1} x_2^{k_2}\ldots x_{n+1}^{k_{n+1}} \mid 
+        k_1 + \ldots + k_{n+1} = (n+1)m,
+    k_i \ge 0\right\}.
+    \] 
+    Let
+    $x = x_1^{k_1} x_2^{k_2} \ldots x_{n+1}^{k_{n+1}} \in 
+    \left( x_1, \ldots, x_{n+1} \right)^{(n+1)m}$ be an arbitrary element.\\
+    By the pigeonhole principle, there must exist a 
+    $k_i$ such that $k_i \ge m \ge m_i$, so
+    $x_i^{k_i} \in J$, and since $J$ is a double-sided ideal,
+    $x_1^{k_1}\ldots x_i^{k_i} \ldots x_{n+1}^{k_{n+1}} \in J$.\\
+    Since $x$ was arbitrary, we get
+    $(x_1, \ldots, x_{n+1})^{(n+1)m} \subset J$.\\
+    Thus $(n+1)m = N$ works as an  $N$.\\
+    \linebreak
+    (b) $X$ is a projective algebraic set if
+    there exists a set of homogeneous polynomials $S \subset k\left[ x_1,
+    \ldots, x_{n+1} \right] $ such that
+    $\mathbb{V}(S) = X$.\\
+    \linebreak
+    We have that
+    $\mathbb{I} (X) = I\left( C(X) \right) $ is prime if
+    and only if $C(X)$ is irreducible. Now, suppose $X$ is reducible as
+    $X = X_1 \cup X_2$. So there
+    exists sets of homogeneous polynomials
+    $T,R \subset k\left[ x_1,\ldots, x_{n+1} \right] $ such that
+    $X_1 = \mathbb{V}(T)$ and $X_2 = \mathbb{V}(R)$. We claim
+    $C(X_1 \cup X_2) = C(X_1) \cup C(X_2)$.\\
+    \linebreak
+    We have $ (0,\ldots, 0) \neq (x_1, \ldots, x_{n+1}) \in C(X_1 \cup X_2)$ if
+    and only if
+    $\left[ x_1  : \ldots : x_{n+1} \right] \in X = X_1 \cup X_2$ if and only
+    if
+    $\left[ x_1 : \ldots : x_{n+1} \right] \in X_1$
+    or $\left[ x_1 : \ldots : x_{n+1} \right] \in X_2$ if and only if
+    $(x_1, \ldots, x_{n+1}) \in C(X_1)$ or
+    $(x_1 ,\ldots, x_{n+1}) \in C(X_2)$.\\
+    If $(0,\ldots,0) = (x_1, \ldots, x_{n+1})$, then
+    $ (x_1,\ldots,x_{n+1)} \in C(X_1 \cup X_2), C(X_1), C(X_2)$ by
+    definition.\\
+    Now, $C(X) 
+    = \left\{ (x_1, \ldots, x_{n+1})  \colon
+    \left[ x_1: \ldots : x_{n+1} \right] 
+\in X = \mathbb{V}(S) \lor (x_1, \ldots, x_{n+1}) = (0,\ldots,0)\right\} 
+= V(S)$ which is an algebraic set, and similarly
+$C(X_1) = V(T)$ and $C(X_2) = V(R)$ are algebraic sets.\\
+Thus we get that
+$V(S) = C(X) = C(X_1 \cup X_2) = C(X_1 ) \cup C(X_2)
+= V(T) \cup V(R)$, and then if $X$ is irreducible, then
+$V(S)$ is irreducible, so $V(S) = V(T)$ or $V(S) = V(R)$. But then
+$C(X) = V(S) = V(T) = C(X_1)$ or
+$C(X) = V(S) = V(R)= C(X_2)$, so
+$C(X)$ was not irreducible and hence
+$\mathbb{I}(X) = I\left( C(X) \right) $ is not prime by the affine case.\\
+\linebreak
+Conversely, if $\mathbb{I}(X) = I(C(X))$ is prime then
+$C(X)$ is, as we showed above, an irreducible algebraic set. However, if
+$X = X_1 \cup X_2$ with $X_1$ and $X_2$ algebraic sets equaling
+$V(T)$ and $V(R)$ as above, respectively. Then
+$C(X) = C(X_1) \cup C(X_2)$, so either
+$V(T) = V(S)$ or $V(R) = V(S)$, and then we again get
+$C(X) = C(X_1)$ or $C(X) = C(X_2)$. Projectivizing this last bit gives
+$X = X_1$
+ or $X = X_2$, showing that $X$ is irreducible.\\
+ \linebreak
+ \textbf{2:}\\
+ (a) Suppose $X$ is closed in $\mathbb{P}^{n}$, so by definition it is
+ a projective algebraic set, i.e. there exists
+ a subset of homogeneous polynomials $S \subset k\left[ x_1, \ldots, x_{n+1} \right] $
+ such that
+ $X = \mathbb{V}(S)$. Define
+ \[
+ S_i = \left\{ 
+ f \in k\left[ x_1, \ldots, x_n \right]  \mid 
+ \exists g \in S  \colon
+ f(x_1, \ldots, x_n) =
+ g(x_1, \ldots, x_{i-1}, 1, x_{i+1},\ldots, x_n), 
+ \forall (x_1,\ldots, x_n) \in \mathbb{A}^{n}
+\right\}. \]
+Then we claim
+$X \cap U_i = V(S_i) \subset \mathbb{A}^{n}$.
+Now, if $(a_1, \ldots, a_n) \in V(S_i)$ then
+for all  $g \in S$ we have
+$g \left( a_1, \ldots, a_{i-1},1,a_{i+1},\ldots, a_n \right) = 0$, so
+since $g$ is homogeneous,
+$\left[ a_1: \ldots : a_{i-1}: 1: a_{i+1}: \ldots a_n \right] 
+\in \mathbb{V}(g)$. Hence
+$\left[ a_1: \ldots : 1 : \ldots : a_n \right] 
+\in \bigcap_{g \in S} \mathbb{V}(g) 
+= \mathbb{V}\left( S \right) =X  $, so
+$(a_1, \ldots, a_n) \in \mathbb{V}(S) \cap U_i$.\\
+\linebreak
+Conversely, suppose $(a_1, \ldots, a_n) \in X \cap U_i$. Then
+for all $g \in S$, 
+$g \left( a_1, \ldots, a_{i-1},1,a_{i+1},\ldots a_n \right) =0$, so
+by definition of $S_i$, $(a_1, \ldots, a_n) \in V(S_i)$.\\
+\linebreak
+Hence $X \cap U_i = V(S_i) \subset \mathbb{A}^{n}$ which is an algebraic
+set in $\mathbb{A}^{n}$ and thus closed in the Zariski topology
+on $\mathbb{A}^{n} \cong U_i$ for all $i$.\\
+\linebreak
+(b) If $W \subset U_i$ is open in the Zariski topology on
+$U_i \cong \mathbb{A}^{n}$, then
+$\mathbb{A}^{n}- (W \cap U_i)$ is closed, so 
+there exist polynomials
+$S \subset k\left[ x_1, \ldots, x_n \right] $ such that
+$\mathbb{A}^{n} - (W \cap U_i) = V(S)$. Now define
+
+\begin{align*}
+S_i = \left\{ 
+f \text{ homogeneous} \in k\left[ x_1, \ldots, x_{n+1} \right] 
+ \mid  \exists g \in k\left[ x_1,\ldots,x_n \right]
+\in S  
+\colon 
+f\left( x_1, \ldots, x_{i-1},1,x_{i+1},\ldots , x_{n+1} \right)
+= g(x_1, \ldots, x_n)\right\}.
+\end{align*}
+Since $W \subset U_i$, $S_i$ is not empty, and hence
+$\mathbb{P}^{n} - W = \mathbb{V}(S_i)$, so $W$ is open in $\mathbb{P}^{n}$.\\
+\linebreak
+(c) We show that $\mathbb{P}^{n} - X = \bigcup_{i} U_i - \left( U_i \cap
+X \right) $.\\
+\linebreak
+( $\subset $ ):  If $\left[ x_1 : \ldots :x_{n+1} \right] 
+\in \mathbb{P}^{n} - X =
+\bigcup_{i} (U_i) - X$, then there exists
+a $U_i$ such that $\left[ x_1: \ldots :x_{n+1} \right] \in U_i$ and
+as it is not in  $X$, $\left[ x_1 : \ldots : x_{n+1} \right] 
+\not\in U_i \cap X$, so
+$\left[ x_1  :\ldots: x_{n+1} \right] 
+\in U_i - \left( U_i \cap X \right) 
+\subset \bigcup_{i} U_i - \left( U_i \cap X \right) $.\\
+Conversely, if $\left[ x_1:\ldots:x_{n+1} \right] 
+\in \bigcup_{i} U_i - \left( U_i \cap X \right) $ then
+there exists $i$ such that
+$\left[ x_1: \ldots : x_{n+1} \right] 
+\in U_i - \left( U_i \cap X \right) $. Thus
+$\left[ x_1: \ldots :x_{n+1} \right] \not\in  X$ and
+$\left[ x_1: \ldots: x_{n+1} \right] 
+\in U_i \subset \bigcup_{i} U_i = \mathbb{P}^{n}$, so
+$\left[ x_1: \ldots : x_{n+1} \right] \in \mathbb{P}^{n} - X$.\\
+\linebreak
+Now, if each $X \cap U_i$ is closed on each $U_i \cong \mathbb{A}^{n}$ then
+each $U_i - \left( U_i \cap X \right) $ is open
+in $\mathbb{P}^{n}$, so
+$\mathbb{P}^{n}- X = \bigcup_{i} U_i - \left( U_i \cap X \right)$ is open, so
+$X = \mathbb{P}^{n}-\left( \mathbb{P}^{n}-X \right) $ is closed.\\
+\linebreak
+(d) Suppose $X \subset \mathbb{P}^{n}$ is closed. Then by (a),
+$X \cap U_i$ is closed for each $i$ in the Zariski topology on each
+$U_i \cong \mathbb{A}^{n}$.\\
+Conversely, if each  $X \cap U_i$ is closed in the Zariski topology on each
+$U_i \cong \mathbb{A}^{n}$, then by (c),
+$X$ is closed in the Zariski topology on $\mathbb{P}^{n}$.\\
+Now, if $X \subset \mathbb{P}^{n}$ is open, then
+$\mathbb{P}^{n} - X$ is closed, so by (a),
+$(\mathbb{P}^{n} - X) \cap U_i =
+\left( \mathbb{P}^{n} \cap U_i \right) - X =U_i - X
+$ is closed in $U_i$, so
+$U_i - \left( U_i - X \right) 
+= U_i \cap \left( U_i \cap X^{c} \right)^{c}
+= U_i \cap \left( U_i^{c} \cup X \right) 
+= U_i \cup X$ is open in $U_i$ for each $i$.\\
+Conversely, if $X \cap U_i$ is open for each $U_i$, then
+$U_i - \left( X \cap U_i \right) = U_i - X
+= U_i \cap X^{c}$ is closed
+for each $U_i$, so by (c), $X^{c}$ is closed in $\mathbb{P}^{n}$, and thus
+$\mathbb{P}^{n} - X^{c} = X$ is open in $\mathbb{P}^{n}$.\\
+\linebreak
+\textbf{3:}\\
+(b) Suppose $J \subset k\left[ x_1, \ldots, x_{n+1} \right] $ is a radical
+homogeneous ideal. By (a), we have that
+$J'$ is an ideal. Suppose now $f \in \sqrt{J'} $, so
+$f^{n} \in J'$.\\
+\textbf{Lemma:} if $f,g \in k\left[ x_1, \ldots, x_n \right] $ then
+$H(fg) = H(f) H(g)$.\\
+\linebreak
+\textit{Proof:} Suppose $f = \sum_{\alpha_1 + \ldots + \alpha_n}
+a^{(\alpha)} x_1^{\alpha_1} \ldots x_n^{\alpha_n}$ and
+$g = \sum_{\beta_1 + \ldots + \beta_n \le M}
+b^{(\beta)} x_1^{\beta_1} \ldots x_n^{\beta_n}$.\\
+Then dropping summation sign and using Einstein notation
+$H(f) = a^{(\alpha)}
+x_1^{\alpha_1} \ldots x_n^{\alpha_n} x_{n+1}^{N- \sum \alpha_i}$ and
+$H(g) = b^{(\beta)}
+x_1^{\beta_1}\ldots x_n^{\beta_n}
+x_{n+1}^{M - \sum \beta_i}$. Then
+$fg = a^{(\alpha)}
+b^{(\beta)} x_1^{\alpha_1+ \beta_1} \ldots x_n^{\alpha_n + \beta_n} $, so
+$$H(fg) = a^{(\alpha)}b^{(\beta)}
+x_1^{\alpha_1 + \beta_1} \ldots x_{n}^{\alpha_n + \beta_n}
+x_{n+1}^{N+M - \sum_i \left( \alpha_i + \beta_i \right) }
+= \left[ a^{(\alpha)}
+x_1^{\alpha_1} \ldots x_n^{\alpha_n}
+x_{n+1}^{N - \sum_i \alpha_i} \right] 
+\left[
+    b^{(\beta)}x_1^{\beta_1} \ldots x_n^{\beta_n}
+    x_{n+1}^{M - \sum_i \beta_i}
+\right]
+    = H(f) H(g)
+$$
+
+We thus find that
+since $f^{n} \in J'$, $H(f)^{n} \stackrel{\text{lemma}}{=} H(f^{n}) \in J$, so
+since $J$ is radical, $H(f) \in J$. Dehomoginizing, we find
+$f \in J'$, so $\sqrt{J'} \subset J' \subset \sqrt{J'} $, hence
+$\sqrt{J'}  = J'$, so  $J'$ is a radical ideal.\\
+\linebreak
+(c) Suppose $I \subset k\left[ x_1, \ldots, x_n \right] $ is radical.
+Suppose $F \in \sqrt{H(I)} $, so
+$F^{n} \in H(I)$. There exists an $f \in I$ such that
+$H(f) = F^{n}$.\\ Now, denote by
+$D(f)$ the dehomogenized polynomial of $f$ - i.e. the polynomial $f$ with
+$x_{n+1} = 1$. We have as a direct corollary from the definitions that
+$D(H(f)) = f$ and $H(D(f)) = f$, where $H(f)$ gives the smallest degree
+homogenization of $f$.\\
+\textbf{Lemma:} For $f,g \in k\left[ x_1, \ldots, x_{n+1} \right] $, 
+$D(fg) = D(f)D(g)$.\\
+\textit{Proof:} Again, using Einstein summation, suppose
+$f = a^{(\alpha)} x_1^{\alpha_1}\ldots x_{n+1}^{\alpha_{n+1}}$ and
+$g = b^{(\beta)} x_1^{\beta_1}\ldots x_{n+1}^{\beta_{n+1}}$ then
+$fg = a^{(\alpha)}b^{(\beta)}x_1^{\alpha_1}x_1^{\beta_1}\ldots
+x_{n+1}^{\alpha_{n+1}}x_{n+1}^{\beta_{n+1}}$, so
+\[
+D(fg) = a^{(\alpha)}b^{(\beta)}
+x_1^{\alpha_1}x_1^{\beta_1}\ldots x_{n}^{\alpha_{n}}x_{n}^{\beta_{n}}
+= D(f) D(g).
+\] 
+Hence
+dehomogenizing $H(f) = F^{n}$, we get
+ $\left( D(F) \right)^{n} = D(F^{n}) = D(H(f)) = f \in I$, so
+ $D(F) \in I$ since $I$ is radical, and hence
+ $F = H(D(F)) \in H(I)$. Thus $\sqrt{H(I)} \subset H(I) \subset \sqrt{H(I)} $,
+ so
+ $\sqrt{H(I)} = H(I)$, so $H(I)$ is radical.\\
+ \linebreak
+ \textbf{4:}\\
+Firstly, we give a trivial solution:\\
+By theorem 3.26 in Linear Algebra Done Right by Axler, a homogeneous system of
+linear equations with more variables than equations has nonzero solutions.\\
+\linebreak
+Now we show the above:
+
+Consider the matrix $\left( a_{i,j} \right) $ where the $i,j$ entry is
+$a_{i,j}$. The matrix is of dimension $m \times (n+1)$. It represents the
+linear transformation $T  \colon \mathbb{A}^{n+1} \to \mathbb{A}^{m}$ given by
+\[
+T(x_1, \ldots, x_{n+1}) 
+= \left( \sum_{k=1}^{n} a_{1,k} x_k,\ldots
+, \sum_{k=1}^{n} a_{m,k} x_k \right) 
+\] 
+
+Since
+$m \le n < n+1$, by the fundamental theorem of
+linear maps (3.22 in Linear Algebra done right by Axler), we have $n+1= \dim \mathbb{A}^{n+1} =
+\dim \ker T + \dim \range T$, and as $\dim \range T \le
+\dim \mathbb{A}^{n} \le n$, we have
+$\dim \ker T \ge 1$, so $T$ has nontrivial solutions.\\
+Suppose
+ $0\neq (b_1, \ldots, b_{n+1}) \in \ker T$, so
+  \begin{align*}
+      (0,\ldots,0)
+     &=T(b_1, \ldots, b_{n+1})\\
+     &= \left( \sum_{k=1}^{n} b_{1,k}x_k, \ldots,
+     \sum_{k=1}^{n} b_{m,k}x_k \right) 
+ \end{align*}
+Hence 
+$\left[ b_1, \ldots, b_{n+1} \right] 
+\in \mathbb{V}(a_{1,1}x_1+ \ldots + a_{1,n+1}x_{n+1})
+\cap \ldots \cap \mathbb{V}\left( a_{m,1}x_1 + \ldots + a_{m,n+1}x_{n+1} \right) 
+= \Lambda_1 \cap \ldots \cap \Lambda_m$, so
+$\Lambda_1 \cap \ldots \cap \Lambda_m \neq \varnothing$.\\
+\linebreak
+\textbf{5:}\\
+(a) Suppose $F \in S_d$. Then there exists
+a homogeneous polynomial of degree $d$, $f \in k\left[ x_1, \ldots, x_{n+1} \right] $ with
+$\overline{f} = F$. Now, we claim that the set of homogeneous polynomials of
+degree $d$ in $k\left[ x_1,\ldots, x_{n+1} \right] $ is precisely
+$A = (x_1, \ldots, x_{n+1})^{d}$. Any monomial of degree $d$ is in $A$, and
+hence any homogeneous polynomial of degree $d$ is in $A$. Conversely, any
+polynomial in $A$ is by definition a sum of monomials of degree $d$ and thus
+a homogeneous polynomial of degree $d$.\\
+Since
+$A = \sum_{\alpha_1 + \ldots + \alpha_{n+1} = d} k
+x_1^{\alpha_1} \ldots x_{n+1}^{\alpha_{n+1}}$, it is finite-dimensional over
+$k$. Thus $f \in A$, so
+$ F=\overline{f} \in \pi_I (A) =
+\sum_{\alpha_1 + \ldots + \alpha_{n+1} = d}
+k \overline{x}_1^{\alpha_1} \ldots \overline{x}_{n+1}^{\alpha_{n+1}}$. Now,
+if $f \in I$, then $F = 0$. Thus because $\pi_I$ is surjective,
+ \[
+\pi_I (A) = S_d = \left\{ a \overline{x}^{\alpha_1} \ldots \overline{x}_{n+1}^{\alpha_{n+1}}
+      \mid \alpha_1 + \ldots + \alpha_{n+1} = d,
+      x_1^{\alpha_1} \ldots x_{n+1}^{\alpha_{n+1}} \not\in  I
+\right\} \]
+ which is generated by the basis
+\[
+    \left\{ \overline{x}_1^{\alpha_1} \ldots \overline{x}_{n+1}^{\alpha_{n+1}}
+ \mid \alpha_1 + \ldots + a_{n+1} = d,
+x_1^{\alpha_1}\ldots x_{n+1}^{\alpha_{n+1}}\not\in  I \right\} 
+\] 
+and is thus finite dimensional.\\
+We check also the requirements for a vector space:\\
+If  $F,G \in S_d$, then there exist
+homogeneous polynomials of degree $d$ 
+ $f,g \in k\left[ x_1, \ldots, x_{n+1} \right] $ such that
+ $\overline{f} = F$ and $\overline{g}=G$. So
+ $F+G = \overline{f} + \overline{g} = \overline{f+g}
+ \in \pi_I(A) = S_d$, since
+ $f+g$ is homogeneous of degree $d$.\\
+ For scalar multiplication, let $F \in S_d$, then
+ as above $\overline{f} = F$, so
+ for  $\lambda \in k$, $\lambda F = \lambda \overline{f}
+ = \overline{\lambda f} \in \pi_I (A) = S_d$ since
+ $\lambda f$ is homogeneous of degree $d$.\\
+ Furthermore, we can consider $0$ as a form of any degree, and thus
+ $0 \in S_d$ for any $d$, so we have an additive identity. The
+ rest of the requirements are seen trivially as inherited from
+ $k\left[ x_1, \ldots, x_{n+1} \right] $.\\
+ \linebreak
+ (b) One upper bound is the upper bound in
+ $k\left[ x_1, \ldots, x_{n+1} \right] $. The subspace
+ $A$ is generated by the basis given in (a). For this, we use the
+ balls-and-urns formula: we must partition $d$ objects into
+ $n+1$ urns, which we can do in
+ $\binom{(n+1)+d-1}{(n+1)-1} = \binom{n+d}{n}$ ways. The image of the basis
+ under
+ $\pi_I$ is a basis for $\pi_I (A) = S_d$. However, $\pi_I$ may collapse some
+ basis elements to $0$ if they are contained in $I$, so the basis for
+ $S_d$ has an upper bound of
+ $\binom{n+d}{n}$.
+
+
+
+
+
+
+
+\end{document}
