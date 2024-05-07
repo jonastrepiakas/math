@@ -1,0 +1,1530 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+%%For code (e.g. python) in latex:
+%\usepackage{listings}
+%
+%Usage: 
+%\begin{lstlisting}[language=Python]
+%\end{lstlisting}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+\theoremstyle{plain}% default
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem*{corollary}{Corollary}
+
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{exercise}[example]{Exercise}
+
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+
+
+
+
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+
+
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\begin{document}
+
+
+
+\subsection*{Section 1.1}
+
+\textbf{iii.} For any category $C$ and any object $c \in C$, show that:\\
+\begin{enumerate}
+    \item There is a category $c /C$ whose objects are morphisms $f  \colon
+        c \to x$ with domain $c$ and in which a morphism from
+         $f  \colon c \to x$ to $g  \colon c \to y$ is a map
+         $h  \colon x \to y$ between the codomains so that the triangle
+         \begin{equation*}
+         \begin{tikzcd}
+             & c \ar[dl, "f"'] \ar[dr, "g"] &\\
+             x \ar[rr, "h"'] & & y
+         \end{tikzcd}
+         \end{equation*}
+         \textbf{commutes}, i.e., so that $g = hf$.
+     \item There is a category $C /c$ whose objects are morphisms $f  \colon
+         x \to c$ with codomain $c$ and in which a morphism from
+         $f  \colon x \to c$ to $g  \colon y \to c$ is a map 
+         $h  \colon x \to y$ between the domains so that the triangle
+         \begin{equation*}
+         \begin{tikzcd}
+             x \ar[dr, "f"'] \ar[rr, "h"] & & y \ar[dl, "g"]\\
+                                         & c &
+         \end{tikzcd}
+         \end{equation*}
+         \textbf{commutes}, i.e., so that $f = gh$.
+\end{enumerate}
+The categories $c /C$ and $C / c$ are called the \textbf{slice categories} of
+$C$ \textbf{under} and  \textbf{over} $c$, respectively.\\
+\linebreak
+\textit{Solution:} Each element has identity since
+\begin{equation*}
+\begin{tikzcd}
+    & c \ar[dl, "f"'] \ar[dr, "f"] &\\
+    x \ar[rr, "\mathbbm{1}"'] & & x
+\end{tikzcd}
+\end{equation*}
+commutes for any $f  \colon c \to x \in \Hom \left( c /C \right) $.\\
+Composites exist since if each of the smaller triangles in the diagram
+\begin{equation*}
+\begin{tikzcd}
+    & c \ar[dl, "f"'] \ar[d, "g"] \ar[dr, "h"] &\\
+    x \ar[r, "\alpha"'] & y \ar[r, "\beta"'] & z
+\end{tikzcd}
+\end{equation*}
+commutes, then 
+$h = \beta \cdot g = \beta \cdot  \left( \alpha \cdot f \right) 
+= \left( \beta \cdot \alpha \right) \cdot f$, so
+$\beta \cdot \alpha  \colon x \to z \in \Hom\left( c /C \right) $.\\
+\begin{equation*}
+\begin{tikzcd}
+    & c \ar[dl, "f"'] \ar[d, "f"] \ar[dr, "g"] &\\
+    x \ar[r, "\mathbbm{1}_x"'] & x \ar[r, "h"'] & y
+\end{tikzcd}
+\end{equation*}
+so since the outer triangles commutes, $h \cdot \mathbbm{1}_x \in 
+\Hom \left( c /C \right) $. And $\mathbbm{1}_y \cdot h$ similarly.\\
+Now if  $\alpha  \colon x \to y, \beta  \colon y \to z, \gamma  \colon z \to w$ then
+\begin{equation*}
+\begin{tikzcd}
+    & & c\ar[dll, "f"'] \ar[dl, "g"] \ar[dr, "h"'] \ar[drr, "j"]  & &\\
+    x \ar[r, "\alpha"'] & y \ar[rr, "\beta"']& & z \ar[r, "\gamma"'] & w
+\end{tikzcd}
+\end{equation*}
+and clearly $\left( \gamma \cdot  \beta \right) \cdot \alpha
+= \gamma \cdot \left( \beta \cdot \alpha \right) $.\\
+\linebreak
+
+
+
+
+
+
+
+\subsection*{Section 1.3}
+
+\textbf{Example 1.3.7.(v)} For a generic small category $C$, a functor
+$C^{op} \to \Set$ is called a (set-valued) \textbf{presheaf} on
+$C$. A typical example is the functor $\mathcal{O}(X)^{op}\to \Set$ whose
+domain is the poset $\mathcal{O}(X)$ of open subsets of a topological space $X$
+and whose value at $U \subset X$ is the set of continuous real-valued functions on
+$U$. The action on morphisms is by restriction.\\
+So suppose we have spaces $X$ and $Y$ and a continuous map $f  \colon X \to Y$
+inducing a morphism $f^{-1}  \colon \mathcal{O}(Y) \to \mathcal{O}(X)$. Let
+$F  \colon \mathcal{O}(X)^{op} \to \Set$ be the given functor. Now, an object
+in $\mathcal{O}(X)^{op}$ is an open subset $U \subset X$, so $F(U)$ is mapped
+to the set of continuous real-valued functions on $U$, $\mathcal{C}(U,\mathbb{R}) \subset
+\Set$. A morphism  $U \to V$ means that $U \hookrightarrow V$ is a continuous
+inclusion.  Now, if $U \hookrightarrow V$ then any function continuous on $V$
+is continuous on $U$, so $F(V) \subset F(U)$. In particular, we define
+$F(f  \colon U \to V) = F(V) \hookrightarrow F(U)$.\\
+\linebreak
+This map is functorial since if $U \stackrel{f}{\to } V \stackrel{g}{\to
+} W $    then
+$F(gf) = F(W) \hookrightarrow F(U) = F(W) \hookrightarrow F(V) \hookrightarrow
+F(U) = F(f) F(g)$.\\
+ \linebreak
+ \textbf{Example vi.} Presheaves on the category $\Delta$, of finite non-empty
+ ordinals and order-preserving maps, are called \textbf{simplicial sets}.
+ $\Delta$ is also called the \textbf{simplex category}. The ordinal
+ $n+1 = \left\{ 0, 1, \ldots, n \right\} $ may be throught of as a direct
+ version of the topological $n$-simplex and, with this interpretation in mind,
+ is typically denoted by "$\left[ n \right] $ " by algebraic topologists.\\
+ \linebreak
+ \textbf{Def.} A \textbf{monoid} is a set $M$ equipped with an associative
+ binary operation $M \times M \to M$ and an identity $e \in M$ serving as
+ a two-sided identity. In other words, a monoid is precisely a one-objects
+ category.\\
+ A commutative monoid is then one in which $\forall a,b \in M  \colon ab
+ = ba$.\\
+ \linebreak
+We can also state this as saying that a \textbf{monoid} is an object $M \in
+\Set$ together with a pair of morphisms $\mu  \colon M \times M \to M$ and
+$\eta  \colon 1 \to M$ so that the following diagrams commute:
+
+\begin{center}
+\begin{tikzcd}
+    M \times M \times M \ar[d, "\mu \times \mathbbm{1}_M"] \ar[r,
+    "\mathbbm{1}_M \times \mu"] & M \times M \ar[d, "\mu"]\\
+    M \times M \ar[r, "\mu"] & M
+\end{tikzcd}
+\begin{tikzcd}
+    M \ar[r, "\eta \times \mathbbm{1}_{M}"] \ar[rd, "\mathbbm{1}_M"] &
+    M \times M \ar[d, "\mu"] & M \ar[l, "\mathbbm{1}_M \times \eta"] \ar[dl,
+    "\mathbbm{1}_M"]\\
+                             & M &
+\end{tikzcd}
+\end{center}
+The first diagram gives associativity, and the second gives the $\eta$ acts as
+a two-sided identity. Note that $\eta  \colon 1 \to M$ identifies an object in
+$M$ which we call $\eta$, so in the morphism  $M \to M \times M$ by
+$\eta \times \mathbbm{1}_{M}$ we map an object $m \in M$ to
+$\eta \times m \in M \times M$.\\
+\linebreak
+
+
+
+
+
+
+
+ \textbf{Example 1.3.2.(xi)} Any commutative monoid $M$ can be used to define
+ a functor $M^{-}  \colon \Fin_{*} \to \Set$. Writing $n_+ \in \Fin_*$ for the
+ set with $n$ non-basepoint elements, define $M^{n_+}$ to be
+ $M^{n}$, the $n$-fold cartesian product of the set $M$ with itself. By
+ convention, $M^{0_+}$ is a singleton set. For any based map
+ $f  \colon m_+ \to n_+$, define the $i$ th component of the corresponding
+ function
+ $M^{f}  \colon M^{m} \to M^{n}$ by projecting from $M^{m}$ to the coordinates
+ indexed by elements in the fiber $f^{-1}(i)$ and then multiplying these using
+ the commutative monoid structure; if the fiber is empty, the function $M^{f}$ 
+ inserts the unit element in the $i$ th coordinate. Note each of the sets
+ $M^{n}$ itself has a basepoint, the $n$-tuple of unit elements, and each of
+ the maps in the image of the functor are based. It follows that the functor
+ $M^{-}$ lifts along the forgetful functor $U  \colon \Set_* \to \Set$.\\
+ \linebreak
+ There is a special property satisfied by this construction that allows one to
+ extract the commutative monoid $M$ from the functor $\Fin_* \to \Set$. This
+ observation was used by Segal to introduce a suitable notion of "commutative
+ monoid" into algebraic topology.\\
+ \linebreak
+ See section 1.5, exercise 2 for continuation.
+ 
+ 
+
+
+\subsection*{Section 1.3 - Problems}
+\textbf{i.} What is a functor between groups, regarded as one-object
+categories?\\
+\linebreak
+\textit{Solution:} 
+Suppose $C, D$ are categories with one object each representing the groups
+$G,H$, respectively. Then each morphism
+represents an element of the groups.\\
+Let $F  \colon C \to D$ be a functor. Then
+$F$ maps the object to the object, and if $a,b$ are morphisms in $C$, then
+$F \left( a b \right) = Fa Fb$. Thus $F$ is simply a group homomorphism between the
+groups.\\
+\linebreak
+\textbf{ii.} What is a functor between preorders, regarded as categories?\\
+\linebreak
+\textit{Solution:} Suppose
+$(P, \le )$ and $(Q,<)$ are preorder categories.\\
+Let $F  \colon P \to Q$ be a functor. 
+If $a,b \in P$ and $a \le b$ then $\exists \alpha  \colon a \to b$, and
+$F(\alpha)  \colon Fa \to Fb$, so a functor between preorders is just any map
+that preserves order.\\
+\linebreak
+\textbf{v:} What is the difference between a functor $C^{op} \to D$ and
+a functor
+$C \to D^{op}$? What is the difference between a functor $C \to D$ and
+a functor
+$C^{op} \to D^{op}$?\\
+\linebreak
+
+\textit{Solution:}
+Suppose $F  \colon C^{op} \to D$ is a functor. 
+We claim that $F^{op}  \colon C \to D^{op}$ defined by
+being equal to $F$ on objects and for $\alpha \in \Hom\left( C \right) $, we
+have
+$F^{op} \left( \alpha \right) = \left( F \left( \alpha^{op} \right) \right)^{op} $.\\
+This is a functor since for a composable pair
+$\alpha, \beta \in \Hom(C)$, we have
+$F^{op} \left( \alpha \beta \right) 
+= F\left( \left( \alpha \beta \right)^{op} \right)^{op} 
+= F \left( \beta^{op} \alpha^{op} \right)^{op}
+= \left( F\left( \beta^{op} \right) F\left( \alpha^{op} \right) \right)^{op}
+= F\left( \alpha^{op} \right)^{op} F\left( \beta^{op} \right)^{op}
+= F^{op}(\alpha) F^{op} (\beta)$, and
+$F^{op} \left( \mathbbm{1}_c \right) 
+= F \left( \mathbbm{1}_c^{op} \right)^{op}
+= \mathbbm{1}_{F c}^{op}
+= \mathbbm{1}_{F^{op} c}^{op}$, so
+$F^{op}$ is a covariant functor $C \to D^{op}$. Hence
+each covariant  $F  \colon C^{op} \to D$ induces a covariant
+$F^{op}  \colon C \to D^{op}$. Arguing by duality, we get that each functor 
+$C^{op} \to D$ corresponds to a functor $C \to D^{op}$.\\
+\linebreak
+For a functor $F  \colon C \to D$, we get that if $\alpha  \colon a \to b$,
+then
+$F \alpha  \colon Fa \to Fb$. So
+defining $F^{op}  \colon C^{op} \to D^{op}$ by
+$F^{op} \left( \alpha^{op} \right) =
+F \left( \alpha \right)^{op}$, we get that
+$F^{op} \left( \alpha^{op} \beta^{op} \right) 
+= F^{op} \left( \left( \beta \alpha \right)^{op} \right) 
+= F\left(  \beta \alpha \right)^{op}
+= F\left( \alpha \right)^{op} F\left( \beta \right)^{op}
+= F^{op} \left( \alpha^{op} \right) F^{op} \left( \beta^{op} \right) $, and
+$F^{op} \left( \mathbbm{1}_{c}^{op} \right) 
+= F\left( \mathbbm{1}_c \right)^{op}
+= \mathbbm{1}_{F c}^{op}
+= \mathbbm{1}_{F^{op} c}^{op}$.\\
+\linebreak
+
+
+\textbf{vi (The comma category).} Given functors $F  \colon D \to C$ and
+$G  \colon E \to C$, show that there is a category called the
+\textbf{comma category} $F \downarrow G$, which has
+\begin{itemize}
+    \item as objects, triples $\left( d \in D, e \in E, 
+        f  \colon Fd \to Ge \in C \right) $, and
+    \item as morphisms $\left( d,e,f \right) 
+        \to \left( d', e', f' \right) $, a pair of morphisms
+        $\left( h  \colon d \to d', k  \colon e\to e' \right) $ so that the
+        square
+        \begin{equation*}
+        \begin{tikzcd}
+            Fd \ar[d, "Fh"] \ar[r, "f"] & Ge \ar[d, "Gk"]\\
+            Fd' \ar[r, "f'"] & Ge'
+        \end{tikzcd}
+        \end{equation*}
+        commutes in $C$, i.e., so that $f' \cdot  Fh = Gk \cdot  f$
+\end{itemize}
+Define a pair of projection functors 
+$\dom  \colon F \downarrow G \to D$ and
+$\cod  \colon F \downarrow G \to E$.\\
+\linebreak
+\textit{Solution:}
+We must firstly check that each object has an identity morphism.\\
+Now, since
+each object in $D$ and $E$ has an identity, we have
+that since
+\begin{equation*}
+\begin{tikzcd}
+    Fd \ar[d, "F \mathbbm{1}_d = \mathbbm{1}_{Fd}"']  \ar[r, "f"] & Ge \ar[d, "G
+    \mathbbm{1}_e = \mathbbm{1}_{Ge}"]\\
+    Fd \ar[r, "f"'] & Ge
+\end{tikzcd}
+\end{equation*}
+obviously commutes, the morphism
+$\left( 1_{Fd}  \colon Fd \to Fd, \mathbbm{1}_{Ge}  \colon Ge \to Ge \right)
+$ is the identity of the object\\
+$\left( d \in D, e \in E, f  \colon Fd \to Ge \in C \right) $.\\
+\linebreak
+Now we must make sure that composition is defined.\\
+Suppose $\left( d,e,f \right) \stackrel{\left( h,k \right) }{\to}  \left( d',e',f' \right) 
+\stackrel{\left( h', k' \right) }{\to } \left( d'', e'', f'' \right) $. Then
+
+\begin{equation*}
+\begin{tikzcd}
+    Fd \ar[d, "Fh"'] \ar[r, "f"] & Ge \ar[d, "Gk"]\\
+    Fd' \ar[r, "f'"] \ar[d, "Fh'"'] & Ge' \ar[d, "Gk'"]\\
+    Fd'' \ar[r, "f''"] & Ge''
+\end{tikzcd}
+\end{equation*}
+Now commutativity of each inner square gives that the outer rectangle commutes,
+hence
+$f'' \cdot  Fh' \cdot  Fh = Gk' \cdot Gk \cdot f$, so the square
+\begin{equation*}
+\begin{tikzcd}
+    Fd  \ar[d, "F \left( h' \cdot h \right)"'] \ar[r, "f"] & Ge \ar[d, "G \left( k' \cdot k \right)"] \\
+    Fd'' \ar[r, "f''"'] & Ge''
+\end{tikzcd}
+\end{equation*}
+commutes by functoriality of $F$ and $G$ and since
+$h' \cdot h \in \Hom\left( d, d'' \right) $ and
+$k' \cdot k \in \Hom \left( e,e'' \right) $.\\
+\linebreak
+Now suppose $\left(d, e, f \right) \stackrel{\left( h
+ \colon d \to d', k  \colon e\to e' \right) }{\to } \left( d',e',f' \right) $.
+ Then
+$f' \cdot  \mathbbm{1}_{Fd'} \cdot Fh = \mathbbm{1}_{Ge'} \cdot Gk \cdot f$, so
+$f' \cdot F\left( h \right)  =f' \cdot F\left( \mathbbm{1}_{d'} \cdot h \right) 
+= G\left( \mathbbm{1}_{e'} \cdot k \right) \cdot f = G\left( k \right) \cdot
+f$, so
+$\left( \mathbbm{1}_{d'}, \mathbbm{1}_{e'} \right) \circ \left( h,k \right) 
+= \left( h,k \right) $, and similarly,
+$(h,k) \circ \left( \mathbbm{1}_d, \mathbbm{1}_e \right) $.\\
+Associativity requires that
+\[
+    \left( h'', k'' \right) \circ \left( \left( h',k' \right) \circ \left( h,k
+        \right) \right)
+    = \left( \left( h'', k'' \right) \circ \left( h',k' \right)  \right) \circ
+    \left( h,k \right).
+\] 
+This is true if
+\[
+F\left( h'' \cdot  \left( h' \cdot h \right)  \right) 
+= F \left( \left( h'' \cdot h' \right) \cdot h \right) \quad \text{and} \quad
+G\left( k'' \cdot \left( k' \cdot k \right)  \right) 
+= G \left( \left( k'' \cdot k' \right) \cdot k \right) 
+\] 
+which is true since composition of morphisms in $C$ is associative as it is
+a category.\\
+\linebreak
+Define
+$\dom (d,e,f) = d$ and
+$\dom \left( h  \colon d \to d', k  \colon e\to e' \right) =
+h  \colon d\to d'$. Then
+\[
+    \dom \left( \left( h'  \colon d' \to d'', k'  \colon e' \to e'' \right) \cdot 
+\left( h  \colon d \to d', k  \colon e \to e' \right) \right)
+= h' \cdot h  \colon d \to d''
+= \dom \left( h', k' \right) \cdot 
+\dom \left( h,k \right) .
+\]
+and similarly for $\cod$.\\
+\linebreak
+\[
+\dom \left( \mathbbm{1}_d, \mathbbm{1}_e \right) 
+= \mathbbm{1}_d = \mathbbm{1}_{\dom \left( d,e,f \right) }, \quad \cod \left( \mathbbm{1}_d , \mathbbm{1}_e \right) 
+= \mathbbm{1}_e = \mathbbm{1}_{\cod (d,e,f)}.
+\] 
+
+
+\textbf{vii.} Define functors to construct the slice categories $c /C$ and
+$C /c$ of exercise 1.1.iii as special cases of comma categories constructed in
+exercise 1.3.vi. What are the projection functors?\\
+\linebreak
+\textit{Solution:} Let $D$ be the single-object category $\mathbbm{1}$ and
+$F$ be the functor sending the object to $c$.
+Let $E = C$ and $G$ be the trivial functor on $C$. Then
+an object consists of
+$\left( c, e \in C, f  \colon c \to e \right) $, and morphisms consists
+of $\left( h  \colon c \to c, k  \colon e \to e' \right) 
+= \left( \mathbbm{1}_c , k  \colon e \to e' \right) $.\\
+Then $\dom$ sends any object to the underlying single object in $D$ and
+any morphism to the identity in $D$; and $\cod$ sends any object
+$\left( d, e,f \right) $ to $e$ and
+$\left( h, k \right) $ to $k$.\\
+\linebreak
+
+\textbf{viii.} Lemma 1.3.8 shows that functors preserve isos. Find an example
+to demonstrate that functors need not \textbf{reflect isos:} i.e., find
+a functor
+$F  \colon C \to D$ and a morphism $f$ in $C$ so that $F f$ is an iso in $D$
+but
+$f$ is not an iso in $C$.\\
+\linebreak
+\textit{Solution:} Suppose simply
+$C = \left\{ a,b \right\} $ with identities and
+a morphism $f  \colon a \to b$ that is not iso. Then map
+it all to the category $\mathbbm{1}$. Any morphism in the image is an iso as
+there is only one, thus solving the problem.\\
+\linebreak
+\textbf{1.3.ix.} The operators $Z(-), C(-), \Aut(-)$ sending a group to its
+center, commutator subgroup and automorphism group, respectively, all define
+functors on the discrete category of groups (with only identity morphisms) to
+$\Group$. Are they functorial in the isomorphisms of groups, i.e., do they
+extend to functors $\Group_{\text{iso}} \to \Group$?\\
+\textit{Solution:} Suppose $G \cong H$ by $\varphi$, so
+$\varphi  \colon G \to H$. Then is
+$Z(\varphi)  \colon Z(G) \to Z(H)$ functorial? 
+If $h \in Z(G)$ then for all
+$g \in Z(H), \varphi(h) \varphi(\varphi^{-1}g)) =
+\varphi \left( h \varphi^{-1}(g) \right) 
+= \varphi \left( \varphi^{-1}(g) h \right) 
+= g \varphi(h)$, so $\varphi(h) \in Z(H)$ and
+$Z(\varphi) $.\\
+\linebreak
+
+
+
+
+We indeed have that
+if $G \cong H$ then $Z(G) \cong Z(H)$ by the restriction of $\varphi$, so
+$Z(\varphi)  \colon Z(G) \to Z(H)$ by an iso. Furthermore,
+$Z(\mathbbm{1}_G) = \mathbbm{1}_{Z(G)}$ and $Z(\psi \cdot \varphi) =
+Z(\psi) \cdot Z(\varphi)$.\\
+Now, for $C(-)$, if $G \cong H$ by $\varphi$ with inverse $\psi$ then
+if $x = ghg^{-1}h^{-1}$, we have
+$\varphi (x) =
+\varphi (g) \varphi(h) \varphi(g)^{-1} \varphi(h)^{-1} \in C(H)$, and clearly
+$\psi (\varphi(x)) = x \in C(G)$. So
+$C(-)$ extends to a functor $\Group_{\text{iso}}\to  \Group$ and clearly
+$C(\mathbbm{1}_G) = \mathbbm{1}_{C(G)}$.\\
+For $\Aut(-)$, if $G \cong H$ by $\varphi$ with inverse $\psi$, then
+$\Aut (\varphi) = \varphi \circ -$. 
+Functoriality: $\Aut \left( \varphi \circ \psi \right) 
+= \left( \varphi \circ \psi \right) \circ -
+= \varphi \circ \left( \psi \circ - \right) 
+= \Aut \left( \varphi \right) \circ \Aut \left( \psi \right) $.\\
+
+So each extends to $\Group_{\text{iso}}\to \Group$.\\
+\linebreak
+Does it extend to $\Group_{\text{epi}}\to \Group$?\\
+\linebreak
+Functoriality of $Z(-)$. If $\varphi  \colon G \to H$ is a homomorphism such
+that if $h \varphi = k \varphi$ then $h = k$ and similarly for $\psi
+ \colon H \to J$. 
+I don't believe it extends here.\\
+\linebreak
+
+
+\subsection*{Section 1.4}
+
+\textbf{ii.} What is a natural transformation between a parallel pair of
+functors between groups, regarded as one-object categories?\\
+\linebreak
+\textit{Solution:} 
+Suppose $\alpha  \colon F \implies G$ is a natural transformation where
+$F,G  \colon BG \to BH$. 
+So
+\begin{equation*}
+\begin{tikzcd}
+    BH \ar[d, "Ff"'] \ar[r, "\alpha"] & BH \ar[d, "Gf"]\\
+    BH \ar[r, "\alpha"'] & BH
+\end{tikzcd}
+\end{equation*}
+commutes. Hence
+$\alpha'\cdot  Ff = Gf \cdot \alpha $ for all $f \in \Hom(BG)$. So a natural transformation between
+parallel pairs of functors between groups as one-object categories is
+an element $g \in \Hom(BH)$, so $g \in H$, such that
+$g \cdot Ff = Gf \cdot g$, i.e., $Ff = g^{-1} Gf g$, so
+$F(-) = g^{-1} G(-) g$.\\
+\linebreak
+\textbf{iii.} What is a natural transformation between a parallel pair of
+functors between preorders, regarded as categories?\\
+\linebreak
+\textit{Solution:} Suppose $\alpha  \colon F \implies G$ and
+$F,G  \colon P \to Q$ where $(P,\le ), (Q,<)$ are preorders. Then
+for any $f  \colon c \to d$ in $P$, we have
+\begin{equation*}
+\begin{tikzcd}
+    Fc \ar[d, "Ff"'] \ar[r, "\alpha_c"] & Gc \ar[d, "Gf"]\\
+    Fd \ar[r, "\alpha_d"'] & Gd
+\end{tikzcd}
+\end{equation*}
+commutes. What this means is that
+$Fc < Fd < Gd$ and $Fc < Gc < Gd$, so
+$\alpha_c$ is the map $Fc \to Gc$ and
+$\alpha_d$ is the map $Fd \to Gd$.\\
+So $\alpha_x \left( Fx \right) = Gx$ for all $x \in P$. Thus, for all
+$x \in P$, $Fx < Gx$, so $F < G$ on all of $P$.\\
+\linebreak
+\textbf{iv.} In the notation of example 1.4.7, prove that distinct parallel
+morphisms $f, g  \colon c\to d$ define distinct natural transformations
+\[
+f_*, g_*  \colon C\left( -,c \right) \implies C(-,d) \quad
+\text{and} \quad f^{*},g^{*}  \colon C(d,-) \implies C(c,-)
+\] 
+by post- and pre-composition.\\
+\linebreak
+\textit{Solution:} We must show that $(f_*)_{x} \neq (g_*)_{x}$ for some $x$
+and similarly with $f^{*},g^{*}$. Now, if
+$h  \colon y\to x$ in $C$, then
+\begin{equation*}
+\begin{tikzcd}
+    C(x,c) \ar[r, "f_*"] \ar[d, "h^{*}"] & C(x,d) \ar[d, "h^{*}"]\\
+    C(y,c) \ar[r, "f_*"] & C(y,d)
+\end{tikzcd}
+\end{equation*}
+
+If $f_*$ and $g_*$ define the same natural transformation, then
+$(f_*)_{c} = \left( g_* \right)_c$, but
+$\left( f_* \right)_{c} =
+\mathbbm{1}_d f \left( \mathbbm{1}_c \right) 
+= f(\mathbbm{1}_c) = f$ and
+$(g_*)_c = g \left( \mathbbm{1}_c \right) = g $, so
+$f = g$, hence $(f_*)_{c} \neq \left( g_* \right)_{c}$.\\
+Similarly for $f^{*}$ and $g^{*}$.\\
+\linebreak
+\textbf{v.} Construct a canonical natural transformation $\alpha
+ \colon F \dom \implies G \cod$ between the functors that form the boundary
+ of the square
+ \begin{equation*}
+ \begin{tikzcd}
+     F\downarrow G \ar[r, "\cod"] \ar[d, "\dom"'] & E \ar[d, "G"]\\
+     D \ar[r, "F"'] \ar[ru, Rightarrow, "\alpha"] & C
+ \end{tikzcd}
+ \end{equation*}
+ \textit{Solution:} 
+ Suppose 
+  \[
+      (d,e,f) \stackrel{\left( h,k \right) }{\to } \left( d',e',f' \right) 
+ \] 
+so
+$F \dom \left( d, e,f \right) 
+= Fd$ while
+$G \cod \left( d, e,f \right) 
+= Ge$, so 
+\begin{equation*}
+\begin{tikzcd}
+    Fd \ar[r, "\alpha_d"] \ar[d, "F h"'] & Ge \ar[d, "G k"]\\
+    Fd' \ar[r, "\alpha_{d'}"'] & Ge'
+\end{tikzcd}
+\end{equation*}
+so choosing $\alpha_d = f$ and $\alpha_{d'} = f'$, we get
+that the above commutes by definition of the comma category.\\
+\linebreak
+\textbf{Definition.} A functor $F  \colon C \to D$ is
+\begin{itemize}
+    \item \textbf{full} if $\forall x,y \in C \colon C(x,y) \to D(Fx, Fy)$ is
+        surjective.
+    \item \textbf{faithful} if $\forall x,y \in C$, the map
+        $C(x,y) \to D(Fx, Fy)$ is injective;
+    \item and \textbf{essentially surjective on objects} if for every object $d
+        \in D$, $\exists c \in C$ such that $d$ is isomorphic to $Fc$, i.e.,
+        $d \cong Fc$.
+\end{itemize}
+\textbf{Remark:} A faithful functor that is injective on objects is called an
+\textbf{embedding} and identifies the domain category as a subcategory of the
+codomain; in this case, faithfulness implies that the functor is globally
+injective on arrows. A full and faithful functor, called \textbf{fully
+faithful}, that is injective-on-objects defines a \textbf{full embedding} of
+the domain category into the codomain category. The domain then ddefines
+a \textbf{full subcategory} of the codomain.\\
+\linebreak
+\textbf{Theorem. (Characterizing equivalences of categories)} A functor
+defining an equivalence of categories is full, faithful and essentially
+surjective on objects. Assuming the axiom of choice, any functor with these
+properties defines an equivalence of categories.\\
+\linebreak
+\textbf{Proof.} 
+Suppose $F  \colon C \to D, G  \colon D \to C$ and
+$\varepsilon  \colon FG \cong \mathbbm{1}_{D}$ and
+$ \eta  \colon GF \cong \mathbbm{1}_C$.\\
+\linebreak
+Essentially surjective: let $d \in D$, then
+$FG d \cong d$ by $\varepsilon_{d}$, so $F$ is essentially surjective.\\
+\linebreak
+Full: Suppose $Fx, Fy \in D$ and
+$d  \colon Fx \to Fy$ is in $D$. Then there exists $x', y' \in D$ such that
+$Gx' \stackrel{\alpha}{\cong}x, Gy' \stackrel{\beta}{\cong} y$. Now
+\begin{equation*}
+\begin{tikzcd}
+    Fx \ar[r, "\cong"] \ar[d, "d"] & FGx' \ar[r, "\varepsilon_{x'}"] \ar[d, "F
+    \left( \beta \cdot d \cdot \alpha^{-1} \right) "] & x' \ar[d, dashed, "d'"] \\
+    Fy \ar[r, "\cong"'] & FGy' \ar[r, "\varepsilon_{y'}"'] & y'
+\end{tikzcd}
+\end{equation*}
+commutes, so there exists a unique map $d'  \colon x' \to y'$ such that the
+above commutes, namely, $d' = \varepsilon_{y'} \cdot F(\beta) \cdot d \cdot 
+F \cdot  \left( \alpha^{-1} \right) \cdot \varepsilon_{x'}^{-1} $ - unique since $F$
+is a functor and hence preserves isomorphisms.\\
+\linebreak
+Faithful: Suppose $x,y \in C$, and $d  \colon x \to y$ in $C$. Suppose 
+$\exists  \tilde{d}  \colon x \to y$ and
+$F(d) = F(\tilde{d})$.\\
+Then there exist $x', y' \in D  \mid Gx' \cong x, Gy' \cong y$, so
+\begin{equation*}
+\begin{tikzcd}
+    x \ar[d, "d; \tilde{d}"'] \ar[r, "\eta_{x}"] & GF x \ar[d, " Gd = GF d = G\tilde{d}"]\\
+    y \ar[r, "\eta_{y}"] & GFy
+\end{tikzcd}
+\end{equation*}
+Now, since $Gd = G\tilde{d}$ and $\eta_x, \eta_y$ are isos, the map $x\to y$
+making the diagram commute is uniquely determined to be 
+$\eta_y^{-1} Gd \eta_x$, so $d = \tilde{d}$.\\
+\linebreak
+For the opposite direction, suppose $F  \colon C \to D$ is fully faithful and essentailly
+surjective on objects. 
+We wish to defined $G  \colon D \to C$ such that
+$FG \cong \mathbbm{1}_D$ by $\varepsilon$ and $GF \cong \mathbbm{1}_C$ by
+$\eta$.\\
+Let $x,y \in D$. Then by essential surjectivity, there must exist $a,b \in C$
+such that $Fa \cong x, Fb \cong y$. By fully faithfulness, we have that
+$\Hom(a,b) \stackrel{F}{\to } \Hom(x,y)$ is bijective. Define
+$G(x)$ to be any element such that $G(x) \cong a$ and similarly  $G(y) \cong
+b$. Now for any  $d  \colon x \to y$, we have that there exists $d'  \colon
+a \to b$ such that $F(d') = d$, so define $G(d) =q d' p$ where $p $ and $q$ are
+isos making the domain and codomain match up with $G(x)$ and $G(y)$. This is
+a functor since if $\overline{d}  \colon y \to z$ then
+since $Gy = b$, and some $c \in C$ has $Gz \cong c$, we have that
+there exists $d''  \colon b \to c$ such that
+$G \overline{d} = r d'' p^{-1}$ where $r$ maps $Gz$ to $c$. So
+$G \left( \overline{d} d  \right) 
+= r d'' d' q = r d'' p^{-1}p d' q
+= G(\overline{d}) G(d)$, and $G\left( \mathbbm{1}_x \right) 
+= p^{-1} \mathbbm{1}_a p = \mathbbm{1}_{Gx}$.\\
+\linebreak
+
+Alternatively as in the book, we can use diagram chasing:\\
+Suppose $F  \colon C \to D$ is fully faithful and essentially surjective on
+objects. Then using essential surjectivity and the axiom of choice, we can, for
+each $d \in D$, choose a $Gd \in C$ such that $\varepsilon_d  \colon FGd \cong
+d$. Now, suppose $\alpha  \colon d \to d'$, then there is precisely one
+morphism
+$G d \to Gd'$ making the following commute:
+\begin{equation*}
+\begin{tikzcd}
+    Gd \ar[d, dashed] \ar[r, "\cong"] & d \ar[d, "\alpha"] \\
+    Gd' \ar[r, "\cong"] & d'
+\end{tikzcd}
+\end{equation*}
+so we define
+$G \alpha$ as this morphism.\\
+\linebreak
+We must then check functriality of $G$ :\\
+
+\begin{equation*}
+\begin{tikzcd}
+    FG d \ar[r, "\varepsilon_d"] \ar[d, "
+    FG \mathbbm{1}_d \text{ or } F \mathbbm{1}_{Gd}"'] & d \ar[d, "\mathbbm{1}_d"]\\
+    FG d \ar[r, "\varepsilon_d"] & d
+\end{tikzcd}
+\end{equation*}
+By $\varepsilon$ being a natural transformation, $FG \mathbbm{1}_d$ makes the
+diagram commute, and since $F$ is a functor, 
+$F \mathbbm{1}_{Gd} = \mathbbm{1}_{FG d}$, so
+clearly $F \mathbbm{1}_{Gd} = \varepsilon_d^{-1} \mathbbm{1}_d \varepsilon$,
+hence, since only one morphism makes the diagram commute,
+ $FG \mathbbm{1}_d = F \mathbbm{1}_{Gd}$ and since
+ $F$ is faithful, $G \mathbbm{1}_d = \mathbbm{1}_{Gd}$.\\
+ \linebreak
+We must now check that $G \left( d' d \right) 
+= G(d') G(d)$ if $d  \colon a \to b$ and $d'  \colon b \to c$. But
+\begin{equation*}
+\begin{tikzcd}
+    FG a \ar[d, "FG(d'd) \text{ or } F(G(d') G(d))"'] \ar[r, "\varepsilon_a"]
+    & a \ar[d, "d'd"] \\
+    FG c \ar[r, "\varepsilon_{c}"'] & c
+\end{tikzcd}
+\end{equation*}
+so again by the same arguments, $G(d'd) = G(d') G(d)$. 
+By full and faithfulness of  $F$, we may define the iso $\eta_{c} 
+ \colon c \to GF c$ by specifying
+ isos $F \eta_c  \colon Fc \to FGFc$. Define
+ $F \eta_c$ to be $\varepsilon_{Fc}^{-1}$. For any $f  \colon c \to c'$, the
+ outer triangle
+ \begin{equation*}
+ \begin{tikzcd}
+     Fc \ar[d, "Ff"'] \ar[r, "F \eta_c"] & FGFc \ar[d, "FGF f"] \ar[r,
+     "\varepsilon_{Fc}"] & Fc \ar[d, "Ff"] \\
+     Fc' \ar[r, "F \eta_{c'}"'] & FGFc' \ar[r, "\varepsilon_{Fc'}"'] & Fc'
+ \end{tikzcd}
+ \end{equation*}
+ 
+ commutes. The right-hand square commutes by naturality of $\varepsilon$. This
+ implies that the left-hand square commutes. Faithfulness of $F$ tells us that
+ $\eta_{c'} \cdot  f = GFf \cdot \eta_{c}$, so $\eta$ is a natural
+ transformation.\\
+ \linebreak
+\textbf{Cor. } For any field $\mathbb{F}$, the categories $\Mat_{\mathbb{F}}$
+and
+$\Vect_{\mathbb{F}}^{\text{fd}}$ are equivalent.
+We have
+\begin{equation*}
+\begin{tikzcd}
+    \Mat_{\mathbb{F}} \ar[r, "\mathbb{F}^{(-)}"] & \ar[l, "H"]
+    \Vect_{\mathbb{F}}^{\text{basis}} \ar[r, "U"] & \ar[l, "C"]
+    \Vect_{\mathbb{F}}^{\text{fd}} 
+\end{tikzcd}
+\end{equation*}
+Here $U$ is the forgetful functor, $\mathbb{F}^{(-)}$ is the functor sending
+$n$ to the vector space $\mathbb{F}^{n}$, equipped with the standard basis. The
+functor $H$ carries a vector space to its dimension and a linear map
+$\varphi  \colon V \to W$ to the matrix expressing the action of $\varphi$ on
+the chosen basis of $V$ with respect to the chosen basis of $W$.
+The functor $C$ is defined by choosing a basis for each vector space.\\
+\linebreak
+Now,
+$\mathbb{F}^{(-)}$ is essentially surjective on objects since given a vector
+space $V$ with a basis $\mathcal{B}$, it is isomorphic to $\mathbb{F}^{m}$ for
+some $m$ and hence
+$(V, \mathcal{B}) \cong F(m)$.\\
+It is full, since for any $n,m \in \mathbb{Z}_{+}$, we have
+that if $\varphi  \colon \mathbb{F}^{n} \to \mathbb{F}^{m}$ is linear, there
+exists a map $\varphi'  \colon n \to m$ in $\Mat_{\mathbb{F}}$ such that
+$\mathbb{F}^{(-)}(\varphi') = \varphi$ by definition.\\
+It is faithful, since a linear map is uniquely determined on the basis. Thus
+$\Mat_{\mathbb{F}}$ is equivalent to $\Vect_{\mathbb{F}}^{\text{basis}}$.\\
+Similarly, it is clear that $U$ is essentially surjective, since any
+finite-dimensional vector space has a basis. It is fully faithful since
+any linear map between vector spaces is uniquely determined by its values on
+the basis.\\
+Hence $\Vect_{\mathbb{F}}^{\text{basis}}$ is equivalent to
+$\Vect_{\mathbb{F}}^{\text{fd}}$.\\
+\linebreak
+\textbf{Def.} A category is \textbf{connected} if any pair of objects can be
+connected by a finite zig-zag of morphisms.\\
+\linebreak
+\textbf{Def.} The automorphism group of an object $c \in C$ is 
+$\Hom(c,c)$ in $C$.\\
+\linebreak
+
+\textbf{Prop.} Any connected groupoid is equivalent, as a category, to the
+automorphism group of any of its objects.\\
+\linebreak
+\textit{Proof:} Choose an object $c \in C$ where $C$ is a connected groupoid.
+Let
+$\Aut(c) = \Hom(c,c)$ be the automorphism group represented by a single-object
+category. Then  define a functor
+$F  \colon \Aut(c) \to C$ by mapping the object to $c$ and any morphism in
+$\Aut(c)$ to the corresponding morphism in $C$. This is clearly fully faithful
+as it is bijective, and it is essentially surjective on objects since $C$ is
+connected.\\
+\linebreak
+\textbf{Cor.} In a path-connected space $X$, any choice of basepoint $x \in X$
+yields an isomorphic fundamental group $\pi_1 (X,x)$.\\
+\linebreak
+\textit{Proof:} Any space $X$ has a fundamental groupoid $\Pi_1 (X)$ whose
+objects are points in $X$ and whose morphisms are endpoint-preserving homotopy
+classes of paths in $X$. Picking any point $x$, the group of automorphisms of
+the object $x \in \Pi_1 (X)$ is exactly the fundamental group $\pi_1 (X,x)$.
+Now the previous proposition implies that any pair of automorphism groups are
+equivalent, as categories, to the fundamental groupoid
+\[
+\pi_1 (X, x) \hookrightarrow \Pi_1(X) \hookleftarrow \pi_1 (X,x')
+\] 
+and thus to each other. An equivalence between $1$-object categories is an
+isomorphism of categories.\\
+\linebreak
+
+
+\textbf{Recall:} an \textbf{isomorphism of categories} is given by a pair of
+inverse functors $F  \colon C \to D$ and $G  \colon D \to C$ such that
+$FG = \mathbbm{1}_{D}$ and $GF = \mathbbm{1}_{C}$, i.e., the identity functors
+of $D$ and $C$, respectively. An iso induces a bijection between the objects of
+$C$ and $D$ and likewise for morphisms.\\
+\linebreak
+
+And since isomorphisms of groups regarded as $1$-object categories is exactly
+isomorphisms of groups in the usual sense, we get that all of the fundamental
+groups defined by choosing a basepoint in a path-connected space are
+isomorphic.\\
+\linebreak
+
+\textbf{Def.} A category $C$ is \textbf{skeletal} if it contains just one
+object in each isomorphism class. The \textbf{skeleton} 
+$\sk C$ of a category $C$ is the unique (up to isomorphism) skeletal category
+that is equivalent to $C$.\\
+\linebreak
+An equivalence between skeletal categories is necessarily and isomorphism of
+categories. Suppose that $\sk C $ is isomorphic to $\sk D$ by $F  \colon
+\sk C \to \sk D$ and $G  \colon \sk D \to \sk C$.\\
+Since the inclusion  $\iota_C  \colon \sk C \to C$ and
+$\iota_D  \colon \sk D \to D$ define functors that are fully faithful and essentially surjective on
+object, they are equivalences of categories, so
+$C \cong \sk C \cong \sk D \cong D$ and hence $C$ and $D$ are equivalent.\\
+Thus, two categories are equivalence if and only if their skeletons are
+isomorphic - so in particular, a category is always equivalent to its skeleton.\\
+\linebreak
+\textbf{Example.} The skeleton of a connected groupoid is the group of
+automorphisms of any of its objects.\\
+\textbf{Example.} The skeleton of $\Vect_{\Bbbk}^{\text{fd}}$ is the
+category $\Mat_{\Bbbk}$.\\
+\textbf{Def.} $\Fin$ is the category of finite sets where morphisms are
+functions between sets. $\Fin_{\text{iso}}$ is the maximal subgroupoid of
+$\Fin$.\\
+\linebreak
+\textbf{Example.} The skeleton of $\Fin_{\text{iso}}$ is the category whose
+objects are positive integers and with $\Hom (n,n) = \Sigma_n$, the group of
+permutations of $n$ elements. The hom-sets between distinct natural numbers are
+all empty.\\
+\linebreak
+\textbf{Example. (a categorification of sum orbit satiblizers)} Let $X  \colon
+BG \to \Set$ be a left $G$-set. Its \textbf{translation groupoid} 
+$T_G X$ has elements of $X$ as objects. A morphism $g  \colon x \to y$ is an
+element $g \in G$ so that $g \cdot x = y$. The objects in the skeleton
+$\sk T_G X$ are the connected components in the translation groupoid. These are
+precisely the \textbf{orbit} of the group action, which partition $X$ in
+precisely this manner.\\
+\linebreak
+Consider $x \in X$ as a representative of its orbit $O_x$. Because the
+translation groupoid is equivalent to its skeleton, we must have
+\[
+\Hom_{\sk T_G X} \left( O_x, O_x \right) \cong
+\Hom_{T_G X} (x,x) =: G_x
+\] 
+the set of automorphisms of $x$. So $\Hom_{T_G X}(x,x)$ is the
+\textbf{stabilizer} $G_x$ of $x$ wrt. the $G$-action.\\
+This means that any pair of elements in the same orbit must have isomorphic
+stabilizers. In summary, the skeleton of the translation groupoid, as
+a category, is the disjoint union of the stabilizer groups, indexed by the
+orbits of the action of $G$ on $X$.\\
+Thus $\sk T_G X = \bigcup_{O_x} G_x$ as a category.
+The set of morphisms in the translation groupoid with domain $x$ is isomorphic
+to $G$. This set may be expressed as a disjoint union of hom-sets
+$\bigcup_{y \in O_x} \Hom_{T_GX}(x,y)$. Now, for any
+$g \in \Hom_{T_G X}(x,x)$, choose any $h  \colon x \to y$. Then
+$\Hom_{T_G X}(x,y) = h \Hom_{T_GX}(x,x)$. The $\supset$ is clear, and
+for any $j  \colon x \to y$, $j = h h^{-1} j \in h \Hom_{T_G X}(x,x)$, so
+$\subset $ is shown. Now, we claim that the map
+$g \mapsto hg$ is injective. Suppose $hg = hg'$. Then
+$g = g'$ by multiplying by $h^{-1}$ on both sides. Hence
+$\left| h G_x \right| = \left| G_x \right| $. Thus
+\[
+\left| G \right| = 
+\left| \bigcup_{y \in O_x}  \Hom_{T_G X}(x,y) \right| 
+= \sum_{y \in O_x} \left| \Hom_{T_GX}(x,y) \right| 
+= \sum_{y \in O_x} \left| G_x \right| \\
+= \left| O_x \right| \left| G_x \right| .
+\] 
+We define some concepts up to equivalence. We say a category is
+\textbf{essentially small} if it is equivalent to a small category, or,
+equivalently, if its skeleton is small. A category is \textbf{essentially
+discrete} if it is equivalent to a discrete category.\\
+\linebreak
+The following are invariant under equivalence:
+\begin{itemize}
+    \item Smallness of categories
+    \item Being a groupoid - i.e., any category equivalent to a groupoid is
+        a groupoid.
+    \item If $C \simeq D$ then $C^{op} \simeq D^{op}$.
+    \item If $C \simeq D$ and $A \simeq B$ then
+        $C \times A \simeq D \times B$.
+    \item An arrow in $C$ is an isomorphism iff its image under an equivalence
+        $C \stackrel{\simeq}{\to } D$ is an isomorphism.
+\end{itemize}
+ 
+
+
+\subsection*{Section 1.5 - Problems}
+\textbf{ii.} Segal defined a category $\Gamma$ as follows:
+\begin{center}
+    $\Gamma$ is the category whose objects are all finite sets, and whose
+    morphisms from $S$ to $T$ are maps $\theta  \colon S \to P(T)$ such that
+    $\theta (\alpha)$ and $\theta (\beta)$ are disjoint when
+    $\alpha \neq \beta$. The composite of $\theta  \colon S \to P(T)$ and
+    $\varphi  \colon T \to P(U)$ is $\psi  \colon S \to P(U)$ where
+    $\psi (\alpha) = \bigcup_{\beta \in \theta(\alpha)} \varphi(\beta)$.
+\end{center}
+Prove that $\Gamma$ is equivalent to the opposite of the category $\Fin_*$ of
+finite pointed sets. In particular, the functors introduced in Example
+1.3.2.(xi) defined presheaves on $\Gamma$.\\
+\linebreak
+\textit{Solution:} Can we define a functor 
+$F  \colon \Gamma \to \Fin_*^{op}$ that is fully faithful and essentially
+surjective on objects?\\
+\linebreak
+
+\textbf{iv.} Show taht fully faithful functors $F  \colon C \to D$ both
+\textbf{reflect} and \textbf{create isomorphisms}. I.e., show that
+\begin{enumerate}
+    \item If $f$ is a morphism in $C$ such that $Ff$ is a morphism in $D$, then
+        $f$ is an isomorphism.
+    \item If $x$ and $y$ are object in $C$ so that $Fx \cong Fy$ in $D$, then
+        $x \cong y$ in $C$.
+\end{enumerate}
+\textit{Solution:} Suppose $f  \colon c \to d$ in $C$ so that
+$Ff  \colon Fc \to Fd$ is an iso in $D$. Then there exists
+$g  \colon Fd \to Fc$ such that $Ff g = \mathbbm{1}_{Fd}$ and $g Ff
+= \mathbbm{1}_{Fc}$. But since $F$ is full, the map
+$F_*  \colon \Hom(d,c) \to \Hom(Fd, Fc) \ni g$ is surjective, so $\exists g'
+\in 
+\Hom(d,c)$ such taht $Fg' = g$. Then
+$F \left( g' f \right) = \mathbbm{1}_{Fc}$ and
+$F \left( f g' \right) = \mathbbm{1}_{Fd}$, so
+since $F$ is faithful, $g'f = \mathbbm{1}_{c}$ and
+$fg' = \mathbbm{1}_{d}$, hence $g'$ is the inverse of $f$.\\
+\linebreak
+For (ii), suppose $Fx \cong Fy$ with $d  \colon Fx \to Fy$ and $e  \colon Fy
+\to Fx$ being the isos. Since $F$ is full, there exist
+$d'  \colon x\to y$ and $e'  \colon y \to x$ such that
+$Fd' = d, Fe' = e$. Now
+$\mathbbm{1}_{Fy} = de = Fd' Fe' = F\left( d' e' \right)$, and
+$\mathbbm{1}_{Fx} = ed = F\left( e' d' \right) $, so since
+$F$ is faithful, $e'd' = \mathbbm{1}_x$ and
+$d'e' = \mathbbm{1}_y$.\\
+\linebreak
+\textbf{v.} Find an example to show that a faithful functor need not reflect
+isomorphisms.\\
+\linebreak
+\textit{Solution:} Suppose we let $C = \mathbbm{1}$ and
+$\ob D = \left\{ a,b \right\} $ and $\Hom D = \left\{ a\to b, b\to a,
+\mathbbm{1}_a, \mathbbm{1}_b \right\} $. Let
+$F 0 = a, F 1 = b$ and $F \left( 0 \to 1 \right) = a\to b$. Then $F $ does not
+reflect $a\to b$ even though it is an isomorphism.\\
+\linebreak
+\textbf{vii.} Let $G$ be a connected groupoid and let $\Aut G$ be the group of
+automorphisms at any of its objects. The inclusion $B\Aut G \hookrightarrow G$
+defines an equivalence of categories. Construct an inverse equivalence $G \to
+B \Aut G$.\\
+\linebreak
+\textit{Solution:} The inclusion $B\Aut G \hookrightarrow G$ defines an
+equivalence. Suppose
+$F \iota \simeq \mathbbm{1}_{B \Aut G}$ and
+$\iota F \simeq \mathbbm{1}_{G}$, so
+\begin{equation*}
+\begin{tikzcd}
+    F \iota  * \ar[d, "F \iota g"] \ar[r] & * \ar[d, "g"]\\
+    F \iota * \ar[r] & *
+\end{tikzcd}
+\end{equation*}
+
+\begin{equation*}
+\begin{tikzcd}
+    \iota F x \ar[d, "\iota F f"] \ar[r] & x \ar[d, "f"] \\
+    \iota F y \ar[r] & y
+\end{tikzcd}
+\end{equation*}
+Letting $\varepsilon  \colon \iota F \implies \mathbbm{1}_{G}$, we get that
+$\iota F (f) = \varepsilon_y^{-1} \cdot f \cdot  \varepsilon_x$, so since the
+inclusion is faithful, there is precisely one morphism 
+ $\iota^{-1} \left( \varepsilon_y^{-1} \cdot f \cdot \varepsilon_x \right)
+ $ for $F(f)$.
+ Then
+ \begin{equation*}
+ \begin{tikzcd}
+     * \ar[d, "\iota^{-1} \left( \varepsilon_y^{-1} g \varepsilon_x (\iota g) \right)
+     "'] \ar[r] & * \ar[d, "g"]\\
+     * \ar[r] & *
+ \end{tikzcd}
+ \end{equation*}
+ 
+
+\textbf{ix:} Show that any category that is equivalent to a locally small
+category is locally small.\\
+\linebreak
+\textit{Proof:} Suppose $ C \simeq D$ with $F  \colon C\to D$ and $G  \colon
+D \to C$ and $FG \simeq \mathbbm{1}_{D}, GF \simeq \mathbbm{1}_{C}$ and $C$ is locally
+small. Then let $x',y' \in D$. By essential surjectivity on objects, $\exists 
+x,y \in C$ such that $Fx \cong x', Fy \cong y'$. Claim:
+$\left| \Hom(x',y') \right| \le  \left| \Hom(x,y) \right| $.
+Let $f  \colon x' \to y'$. Let $\varepsilon  \colon Fx \to x',
+\eta  \colon Fy \to y'$ be isomorphisms. Then
+$\eta^{-1} \cdot f \cdot \varepsilon  \colon Fx \to Fy$, som we claim
+$L = \eta^{-1}_* \circ \varepsilon^{*}$ is injective.\\
+If $L(f) = L(g)$ then
+$\eta^{-1} f \varepsilon = \eta^{-1} g \varepsilon$ so by isomorphism,
+$f = g$. Thus
+ $L  \colon \Hom(x',y') \to \Hom(Fx,Fy)$ is injective, so
+ $\left| \Hom(x',y') \right| \le \left| \Hom(Fx, Fy) \right| 
+ = \left| \Hom(x,y) \right| $ where the last equality follows as $F$ is fully
+ faithful.\\
+ \linebreak
+ \textbf{x.} Characterize the categories that are equivalent to discrete
+ categories. A category that is connected and essentially discrete is called
+ \textbf{chaotic}.\\
+ \linebreak
+ \textit{Solution:} Suppose $C$ is a category that is equivalent to a discrete
+ category $D$. Then there exists a fully faithful and essentially surjective on
+ objects functor $F  \colon C \to D$. Now, for any $x,y \in C$, we have
+ $\left| \Hom(x,y) \right| = \left| \Hom(Fx, Fy) \right| 
+ = \delta_{Fx,Fy}$ since a discrete category only has identity morphisms.
+ Clearly then $\left| \Hom(x,y) \right| =
+ \left| \Hom(y,x) \right| $ and $F$ is faithful and
+ if $f  \colon x\to y, g  \colon y \to x$ then
+ $F(gf) \in \Hom(Fx,Fx) = \left\{ \mathbbm{1}_{Fx} \right\} $, so
+ $gf = \mathbbm{1}_{x}$ and $fg = \mathbbm{1}_{y}$, so $x \cong y$. Thus,
+ $C$ is a groupoid, and since any groupoid has a discrete skeleton, we find
+ that the categories equivalent to discrete categories are precisely all
+ groupoids.\\
+ \linebreak
+ Therefore if a category is a connected groupoid, it is chaotic - this simply
+ means that $\left| \Hom(x,y) \right| =1$ for all $x,y \in C$ and
+ that each morphism is an isomorphism. 
+
+
+
+
+ \subsection*{Section 1.6}
+
+\textbf{Def.} A \textbf{diagram} in a category $C$ is a functor $F  \colon
+J \to C$ whose domain is referred to as the \textbf{indexing category} of the
+diagram.\\
+\linebreak
+Formally, a diagram is just a functor, but in practice a functor is referred to
+as a diagram when the indexing category is smaller than the target category.
+There are, however, instances, such as lemma 3.7.1, where it is convenient to
+consider arbitrary functors as diagrams.\\
+\linebreak
+Functors preserve commutative diagrams.\\
+\linebreak
+\textbf{Lemma.} Suppose $f_1, \ldots, f_n$ is a composable sequence - a "path"
+- of morphisms in a category. If the composite $f_k f_{k-1} \ldots f_{i+1} f_i$
+equals $g_m \ldots g_1$ for another composable sequence of morphisms $g_1,
+\ldots, g_m$ then $f_n \ldots f_1 = f_{n} \ldots f_{k+1} g_m \ldots g_1 f_{i-1}
+\ldots f_1$.\\
+\linebreak
+Lemma 1.6.11 and transitivity of equality imply that commutativity of an entire
+diagram may be checked by establishing commutativity of each minimal subdiagram
+in the directed graph.\\
+\linebreak
+\textbf{Lemma.} For any commutative square $\beta \alpha = \delta \gamma$ in
+which each of the morphisms is an isomorphism, the inverse define a commutative
+square $\alpha^{-1} \beta^{-1} = \gamma^{-1} \delta^{-1}$.\\
+\linebreak
+\textbf{Def.} An object $i \in C$ is \textbf{initial} if for every $c \in C$
+there
+exists a unique morphism $i \to c$. Dually, an object $t \in C$ is
+\textbf{terminal} if for every $c \in C$ there exists a unique morphism
+$c \to t$.\\
+\linebreak
+\textbf{Examples.}\\
+\begin{enumerate}
+    \item $\varnothing \in \Set$ is initial, since for any set $A \in \Set$,
+        there exists precisely one subset of $\varnothing \times A$, namely the
+        empty set. Thus the empty map is the only morphism from  $\varnothing$ 
+        to any set in $\Set$.
+    \item In $\Top$, the empty and singleton spaces are, respectively, initial
+        and terminal.
+\end{enumerate}
+
+\textbf{Def.} A \textbf{concrete category} is a category $C$ equipped with
+a faithful functor $U  \colon C \to \Set$\\
+\linebreak
+Because faithful functors reflect identifications between parallel morphisms:\\
+\textbf{Lemma.} If $U  \colon C \to D$ is faithful, then any diagram in $C$
+whose image commutes in $D$ also commutes in $C$.\\
+\linebreak
+This implies that a diagram in a concrete category commutes if and only if the
+induces diagram of underlying sets commutes.\\
+\linebreak
+
+
+
+
+\textbf{Lemma} Consider morphisms with the indicated sources and targets
+\begin{equation*}
+\begin{tikzcd}
+    a \ar[r,"f"] \ar[d, "g"] & b \ar[d, "h"] \ar[r, "j"] & c \ar[d, "l"]\\
+    a' \ar[r, "k"] & b' \ar[r, "m"] & c'
+\end{tikzcd}
+\end{equation*}
+and suppose that the outer rectangle commutes. This data defines a commutative
+rectangle if either:
+\begin{enumerate}
+    \item the right-hand square commutes and $m$ is a monomorphism; or
+    \item the left-hand square commutes and $f$ is an epimorphism.
+\end{enumerate}
+
+
+\section*{Section 1.6 - Problems}
+
+\textbf{i.} Show that any map from a terminal obj in a category to an initial
+one is an iso. An object that is both initial and terminal is called
+a \textbf{zero object}.\\
+\linebreak
+\textit{Solution:}
+Suppose $f  \colon t \to i$ where $t$ is terminal and $i$ is initial. By
+definition, there exists precisely one morphism
+$g  \colon i \to t$. Now, $fg \in \Hom (i,i) =
+\left\{ \mathbbm{1}_i \right\} $ and
+$gf \in \Hom(t,t) = \left\{ \mathbbm{1}_t \right\} $, so
+$f$ is an isomorphism.\\
+\linebreak
+\textbf{iii} Show that any faithful functor reflects monomorphisms.\\
+\linebreak
+\textit{Solution:} Suppose $F  \colon C \to D$ is faithful and
+$F f  \colon Fc \to Fd$ is a monomorphism in $D$. If $f$ is not a monomorphism,
+there exist $h,k  \colon d \to e$ such that
+$hf = kf$ yet $h \neq k$. But then
+$F(h) F(f) = F(k) F(f)$ so since $F(f)$ is monic, we have
+$F(h) = F(k)$, but $F(h), F(k) \in \Hom(Fd, Fe)$ and since
+$F$ is faithful, i.e., $F_*$ is injective, so $h = k$.\\
+\linebreak
+Now, if we flip all arrow in the above proof, $f$ becomes a map
+$d \to c$ and $h,k  \colon e \to d$, so $fh = fk$. 
+Anywhere where a property of $F f$ being a monomorphism was used would become
+the property that $Ff$ is an epimorphism - since the graphs representing
+monomorphisms and epimorphisms are duals - see terminology section.\\
+\linebreak
+
+
+
+
+
+
+
+
+
+\section*{Terminology}
+
+\textbf{Def.} A morphism $f  \colon x \to y$ in a category is
+\begin{enumerate}
+    \item a \textbf{monomorphism} if for any parallel morphism $h, k  \colon
+        w \to k$, $fh = fk$ implies $h = k$ 
+    \item an \textbf{epimorphism} if for any parallel morphism $h,k
+         \colon y \to z$, $hf = kf$ implies that $h = k$.
+\end{enumerate}
+So
+\begin{center}
+\begin{tikzcd}
+    \bullet \ar[dr, "h"] & &\\
+                         & \bullet \ar[r, "f"] & \bullet\\
+    \bullet \ar[ru, "k"] & &
+\end{tikzcd}
+\begin{tikzcd}
+    & & \bullet\\
+    \bullet \ar[r, "f"] & \bullet \ar[ru, "h"] \ar[rd, "k"] & \\
+                        & & \bullet
+\end{tikzcd}
+\end{center}
+where the left shows $f$ as a monomorphism and right one shows $f$ as an
+epimorphism.\\
+\linebreak
+\textbf{Def.} The category $\Top^2$ consists of objects being ordered pairs
+$(X,A)$ where $X$ is a topological space and $A$ is a subspace of $X$.\\
+A morphism $f  \colon (X,A) \to (Y,B)$ is an ordered pair
+$(f,f')$ where $f \colon X \to Y$ is continuous and
+$f i = j f'$ where $i$ and $j$ are inclusions,
+\begin{equation*}
+\begin{tikzcd}
+    A \ar[d, "f'"'] \ar[r, "i", hookrightarrow] & X \ar[d, "f"]\\
+    B \ar[r, "j"', hookrightarrow] & Y
+\end{tikzcd}
+\end{equation*}
+and composition is coordinatewise. $\Top^2$ is called the category of pairs of
+topological spaces.\\
+$\Top_*$ is a subcategory of $\Top^2$.\\
+\linebreak
+\textbf{Rotman 0.12.} Given a category $C$, show that the following construction
+gives a category $M$. First, an object of $M$ is a morphism of $C$. Next, if
+$f,g \in \ob M$, say, $f  \colon A \to B$ and
+$g  \colon C \to D$, then a morphism in $M$ is an ordered pair
+$(h,k)$ of morphisms in $C$ such that the diagram
+\begin{equation*}
+\begin{tikzcd}
+    A \ar[r, "f"] \ar[d, "h"] & B \ar[d,"k"]\\
+    C \ar[r, "g"] & D
+\end{tikzcd}
+\end{equation*}
+commutes. Define composition coordinatewise:
+\[
+    (h',k') \circ (h,k) = (h' \circ h, k' \circ k).
+\] 
+
+\textit{Solution:} Suppose we have an object
+$f  \colon A \to B \in \ob M$. Then since the following commutes:
+\begin{equation*}
+\begin{tikzcd}
+    A \ar[d, "\mathbbm{1}_A"] \ar[r, "f"] & B \ar[d, "\mathbbm{1}_B"]\\
+    A \ar[r, "f"] & B
+\end{tikzcd}
+\end{equation*}
+we have that $(\mathbbm{1}_{A}, \mathbbm{1}_B)
+ \colon f \to f$.\\
+ This is an identity for $f$ since for any
+ map $(h,k)  \colon f \to g$, where $g  \colon C \to D$, we have
+ \begin{equation*}
+ \begin{tikzcd}
+     A \ar[dd, bend right, dashed, "h \circ \mathbbm{1}_A"'] \ar[d, "\mathbbm{1}_A"] \ar[r, "f"]
+     & B \ar[d, "\mathbbm{1}_B"'] \ar[dd, bend left, dashed,
+     " k \circ \mathbbm{1}_B"]\\
+    A \ar[d, "h"] \ar[r, "f"] & B \ar[d, "k"']\\
+    C \ar[r, "g"] & D
+ \end{tikzcd}
+ \end{equation*}
+ gives that the outer rectangle commutes, so
+ $(h,k) \circ (\mathbbm{1}_{A}, \mathbbm{1}_{B}) =
+ (h,k)$ and similarly for the other order.\\
+ \linebreak
+ Associativity follows from associativity in $C$.\\
+ Composition is also well-defined from composition in $C$.\\
+ \linebreak
+ \textbf{Def. (Rotman)} A \textbf{congruence} on a category
+ $C$ is an equivalence relation $\sim$ on the class
+ $\bigcup_{(A,B)} \Hom(A,B)$ of all morphisms in $C$ such that:
+ \begin{enumerate}
+     \item $f \in \Hom(A,B)$ and $f \sim f'$ implies
+         $f' \in \Hom(A,B);$
+     \item $f \sim f', g \sim g'$, and the composite $g \circ f$ exists imply
+         that
+         \[
+         g \circ f \sim g' \circ f'.
+         \] 
+ \end{enumerate}
+
+ \textbf{Theorem 0.4 (Quotient category)} Let $C$ be a category with congruence
+ $\sim$, and let $\left[ f \right] $ denote the equivalence class of a morphism
+ $f$. Define $C'$ as follows:
+ \begin{align*}
+     \ob C' &= \ob C\\
+     \Hom_{C'}(A,B) &= \left\{ \left[ f \right]  \colon
+     f \in \Hom_{C} (A,B) \right\} \\
+     \left[ g \right] \circ \left[ f \right] 
+                    &= \left[ g \circ f \right].
+ \end{align*}
+ Then $C'$ is a category.\\
+ \linebreak
+ \textit{Proof:} We must check that composition is associative:
+$\left[ g \right] \circ \left( \left[ f \right] \circ \left[ h \right] 
+\right) = \left[ g \right] \circ \left[ f \circ h \right] 
+\left[ g \circ \left( f \circ h \right)  \right]
+\left[ \left( g \circ f \right) \circ h \right] 
+= \left[ g \circ f \right] \left[ h \right] 
+= \left( \left[ g \right] \left[ f \right]  \right) \left[ h \right] $, where
+associativity inside is inherited from $C$.\\
+\linebreak
+We must check that this is well defined.\\
+If $\left[ g \right] = \left[ g' \right] $ and
+$\left[ f \right] = \left[ f' \right] $, then
+$g,g'$ have the same domain and codomain and likewise for $f$ and
+$f'$.\\
+Now $g \circ f \sim g' \circ f'$ by assumption on congruence, so
+$\left[ g \circ f \right] = \left[ g' \circ f' \right] $.\\
+So it is well-defined.\\
+\linebreak
+For identity, choose any object $A \in C'$, then
+$\left[ \mathbbm{1}_A \right] $ is an identity since
+if  $f  \colon A \to B$ then
+$\left[ f \right] \left[ \mathbbm{1}_A \right] 
+= \left[ f \circ \mathbbm{1}_A \right] 
+= \left[ f \right] $ and
+if $g  \colon C \to A$ then
+$\left[ \mathbbm{1}_A \right] \left[ g \right] 
+= \left[ \mathbbm{1}_A \circ g \right] 
+\left[ g \right] $.\\
+\linebreak
+The category $C'$ just constructed is called a
+\textbf{quotient category} of $C$ ; one usually denotes
+$\Hom_{C'} (A,B)$ by $\left[ A,B \right] $.\\
+\linebreak
+The most important quotient category for us is the \textbf{homotopy
+category}.\\
+We will see it later, but for a lesser example:\\
+\linebreak
+Let $C = \Group$ and $f,f' \in \Hom(G,H)$. Define
+$f \sim f'$ if there exists $a \in H$ such that
+$f(x) = a f'(x) a^{-1}$ for all $x \in G$.\\
+\linebreak
+Equivalence: $f \sim f$ is clear by $a = e$.\\
+$f \sim f'$ then $f(x) = a f'(x) a^{-1}$ so
+$f'(x) = a^{-1} f(x) \left( a^{-1} \right)^{-1}$, so
+$f' \sim f$. If
+$f \sim f' \sim f''$ then
+$f(x) = a f'(x) a^{-1} = 
+a b f''(x) b^{-1} a^{-1}
+= (ab) f''(x) (ab)^{-1}$, so
+$f \sim f''$.\\
+\linebreak
+To see congruence, 
+if $f \in \Hom(G,H)$ and
+$f \sim f'$ then
+$f'(x) = a f(x) a^{-1}$. Suppose
+$g, g' \in G$. Then
+$f'(g g') = a f( g g') a^{-1}
+= a f(g) a^{-1} a f(g') a^{-1}
+= f'(g) f'(g')$, so
+$f' \in \Hom(G,H)$. If
+$f \sim f', g \sim g'$ and  $g \circ f$ is well defined, so say,
+$f  \colon G \to H, g  \colon H \to J$. Then
+$f'(x) = af(x) a^{-1}, g'(x) = bg(x)b^{-1}$, so
+$g' \circ f' (x)
+= b g(f'(x)) b^{-1}
+= b g \left( a f(x) a^{-1} \right) b^{-1}
+= b g(a) g(f(x)) g(a)^{-1} b^{-1}
+= (bg(a)) (g \circ f)(x) (bg(a))^{-1}$ and
+$b g(a) \in J$, so
+$\left[ g' \circ f' \right] \sim \left[ g \circ f \right] $.\\
+\linebreak
+Thus the quotient category is defined. If
+$G$ and $H$ are groups, then $\left[ G , H \right] $ is the set of all 
+conjugacy classes $\left[ f \right] $ where
+$f  \colon G \to H$ is a homomorphism.\\
+\linebreak
+\textbf{Rotman 0.17.} Let $C$ and $A$ be categories, and let
+$\sim$ be a congruence on $C$. If
+$T  \colon C \to A$ is a functor with $T(f) = T(g)$ whenever
+$f \sim g$, then $T$ defines a functor $T'  \colon C' \to A$ 
+(where $C'$ is the quotient category) by
+$T'(X) = T(X)$ for every object $X$ and
+$T'\left( \left[ f \right]  \right) 
+= T(f)$ for every morphism $f$.\\
+\linebreak
+\textit{Proof:} We must show that $T'$ is a functor.\\
+Since $T'$ matches $X$ on objects, we have
+$T'(X) \in \ob A$.\\
+Now, if $f  \colon X \to Y$ then
+$T'\left( \left[ f \right]  \right) = 
+T \left( f \right)   \colon TX (T'X) \to TY (T'Y)$.\\
+\linebreak
+Suppose $f  \colon x \to y$ and
+$g  \colon y \to z$ then
+$T' \left( \left[ f \right] \left[ g \right]  \right) 
+= T'\left( \left[ fg \right]  \right) 
+= T(fg) = T(f) T(g)
+= T'\left( \left[ f \right]  \right) 
+T'\left( \left[ g \right]  \right) $.\\
+And 
+$T' \left( \left[ \mathbbm{1}_A \right]  \right) 
+= T(\mathbbm{1}_A) = 
+\mathbbm{1}_{T(A)}
+= \mathbbm{1}_{T'(A)}$.\\
+\linebreak
+Hence $T'$ is a functor.\\
+\linebreak
+\textbf{Rotman 0.20.}\\
+(i) If $X$ is a topological space, show that $C(X)$, the set of all continuous
+real-valued functions on $X$, is a commutative ring with $1$ under pointwise
+operations:
+\[
+f+g   \colon x \mapsto f(x) + g(x) \quad \text{and} \quad 
+f \cdot g  \colon x \mapsto f(x) g(x)
+\] 
+for all $x \in X$.\\
+(ii) Show that $X \mapsto C(X)$ gives a contravariant functor
+$\Top \to \Ring$.\\
+\linebreak
+\textit{Solution:} 
+(i) Trivial.\\
+(ii) Let $F  \colon \Top \to \Ring$ by
+$F(X) = C(X)$. We let $F$ act on morphisms
+as follows: suppose
+$f  \colon X \to Y$ is a continuous map, then
+$F(f)  \colon F(Y) \to F(X) = C(Y) \to C(X)$ by
+$F(f) = f^*$.\\
+\linebreak
+This is a functor since
+if $f  \colon X \to Y$ and $g  \colon Y \to Z$ then
+$F(gf) = (gf)^* = f^* g^* = F(f) F(g)
+$ 
+and $F(\mathbbm{1}_X) = 
+\mathbbm{1}_{X}^{*} =
+\mathbbm{1}_{C(X)}= \mathbbm{1}_{F(X)}$ because
+for any $g  \colon X \to \mathbb{R} \in C(X)$ we have
+$\mathbbm{1}_{X}^{*}(g) = 
+g \circ \mathbbm{1}_X
+= g$, so $\mathbbm{1}_{X}^{*}= \mathbbm{1}_{C(X)}$.\\
+\linebreak
+It is easy to show that 
+homotopy is a congruence on the category $\Top$, so
+it follows from theorem 0.4 (Quotient category) that there is a quotient
+category whose objects are topological spaces $X$ and whose $\Hom$ sets
+are $\Hom (X,Y) = \left[ X,Y \right] $ and whose composition is 
+$\left[ g \right] \circ \left[ f \right] 
+= \left[ g \circ f \right] $ where 
+$\left[ X,Y \right] $ denotes the family of all homotopy classes 
+\[
+\left[ f \right] = \left\{ \text{continuous }g
+ \colon X \to Y  \colon g \sim f\right\} 
+\] 
+of continuous maps $X \to Y$.\\
+\linebreak
+\textbf{Def.} The quotient category just described is called the
+\textbf{homotopy category}, and it is denoted by
+$\hTop$
+
+\subsubsection*{A few philosophical remarks}
+One might expect that the functor $C  \colon \Top \to \Ring$ of
+exercise 0.20 is as valuable as the homology functors. Indeed, a
+theorem of Gelfand and Kolmogoroff states that for $X,Y$ compact Hausdorff,
+$C(X)$ and $C(Y)$ isomorphic as rings implies that
+$X$ and $Y$ are homeomorphic. However, a less accurate translation of a problem
+from topology to algebra is usually more interesting than a very accurate one
+- i.e., often a loss of information is valuable. The functor $C$ is not as
+useful as other functors precisely because of the theorem of Gelfand and
+Kolmogoroff: the translated problem has no loss and is exactly as complicated
+as the original one and hence cannot be any easier to solve (one can hope only
+that the change in viewpoint is helpful).\\
+\linebreak
+Now, all the functors $T  \colon \Top \to A$ that we shall construct, where $A$
+is some "algebraic" category, will have the property that
+$f \sim g$ implies $T(f) = T(g)$ - thus there is a loss of information, we
+collapse to the equivalence classes. This fact, aside from a natural wish to
+identify homotopic maps, makes homotopy valuable because it guarantees that the
+algebraic problem in $A$ arising from a topological problem
+via $T$ is simpler than the original problem. Furthermore, exercise
+0.17 shows that every such functor gives a functor
+$\hTop \to A$, and so the homotopy category is quite fundamental.\\
+\linebreak
+What are the isomorphisms in $\hTop$? (Rotman uses equivalence for isomorphism
+in categories).\\
+\linebreak
+Suppose we have $X,Y \in \ob \hTop$ and
+morphisms $\left[ f \right] \in \left[ X,Y \right] ,
+\left[ g \right] \in \left[ Y,X \right] $ such that
+$\left[ f \right] \left[ g \right] = \left[ \mathbbm{1}_{Y} \right] ,
+\left[ g \right] \left[ f \right] = \left[ \mathbbm{1}_{X} \right] $.
+Thus $\left[ f \right] $ is an isomorphism and any 
+isomorphism is of this form. So\\
+\linebreak
+\textbf{Def. (Homotopy equivalence - isomorphisms in $\hTop$)} 
+A continuous map $f  \colon X \to Y$ is a homotopy equivalence
+if there is a continuous map $g  \colon Y \to X$ with
+$g \circ f \sim \mathbbm{1}_{X}$ and $f \circ g \sim \mathbbm{1}_{Y}$. Two
+spaces $X$ and $Y$ have the \textbf{same homotopy type} if there is a homotopy
+equivalence $f  \colon X \to Y$. That is, $X$ and $Y$ are isomorphic,
+$X \cong Y$, if there
+is a homotopy equivalence $f  \colon X \to Y$.\\
+\linebreak
+
+
+
+
+
+
+
+
+\end{document}
