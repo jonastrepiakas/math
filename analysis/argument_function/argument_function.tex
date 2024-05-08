@@ -1,0 +1,237 @@
+\documentclass[reqno]{amsart}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb, amsthm, amscd}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+%%For code (e.g. python) in latex:
+%\usepackage{listings}
+%
+%Usage: 
+%\begin{lstlisting}[language=Python]
+%\end{lstlisting}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+\theoremstyle{plain}% default
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\Arctan}{Arctan}
+\DeclareMathOperator{\Arcsin}{Arcsin}
+\DeclareMathOperator{\Arccos}{Arccos}
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\Hom}{{\mathrm{Hom}}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\Mod}{{\mathrm{Mod}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\begin{document}
+    \begin{definition}[]
+        For $z \in \mathbb{C} - \left\{ 0 \right\} $, we let
+        \[
+        \arg z = \left\{ \theta \in \mathbb{R}  \mid |z| e^{i \theta} = z \right\} 
+        \] 
+    \end{definition}
+
+    \begin{definition}[Principal argument]
+        We define the principal argument of $z \in \mathbb{C} - \left\{
+        0 \right\} $ as the unique element
+        \[
+            \Arg z \in \arg z \cap (- \pi , \pi ]
+        \] 
+    \end{definition}
+
+    \begin{definition}[Argument function]
+        An argument function for a subset $A \subset \mathbb{C} - \left\{
+        0 \right\} $ is a function 
+        $\theta  \colon A \to \mathbb{R}$ such that 
+        $\theta (z) \in \arg z$ for all $z \in A$.
+    \end{definition}
+
+    \begin{lemma}[]
+        $\Arg $ is continuous on $\mathbb{C}_\pi = \left\{ r e^{i \pi}  \mid
+        r \ge 0 \right\} $.
+    \end{lemma}
+
+    \begin{proof}
+        We have that $\Arg z$ maps $\mathbb{C}_\pi$ onto $\left( -\pi , \pi
+        \right) $, and
+        \begin{align*}
+            \Arg z &= \Arccos \frac{x}{|z|}, \quad z = x+iy, y > 0\\
+            \Arg z &= \Arctan \frac{x}{y}, \quad z = x+iy, x>0\\
+            \Arg z &= \Arcsin \frac{y}{|z|}, \quad z = x+iy, y<0
+        \end{align*}
+        We have that $\Arccos \frac{x}{|z|}$ and
+        $\Arctan \frac{x}{y}$ agree on $\left\{ x+iy \in \mathbb{C}  \mid 
+        x,y >0 \right\} $ and
+        that $\Arctan \frac{x}{y}$ and
+        $\Arcsin \frac{y}{|z|}$ agree on
+        $\left\{ x+iy \in \mathbb{C}  \mid  x>0, y <0 \right\} $. All these
+        are $C^{\infty}$ functions, so in particular continuous, hence
+        they define a continuous function on
+        $\mathbb{C}_\pi$.
+    \end{proof}
+
+    \begin{definition}[Argument function for $\mathbb{C}_{\alpha}$]
+       Likewise, if $\alpha \in \mathbb{R}$, we can define
+        \[
+       \mathbb{C}_{\alpha} = \mathbb{C} - \left\{ 
+       r e^{i \alpha}  \mid  r \ge 0 \right\}.
+       \] 
+       Then we can define 
+       \[
+       \Arg_{\alpha}  \colon \mathbb{C}_{\alpha} \to \mathbb{R}
+       \] 
+       by
+       \[
+       \Arg_{\alpha} (z) = \Arg \left( e^{i \left( \pi - \alpha \right) }z
+       \right) + \alpha - \pi.
+       \] 
+    \end{definition}
+    As a composition of continuous maps, $\Arg_{\alpha}$ is continuous
+    on $\mathbb{C}_{\pi}$.
+    
+    \begin{proposition}[]
+        There exist a continuous argument function on
+        $ A \subset S^{1} \subset \mathbb{C}$ if and only if
+        $A \neq S^{1}$.
+    \end{proposition}
+    
+    \begin{proof}
+        We first show that there does not exist a continuous argument function
+        on $S^{1}$. Suppose there exists a continuous argument function
+        $\theta  \colon S^{1} \to \mathbb{R}$. Since
+        $S^{1}$ is compact and path-connected, 
+        the image of $S^{1}$ under $\theta$ must be a closed interval, $\left[
+        a,b\right] $. As $\theta$ is bijective too, it is a homeomorphism. But
+        removing any point of $S^{1}$ leaves it path-connected, while removing
+        a point in the interior of $\left[ a,b \right] $ leaves it separated,
+        and thus not connected. Since connectedness and path-connectedness are
+        topological properties, $S^{1}$ is not homeomorphic to $\left[ a,b
+        \right] $, so no such argument function exists.\\
+        Now, conversely, if $A \neq S^{1}$, then we can pick a point
+        $e^{i \alpha} \in S^{1} - A$. Then
+        $\Arg_{\alpha}$ is a continuous argument function for $A$.
+    \end{proof}
+
+
+%\bibliography{refs}
+\end{document}

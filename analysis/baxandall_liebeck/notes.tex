@@ -1,0 +1,315 @@
+\documentclass[reqno]{amsart}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{amsmath, amssymb, amsthm, amscd}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+%%For code (e.g. python) in latex:
+%\usepackage{listings}
+%
+%Usage: 
+%\begin{lstlisting}[language=Python]
+%\end{lstlisting}
+
+\newcommand{\incfig}[2][1]{%
+\def\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+
+
+\theoremstyle{plain}% default
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\pdfsuppresswarningpagegroup=1
+
+\setlength\parindent{0pt}
+
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\Hom}{{\mathrm{Hom}}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\Mod}{{\mathrm{Mod}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\unif}{\pazocal{U}}
+
+\begin{document}
+\section{Baxandall and Liebeck}
+
+    \begin{exercise}[]
+        Prove that $f  \colon \mathbb{R} \to \mathbb{R}^2$ defined
+        by $f(t) = \left( \left| t \right| ,t \right) $ is not
+        differentiable at $0$.
+    \end{exercise}
+
+    \begin{proof}
+        If $f$ were differentiable at $0$, then there
+        would exist a linear function $L  \colon \mathbb{R} \to 
+        \mathbb{R}^2$ and a function
+        $\eta  \colon \mathbb{R} \to \mathbb{R}^2$ such that
+        $\lim_{h\to 0} \eta(h)=0$ and
+        \[
+        f\left( h \right) -f(0) = L(h)+ h \eta(h)
+        \] 
+        Now $f(h) - f(0) = \left( \left| h \right| ,h \right) $.
+        Suppose $h = -\varepsilon <0$. Then
+        $f(h) - f(0) = \left( \varepsilon, - \varepsilon \right) $ 
+        and $L(h)+ h \eta \left( h \right) 
+        = - \varepsilon L(1) - \varepsilon \eta \left( - \varepsilon
+        \right) =
+        -\varepsilon \left( L(1) + 
+        \eta \left( -\varepsilon \right) \right) $.
+        Thus 
+        \[
+           L(1) =\lim_{h\to 0-}
+           \frac{f(h)-f(0)}{h} =
+           \lim_{-\varepsilon \to 0, -\varepsilon < 0}
+           \frac{\left( \varepsilon, - \varepsilon
+           \right) }{- \varepsilon}= \left( -1,1 \right) 
+       \]
+        
+        And for $h = \varepsilon > 0$, we have
+        $f\left( h \right) -f(0) = 
+        \left( \varepsilon, \varepsilon \right) $ and
+        $L\left( h \right) + h \eta (h)=
+        \varepsilon \left( L(1) + \eta (\varepsilon) \right) $, so
+        \[
+        L(1) = 
+        \lim_{h\to 0+} \frac{f(h) - f(0)}{h} 
+        \lim_{\varepsilon \to 0, \varepsilon > 0} 
+        \frac{\left( \varepsilon, \varepsilon \right) }{\varepsilon}
+        = \left( 1,1 \right) 
+        \] 
+        giving a contradiction for
+        $L(1)$.
+    \end{proof}
+
+    \begin{exercise}[3.3.1]
+        Let $f  \colon \mathbb{R}^2 \to \mathbb{R}$ be
+        $f\left( x_1, x_2 \right) = x_1+ x_2$. Show that
+        for any $p \in \mathbb{R}^2$,
+        \[
+        \lim_{h\to 0} \frac{f\left( p+h \right) -f(p)}{\|h\|}
+        \] 
+        does not exist.
+    \end{exercise}
+
+    \begin{solution}
+        We have for $h\neq 0$,
+        \[
+        \frac{f\left( p+h \right) -f(p)}{\|h\|}
+        = \frac{p_1 + h_1 + p_2 + h_2 - p_1 - p_2}{\|h\|}
+        = \frac{h_1 + h_2}{\sqrt{h_1^2 + h_2^2} }
+        \] 
+        Supposing $h_1 = h_2$, we get
+        $\frac{2 h_1}{\sqrt{2} h_1} = \frac{2}{\sqrt{2} }$ which is the
+        limit along the linear $x=y$ in $\mathbb{R}^2$ approaching from
+        above. However, if $h_1 = -h_2$, then
+        the expression is $0$, so the limit is $0$ as well. Thus
+        this limit does not exist.\\
+        However, 
+        \[
+        f(p+h) - f(p) = h_1 + h_2
+        = h_1 \frac{\partial f}{\partial x^{1}} (p) + 
+        h_2 \frac{\partial f}{\partial x^{2}} (p)
+        \] 
+        so by theorem 3.3.22, $f$ is differentiable at
+        $p$.\\
+        This illustrates that the simple definition for functions
+         $\mathbb{R} \to \mathbb{R}$ of
+         \[
+         f'(x)= \lim_{h\to 0} \frac{f(x+h) - f(x)}{h}
+         \] 
+         does not generalize to $\mathbb{R}^{m} \to \mathbb{R}$ for
+         $m\ge 2$. 
+    \end{solution}
+
+    \begin{exercise}[]
+        Prove that a linear function $L  \colon \mathbb{R}^{m} \to \mathbb{R}$ 
+        is differentiable everywhere, and that it is equal to its own 
+        differential at all points in $\mathbb{R}^{m}$.
+    \end{exercise}
+
+    \begin{proof}
+        Clearly $L(p+h) - L(p) = L(p) + L(h) - L(p) = L(h)$, so
+        $\delta_{L,p}$ is closely approximated near $0$ by
+        $L$, so $L$ is differentiable everywhere, and
+        $L_{L,p} = L$ by uniqueness, so $L$ is its own differential.\\
+        Putting this in the context of differential geometry, we have
+        that the differential of $L$ is
+        \[
+        dL = \sum \frac{\partial L}{\partial x^{i}} d x^{i}
+        = \sum L\left( e_i \right) dx^{i}
+        \] 
+        Now, applying it to $e_i = \frac{\partial }{\partial x^{i}} $,
+        we get
+        $dL(e_i) = \sum L(e_j) dx^{j} \frac{\partial }{\partial x^{i}} 
+        = \sum L(e_j) \frac{\partial x^{j}}{\partial x^{i}} 
+        = \sum L(e_j) \delta_{i,j}
+        = L(e_i)$. As both are linear maps
+        $\mathbb{R}^{m} \to \mathbb{R}$ and agree on the standard
+        basis, we conclude that $dL = L = L_{L,p}$, so indeed
+        the differentials agree.
+    \end{proof}
+
+    \begin{exercise}[3.3.3]
+        Prove that the function $f  \colon \mathbb{R}^2 \to \mathbb{R}$ 
+        defined by $f\left( x_1, x_2 \right) =
+        x_1^3 + x_2^3$ is differentiable everywhere. Find the linear
+        function $L_{f,p}$ that closely approximates $\delta_{f,p}$ 
+        near $0$.
+    \end{exercise}
+
+    \begin{solution}
+        Recalling that if such an $L_{f,p}$ exists, then
+        $L_{f,p}(e_i) = \frac{\partial f}{\partial x^{i}}(p) $, we
+        find $L_{f,p}(e_1) = 3 p_1^2$ and
+        $L_{f,p}(e_2) = 3p_2^2$, so
+        $L_{f,p}(h) = h_1 3p_1^2 + h_2 3 p_2^2$. Now
+        \begin{align*}
+        \delta_{f,p}(h) = \left( h_1+p_1 \right)^3 + \left( h_2
+        +p_2\right)^^3 - p_1^3 - p_2^3 
+        &= 
+        h_1^3 + h_2^3 + 3 \left( h_1^2 p_1 + h_2^2 p_2 +
+        h_1p_1^2 + h_2p_2^2 \right)\\ 
+        &=
+        h_1^3 + h_2^3 + 3h_1^2 p_1 + 3h_2^2 p_2 + 
+        L_{f,p}(h)\\
+        &= L_{f,p}(h) + \|h \| \eta (h)
+        \end{align*}
+        where         
+        \[
+        \eta (h) =
+        \begin{cases}
+            \frac{h_1^3 + h_2^3 + 3h_1^2 p_1 + 3h_2^2 p_2}{
+            \|h\|},& h\neq 0\\
+            0,& h=0
+        \end{cases}
+    \]
+        Now, since $\left| h_1 \right| ,
+        \left| h_2 \right| \le \|h\|$, we find that
+        $\eta (h) \to 0$ as $h\to 0$, so
+        $f$ is differentiable.\\
+        The Jacobian $J_{f,p}$ becomes
+        \[
+        J_{f,p} = \begin{pmatrix} 
+            3p_1^2 & 3p_2^2
+        \end{pmatrix} 
+        \] 
+        
+
+        
+    \end{solution}
+
+
+
+
+
+%\bibliography{refs}
+\end{document}
