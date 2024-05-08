@@ -98,6 +98,7 @@
 \DeclareMathOperator{\Fin}{Fin}
 \DeclareMathOperator{\rel}{rel}
 \DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\Arg}{Arg}
 \newcommand{\SL}{{\mathrm{SL}}}
 \newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
 \newcommand{\Hom}{{\mathrm{Hom}}}
@@ -1477,6 +1478,36 @@
         domains.\\
     \end{proof}
 
+    \begin{exercise}[Lee, 1-8]
+        By identifying $\mathbb{R}^2$ with $\mathbb{C}$, we can think of
+        $S^{1}$ as lying in $\mathbb{C}$. Show that for any angle function
+        $\theta$
+        on $U \subset S^{1}$ with $U \neq S^{1}$, 
+        $\left( U, \theta \right) $ is a smooth coordinate chart
+        for $S^{1}$ with its standard smooth structure.
+    \end{exercise}
+
+    \begin{proof}
+        Suppose $e^{i \alpha} \in S^{1} - U$. Then
+        $\Arg_{\alpha}$ is a continuous angle function on
+        $U$, and any other angle function on $U$ is of the form
+        $\Arg_{\alpha} + 2 \pi n$ for $n \in \mathbb{Z}$.
+        Now, $\Arg_{\alpha}$ is a smooth homeomorphism of
+        $S^{1} - \left\{ e^{i \alpha} \right\} $ onto
+        $\left( \alpha - 2 \pi, \alpha \right) $, so
+        any angle function is a smooth homeomorphism of
+        $U \subset S^{1} - \left\{ e^{i \alpha} \right\} $ onto some
+        subspace diffeomorphic to $\left( \alpha - 2\pi, \alpha \right) $.
+        Now, $\theta^{-1}  \colon \theta (U) \to U$ is given by
+        $\theta^{-1} (t) = e^{it}$, so
+        $\varphi_1 \circ \theta^{-1}(t) = \cos t$ and
+        $\varphi_2 \circ \theta^{-1}(t) = \sin t$ which are both
+        smooth on all of $\mathbb{R}$. Hence
+        $\theta^{-1}  \colon \theta (U) \to U$ is smooth, so
+        $\theta$ is a diffeomorpism and hence
+        $\left( U, \theta \right) $ is a smooth chart.
+    \end{proof}
+
     \begin{exercise}[Complex projective $n$-space]
         Let $U \subset \mathbb{C}^{n+1} - \left\{ 0 \right\} $ 
         be open. Then
@@ -1530,6 +1561,8 @@
         The second part is clear since the composition
         of diffeomorphisms is a diffeomorphism.
     \end{proof}
+
+
     
 
 

@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1715148392 "argument_function.tex" "argument_function.pdf" "argument_function" 1715148392
+["pdflatex"] 1715155727 "argument_function.tex" "argument_function.pdf" "argument_function" 1715155728
   "/etc/texmf/web2c/texmf.cnf" 1681119169 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1000.tfm" 1136768653 3584 2d666ecf6d466d8b007246bc2f94d9da ""
@@ -188,9 +188,9 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1705589474 4379155 98693266ff65f58d9f98aff394de12d2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1710525168 2799302 6fcb89deea3a88d38538d8e6a8026208 ""
-  "argument_function.aux" 1715148392 937 07b1ff02c0ecf71ea7f70cc249deb4ca "pdflatex"
-  "argument_function.out" 1715148392 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "argument_function.tex" 1715148390 7106 d89571662df0f95f525f676ba57df2d9 ""
+  "argument_function.aux" 1715155728 937 07b1ff02c0ecf71ea7f70cc249deb4ca "pdflatex"
+  "argument_function.out" 1715155728 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "argument_function.tex" 1715155726 7988 dfda1420a6a09fd16a05fd7f31b82e41 ""
   (generated)
   "argument_function.aux"
   "argument_function.log"

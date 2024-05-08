@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.15)  19 APR 2024 13:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.15)  8 MAY 2024 00:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -562,33 +562,33 @@ File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
 ) (./notes.aux)
 \openout1 = `notes.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 145.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 146.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 145.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 146.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 145.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 146.
  (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
@@ -645,7 +645,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring ON on input line 145.
+Package hyperref Info: Link coloring ON on input line 146.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
@@ -655,9 +655,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count325
 )
-LaTeX Info: Redefining \ref on input line 145.
-LaTeX Info: Redefining \pageref on input line 145.
-LaTeX Info: Redefining \nameref on input line 145.
+LaTeX Info: Redefining \ref on input line 146.
+LaTeX Info: Redefining \pageref on input line 146.
+LaTeX Info: Redefining \nameref on input line 146.
  (./notes.out) (./notes.out)
 \@outlinefile=\write4
 \openout4 = `notes.out'.
@@ -669,155 +669,160 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 192--197
+Underfull \hbox (badness 10000) in paragraph at lines 193--198
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 218--223
+Underfull \hbox (badness 10000) in paragraph at lines 219--224
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 218--223
+Underfull \hbox (badness 10000) in paragraph at lines 219--224
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 224--236
+Underfull \hbox (badness 10000) in paragraph at lines 225--237
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 224--236
+Underfull \hbox (badness 10000) in paragraph at lines 225--237
 
  []
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 255--274
+Underfull \hbox (badness 10000) in paragraph at lines 256--275
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 255--274
+Underfull \hbox (badness 10000) in paragraph at lines 256--275
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 279--322
+Underfull \hbox (badness 10000) in paragraph at lines 280--323
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 363--372
+Underfull \hbox (badness 10000) in paragraph at lines 364--373
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 411--413
+Underfull \hbox (badness 10000) in paragraph at lines 412--414
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 420--438
+Underfull \hbox (badness 10000) in paragraph at lines 421--439
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 420--438
+Underfull \hbox (badness 10000) in paragraph at lines 421--439
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 465--492
+Underfull \hbox (badness 10000) in paragraph at lines 466--493
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 546--571
+Underfull \hbox (badness 10000) in paragraph at lines 547--572
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 645--678
+Underfull \hbox (badness 10000) in paragraph at lines 646--679
 
  []
 
 <manifold-fundamental-group.png, id=134, 676.5275pt x 420.57124pt>
 File: manifold-fundamental-group.png Graphic file (type png)
 <use manifold-fundamental-group.png>
-Package pdftex.def Info: manifold-fundamental-group.png  used on input line 688.
+Package pdftex.def Info: manifold-fundamental-group.png  used on input line 689.
 (pdftex.def)             Requested size: 236.01561pt x 146.72083pt.
 
 Underfull \vbox (badness 7047) has occurred while \output is active []
 
  [5]
-Underfull \hbox (badness 10000) in paragraph at lines 693--711
+Underfull \hbox (badness 10000) in paragraph at lines 694--712
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 693--711
+Underfull \hbox (badness 10000) in paragraph at lines 694--712
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 722--735
+Underfull \hbox (badness 10000) in paragraph at lines 723--736
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 754--763
+Underfull \hbox (badness 10000) in paragraph at lines 755--764
 
  []
 
 [6 <./manifold-fundamental-group.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 787--795
+Underfull \hbox (badness 10000) in paragraph at lines 788--796
 
  []
 
 <prop-1-17-a.png, id=152, 696.6025pt x 488.82625pt>
 File: prop-1-17-a.png Graphic file (type png)
 <use prop-1-17-a.png>
-Package pdftex.def Info: prop-1-17-a.png  used on input line 840.
+Package pdftex.def Info: prop-1-17-a.png  used on input line 841.
 (pdftex.def)             Requested size: 283.22162pt x 198.7418pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [7]
-Underfull \hbox (badness 10000) in paragraph at lines 843--892
+Underfull \hbox (badness 10000) in paragraph at lines 844--893
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 896--899
+Underfull \hbox (badness 10000) in paragraph at lines 897--900
 
  []
 
 [8 <./prop-1-17-a.png>] [9] [10]
-Overfull \hbox (34.67343pt too wide) in paragraph at lines 1176--1182
+Overfull \hbox (34.67343pt too wide) in paragraph at lines 1177--1183
 \OML/cmm/m/it/10 M[] \OMS/cmsy/m/n/10 ^^B [] ^^B \OML/cmm/m/it/10 M[]$ \T1/cmr/m/n/10 is a topological manifold of dimension $\OML/cmm/m/it/10 n[] \OT1/cmr/m/n/10 + [] + \OML/cmm/m/it/10 n[]$\T1/cmr/m/n/10 , with charts of the form $[]$.
  []
 
 [11]
-Package hyperref Info: bookmark level for unknown todo defaults to 0 on input line 1443.
- [12] [13] [14] [15] [16] [17] [18]
-Underfull \hbox (badness 10000) in paragraph at lines 1907--1932
+Package hyperref Info: bookmark level for unknown todo defaults to 0 on input line 1444.
+ [12] [13]
+Underfull \hbox (badness 10000) in paragraph at lines 1548--1563
+
+ []
+
+[14] [15] [16] [17] [18]
+Underfull \hbox (badness 10000) in paragraph at lines 1994--2019
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1907--1932
+Underfull \hbox (badness 10000) in paragraph at lines 1994--2019
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1952--1963
+Underfull \hbox (badness 10000) in paragraph at lines 2039--2050
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1999--2017
+Underfull \hbox (badness 10000) in paragraph at lines 2086--2104
 
  []
 
@@ -826,18 +831,18 @@ Package rerunfilecheck Info: File `notes.out' has not changed.
 (rerunfilecheck)             Checksum: A117CC161263EDE3DB20DC299BA44892;2802.
  ) 
 Here is how much of TeX's memory you used:
- 24959 strings out of 478287
- 470111 string characters out of 5849289
- 757167 words of memory out of 5000000
- 42405 multiletter control sequences out of 15000+600000
+ 24963 strings out of 478287
+ 470142 string characters out of 5849289
+ 757179 words of memory out of 5000000
+ 42407 multiletter control sequences out of 15000+600000
  480779 words of font info for 61 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  99i,15n,94p,431b,1111s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbi1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on notes.pdf (21 pages, 431952 bytes).
+Output written on notes.pdf (21 pages, 436739 bytes).
 PDF statistics:
- 408 PDF objects out of 1000 (max. 8388607)
- 341 compressed objects within 4 object streams
- 137 named destinations out of 1000 (max. 500000)
+ 411 PDF objects out of 1000 (max. 8388607)
+ 344 compressed objects within 4 object streams
+ 139 named destinations out of 1000 (max. 500000)
  143 words of extra memory for PDF output out of 10000 (max. 10000000)
 
