@@ -1316,8 +1316,9 @@
             for us here.
         \end{remark}
 
-    \subsection*{Problems}
+    \section*{Problems}
 
+    \subsection{Chapter 1}
     \begin{problem}
         Let $X$ be the set of all points
         $(x,y) \in \mathbb{R}^2$ such that
@@ -1441,42 +1442,18 @@
         Suppose $M$ is a locally Euclidean Hausdorff space.
         Show that $M$ is second-countable if and only if it is
         paracompact and has countably many connected components.
-        \todo{Unsolved}
+        \todo{Solved, solution in notebook}
     \end{exercise}
 
     \begin{proof}
         $\left( \implies \right) $ : is clear.\\
-        $\left( \impliedby \right) $: Assume $M$ only has one
-        component.\\
-        Since every topological manifold has an open cover of precompact
-        coordinate balls and half-balls and $M$ is paracompact, the cover
-        admits
-        an open, locally finite refinement, call it $\mathcal{B}$. Thus, every
-        element $U \in \mathcal{B}$ is open and contained in some
-        precompact coordinate ball or half-ball.\\
-        Let $x \in M$. Then $x$ has an open neighborhood $U_x$ such that
-        $U_x$ intersects finitely many elements of $\mathcal{B}$. The
-        collection $\bigcup_{x \in M} U_x$ covers $M$.
-        
-        \newpage
-        Since $M$ is locally Euclidean, there exists a
-        neighborhood $U_x$ for any $x \in M$ such that
-        $\varphi_{x}  \colon U_x \to \hat{U}_x \subset \mathbb{R}^{n}$
-        is a homeomorphism where $\hat{U}_x$ is open. Then
-        the preimage of all regular 
-        coordinate balls with rational coordinate
-        and rational radius which is contained in $\hat{U}_x$ is
-        a basis for the induced topology on $U_x$, denote this
-        set by $\mathcal{B}_x$. That is, for each
-        $B \in \mathcal{B}_x$, there exists $r' > r > 0$ such that
-        $\varphi (\overline{B}) =
-        \overline{B_r (y)} \subset B_{r'}(y) \subset \hat{U}_x$.\\
-        Now, since
-        $\bigcup_{x \in M} \bigcup_{B \in \mathcal{B}_x} B$ 
-        covers $M$, there exists a locally finite open refinement,
-        call it $\mathcal{B}$ which consists of precompact coordinate
-        domains.\\
     \end{proof}
+
+    \begin{exercise}[1-6]
+        Let $M$ be a nonempty topological manifold of dimension $n\ge 1$. If
+        $M$ has a smooth structure, show that it has uncountably many distinct
+        ones.\todo{Unsolved}
+    \end{exercise}
 
     \begin{exercise}[Lee, 1-8]
         By identifying $\mathbb{R}^2$ with $\mathbb{C}$, we can think of
@@ -1532,6 +1509,8 @@
         $p$ is also open, we further have that since
         $S^{n}$ is compact, so is $\mathbb{C}\mathbb{P}^{n}$.
     \end{exercise}
+
+    \subsection{Chapter 2}
 
     \begin{proposition}[2.15 (Properties of Diffeomorphisms)]
         \begin{itemize}
