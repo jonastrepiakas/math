@@ -1029,16 +1029,17 @@
          Let $V$ be a finite-dimensional real vector space. Any norm on $V$ 
          determines a topology, which is independent of the choice of norm. With
          this topology, $V$ is a topological $n$-manifold, and has a natural smooth
-         structure defiend as follows. Each ordered basis
+         structure defined as follows. Each ordered basis
          $\left( e_1, \ldots, e_n \right) $ for $V$ defines a basis isomorphism
          $e  \colon \mathbb{R}^{n} \to V$ by
          \[
          e(x) = \sum_{i=1}^{n} x^{i} e_i.
          \] 
-         This map is a homeomorphism, so $\left( V, e^{-1} \right) $ is a chart. If
+         This map is a homeomorphism 
+         \cite[p~638]{Lee}, so $\left( V, e^{-1} \right) $ is a chart. If
          $\left( \tilde{e_1}, \ldots,
          \tilde{e_n} \right) $ is any other basis and
-         $\tilde{e}(x) = \sum_{j} x^{j}\tilde{e_j} $ i the corresponding
+         $\tilde{e}(x) = \sum_{j} x^{j}\tilde{e_j} $ is the corresponding
          isomorphism, then there is some invertible matrix
          $\left( A_{i}^{j} \right) $ such that
          $e_i = \sum_j A_{i}^{j} \tilde{e_j}$ for each $i$. The transition map
@@ -1316,6 +1317,38 @@
             for us here.
         \end{remark}
 
+        \subsection{Applications of partitions of unity}
+
+        \begin{definition}[Bump functions]
+            If $M$ is a topological space, $A \subset M$ is a closed subset,
+            and $U \subset M$ is an open subset containing $A$, a continuous
+            function $\psi  \colon M \to \mathbb{R}$ is called a
+            \textbf{bump function for $A$ supposed in $U$} if
+            $0 \le \psi \le 1$ on $M$, $\psi = 1$ on $A$, and
+            $\supp \psi \subset U$.
+        \end{definition}
+
+        \begin{proposition}[Existence of smooth bump functions]
+            Let $M$ be a smooth manifold with or without boundary. For any
+            closed subset $A \subset M$ and any open subset $U$ containing
+            $A$, there exists a smooth bump function for $A$ supported in $U$.
+        \end{proposition}
+
+        \begin{proof}
+            First, the much simpler proof from the book:\\
+            Let $U = U_0$ and $U_1 = M - A$. Then there exists
+            a smooth partition of unity subordinate to $\left\{ U_0, U_1
+            \right\} $. Since $\psi_1 = 0$ on $A$, we have
+            $\psi_0 = \sum \psi_i = 1$ on $A$, so
+            $\psi_0$ has the desired properties.
+        \end{proof}
+
+
+        
+
+
+
+
     \section*{Problems}
 
     \subsection{Chapter 1}
@@ -1539,6 +1572,198 @@
         \linebreak
         The second part is clear since the composition
         of diffeomorphisms is a diffeomorphism.
+    \end{proof}
+
+    \begin{exercise}[2-3]
+        For each of the following maps between spheres, compute sufficiently
+        many coordinate representations to prove that it is smooth.
+        \begin{enumerate}
+            \item $p_n  \colon S^{1} \to S^{1}$ is the \textbf{nth power map}
+                for $n \in \mathbb{Z}$, given in complex notation by
+                $p_n (z) = z^{n}$.
+            \item $\alpha  \colon S^{n} \to S^{n}$ is the \textbf{antipodal map}
+                $\alpha(x) = -x$.
+            \item $F  \colon S^{3}\to S^2 $ is given by
+                $F(w,z) = \left( z \overline{w} + w \overline{z},
+                i w \overline{z} - i z \overline{w},
+            z \overline{z} - w \overline{w} \right) $ where we think of
+            $S^3$ as the subset 
+            $\left\{ \left( w,z \right)  \colon
+            \left| w \right|^2 + \left| z \right|^2 = 1\right\} \subset
+            \mathbb{C}^2$.
+        \end{enumerate}
+    \end{exercise}
+
+    \begin{proof}
+        $(1)$ : First, let us consider the map $p_2 (z) = z^2$. The
+        we can subdivide $S^{1}$ into the following sets:
+        $V_1 = \left\{ e^{it } \mid t\in \left( -\frac{\pi}{2}, \frac{\pi}{2} \right)  \right\} 
+        ,V_2 = \left\{ e^{i t}  \mid  t \in \left( 0, \pi \right)  \right\} ,
+        V_3 = \left\{ e^{i t}  \mid  t\in \left( \frac{\pi}{2}, \frac{3\pi}{2}
+        \right)  \right\} ,
+        V_4 = \left\{ e^{i t} \mid t \in \left( \pi, 2\pi \right)  \right\}$.
+        Let $\theta_1  \colon U_1 = S^{1} - \left\{ \left( -1,0 \right)  \right\} \to 
+        \left( - \pi, \pi \right) $ and
+        $\theta_2  \colon U_2 = S^{1} - \left\{ \left( 1,0 \right)  \right\} \to 
+        \left( 0, 2 \pi \right) $ be argument functions. Then
+        $\left( U_1, \theta_1 \right)$ and $\left( U_2, \theta_2 \right) $ 
+        area smooth charts constituting and atlas for $S^{1}$.
+        Suppose $z \in V_1$. Then a coordinate representation for
+        $p_2 (z)$ is $\theta_1 \circ p_2 \circ \theta_1^{-1} (t)
+        2t  $ where $\theta_1 \circ p_2 \circ \theta_1^{-1}  \colon
+        \theta_1 \left( V_1 \cup V_3 \cup V_4 \cap \left( 
+        S^{1} - \left\{ \left( -1,0 \right)  \right\} \right)  \right) = 
+        \left( -\pi , \frac{\pi}{2} \right) \cup
+        \left( \frac{\pi}{2}, \pi \right) \to \mathbb{R}$. Similarly,
+        a coordinate representation of $p_2$ for $z \in V_2$ with respect to
+        the charts $\theta_2 , \theta_2^{-1}$ is also $t \mapsto 2t$ on an open
+        set of $\mathbb{R}$ which is smooth. And the exact same can be shown
+        for  $z$ in $V_3$ or $V_4$.\\
+        \linebreak
+        Now consider the case $p_n$ for an arbitrary integer $n\ge 3$.
+        Let $V_1 = \left\{ e^{it } \mid t\in 
+        \left( - \frac{\pi}{n}, \frac{\pi}{n} \right)  \right\} $ and then for
+        $j \in \left\{ 2, \ldots, 2n \right\} $, let
+        $V_j = e^{\left( j-1 \right) i \frac{\pi}{n}} V_1$. Then
+        $p_n$ maps each $V_j$ to either $S^{1} - \left\{ \left( -1,0 \right)
+        \right\} $ or
+        $S^{1} - \left\{ \left( 1,0 \right)  \right\} $; where
+        $V_j$ is mapped to the former if $j$ is odd and
+        $V_j$ is mapped to the latter if $j$ is even. Now,
+        $V_{n+1}$ is precisely $\left\{ e^{i t}  \mid 
+        t \in \left( \pi - \frac{\pi}{n}, \pi + \frac{\pi}{n} \right) \right\}
+        \subset S^{1} - \left\{ \left( 1,0 \right)  \right\} $ and
+        contains $\left( -1,0 \right) $.\\
+        We first treat the cases $z \in V_1$ and $z \in V_{n+1}$.
+        If $z \in V_1$, then $p_n(z) \neq (-1,0)$, so
+        $\theta_1 \circ p_n \circ \theta_1^{-1} (t) =
+        nt$ for $t \in \theta_1 \left( p_n^{-1}\left( S^{1} - 
+        \left\{ \left( -1,0 \right)  \right\} \right) \cap 
+    S^{1} - \left\{ \left( (-1,0) \right)  \right\} \right)  $ which is
+    an open subset of $\mathbb{R}$ and 
+    $t \mapsto nt$ is smooth on any open subset of $\mathbb{R}$.
+    If instead $z \in V_{n+1}$ then $p_n(z) \neq \left( 1,0 \right) $, so
+    using $\theta_2$ instead as a coordinate representation, we get
+    also that $p_n$ is represented by $t \mapsto tn$ on
+    $V_{n+1}$.\\
+    For all other $V_j$, we have that if $j$ is even, then
+     $\theta_2$ works as coordinate representation giving $t \mapsto nt$ again,
+     and if $j$ is odd, then $\theta_1$ gives $t \mapsto nt$ as coordinate
+     representation. Hence $p_n$ is smooth.\\
+     \linebreak
+     $(2)$ For any point $z \in S^{n}$, there exists coordinate
+     $z^{i}$ such that $z^{i}\neq 0$. Then
+     let $$w = \left( z^{1}, \ldots, z^{i-1},\hat{z^{i}} , z^{i+1},\ldots, z^{n+1} \right) 
+     \in D^{n}$$. Then the coordinate representation for $\alpha$ is
+     \[
+     \varphi_i^{+} \circ \alpha \circ \left( \varphi_i^{+} \right)^{-1} (w)
+     = -w,
+     \] 
+     as a map $D^{n} \to \mathbb{R}^{n}$, which is smooth.\\
+     \linebreak
+     $(3)$ : I will only prove this if I will need it at some point.
+     \todo{}
+    \end{proof}
+
+    \begin{problem}[]
+        Show that the inclusion map
+        $\overline{B^{n}} \hookrightarrow \mathbb{R}^{n}$ is smooth when
+        $\overline{B^{n}}$ is regarded as a smooth manifold with boundary.
+    \end{problem}
+
+    \begin{proof}
+        The inclusion on the interior is clearly smooth as it has the identity
+        as a coordinate representation.
+        For $x \in S^{n-1}$, let $\left( V, \pi \circ \sigma^{-1} \right) $ be
+        a smooth chart around $x$. Then
+        $\iota \circ \sigma  \circ \pi^{-1} \left( \pi \circ \sigma^{-1}(x) \right) 
+        = \iota (x) = x$ is smooth as it is constant, so
+        as $\iota $ is represented by the identity on
+        $\pi \circ \sigma^{-1} \left( V \right) $,
+        $i$ is smooth.
+    \end{proof}
+
+    \begin{problem}[$2-10$]
+        For any topological space $M$, let $C(M)$ denote the algebra of
+        continuous functions $f  \colon M \to \mathbb{R}$. Given a continuous
+        map $F  \colon M \to N$, define $F^{*} \colon
+        C(N) \to C(M)$ by $F^{*}(f) = f \circ F$.
+        \begin{enumerate}
+            \item Show that $F^{*}$ is a linear map.
+            \item Suppose $M$ and $N$ are smooth manifolds. Show that
+                $F  \colon M \to N$ is smooth if and only if
+                $F^{*} \left( C^{\infty}(N) \right) 
+                \subset C^{\infty}(M)$.
+            \item Suppose $F  \colon M \to N$ is a homeomorphism between
+                smooth manifolds. Show that it is a diffeomorphism if
+                and only if $F^{*}$ restricts to an isomorphism
+                from $C^{\infty}(N)$ to $C^{\infty}(M)$.
+        \end{enumerate}
+    \end{problem}
+
+    \begin{proof}
+        $(1)$ : 
+        \begin{align*}
+            F^{*} (\lambda f+ g) 
+            &= \left( \lambda f + g \right) \circ F\\
+            &=\lambda f \circ F + g \circ f\\
+            &= \lambda F^{*}(f) + F^{*}(g)
+        \end{align*}
+        $(2)$ : Suppose $F$ is smooth. Then since compositions of
+        smooth maps are smooth, we have that
+        $F^{*} \left( C^{\infty}(N) \right) \subset C^{\infty}(M)$.\\
+        Conversely, suppose $F $ is continuous and
+        $F^{*} \left( C^{\infty}(N) \right) \subset C^{\infty}(M)$.
+    \end{proof}
+
+    \begin{problem}[Linear maps between finite-dimensional normed vector spaces
+        are smooth]
+        Suppose $M$ and $N$ are real normed vector spaces of dimension $m$ and $n$,
+        respectively. Let $T  \colon M \to N$ be a linear map. Then
+        $T$ is smooth when $M$ and $N$ are regarded with the standard smooth
+        structure on normed finite-dimensional vector spaces.
+    \end{problem}
+
+    \begin{proof}
+        Let
+        $u_1, \ldots, u_m$ be a basis for $M$ and 
+         $v_1, \ldots, v_n$ a basis for $N$. By example 1.24 in Lee,
+         $E  \colon \mathbb{R}^{m} \to M$ by
+         \[
+         E(x) = x^{i}u_i
+         \] 
+         is a homeomorphism, so $\left( M, E^{-1} \right) $ is a chart, and
+         likewise
+         $F  \colon N \to \mathbb{R}^{n}$ by
+         \[
+         F(v) = v^{i} e_i
+         \] 
+         is a homeomorphism, so $\left( N, F \right) $ is a chart.
+         Let the matrix of $T$ with respect to these bases be given by
+         \[
+         A = \left( A_{i}^{j} \right) 
+         \] 
+         so that
+         \[
+         T(u_i) = \sum_{k=1}^{n} A_{k}^{i} v_k.
+         \] 
+         Now, the
+         coordinate representation of $T$ with respect to these charts is
+         \[
+         F \circ T \circ E (x) =
+         F \circ T \left( \sum_{i} x^{i} u_i \right) 
+         = F \left( \sum_i x^{i} \sum_{k} A_{k}^{i} v_k \right) 
+         = \sum_{i,j,k} x^{i} A_{k}^{i} e_k
+         \] 
+         The $k$ th coordinate function for this function is
+         \[
+         \sum_{i,j} x^{i} A_k^{i} 
+         \] 
+         which is a polynomial 
+         in $\mathbb{R} \left[ x^{1},\ldots, x^{m} \right] $ and hence
+         smooth as a function
+         $\mathbb{R}^{m} \to \mathbb{R}$. Thus
+         $T$ is smooth.
     \end{proof}
 
 
@@ -2246,5 +2471,5 @@
 
 
 
-
+ \bibliography{refs}
 \end{document}
