@@ -1766,6 +1766,100 @@
          $T$ is smooth.
     \end{proof}
 
+    \subsection*{Section 3}
+
+    \begin{proposition}[3.13. The tangent space to a vector space]
+        Suppose $V$ is a finite-dimensional vector space with its standard
+        smooth manifold structure. For each point $a \in V$, the map
+        $v \mapsto D_{v}|_{a}$ is a canonical isomorphism from $V$ to
+        $T_a V$, such that for any linear map $L  \colon V \to W$, the
+        following diagram commutes:
+        \begin{equation*}
+        \begin{tikzcd}
+            V \ar[r, "\cong"] \ar[d, "L"'] & T_aV \ar[d, "dL_a"] \\
+            W \ar[r, "\cong"'] & T_{La}W
+        \end{tikzcd}
+        \end{equation*}
+    \end{proposition}
+
+    \begin{proof}
+        We have that $D_{v}|_a$ is a derivation at $a$, and clearly
+        $v \mapsto D_v |_a$ is injective.\\
+        For surjectivity, we must modify the proof of proposition 3.2, since
+        $V$ is any real normed finite-dimensional vector space.\\
+        However, $V$ is isomorphic to $\mathbb{R}^{n}$ for some $n$, by an
+        isomorphism $\varphi$. Then
+        if  $\varphi  \colon \mathbb{R}^{n} \to V$, we have that
+        for any $f \in C^{\infty}(V)$,
+        $f \circ \varphi \in C^{\infty}(\mathbb{R}^{n})$ since
+        $\varphi$ is smooth and compositions of smooth maps are smooth. Then
+         \begin{align*}
+            f \circ \varphi (x) 
+            &= f \circ \varphi(a) +
+            \sum_{i=1}^{n} \frac{\partial \left( f \circ \varphi \right) }{
+            \partial x^{i}}(a) \left( x^{i} - a^{i} \right) + R(x)\\
+        \end{align*}
+        so
+        \begin{align*}
+        f(y) 
+        &= f(b) + \sum_{i=1}^{n} \frac{\partial f \circ \varphi}{\partial
+        x^{i}}\left( a \right) \left( y^{i} - b^{i} \right) + R(y)\\
+        &= f(b) + \sum_{i=1}^{n} \sum_{j=1}^{n}
+        \frac{\partial f}{\partial z^{j}} \left( b \right) 
+        \frac{\partial \varphi^{j}}{\partial x^{i}}(a) \left( y^{i}-b^{i}
+        \right) + R(y)\\
+        \end{align*}
+        Hence
+        \[
+        w(f) = \sum_{i,j} \frac{\partial f}{\partial z^{j}}(b) \frac{\partial
+        \varphi^{j}}{\partial x^{i}}(a) v^{i}
+        = D_{u}|_{b} f
+        \] 
+        where $u = \sum_j \frac{\partial \varphi^{j}}{\partial x^{i}}(a) v^{i} e_j$.
+        
+        
+    \end{proof}
+
+
+    \begin{problem}[3-1]
+        .
+    \end{problem}
+
+    \begin{proof}
+        Suppose $F$ is constant on a component $U$ of $M$ and $p \in U$.
+        Then 
+        \[
+        dF_p (v) f = v \left( f \circ F \right) = 0
+        \] 
+        by lemma 3.4 as $f \circ F$ is constant.\\
+        Conversely, suppose $dF_p$ is zero for all $p \in U$. Since $U$ is
+        connected and locally path-connected because it is locally Euclidean,
+        we have that $U$ is path-connected. Now, suppose $F$ is not constant
+        on all of $U$. Then there must exist a smooth chart $\left( V, \varphi \right) $ 
+        such that $x,y \in V$ and $F(x) \neq F(y)$. Suppose no such chart
+        exists. We can cover $U$ by a countable number of charts on which
+        $F$ is constant, and $F$ must take at least two values on
+        $U$. Hence the image $F(U)$ is a discrete set of at least two points,
+        but also path-connected, which is impossible since  $F(U)$ is
+        Hausdorff. Hence let $\left( V, \varphi \right) $ be a chart 
+        with $x,y \in V$ and $F(x) \neq  F(y)$. Then
+        let $\gamma  \colon I \to N$ be a path contained in $V$ connecting
+        $x$ and $y$. Then $ \alpha  = \varphi \circ F \circ \gamma$ is a 
+        smooth curve  $I \to \mathbb{R}^{n}$, and by the intermediate value
+        theorem, there exists $t_0 \in \left( 0,1 \right) $ such that
+        \[
+        0 \neq \alpha' (t_0) =
+        \frac{\partial \left( \varphi \circ F \right)^{k} }{\partial y^{j}} 
+        (\gamma(t_0))
+        \frac{d \gamma^{j}}{d t} (t_0)
+        = d F \left( \frac{\partial}{\partial y^{j}}|_{\gamma(t_0)} \right)
+        \varphi^{k} \frac{d \gamma^{i}}{dt}(t_0)
+        = 0.
+        \] 
+        
+
+
+    \end{proof}
 
     
 
