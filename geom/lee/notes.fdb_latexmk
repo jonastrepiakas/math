@@ -1,11 +1,11 @@
 # Fdb version 3
-["bibtex notes"] 1716625288 "notes.aux" "notes.bbl" "notes" 1716627341
-  "notes.aux" 1716627340 6308 98f5463523180b9d412b6433134a6387 "pdflatex"
+["bibtex notes"] 1716795977 "notes.aux" "notes.bbl" "notes" 1716796050
+  "notes.aux" 1716796050 6308 b7d4bfb5aa348d0452f93dd87b5403fb "pdflatex"
   "refs.bib" 0 -1 0 ""
   (generated)
   "notes.bbl"
   "notes.blg"
-["pdflatex"] 1716627339 "notes.tex" "notes.pdf" "notes" 1716627341
+["pdflatex"] 1716796049 "notes.tex" "notes.pdf" "notes" 1716796050
   "/etc/texmf/web2c/texmf.cnf" 1681119169 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbi1000.tfm" 1136768653 3072 e6fe53b666f9cbd66cb135c6fdea66d3 ""
@@ -210,10 +210,10 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1705589474 4379155 98693266ff65f58d9f98aff394de12d2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1710525168 2799302 6fcb89deea3a88d38538d8e6a8026208 ""
   "manifold-fundamental-group.png" 1710883542 23431 76e7981547013172bde4bea61941883d ""
-  "notes.aux" 1716627340 6308 98f5463523180b9d412b6433134a6387 "pdflatex"
+  "notes.aux" 1716796050 6308 b7d4bfb5aa348d0452f93dd87b5403fb "pdflatex"
   "notes.bbl" 1716013381 149 3cdbf75fdcb5f09b5a2c8a36ae6af76c "bibtex notes"
-  "notes.out" 1716627340 3539 94769265cc107509d97001e499f5bd64 "pdflatex"
-  "notes.tex" 1716627338 124715 bbfba8f7b65488870757cfccdc2cba37 ""
+  "notes.out" 1716796050 3539 94769265cc107509d97001e499f5bd64 "pdflatex"
+  "notes.tex" 1716796049 132643 d63d3e837e5be977b993b8a3abb44e54 ""
   "prop-1-17-a.png" 1711065012 26812 528aba50b7e02dc2542c4b06f7de5a37 ""
   (generated)
   "notes.aux"

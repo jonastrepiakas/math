@@ -1856,11 +1856,203 @@
         \varphi^{k} \frac{d \gamma^{i}}{dt}(t_0)
         = 0.
         \] 
-        
-
-
     \end{proof}
 
+    \begin{problem}[3-2]
+        .
+    \end{problem}
+
+    \begin{proof}
+    Let $\left( U, \varphi \right) $ be a smooth chart for
+    $M_1 \times  \ldots \times M_k$ such that $p \in U$. Let
+    $\left( x^{i} \right) $ be the coordinate functions for $\varphi$.
+    Similarly, $x^{1},\ldots, x^{n_1}$ are coordinate
+    functions for $\varphi_1  \colon \pi_1 (U) \to \mathbb{R}^{n_1}$, and so
+    forth. If $x^{j}$ is a coordinate function for
+    $\varphi_i$, we will denote it by $x_i^{j}$.\\
+    Now, $M_1 \times \ldots \times M_k$ have a basis
+    $\frac{\partial}{\partial x^{i}}|_{p}$ where
+    $i$ ranges from $1$ to $n_1+ \ldots + n_k$. If we write
+    $v \in T_p \left( M_1 \times \ldots \times M_k \right) $ as
+    $v = v^{i} \frac{\partial}{\partial x^{i}}|_p$, then
+    \[
+    d \left( \pi_i \right)_p (v)
+    = v^{r} \frac{\partial x^{j}}{\partial x^{r}} (\varphi (p)) \frac{\partial}{\partial x^{j}}
+    |_{p_i} = v^{j} \frac{\partial}{\partial x^{j}}|_{p_i}
+    \] 
+    where $j$ ranges across $n_1 + \ldots+ n_{i-1}+1$ to
+    $n_1 + \ldots + n_i$.\\
+    Suppose now $\left( w_1, \ldots, w_k \right) \in T_{p_1}M_1 \oplus \ldots
+    \oplus T_{p_k} M_k$.
+    We can write
+    $w_r$ as $w^{i} \frac{\partial}{\partial x^{i}}|_{p_i}$
+    for $i$ ranging between $n_1 + \ldots + n_{i-1}+1$ to
+    $n_1 + \ldots + n_i$. Then let
+    $w = w^{i} \frac{\partial}{\partial x^{i}}|_{p_i}$.
+    We then have
+    \begin{align*}
+        \alpha (w)_i
+        &= d \left( \pi_i \right)_p (w)
+        = w^{i} \frac{\partial}{\partial x^{j}}|_{p_i}
+    \end{align*}
+    which is precisely $w_i$, so
+    $\alpha (w) = \left( w_1, \ldots, w_k \right) $, and thus
+    $\alpha$ is surjective.\\
+    \linebreak
+    For injectivity, if $\alpha (v) = 0$, then for any $f_1, \ldots, f_k$ 
+    in $C^{\infty}(M_1),\ldots, C^{\infty}(M_k)$, respectively,
+    for all $i$, $0 = d \left( \pi_i \right)_p (v) f_i =
+    v^{i} \frac{\partial f_i}{\partial x^{j}} (p_i)$; but choosing
+    $f_{1}= x^{i_1}, \ldots, f_k = x^{i_k}$ for
+    $i_t \in \left\{ n_1 + \ldots + n_{t-1}+1, \ldots,
+    n_1 + \ldots + n_t\right\} $, we have that
+    $v^{i_1}, \ldots, v^{i_k} = 0$, and letting
+    $i_t$ range in the set for each all $t = 1 ,\ldots, k$, we get
+    $v = 0$.
+    \end{proof}
+
+    \begin{problem}[3-3]
+        .
+    \end{problem}
+
+    \begin{proof}
+        \begin{align*}
+            T \left( M \times N \right) 
+            &=
+            \bigsqcup_{\left( m,n \right) \in M \times N}
+            T_{\left( m,n \right) } M \times N\\
+            &\cong \bigsqcup_{\left( m,n \right) \in M \times N}
+            T_m M \oplus T_n N\\
+            &= \bigsqcup_{m \in M} T_m M \times \bigsqcup_{n \in N}
+            T_nN\\
+            &= TM \times TN
+        \end{align*}
+        This makes sense, but does not show that the two manifolds are
+        diffeomorphic.\\
+        \linebreak
+        Let $p \in M \times N$ and let
+        $\left( U, \varphi \right) $ be a chart containing
+        $p$ with coordinate functions $\left( x^{i} \right) $ where
+        $x^{1}, \ldots, x^{n_M}$ are the coordinate functions
+        for $M$ and $x^{n_M+1}, \ldots, x^{n_M+n_N}$ are the coordinate
+        functions
+        for $N$. 
+        Define a map $f  \colon T \left( M \times N \right) \to 
+        TM \times TN$ by
+        \[
+        f\left((p,q) , v^{i} \frac{\partial}{\partial x^{i}}|_{(p,q)} \right) 
+        = \left( \left( p, v^{i} \frac{\partial}{\partial x^{i}} \right),
+            \left(q,
+        v^{j} \frac{\partial}{ \partial x^{j}}\right) \right)
+        \] 
+        where $i$ rangest from $1$ to $n_M$ and
+        $j$ ranges from $n_M+1$ to $n_M+ n_N$. Choosing the standard
+        coordinates for $TM, TN$ and $T \left( M \times N \right) $, we have
+        that the coordinate representation for $f$ becomes
+        \[
+        \hat{f} \left( p^{1}, \ldots, p^{n_M}, q^{1}, \ldots, q^{n_N},
+        v^{1}, \ldots, v^{n_M+ n_N}\right) 
+        = \left( p^{1}, \ldots, p^{n_M}, v^{1}, \ldots, v^{n_M},
+        q^{1}, \ldots, q^{n_N}, v^{n_M+1}, \ldots, v^{n_M + n_N}\right) 
+        \] 
+        which is clearly smooth with smooth inverse.
+    \end{proof}
+
+    \begin{exercise}[3-4]
+        Show that $TS^{1}$ is diffeomorphic to $S^{1} \times \mathbb{R}$.
+    \end{exercise}
+
+    \begin{proof}
+        Define a map $f  \colon TS^{1} \to S^{1} \times \mathbb{R}$ by
+        $f\left( p, v \frac{d}{dt}|_p \right) =
+        \left( p, v \right) $ where $\left( U, t \right) $ is some smooth chart
+        containing $p$. Then a coordinate representation for $f$ is
+        \[
+        \hat{f}\left( t(p), v \right) = ( t(p), v)
+        \] 
+        so $f$ is smooth. Clearly the map
+        $g\left( p, v \right) = \left( p, v \frac{d}{dt}|_p \right) $ is
+        a smooth inverse, so $f$ is a diffeomorphism.
+    \end{proof}
+
+    \begin{exercise}[3-5]
+        Let $S^{1} \subset \mathbb{R}^2$ be the unit circle, and let
+        $K \subset \mathbb{R}^2$ be the boundary of the square of side
+        $2$ centered at the origin:
+        $K = \left\{ \left( x,y \right)  \colon \max \left\{ 
+        \left| x \right| , \left| y \right| \right\} =1 \right\} $. Show
+        that there is a homeomorphism $F  \colon \mathbb{R}^2 \to \mathbb{R}^2$ 
+        such that $F\left( S^{1} \right) = K$, but there is no diffeomorphism
+        with the same property.
+    \end{exercise}
+
+    \begin{proof}
+        It is easy to show that the map
+        $F  \colon \mathbb{R}^2 \to \mathbb{R}^2$ given by
+        \[
+        F(x,y) = 
+        \begin{cases}
+            \frac{\|(x,y)\|}{\max \left\{ \left| x \right| ,\left| y \right|  \right\} }
+            (x,y),& (x,y) \neq (0,0)\\
+            (0,0),& (x,y) = (0,0)
+        \end{cases}
+        \] 
+        is a homeomorphism.\\
+        \linebreak
+        Suppose now that there is a diffeomorphism $F  \colon \mathbb{R}^2 \to
+        \mathbb{R}^2$ such that
+        $F\left( S^{1} \right) = K$. Let $\gamma \left( - \varepsilon, \varepsilon \right) 
+        \to S^{1}$ be a smooth curve such that $F \circ \gamma(0) = (1,1)$, and
+        we can assume $\gamma$ to be injective, such that $F$ becomes of the
+        form
+        \[
+        F \circ \gamma(t) =
+        \begin{cases}
+            \left( 1, y  \circ F \circ \gamma (t) \right) , & t \in
+            (-\varepsilon,0]\\
+            (x \circ F \circ \gamma(t), 1) , & t \in [0, \varepsilon)
+        \end{cases}.
+        \] 
+        Now, since $F$ is a diffeomorphism, and we can choose
+        $\gamma$ to have nonzero Jacobian at each point on
+        $\left( -\varepsilon, \varepsilon \right) $, we have that
+        $\gamma$ is also a diffeomorphism onto its image, so
+        $F \circ \gamma$ is a diffeomorphism, and hence
+        $d \left( F \circ \gamma \right) $ is an isomorphism.
+        Now,
+        \[
+        dF \left( \gamma'(t) \right) =
+        \left( F \circ \gamma \right)'(t) =
+        \begin{cases}
+            \frac{d \left( y \circ F \circ \gamma \right) }{dt} (t) 
+            \frac{\partial}{\partial y}|_{(1,1)}, & t \in 
+            (-\varepsilon, 0)\\
+            \frac{d \left( x \circ F \circ y \right) }{dt}(t)
+            \frac{\partial}{\partial x}|_{(1,1)}, & t
+            \in (0, \varepsilon).
+        \end{cases}
+        \] 
+        Since $F \circ \gamma$  is smooth,
+        $\frac{d \left( y \circ F \circ \gamma \right) }{dt}$ and
+        $\frac{d \left( x \circ F \circ \gamma \right) }{dt}$ 
+        are continuous, and an must have the same limit for
+        $t \to 0$. Therefore 
+        $dF \left( \gamma'(0) \right) = 0$ gives a well defined
+        smooth map $\left( -\varepsilon, \varepsilon \right) \to 
+        \mathbb{R}^2$. But $dF$ is an isomorphism, so
+        $\gamma'(0) = 0$, but $\gamma$ has nonzero Jacobian at each point
+        in $\left( -\varepsilon,\varepsilon \right) $, contradiction.
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
+    \end{proof}
     
 
 
