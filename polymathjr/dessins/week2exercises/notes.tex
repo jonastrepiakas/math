@@ -1,0 +1,96 @@
+\documentclass{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{amsfonts,enumerate}
+\usepackage{latexsym,,txfonts}
+\usepackage{graphics,graphicx,psfrag}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+
+
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{cor}[theorem]{Corollary}
+\newtheorem{conj}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\Hom}{{\mathrm{Hom}}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\Mod}{{\mathrm{Mod}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+
+
+
+\begin{document}
+ \begin{problem}[]
+     Show that $K_5$ is not planar.
+ \end{problem}   
+\begin{proof}
+    We'll make use of the theorem
+    \begin{theorem}[]
+        $\left| V \right| - \left| E \right| + \left| F \right|  = 2- 2g$.
+    \end{theorem}
+        If $K_5$ is planar, then $g = 0$, so
+        $\left| V \right| - \left| E \right|  + \left| F \right|  = 2$.
+        We count the number of vertices and edges:
+        \begin{align*}
+            \left| V \right|  &= 5\\
+            \left| E \right| &= \begin{pmatrix} 5 \\2 \end{pmatrix} = 
+            10
+        .\end{align*}
+        Hence $\left| F \right|  = 2 - 5 + 10 = 7$.
+        Note that in a cycle of $\rho^{*}$, we must have at least $3$ sides,
+        since if
+        $\rho^{*} \left( v,w \right) = \left( w, \rho_w (v) \right) $, and
+        $\rho^{*} \left( w, \rho_w (v) \right)  = 
+        \left( \rho_w(v) , \rho_{\rho_w (v)}\left( \rho_w(v) \right)  \right) 
+        = \left( v,w \right) $, so $\rho_w(v) = v$, but $\rho_w$ cannot
+        fix any vertices as it is a cyclic permutation. So
+        if each face of $K_5$ must have at least $3$ edges, then
+        there must be at least $7\cdot 3 = 21$ sides.
+\end{proof}
+
+\begin{proof}
+    \[
+    \sigma^{*} \left( gx, gy \right) = \left( gy,
+    \sigma_{gy} (gx) \right) = 
+    \left( gy, \rho_{gy}^{(g)}(gx) \right) 
+    = \left( gy, g \rho_{y} g^{-1} \left( gx \right)  \right) 
+    = \left( gy, g g_y (x) \right) = \left( gy, gz \right) 
+    \] 
+    where $\left( x,y,z, \ldots \right) $ occurs in a face.\\
+    The second part of the exercise follows from noting that
+    $\sigma^{\left( g^{-1} \right) } = \rho$.
+\end{proof}
+
+
+    %\bibliography{../refs.bib}
+\end{document}

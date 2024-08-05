@@ -1,0 +1,83 @@
+\documentclass{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{amsfonts,enumerate}
+\usepackage{latexsym,,txfonts}
+\usepackage{graphics,graphicx,psfrag}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+
+
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{cor}[theorem]{Corollary}
+\newtheorem{conj}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\Hom}{{\mathrm{Hom}}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\Mod}{{\mathrm{Mod}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+
+
+
+\begin{document}
+    \begin{exercise}[4.b]
+        Define one or two more charts to give $S$ the structure of a Riemann
+        surface.
+    \end{exercise}
+    \begin{proof}
+        Take a small ball around each vertex of $P_m$ and intersect it
+        with $P_m$. Let $V_i$ denote the open set at vertex $v_i$.
+        Define a map $\psi_i \colon V_i \to \mathbb{C}$ by
+        $\psi_i (z) = f_i \left( z - v_i \right) $, where
+        $f_j \colon \mathbb{C} \to \mathbb{C}$ is given by
+        \[
+        f_j(re^{i \theta} ) = r e^{i \frac{2 \pi r_j}{n}} \left[ 
+        e^{- i \left( \frac{(n-2 + 2j)\pi}{n} \right) } e^{i \theta}\right]^{\frac{2}{n-2}}
+        \] 
+        where $r_j$ is the smallest positive integer such that
+        $r_j \left( \frac{m}{2}-1 \right) \equiv j \mod{m} $
+    \end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+    %\bibliography{../refs.bib}
+\end{document}

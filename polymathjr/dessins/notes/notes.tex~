@@ -1,0 +1,319 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{amsfonts,enumerate}
+\usepackage{latexsym,,txfonts}
+\usepackage{graphics,graphicx,psfrag}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+
+
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{cor}[theorem]{Corollary}
+\newtheorem{conj}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\Hom}{{\mathrm{Hom}}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\Mod}{{\mathrm{Mod}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\Aut}{{Aut}}
+\newcommand{\Homeo}{{Homeo}}
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+
+
+
+\begin{document}
+    \begin{problem}[]
+        Write down explicit $2 \times 2$ matrices that are generators for
+        a Fuchsian group uniformizing the Wiman surfaces of Type I and Type
+        II from the exercises from week 3.
+    \end{problem}
+
+    \begin{proof}
+        We will construct the transformation as a composition of
+        complex conjugation, followed by rotation and then inversion.\\
+        Firstly, we wish to find the point of inversion: $\alpha = 
+        a e^{i \theta}$.
+        We have
+        \begin{align*}
+            \frac{L}{\sin \left( \frac{\pi}{2n} \right) }
+            &= \frac{a}{\sin \left( \frac{(n+1) \pi}{2n} \right) }, \quad
+            a^2 = 1 + L^2\\
+            \implies a &= \sqrt{\frac{\sin^2 \left( \frac{(n+1)\pi}{2n} \right) }{
+            \sin^2 \left( \frac{(n+1) \pi}{2n} \right) -
+    \sin^2 \left( \frac{\pi}{2n} \right) }} \tag{$\Omega$}
+        \end{align*}
+        And clearly $\theta = \frac{\pi}{2n}$. Now the inversion
+        at $\alpha$ is given by
+        \[
+        \rho (z) = \frac{\alpha \overline{z} - 1}{\overline{z} - 
+        \overline{\alpha}}
+        \] 
+        so all together we get the hyperbolic translation to be
+        \[
+        T(z) = \rho \left( e^{- \frac{(n-1)\pi i}{n}} \overline{z} \right) 
+        = \frac{\alpha e^{\frac{(n-1) \pi i}{n}} z - 1}{
+        e^{\frac{(n-1) \pi i}{n}} z - \overline{\alpha}}
+        = \frac{a e^{\frac{\pi i}{2n}} e^{\frac{(n-1) \pi i}{n}} z - 1}{
+        e^{\frac{(n-1) \pi i}{n} }z - a e^{- \frac{i \pi}{2n}}}
+        = \frac{-a z - e^{\frac{i \pi}{2n}}}{-e^{\frac{- i \pi}{2n}} z-
+        a}
+        \] 
+        Hence
+        \[
+        M(T) = 
+        \begin{pmatrix} 
+            a & e^{\frac{i \pi}{2n}}\\
+            e^{- \frac{i \pi}{2n}} & a
+        \end{pmatrix} 
+        \] 
+        Since $T_j = e^{\frac{(j-1) i \pi}{n}} T\left( 
+        e^{- \frac{(j-1) i \pi}{n}} \right) $ we have
+        \begin{align*}
+            M(T_j) 
+            &= \begin{pmatrix} e^{\frac{(j-1) i \pi}{n}} & 0 \\
+            0 & 1\end{pmatrix} 
+            \begin{pmatrix} a & e^{\frac{i \pi}{2n}}\\
+            e^{- \frac{i \pi}{2n}} & a\end{pmatrix} 
+                \begin{pmatrix} e^{- \frac{(j-1) i \pi}{n}} & 0\\
+                0 & 1 \end{pmatrix} \\
+            &= \begin{pmatrix} a & e^{\frac{(2j-1) i \pi}{2n}}\\
+                e^{- \frac{(2j-1) i \pi}{2n}} & a
+            \end{pmatrix} 
+        \end{align*}
+        So $\Gamma_n = \left< T_1, \ldots, T_n \right>$ is a Fuchsian group,
+        and
+        we have
+        $W_{2n} \approx \mathbb{D} / \Gamma_n$.
+    \end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+    \newpage
+
+        Let $T (z) = \frac{az + b}{cz +d}$.\\
+        Let $f \colon H \to D$ be the map
+        $z\mapsto \frac{z-i}{z+i}$ and let
+        $f^{-1}(z) = - \frac{i \left( 1+z \right) }{z-1}$ be the inverse.
+        It is indeed easy to check that $f^{-1}$ takes
+        $\partial D$ to $\mathbb{R} \cup  \left\{ \infty \right\} $.
+        Now $T(z) = z$ if and only if
+        $c z^2 + (d-a) z - b = 0$. We want the fixed points to be
+        $f^{-1}\left( e^{\frac{i \pi}{2n}} \right) =-
+        \frac{i \left( 1 + e^{\frac{i \pi}{2n}} \right) }{ e^{\frac{i
+        \pi}{2n}}-1} 
+         $ and
+        $f^{-1}\left( e^{\frac{(2n+1) i \pi}{2n}} \right) 
+        =- \frac{i \left( 1+ e^{\frac{(2n+1) i \pi}{2n}} \right) }{
+            e^{\frac{(2n+1) i \pi}{2n}}-1}$
+            (which lie in $\mathbb{R}$ ), so we have the equation
+            \begin{align*}
+                0 &= \left( z+ \frac{i \left( 1 + e^{\frac{i \pi}{2n}} \right) }{
+                         e^{\frac{i \pi}{2n}}-1} \right) \left( z+
+        \frac{i \left( 1 + e^{\frac{i \pi}{2n}} \right) }{
+                        e^{\frac{i \pi}{2n}}-1}
+    \right)\\
+                  &=
+                  z^2 +i \left[  \frac{ \left( 1 + e^{\frac{i \pi}{2n}} \right) }{
+                        e^{\frac{i \pi}{2n}}-1} + 
+                        \frac{ \left( 1+ e^{\frac{(2n+1) i \pi}{2n}} \right) }{
+            e^{\frac{(2n+1) i \pi}{2n}}-1}  \right] z
+            - \frac{ \left( 1 + e^{\frac{i \pi}{2n}} \right) }{
+                        e^{\frac{i \pi}{2n}}-1}  
+                        \frac{ \left( 1+ e^{\frac{(2n+1) i \pi}{2n}} \right) }{
+            e^{\frac{(2n+1) i \pi}{2n}}-1}\\
+                  &= 
+                  z^2 +i \left[  \frac{ \left( 1 + e^{\frac{i \pi}{2n}} \right) }{
+                        e^{\frac{i \pi}{2n}}-1} + 
+                        \frac{ \left( 1+ e^{\frac{(2n+1) i \pi}{2n}} \right) }{
+            e^{\frac{(2n+1) i \pi}{2n}}-1}  \right] z
+            -1
+                    \end{align*}
+            Now, we must choose $a,b,c,d$ suitably so that
+            $ad-bc = 1$. Now we have the system of equations
+            \begin{align*}
+                ad 
+                &= 1 + b^2\\
+                d-a 
+                &=  b i 
+                \left[  \frac{ \left( 1 + e^{\frac{i \pi}{2n}} \right) }{
+                        e^{\frac{i \pi}{2n}}-1} + 
+                        \frac{ \left( 1+ e^{\frac{(2n+1) i \pi}{2n}} \right) }{
+            e^{\frac{(2n+1) i \pi}{2n}}-1}  \right]
+            \end{align*}
+            Denote the right hand side of the last equation
+            by $b C$. 
+            \begin{align*}
+                a^2 C 
+                &= 2 \implies a =\sqrt{\frac{2}{C}} \\
+                d &= C + \sqrt{\frac{2}{C}} 
+            \end{align*}
+            Hence
+            \[
+            a =  \sqrt{\frac{2}{C}} , \quad
+            d = C + \sqrt{\frac{2}{C}} 
+            \] 
+            Hence we have
+            \[
+            T(z) = \frac{  \sqrt{\frac{2}{C}} z + 1}{z + C \pm 
+            \sqrt{\frac{2}{C}} }, \text{where} \quad
+            C =
+            i 
+                \left[  \frac{ \left( 1 + e^{\frac{i \pi}{2n}} \right) }{
+                        e^{\frac{i \pi}{2n}}-1} + 
+                        \frac{ \left( 1+ e^{\frac{(2n+1) i \pi}{2n}} \right) }{
+            e^{\frac{(2n+1) i \pi}{2n}}-1}  \right]
+            \] 
+            Put in a different way, if we let
+            $ r_1 = f^{-1}\left( e^{ \frac{i \pi}{2n}} \right)  =-
+\frac{i \left( 1 + e^{\frac{i \pi}{2n}} \right) }{
+                         e^{\frac{i \pi}{2n}}-1}
+            $ and
+            $r_2 = f^{-1} \left( e^{\frac{(2n+1)i \pi}{2n}} \right)  =
+- \frac{i \left( 1+ e^{\frac{(2n+1) i \pi}{2n}} \right) }{
+            e^{\frac{(2n+1) i \pi}{2n}}-1}
+            $, then
+            $r_1 + r_2 = -C$, so
+            \[
+            T(z) = \frac{ \sqrt{- \frac{2}{ r_1 + r_2}}z +1}{
+            z  \sqrt{-\frac{2}{r_1 + r_2}}- r_1 - r_2 },
+            \quad G = \begin{pmatrix} 
+                 \sqrt{-\frac{2}{r_1 +r_2}} & 1 \\
+                1 &  \sqrt{-\frac{2}{r_1 + r_2}} -r_1 -r_2 
+            \end{pmatrix} 
+            \] 
+            To convert it to a transformation of the unit disk instead,
+            we have
+            \[
+            S(z) = f \circ T \circ f^{-1} (z)
+            \] 
+            so since
+            $M(T) = G$, $M(f) = \begin{pmatrix} 1 & -i \\ 1 & i \end{pmatrix} $
+            and
+            $M \left( f^{-1} \right) =
+            \begin{pmatrix} -i & -i\\ 1 & -1 \end{pmatrix} $, we have
+            \begin{align*}
+                M(S) 
+                &= M(f) M(T) M(f^{-1})\\
+                &= \begin{pmatrix} 1 & -i\\ 1 & i \end{pmatrix} 
+                \begin{pmatrix} 
+                     \sqrt{- \frac{2}{r_1+r_2}} & 1\\
+                    1 & \sqrt{- \frac{2}{r_1+r_2} } -r_1 -r_2 
+                \end{pmatrix} 
+                \begin{pmatrix} -i & -i\\ 1 & -1 \end{pmatrix} \\
+                                   &=
+                \begin{pmatrix} 
+                    -i \left(  2 \sqrt{- \frac{2}{r_1+r_2}} -r_1-r_2 \right) &
+                    -i \left( r_1+r_2 \right) -2\\
+                - i \left( r_1+r_2 \right) +2 & -i \left( 
+                2 \sqrt{- \frac{2}{r_1+r_2}} - r_1 - r_2\right) 
+                \end{pmatrix}\\
+            \end{align*}
+            Now all of the other side pairings $S_2, \ldots, S_n$ are
+            obtained by conjugation with rotations:
+            \begin{align*}
+                M(S_i) 
+                &= 
+            \begin{pmatrix} e^{\frac{(i-1) \pi i}{n}} & 0 \\
+            0 & 1 \end{pmatrix} 
+\begin{pmatrix} 
+                    -i \left( 2 \sqrt{- \frac{2}{r_1+r_2}} -r_1-r_2 \right) &
+                    -i \left( r_1+r_2 \right) -2\\
+                - i \left( r_1+r_2 \right) +2 & -i \left( 
+                2 \sqrt{- \frac{2}{r_1+r_2}} - r_1 - r_2\right) 
+                \end{pmatrix}
+            \begin{pmatrix} e^{-\frac{(i-1) \pi i}{n}} & 0 \\
+            0 & 1 \end{pmatrix} \\
+            &= \begin{pmatrix} -i \left( 2 \sqrt{- \frac{2}{r_1+r_2}} 
+            - r_1 - r_2\right) & e^{\frac{(i-1) \pi i}{n}} \left[ 
+        -i \left( r_1+r_2 \right) -2\right] \\
+            e^{- \frac{(i-1) \pi i}{n}} \left[ -i \left( r_1+r_2 \right) +2 \right] 
+                               & -i \left( 
+                           2 \sqrt{- \frac{2}{r_1+r_2}} -r_1-r_2\right) 
+            \end{pmatrix} 
+            \end{align*}
+
+
+
+            \newpage
+            Hence the other side pairing translations are given by
+            $T_2, T_3, \ldots, T_{n}$ where
+            \[
+            T_i (z) = f^{-1} \left( e^{\frac{(i-1) \pi i}{n}}
+            T \left( e^{- \frac{(i-1) \pi i}{n}} f(z)\right) \right)
+            \] 
+            and since the association
+            $GL(2,\mathbb{C}) \to \Homeo \left( \mathbb{C}^{*} \right) $
+            is a group homomorphism, it suffices to look at
+            the associated matrices. Now
+            $M(T) = G$, $M(f) = \begin{pmatrix} 1 & -i \\ 1 & i \end{pmatrix} $
+            and
+            $M \left( f^{-1} \right) =
+            \begin{pmatrix} -i & -i\\ 1 & -1 \end{pmatrix} $, so
+            \begin{align*}
+                M(T_i) 
+                &= 
+                \begin{pmatrix} -i & -i \\ 1 & -1 \end{pmatrix} 
+                \begin{pmatrix} \sqrt{- \frac{2}{r_1+r_2}} 
+                & e^{\frac{(i-1) \pi i}{n}} \\
+                1 & e^{\frac{(i-1) \pi i}{n}} \left[ 
+            \sqrt{- \frac{2}{r_1 +r_2}}  - r_1 - r_2 \right]   \end{pmatrix} 
+                \begin{pmatrix} 1 & -i \\ 1 & i \end{pmatrix}
+            \end{align*}
+            where again
+$r_1 = f^{-1}\left( e^{\frac{i \pi}{2n}} \right) =-
+        \frac{i \left( 1 + e^{\frac{i \pi}{2n}} \right) }{ e^{\frac{i
+        \pi}{2n}}-1} 
+         $ and
+        $r_2 = f^{-1}\left( e^{\frac{(2n+1) i \pi}{2n}} \right) 
+        =- \frac{i \left( 1+ e^{\frac{(2n+1) i \pi}{2n}} \right) }{
+            e^{\frac{(2n+1) i \pi}{2n}}-1}$. Then
+            $\Gamma_n = \left< T_1, \ldots, T_n \right>$ is a Fuchsian group
+            such that
+            $\mathbb{H} / \Gamma_n \approx W_{2n}$.
+
+
+
+
+
+    %\bibliography{../refs.bib}
+\end{document}

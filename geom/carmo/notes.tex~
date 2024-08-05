@@ -1,0 +1,130 @@
+\documentclass{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{amsfonts,enumerate}
+\usepackage{latexsym,,txfonts}
+\usepackage{graphics,graphicx,psfrag}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+
+
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{cor}[theorem]{Corollary}
+\newtheorem{conj}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\Hom}{{\mathrm{Hom}}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\Mod}{{\mathrm{Mod}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+
+
+
+\begin{document}
+\section*{Exercises}
+\subsection*{1-5}
+\begin{problem}
+    Let $\alpha \colon I \to \mathbb{R}^3$ be a regular parametrized curve
+    (not necessarily arc length) and let $\beta \colon
+    J \to \mathbb{R}^3$ be a reparametrization of $\alpha(I)$ by
+    the arc length $s = s(t)$, measured from $t_0 \in I$. Let
+    $t \colon J = s(I) \to I$ be the inverse of $s$.\\
+    The curvature of $\alpha$ is
+    \[
+    k = \frac{\left| \alpha' \wedge \alpha'' \right| }{\left| 
+    \alpha' \right|^3 }
+    \] 
+    Show that the torsion of $\alpha$ is
+    \[
+    \tau = - \frac{\left( \alpha' \wedge \alpha'' \right) \cdot 
+    \alpha'''}{\left| \alpha' \wedge \alpha'' \right|^2}
+    .\] 
+\end{problem}
+
+\begin{proof}
+ We have
+ \[
+ \ddot{\beta}(j) = \ddot{\left( \alpha \circ t \right)} = \alpha''(i) (\dot{t})^2(j)
+     + \alpha''(i) \ddot{t}(j) 
+ = \frac{\alpha''}{\left| a' \right|^2} -
+ \frac{\alpha' \left<\alpha', \alpha'' \right>}{\left| \alpha' \right|^{4}}=
+ k(i)n(i)
+ = \frac{\left| \alpha' \wedge \alpha'' \right| }{\left| \alpha' \right|^3}n(i)
+ \] 
+ hence
+ \[
+ n \circ s = \frac{\left| \alpha' \right| }{\left| \alpha' \wedge \alpha'' \right| } 
+ \alpha'' - \frac{\left<\alpha', \alpha'' \right>}{\left| a' \right| } \alpha'
+ \] 
+ Now the binormal vector $b$ is
+ \[
+ b \circ s = \frac{\alpha'}{\left| \alpha' \right| } \wedge n
+ = \frac{\alpha'}{\left| \alpha' \right| } \wedge
+ \frac{\left| \alpha' \right| }{\left| \alpha' \wedge \alpha'' \right|
+ } \alpha'' =
+ \frac{\alpha' \wedge \alpha''}{\left| \alpha' \wedge \alpha'' \right| }
+ \] 
+ Hence by the chain rule
+
+ \[
+ \dot{b}(j) s'(i)= \left( b \circ s \right)' =
+ \frac{\alpha' \wedge \alpha'''}{\left| \alpha' \wedge \alpha'' \right| }
+ - \frac{\alpha' \wedge \alpha''}{\left| \alpha' \wedge \alpha'' \right|^2}
+ \frac{d}{dt} \left| \alpha' \wedge \alpha'' \right|.
+ \] 
+ We know that $\dot{b} = \tau n$ as functions of $j$,
+ so since  $\left| n \right| =1$, we have
+ $\tau = \dot{b} \cdot n$ and this gives
+ \[
+ \tau \circ t = \frac{\left| \alpha' \right| }{\left| \alpha' \right| \left| \alpha' \wedge \alpha'' \right|^2}
+ \left( \alpha' \wedge \alpha''' \right) \cdot \alpha''
+ =  \frac{- \left( \alpha' \wedge \alpha'' \right) \cdot 
+ \alpha'''}{\left| \alpha' \wedge \alpha'' \right|^2}
+ \] 
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+    %\bibliography{../refs.bib}
+\end{document}
