@@ -1,12 +1,12 @@
 # Fdb version 4
-["bibtex mcg"] 1722889587.72561 "mcg.aux" "mcg.bbl" "mcg" 1722895064.67059 0
+["bibtex mcg"] 1722889587.72561 "mcg.aux" "mcg.bbl" "mcg" 1722914465.07657 0
   "mcg.aux" 1722889587.464 974 8a698ad7463f1950690f3c75c9465ef6 "pdflatex"
   "mcg.bib" 0 -1 0 ""
   (generated)
   "mcg.bbl"
   "mcg.blg"
   (rewritten before read)
-["pdflatex"] 1722895063.46544 "mcg.tex" "mcg.pdf" "mcg" 1722895064.67082 0
+["pdflatex"] 1722914463.94902 "mcg.tex" "mcg.pdf" "mcg" 1722914465.07681 0
   "/etc/texmf/web2c/texmf.cnf" 1718688975.81737 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1000.tfm" 1136768653 3584 2d666ecf6d466d8b007246bc2f94d9da ""
@@ -37,6 +37,7 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1248133631 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1248133631 31764 459c573c03a4949a528c2cc7f557e217 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/share/texlive/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1575674566 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
@@ -179,10 +180,10 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1719350542.55051 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1719350620 8213228 2bf4bdc60b7e8eadcc399e002a7ccc4d ""
   "lifts-of-paths.jpg" 1722893708.76281 203201 83ed0f50a606912a88eabfbe2318e4a3 ""
-  "mcg.aux" 1722895064.36319 1000 0c1f831ff855652ce8f66bdf715d3dc3 "pdflatex"
+  "mcg.aux" 1722914464.80161 1137 96950a27232d3e816b35d8afc2119818 "pdflatex"
   "mcg.bbl" 1722889749.89279 136 9ba4ca97f11df1a6df098014ea343bbb "bibtex mcg"
-  "mcg.out" 1722895064.36319 558 5d8718ddc560ee49d9bdc18296297b51 "pdflatex"
-  "mcg.tex" 1722895062.38714 8713 adb03dd847c75276d642213eb9d89405 ""
+  "mcg.out" 1722914464.80161 558 923e77280aa4b31d90ab133c4d375d1b "pdflatex"
+  "mcg.tex" 1722914462.84061 10280 49abb1d39b8c8b6151f3b18923b4cfdd ""
   (generated)
   "mcg.aux"
   "mcg.log"
