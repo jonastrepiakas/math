@@ -1,0 +1,341 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Char}{char}
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\Mod}{{\mathrm{Mod}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+
+\title{Direct and semidirect product}
+
+\begin{document}
+\maketitle
+\newpage
+
+\section{Motivating direct product}
+
+In all fields of math, we often get a better understanding of objects by
+reducing them to a composition of smaller structures. Likewise, we now ask
+whether we can reduce groups to smaller constituents. We have seen
+that we can do this with finitely generated abelian groups using direct product, so how do we
+recognize direct product generally? 
+
+\begin{definition}[Characteristic in]
+    A subgroup $H \le G$ is \textit{characteristic} in $G$, written
+    $H \Char G$, if  $\sigma(H) = H$ for all 
+     $\sigma \in \Aut(G)$.
+\end{definition}
+
+ Recall that
+$HK = \left\{ hk  \mid h \in H, k \in K \right\} $.
+
+\begin{proposition}[]
+    Let $G$ be a group, let $x,y \in G$ and let $H \le G$. Then
+    \begin{enumerate}
+        \item $xy = yx \left[ x,y \right] $.
+        \item $H \trianglelefteq G $ if and only if
+            $\left[ H, G \right] \le H$. 
+        \item $\sigma \left[ x,y \right] = 
+            \left[ \sigma (x), \sigma (y) \right] $ for any 
+            $\sigma \in \Aut \left( G \right) $, $\left[ G,G \right]  \Char G$ and
+            $G / \left[ G,G \right] $ is abelian.
+        \item $G / \left[ G,G \right] $ is the largest abelian quotient
+            of $G$ in the sense that if $H \trianglelefteq G$ and $G /H$ is
+            abelian, then $\left[ G,G \right] \le H$. Conversely,
+            if $\left[ G,G \right] \le H$, then $H \trianglelefteq G$ and
+            $G / H$ is abelian. (Note, in particular, that choosing
+            $H = \left[ G,G \right] $, we get $\left[ G,G \right]
+            \trianglelefteq 
+            G$).
+        \item If $\varphi \colon G \to A$ is any homomorphism of $G$ into an
+            abelian group $A$, then $\varphi $ factors through $\left[ G,G \right] $, i.e.,
+            $\left[ G,G \right]  \le \ker \varphi$ and the following diagram commutes:
+            \begin{equation*}
+            \begin{tikzcd}
+                G \ar[r] \ar[dr, "\varphi"'] & G / \left[ G,G \right]  \ar[d]\\
+                                     & A
+            \end{tikzcd}
+            \end{equation*}
+    \end{enumerate}
+\end{proposition}
+
+\begin{proposition}[]
+    Let $H,K \le G$. The number of distinct ways of writing each element
+    of the set $HK$ in the form $hk$ for some $h \in H$ and $k \in K$ is
+    $\left| H \cap K \right| $. In particular, if $H \cap K = 1$, then
+    each element of $HK$ can be written uniquely as a product  $hk$ for
+    some  $h \in H$ and $k \in K$.
+\end{proposition}
+
+\begin{theorem}[]
+    Suppose $G$ is a group with subgroups $H$ and $K$ such that
+    \begin{enumerate}
+        \item $H$ and $K$ are normal in $G$, and
+        \item $H \cap K = 1$.
+    \end{enumerate}
+    Then $HK \cong H \times K$.
+\end{theorem}
+
+\begin{definition}[Internal and external direct product]
+    If $G$ is a group and $H$ and $K$ are normal subgroups of $G$ with
+    $H \cap K = 1$, we call $HK$ the \textit{internal direct product} of
+    $H$ and $K$. We shall (when emphasis is called for) call
+    $H \times K$ the \textit{external direct product} of $H$ and $K$.
+\end{definition}
+
+
+
+
+
+\section{Motivating semidirect product}
+If we have a group $G$ with subgroup $H$ and $K$ such that
+\begin{itemize}
+    \item $H \trianglelefteq G$ (but $K$ is not necessarily normal in $G$ ), and
+    \item $H \cap K = 1$,
+\end{itemize}
+then $HK$ is a subgroup of $G$ and there is an isomorphism of \underline{sets}
+$HK \cong H \times K$ given by
+$(h,k) \mapsto hk$. However, this isomorphism
+may \underline{not} be a group isomorphism.
+
+In the group $HK \le G$, the operation is as follows
+
+\begin{align*}
+    \left( h_1 k_1 \right) \left( h_2 k_2 \right) 
+    &= h_1 k_1 h_2 \left( k_1^{-1} k_1 \right) k_2\\
+    &= h_1 \left( k_1 h_2 k_1^{-1} \right) k_1 k_2 \label{eq:Omega} \tag{$\Omega$}\\
+    &= h_3 k_3
+\end{align*}
+where $h_3 = h_1 \left( k_1 h_2 k_1^{-1} \right) $ and
+$k_3 = k_1 k_2$ - note that since $H \triangleleft G$, $k_1 h_2 k_1$, so
+$h_3 \in H$ and $k_3 \in K$.\\
+\linebreak
+These calculations were predicated on the assumption that there already exists
+such a group $G$ containing subgroups $H$ and $K$ with
+$H \triangleleft G$ and $H \cap K = 1$.
+
+
+\begin{question}
+    Suppose we are given  two (abstract) groups $H$ and $K$.
+    Can we construct a group $G$ containing isomorpic copies of
+    $H$ and $K$ such that $H \triangleleft G$ and
+    $H \cap K = 1$? That will ensure that $HK$ is an isomorphic copy of 
+    a subgroup of $G$ and
+    each element of $HK$ can be written uniquely as a product $hk$.
+\end{question}
+
+Note that in \eqref{eq:Omega}, we  multiplied $k_1$ and $k_2$ in $K$ and
+$h_1$ and $k_1h_2k_1^{-1}$ in $H$. So if we can understand how to obtain
+$k_1 h_2 k_1^{-1}$ without reference to an operation in $G$, we can define
+the product of $\left( h_1,  k_1 \right) \left( h_2 ,k_2 \right) $ to
+be $\left( h_1 \left( k_1 h_2 k_1^{-1} \right) , k_1k_2 \right)$ whatever
+$k_1 h_2 k_1^{-1}$ is determined to mean.
+
+Here is one thing to notice: $H$ is normal in $G$, so $K$ acts on $H$ by
+conjugation:
+\[
+k \cdot  h = k h k^{-1}, \quad \text{for } h \in H, k \in K.
+\] 
+Thus
+\[
+    \left( h_1 k_1 \right) \left( h_2 k_2 \right) =
+    \left( h_1 k_1 \cdot  h_2 \right) \left( k_1 k_2 \right) 
+\] 
+Let us introduce some new notation
+
+\begin{definition}[Conjugation]
+    We define the conjugate $y^{x} := x^{-1} y x$.
+    In a group, this satisfies the following properties of exponents:
+    \begin{align*}
+        \left( y_1 y_2 \right)^{x} &= y_1^{x} y_2^{x}\\
+        y^{x_1 x_2} &= \left( y^{x_1} \right)^{x_2}
+    \end{align*}
+\end{definition}
+
+Thus we can rewrite
+\[
+    \left( h_1 k_1 \right) \left( h_2k_2 \right) 
+    = \left( h_1 h_2^{k_1} \right) \left( k_1 k_2 \right) 
+\] 
+
+So assuming $G$ exists, the action of $K$ on $H$ by conjugation gives
+a homomorphism $\phi \colon K \to \Aut (H)$. Thus multiplication in $HK$
+depends only on multiplication in $H$, multiplication in $K$ and the
+homomorphism $\phi \colon K \to \Aut(H)$.\\
+\linebreak
+Now we assume these things and reverse the construction
+
+\begin{theorem}[]\label{semi-direct-prod}
+    Let $H$ and $K$ be groups and let $\varphi \colon K \to \Aut (H)$ be
+    a homomorphism. Let $h^{k}$ denote the action of $k$ on $h$ determined by
+    $\varphi$ for arbitrary $k$ and $h$. Let $G$ be the set of ordered
+    pairs $\left( h,k \right) $ with $h \in H$ and $k \in K$ and define the
+    following multiplication on $G$ :
+    \[
+        \left( h_1, k_1 \right) \left( h_2, k_2 \right) =
+        \left( h_1 h_2^{k_1}, k_1k_2 \right).
+    \] 
+    \begin{enumerate}
+        \item This multiplication makes $G$ into a group of order
+            $\left| G \right| = \left| H \right| \left| K \right| $.
+        \item The sets $\left\{ \left( h,1 \right) \mid h \in H  \right\} $
+            and $\left\{ \left( 1,k \right)  \mid k \in K \right\} $ are
+            subgroups of $G$ and the maps $h \mapsto (h,1)$ for
+            $h \in H$ and $k \mapsto \left( 1,k \right) $ for $k \in K$ 
+            are isomorphisms of these subgroups with the groups $H$ and $K$,
+            respectively:
+            \[
+            H \cong \left\{ \left( h,1 \right)  \mid h \in H \right\} ,
+            \quad \text{and} \quad K \cong \left\{ \left( 1,k \right)  \mid 
+            k \in K \right\} .
+            \] 
+            Identifying $H$ and $K$ with their isomorphic copies in $G$ 
+            described in (2), we have
+        \item $H \trianglelefteq G$ 
+        \item $H \cap K = 1$ 
+        \item for all $h \in H$ and $k \in K$, $k h k^{-1} = h^{k}
+            = \varphi (k) (h)$.
+    \end{enumerate}
+\end{theorem}
+
+Here, part (5) is carried out using the identifications from (2) as follows:
+\begin{align*}
+    (1,k) (h,1) (1,k)^{-1}
+    &=
+    \left( \left( 1,k \right) (h,1) \right) (1,k)^{-1}\\
+    &= \left(  h^{k}, k \right) \left( 1,k^{-1} \right)\\
+    &= \left( h^{k} 1^{k}, 1 \right) \\
+    &= \left( h^{k}, 1 \right) 
+\end{align*}
+so indeed $khk^{-1} = h^{k}$ under the identifications.
+
+
+
+\begin{definition}[Semidirect product]
+    Let $H$ and $K$ be groups and $\varphi $ be a homomorphism from $K$ into
+    $\Aut(H)$. The group described in \ref{semi-direct-prod} is called
+    the \textit{semidirect product} of $H$ and $K$ with respect to
+    $\varphi $ and will be denoted by $H \rtimes_\varphi  K$ (when there
+    is no danger of confusion, we shall simply write $H \ltimes K$ ).
+\end{definition}
+
+
+\begin{proposition}[]
+    Let $H$ and $K$ be groups and let $\varphi  \colon K \to \Aut(H)$ be
+    a homomorphism. Then the following are equivalent:
+    \begin{enumerate}
+        \item the identity (set) map between 
+            $H \rtimes K$ and $H \times K$ is a group homomorphism (hence an
+            isomorphism)
+        \item $\varphi $ is the trivial homomorphism from $K$ into $\Aut(H)$ 
+        \item $K \trianglelefteq H \rangle K$.
+    \end{enumerate}
+\end{proposition}
+    
+    %\bibliography{../refs.bib}
+\end{document}
