@@ -391,41 +391,7 @@ $\Gamma \leq \Aut (\mathbb{U})$. Fix an isomorphism
 $\Gamma \cong \pi_1 (P_{n-1}/\sim)$. Write $\Gamma_{\mathfrak{p}}$ for the subgroup of $\Gamma$ corresponding
 to $H_{\mathfrak{p}} \trianglelefteq \pi_1 (P_{n-1}/\sim)$.
 
-\begin{exercise}[Exercise 3]
-    Let $\Delta$ be the ordinary triangle group
-    \[ \Delta = 
-    \begin{cases}
-        \Delta (2, 2h+1, 4h+2),& \text{if } n \equiv 3 \pmod{4}\\
-        \Delta (2,4h,4h),& \text{if } n\equiv 1  \pmod{4}
-    \end{cases}
-    \]
-      \begin{enumerate}
-        \item \textit{Guess for problem statement:} 
-        Let $\Delta$ act on 
-        $\mathbb{U}$; prove that the
-        commutator $\Gamma = 
-        \left[\Delta , \Delta \right]$ uniformizes 
-        $W_h^I$, i.e.,
-        $W_h^I$ is isomorphic to
-        $\mathbb{U}/ \left[\Delta, \Delta \right]$.
-        Now, by the below proof, $\Delta^{ab}
-        \approx Z_2 \times Z_{4h}$ for $\Delta (2,4h,4h)$,
-        so let $K$ denote the kernel of the composition
-        of the abelianization map with the projection
-        onto the $Z_{4h}$ factor. Prove
-        that $K$ uniformizes $W_h^{II}$.
-        \item Prove that the quotient
-        projection
-        $\mathbb{U}/ \Gamma_{\mathfrak{p}} \to
-        \mathbb{U}/ \Delta$ is a 
-        Belyi function for a
-        $K_n$-dessin.
-    \end{enumerate}
-\end{exercise}
-
-\begin{proof}
-    (1)
-    We have 
+We have 
     \[
     \Delta (l,m,n) =
     \langle x_1, x_2 \mid 
@@ -457,6 +423,36 @@ so $\Delta^{ab}
     get $d_1 = 1$ and $d_2 = 4h+2$, so
     $\Delta^{ab} \approx Z_{4h+2}$.
 
+\begin{exercise}[Exercise 3]
+    Let $\Delta$ be the ordinary triangle group
+    \[ \Delta = 
+    \begin{cases}
+        \Delta (2, 2h+1, 4h+2),& \text{if } n \equiv 3 \pmod{4}\\
+        \Delta (2,4h,4h),& \text{if } n\equiv 1  \pmod{4}
+    \end{cases}
+    \]
+      \begin{enumerate}
+        \item \textit{Guess for problem statement:} 
+        For $n \equiv 3 \pmod{4}$,
+    let $\Gamma = 
+        \left[\Delta, \Delta \right]$, and for $n \equiv
+        1 \pmod{4}$, let $\Gamma$ be the kernel of
+        the abelianization map composed with the projection onto the $Z_{4h}$ factor of $\Delta^{ab} \approx Z_2 \times
+        Z_{4h}$. Prove that $\Gamma$ uniformizes 
+        $W$, i.e., $W$ is isomorphic to
+        $\mathbb{U}/ \Gamma$.
+        \item Prove that the quotient
+        projection
+        $\mathbb{U}/ \Gamma_{\mathfrak{p}} \to
+        \mathbb{U}/ \Delta$ is a 
+        Belyi function for a
+        $K_n$-dessin.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    (1)
+
     We know by Kulkarni's theorem that for $h >3$,
     $W \approx \mathbb{U}/ \left[\Delta, \Delta \right]$ if and only if
     $\Aut (\mathbb{U}/ \left[\Delta, \Delta \right]) $ contains a cyclic subgroup of
@@ -464,15 +460,10 @@ so $\Delta^{ab}
     has genus $h$.\\
     \linebreak
 
+    \textit{Case: $h > 3$}
+
 There is a paper by Harvey \cite{Harvey} which might be useful for the following two parts.\\
 \linebreak
-
-
-\textit{Showing that the genus is $h$:}\\
-
-
-By Harvey's paper, we have that 
-
 
 
 
@@ -482,57 +473,66 @@ By Harvey's paper, we have that
 \textit{Showing it has a cyclic subgroup of order $4h+2$
 or $4h$:}\\
 \linebreak
-We now claim that
-$\Aut(\mathbb{U}/ \left[\Delta, \Delta \right]) \geq
-\Delta^{ab}$, and
-$\Aut (\mathbb{U}/K) \geq 
-\mathbb{Z}/4h\mathbb{Z}$.\\
-Firstly, note that by the way we constructed $K$,
-it becomes an index $2$ subgroup of $\left[\Delta, \Delta \right]$, and that its abelianization is purely exponents
-of $x_2$, so its abelianization is isomorphic to
-$\mathbb{Z}/4h \mathbb{Z}$.
-
-
-
 
 We know \cite[Prop. 2.35]{Girondo-Gonzalez-Diez} that 
 
 \begin{align*}
-    \Aut (\mathbb{H}/ \left[\Delta, \Delta \right])
-&\approx N (\left[\Delta, \Delta \right])
-/ \left[\Delta, \Delta \right]\\
-\Aut( \mathbb{H} / K) 
+\Aut( \mathbb{H} / \Gamma) 
 &\approx
-N(\left[K,K \right])/ \left[K,K \right]
+N(\Gamma)/ \Gamma.
 \end{align*}
 
-so since the commutator subgroup is always normal,
-we get that $\Delta \leq N(\left[\Delta, \Delta \right]) \leq \Aut(\mathbb{H})$, and
-$K \leq N(\left[K,K \right])$
-so
+We have by the first isomorphism theorem, we know that
+\[\Delta / \Gamma \approx Z_{4h}.\]
+And since $\Gamma$ is the kernel of a homomorphism from
+$\Delta$ into some group, $\Gamma$ is normal in $\Delta$, so
+$\Delta \leq N(\Gamma)$.
+Hence
 
-\begin{align*}
-    \Aut (\mathbb{H}/ \left[\Delta, \Delta \right])
-&\approx N (\left[\Delta, \Delta \right])
-/ \left[\Delta, \Delta \right] 
-\geq \Delta / \left[\Delta, \Delta \right] = \Delta^{ab}\\
-\Aut (\mathbb{H}/ K)
-&\approx N (\left[K,K \right])/ \left[K,K \right]
-\geq K / \left[K,K \right] = K^{ab}
-\end{align*}
-
-Then
-\[\Aut (\mathbb{H}/ \left[\Delta, \Delta \right])
-\approx N (\left[\Delta, \Delta \right])
-/ \left[\Delta, \Delta \right] 
-\geq \Delta/ \left[\Delta, \Delta \right]
-= \Delta^{ab} \approx
+\[\Aut (\mathbb{H}/\Gamma) \approx
+N(\Gamma) / \Gamma \geq \Delta / \Gamma \approx 
 \begin{cases}
-    Z_{4h+2},& n \equiv 3 \pmod{4}\\
-    Z_2 \times Z_{4h},& n \equiv 1 \pmod{4}
-\end{cases}\]
-which gives the result.\\
+    Z_{4h+2},& \text{if } n \equiv 3 \pmod{4}\\
+    Z_{4h},& \text{if } n \equiv 1 \pmod{4}
+\end{cases}
+\]
+
+
+\textit{Showing that the genus is $h$:}\\
+
+Let $g$ denote the genus of $\mathbb{H}/\Gamma$. By definition, our constructing maps
+$\Delta \to Z_{4h}$ and $Z_{4h+2}$ are
+surface-kernel maps as the kernel is a subgroup
+of a triangle group and thus has no periods and is therefore a Fuchsian surface group. 
+
+Therefore, we know that the orders of each
+generator $x_i$ is still $m_i$ in $Z_{4h+2}$ or
+$Z_{4h}$. So since these groups act on
+$\mathbb{H}/ \Gamma$ by the first part of the problem, we can apply the Riemann-Hurwitz theorem, in the form provided by Harvey, \eqref{Riemann-Hurwitz-Harvey}, giving us for $n \equiv 3 \pmod{4}$,
+
+\[\frac{2 (g-1)}{4h+2} = 
+-2 + 3 - \frac{1}{2} - \frac{1}{2h+1} - \frac{1}{4h+2}
+= 1 - \frac{h+2}{2h+1}\]
+(note that $\gamma$ is clearly $0$ visually, but this needs a better argument) which gives
+\[g = 1 + \frac{1}{2} \left( 2h-2 \right)
+= h \]
+and in the case of $n \equiv 1 \pmod{4}$,
+we get
+\[\frac{2(g-1)}{4h}
+= 1 - \frac{1}{2} - \frac{1}{4h} - \frac{1}{4h}\]
+which gives
+\[g = 1 + \frac{1}{2} 2(h-1) = h.\]
+
+
+So the genus of $\mathbb{H}/\Gamma$ is $h$
+as required. Now Kulkarni's theorem guarantees that $\mathbb{H}/\Gamma \approx W$.\\
 \linebreak
+
+
+
+
+
+
 
 (2): 
 \textit{Idea:} Use corollary \ref{fuchsian-triangle-induce-belyi}
@@ -1021,7 +1021,7 @@ in \cite[Lemma~2.39]{Girondo-Gonzalez-Diez}):
 \frac{2(g-1)}{\left|G\right|}
 = 2 (\gamma -1) + 
 \sum_{i=1}^n \left(1-
-\frac{1}{m_i} \right)
+\frac{1}{m_i} \right) \tag{$\zeta$}\label{Riemann-Hurwitz-Harvey}
 \]
 for admissable $\Gamma$ with presentation~\ref{fuchsian-group-presentation}.
 
@@ -1085,6 +1085,25 @@ for admissable $\Gamma$ with presentation~\ref{fuchsian-group-presentation}.
         $n \geq 3$;
         \item if $2 \mid M$,
         the number of periods divisible by the maximum power of $2$ dividing $M$ is even.
+    \end{enumerate}
+\end{theorem}
+
+
+\begin{theorem}
+    Given a cyclic group $Z_N$ ($N \neq 2,3,4$ or $6$), the minimum value of $g$ corresponds to a surface-kernel homomorphism from a Fuchsian triangle group onto $Z_N$.
+\end{theorem} 
+
+\begin{theorem}
+    The minimum genus $g$ of a surface which admits an automorphism of order $N= p_1^{r_1} \ldots p_k^{r_k}$ is given by
+    \begin{enumerate}
+        \item $g = 
+        \max \left\{ 2, \frac{p_1 - 1}{2} \frac{N}{p_1} \right\}$, \quad if $r_1 > 1$ or
+        $N$ is prime,
+        \item $g = 
+        \max \left\{
+        2, \frac{p_1 - 1}{2} \left(\frac{N}{p_1} - 1  \right)
+        \right\},$ \quad
+        if $r_1 = 1$.
     \end{enumerate}
 \end{theorem}
 
