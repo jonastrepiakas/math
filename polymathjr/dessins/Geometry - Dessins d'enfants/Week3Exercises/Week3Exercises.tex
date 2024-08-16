@@ -1,0 +1,75 @@
+% document setup
+\documentclass{article}
+\input{preamble}
+
+% title info
+\title{Polymath Jr.\ 2024 Dessins Project - Exercises 2 - Solutions}
+\author{Ajmain Yamin, Meiling Laurence}
+\date{July 3 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Wiman Surfaces}
+
+\begin{exercise}  Let $p$ and $q$ be two distinct points on the boundary of $P_m$ which are related by a side pairing.
+\begin{enumerate}
+\item[(a)] Prove that $p$ is a vertex of $P_m$ if and only if $q$ is.  Moreover, prove that if $p$ is the $j^\text{th}$ vertex $p = v_j$, then $q$ must either be the $(j+m/2-1)^\text{th}$ vertex or the $(j-m/2+1)^\text{th}$ vertex.
+\item[(b)] Prove that if $p$ is not a vertex of $P_m$ then $q = T_j(p)$ where $j$ is the unique index $j\in \mathbb{Z}/m\mathbb{Z}$ such that $p$ is contained in the $j^\text{th}$ side $s_j$ of $P_m$.
+\end{enumerate}
+\end{exercise}
+
+\begin{proof}[Solution to (a)]
+Suppose that \( p \) is a vertex. Then, \( p = v_j \) for some \( j  \in \{0, 1, \dots, m-1\}\).
+\end{proof}
+
+\begin{proof}[Solution to (b)]
+TYPE IN HERE
+\end{proof}
+
+\begin{exercise}
+Describe all equivalence classes in $P_m/{\sim}$. Prove that $P_m/{\sim}$ is a topological surface.
+\end{exercise}
+
+\begin{exercise}
+Using this map $M_k :R_k \hookrightarrow P_{2k}/{\sim}$, we can compute the genus of topological surface $P_{m}/{\sim}$.
+\begin{enumerate}
+    \item[(a)] Prove that $M_k$ is indeed a topological map.  How many faces does it have?  How many sides per face?
+    \item[(b)] Compute the genus of $P_{2k}/{\sim}$ by applying the \emph{Euler characteristic} formula, which states that for any topological map $M$, with vertex set $V$, edge set $E$, and face set $F$, the genus $g$ of $M$ is determined by $$\abs{V} - \abs{E} + \abs{F} = 2 - 2g.$$
+    \item[(c)] Conclude that the genus of $P_m/{\sim}$ is $g$ if and only if $m = 4g$ or $m=4g+2$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exer:charts}
+Let's construct a Riemann surface structure on the topological surface $S = P_m/{\sim}$.  
+
+Write $\pi$ to denote the quotient map $\pi : P_m \rightarrow P_m/{\sim}$.
+Write $F$ to denote the interior face of $P_m$.  Let $\phi_F: \pi(F) \rightarrow F$ be the function given by the identity function on $F$.
+For each side $s_j$ of $P_m$, $j\in\mathbb{Z}/m\mathbb{Z}$, let $U_j$ denote the open subset of $P_m$ given by $$U_j = \{\rho \cdot p \mid p\in s_j\setminus\{v_j,v_{j+1}\} \text{ and } 0 < \rho \leq 1 \}.$$ 
+%and $$V_j = \{t\cdot p \mid p\in s_j\setminus\{v_j,v_{j+1}\} \text{ and } t \in (-1,0)\cup(0,1)\}$$ 
+If $s_j$ and $s_{j'}$ are opposite sides of $P_m$, let $\phi_j: \pi(U_j \sqcup U_{j'}) \rightarrow \Im(\phi_j)$ denote the function given by 
+$$\phi_j(z) = \begin{cases}
+    z & \text{if } z\in U_j\\
+    z + \lambda_{j'} & \text{if } z \in U_{j'}
+\end{cases}.$$
+
+\begin{itemize}
+    \item[(a)] Prove that $\phi_F, \phi_0,\phi_1,\dots , \phi_{m-1}$ are all charts on $S$.  Prove that the transition function between any two of these charts is given by translations, and is thus holomorphic.
+    \item[(b)] Define one or two more charts to give $S$ the structure of a Riemann surface.
+\end{itemize}
+\end{exercise}
+
+\begin{exercise}\label{exer:cyclicauts}
+Consider the action of $\mathbb{Z}/m\mathbb{Z}$ on $P_m/{\sim}$ given by rotating $P_m$ counterclockwise by multiples of $2\pi/m$ radians. Verify that these are biholomorphisms of the Riemann surface constructed in Exercise \ref{exer:charts}.
+\end{exercise}
+
+\begin{exercise}
+Let $\mathcal{D}_k$ be the \emph{bipartification dessin} of the of the map $M_k : R_k \hookrightarrow P_{2k}/{\sim}$. 
+\begin{enumerate}
+    \item[(a)] Prove that $C_g^\text{I} : y^2 = x^{2g+1} - 1$, $C_g^\text{II} : y^2 = x(x^{2g} - 1)$ define Riemann surfaces isomorphic to $W_g^\text{I}$, $W_g^\text{II}$.% resp.
+    \item[(b)] Determine rational functions $\beta_g^\text{I}$ and $\beta_g^\text{II}$ on $C_g^\text{I}$ and $C_g^\text{II}$ such that $(C_g^\text{I}, \beta_g^\text{I})$ and $(C_g^\text{II}, \beta_g^\text{II})$ are \emph{Belyi pairs} for $\mathcal{D}_{4g+2}$ and $\mathcal{D}_{4g}$, respectively.
+\end{enumerate}
+\end{exercise}
+
+\end{document}

@@ -63,7 +63,7 @@
         e^{- i \left( \frac{(n-2 + 2j)\pi}{n} \right) } e^{i \theta}\right]^{\frac{2}{n-2}}
         \] 
         where $r_j$ is the smallest positive integer such that
-        $r_j \left( \frac{m}{2}-1 \right) \equiv j \mod{m} $. Last part needs some modificaiton.
+        $r_j \left( \frac{m}{2}-1 \right) \equiv j \mod{m} $. (This problem needs some modificaiton)
 \end{proof}
 
 \begin{exercise}[]\label{fuchsian-group-for-wiman-surfaces}
@@ -437,8 +437,10 @@ so $\Delta^{ab}
     let $\Gamma = 
         \left[\Delta, \Delta \right]$, and for $n \equiv
         1 \pmod{4}$, let $\Gamma$ be the kernel of
-        the abelianization map composed with the projection onto the $Z_{4h}$ factor of $\Delta^{ab} \approx Z_2 \times
-        Z_{4h}$. Prove that $\Gamma$ uniformizes 
+        the abelianization map composed with the map onto the $Z_{4h}$ factor of $\Delta^{ab} \approx Z_2 \times
+        Z_{4h}$ which maps $(1,0)$ to $2h$ and
+        $(0,1)$ to $1$. Then the last
+        generator which corresponds to $(1,1)$ is mapped to $2h+1$ which indeed has order $4h$. Prove that $\Gamma$ uniformizes 
         $W$, i.e., $W$ is isomorphic to
         $\mathbb{U}/ \Gamma$.
         \item Prove that the quotient
@@ -465,7 +467,11 @@ so $\Delta^{ab}
 There is a paper by Harvey \cite{Harvey} which might be useful for the following two parts.\\
 \linebreak
 
-
+By way of construction, our map $\Delta \to
+Z_{4h}$ preserves the periods of $\Delta$, so
+by \cite[Theorem~3]{Harvey}, we have that the
+map is surface-kernel. Thus $\Gamma$ is a Fuchsian surface group and thus has no periods - i.e., it is torsion-free and therefore acts freely on $\mathbb{H}$.\\
+\linebreak
 
 
 
@@ -474,16 +480,20 @@ There is a paper by Harvey \cite{Harvey} which might be useful for the following
 or $4h$:}\\
 \linebreak
 
-We know \cite[Prop. 2.35]{Girondo-Gonzalez-Diez} that 
-
+We know \cite[Prop. 2.35]{Girondo-Gonzalez-Diez} that since the action is free, we have
 \begin{align*}
 \Aut( \mathbb{H} / \Gamma) 
 &\approx
 N(\Gamma)/ \Gamma.
 \end{align*}
 
-We have by the first isomorphism theorem, we know that
-\[\Delta / \Gamma \approx Z_{4h}.\]
+We have by the first isomorphism theorem that
+\[\Delta / \Gamma \approx 
+\begin{cases}
+    Z_{4h+2},& n \equiv 3 \pmod{4}\\
+    Z_{4h},& n \equiv 1 \pmod{4}
+\end{cases}.
+\]
 And since $\Gamma$ is the kernel of a homomorphism from
 $\Delta$ into some group, $\Gamma$ is normal in $\Delta$, so
 $\Delta \leq N(\Gamma)$.
@@ -498,14 +508,10 @@ N(\Gamma) / \Gamma \geq \Delta / \Gamma \approx
 \]
 
 
+
 \textit{Showing that the genus is $h$:}\\
 
-Let $g$ denote the genus of $\mathbb{H}/\Gamma$. By definition, our constructing maps
-$\Delta \to Z_{4h}$ and $Z_{4h+2}$ are
-surface-kernel maps as the kernel is a subgroup
-of a triangle group and thus has no periods and is therefore a Fuchsian surface group. 
-
-Therefore, we know that the orders of each
+We know that the orders of each
 generator $x_i$ is still $m_i$ in $Z_{4h+2}$ or
 $Z_{4h}$. So since these groups act on
 $\mathbb{H}/ \Gamma$ by the first part of the problem, we can apply the Riemann-Hurwitz theorem, in the form provided by Harvey, \eqref{Riemann-Hurwitz-Harvey}, giving us for $n \equiv 3 \pmod{4}$,
@@ -1056,7 +1062,7 @@ for admissable $\Gamma$ with presentation~\ref{fuchsian-group-presentation}.
     elements. Hence
     it cannot contain $x_i^r$.\\
     \linebreak
-    The other direction is given in the text with a certain "well-established result". 
+    The other direction is given in the text with a certain "well-established result". This result can be given an intuitive proof by means of a visual argument like that of Girondo and Gonzalez-Diez on \cite[p~118-119]{Girondo-Gonzalez-Diez}.
 \end{proof}
 
 \begin{theorem}
