@@ -1,12 +1,12 @@
 # Fdb version 4
-["bibtex mcg"] 1722889587.72561 "mcg.aux" "mcg.bbl" "mcg" 1722914465.07657 0
+["bibtex mcg"] 1722889587.72561 "mcg.aux" "mcg.bbl" "mcg" 1724893807.61491 0
   "mcg.aux" 1722889587.464 974 8a698ad7463f1950690f3c75c9465ef6 "pdflatex"
   "mcg.bib" 0 -1 0 ""
   (generated)
   "mcg.bbl"
   "mcg.blg"
   (rewritten before read)
-["pdflatex"] 1722914463.94902 "mcg.tex" "mcg.pdf" "mcg" 1722914465.07681 0
+["pdflatex"] 1724893806.56088 "mcg.tex" "mcg.pdf" "mcg" 1724893807.61514 0
   "/etc/texmf/web2c/texmf.cnf" 1718688975.81737 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1000.tfm" 1136768653 3584 2d666ecf6d466d8b007246bc2f94d9da ""
@@ -180,10 +180,10 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1719350542.55051 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1719350620 8213228 2bf4bdc60b7e8eadcc399e002a7ccc4d ""
   "lifts-of-paths.jpg" 1722893708.76281 203201 83ed0f50a606912a88eabfbe2318e4a3 ""
-  "mcg.aux" 1722914464.80161 1137 96950a27232d3e816b35d8afc2119818 "pdflatex"
-  "mcg.bbl" 1722889749.89279 136 9ba4ca97f11df1a6df098014ea343bbb "bibtex mcg"
-  "mcg.out" 1722914464.80161 558 923e77280aa4b31d90ab133c4d375d1b "pdflatex"
-  "mcg.tex" 1722914462.84061 10280 49abb1d39b8c8b6151f3b18923b4cfdd ""
+  "mcg.aux" 1724893807.36719 1840 729fffeb12bc8c0f2da398ce2a691e09 "pdflatex"
+  "mcg.bbl" 1724872117.82896 546 b11ae183ad82ec40fa33648404fd8d34 "bibtex mcg"
+  "mcg.out" 1724893807.36719 1235 ad69254aaf1a189984fd8f25c2ee7321 "pdflatex"
+  "mcg.tex" 1724893806.50118 12722 6a686a891254561a54cce8be16b8d50f ""
   (generated)
   "mcg.aux"
   "mcg.log"

@@ -297,14 +297,86 @@ $\gamma = \beta \alpha^l$, so $\gamma \left<\alpha \right>
  \end{example}
 
  \subsubsection*{Geodesic representatives}
- \begin{proposition}[]
+ \begin{proposition}[]\label{unique-geodesic-representative}
      Let $S$ be a hyperbolic surface. If $\alpha$ is a closed curve
      in $S$ that is not homotopic into a neighborhood of a puncture, then
      $\alpha$ is homotopic to a unique geodesic closed curve $\gamma$.
  \end{proposition}
  
+ \begin{corollary}
+     For compact hyperbolic surfaces, 
+     there is a bijective correspondence:
+\[
+\left\{ 
+    \begin{tabular}{c}
+        Conjugacy classes\\
+        in $\pi_1 (S)$
+\end{tabular}
+\right\} 
+\longleftrightarrow
+\left\{ 
+    \begin{tabular}{c}
+        Oriented geodesic\\
+        closed curves in $S$
+\end{tabular}
+\right\} 
+\] 
+ \end{corollary}
+
+ \subsection*{Simple closed curves}
+ 
+\begin{definition}[Simple curves]
+    A closed curve in $S$ is \textit{simple} if it is topologically embedded, i.e.,
+    if the map $S^{1} \to S$ is injective.  
+\end{definition}
+
+By \cite[Thm~11.8]{Bredon}, any closed curve $\alpha$ can be approximated 
+(arbitrarily close) by
+a smooth closed curve which is homotopic to $\alpha$. Moreover,
+if $\alpha$ is simple, then the smooth approximation can be chosen to be
+simple. Smooth curves are advantageous because we can make use of notions
+such as transversality.
+
+Simple closed curves are also natural to study because they represent
+primitive elements of $\pi_1 (S)$.
+
+\begin{proposition}[]
+    Let $\alpha$ be a simple closed curve in a surface $S$. If $\alpha$ 
+    is not null homotopic, then each element of the corresponding conjugacy
+    class in $\pi_1(S)$ is primitive.
+\end{proposition}
+
+\subsection*{Example: simple closed curves on the torus}
+
+\begin{proposition}[]
+    The nontrivial homotopy classes of oriented simple closed
+    curves in $T^2$ are in bijective correspondence with the set of primitive
+    elements of $\pi_1\left( T^2 \right) \approx \mathbb{Z}^2$ which is
+    the set of elements $\left( p,q \right)  \in \mathbb{Z}^2$ such that
+    either $(p,q) = (0,\pm 1)$ or  $(p,q) = (\pm 1,0)$ or
+     $\gcd(p,q) = 1$.
+\end{proposition}
+
+\subsection*{Closed geodesics}
+
+\begin{proposition}[]
+    Let $S$ be a hyperbolic surface. Let $\alpha$ be a closed curve
+    in $S$ not homotopic into a neighborhood of a puncture. Let
+    $\gamma$ be the unique geodesic in the free homotopy class of
+    $\alpha$ guaranteed by proposition \ref{unique-geodesic-representative}.
+    If $\alpha$ is simple, then $\gamma$ is simple.
+\end{proposition}
 
 
+\newpage
+
+\section{Glossary}
+
+\begin{definition}[Equivariant maps]
+    Suppose a group $G$ acts on spaces $X$ and $Y$, and let $f \colon X
+    \to Y$ be a map. Then  $f$ is said to be equivariant if
+    $f (g \cdot x) = g \cdot  f(x)$ for all $x \in X$ and all $g \in G$.
+\end{definition}
 
 \newpage
 
