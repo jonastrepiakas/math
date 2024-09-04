@@ -101,6 +101,7 @@
 \newcommand{\Vol}{{\mathrm{Vol}}}
 \newcommand{\Area}{{\mathrm{Area}}}
 \newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\Homeo}{{\mathrm{Homeo}}}
 
 
 \newcommand{\reg}{{\mathtt{reg}}}
@@ -125,6 +126,14 @@
     \item Work on section 2 in Farb and Margalit.
 \end{itemize}
 
+\section{Questions}
+
+\begin{itemize}
+    \item How to understand intersection numbers? Any references?
+        Guillemin and Pollack?
+    \item Exercise sheets.
+    \item 
+\end{itemize}
 
 
 \newpage
@@ -399,15 +408,199 @@ primitive elements of $\pi_1 (S)$.
 
 \subsection*{Intersection numbers}
 
+It is often useful to put an inner product on a vector space to check
+if two vectors are linearly independent. We can pursue something similar for
+surfaces.
+
+\begin{definition}[Geometric intersection number]
+    Let $\alpha, \beta$ be closed curves on a surface $S$.
+    Their \textit{geometric intersection number} is
+    \[
+    i \left( \alpha, \beta \right) =
+    \min_{\alpha' \simeq \alpha, \beta' \simeq \beta}
+    \# \left( \alpha' \cap \beta' \right) 
+    \] 
+\end{definition}
+
+\begin{definition}[Preliminary definition for transversality]
+If $\alpha \cap \beta$ is finite and, at every intersection, each
+curve locally separates the other curve, then we say that
+$\alpha$ and $\beta$ are \textit{transverse}.
+\end{definition}
+
+\begin{definition}[Minimal position]
+    Two curves $\alpha$ and $\beta$ are in \textit{minimal
+    position} if $\# \left( \alpha \cap \beta \right) =
+    i\left( \alpha, \beta \right) $.
+\end{definition}
+
+\subsection*{Bigons}
+
+We want a procedure to put curves into minimal position so
+we can compute intersection numbers.
+
+For this, we need the notion of a \textit{bigon}:
+
+\begin{definition}[Bigon]
+    Two transverse simple closed curves $\alpha$ and $\beta$ 
+    in a surface $S$ form a \textit{bigon} if there is a
+    topologically embedded disk in $S$ (the bigon) whose
+    boundary is the union of an arc of $\alpha$ and an
+    arc of  $\beta$ intersecting in exactly two points.
+\end{definition}
+
+\begin{figure}[http]
+    \centering
+    \includegraphics[width=0.4\textwidth]{bigon.png}
+    \caption{Local picture of a bigon}
+    \label{fig:bigon}
+\end{figure}
+
+\begin{lemma}[]\label{lemma-intersections-of-lifts}
+    If transverse simple closed curves $\alpha$ and $\beta$ in
+    a surface $S$ do not form any bigons, then in the
+    universal cover of $S$, and pair of lifts
+    $\tilde{\alpha}$ and $\tilde{\beta}$ of $\alpha$ and $\beta$ 
+    intersect in at most one point.
+\end{lemma}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{lemma-1-8.jpg}
+    \caption{Lemma \ref{lemma-intersections-of-lifts} illustrated}
+    \label{fig:lemma-1-8-jpg}
+\end{figure}
 
 
+\begin{proposition}[The bigon criterion]
+    Two transverse simple closed curves in a surface $S$ are in
+    minimal position if and only if they do not form
+    a bigon.
+\end{proposition}
+
+\begin{corollary}
+    Any two transverse simple closed curves that intersect exactly once are in
+    minimal position.
+\end{corollary}
+
+\subsection*{Homotopy versus isotopy for simple closed curves}
+
+\begin{definition}[Isotopy]
+    Two simple closed curves $\alpha$ and $\beta$ are \textit{isotopic}
+    if there is a homotopy 
+    \[
+    H \colon S^{1} \times \left[ 0,1 \right] \to 
+    S
+    \] 
+    from $\alpha$ to $\beta$ with the property that the closed
+    curve $H \left( S^{1} \times \left\{ t \right\}  \right) $ 
+    is simple for each $t \in \left[ 0,1 \right] $.
+\end{definition}
+
+\begin{proposition}[Baer]
+    Let $\alpha$ and $\beta$ be two essential simple closed curves
+    in a surface $S$. Then $\alpha$ is isotopic to $\beta$ if and
+    only if $\alpha$ is homotopoic to $\beta$.
+\end{proposition}
 
 
+\section{Mapping class group basics}
 
+\subsection{Definitions and first examples}
 
+\begin{definition}[]
+    Let $S$ be a surface which is the connected sum of $g\ge 0$ 
+    tori with $b \ge 0$ disjoint open disks removed and
+    $n \ge 0$ points removed from the interior. Let
+    $\Homeo^{+} \left( S, \partial S \right)$ denote the group
+    of orientation-preserving homeomorphisms of $S$ that
+    restrict to the identity on $\partial S$. We endow this
+    group with the compact-open topology.
+    The \textit{mapping class group} of  $S$, denoted
+    $\Mod (S)$, is the group
+    \[
+    \Mod(S) = \pi_0 \left( \Homeo^{+} \left( S, \partial S
+    \right) \right) 
+    \] 
+    In other words, $\Mod(S)$ is the group of isotopy classes of
+    elements of $\Homeo^{+} \left( S, \partial S \right) $, where
+    isotopies are required to fix the boundary pointwise. If
+    $\Homeo_0 (S, \partial S)$ denotes the connected component of
+    the identity in $\Homeo^{+}\left( S, \partial S \right) $, then
+    we can equivalently write
+    \[
+    \Mod (S) = \Homeo^{+} \left( S, \partial S \right) /
+    \Homeo_0 \left( S, \partial S \right) .
+    \] 
+\end{definition}
 
+\begin{proposition}[]
+    \begin{align*}
+        \Mod (S) 
+        &= \pi_0 \left( \Homeo^{+} \left( S, \partial S \right) 
+        \right) \\
+        &\approx \Homeo^{+}\left( S, \partial S \right) /
+        \text{homotopy}\\
+        &\approx \pi_0 \left( \mathrm{Diff}^{+} \left( 
+        S, \partial S \right)  \right) \\
+        &\approx \textrm{Diff}^{+}\left( S, \partial S \right) /
+        \sim
+    \end{align*}
+    where $\mathrm{Diff}^{+}\left( S, \partial S \right) $ is the group of
+    orientation preserving diffeomorphisms of $S$ that are the
+    identity on the boundary and $\sim$ can be taken to be either
+    smooth homotopy relative to the boundary or smooth isotopy relative to the
+    boundary.
+\end{proposition}
 
+\subsubsection*{The Alexander Lemma}
 
+\begin{lemma}[Alexander lemma]
+   The group $\Mod\left( D^2 \right) $ is trivial. 
+\end{lemma}
+
+\begin{remark}
+    Also $0 \approx \Mod\left( D - \left\{ 0 \right\}  \right) 
+    \approx \Mod \left( S_{0,1} \right) \approx
+    \mod\left( S^2 \right) $.
+\end{remark}
+
+\subsubsection*{The mapping class group of the thrice-punctured sphere,
+$\Mod \left( S_{0,3} \right) $}
+
+\begin{proposition}[]
+    Any two essential simple proper arcs in $S_{0,3}$ with the
+    same endpoints are isotopic. Any two essential arcs that both
+    start and end at the same marked point of $S_{0,3}$ are isotopic.
+\end{proposition}
+
+\begin{proposition}[]
+    The natural map
+    \[
+    \Mod\left( S_{0,3} \right) \to \Sigma_{3}
+    \] 
+    given by the action of $\Mod\left( S_{0,3} \right) $ on the
+    set of marked points of $S_{0,3}$ is an isomorphism.
+\end{proposition}
+
+\begin{exercise}[]
+    Show similarly that $\Mod \left( S_{0,2} \right) \approx
+    \mathbb{Z}/ 2\mathbb{Z}$.
+\end{exercise}
+
+\newpage
+
+\section{Exercises}
+
+\begin{problem}[]
+    Give an example of a surface $S$ of finite type and
+    self-diffeomorphism $\varphi $ of $S$ which is
+    homotopic to $\id_S$ but not isotopic to $\id_S$.
+\end{problem}
+
+\begin{proof}
+    
+\end{proof}
 
 
 
