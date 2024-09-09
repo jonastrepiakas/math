@@ -1,0 +1,192 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\Mod}{{\mathrm{Mod}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+
+
+
+\begin{document}
+    \begin{exercise}[]
+        Find $\dim \left\{ A \in \End (V)  \mid A (W) \subset W
+        \right\} $ for a subspace $W \subset V$.
+    \end{exercise}
+
+    \begin{solution}
+        $ $ \newline
+        Suppose $V$ is finite-dimensional.
+        Then $W$ is also finite dimensional, so
+        choose a basis $\left\{ x_1, \ldots, x_k \right\} $ for
+        $W$ and extend it to a basis $\left\{ x_1,
+        \ldots, x_n \right\} $ for $V$.
+        Then
+        any $A \in U = \left\{ A \in \End(V)  \mid A(W) \subset W
+        \right\} $,
+        can by
+        theorem 2.28 be written as
+        \[
+        A = \sum_{i,j} \alpha_{ij} E_{ij}
+        \] 
+        where $i,j$ run over $ \left\{ 1, \ldots, n := \dim V 
+        \right\} $ 
+        and $E_{ij}(x_k) = \delta_{jk} x_i$.
+        Since $A (W) \subset W$, we get by uniqueness of
+        linear combinations (lemma 1.10), that
+        $E_{ij} (x_i) \in \Span \left( x_1, \ldots, x_k \right) $ 
+        for $i \in \left\{ 1,\ldots, k \right\} $ which is
+        equivalent to $\alpha_{ij} = 0$ whenever
+        $j \in \left\{ 1, \ldots, k \right\} $ and
+        $i \in \left\{ k+1, \ldots, n \right\} $. This is the
+        only requirement for $A(W)$ to be contained in $W$, so any
+        $A$ of this form is also in
+        $U$. Hence a basis for $U$ is
+        all $E_{ij}$ such that $(i,j) \not\in 
+        \left\{ k+1, \ldots,n \right\} \times 
+        \left\{ 1, \ldots, k \right\} $ which has
+        $n^2 - (n-k) k = n^2 - nk + k^2 $ elements, so
+        $\dim U = n^2 - (n-k) k$.\\
+        \linebreak
+        For $V$ infinite dimensional, $\dim U = \infty$:\\
+        \linebreak
+        Let $\left\{ v_{\alpha} \right\}_{\alpha \in I} $ be some
+        basis for $W$ and extend it to a basis 
+        $\left\{ v_{\alpha} \right\}_{\alpha \in I \cup J}$ for
+        $V$. If $\left| I \right| = \infty$, then
+        define a map $\varphi_{\alpha, \beta}  \colon V \to V$ by
+        $\varphi_{\alpha, \beta}  (v_{\alpha}) = v_{\beta}$ for
+        $\alpha, \beta \in I$ distinct, and
+        the zero map on the remaining basis elements.
+        There are infinitely many 
+        such maps and clearly, each one is in $U$. Suppose
+        $0 = \sum_{i,j} c_{ij} \varphi_{\alpha_i, \beta_j}$ is some
+        linear combination. Then
+        applying this on $v_{\beta_j}$, we get
+        $0 = \sum_{i} c_{ij} v_{\alpha_i} $, so by
+        linear independence, we get $c_{ij} = 0$ for all $i$.
+        Since $j$ was arbitrarily chosen in the linear combination,
+        we get $c_{ij}$ for all $i$ and $j$ occurring in the sum.
+        Hence $\left\{ \varphi_{\alpha, \beta} \right\}_{\alpha,
+        \beta \in I}$ is a linearly independent subset of
+        $U$, so $\dim U = \infty$.\\
+        \linebreak
+        If $\left| I \right| = n < \infty$ is finite,
+        then $J$ is infinite. We can do the above construction
+        again to get maps $\varphi_{\alpha,\beta} \colon
+        V \to V$ but now for $\alpha,\beta \in J$ distinct.
+        In this case, they all map $W$ to $0$ which is indeed
+        in $W$, so they are in $U$. Completely equivalently to the
+        above, we see again that they are linearly independent, so
+        $\dim U = \infty$.
+    \end{solution}
+    
+
+    %\bibliography{../refs.bib}
+\end{document}

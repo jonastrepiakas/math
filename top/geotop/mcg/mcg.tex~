@@ -129,10 +129,7 @@
 \section{Questions}
 
 \begin{itemize}
-    \item How to understand intersection numbers? Any references?
-        Guillemin and Pollack?
-    \item Exercise sheets.
-    \item 
+    \item Grad school for algtop, geotop, alg?
 \end{itemize}
 
 
@@ -585,7 +582,7 @@ $\Mod \left( S_{0,3} \right) $}
 
 \begin{exercise}[]
     Show similarly that $\Mod \left( S_{0,2} \right) \approx
-    \mathbb{Z}/ 2\mathbb{Z}$
+    \mathbb{Z}/ 2\mathbb{Z}$.
 \end{exercise}
 
 \newpage

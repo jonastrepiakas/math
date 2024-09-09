@@ -1,0 +1,160 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\Mod}{{\mathrm{Mod}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+
+
+
+\begin{document}
+\textit{Solution to (iv):} Let $f_1 \colon I \times I \to \mathbb{C}$ 
+be the "retraction" homotopy $f_1 (x,t) =
+\gamma_1 * \gamma_2 * \overline{\gamma_1} \left( x(1-t) \right) $.
+Thus $\gamma_1 * \gamma_2 * \overline{\gamma_1}$ is freely homotopic
+to the constant path at $0$. Similarly
+$\gamma_2$ is also freely homotopic to the constant path at $0$ by, for
+example, $f_2 (x,t) = \gamma_2 \left( tx \right) $. Then
+the map
+$H \colon I \times I \to \mathbb{C}$ by
+\[
+H (x,t) = \begin{cases}
+    f_1(x,2t),& t \in \left[ 0, \frac{1}{2} \right],\\
+    f_2 (x, 2t-1),& t\in \left[ \frac{1}{2},1 \right] 
+\end{cases}
+\] 
+clearly has $H(x,0) = \gamma_1 * \gamma_2 * \overline{\gamma_1}(x)$ 
+and $H(x,1) = \gamma_2(x)$, and
+as $f_1(x,1) = c_{0} = f_2(x, 0)$ where
+$c_0$ is the constant path at $0$, we get that $H$ is continuous
+by the gluing lemma since $H$ is continuous on
+$I \times \left[ 0,\frac{1}{2} \right] $ and
+$I \times \left[ \frac{1}{2},1 \right] $ and
+agrees on the intersection.\\
+\linebreak
+They are not homotopic relative to the basepoint since
+$\pi_1 \left( \mathbb{C} - \left\{ -1,1 \right\}  \right) 
+\approx \pi_1 \left( S^{1} \vee S^{1} \right) 
+= \left< a,b \right>$ where the loop
+$\gamma_1$ corresponds to $a$, say, and $\gamma_2$ corresponds to
+$b$, for example. But then
+$\overline{\gamma_1} = a^{-1}$, so
+$\gamma_1 * \gamma_2 * \overline{\gamma_1}$ corresponds to
+$a b a^{-1}$ which does not correspond to 
+$b$ which is what $\gamma_2$ corresponds to since
+we have no relations giving $aba^{-1} = b$.\\
+\linebreak
+\textit{Additional note:} Since $aba^{-1}b^{-1}$ is a commutator,
+it is trivial in the abelianization of $\pi_1 \left( \mathbb{C}
+- \left\{ -1,1 \right\} \right) $ which is the
+first homology group of $\mathbb{C} - \left\{ -1,1 \right\} $ as
+$\mathbb{C} - \left\{ -1,1 \right\} $ is path-connected, so
+the two loops in question are homologous.
+    %\bibliography{../refs.bib}
+\end{document}
