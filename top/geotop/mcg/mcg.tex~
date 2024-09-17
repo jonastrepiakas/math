@@ -71,6 +71,7 @@
 \DeclareMathOperator{\rel}{rel}
 \DeclareMathOperator{\Int}{Int}
 \DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\PSL}{PSL}
 
 %Row operations
 \newcommand{\elem}[1]{% elementary operations
@@ -120,16 +121,24 @@
 
 \begin{itemize}
     \item Read up on transversality in Lee - potentially supplied with Hirsch
-        and Guillemin and Pollack. 
-    \item Write notes for section 1.2.5 in Farb and Margalit.
+        and Guillemin and Pollack.
+    \item Read up on classification of surfaces. Potentially
+        through Munkres, or through the two papers in the folder
+        "Classification of surfaces" under the Topology folder.
+        One of them deals with surfaces with boundary.
     \item Read about oriented intersection theory in Guillemin and Pollack.
     \item Work on section 2 in Farb and Margalit.
+    \item Read section on $K (G,1)$-spaces.
 \end{itemize}
 
 \section{Questions}
 
 \begin{itemize}
     \item Grad school for algtop, geotop, alg?
+    \item How does one check that $\gamma$ and $\beta$ fill
+        the genus 2 surface in figure 1.7?
+    \item How to find (or show existence of) orientation-preserving
+        or orientation-reversing maps?
 \end{itemize}
 
 
@@ -500,8 +509,386 @@ For this, we need the notion of a \textit{bigon}:
     only if $\alpha$ is homotopoic to $\beta$.
 \end{proposition}
 
+\begin{proof}
+    If $\alpha$ is isotopic to $\beta$ then they are clearly also
+    homotopic.\\
+    \linebreak
+    Suppose $\alpha$ and $\beta$ are homotopic. Taking a
+    tubular neighborhood around $\alpha$, we can find
+    a disjoint simple loop $\tilde{\alpha}$ which is homotopic to
+    $\alpha$ but disjoint from it. Then $\beta$ is homotopic
+    to $\tilde{\alpha}$, and hence
+    $i \left( \alpha, \beta \right) 
+    = i \left( \alpha, \tilde{\alpha} \right) = 0$.
+    Performing an isotopy of $\alpha$, we may assume that
+    $\alpha$ is transverse to $\beta$ (why?).
+    If $\alpha$ and $\beta$ are not disjoint, then by
+    the bigon criterion, they form a bigon. A bigon
+    prescribes an isotopy that reduces intersection, so we
+    may remove bigons by isotopy until $\alpha$ and $\beta$ are
+    disjoint.\\
+    \linebreak
+    Suppose $\chi (S) <0$. Lift $\alpha$ and $\beta$ to
+    $\tilde{a}$ and $\tilde{\beta}$ with the
+    same endpoints in $\partial \mathbb{H}^2$. There
+    is a hyperbolic isometry $\varphi$ that leaves
+    $\tilde{\alpha}$ and $\tilde{\beta}$ invariant and
+    acts by translation on the lifts. As $\tilde{\alpha}$ and
+    $\tilde{\beta}$ are disjoint, let $R$ denote the region
+    between them. We claim that the quotient surface
+    $R' = R / \left<\varphi \right>$ is an annulus.
+    The fundamental group of $R'$ is isomorphic to the group of
+    deck transformations $\left<\varphi \right>$ and is hence
+    infinite cyclic. Furthermore, $R'$ has two boundary components.
+\end{proof}
+
+
+\subsubsection*{Extension of isotopies}
+
+\begin{definition}[]
+    An isotopy of a surface $S$ is a homotopy $H \colon 
+    S \times I \to S$ such that for each
+    $t \in \left[ 0,1 \right] $, the map
+    $H \left( S, t \right) \colon S \times \left\{ t \right\} \to 
+    S$ is a homeomorphism. Given an isotopy between
+    two simple closed curves in $S$, it will often be useful
+    to promote this to an isotopy of $S$ which we call an
+    ambient isotopy of $S$.
+\end{definition}
+
+\begin{proposition}[]
+    Let $S$ be any surface. If $F \colon S^{1} \times I \to 
+    S$ is a smooth isotopy of simple closed curves, then
+    there is an isotopy $H \colon S \times I \to S$ so that
+    $H |_{S \times 0}$ is the identity and 
+    $H|_{F\left( S^{1} \times 0 \right) \times I} = F$.
+\end{proposition}
+
+\begin{proof}
+    \cite[Ch~8, Thm 1.3]{Hirsch}
+\end{proof}
+
+
+
+\subsection*{Arcs}
+$ $ \newline \newline
+Assume $S$ is a compact surface, possibly with boundary
+and possibly with finitely many marked points in the interior.
+Denote the set of marked points by $\mathcal{P}$.
+
+\begin{definition}[]
+    A \textit{proper arc} in $S$ is a map $\alpha \colon
+    \left[ 0,1 \right]  \to S$ such that
+    $\alpha^{-1} \left( \mathcal{P} \cup \partial S \right) 
+    = \left\{ 0,1 \right\} $.
+\end{definition}
+\begin{definition}[]
+    The arc $\alpha$ is \textit{simple} if it is an embedding
+on its interior.
+\end{definition}
+
+\begin{remark}[]
+    The homotopy class of a proper arc is taken to be
+    the homotopy class within the class of proper arcs.
+    Thus points on $\partial S$ cannot move off the boundary
+    during the homotopy.\\
+    A homotopy (or isotopy) of an arc is said to
+    be \textit{relative to the boundary} if its endpoints
+    stay fixed throughout the homotopy. 
+    An arc in a surface $S$ is \textit{essential} if it
+    is neither homotopic into a boundary component of $S$ nor a
+    marked point of $S$.
+\end{remark}
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.5\textwidth]{bigon-of-arcs.png}
+    \caption{bigon-of-arcs.png}
+    \label{fig:bigon-of-arcs-png}
+\end{figure}
+Note in this picture how if isotopies are considered relative
+to the boundary, then the two arcs are in minimal position, while
+if we consider general isotopies, then the half-bigon shows that
+they are not in minimal position as we can pull the top strand down
+under the bottom one along the boundary.
+
+\begin{itemize}
+    \item The bigon criterion holds for arcs.
+    \item Corollary 1.9 (geodesics are in minimal position)
+        and prop 1.3 (existence and uniqueness of geodesic 
+        representatives) work for arcs in surfaces with
+        punctures and/or boundary.
+    \item Prop 1.10 (homotopy versus isotopy for curves) and
+        theorem 1.13 (extension of isotopies) also
+        work for arcs.
+\end{itemize}
+
+\subsection*{Change of coordinates principle}
+
+\subsubsection*{Classification of simple closed curves}
+
+\begin{definition}[]
+    Given a simple closed curve or
+    a simple proper arc $\alpha$ in a surface $S$,
+    the surface obtain by cutting $S$ along $\alpha$ is
+    a compact surface $S_{\alpha}$ equipped with an attaching
+    map $h$ (i.e.
+    \begin{enumerate}
+        \item $S_{\alpha} / \left( x \sim h(x) \right) 
+            \approx S$ 
+        \item the image of the distinguished boundary components
+            under this quotient map is $\alpha$.
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[]
+    We say that a simple closed curve $\alpha$ in the surface
+    $S$ is \textit{nonseparating} if the cut surface
+    $S_{\alpha}$ is connected, and \textit{separating} if
+    $S_{\alpha}$ is not connected.
+\end{definition}
+
+
+\begin{theorem}[]
+    If $\alpha$ and $\beta$ are any two nonseparating simple
+    closed curves in a surface $S$, then there
+    is a homeomorphism $\varphi \colon S \to S$ with
+    $\varphi \left( \alpha \right) = \beta$.
+\end{theorem}
+
+\begin{proof}
+    The cut surface $S_{\alpha}$ and $S_{\beta}$ have
+    two boundary component corresponding to $\alpha$ and 
+    $\beta$, respectively. 
+    Now, suppose $S_{\alpha}$ has
+    $n_{\alpha}$ vertices, $m_{\alpha}$ edges and
+    $t_{\alpha}$ triangles in a triangulation. Then
+    in obtaining $S$ from $S_{\alpha}$, we identify the vertices
+    and edges, but no triangles are identified, so we get
+    $n_{S} = n_{\alpha}-3$ and $m_{S} = m_{\alpha}-3$, but
+    $t_{S} = t_{\alpha}$. Thus $\chi (S_{\alpha}) = 
+    \chi (S)$.
+
+    Since both $S_{\alpha}$ and
+    $S_{\beta}$ have the same Euler characteristic, number of
+    boundary components and number of punctures, it follows
+    that $S_{\alpha} \approx S_{\beta}$. Choose
+    a homeomorphism $\varphi \colon S_{\alpha} \to S_{\beta}$ such 
+    that if $h_{\alpha}$ is the attaching map for $S_{\alpha}$ 
+    and $h_{\beta}$ is the attaching map for $S_{\beta}$,
+    then $\varphi$ takes $\left\{ x, h_{\alpha}(x) \right\} $ 
+    to $\left\{ y, h_{\beta}(y) \right\} $ - i.e., the
+    identification are respected under the map.
+    This homeomorphism gives the desired
+    homeomorphism of $S$ taking $\alpha$ to $\beta$.
+    If we want an orientation preserving homeomorphism, we
+    can postcompose by an orientation-reversing homeomorphism
+    fixing $\beta$ if necessary.
+\end{proof}
+
+\begin{theorem}[]
+    When $S$ is closed, $\beta$ is separating if and only
+    if it is the boundary of some subsurface of $S$. Which
+    is equivalent to the vanishing of the
+    homology class of $\beta$ in $H_1 \left( S, \mathbb{Z} \right) $.
+\end{theorem}
+
+\begin{remark}[]
+    By the "classification of disconnected surfaces", there
+    are finitely many separating simple closed curves in $S$ 
+    up to homeomorphism.
+\end{remark}
+
+
+\begin{corollary}\label{cut-surface-homeo-1}
+    There is an orientation-preserving homeomorphism of a surface
+    taking one simple closed curve to another if and only
+    if the corresponding cut surfaces (which may be disconnected)
+    are homeomorphic.
+\end{corollary}
+
+\begin{definition}[Topological type]
+    The existence of a homeomorphism as in \ref{cut-surface-homeo-1}
+    is an equivalence relation. The equivalence class
+    of a simple closed curve or a collection of simple closed
+    curves is called its \textit{topological type}.
+\end{definition}
+
+A seprarating simple closed curve in the closed surface
+$S_g$ divides $S_g$ into two disjoint subsurfaces of genus
+$k$ and $g-k$. The minimum of $\left\{ k, g-k \right\} $ is
+called the genus of the separating simple closed curve. 
+There are $\left\lfloor \frac{g}{2} \right\rfloor$ topological
+types of essential separating simple closed curves in
+a closed surface.
+
+\begin{question}
+    Suppose $\alpha$ is any nonseparating simple closed curve
+    on a surface $S$.
+    \begin{enumerate}
+        \item Is there a simple closed curve
+            $\gamma$ in $S$ so that $\alpha$ and $\gamma$ 
+            \textit{fill} $S$, i.e., such that
+            $\alpha$ and $\gamma$ are in minimal position
+            and the complement of $\alpha \cup  \gamma$ is
+            a union of topological disks.
+        \item Is there a simple closed curve $\delta$ in
+            $S$ with $i(\alpha,\beta) = 0$? $i(\alpha,\beta)=1$?
+            $i(\alpha,\beta)=k$?
+    \end{enumerate}
+\end{question}
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{filling-genus-2-surface.png}
+    \caption{a}
+    \label{fig:filling-genus-2-surface-png}
+\end{figure}
+
+Figure \ref{fig:filling-genus-2-surface.png} shows
+two filling simple closed curves on the genus $2$ surface.
+By the classification of simple closed curves on a surface,
+there is a homeomorphism $\varphi \colon S_2 \to S_2$ such
+that $\varphi\left( \beta \right) =\alpha$. Then
+the image of $\gamma$ under $\varphi$ fills $S_2$ with
+$\alpha$ since filling is a topological property (show this).
+
+\subsubsection*{Examples of change of coordinate principle}
+
+\begin{enumerate}
+    \item \textit{Pairs of simple closed curves that intersect
+        once are all of the same topological type}.
+        Suppose $\alpha_1$ and $\beta_1$ form
+        such a pair on a surface $S$. Then
+        $\beta_1$ must be an arc connecting the two
+        boundary components in $S_{\alpha_1}$. But the boundary
+        component is homeomorphic to $S^{1}$, so removing a 
+        point leaves it connected. Thus removing
+        $\beta_1$ leaves $\left( S_{\alpha_1} \right)_{\beta_1}$
+        path-connected. Similarly,
+        $\left( S_{\alpha_2} \right)_{\beta_2}$ is path-connected
+        for any other pair $\alpha_2$ and $\beta_2$ that
+        constitute a pair of simple closed curves
+        that intersect once in $S$. By the classification
+        of surfaces with boundary, $\left( S_{\alpha_1} \right)_{\beta_1}$ is
+        homeomorphic to $\left( S_{\alpha_2} \right)_{\beta_2}$ 
+        which preserves equivalence classes on the boundary,
+        and as we can construct this homeomorphism first
+        for the $\beta$'s and then for the $\alpha$'s, 
+        this homeomorphism descends to a self-homeomorphism
+        of $S$ taking the pair $\left\{ \alpha_1, \beta_1 \right\} $ 
+        to $\left\{ \alpha_2, \beta_2 \right\} $.
+\end{enumerate}
+
+
+\subsection*{Three facts about homeomorphisms}
+
+Suppose $f \colon D \to D$ is an orientation-reversing map.
+Then $f$ restricts to a map on $S^{1} \to S^{1}$, and
+if $f$ is smooth considered as such a map, then the
+reversal of orientation implies that since the fiber
+of any point is a single point, the degree of $f$ 
+must be $-1$. But thus $f$ is not isotopic to the identity
+as the identity has degree $1$ and the isotopy would
+have to restrict to a homotopy on the boundary, but
+degree is a homotopy invariant for maps $S^{n} \to S^{n}$.\\
+However, the straight-line homotopy does give a homotopy
+between $f$ and the identity.\\
+\linebreak
+On $A = S^{1} \times I$, the orientation-reversing map
+that fixes the $S^{1}$ factor and reflects the $I$ factor
+is homotopic but not isotopic to the identity.
+
+
+\begin{theorem}[]
+    Let $S$ be any compact surface and let $f$ and $g$ be
+    homotopic homeomorphisms of $S$. Then $f$ and $g$ are
+    isotopic unless they are one of the two examples described
+    above (on $S = D^2$ and $S = A$ ). In particular,
+    if $f$ and $g$ are orientation-preserving, then they
+    are isotopic.
+\end{theorem}
+
+
+
+\begin{theorem}[]
+    Let $S$ be a compact surface. Then every homeomorphism of
+    $S$ is isotopic to a diffeomorphism of $S$.
+\end{theorem}
+
+\begin{theorem}[Hamstrom]
+    Let $S$ be a compact surface, possibly minus a finite
+    number of points from the interior. Assume that
+    $S$ is not homeomorphic to
+    $S^2, \mathbb{R}^2, D^2, T^2$, the closed annulus,
+    the once-punctured disk, or the once-punctured plane. Then
+    the space $\Homeo_0 (S)$ is contractible.
+\end{theorem}
+
+
+
+
+\newpage
 
 \section{Mapping class group basics}
+
+
+\subsection*{The compact-open topology}
+
+\begin{definition}[]
+    The \textit{weak} or \textit{compact-open $C^{r}$ }
+    topology on $C^{r} \left( M,N \right) $, where
+    $M$ and $N$ are $C^{r}$ manifolds, is generated
+    by sets defined as follows:
+    let $f \in C^{r}(M,N)$. Let $\left( U, \varphi \right),
+    \left( V, \psi  \right) $ be charts on
+    $M$ and $N$ ; let $K \subset U$ be compact such that
+    $f(K) \subset V$ and let $0 < \varepsilon \le 
+    \infty $. Then a \textit{weak subbasic neighborhood}
+    \[
+    \mathcal{N}^{r} \left( f ; \left( U, \varphi  \right) ,
+    \left( V, \psi  \right) , K, \varepsilon \right) 
+    \tag{$\zeta$}\label{eq:compact-open-subbasis-nbhds}
+    \] 
+    is the set of $C^{r}$ maps $g \colon M \to N$ such that
+    $g(K) \subset V$ and
+    \[
+    \|D^{k}\left( \psi f \varphi^{-1} \right) (x)
+    -D^{k} \left( \psi g \varphi^{-1} \right) (x)\|< \varepsilon
+    \] 
+    for all $x \in \varphi(K)$, for $k = 0, \ldots, r$.
+    The \textit{compact-open $C^{r}$ topology} on
+    $C^{r}(M,N)$ is generated by the set of weak subbasic
+    neighborhoods, and defines the topological space
+    $C_W^{r} (M,N)$.
+    A neighborhood of $f$ is then
+    any set containing the intersection
+    of a finite number of sets of the
+    type \eqref{eq:compact-open-subbasis-nbhds}.
+\end{definition}
+
+We are interested in the subspace
+$\Homeo (S) \subset C_W^{0} (S,S)$, inheriting the
+subspace topology.\\
+\linebreak
+The compact-open topology might seem a bit confusing, but
+we have the following lemma \cite[Prop A.14]{Hatcher}:
+
+\begin{lemma}[]\label{compact-open-isotopy}
+    Let $X,Y,Z$ be Hausdorff topological spaces.
+    Suppose $Y$ is locally compact. Then a 
+    map $f \colon X \to C_W^{0}(Y,Z)$ is
+    continuous if and only if the associated map
+    $F \colon X \times Y \to Z$ defined by
+    \[
+    F(x,y) := f(x)(y)
+    \] 
+    is continuous.
+\end{lemma}
+
+
+
+
 
 \subsection{Definitions and first examples}
 
@@ -519,9 +906,26 @@ For this, we need the notion of a \textit{bigon}:
     \Mod(S) = \pi_0 \left( \Homeo^{+} \left( S, \partial S
     \right) \right) 
     \] 
-    In other words, $\Mod(S)$ is the group of isotopy classes of
-    elements of $\Homeo^{+} \left( S, \partial S \right) $, where
-    isotopies are required to fix the boundary pointwise. If
+
+
+\begin{remark}[]
+    From Lemma \ref{compact-open-isotopy}, we
+    see that a path $\gamma \colon I \to 
+    \Homeo^{+}\left( S, \partial S \right) $
+    is precisely equivalent to an isotopy 
+    $F \colon I \times S \to S$ from
+    $\gamma(0)$ to $\gamma(1)$ (isotopy because at each
+    time $t$, $\gamma(t) \colon S \to S$ is indeed a topological
+    embedding as it is a homeomorphism). In fact, it's an isotopy
+    of $S$. Here isotopies are required to fix
+    boundaries.
+\end{remark}
+
+
+
+
+
+    If
     $\Homeo_0 (S, \partial S)$ denotes the connected component of
     the identity in $\Homeo^{+}\left( S, \partial S \right) $, then
     we can equivalently write
@@ -559,7 +963,7 @@ For this, we need the notion of a \textit{bigon}:
 \begin{remark}
     Also $0 \approx \Mod\left( D - \left\{ 0 \right\}  \right) 
     \approx \Mod \left( S_{0,1} \right) \approx
-    \mod\left( S^2 \right) $.
+    \Mod\left( S^2 \right) $.
 \end{remark}
 
 \subsubsection*{The mapping class group of the thrice-punctured sphere,
@@ -571,6 +975,51 @@ $\Mod \left( S_{0,3} \right) $}
     start and end at the same marked point of $S_{0,3}$ are isotopic.
 \end{proposition}
 
+\begin{proof}
+    Let $\alpha$ and $\beta$ be two simple proper arcs in
+    $S_{0,3}$ connecting the same two distinct marked points.
+    By isotopy, we may modify $\alpha$ so that
+    it intersects transversally with $\beta$.
+    Letting the last marked point become the point at infinity,
+    we can consider $\alpha$ and $\beta$ as being
+    arcs in $\mathbb{R}^2 - \left\{ p,q \right\} $ for
+    the two marked points $p,q$.
+    An example is illustrated below.
+    Now, suppose the arcs are disjoint.
+    Then, choosing an intersection point, we can follow
+    the path to the other intersection point and obtain
+    either a bigon, in which case we can remove it by isotopy,
+    or a bigon with path segments inside.
+    Now, suppose
+    the there is some point of $\alpha$ inside the bigon.
+    Then since this is part of the arc $\alpha$, we can find
+    a simple path connecting this point to two points
+    of $\beta$. There could, however, be infinitely many
+    such paths inside the bigon, preventing us choosing the
+    innermost (think concentric semicircles).
+    However, by transversality, the preimages of the 
+    intersection points
+    form a $0$-dimensional submanifold of $I$ which is closed
+    (as the preimage of a closed path segment of $ \beta$)
+    and discrete.
+    But discrete subsets of compact spaces are finite. Hence
+    we can choose the innermost such path of $ \alpha$.
+    By isotopy, we can remove the bigon formed by  this alpha.
+    Continuing a finite amount of times, we remove the original
+    bigon. After a finite amount of reiterations, we can
+    therefore remove all bigons, and we get
+    disjoint $ \alpha$ and $\beta$.
+
+    Now suppose we remove $\alpha \cup  \beta$. Then
+    we get a disjoint union of a disk and a punctured
+    disk (by the classification of surfaces - expound on this).
+    Thus the embedded disk in $S_{0,3}$ gives an isotopy
+    of $\alpha$ to $\beta$.
+\end{proof}
+ 
+
+
+
 \begin{proposition}[]
     The natural map
     \[
@@ -580,10 +1029,281 @@ $\Mod \left( S_{0,3} \right) $}
     set of marked points of $S_{0,3}$ is an isomorphism.
 \end{proposition}
 
+\begin{proof}
+    This is just additional notes to the proof in the book.
+    The reason it is surjective is that the previous proposition
+    gives an isotopy between arcs which we can extend to
+    an ambient isotopy relative to the boundary which
+    is an element of the mapping class group. (can we
+    be sure the last marked point stays fixed?)
+\end{proof}
+
+
+
+
 \begin{exercise}[]
     Show similarly that $\Mod \left( S_{0,2} \right) \approx
     \mathbb{Z}/ 2\mathbb{Z}$.
 \end{exercise}
+
+
+\begin{solution}
+    Let $\alpha, \beta$ be arcs with the same distinct
+    marked endpoints. Equivalently to before, we can reduce
+    bigons by isotopy until $\alpha$ and $\beta$ are disjoint.
+    Then removing $\alpha \cup  \beta$ we would get
+    two disjoint disks (firstly, $\alpha \cup \beta$ 
+    make up a closed simple curve which is trivial since
+    $H_1 \left( S^{1} \right) = \left\{ 0 \right\} $ and
+    thus separating. Therefore we get a disconnected
+    space with as many vertices as edges whose
+    Euler characteristic must add to
+    $2 = \chi \left( S^{2} \right) $, so
+    it must precisely have $1$ face each, i.e., they are disks)
+    which will descend to give the desired
+    isotopy in $S_{0,2}$.
+    
+    So assume no intersection. Let $\varphi$ be an orientation
+    preserving homeomorphism fixing the marked points. Then
+     $\varphi \left( \alpha \right) $ is isotopic
+     to $\alpha$, so $\varphi$ is isotopic to a homeomorphism which
+     fixes $\alpha$ pointwise, call it $\psi$.
+     This induces a homeomorphism on $S^{2} - \alpha$ which
+     is a disk that is the identity on the boundary, and hence
+     isotopic to the identity homeomorphism on the disk
+     since $\Mod \left( D^2 \right) \approx \left\{ 0 \right\} $.
+     This isotopy gives an isotopy of $ \psi$ to the identity.
+     The composition of all these
+     isotopies gives an isotopy of 
+     $\varphi$ with the identity.
+     Hence the map is injective.
+\end{solution}
+
+
+
+\begin{theorem}[]\label{mcg-of-torus}
+    The homomorphism
+    \[
+    \sigma \colon \Mod \left( T^2 \right) \to 
+    \SL \left( 2, \mathbb{Z} \right) 
+    \] 
+    given by the action on $H_1 \left( T ;\mathbb{Z} \right) 
+    \approx \mathbb{Z}^2$ is an isomorphism.
+\end{theorem}
+
+\begin{proof}
+    Additional notes on the proof:
+    why can we for any element $f \in \Mod \left( T^2 \right) $ 
+    choose a representative $\varphi $ that fixes a basepoint
+    for $T^2$?
+\end{proof}
+
+
+\begin{corollary}
+    Since $H_1 \left( S_{1,1}; \mathbb{Z} \right) \approx
+    \mathbb{Z}^2$, there is a homomorphism
+    $\sigma \colon \Mod \left( S_{1,1} \right) \to 
+    SL(2, \mathbb{Z})$ which is determined
+    which isomorphism the homomorphism induces in
+    homology. This map is an isomorphism.
+\end{corollary}
+
+\begin{exercise}[]
+    Prove this explicitly.
+\end{exercise}
+
+\subsubsection*{The mapping class group of
+$S_{0,4}$}
+
+Consider the torus $T^2$ as $I^2 / \sim$ under the usual
+identification. Then consider the
+linear map $\iota \colon \mathbb{R} \to \mathbb{R}$ 
+by
+$\iota = \begin{pmatrix} -1 & 0\\ 0 & -1 \end{pmatrix} 
+= - I
+\in SL(2, \mathbb{Z})$ which rotates about the origin
+by $\pi$ radians.
+
+The map is equivarient with respect to the quotient map
+so it induces a map $I^2 / \sim \to I^2 / \sim$
+and we wish to take the quotient space that identifies
+fibers of this map. This is equivalent to taking
+the quotient space of $\mathbb{R}^2$ induced by the
+following actions: for $\left( a,b \right) \in \mathbb{R}^2$,
+\begin{enumerate}
+    \item sending $(a,b)$ to $(a+2k,b)$ for $k \in \mathbb{Z}$,
+    \item sending $(a,b)$ to $(a, b+ 2t)$ for $t \in \mathbb{Z}$,
+    \item or sending $(a,b)$ to $(-a, -b)$.
+\end{enumerate}
+We claim the quotient of $\left[ 0,2 \right] \times I $ 
+under this action
+is a fundamental domain for the action.
+Clearly, the action is transitive. Now
+if $(a,b),(c,d) \in (0,2) \times I $ are in the same orbit,
+then
+\begin{align*}
+    a &= (-1)^{\alpha} c + 2k \\
+    b &= (-1)^{\alpha} d + 2t
+\end{align*}
+for some $k,t \in \mathbb{Z}$. But then
+if $b+d = 2t$, we  get $b+d \in 2 \mathbb{Z} \cap \left( 0,2 \right) 
+= \varnothing$, so $\alpha$ must be even, and
+$b = d$. But then
+$a-c \in  2\mathbb{Z} \cap \left( -2, 2 \right) =
+\left\{ 0 \right\} $, so $a=c$ and $b=d$.
+The identifications on the boundary become as in figure
+\ref{fig:involution-on-torus-quotient} which becomes
+$S^2$.
+
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{involution-on-torus-quotient.jpg}
+    \caption{}
+    \label{fig:involution-on-torus-quotient}
+\end{figure}
+
+We identify the quotient
+by $S_{0,4}$ where the $4$ marked points are
+the $4$ fixed points under the involution, namely, the images
+of the
+center of $I^2$, the midpoints of the edges and corner vertices.
+This is clearly also a $2$-fold cover of the sphere.
+
+Now, since for any $A \in \SL (2,\mathbb{Z})$,
+$A (-I) = (-I) A$,
+each element of $\Mod \left( T^2 \right) $ induces
+an element of $\Mod \left( S_{0,4} \right) $ by
+descending to the quotient.
+
+
+\begin{proposition}[]
+    The hyperelliptic involution induces a bijection
+    between the set of homotopy classes of essential
+    simple closed curves in $T^2$ and the
+    set of homotopy classes of essential simple closed 
+    curves in $S_{0,4}$.
+\end{proposition}
+
+\begin{proof}
+    Notes:
+
+    \begin{figure}[htpb]
+        \centering
+        \includegraphics[width=0.9\textwidth]{twists-along-curves-on-torus.jpg}
+        \caption{Twists along the meridian circle on the torus}
+        \label{fig:twists-along-curves-on-torus-jpg}
+    \end{figure}
+
+
+    Why is the preimage of a $\left( p,q \right) $-curve in
+    $S_{0,4}$ in $T^2$ a $\left( 2p,2q \right) $-curve?
+
+\end{proof}
+
+\begin{proposition}[]\label{mcg-of-4-punctured-sphere}
+    $\Mod \left( S_{0,4} \right) \approx
+    \PSL \left( 2, \mathbb{Z} \right) \ltimes
+    \left( \mathbb{Z}/ 2 \mathbb{Z} \times 
+    \mathbb{Z} / 2 \mathbb{Z} \right) $.
+\end{proposition}
+
+
+\begin{lemma}[]
+    If the short exact sequence of groups
+    \[
+    1 \to N \to G \to H \to 1
+    \] 
+    has a right inverse for $G \to H$, then
+    $G$ is naturally isomorphic to
+    $N \ltimes H$.
+\end{lemma}
+
+\begin{proof}
+    Let $f \colon N \to G, g \colon G \to H$ and
+    $h \colon H \to G$ be the inverse. Then
+    $f$ and $g$ are injective. Suppose
+    $z \in f(N) \cap h(H)$. Then there exists a
+    $v \in N$ and $u \in H$ such that
+    $f(v) = z = h(u)$, so 
+    $u = g\left( h(u) \right) = g(z)
+    = g(f(v)) = 0$, so $z = 0$.
+    Since $f(N)$ is the kernel of $g$, it is
+    normal in $G$, so $f(N) h(H)$ forms
+    a subgroup of $G$. Now suppose
+    $p \in G - f(N)h(H)$. Then since
+    $g\left( p - h(g(p)) \right) = 0$, there
+    exists $n \in N$ such that
+    $p = f(n) + h(g(p)) \in f(N) h(H)$, contradiction.
+    So $G = f(N) h(H)$, giving $G = f(N) \ltimes h(H)
+    \approx N \ltimes H$.
+\end{proof}
+
+\begin{proof}
+    To show \ref{mcg-of-4-punctured-sphere}, it
+    thus suffices to find a homomorphism
+    $\Mod \left( S_{0,4} \right) \to 
+    \PSL \left( 2, \mathbb{Z} \right) $ with a right
+    inverse, and show that the kernel
+    is $\mathbb{Z} /2 \mathbb{Z} \times \mathbb{Z} / 2 \mathbb{Z}$.
+
+    Notes on the proof: for the involutions
+    $\iota_1, \iota_2$, we can lift them
+    to homeomorphisms of $T^2$ by the lifting theorem
+    \cite[Thm~4.1]{Bredon}. But why would these
+    necessarily have to be homeomorphisms that rotate
+    one of the factors of $T^2 \approx S^{1} \times S^{1}$ by
+    $\pi$?
+\end{proof}
+
+\section{Dehn Twists}
+
+Let $S$ be an oriented surface and let $\alpha$ be
+a simple closed curve in $S$. Let $N$ be a tubular
+neighborhood of $\alpha$ and choose
+an orientation preserving homeomorphsim
+$\varphi \colon A \to N$. We then obtain
+a homeomorphism $T_{\alpha} \colon
+S \to S$, called a \textit{Dehn twist about $\alpha$}, as
+follows:
+\[
+T_{\alpha}(x) = 
+\begin{cases}
+    \varphi \circ T \circ \varphi^{-1}& \text{if } 
+    x\in N \\
+    x& \text{if } x\in S - N
+\end{cases}.
+\] 
+
+"By the uniqueness of regular neighborhoods, the isotopy
+class of $T_{\alpha}$ does not depend on the choice of
+$N$ or the choice of homeomorphism $\varphi$. Nor
+does $T_{\alpha}$ depend on the choice
+of simple closed curve $\alpha$ within its isotopy class." 
+Huh, why???
+
+
+\subsubsection*{Dehn twists on the torus}
+Via the isomorphism
+$\Mod \left( T^2 \right)  \to \SL\left( 2, \mathbb{Z} \right) $ 
+from \ref{mcg-of-torus}, the Dehn twists
+about the $(1,0)$-curve and the $(0,1)$-curve
+in $\Mod\left( T^2 \right) $ correspond to the
+matrices
+\[
+    \begin{pmatrix} 1 & -1 \\ 0 & 1 \end{pmatrix} 
+    \quad \text{and} \quad 
+    \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix} 
+\] 
+\subsubsection{Dehn twist facts}
+
+\begin{proposition}[]
+    Let $a$ be the isotopy class of a simple closed curve
+    $\alpha$ in a surface $S$. If $\alpha$ is not
+    homotopic to a point or a puncture of $S$, then the
+    Dehn twist $T_a$ is a nontrivial element of $\Mod(S)$.
+\end{proposition}
+
 
 \newpage
 
@@ -594,13 +1314,6 @@ $\Mod \left( S_{0,3} \right) $}
     self-diffeomorphism $\varphi $ of $S$ which is
     homotopic to $\id_S$ but not isotopic to $\id_S$.
 \end{problem}
-
-\begin{proof}
-    
-\end{proof}
-
-
-
 
 
 
@@ -615,6 +1328,57 @@ $\Mod \left( S_{0,3} \right) $}
     \to Y$ be a map. Then  $f$ is said to be equivariant if
     $f (g \cdot x) = g \cdot  f(x)$ for all $x \in X$ and all $g \in G$.
 \end{definition}
+
+\begin{definition}[Closed surface]
+    A \textit{closed surface} is a surface that is compact
+    and without boundary.
+\end{definition}
+
+\begin{definition}[Isotopy]
+    A topological isotopy is a homotopy
+    $F \colon X \times I \to Y$ such that for each $t_0 \in I$,
+    $F(x,t_0) \colon X \to Y$ is a topological embedding (homeomorphism onto
+    some subspace of $Y$ ).
+
+    Two embeddings $f,g \colon X \to Y$ are said to be
+    isotopic if there exists an isotopy $F \colon X \times I
+    \to Y$ such that $F(x,0) = f(x)$ and $F(x,1) = g(x)$.
+\end{definition}
+
+
+\begin{definition}[Orientation]
+    A closed $n$-manifold $M$ is called orientable
+    if $H_n \left( M ; \mathbb{Z} \right) = \mathbb{Z}$.
+    The choice of generator $\left[ M \right] $ in
+    $\mathbb{Z}$ is called an orientation, and the generator
+    is called the fundamental class of $M$. A manifold
+    together with a choice of orientation is
+    called oriented. A compact $n$-manifold $M$ with
+    boundary is called orientable if
+    $H_n \left( M, \partial M ; \mathbb{Z} \right) = \mathbb{Z}$.
+    The choice of generator $\left[ M, \partial M \right] $ in
+    $\mathbb{Z}$ is called an orientation, and
+    $\left[ M, \partial M \right] $ is referred to as
+    the fundamental class of $M$.
+
+    A smooth manifold $M$ is orientable if and only if
+    the restriction of its tangent bundle to every smooth
+    curve is trivial.
+
+    \begin{remark}[]
+        This makes sense since T. Radó showed that every surface
+        is triangulable and it is clear then that the $2$-cycles
+        form a cyclic group. A choice of generator corresponds
+        to choosing an orientation of each $2$-simplex in the
+        triangulation (compatibly).
+    \end{remark}
+\end{definition}
+
+
+
+
+
+
 
 \newpage
 

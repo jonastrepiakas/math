@@ -1,0 +1,171 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\Mod}{{\mathrm{Mod}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\title{Assignment 3}
+\author{Jonas Trepiakas}
+
+
+\begin{document}
+
+\maketitle
+
+Suppose firstly that $y \in W^{\circ} \cap U^{\circ}$.
+Since $V = U \oplus W$, we can write an arbitrary
+$x \in V$ as $u + w$ uniquely, and then
+$y (x) = y(u+w) = y(u) + y(w) = 0 + 0 = 0$ by assumption on
+$y$ annihilating $W$ and $U$. But then
+taking the contraposition of lemma 3.4.(1), we get
+$y = 0$, so $U^{\circ} \cap W^{\circ} = \left\{ 0 \right\} $,
+hence $U^{\circ} \oplus W^{\circ}$ is indeed a direct sum.
+
+The inclusion $U^{\circ} \oplus W^{\circ} \subset V'$ 
+follows by definition, so
+suppose conversely that $y \in V'$. Then we can
+define linear functionals $y_{U}\in U^{\circ}$ and $ y_{W}
+\in W^{\circ}$ as follows:
+$y_U (u+w) = y(w)$ and  $y_W (u+w) = y(u)$ for
+$u \in U$ and $w \in W$.
+
+There is no problem of being well defined since
+if $u + w = u' + w'$ then
+$u-u' = w-w' \in U \cap W = \left\{ 0 \right\} $.
+
+Since
+$y_U \left( \lambda \left( u+w \right) + \left( 
+u'+w' \right)  \right) 
+= y_U \left( \lambda u + u' + \lambda w + w' \right) 
+= y \left( \lambda w + w' \right) 
+= \lambda y(w) + y(w') = 
+\lambda y_U (u+w) + y_U (u'+w')$, we
+find that $y_U$ is linear, and repeating for $y_W$, we
+find that $y_W$ is also linear. So $y_U, y_W
+\in V'$.
+
+Furthermore, if $u \in U$, then
+the unique way of writing it as a direct sum of an element from
+$U$ and an element from $W$ is $u + 0$, so
+$y_U (u) = y_U(u+0) = y(0) = 0$ since $y$ is linear.
+Hence $y_U \in U^{\circ}$, and similarly, $y_W \in W^{\circ}$.
+
+Lastly, for all $x \in V$, write
+$x = u+w$ for $u \in U$ and $w \in W$. Then
+ $y (x) = y(u+w) =y(u) + y(w) = y_W(u+w) + y_U (u+w)
+ = \left( y_U + y_W \right) (x)$, hence
+ $y = y_U + y_W$, so
+ $y \in U^{\circ} \oplus W^{\circ}$ giving us
+ the other inclusion.
+
+
+
+    %\bibliography{../refs.bib}
+\end{document}

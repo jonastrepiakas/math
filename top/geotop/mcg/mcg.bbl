@@ -24,4 +24,12 @@
     Henry Wilton
     \newblock {Mapping Class Groups - notes - March 8, 2021}
 
+    \bibitem[Hatcher]{Hatcher}
+    Allen Hatcher
+    \newblock {Algebraic Topology}
+
+    \bibitem[Calegari]{Calegari}
+    Danny Calegari
+    \newblock {Foliations and the Geometry of 3-Manifolds}
+
 \end{thebibliography}
