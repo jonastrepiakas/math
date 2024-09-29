@@ -1,0 +1,254 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\PSL}{PSL}
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\Mod}{{\mathrm{Mod}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+
+
+
+\begin{document}
+I didn't finish the problem as I started quite late, and I'm not sure
+about the solutions. I'll work on these when I get the time, but
+comments would be helpful. Thank you.
+
+
+    \begin{problem}[]
+        \begin{enumerate}
+            \item 
+        Let $p \colon X \to Y$ and $f \colon Z \to Y$ 
+        be maps. Let
+        \[
+        E = \left\{ \left( z,x \right) \in Z \times X
+         \mid f(z) = p(x) \right\} 
+        \] 
+        equipped with the subspace topology from
+        $Z \times X$, and define  $p' \colon E \to Z$ by
+        $p' (z,x) = z$. Prove that if $p$ is a covering map,
+        then $p'$ is also a covering map.
+    \item Give a covering $p$, a map $f$ such that $p'$ is trivial
+        and $p$ is not trivial.
+    \item If $p$ is a trivial covering, can $p'$ be non-trivial.
+        \end{enumerate}
+    \end{problem}
+
+    \begin{solution}
+        (i)
+        Let $z \in Z$. Since $p$ is a covering map,
+        we can find some evenly covered neighborhood $U$ of
+        $f(z)$. Since
+        $p|_{p^{-1}(U)} \colon p^{-1} \left(U \right) \to U$ 
+        is a trivial covering,
+        the fiber of $f(z)$ over $p$ splits into
+        some discrete set of elements all mapped to
+        $f(z)$ under $p$.
+        Suppose $x \in p^{-1}(f(z))$. Then
+        $\left( z,x \right) \in E$, so
+        in particular,
+        $V := E \cap \left( f^{-1}(U) \times p^{-1}(U) \right) $ 
+        contains $p^{-1}(z) \times \left\{ z \right\}  $ and 
+        is an open set in $E$. The set
+        $W := f^{-1}(U) $ 
+        is open in $Z$.\\
+        \linebreak
+        We claim that $W$ is an evenly
+        covered neighborhood of $z$ under $p'$.
+        We first show that
+        $p'^{-1}(W) = V$.
+        If $(z,x) \in p'^{-1}(W)$ then
+        $z \in W = f^{-1}(U)$, so $p(x) = f(z) \in U$, so
+        $(z,x) \in E \cap \left( f^{-1}(U) \times p^{-1}(U) \right) 
+        = V$. Conversely, $V \subset W$ is clear.
+        Letting $\varphi \colon p^{-1}(U) \to U \times F$ be
+        the trivial covering for $p$, we
+        define
+        $\psi \colon p'^{-1}(W) \to W \times F$ by
+        $\psi (z,x) = (z, \pi_F (\varphi(x)) )$. Since
+        $\varphi $ is bijective, clearly, $\psi $ is too.
+        Continuity of $\psi$ follows from continuity
+        of each of the coordinate functions. Now,
+        suppose $\left( z,x \right) \in 
+        p'^{-1}(W)$ and
+        $A$ is a neighborhood of $\varphi (z,x) =
+        \left( z, \pi_F \left( \varphi (x) \right)  \right) $ in
+        $W \times F$. Let $B$ be a basis open set in $W$ and
+        hence in $Z$ (since $W$ is open in $Z$ ) containing
+        $z$ such that we have $B \times \left\{ \pi_F
+        \left( \varphi (x) \right) \right\} $ open and
+        contained in $A$. If necessary, we can shrink $B$ such
+        that $B \times \left\{ \pi_F \left( \varphi (x)
+        \right) \right\} $ is evenly covered under $\varphi $.
+        In particular, $\varphi$ is a homeomorphism
+        of $B' = \varphi^{-1} \left( B \times \left\{ 
+        \pi_F \left( \varphi (x) \right) \right\}  \right) $ onto
+        $B \times \left\{ \pi_F \left( \varphi (x) \right)  \right\} $,
+        so $B'$ is thus open in $X$.
+        Now
+        $E \cap \left( B \times B' \right) $ is an open
+        set in $E$ containing $\left( z,x \right) $ and
+        $\varphi(z,x) \in 
+        \psi \left( E \cap \left( B \times B' \right)  \right) 
+        = B \times \left\{ \pi_F \left( \varphi(x) \right)  \right\} 
+        \subset A$. So
+        $\psi^{-1}$ is also continuous, and hence
+        $\psi $ is a homeomorphism.\\
+        \linebreak
+        
+
+
+        (ii) Let $p \colon \mathbb{R} \to S^{1}$ be the usual
+        covering map of $S^{1}$ by
+        $x \mapsto e^{2 \pi i x}$. This is nontrivial. Let
+        $f \colon V := (0, \frac{1}{2}) \to S^{1}$ 
+        be the restriction of $p$ to $V$. Then
+        $E = \left\{ 
+        \left( z,x \right) \in V \times \mathbb{R}  \mid 
+    f(z) = p(x) \right\} = \left\{ 
+    \left( z,x \right) \in V \times \mathbb{R}  \mid 
+x \in z + \mathbb{Z} \right\} $. Then 
+$p' \colon E \to V$ becomes the projection
+$E \to V$ onto the first coordinate. The map
+$\varphi \colon E \to V \times  \mathbb{Z}$ by
+$(z,x) \mapsto \left( z, z-x \right) $ is a
+bijective map. For any basis open set $U \subset V$, we have
+that $\varphi^{-1} \left( U \times \left\{ n \right\}  \right) 
+= T_{-n}(U)$, where $T_{n} \colon \mathbb{R} \to \mathbb{R}$ is
+the map $T_n(x) = x + n$, which is open in $E$ since it is
+open in $V \times \mathbb{R}$. Thus $\varphi$ is continuous.
+
+Let $(z,x) \in V \times \mathbb{Z}  $ and
+let $B$ be an open neighborhood of $\varphi^{-1} (z,x) =
+\left( z,z+x \right) $. We can find an
+open neighborhood $W$ in $V$ of $z$ such that
+$\left( z, z+x \right) \in E \cap \left( W \times T_x(W) \right) $.
+But $(z,x) \in W \times \left\{ x \right\} $ and
+$\varphi^{-1}\left( W \times \left\{ x \right\}  \right) 
+\subset E \cap \left( W \times T_x (W) \right) \subset B$, so
+$\varphi^{-1}$ is also continuous. Hence $\varphi$ is a homeomorphism.\\
+\linebreak
+(iii) I didn't get to this one in time.
+
+
+
+
+
+
+
+    \end{solution}
+
+
+
+
+
+
+
+    %\bibliography{../refs.bib}
+\end{document}

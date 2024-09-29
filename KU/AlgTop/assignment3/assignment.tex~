@@ -1,0 +1,370 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\Mod}{{\mathrm{Mod}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+
+
+
+\begin{document}
+    \begin{exercise}[]
+        \begin{enumerate}
+            \item Let $G \times X \to X$ be a continuous left
+                properly discontinuous action. Prove
+                that the action is free.
+            \item Let $r \in \mathbb{R}$ be an irrational number,
+                and let $G = \left( \mathbb{Z}^2, + \right) $ 
+                act on $X = \mathbb{R}$ as 
+                $\left( n,m \right) . t = t+ n + rm$. Prove
+                that this action is free, but not
+                properly discontinuous. Compare with the
+                statement of exercise 3.
+        \end{enumerate}
+    \end{exercise}
+
+    \begin{solution}
+        (i) 
+        Suppose it is not free, so there exists $g \in G -
+        \left\{ e \right\} $ such
+        that $g.x = x$ for some $x \in X$. If
+        $G \times X \to X$ is properly discontinuous, then
+        there exists $V \subset X$ with $x \in V$ such that
+        $V \cap gV = \varnothing$ for all 
+        $g \in G - \left\{ e \right\} $. But then
+        $x = g.x \in gV$ and $x \in V$, so
+        $x \in V \cap gV = \varnothing$, contradiction. Hence
+        $G \times X \to X$ can not be properly discontinuous. Taking
+        the contraposition gives the desired result.
+
+        (ii)
+        
+        Suppose $t = (n,m).t = t + n + rm $, so
+        $n + rm = 0$. But if $m\neq 0$, then
+        $r = -\frac{n}{m} \in \mathbb{Q}$, contradicting irrationality
+        of $r$, so $m = 0$ and hence $n = 0$, giving that
+        the action is free. 
+
+        Now, suppose there exists an open neighborhood
+        $V$ of $0$ such that
+        $\left( n,m \right) V \cap V \neq \varnothing$ implies
+        $\left( n,m \right)  = (0,0)$. Since $V$ is open,
+        we can find some basis open ball $B\left( 0,
+        \delta \right) \subset V$. But by Dirichlet's
+        approximation theorem, we can find integers
+        $n,m$ with $m\ge 1$ such that
+        $\left| n + rm \right| < \delta$, which implies that
+        $n+rm \in (n,m) V \cap B\left( 0, \delta \right) 
+        \subset (n,m) V \cap V$, giving
+        $ (0,0) = \left( n,m \right) $, but
+        $m \ge 1$, contradiction.\\
+        \linebreak
+        Since this action is not properly discontinuous, it
+        means that the quotient map
+        $\mathbb{R} \to  \mathbb{R} /G$ cannot be a covering
+        map since $0$, for example, has no evenly covered neighborhood(
+        if it had, then this neighborhood would split
+        into homeomorphic disjoint copies in $\mathbb{R}$ 
+        satisfying which would satisfy the requirement of
+        the action being properly discontinuous at  $0$ ).
+
+
+        \begin{exercise}[]
+            Let $X$ and $B$ be Hausdorff path-connected
+            spaces, and let $p \colon X \to B$ be a
+            local homeomorphism, i.e., for all $x \in X$,
+            there is a neighborhood $U \subset X$ of
+            $x$ such that $p(U)$ is open in $B$, and
+            the restriction
+            \[
+            p|_{U} \colon U \to p(U)
+            \] 
+            is a homeomorphism. Also, suppose that for all
+            $b \in B$, $p^{-1}\left( \left\{ b \right\}  \right) $ 
+            is finite, of the same cardinality for all
+            points. Show that $p$ is a covering map.
+        \end{exercise}
+
+        \begin{solution}
+            Let $F = \left\{ 1, \ldots, n:= \left| p^{-1}\left( 
+            \left\{ b \right\} \right)  \right|  \right\}\subset 
+            \mathbb{N} $. In particular,
+            $ p^{-1}\left( \left\{ b \right\}  \right) 
+            $ is non-empty for all $b \in B$ since
+            it has the same cardinality for all $b \in B$ and
+            so if it were empty, then
+            $p^{-1}(B) = \varnothing$, contradicting $p$ being
+            a function. Now let $b \in B$ and let
+            $ p^{-1}(\left\{ b \right\} ) = 
+            \left\{ x_1, \ldots, x_n \right\}$. Then
+            by Hausdorffness, we can choose
+            open neighborhoods  $U_{1,i}$ and
+            $U_i$ for $x_1$ and $x_i$ for all $i =2, \ldots, n$ 
+            such that $U_{1,i} \cap U_i = \varnothing$. Let
+            $V_1 = \bigcap_{i =2}^{n} U_{1,i}$ which is a 
+            neighborhood of $x_1$. Now
+            for each $i = 2,\ldots,n$, define
+            $V_i = p^{-1}\left( p(V_1) \right) 
+            \cap U_i$.
+            Suppose $y \in V_i \cap V_j \neq \varnothing$. Then
+
+
+
+            So in particular, $p\left( U_i \right) $ is an 
+            open neighborhood of $b$. Let
+            $V = \bigcap_{i=1}^{n} p\left( U_i \right) $.
+            Then let $U_i' = U_i \cap p^{-1}(V)
+            \subset U_i$ which is
+            open for each $i$, and since
+            a restriction of a homeomorphism to a smaller
+            open set is still a homeomorphism onto its
+            image, we get that
+            $p |_{U_i'} \colon U_{i}' \to 
+            p\left( U_i' \right) = V$ is a homeomorphism
+            for each $i$.
+            Suppose
+            $x \in U_i' \cap U_j'$ for distinct $i$ and $j$.
+            Then since the intersection of finitely many 
+            open path-connected sets with a common point 
+            is still path connected, we can choose
+            a path $\gamma \colon I \to U_i' \cup U_j'$
+            from $x_i$ to $x_j$. Thus, under
+
+        \end{solution}
+
+
+        \newpage
+
+        To show that the action is not properly discontinuous,
+        we show something stronger:
+        \begin{lemma}[]
+            If $G \neq \left\{ e \right\} $ acts
+            properly discontinuously on $\mathbb{R}$, then
+            $G \approx \mathbb{Z}$.
+        \end{lemma}
+
+        \begin{proof}
+            We have $\pi_1 \left( \mathbb{R} / G \right) 
+            \approx G$. Let $\alpha \in 
+            \pi_1 \left( \mathbb{R} / G, x_0 \right) -
+            \left\{ e \right\} $. Then
+            $\alpha$ lifts to a path $\tilde{\alpha}
+            \colon I \to \mathbb{R}$ starting
+            at some $\tilde{x_0}\in p^{-1}(x_0)$ 
+            where $p \colon \mathbb{R} \to \mathbb{R} /G$ is
+            the covering map.\\
+            \linebreak
+            
+
+            Firstly, we show that, for any
+            two $y,z \in p^{-1}(x_0)$,
+            $\left( y,z \right) \cap p^{-1}(x_0)$ is finite.
+            For the map $\mathbb{R} \to \mathbb{R}$ by
+            $x\mapsto g.x$ for some $g \in G$ is a homeomorphism,
+            so letting $V$ be an open
+            neighborhood around $\tilde{x_0}$ for
+            which $g V \cap V \neq \varnothing$ implies
+            $g = e$, we would get
+            that there exist infinitely many elements
+            $g \in G$ for which $g V \subset 
+            \left( y,z \right) $ and for
+            two distinct such $g,g'$, 
+            $gV \cap g'V = \varnothing$ since
+            otherwise $g^{-1}g' V \cap V \neq \varnothing$ and
+            hence $g^{-1} g' = e$ so
+            $g = g'$. Thus this would imply that
+            there is an infinite disjoint union of
+            open sets $gV$ of the same measure (since $x \mapsto 
+            gx$ is a homeomorphism) contained in
+            $\left( y,z \right) $. Since
+            $\left( y,z \right) $ has finite measure, 
+            this implies that
+            $g V$ has measure $0$, contradicting it being open.\\
+            \linebreak
+            This gives a total ordering
+            on $p^{-1}(x_0)$ inherited from
+            $\mathbb{R}$ with finitely many elements
+            in $p^{-1}(x_0)$ between any two elements
+            in $p^{-1}(x_0)$.
+            
+            Let $\tilde{x_0} \in p^{-1}(x_0)$ and
+            $\tilde{x_0}'$ be its successor in
+            $p^{-1}(x_0)$. We claim that the image, $\gamma$,
+            under $p$ of the
+            path $\tilde{\gamma} \colon I \to \mathbb{R}$ connecting
+            $\tilde{x_0}$ to $\tilde{x_0}'$ linearly
+            generates $\pi_1 \left( \mathbb{R} /G \right) $ 
+            as a cyclic group. Suppose
+            $\alpha \in \pi_1 \left( \mathbb{R} /G \right) $ and
+            lift it to a path $\tilde{\alpha}$ starting
+            at $\tilde{x_0}$. Let
+            $\tilde{x_n} = \tilde{\alpha}(1)$. By
+            uniqueness of lifts, we may assume by homotopy
+            that this is the straight line
+            path between the points $\tilde{x_0}$ and
+            $\tilde{x_n}$, and
+            suppose
+            $\tilde{\alpha}^{-1} \left( p^{-1}(x_0) \right)
+            = \left\{ 0, t_1, \ldots, t_{n-1}, 1 \right\} $.
+            
+            Now, since any loop at $x_0$ lifts
+            to a path between two points in
+            $p^{-1}(x_0)$, we thus see that
+            there are precisely two simple loops
+            in $\pi_1 \left( \mathbb{R} /G \right) $ corresponding
+            to the projections of the path going from
+            $\tilde{x_i}$ to $\tilde{x_{i+1}}$ and
+            the path going from $\tilde{x_{i}}$ to 
+            $\tilde{x_{i-1}}$. In particular, since
+            the inverse of one of them is again simple, these
+            loops are each other's inverse. 
+
+
+            Thus, letting $\gamma \in 
+            \pi_1 \left( \mathbb{R} /G, x_0 \right) $ denote
+            one of these paths, we see that
+            $p \circ \tilde{\alpha}
+            = \gamma^{k_1} * \ldots * \gamma^{k_n}$ where
+            $k_i = \pm 1 $. So
+            $\alpha \in  \left<\gamma  \right>$.
+            Thus
+            $\mathbb{Z} \approx \left<\gamma \right> =
+            \pi_1 \left( \mathbb{R} / G \right) \approx
+            G$.
+
+
+        \end{proof}
+        
+
+
+
+
+
+
+
+    \end{solution}
+
+
+
+
+
+
+
+
+
+    %\bibliography{../refs.bib}
+\end{document}

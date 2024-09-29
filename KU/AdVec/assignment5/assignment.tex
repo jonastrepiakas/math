@@ -1,0 +1,224 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\Mod}{{\mathrm{Mod}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+
+\title{Assignment 5}
+
+\author{Jonas Trepiakas}
+
+
+\begin{document}
+
+\maketitle
+
+
+    \begin{exercise}[]
+        Show that $\Hom \left( X \otimes Y, Z \right) 
+        \simeq \Bil \left( X, Y; Z \right) $ for all
+        vector spaces. In particular, $\left( X \otimes
+        Y\right)' \simeq \Bil(X,Y)$.
+    \end{exercise}
+
+    \begin{solution}
+        Suppose
+        $B \in \Bil (X,Y; Z)$. By universality,
+        there exists a unique linear map
+        $L \colon X \otimes Y \to Z$ such that
+
+        \begin{equation*}
+        \begin{tikzcd}
+            X \times Y \ar[r, "\otimes"] \ar[dr, "M"']
+            & X \otimes Y \ar[d, "L"] \\
+                              & Z
+        \end{tikzcd}
+        \end{equation*}
+        commutes, i.e., we can define a map
+        $\Bil \left( X, Y ; Z \right) \to 
+        \Hom \left( X \otimes Y , Z \right) $ by
+        sending $M \mapsto L$.
+
+        Similarly, given some linear map
+        $L \in \Hom \left( X \otimes Y, Z \right) $, we have
+        \begin{align*}
+            L \circ \otimes \left( a_1 x_1 + a_2 x_2, y \right) 
+            &= L \left( \left( a_1 x_1 + a_2 x_2  \right) 
+            \otimes y\right) 
+            = L \left( a_1 x_1 \otimes y +a_2 x_2 \otimes y \right) \\
+            &=a_1  L \left(  x_1 \otimes y \right) +
+            a_2 L \left( x_1 \otimes y \right) 
+        \end{align*}
+        so $L \circ \otimes$ is linear in $x$,
+        and
+        by doing the same for $y$, $L \circ \otimes $ is
+        seen to be linear in $y$ as well. Hence
+        $L \circ \otimes  $ is bilinear, so
+        each $L$ induces a map $M$ as well such that
+        the diagram above commutes.
+
+        Furthermore, it is clear that if
+        $L \mapsto M$, then $M \mapsto L$ and vice versa,
+        so we, in fact, have a bijective correspondence
+        between the classes
+        $\Hom \left( X \otimes Y, Z \right) $ and
+        $\Bil \left( X, Y ; Z \right) $.\\
+        \linebreak
+        
+
+
+        It remains to check that the maps
+        $M \mapsto L$ and $L \mapsto M$ are linear.
+
+        Suppose we have a bilinear map
+        $a_1 M_1 + a_2 M_2$. Let $L_1$ and $L_2$ be
+        the linear maps corresponding to $M_1 $ and $M_2$. Then
+        \begin{align*}
+            \left( a_1 M_1+ a_2 M_2 \right) (x,y)
+            &=
+            a_1 M_1(x,y) + a_2 M_2(x,y)
+            = a_1 L_1 (x \otimes y) + a_2 L_2 \left( x \otimes y
+            \right)\\
+            &= \left( a_1 L_1 + a_2 L_2
+             \right) \circ \otimes (x,y)
+        \end{align*}
+        so by uniqueness of the universal property,
+        $a_1 M_1 + a_2 M_2$ maps to
+        $a_1 L_1 + a_2 L_2$ which is indeed linear.
+        Now, since the inverse map of a bijective linear map
+        is also linear, we get that
+        the other map is also linear. Since, as
+        we remarked above, the composition of them
+        is the identity, we find that
+        $\Hom \left( X \otimes Y , Z \right) \simeq
+        \Bil \left( X, Y ; Z \right) $.\\
+
+        Choosing $Z = F$, we get
+        $\left( X \otimes Y \right) ' \simeq
+        \Bil (X,Y)$.
+        
+
+
+    \end{solution}
+
+
+
+
+
+
+
+
+
+    %\bibliography{../refs.bib}
+\end{document}

@@ -1,0 +1,207 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\Mod}{{\mathrm{Mod}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+
+
+
+\begin{document}
+    \begin{exercise}[]
+        Let $U \subset V = \ell^2 $ consist of all sequences with finite
+        support (i.e., $x_k \neq 0$ only for finitely many $k \in \mathbb{N}
+        $ ).
+        Show that $U$ has no orthocomplement and that the inclusion
+        map $U \hookrightarrow V$ has no adjoint.
+    \end{exercise}
+
+
+    \begin{solution}
+        Suppose $W$ is an orthocomplement to $U$.
+        So $U \oplus W = \ell^2$. Then $W$ in particular must
+        be the subspace containing all sequences
+        for which there are infinitely many non-zero entries.
+        Now, choose some element 
+        $v \in U$, and let
+        $v_N$ be the highest index entry in $v$ which is
+        non-zero. Now let $w$ be given by
+        $\left( 0, \ldots, 0, v_N, \frac{1}{N+1},
+        \frac{1}{N+2}, \ldots \right) $ where
+        the entry at $M > N$ is $\frac{1}{M}$ and
+        the entry at $m < N$ is $0$. Then
+        $\sum \left| w_k \right|^2 =
+        \left| v_N \right|^2 + \sum_{k > n} \frac{1}{k^2} < 
+        \infty $, so
+        $w \in \ell^2$ and since it does not have finite support,
+        $w \in W$. In particular, then, if
+        $U \oplus W$ is an orthogonal direct sum, we must have
+        \[
+        \left| w_N \right|^2 = 
+        \sum_{k \in \mathbb{N} } v_k \overline{w_k}
+        = \left<v, w \right> = 0,
+        \] 
+        contradicting that $w_N$ was a nonzero entry from
+        $F$. Thus no orthocomplement can exist
+        to $U$.
+
+        Let $A \in \Hom (U , \ell^2)$ be the inclusion map.
+        Suppose $A$ has an adjoint $A^{*}$. Suppose
+        $y \perp \Ima A$. Then assume $y_N$ is some
+        non-zero entry, and let
+        $v \in U$ be the element for which
+        $v_N = y_N$ and $v_n = 0$ when $n \neq N$. Then
+        $\left< Av, y \right> = 
+        \left<v , y \right> = 
+        \left| y_N \right|^2 \neq 0$ which
+        contradicts $y \perp \Ima A$. Hence
+        $y = 0$, so
+        $\left( \Ima A \right)^{\perp} = \left\{ 0 \right\} $
+        and thus $N \left( A^{*} \right) = 
+        \left\{ 0 \right\} $ by lemma 7.16, so
+        $A^{*}$ is injective.
+        Now define the functional
+        $z \in U'$ by $z(x) = \|x\|=
+        \left< x,x \right> = \left<A x , x \right>
+        = \left<x, A^{*}x \right>$. By uniqueness of
+        theorem 7.13.(a), $A^{*}x = x$ for all
+        $x \in U$, so in particular,
+        $A^{*} A = \mathbbm{1}_U$. Now suppose
+        $y \in \ell^2 - U$ which is not empty since
+        for example $\left( \frac{1}{n} \right) \in 
+        \ell^2 - U$. Then $A^{*} y =
+        A^{*} A A^{*}(y)$, so
+        $y = A A^{*} (y) \in \Ima A$ by injectivity of
+        $A^{*}$, so
+        $y$ has finite support, contradiction.
+    \end{solution}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    %\bibliography{../refs.bib}
+\end{document}

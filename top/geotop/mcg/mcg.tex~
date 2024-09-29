@@ -112,6 +112,8 @@
 \newcommand{\cpn}{{\mathtt{c}}}
 \newcommand{\pat}{{\mathtt{p}}}
 
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
 
 
 
@@ -1256,6 +1258,70 @@ descending to the quotient.
     $\pi$?
 \end{proof}
 
+
+\subsubsection{The Alexander method}
+
+\begin{proposition}[Alexander method]\label{Alexander-method}
+    Let $S$ be a compact surface, possibly with marked points,
+    and let $\varphi \in \Homeo^{+}\left( S, \partial S \right) $.
+    Let $\gamma_1, \ldots, \gamma_n$ be a collection of essential
+    simple closed curves and simple proper arcs in $S$ with
+    the following properties.
+    \begin{enumerate}
+        \item The $\gamma_i$ are pairwise in minimal position.
+        \item The $\gamma_i$ are pairwise nonisotopic.
+        \item For distinct $i,j,k$, at least one of
+            $\gamma_i \cap \gamma_j, \gamma_i\cap \gamma_k$,
+            or $\gamma_j \cap \gamma_k$ is empty.
+    \end{enumerate}
+    \begin{enumerate}[label=(\roman*)]
+        \item If there is a permutation $\sigma$ of $
+            \left\{ 1, \ldots, n \right\} $ so that
+            $\varphi \left( \gamma_i \right) $ is isotopic
+            to $\gamma_{\sigma (i)}$ relative to
+            $\partial S$ for each $i$, then
+            $\varphi \left( \cup \gamma_i \right) $ is
+            isotopic to $\cup \gamma_i$ relative to
+            $\partial S$.
+
+            If we regard $\cup \gamma_i$ as a (possibily disconnected)
+            graph $\Gamma $ in $S$, with vertices at the
+            intersection points and at the endpoints of arcs, then
+            the composition of $\varphi $ with this isotopy
+            gives an automorphism $\varphi_* $ of $\Gamma$.
+
+        \item Suppose now that $\left\{ \gamma_i \right\} $ fills
+            $S$. If $\varphi_*$ fixes each vertex and each
+            edge of $\Gamma$ with orientations, then
+            $\varphi $ is isotopic to the identity. Otherwise,
+            $\varphi $ has a nontrivial power that is
+            isotopic to the identity.
+    \end{enumerate}
+\end{proposition}
+
+\begin{lemma}[]
+    Let $S$ be a compact surface, possibly with marked points,
+    and let $\gamma_1, \ldots, \gamma_n$ be a collection of
+    essential simple closed curves and simple proper arcs
+    in $S$ that satisfy the three properties from 
+    proposition \ref{Alexander-method}. If
+    $\gamma_1', \ldots, \gamma_n'$ is another such collection
+    so that $\gamma_i'$ is isotopic to $\gamma_i$ relative
+    to $\partial S$ for each $i$, then there is an
+    isotopy of $S$ relative to $\partial S$ that takes
+    $\gamma_i'$ to $\gamma_i$ for all $i$ simultaneously and
+    hence takes $\cup \gamma_i$ to $\cup \gamma_i'$.
+\end{lemma}
+
+
+\begin{remark}[]
+    I put lemma 4.16 here since it's a slight generalization of
+    (i) above and is used in the proof of Alexander's method
+    too.
+\end{remark}
+
+
+
 \section{Dehn Twists}
 
 Let $S$ be an oriented surface and let $\alpha$ be
@@ -1304,6 +1370,291 @@ matrices
     Dehn twist $T_a$ is a nontrivial element of $\Mod(S)$.
 \end{proposition}
 
+\begin{proposition}[]
+    Let $a$ and $b$ be arbitrary isotopy classes of essential
+    simple closed curves in a surface and let $k$ be
+    an arbitrary integer. We have
+    \[
+    i \left( T_{a}^{k}(b), b \right) =
+    \left| k \right| i\left( a,b \right)^2.
+    \] 
+\end{proposition}
+
+\begin{proposition}[]
+    Let $\alpha$ and $\beta$ be simple closed curves in a surface.
+    Suppose that $\alpha$ and $\beta$ are in minimal position.
+    Given a third simple closed curve $\gamma$, there
+    exists a simple closed curve $\gamma'$ that is
+    homotopic to $\gamma$ and that is in minimal position
+    with respect to both $\alpha$ and $\beta$.
+\end{proposition}
+
+
+\begin{proposition}[]
+    Let $a_1 ,\ldots, a_n$ be a collection of pairwise
+    disjoint isotopy classes of simple closed curves in
+    a surface $S$ and let $M = \Pi_{i=1}^{n}T_{a_i}^{e_i}$.
+    Suppose that $e_i > 0$ for all $i$ or $e_i < 0$ for
+    all $i$. If $b$ and $c$ are arbitrary isotopy
+    classes of simple closed curves in $S$, then
+    \[
+    \left| i \left( M(b), c \right) -
+    \sum_{i=1}^{n} \left| e_i \right| i(a_i,b)
+    i(a_i,c) \right| \le i(b,c).
+    \] 
+\end{proposition}
+
+\begin{definition}[Pairs of filling curves]
+    We say a pair of isotopy classes $\left\{ a,b \right\} $ of
+    simple closed curves in a surface $S$ \textit{fill} if
+    any pair of minimal position representatives
+    fill (i.e., the complement of the representatives
+    in the surface is a collection of disks and
+    once-punctured disks).
+    This is equivalent to saying that for every
+    isotopy class $c$ of essential simple closed curves
+    in the surface, either
+    $i \left( a,c \right) >0$ or $i(b,c) > 0$.
+\end{definition}
+
+\begin{proposition}[]
+    Let $g, n \ge 0$ and assume $\chi \left( S_{g,n} \right) <0$.
+    Then there exists a pair of simple closed curves in
+    $S_{g,n}$ that fill $S_{g,n}$.
+\end{proposition}
+
+The equivalence is intuitive since otherwise, it would be
+contained in one of the disks and hence not be essential, and
+the converse is similarly seen.
+
+
+\subsubsection{Basic facts about Dehn twists}
+
+Throughout this section, $a$ and $b$ denote arbitrary
+(unoriented) isotopy classes of simple closed curves.
+
+\begin{lemma}[]
+    $T_a = T_b \iff a = b$.
+\end{lemma}
+
+\begin{lemma}[]
+    For any $f \in \Mod(S)$ and any isotopy class $a$ of
+    simple closed curves in $S$, we have
+    \[
+    T_{f(a)} = f T_a f^{-1}.
+    \] 
+\end{lemma}
+
+
+\begin{corollary}
+    For any $f \in \Mod(S)$ and any isotopy class $a$ of simple
+    closed curves in $S$, we have
+    \[
+    f \text{ commutes with }T_a \iff
+    f(a) = a.
+    \] 
+\end{corollary}
+
+\begin{corollary}
+    If $a$ and $b$ are nonseparating simple closed curves
+    in $S$, then $T_a$ and $T_b$ are conjugate in
+    $\Mod(S)$.
+\end{corollary}
+
+\begin{lemma}[]
+    For any two isotopy classes $a$ and $b$ of simple
+    closed curves in a surface $S$, we have
+    \[
+    i(a,b) = 0 \iff T_a(b) = b \iff
+    T_a T_b = T_b T_a.
+    \] 
+\end{lemma}
+
+\begin{proposition}[]
+    The above results have the following analogues for
+    powers of Dehn twists:
+    for $f \in \Mod(S)$, we have
+    \[
+    f T_a^{j} f^{-1} = T_{f(a)}^{j}
+    \] 
+    and so $f$ commutes with $T_a^{j}$ if and only if
+    $f(a) = a$. Also, for nontrivial Dehn
+    twists $T_a, T_b$ and nonzero integers $j,k$, we have
+    \begin{align*}
+        T_a^{j} = T_b^{k} &\iff a=b \text{ and } j=k\\
+        T_a^{j} T_b^{k} = T_b^{k} T_a^{j} &\iff i(a,b) =0.
+    \end{align*}
+\end{proposition}
+
+\subsubsection{The center of the mapping class group}
+
+\begin{theorem}[]
+    For $g \ge 3$, $Z\left( G \right) $, for
+    any finite index subgroup $G \le \Mod (S_g)$, is trivial.
+    In particular, $Z\left( \Mod(S_g) \right) $ is trivial
+    for $g\ge 3$.
+\end{theorem}
+
+\subsubsection{Relations between two Dehn twists}
+
+\begin{proposition}[Braid relation]
+    If $a$ and $b$ are isotopy classes of simple closed
+    curves with $i(a,b) = 1$, then
+    \[
+    T_a T_b T_a = T_b T_a T_b.
+    \] 
+    Equivalently, this read
+    $T_a T_b(a) = b$.
+\end{proposition}
+
+\begin{question}
+    Does the converse also work? I.e., if two Dehn twists
+    satisfy the braid relation algebraically, do the
+    corresponding curves necessarily have intersection
+    number equal to $1$?
+\end{question}
+
+\begin{proposition}[]
+    If $a$ and $b$ are distinct isotopy classes of simple closed
+    curves and the Dehn twists $T_a$ and $T_b$ satisfy
+    $T_a T_b T_a = T_b T_a T_b$, then
+    $i(a,b) = 1$.
+\end{proposition}
+
+\subsubsection*{Groups generated by two Dehn twists}
+
+\begin{theorem}[]
+    Let $a$ and $b$ be two isotopy classes of simple closed
+    curves in a surface $S$. If $i(a,b) \ge 2$, then
+    $\left<T_a ,T_b \right> \approx F_2$, where
+    $F_2$ is the free group of rank 2.
+\end{theorem}
+
+\begin{proof}
+   The slick proof makes use of this basic but nice
+   lemma from geometric group theory:
+
+\begin{lemma}[Ping pong lemma]
+    Let $G$ be a group acting on a set $X$. Let
+    $g_1, \ldots, g_n$ be elements of $G$. Suppose
+    that there are nonempty, disjoint subsets $X_1, \ldots,
+    X_n$ of $X$ with the property that, for each
+    $i$ and each $j\neq i$, we have
+    $g_i^{k} \left( X_j  \right) \subset X_i$ for every
+    nonzero integer $k$. Then the group generated
+    by the $g_i$ is a free group of rank $n$.
+\end{lemma}
+
+\begin{exercise}[]
+    Complete the proof.
+\end{exercise}
+
+
+\end{proof}
+
+
+\subsection{Cutting, capping and including}
+
+\subsubsection{Including}
+
+When $S$ is a closed subsurface of a surface $S'$, we
+can define a natural homomorphism $\eta \colon
+\Mod(S) \to \Mod(S')$ as follows. For
+$f \in \Mod(S)$, we represent it by some
+$\varphi \in \Homeo^{+} \left( S, \partial S \right) $. Then,
+if $\hat{\varphi} \in \Homeo^{+} \left( S', \partial S' \right) $ 
+denotes the element that agrees with $\varphi $ on $S$ and
+is the identity outside of $S$, we define
+$\eta (f)$ to be the class of $\hat{\varphi }$. The map
+$\eta $ is well defined because any homotopy
+between two elements of $\varphi \in \Homeo^{+} (S, \partial
+S)$ gives a homotopy between the corresponding elements
+of $\Homeo^{+}\left( S', \partial S' \right) $ (the homotopy
+is simply relative to $S' - S$).\\
+\linebreak
+The goal is to find $\ker \eta$.
+
+\begin{lemma}[]
+    Let $\alpha_1, \ldots, \alpha_n$  be a collection of
+    homotopically distinct simple closed curves in a surface
+    $S$, each not homotopic to a point in $S$. Let
+    $ \beta $ and $\beta'$ be simple closed curves in $S$ that
+    are both disjoint from $\cup  \alpha_i $ and are
+    homotopically distinct from each $\alpha_i$. If
+    $\beta$ and $\beta'$ are isotopic in $S$, then
+    they are isotopic in $S- \cup \alpha_i$.
+\end{lemma}
+
+\begin{theorem}[The kernel of the inclusion homomorphism]
+    \label{kernel-of-inclusion-homomorphism}
+   Let $S$ be a closed subsurface of a surface $S'$.
+   Assume that $S$ is not homeomorphic to a closed
+   annulus and that no component of $S' - S$ is an open
+   disk. Let $\eta \colon \Mod(S) \to \Mod(S')$ be the
+   induced map. Let $\alpha_1, \ldots, \alpha_m$ denote
+   the boundary components of $S$ that bound once-punctured
+   disks in $S' - S$ and let
+   $\left\{ \beta_1, \gamma_1 \right\} ,\ldots , 
+   \left\{ \beta_n , \gamma_n \right\} $ denote the pairs
+   of boundary components of $S$ that bound annuli
+   in $S' - S$. Then the kernel of $\eta $ is the free abelian
+   group
+   \[
+   \ker \eta = \left<T_{\alpha_1}, \ldots,
+   T_{\alpha_m}, \ldots, T_{\beta_1} T_{\gamma_1}^{-1},
+   \ldots, T_{\beta_n}T_{\gamma_n}^{-1}\right>.
+   \] 
+   In particular, i no connected component of
+   $S' - S$ is an open annulus, an open disk, or
+   an open once-marked disk, then $\eta$ is injective.
+\end{theorem}
+
+
+\subsubsection{The capping homomorphism}
+
+One useful special case of theorem \ref{kernel-of-inclusion-homomorphism} is
+the case where $S' - S$ is a once-punctured disk. We say that
+$S'$ is the surface obtained from
+$S$ by \textit{capping} one boundary component. In this
+case, we have
+
+\begin{proposition}[The capping homomorphism]
+    Let $S'$ be the surface obtained from a surface
+    $S$ by capping the boundary component $\beta $ with
+    a once-marked disk; call the marked point in this disk
+    $p_0$. Denote by 
+    $\Mod \left( S, \left\{ p_1, \ldots, p_k \right\}  \right) $ 
+    the subgroup of $\Mod(S)$ consisting of elements
+    that fix the punctures $p_1, \ldots, p_k$, where
+    $k \ge 0$. Let
+    $\Mod \left( S', \left\{ p_0, \ldots, p_k \right\}  \right) $ 
+    denote the subgroup of $\Mod(S')$ consisting
+    of elements that fix the marked points
+    $p_0, \ldots, p_k$ and then let
+    $\Cap \colon \Mod \left( S, \left\{ p_1, \ldots,
+    p_k \right\}  \right) \to \Mod \left( S',
+    \left\{ p_0, \ldots, p_k \right\} \right) $ be the
+    induced homomorphism. Then the following
+    sequence is exact:
+    \[
+    1 \to 
+    \left<T_{\beta} \right>
+    \to \Mod \left( S, \left\{ p_1, \ldots, p_k \right\}  \right) 
+    \stackrel{\Cap}{\to}  
+    \Mod \left( S', \left\{ p_0, \ldots, p_k \right\}  \right) 
+    \to 1
+    
+    \] 
+\end{proposition}
+
+\begin{remark}[]
+In the case where $S'$ is capped by an
+unmarked disk, the kernel is isomorphic to 
+$\pi_1 \left( TS' \right) $, i.e., the fundamental group
+of the tangent bundle of $S'$.
+\end{remark}
+
+
 
 \newpage
 
@@ -1315,6 +1666,24 @@ matrices
     homotopic to $\id_S$ but not isotopic to $\id_S$.
 \end{problem}
 
+\begin{solution}
+    Let $S$ be the closed
+    unit disk $D^{1}$, and let $\varphi \colon D^{1} \to D^{1}$
+    by the map $\left( x,y \right) \to (x,-y)$.
+    This is a self-diffeomorphism which is homotopic to
+    the identity map by
+    $F \colon D^{1} \times I \to D^{1}$,
+    $F(x,t) = \varphi(x) t + (1-t)x$. However,
+    if there were an isotopy from $\id_S$ to 
+    $\varphi$, then since this would have to be a topological embedding, it
+    would have to map the boundary to the boundary at all
+    times during the isotopy. But then restricting to the boundary,
+    the isotopy would descend to an isotopy of
+     $\id_{\partial D^{1}}$ to $\varphi|_{\partial D^{1}}$.
+     However, these maps have degree $1$ and $-1$, respectively,
+     and since degree is a homotopy invariant,
+     we conclude that no such isotopy can exist.
+\end{solution}
 
 
 

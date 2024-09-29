@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  20 SEP 2024 12:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  29 SEP 2024 21:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**mcg.tex
-(./mcg.tex
+**assignment.tex
+(./assignment.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
 (/usr/share/texlive/texmf-dist/tex/latex/amscls/amsart.cls
@@ -482,329 +482,105 @@ File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfarrowlength=\dimen270
 \pgfarrowwidth=\dimen271
 \pgfarrowlinewidth=\dimen272
-))) (/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
-Package: enumitem 2019/06/20 v3.9 Customized lists
-\labelindent=\skip59
-\enit@outerparindent=\dimen273
-\enit@toks=\toks44
-\enit@inbox=\box65
-\enit@count@id=\count309
-\enitdp@description=\count310
-)
-\c@theorem=\count311
+)))
+\c@theorem=\count309
  (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count312
-\l__pdf_internal_box=\box66
-) (./mcg.aux)
-\openout1 = `mcg.aux'.
+\l__color_backend_stack_int=\count310
+\l__pdf_internal_box=\box65
+) (./assignment.aux)
+\openout1 = `assignment.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 120.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 124.
+LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 124.
+LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 124.
+LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 124.
+LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 124.
+LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 124.
+LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 124.
+LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 124.
+LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 124.
+LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 124.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 120.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 124.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count313
-\scratchdimen=\dimen274
-\scratchbox=\box67
-\nofMPsegments=\count314
-\nofMParguments=\count315
-\everyMPshowfont=\toks45
-\MPscratchCnt=\count316
-\MPscratchDim=\dimen275
-\MPnumerator=\count317
-\makeMPintoPDFobject=\count318
-\everyMPtoPDFconversion=\toks46
+\scratchcounter=\count311
+\scratchdimen=\dimen273
+\scratchbox=\box66
+\nofMPsegments=\count312
+\nofMParguments=\count313
+\everyMPshowfont=\toks44
+\MPscratchCnt=\count314
+\MPscratchDim=\dimen274
+\MPnumerator=\count315
+\makeMPintoPDFobject=\count316
+\everyMPtoPDFconversion=\toks45
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring ON on input line 120.
- (./mcg.out) (./mcg.out)
+Package hyperref Info: Link coloring ON on input line 124.
+ (./assignment.out) (./assignment.out)
 \@outlinefile=\write4
-\openout4 = `mcg.out'.
+\openout4 = `assignment.out'.
 
- [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
-Underfull \hbox (badness 10000) in paragraph at lines 229--257
 
- []
-
-[2]
-<lifts-of-paths.jpg, id=118, 1900.09875pt x 2055.68pt>
-File: lifts-of-paths.jpg Graphic file (type jpg)
-<use lifts-of-paths.jpg>
-Package pdftex.def Info: lifts-of-paths.jpg  used on input line 260.
-(pdftex.def)             Requested size: 288.0011pt x 311.5695pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 286--289
+Underfull \hbox (badness 10000) in paragraph at lines 162--184
 
  []
 
-[3 <./lifts-of-paths.jpg>] [4]
-<bigon.png, id=141, 368.37625pt x 138.5175pt>
-File: bigon.png Graphic file (type png)
-<use bigon.png>
-Package pdftex.def Info: bigon.png  used on input line 462.
-(pdftex.def)             Requested size: 143.9978pt x 54.1463pt.
-<lemma-1-8.jpg, id=143, 1694.33pt x 740.7675pt>
-File: lemma-1-8.jpg Graphic file (type jpg)
-<use lemma-1-8.jpg>
-Package pdftex.def Info: lemma-1-8.jpg  used on input line 477.
-(pdftex.def)             Requested size: 288.0011pt x 125.90619pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[5 <./bigon.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 515--545
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
+Underfull \hbox (badness 10000) in paragraph at lines 262--272
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 515--545
+Underfull \hbox (badness 10000) in paragraph at lines 262--272
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 576--580
+Underfull \hbox (badness 10000) in paragraph at lines 274--304
 
  []
 
-[6 <./lemma-1-8.jpg>]
-Overfull \hbox (3.03696pt too wide) in paragraph at lines 582--586
-[][]\T1/cmr/bx/n/10 Definition 3.23. []\T1/cmr/m/n/10 A \T1/cmr/m/it/10 proper arc \T1/cmr/m/n/10 in $\OML/cmm/m/it/10 S$ \T1/cmr/m/n/10 is a map $\OML/cmm/m/it/10  [] []  [] \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 S$ \T1/cmr/m/n/10 such that $\OML/cmm/m/it/10 [] [] \OT1/cmr/m/n/10 =
- []
-
-<bigon-of-arcs.png, id=176, 397.485pt x 261.97874pt>
-File: bigon-of-arcs.png Graphic file (type png)
-<use bigon-of-arcs.png>
-Package pdftex.def Info: bigon-of-arcs.png  used on input line 607.
-(pdftex.def)             Requested size: 180.0pt x 118.64087pt.
-
-Overfull \hbox (10.02414pt too wide) in paragraph at lines 647--651
-[][]\T1/cmr/bx/n/10 Definition 3.26. []\T1/cmr/m/n/10 We say that a simple closed curve $\OML/cmm/m/it/10 $ \T1/cmr/m/n/10 in the surface $\OML/cmm/m/it/10 S$ \T1/cmr/m/n/10 is \T1/cmr/m/it/10 nonseparating
- []
-
-[7 <./bigon-of-arcs.png>]
-Overfull \hbox (23.20724pt too wide) in paragraph at lines 674--689
-\T1/cmr/m/n/10 components and number of punctures, it follows that $\OML/cmm/m/it/10 S[] \OMS/cmsy/m/n/10 ^^Y \OML/cmm/m/it/10 S[]$\T1/cmr/m/n/10 . Choose a homeomorphism
- []
-
-<filling-genus-2-surface.png, id=191, 573.14125pt x 219.82124pt>
-File: filling-genus-2-surface.png Graphic file (type png)
-<use filling-genus-2-surface.png>
-Package pdftex.def Info: filling-genus-2-surface.png  used on input line 745.
-(pdftex.def)             Requested size: 251.9989pt x 96.6512pt.
-
-LaTeX Warning: Reference `fig:filling-genus-2-surface.png' on page 8 undefined on input line 750.
-
-
-Overfull \hbox (5.26439pt too wide) in paragraph at lines 762--783
-[]\T1/cmr/m/it/10 Pairs of simple closed curves that intersect once are all of the same topological
- []
-
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 788--803
-
- []
-
-
-Overfull \hbox (24.32666pt too wide) in paragraph at lines 822--828
-\T1/cmr/m/it/10 number of points from the interior. Assume that $\OML/cmm/m/it/10 S$ \T1/cmr/m/it/10 is not homeomorphic to $\OML/cmm/m/it/10 S[]; \U/msb/m/n/10 R[]\OML/cmm/m/it/10 ; D[]; T[]$\T1/cmr/m/it/10 ,
- []
-
-[9 <./filling-genus-2-surface.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 872--878
-
- []
-
-
-Overfull \hbox (8.575pt too wide) in paragraph at lines 930--934
-[]\T1/cmr/m/n/10 If $[][]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 S; @S\OT1/cmr/m/n/10 )$ \T1/cmr/m/n/10 denotes the connected component of the identity in $[][] []$,
- []
-
-[10]
-Overfull \hbox (7.72545pt too wide) in paragraph at lines 981--1014
-\T1/cmr/m/n/10 distinct marked points. By isotopy, we may modify $\OML/cmm/m/it/10 $ \T1/cmr/m/n/10 so that it intersects transversally
- []
-
-
-Overfull \hbox (9.73886pt too wide) in paragraph at lines 1029--1032
-\T1/cmr/m/it/10 given by the action of $[] []$ on the set of marked points of $\OML/cmm/m/it/10 S[]$ \T1/cmr/m/it/10 is an isomorphism. 
- []
-
-[11]
-Overfull \hbox (6.72589pt too wide) in paragraph at lines 1105--1111
-[][]\T1/cmr/bx/n/10 Corollary 4.10. []\T1/cmr/m/it/10 Since $\OML/cmm/m/it/10 H[] [] \OMS/cmsy/m/n/10 ^^Y \U/msb/m/n/10 Z[]$\T1/cmr/m/it/10 , there is a homomorphism $\OML/cmm/m/it/10 ^^[ [] [] [] [] \OMS/cmsy/m/n/10 !
- []
-
-<involution-on-torus-quotient.jpg, id=238, 2055.68pt x 820.06375pt>
-File: involution-on-torus-quotient.jpg Graphic file (type jpg)
-<use involution-on-torus-quotient.jpg>
-Package pdftex.def Info: involution-on-torus-quotient.jpg  used on input line 1163.
-(pdftex.def)             Requested size: 216.0022pt x 86.16554pt.
-[12]
-<twists-along-curves-on-torus.jpg, id=252, 1716.4125pt x 744.7825pt>
-File: twists-along-curves-on-torus.jpg Graphic file (type jpg)
-<use twists-along-curves-on-torus.jpg>
-Package pdftex.def Info: twists-along-curves-on-torus.jpg  used on input line 1195.
-(pdftex.def)             Requested size: 323.9978pt x 140.57826pt.
- [13 <./involution-on-torus-quotient.jpg> <./twists-along-curves-on-torus.jpg>]
-Overfull \hbox (7.11105pt too wide) in paragraph at lines 1245--1251
-[]\T1/cmr/m/n/10 To show [][]4.13[][], it thus suffices to find a homomorphism $[] [] \OMS/cmsy/m/n/10 ! [] []$
- []
-
-[14] [15]
-Overfull \hbox (2.30042pt too wide) in paragraph at lines 1511--1515
-\T1/cmr/m/n/10 braid relation algebraically, do the corresponding curves necessarily have intersection
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1560--1576
-
- []
-
-[16]
-./mcg.tex:1646: Missing $ inserted.
-<inserted text> 
-                $
-l.1646 
-       
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-./mcg.tex:1646: Missing } inserted.
-<inserted text> 
-                }
-l.1646 
-       
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./mcg.tex:1646: Display math should end with $$.
-<to be read again> 
-                   \tex_par:D 
-l.1646 
-       
-The `$' that I just saw supposedly matches a previous `$$'.
-So I shall assume that you typed `$$' both times.
-
-./mcg.tex:1646: Extra }, or forgotten \endgroup.
-\par ...m \@noitemerr {\@@par }\fi \else {\@@par }
-                                                  \fi 
-l.1646 
-       
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-
-./mcg.tex:1647: LaTeX Error: Bad math environment delimiter.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1647     \]
-             
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-./mcg.tex:1647: Missing $ inserted.
-<inserted text> 
-                $
-l.1647     \]
-             
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./mcg.tex:1647: Display math should end with $$.
-<to be read again> 
-                   \endgroup 
-l.1647     \]
-             
-The `$' that I just saw supposedly matches a previous `$$'.
-So I shall assume that you typed `$$' both times.
-
-
-Overfull \hbox (4.20595pt too wide) in paragraph at lines 1651--1655
-[]\T1/cmr/m/it/10 Remark. []\T1/cmr/m/n/10 In the case where $\OML/cmm/m/it/10 S[]$ \T1/cmr/m/n/10 is capped by an unmarked disk, the kernel is isomorphic
- []
-
-[17] [18]
-Overfull \hbox (20.80072pt too wide) in paragraph at lines 1741--1754
-[][]\T1/cmr/bx/n/10 Definition 8.4 \T1/cmr/m/n/10 (Orientation)\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 A closed $\OML/cmm/m/it/10 n$\T1/cmr/m/n/10 -manifold $\OML/cmm/m/it/10 M$ \T1/cmr/m/n/10 is called orientable if $\OML/cmm/m/it/10 H[] [] \OT1/cmr/m/n/10 =
- []
-
-
-Overfull \hbox (26.90675pt too wide) in paragraph at lines 1760--1765
-\T1/cmr/m/n/10 corresponds to choosing an orientation of each $\OT1/cmr/m/n/10 2$\T1/cmr/m/n/10 -simplex in the triangulation (compatibly). 
- []
-
-[19] (./mcg.bbl) [20] (./mcg.aux)
+[2] (./assignment.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
-
-Package rerunfilecheck Warning: File `mcg.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `mcg.out':
-(rerunfilecheck)             Before: E348BFA0E2AF0E51308BB0B01A9F53CC;3627
-(rerunfilecheck)             After:  614A1E9DA1C3981FDD3BCC80C5E2B248;3752.
+Package rerunfilecheck Info: File `assignment.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 23586 strings out of 474222
- 440068 string characters out of 5748733
- 1950975 words of memory out of 5000000
- 45141 multiletter control sequences out of 15000+600000
- 569438 words of font info for 65 fonts, out of 8000000 for 9000
+ 22739 strings out of 474222
+ 424283 string characters out of 5748733
+ 1948975 words of memory out of 5000000
+ 44465 multiletter control sequences out of 15000+600000
+ 566625 words of font info for 61 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 98i,15n,107p,592b,1139s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on mcg.pdf (20 pages, 763267 bytes).
+ 98i,6n,107p,599b,540s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb>
+Output written on assignment.pdf (2 pages, 178868 bytes).
 PDF statistics:
- 461 PDF objects out of 1000 (max. 8388607)
- 389 compressed objects within 4 object streams
- 168 named destinations out of 1000 (max. 500000)
- 216 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 108 PDF objects out of 1000 (max. 8388607)
+ 71 compressed objects within 1 object stream
+ 8 named destinations out of 1000 (max. 500000)
+ 13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
