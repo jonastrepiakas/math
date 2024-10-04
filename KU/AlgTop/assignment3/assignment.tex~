@@ -120,8 +120,13 @@
 
 
 
+\title{Assignment 3}
+\author{Jonas Trepiakas - hvn548}
 
 \begin{document}
+
+\maketitle
+
     \begin{exercise}[]
         \begin{enumerate}
             \item Let $G \times X \to X$ be a continuous left
@@ -173,14 +178,17 @@
         $ (0,0) = \left( n,m \right) $, but
         $m \ge 1$, contradiction.\\
         \linebreak
-        Since this action is not properly discontinuous, it
+        On the comparing this to exercise 3 part,
+        since this action is not properly discontinuous, it
         means that the quotient map
         $\mathbb{R} \to  \mathbb{R} /G$ cannot be a covering
         map since $0$, for example, has no evenly covered neighborhood(
         if it had, then this neighborhood would split
         into homeomorphic disjoint copies in $\mathbb{R}$ 
-        satisfying which would satisfy the requirement of
+        which would satisfy the requirement of
         the action being properly discontinuous at  $0$ ).
+        Exercise 3 doesn't apply since 
+        neither our group is finite nor is our space compact.
 
 
         \begin{exercise}[]
@@ -210,41 +218,57 @@
             $p^{-1}(B) = \varnothing$, contradicting $p$ being
             a function. Now let $b \in B$ and let
             $ p^{-1}(\left\{ b \right\} ) = 
-            \left\{ x_1, \ldots, x_n \right\}$. Then
-            by Hausdorffness, we can choose
-            open neighborhoods  $U_{1,i}$ and
-            $U_i$ for $x_1$ and $x_i$ for all $i =2, \ldots, n$ 
-            such that $U_{1,i} \cap U_i = \varnothing$. Let
-            $V_1 = \bigcap_{i =2}^{n} U_{1,i}$ which is a 
-            neighborhood of $x_1$. Now
-            for each $i = 2,\ldots,n$, define
-            $V_i = p^{-1}\left( p(V_1) \right) 
-            \cap U_i$.
-            Suppose $y \in V_i \cap V_j \neq \varnothing$. Then
-
-
-
-            So in particular, $p\left( U_i \right) $ is an 
-            open neighborhood of $b$. Let
-            $V = \bigcap_{i=1}^{n} p\left( U_i \right) $.
-            Then let $U_i' = U_i \cap p^{-1}(V)
-            \subset U_i$ which is
-            open for each $i$, and since
-            a restriction of a homeomorphism to a smaller
-            open set is still a homeomorphism onto its
-            image, we get that
-            $p |_{U_i'} \colon U_{i}' \to 
-            p\left( U_i' \right) = V$ is a homeomorphism
+            \left\{ x_1, \ldots, x_n \right\}$. 
+            For each pair $x_i, x_j$, using the Hausdorff property,
+            we can choose open sets $U_{i,j}$ and
+            $U_{j,i}$ around $x_i$ and $x_j$, respectively,
+            such that $U_{i,j} \cap U_{j,i} = \varnothing$.
+            Then $V_{i} = \bigcap_{j} U_{i,j}$ 
+            is a non-empty open set around $x_i$ for each $i$ and
+            $V_{i} \cap V_j = \bigcap_{k,l} U_{i,k} \cap U_{j,l}
+            = \varnothing $. By intersecting each $V_i$ with
+            some open neighborhood around $x_i$ which
+            $p$ maps homeomorphically onto its image, we
+            can assume that
+            $p|_{V_i} \colon V_i \to p(V_i)$ is a homeomorphism
             for each $i$.
-            Suppose
-            $x \in U_i' \cap U_j'$ for distinct $i$ and $j$.
-            Then since the intersection of finitely many 
-            open path-connected sets with a common point 
-            is still path connected, we can choose
-            a path $\gamma \colon I \to U_i' \cup U_j'$
-            from $x_i$ to $x_j$. Thus, under
+            Now, each $V_i$ contains  $x_i$, so
+            $b \in \bigcap_{i} p(V_i) =: W$ which is
+            open, so
+            in particular define
+            $W_i = p^{-1}(W) \cap V_i$ which is mapped
+            homeomorphically onto $W$ for each $i$ under
+            $p|_{W_i}$. Again we have $W_i \cap W_j$ for distinct
+            $i$ and $j$, and thus $W$ is an evenly covered
+            neighborhood of $b$. In particular, we can define
+            $\varphi \colon 
+            p^{-1}(W) \to W \times F$ by
+            $\varphi(x) = \left( p(x), \sum_i i \delta_x\left( W_i
+            \right)  \right) $ where
+            $\delta_x (W_i)$ is $1$ if
+            $x \in W_i$ and $0$ otherwise.
+            This is clearly a homeomorphism since
+            it is bijective and continuous obviously, and
+            supposing 
+            $(w,m) \in W \times F$ and
+            $U$ is an open neighborhood of
+            $\varphi^{-1}\left( w,m \right) $,
+            then $\varphi \left( U \cap W_{\sum_i i \delta_{\varphi^{-1}(w,m)}
+            (W_i)}  \right) $ is an open neighborhood
+            of $(w,m)$ ($\varphi$ is a homeomorphism onto
+            its image
+            restricted to this set) which is mapped to
+            an open neighborhood of  $\varphi^{-1}(w,m)$ 
+            contained in $U$ under $\varphi^{-1}$.
 
+            Thus shows that $W$ is an evenly covered
+            neighborhood of $b$.
         \end{solution}
+
+        \begin{remark}[]
+            I realize that I haven't used path-connectedness, so
+            I'm wondering where that should've been used.
+        \end{remark}
 
 
         \newpage
