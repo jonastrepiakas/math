@@ -72,6 +72,7 @@
 \DeclareMathOperator{\Int}{Int}
 \DeclareMathOperator{\sgn}{sgn}
 \DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Supp}{Supp}
 
 %Row operations
 \newcommand{\elem}[1]{% elementary operations
@@ -114,6 +115,8 @@
 
 \let\Cap\undefined
 \newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
 
 
 
@@ -569,6 +572,56 @@ For this, we need the notion of a \textit{bigon}:
 \begin{proof}
     \cite[Ch~8, Thm 1.3]{Hirsch}
 \end{proof}
+
+\subsection{Small digression on Hirsch chapter 8}
+
+\begin{definition}[Isotopy in general and their tracks]
+    Let $V$ and $M$ be manifolds. An
+    isotopy from $V$ to $M$ is a map
+    $F \colon V \times I \to M$ such that
+    for each $t \in I$, the map
+    \[
+    F_t \colon V \to M, \quad x \mapsto F(x,t)
+    \] 
+    is an embedding.
+
+    The \textit{track} of the isotopy $F$ is the embedding
+    \[
+    \hat{F} \colon V \times I \to M \times I, \quad
+    \left( x,t \right) \mapsto \left( F(x,t),t \right) 
+    \] 
+\end{definition}
+
+\begin{definition}[Isotopic embeddings and ambient isotopies]
+    If $F \colon V \times I \to M$ is an isotopy, we call
+    the two embeddings $F_0$ and $F_1$ 
+    isotopic. If $V$ is a submanifold of $M$ and
+    $F_0$ is the inclusion, we call $F$ an isotopy
+    of $V$ in $M$.
+    When $V = M$ and each $F_t$ is a diffeomorphism, and
+    $F_0 = \mathbbm{1}_M$, then $F$ is called
+    an ambient isotopy.
+\end{definition}
+
+\begin{definition}[Support of isotopy]
+    The \textit{support} $\Supp F
+    \subset V $ of an isotopy $F \colon V \times I \to M$ 
+    is the closure of
+    $\left\{ x \in V \colon
+    F(x,t) \neq F(x,0) \text{ for some }
+t \in I\right\} $.
+\end{definition}
+
+
+\begin{theorem}[Isotopy extension theorem]\label{Hirsch-isotopy-extension}
+    Let $V \subset M$ be a compact submanifold
+    and $F \colon V \times I \to M$ an isotopy
+    of $V$. If either $F\left( V \times I \right) 
+    \subset \partial M$ or $F\left( V \times I \right) 
+    \subset M - \partial M$, then $F$ extends to
+    an ambient isotopy of $M$ having compact support.
+\end{theorem}
+
 
 
 
@@ -1887,12 +1940,12 @@ from $S$ by marking a point $x$ in the
 interior of $S$. There is a natural
 homomorphism
 \[
-Forget \colon \Mod \left( S, x \right) \to \Mod(S)
+\Forget \colon \Mod \left( S, x \right) \to \Mod(S)
 \] 
 called the forgetful map which is realized by forgetting
 that the point $x$ is marked. This map is
 surjective as any homeomorphism of $S$ can
-be modified by isotopy to fix $x$. The
+be modified by isotopy to fix $x$ (why?). The
 group $\Mod(S,x)$ is isomorphic to the
 subgroup $G$ of $\Mod \left( S - x \right) $ 
 consisting of homeomorphisms preserving the
@@ -1900,17 +1953,58 @@ puncture coming from $x$.
 
 The forgetful map can then be interpreted
 as the map $G \to \Mod(S)$ obtained by "filling in" the
-puncture $x$. I.e., $Forget$ is the map
+puncture $x$. I.e., $\Forget$ is the map
 induced by the inclusion
  $S -x \hookrightarrow S$.
 
- \subsubsection{Analyzing the kernel of $Forget$}
+
+
+ 
+
+ \subsubsection{Analyzing the kernel of $\Forget$}
 
  Let $f \in \Mod(S,x)$ be an element of the kernel
- of $Forget$ and let  $\varphi $ be a homeomorphism
+ of $\Forget$ and let  $\varphi $ be a homeomorphism
  representing $f$. We can think of
  $\varphi $ as a homeomorphism $\overline{\varphi}$ of
  $S$.
+
+ Since $\Forget (f) = 1$, there is an isotopy
+ from $\overline{\varphi }$ to $\mathbbm{1}_S$. During
+ this isotopy, the image of the point $x$ traces out a
+ loop $\alpha$ in $S$ based at $x$. Now
+ we will introduce the $\Push$ map:
+ given a loop $\alpha$ in $S$ based at $x$, we can
+ consider $\alpha \colon \left[ 0,1 \right] \to S$ as
+ an isotopy $h \colon \left\{ x \right\} \times I
+ \to S$ with $h(x,0) = h(x,1) = x$ and extend this
+ to the whole surface using \ref{Hirsch-isotopy-extension} (here,
+ $V = \left\{ x \right\} $ ), denote this by
+ $h \colon S \times I \to S$ also. Let
+ $\varphi (x) = h(x,1) $ be the homeomorphism
+ of $S$ obtained at the end of the isotopy. Taking its
+ isotopy class in $\Mod \left( S,x \right) $, we get
+ $\left[ \varphi  \right] = : 
+ \Push(\alpha) \in \Mod\left( S,x \right) $.
+ Think of $\Push(\alpha)$ as placing your finger on
+ $x$ and pushing $x$ along $\alpha$, draggin the
+ rest of the surface along as you go (indeed, locally,
+ this is what must happen).
+
+ The question of whether this mapping class
+ is independent of the choice of isotopy extension
+ as well as the choice of $\alpha$ within its homotopy class.
+ I.e., whether $\Push$ defines a 
+ well-defined map
+ \[
+ \Push \colon \pi_1 \left( S,x \right) 
+ \to \Mod \left( S,x \right) .
+ \] 
+ For that, we show look at the
+ Birman exact sequence.
+
+
+
 
 
 
@@ -1922,11 +2016,92 @@ induced by the inclusion
      the interior of $S$. Then the following
      sequence is exact:
      \[
-         1 \to \pi_1 \left( S, x \right) \stackrel{Push}{\to }
+         1 \to \pi_1 \left( S, x \right) \stackrel{\Push}{\to }
          \Mod \left( S, x \right) 
-         \stackrel{Forget}{\to } \Mod(S) \to 1.
+         \stackrel{\Forget}{\to } \Mod(S) \to 1.
      \] 
  \end{theorem}
+
+
+ \begin{lemma}[]
+     $\Push \colon \pi_1 \left( S,x \right) 
+     \to \Mod (S,x)$ is injective when
+     $\chi (S) <0$.
+ \end{lemma}
+
+ \begin{proof}
+     Let $\varphi $ represent 
+     $\Push \left( \alpha \right) \in 
+     \Mod \left( S,x \right) $. Then
+     $\varphi $ is a map
+     $\left( S,x \right) \to \left( S,x \right) $, so
+     in particular, we have an induced homomorphism
+     $\varphi_* \colon \pi_1 \left( S,x \right) 
+     \to \pi_1 \left( S,x \right) $.
+     This homomorphism is the inner automorphism
+     $I_{\alpha} (\gamma) = \alpha \gamma \alpha^{-1}$ (why?).
+     Now, for $\chi (X) < 0$, the center of $\pi_1 (S)$ is
+     trivial, so $I_{\alpha}$ is nontrivial whenever
+     $\alpha \neq c_{x}$. If $\varphi $ had been
+     homotopic to the identity, their
+     induced homomorphisms would be equal, so we conclude
+     that $\Push \left( \alpha \right) $ is nontrivial whenever
+     $\alpha$ is nontrivial.
+ \end{proof}
+
+ \subsubsection{Push maps along loops in terms of Dehn twists}
+
+ Let $\alpha \in \pi_1 \left( S,x \right) $ be simple.
+ Let $S^{1} \times \left[ 0,2 \right] $ be an annulus
+ about $\alpha$ with $S^{1} \times \left\{ 1 \right\} $ 
+ identified with $\alpha$ with
+ $(0,1)$ identified with the marked point
+ $x$. We orient 
+ $S^{1} \times \left[ 0,2 \right] $ with the
+ standard orientations on
+ $S^{1}$ and $\left[ 0,2 \right] $. 
+
+ Let $F \colon A \times I \to A$ be the
+ isotopy given by
+ \[
+ F \left( \left( \theta,r \right) ,t \right) 
+ = 
+ \begin{cases}
+     \left( \theta + 2\pi r t, r \right) ,& 0 \le r \le 1\\
+     \left( \theta + 2 \pi (2-r)t,r \right) ,& 1 \le r \le 2.
+ \end{cases}
+ \]
+ By \ref{Hirsch-isotopy-extension}, we can extend
+ $F$ to an ambient isotopy of $S$. Restricting
+ $F$ to $\left\{ x \right\} \times \left[ 0,1 \right] $, we
+ get
+ \[
+ F\left( (0,1),t \right) = \left( 2 \pi t,1 \right),
+ \] 
+ so $F$ pushes $x$ around the core of the annulus.
+ Now, the homeomorphism (representing $\Push\left( \alpha \right) $ )
+ $\varphi $ of $\left( S,x \right) $ given by
+ $F\left( (\theta, r),1 \right) $ is a product
+ of two Dehn twists,  $T_a T_{b}^{-1}$ where
+ $a$ is the closed curve identified with
+ $S^{1} \times \left\{ 0 \right\} $ and
+ $b$ is the closed curve identified with
+ $S^{1} \times \left\{ 2 \right\} $.
+
+ \begin{figure}[htpb]
+     \centering
+     \includegraphics[width=0.7\textwidth]{push-point-map.png}
+     \label{fig:push-point-map-png}
+ \end{figure}
+
+ \begin{remark}[Naturality]
+     For any $h \in \Mod (S,x)$ and any
+     $\alpha \in \pi_1 \left( S,x \right) $, we have
+     \[
+     \Push \left( h_* \left( \alpha \right)  \right) 
+     = h\Push \left( \alpha \right) h^{-1}.
+     \] 
+ \end{remark}
 
 
 
@@ -2017,12 +2192,29 @@ induced by the inclusion
     \end{remark}
 \end{definition}
 
+\begin{definition}[Inner and outer automorphisms]
+    Let $G$ be any group and $\gamma \in G$. A conjugate
+    automorphism 
+    \[
+    I_{\gamma} \colon g \mapsto \gamma g \gamma^{-1}
+    \] 
+    is called an \textit{inner automorphism} of $G$.
+    The group of inner automorphisms is denoted
+    by $\text{Inn}(G)$. It is isomorphic to
+    $G / Z(G)$, and is a normal subgroup of
+    $\Aut(G)$. The quotient
+    \[
+    \text{Out}(G) := \Aut(G) / \text{Inn}(G)
+    \] 
+    is called the \textit{outer automorphism group} of
+    $G$.
+\end{definition}
 
 \section{Appendix}
 
 \subsection{Fiber Bundles}
 
-
+\subsubsection{Bredon}
 
 \begin{definition}[]
     Let $X, B$ and $F$ be Hausdorff spaces and
@@ -2090,9 +2282,103 @@ induced by the inclusion
     group.
 \end{definition}
 
+\subsubsection{Hatcher}
+
+\begin{definition}[Homotopy lifting property]
+    A map $p \colon E \to B$ is said to have the
+    homotopy lifting property with respect to
+    a space $X$ if, given a homotopy
+    $g \colon X \times I \to B$ and a map
+    $\tilde{g}_0 \colon X \times \left\{ 0 \right\}  \to E$ lifting
+    $g(x,0)$, so $p \tilde{g}_0(t,0) = g(t,0)$, then
+    there exists a homotopy
+    $\tilde{g} \colon X \times I \to E$ lifting
+    $g_t$.
+    \begin{equation*}
+    \begin{tikzcd}
+        X \times \left\{ 0 \right\} \ar[d, hookrightarrow] 
+        \ar[r, "\tilde{g}_0"] & E \ar[d, "p"] \\
+        X \times I \ar[r, "g"'] \ar[ru, dashed, "\tilde{g}"'] & B
+    \end{tikzcd}
+    \end{equation*}
+    This is a special case of the \textit{lift extension property
+    for a pair $\left( Z,A \right) $} (See \cite{Munkres})
+\end{definition}
+
+\begin{definition}[Fibration]
+    A fibration is a map $p \colon E \to B$ having the
+    homotopy lifting property with respect to
+    all spaces $X$. For example, a projection
+    $B \times F \to B$ is a fibration
+    since we can choose lifts of the form
+    $\tilde{g}(x,t) = \left( g(x,t),h(x) \right) $ 
+    where $\tilde{g}(x,0) = \left( g(x,0),h(x) \right) $.
+\end{definition}
+
+\begin{definition}[Homotopy lifting property for a pair
+    $(X,A)$]
+   The map $p \colon E \to B$ is said to have the
+   \textit{homotopy lifting property for a pair
+   $(X,A)$} if each homotopy
+   $f \colon X \times I \to B$ lifts to a homotopy
+   $\tilde{g} \colon X \times I \to E$ starting
+   with a given lift $\tilde{g}_0 \colon 
+   X \times \left\{ 0 \right\} \to E$ and
+   extending a given lift 
+   $\tilde{g} \colon A \times I \to E$.
+\end{definition}
+
+\begin{theorem}[]
+    Suppose $p \colon E \to B$ has the homotopy
+    lifting property with respect to disks
+    $D^{k}$ for all $k \ge 0$. Choose basepoints
+    $b_0 \in B$ and
+    $x_0 \in F = p^{-1}\left( b_0 \right) $. Then
+    the map $p_* \colon \pi_n \left( E, F,x_0 \right) 
+    \to \pi_n \left( B, b_0 \right) $ is an isomorphism
+    for all $n\ge 1$. Hence if $B$ is
+    path-connected, there is a long exact sequence
+    \[
+    \ldots \to \pi_n \left( F,x_0 \right) \to 
+    \pi_n \left( E,x_0 \right) \stackrel{p_*}{\to }
+    \pi_n \left( B,b_0 \right) \to 
+    \pi_{n-1}(F,x_0) \to \ldots \to 
+    \pi_0 \left( E,x_0 \right) \to 0
+    \] 
+\end{theorem}
 
 
+\begin{definition}[Fiber bundle]
+    A fiber bundle structure on a space $E$, with fiber
+    $F$, consists of a projection map
+    $p \colon E \to B$ such that each point of $B$ has
+    a neighborhood $U$ for which there is a homeomorphism
+    $h \colon p^{-1}(U) \to U \times F$ making
+    the following diagram commute
+    \begin{equation*}
+    \begin{tikzcd}
+        p^{-1}(U) \ar[rr, "h"] \ar[dr, "p"'] & & U \times F
+        \ar[dl, "proj"] \\
+                                            & U&
+    \end{tikzcd}
+    \end{equation*}
+    Thus
+    $h \left( p^{-1}(b) \right) 
+    = \left\{ b \right\} \times F$ by the projection map 
+    $p \colon E \to B$, but to indicate what the fiber
+    is we sometimes write a fiber bundle as
+    $F \to E \to B$, a "short exact sequence of spaces".
+    The space $B$ is called the \textit{base space} of the
+    bundle, and $E$ is the \textit{total space}.
+\end{definition}          
 
+\begin{remark}[]
+    This is just the definition of a covering map
+    without the restriction of $F$ having the discrete
+    topology.
+\end{remark}
+          
+          
 
 
 

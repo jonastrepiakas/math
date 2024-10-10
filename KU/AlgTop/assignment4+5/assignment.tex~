@@ -1,0 +1,650 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+\usepackage{enumerate}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+\newtheorem*{question*}{Question}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\Mod}{{\mathrm{Mod}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+
+
+
+\title{Assignment 4 and 5}
+\author{Jonas Trepiakas - hvn548}
+
+\begin{document}
+
+
+\maketitle
+
+
+    \begin{exercise}[]
+        If $\left( X,x \right) $ and $\left( Y,y \right) $ 
+        are based spaces, let $C\left( (X,x),
+        (Y,y) \right) $ be the set of
+        pairs $\left( f, \left[ \lambda \right]  \right) $,
+        where $f \colon X \to Y$ is a continuous map,
+        $\lambda \colon I \to Y$ is a path from
+        $y$ to $f(x)$ and $\left[ \lambda \right] $ 
+        denotes its homotopy class relative to $\partial I$.
+
+        If $\left( Z,z \right) $ is a third based space
+        and $\left( f , \left[ \lambda \right]  \right) 
+        \in  C\left( (X,x), (Y,y) \right) $ and
+        $\left( g , \left[ \mu \right]  \right) \in 
+        C\left( \left( Y,y \right) , \left( Z,z \right)  \right) $,
+        define $\left( g, \left[ \mu \right]  \right) 
+        \circ_C \left( f , \left[ \lambda \right]  \right) 
+        = \left( g \circ f, \left[ \mu *
+        \left( g \circ \lambda \right) \right]  \right) $.
+
+        \begin{enumerate}[(i)]
+            \item Check that
+                $\left( g, \left[ \mu \right]  \right) 
+                \circ_C \left( f, \left[ \lambda \right]  \right) $ 
+                is an element of 
+                $C\left( (X,x), (Z,z) \right) $.
+            \item Explain why $\circ_C$ is associative.
+            \item Define identity elements
+                $\mathbbm{1}_{(X,x)}
+                \in C \left( (X,x), (X,x) \right) $ and
+                verify that $C$ is in fact
+                a category.
+        \end{enumerate}
+
+    \end{exercise}
+
+    \begin{proof}
+        (i): Compositions of continuous maps are continuous,
+        so $g \circ f \colon X \to Z$ is
+        continuous. We must simply check that
+        $\mu * \left( g \circ \lambda \right) $ is a path
+        from $z$ to $g \circ f(x)$. Since
+        $\left( g, \left[ \mu \right]  \right) 
+        \in C \left( (Y,y), (Z,z) \right) $,
+        $\mu $ starts at $z$ by assumption, hence
+        so does $\mu * \left( g \circ \lambda \right) $.
+        The path ends at $\mu * \left( g \circ \lambda \right) (1)
+        = \left( g \circ \lambda \right) (1)
+        = g(\lambda(1)) = g(f(x)) = (g \circ f) (x)$
+        where again $\lambda(1) = f(x)$ follows
+        from $\left( f, \left[ \lambda \right]  \right) 
+        \in C \left( (X,x), (Y,y) \right) $.
+
+        We do not have problems with well-definedness of
+        endpoints since our homotopy classes are
+        $\rel \partial I$, so endpoints are unique.\\
+        \linebreak
+        
+
+        (ii): Associativity of the function
+        part follows from general associativity of functions.
+        Associativity of the paths up to homotopy follows
+        from lemma 1.4.2.(ii) (associativity of paths under
+        homotopy when
+        they are defined).\\
+        \linebreak
+        (iii): Let $c_x$ denote the constant path
+        at $x$, and let $\mathbbm{1}_{X}$ denote
+        the identity map $X \to X$ (which indeed is continuous).
+        Then $c_x$ is also a path from $\mathbbm{1}_X(x) = x$ to
+        $x$, so
+        $\left( \mathbbm{1}_X, c_x \right) \in 
+        C \left( (X,x), (X,x) \right) $.
+        Now, with $\ob C = \ob \Top_*$ and the collection
+        of morphisms between the objects $\left( X,x \right) $ and
+        $(Y,y)$ being
+        $C \left( (X,x), (Y,y) \right)$, we claim
+        this forms a category under the above composition operation
+        and designated identity morphisms.
+
+        The only thing left to check is that
+        for an arbitrary morphism
+        $\left( f, \left[ \lambda \right]  \right) 
+        \in  C\left( (X,x), (Y,y) \right) $, we have
+        $\left( f, \left[ \lambda \right]  \right) 
+        = \left( f, \left[ \lambda \right]  \right) 
+        \circ_C \left( \mathbbm{1}_X, c_x \right) 
+        = \left( \mathbbm{1}_Y, c_y \right) \circ_C
+        \left( f, \left[ \lambda \right]  \right) $.
+        Now
+        \[
+            \left( f, \left[ \lambda \right]  \right) 
+            \circ_C \left( \mathbbm{1}_X,
+            c_x\right) 
+            = \left( f \circ \mathbbm{1}_X ,
+            \left[ \lambda *
+        f \circ c_x \right] \right) 
+        = \left( f, \left[ \lambda \right]  \right) 
+        \] 
+        since $f \circ c_x = c_{f(x)}$, so
+        $\lambda * f \circ c_{x} \simeq
+        \lambda \circ c_{f(x)}
+        \simeq \lambda$. Similarly,
+        \[
+            \left( \mathbbm{1}_Y, c_y \right) \circ_C
+            \left( f, \left[ \lambda \right]  \right) 
+            = \left( \mathbbm{1}_Y \circ f,
+            \left[ c_y * \mathbbm{1}_Y \circ
+        \lambda \right] \right) 
+        = \left( f, \left[ c_y * \lambda \right]  \right) 
+        = \left( f, \left[ \lambda \right]  \right).
+        \] 
+        
+        (iv) To check that this is well defined,
+        suppose $\left[ \alpha \right] = \left[ \beta \right] 
+        \in \pi_1 \left( X, x \right) $. Then
+         \[
+             \left( f, \left[ \lambda \right]  \right)_*
+             \left( \left[ \alpha \right]  \right) 
+             = \lambda_* \circ f_* \left[ \alpha \right] 
+             = \lambda_* \left[ f \circ \alpha \right] 
+             = \left[ \lambda * f \circ \alpha *
+             \overline{\lambda} \right] ,
+        \] 
+        and similarly,
+        \[
+            \left( f, \left[ \lambda \right]  \right) 
+            \left[ \beta \right] 
+            = \left[ \lambda * f \circ \beta * \overline{\lambda}
+            \right].
+        \] 
+
+        Now $\lambda * f \circ \alpha * \overline{\lambda}
+        \simeq \lambda * f \circ \beta * \overline{\lambda} 
+        \rel I$ follows from 
+        lemma 1.4.2.(i) and (v). Hence
+        the map
+        $\left( f, \left[ \lambda \right]  \right)_*$ is
+        well-defined.
+
+        Now we check functoriality of
+        $\pi_1$. To each
+        pointed space $(X,x) \in \ob C$, we
+        associate the group $\pi_1 \left( X, x \right) 
+        \in \Ab$.
+        To each morphism
+        $\left( f, \left[ \lambda \right]  \right) 
+        \in  \Mor \left( \left( X,x \right) ,
+        \left( Y,y \right) \right) $, we associate
+        the homomorphism
+        $\left( f, \left[ \lambda \right]  \right)_*
+        \colon \pi_1 \left( X,x \right) 
+        \to \pi_1 \left( Y,y \right) $ as defined above.
+        We must check that $\pi_1
+        \left( \mathbbm{1}_X, c_x \right) 
+        = \mathbbm{1}_{\pi_1 \left( X,x \right) }$ and
+        that for
+        $\left( f, \left[ \lambda \right]  \right) 
+        \in \Mor \left( (X,x), (Y,y) \right) $ and
+        $\left( g, \left[ \mu \right]  \right) 
+        \in  \Mor \left( (Y,y), (Z,z) \right) $, we have
+        $\pi_1 \left( \left( g, \left[ \mu \right]  \right) 
+        \circ_C \left( f, \left[ \lambda \right]  \right)  \right) 
+        = \pi_1 \left( \left( g, \left[ \mu \right]  \right)  \right) 
+        \circ \pi_1 \left( \left( f, \left[ \lambda \right] 
+        \right) \right) $.
+
+        Now, for any
+        $\left[ \alpha \right] \in 
+        \pi_1 \left( X,x \right) $, we have
+
+        \begin{align*}
+            \pi_1 \left( \mathbbm{1}_X, c_x \right) 
+            \left[ \alpha \right] 
+            &= \left( c_x \right)_* \circ 
+            \left( \mathbbm{1}_X \right)_{*}
+            \left[ \alpha \right] \\
+            &= \left( c_x \right)_* \left[ \mathbbm{1}_X
+            \circ \alpha \right] \\
+            &= \left[ c_x * \mathbbm{1}_X \circ \alpha
+            * \overline{c_x} \right] \\
+            &= \left[ \alpha \right] \\
+            &= \mathbbm{1}_{\pi_1 \left( X,x \right) }
+            \left[ \alpha \right] 
+        \end{align*}
+        giving
+        $\pi_1 \left( \mathbbm{1}_X, c_x \right) 
+        = \mathbbm{1}_{\pi_1 \left( X, x \right) }$, and
+        also
+
+        \begin{align*}
+        \pi_1 \left( \left( g, \left[ \mu \right]  \right)  \circ_C
+    \left( f, \left[ \lambda \right]  \right) \right) 
+    \left[ \alpha \right] 
+    &= \pi_1 \left( g \circ f, \left[ \mu * g \circ \lambda
+    \right]  \right) \left[ \alpha \right]  \\
+    &= \left( \mu * g \circ \lambda \right)_*
+    \circ \left( g \circ f \right)_* \left[ \alpha \right]  \\
+    &= \left( \mu * g \circ \lambda \right)_*
+    \left[ g \circ f \circ \alpha  \right] \\
+    &= \left[ \mu * g \circ \lambda *
+    g \circ f \circ \alpha *
+\overline{\mu * g \circ \lambda} \right] \\
+    &= \left[ \mu * g \circ \lambda *
+    g \circ f \circ \alpha *
+g \circ \overline{\lambda} * \overline{\mu} \right] \\
+    &= \left[ \mu * g \circ \left( 
+    \lambda * f \circ \alpha * \overline{\lambda}\right) 
+* \overline{\mu}\right] \\
+    &= \mu_* \circ g_* \circ \lambda_* \circ f_*
+    \left[ \alpha \right] \\
+    &= \pi_1 \left( g , \left[ \mu \right]  \right) 
+    \circ \pi_1 \left( f, \left[ \lambda \right]  \right) 
+    \left[ \alpha \right],
+        \end{align*}
+        so indeed
+
+        \[
+        \pi_1 \left( \left( g, \left[ \mu \right]  \right) 
+        \circ_C \left( f, \left[ \lambda \right]  \right)  \right) 
+        = \pi_1 \left( \left( g, \left[ \mu \right]  \right)  \right) 
+        \circ \pi_1 \left( \left( f, \left[ \lambda \right] 
+        \right) \right)
+        \] 
+    \end{proof}
+
+
+    \begin{question*}
+        I'm having trouble understanding precisely
+        what the implication of this exercise is in
+        in a categorical framework. Is the
+        important part that we have essentially
+        constructed a category wherein
+        $\Mor \left( (X,x), (Y,y) \right) $ consists
+        precisely of those maps $f$ which send
+        $x$ to the path component of $y$ instead
+        of only the maps which send $x$ to $y$ as in
+        $\Top_*$, and thus we have "enlarged" the
+        morphisms in our category a bit (which essentially
+        corresponds to the result that $\pi_1 $ is independent
+        of basepoint in a path-connected space). Put
+        in a different way,
+        $\Top_*$ is a subcategory of
+        $C$ and under the inclusion functor $\iota \colon
+        \Top_* \to C$ (where
+        a morphism $f \colon
+        (X,x) \to (Y,y)$ is mapped to
+        $\left( f, \left[ c_y \right]  \right) $ )
+        , we have that the following diagram commutes:
+
+        \begin{equation*}
+        \begin{tikzcd}
+            C \ar[r, "\pi_1"] & \Group\\
+            \Top_* \ar[u, "\iota"] \ar[ur, "\pi_1"']
+        \end{tikzcd}
+        \end{equation*}
+        If you could shed some light onto whether there
+        is something I'm missing, that would be really great!
+        Thank you.
+    \end{question*}
+
+
+
+    \begin{exercise}[]
+        Let $p \colon \mathbb{R} \to S^{1}$ denote
+        the usual covering map
+        $x \mapsto e^{2 \pi i x}$.
+        \begin{enumerate}
+            \item Prove that for any
+                $\sigma \in \Sin_1 \left( S^{1} \right) $,
+                there exists a $\tau \in \Sin_1\left( \mathbb{R}
+                \right) $ such that
+                $\sigma = p \circ \tau$. In particular, we
+                get two numbers $d_0 \tau, d_1 \tau
+                \in \Sin_0 \left( \mathbb{R} \right) ,
+                =
+                \mathbb{R}$. Explain why the difference
+                $d_0 \tau - d_1 \tau \in \mathbb{R}$ depends
+                only on $\sigma$, and not on the
+                choice of $\tau$ (remember that
+                $d_1$ is the starting point and $d_0$ is the
+                end point). Hence we may
+                define a function
+                \[
+                \varphi  \colon \Sin_1 \left( S^{1} \right) \to 
+                \mathbb{R}
+                \] 
+                by $\varphi  \left( \sigma \right) 
+                = d_1 \tau - d_0 \tau$ if $\sigma = p \circ \tau$.
+            \item Using addition as a group
+                structure on $\mathbb{R}$, extend $\varphi $ to
+                a homomorphism $C_1 \left( S^{1} \right) 
+                \to \mathbb{R}$. Let us use the same letter
+                $\varphi  $ for this homomorphism.
+            \item Prove that $\varphi  \circ \partial
+                \colon C_2 \left( S^{1}  \right) \to \mathbb{R}$ 
+                is trivial and deduce a well-defined homomorphism
+                $H_1 \left( S^{1} \right) \to \mathbb{R}$,
+                sending $\left[ c \right] \mapsto 
+                \left[ \varphi  (c) \right] $.
+            \item Let $\sigma_0 \colon \Delta^{1} \to 
+                S^{1}$ be given by 
+                $\sigma_0 \left( t_0, t_1 \right) 
+                = e^{2 \pi i t_1}$. Prove that
+                $\sigma_0 \in Z_1 \left( S^{1} \right) $,
+                so that it represents a class 
+                $\left[ \sigma_0 \right] 
+                \in H_1 \left( S^{1} \right) $.
+            \item Prove that the homomorphism 
+                $\varphi  \colon H_1\left( S^{1} \right) 
+                \to \mathbb{R}$ constructed above sends
+                $\left[ \sigma_0 \right] $ to
+                $1 \in \mathbb{R}$.
+        \end{enumerate}
+    \end{exercise}
+
+
+    \begin{proof}
+        (i) Let $k \colon \Delta^{1} \to I$
+        denote the homeomorphism
+        $\left( t_0, t_1 \right) \mapsto t_1$ and
+        $k^{-1} \colon I \to \Delta^{1}$ denote
+        the inverse homeomorphism $t \mapsto \left( 1-t,t \right) $.
+        Now, $\sigma \circ k^{-1}$ is a path
+        $I \to S^{1}$ which we can thus lift to a path
+        $\tilde{\sigma} \colon I \to \mathbb{R}$ such that
+        $\sigma \circ k^{-1} = p \circ \tilde{\sigma}$, hence
+        $\tau := \tilde{\sigma} \circ k
+        \in \Sin_1 \left( \mathbb{R} \right) $ 
+        and satisfies $\sigma = p \circ \tau$.
+
+        Now, we know that given a lift
+        $\tilde{\sigma}$ of $\sigma \circ k^{-1}$ and
+        a starting point $\tilde{\sigma}(0)$ 
+        of $\tilde{\sigma}$, the
+        endpoint $\tilde{\sigma}(1)$ is uniquely determined.
+        Now,
+        $d_0 \tau - d_1 \tau = 
+        \tau \circ \delta^{0} - \tau \circ \delta^{1}$, where
+        $\delta^{0}, \delta^{1} \colon
+        \left\{ 1 \right\} = \Delta^{0} \to 
+        \Delta^{1}$ is given by
+        $\delta^{0}(1) = (0,1)$ and
+        $\delta^{1}(1) = (1,0)$. Thus
+        $\tau \circ \delta^{0}(1) = \tilde{\sigma} \circ k
+        (0,1) = \tilde{\sigma}(1) $ and
+        $\tau \circ \delta^{1}(1) = 
+        \tilde{\sigma}(0)$. So
+        $d_0 \tau - d_1 \tau = \tilde{\sigma}(1) - 
+        \tilde{\sigma}(0)$. We have thus reduced
+        the question to showing that
+        $\tilde{\sigma}(1) - \tilde{\sigma}(0)$ only
+        depends on $\sigma $. One way to see this
+        is that the convering space $\mathbb{R}$ inherits
+        a metric since
+        $p$ is a local isometry, so distances are preserved.
+        I.e.,  if $\tilde{U}$ is one of the
+        sheets of $p^{-1}(U)$ for some evenly covered
+        open set $U \subset S^{1}$ contained
+        in one of the standard evenly covered sets
+        $U_1, U_2, U_3, U_4$ corresponding to the 'right', 'upper',
+        'left' and 'bottom' part of $S^{1}$, respective, then
+        $p|_{\tilde{U}} \colon \tilde{U} \to U$ is
+        an isometry where $S^{1}$ is equipped with the
+        metric defined by $\frac{\text{arc length}}{2\pi}$. 
+        Now we can cover $S^{1}$ by
+        $U_1, U_2, U_3, U_4$ and use the Lebesgue lemma to
+        find $\tilde{\sigma}(0)
+        = t_0 < t_1 < \ldots < t_n = \tilde{\sigma}(1)$ such that
+        $p \circ \tilde{\sigma}\left( \left[ t_{i-1},t_i \right] 
+        \right)
+        \subset U_{k_i}$ for all $i = 1,\ldots, n$. Then
+        if $d_{S^{1}}$ denotes the metric on $S^{1}$, and
+        $d$ the metric on $\mathbb{R}$, we have
+        $t_i - t_{i-1} =  d  \left( t_{i-1},t_i \right) 
+        = d_{S^{1}} \left( p \circ \tilde{\sigma}(t_i),
+        p \circ \tilde{\sigma}\left( t_{i-1} \right) \right) $. Hence
+        we have
+         \[
+        \tilde{\sigma}(1) - \tilde{\sigma(0)}
+        = \sum d_{S^{1}} \left( p \circ \tilde{\sigma}(t_i),
+        p \circ \tilde{\sigma}\left( t_{i-1} \right) \right)
+        = \sum d_{S^{1}} \left( \sigma \circ k^{-1}(t_i),
+        \sigma \circ k^{-1} (t_{i-1})\right) 
+        \] 
+        which in particular only depends on $\sigma$.
+
+        \begin{remark}[]
+            I am not
+            completely sure whether the details work here, to be
+            honest.
+        \end{remark}
+
+        (ii)
+        Equipped with addition, $\left( \mathbb{R}, + \right) $ 
+        becomes an abelian group, so lemma 5.1.2 directly
+        gives that $\varphi  $ can be extended
+        uniquely to $C_1 \left( S^{1} \right) = 
+        \mathbb{Z} \Sin_1 \left( S^{1} \right) $ (extended
+        linearly).\\
+        \linebreak
+        
+        (iii) It suffices to show it
+        only for $\sigma \in \Sin_2 \left( S^{1} \right) $.
+        In this case,
+        \begin{align*}
+            \varphi  \circ \partial \sigma
+            &= \varphi \left( d_0 \sigma - d_1 \sigma
+            + d_2 \sigma \right) \\
+            &= \varphi  d_0 \sigma - \varphi  d_1 \sigma
+            + \varphi  d_2 \sigma\\
+            &= d_1 \tau_0 - d_0 \tau_0 - \left( 
+            d_1 \tau_1 - d_0 \tau_1 \right) 
+            + d_1 \tau_2 - d_0 \tau_2
+        \end{align*}
+        where $\tau_i \in \Sin_1 \left( \mathbb{R} \right) $ is
+        such
+        that $d_i \sigma = p \circ \tau_i$. Now,
+        since 
+        \begin{align*}
+            d_0 \sigma (0,1) &= \sigma (0,0,1), \quad
+            d_0 \sigma (1,0) = \sigma(0,1,0)\\
+            d_1 \sigma (0,1) &= \sigma(0,0,1), \quad
+            d_1 \sigma (1,0) = \sigma (1,0,0)\\
+            d_2 \sigma(0,1) &= \sigma (0,1,0), \quad
+            d_2 \sigma(1,0) = \sigma (1,0,0),
+        \end{align*}
+        we can
+        choose that $\tau_2 k^{-1} (1) = \tau_0 k^{-1} (0)$ and
+        $\tau_2 k^{-1}(0) = \tau_1 k^{-1}(0)$; so
+        $\tau_i k^{-1}$ gives a path lift of
+        $d_i \sigma k^{-1}$. But
+        $d_2 \sigma k^{-1} * d_0 \sigma k^{-1}
+        \simeq d_1 \sigma k^{-1} \rel I$ (by pulling across
+        the singular $2$-simplex), so
+        in particular,
+        $\tau_1 k^{-1} (1) = \tau_0 k^{-1} (1)$. But
+        this gives
+
+        \begin{align*}
+            d_1 \tau_0 - d_0 \tau_0 &- \left( d_1 \tau_1
+            - d_0 \tau_1\right) + d_1 \tau_2 - d_0 \tau_2
+            = \tau_0 (1,0) - \tau_0 (0,1)
+            - \tau_1 (1,0) + \tau_1 (0,1) + \tau_2 (1,0) -
+            \tau_2 (0,1)\\
+            &= \tau_0 k^{-1}(0) - \tau_0 k^{-1}(1)
+            - \tau_1 k^{-1}(0) + \tau_1 k^{-1}(1)
+            + \tau_2 k^{-1}(0) - \tau_2 k^{-1}(1)\\
+            &= 0
+        \end{align*}
+        Hence $\varphi  \circ \partial = 0$.
+        Thus $B_1(S^{1}) \subset \ker \varphi $ and
+        hence $\varphi $ factors through
+        $H_1 \left( S^{1} \right) $.\\
+        \linebreak
+        
+
+        (iv) 
+        We have $\partial \sigma_0 = 
+        d_1 \sigma_0 - d_0 \sigma_0 = 
+        \sigma_0 (1,0) - \sigma_0 (0,1)
+        = e^{2 \pi i 0} - e^{2 \pi i} = 1-1 = 0$, so
+        $\sigma_0 \in Z_1 \left( S^{1} \right) $.
+        Hence $\left[ \sigma_0 \right] \in 
+        H_1 \left( S^{1} \right) $.\\
+        \linebreak
+        (v) Define $\tau \in \Sin_1 \left( \mathbb{R} \right) $ 
+        by $\tau (t_0, t_1) = t_1$. Then
+        $p \circ \tau (t_0, t_1) =
+        e^{2 \pi i t_1 }= \sigma_0 (t_0, t_1)$, so
+        by definition,
+         $\varphi  (\sigma_0) 
+         = d_1 \tau - d_0 \tau
+         = \tau (1,0) - \tau (0,1)
+         = 0 - 1 = -1$.
+
+         \begin{remark}[]
+             Weird, I get it to be sent to
+             $-1$. The definition of the maps
+             $\delta^{i}$ in the notes is ambiguous, but
+             I believe they are defined as
+             $\delta^{i}
+             = \left[ e_1, \ldots, \hat{e_i}, \ldots,
+             e^{n} \right] $ where
+             $\left[ v_1,\ldots 
+             , v_n \right] $ is the map
+             $\Delta^{n} \to \mathbb{R}^{n}$ taking
+             $\sum \lambda_j e_j \mapsto 
+             \sum \lambda_j v_j$.
+         \end{remark}
+
+
+        
+
+
+
+
+
+
+
+
+    \end{proof}
+
+
+
+
+
+
+
+
+    %\bibliography{../refs.bib}
+\end{document}

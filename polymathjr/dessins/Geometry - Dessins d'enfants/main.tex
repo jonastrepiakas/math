@@ -66,6 +66,18 @@
         $r_j \left( \frac{m}{2}-1 \right) \equiv j \mod{m} $. (This problem needs some modificaiton)
 \end{proof}
 
+\begin{exercise}[Exercise 5, week 3]
+    Consider the action $\mathbb{Z} / m\mathbb{Z}$ on $P_m / \sim$ given by rotating $P_m$ counterclockwise by multiples of $2\pi/ m$ radians. Verify that these are biholomorphisms of the Riemann surface constructed in \textbf{Exercise 4.(a)}.
+\end{exercise}
+
+\begin{proof}
+    One way to visualize the action of $\mathbb{Z} / m\mathbb{Z}$ on $P_m / \sim$ is that for an element $k \in \mathbb{Z} / m\mathbb{Z}$, the action corresponds to rotating each point on the polygon $P_m$ by an angle of $2k \pi / m$. Consider the charts $\phi_F$ and $\phi_j$ on $S$ as defined in \textbf{Exercise 4.(a)}. We want to verify that the rotation by  $2k \pi / m$ is a biholomorphism with respect to these charts. \par
+    First we consider the effect of rotation on the inteiror face $F$. Since rotation is an isometry of the Euclidean plane and the map $\phi_F: \pi(F) \rightarrow F$ is the identity map on $F$, rotatio acts trivially on $\phi_F$. Therefore, it is a holomorphic map when restricted to the interior face. \par
+    Next we consider the effect of rotation on the sides $s_j$. If $z \in U_j$ and $z' \in U_j'$, where $s_j$ and $s_j'$ are opposite sides, rotation will map $z$ to a point on the corresponding side $s_{j + k}$ and $z'$ to a point on $s_{j' + k}$. Notice the chart $\phi_j: \pi(U_j \sqcup U_j') \rightarrow Im(\phi_j)$ is defined by $\phi_j(z) = z$ for $z \in U_j$ and $\phi_j(z') = z' + \lambda_{j'}$ for $z' \in U_{j'}$. Under the rotation map, both $z$ and $z'$ are translated consistently, preserving the holomorphic structure in the image of $\phi_j$. \par
+    We can now conclude that the rotation by $2k\pi /m$ is a holomorphic map on $S$. Finally, notice that the rotation map is a bijection and its inverse is the rotation by $-2k\pi / m$, which, by an analogous argument, can also be verified to be holomorphic. Therefore, we have the actions $\mathbb{Z} / m\mathbb{Z}$ on $P_m / \sim$ given by rotating $P_m$ counterclockwise by multiples of $2\pi/ m$ radians are biholomorphisms of the Riemann surface.
+
+\end{proof}
+
 \begin{exercise}[]\label{fuchsian-group-for-wiman-surfaces}
         Write down explicit $2 \times 2$ matrices that are generators for
         a Fuchsian group uniformizing the Wiman surfaces of Type I and Type
@@ -257,7 +269,7 @@ Let
         the vertices onto $0, 1$ and $\infty$. Now we can apply Schwarz's reflection principle to
         extend the map onto surrounding triangles. This process can be extended to define the function
         on all of $\mathbb{D}$, and this function becomes holomorphic outside the $\Delta$-orbits of
-        the vertices of the triangle (by an application of Radó's theorem \cite{Radó}, I believe). At
+        the vertices of the triangle. At
         these points, we can continue
         $j$ by applying Riemann's removable singularity theorem (or just 
         \end{enumerate}
