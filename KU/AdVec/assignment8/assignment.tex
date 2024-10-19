@@ -1,0 +1,256 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\Mod}{{\mathrm{Mod}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+
+
+
+
+\begin{document}
+    \begin{exercise}[]
+        Let $\left[ A \right] = 
+        \begin{pmatrix} a & b \\ c & d \end{pmatrix} $ with
+        $ad - bc \neq 0$. Determine an explicit Bruhat decomposition
+         $\left[ A \right] = \left[ S \right] 
+         \left[ T \right]  \left[ U \right] $.
+         Show that $T$ is unique, but
+         not $\left[ S \right] $ and $\left[ U \right]$.
+    \end{exercise}
+
+
+    \begin{solution}
+        We have $\left[ A \right] \begin{pmatrix} 
+        1 \\ 0 \end{pmatrix} = 
+        \begin{pmatrix} a \\ c \end{pmatrix} $ and
+        $\left[ A \right] \begin{pmatrix} 0 \\ 1 \end{pmatrix} 
+        = \begin{pmatrix} b \\ d \end{pmatrix} $.
+        The inverse of $\left[ A \right] $ is
+         \[
+        \left[ A \right]^{-1}
+        = \frac{1}{ad-bc} \begin{pmatrix} d & -b \\
+        -c & a \end{pmatrix} .
+        \] 
+        Let $\left( x_1,x_2 \right) $ 
+        be the basis $x_1 = e_1$ and
+        $x_2$ whichever one of
+        $\begin{pmatrix} a \\ c \end{pmatrix} $ and
+        $\begin{pmatrix} b \\ d \end{pmatrix} $ it is
+        linearly independent with. Suppose
+        it is $\begin{pmatrix} a \\ c \end{pmatrix} $.
+        In this case
+        $\sigma = \left( 1 \, 2 \right) $.
+        Thus $S = 
+        \begin{pmatrix} 1 & a \\
+        0 & c \end{pmatrix} $,
+            $T = \begin{pmatrix} 0 & 1 \\
+            1 & 0 \end{pmatrix} $ and
+            \[
+                R = 
+                \begin{pmatrix} 
+                    1 & \frac{d}{ad-bc}\\
+                    0 & \frac{-c}{ad-bc}
+                \end{pmatrix}.
+            \] 
+            Suppose
+            \[
+            A = STU = S'T'U'.
+            \] 
+            Then
+            $T = S^{-1}S' T' U' U^{-1}$.
+            So this reduces to showing that if
+            $T = K T' L$ with
+            $K$ and $L$ upper triangular, then
+            $T = T'$.
+            Now, $T,T$ are one of
+                $I , \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}  $
+                Suppose
+                $T = I$ and
+                $T' = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}  $.
+                Let
+                $K = \begin{pmatrix} a & b \\
+                0 & c\end{pmatrix} $ and
+                $L =\begin{pmatrix} 
+                d & e \\
+            0 & f\end{pmatrix} $.
+            Then
+            \[
+            I = KT'L = 
+            \begin{pmatrix} bd & af+be \\
+            cd & ce \end{pmatrix} 
+            \] 
+            so $cd = 0$ hence either
+            $bd = 0$ or $ce = 0$, contradiction.
+            So $T = T'$.
+            If $T' = I$ and
+                    $T = \begin{pmatrix} 0 & 1\\
+                    1 & 0\end{pmatrix} $, then
+                    \[
+                        \begin{pmatrix} 0 & 1 \\
+                        1 & 0\end{pmatrix} 
+                            = \begin{pmatrix} ad & 
+                            ae+ bf \\
+                        0 & cf \end{pmatrix},
+                    \] 
+                    contradiction. So
+                    indeed $T = T'$.\\
+                    \linebreak
+                    Now, the only requirements
+                    in the proof of theorem 8.20 for
+                    $x_1$ and $x_2$ are that
+                    $x_1 \in \Span (e_1)$ and
+                    $x_{\sigma(1)} \in 
+                    A \left( \Span (e_1) \right) 
+                    = \Span \left( \begin{pmatrix} a \\ c
+                        \end{pmatrix} 
+                    \right) $ while
+                    $\Span \left( x_1, x_2 \right) = \mathbb{R}^2$.
+                    So indeed any
+                    $x_1 = \left( \lambda,0 \right) $ 
+                    and $x_2 = 
+                    \mu \begin{pmatrix} a \\ c \end{pmatrix} $ 
+                    give a valid flag. In
+                    this case, $S$ will for example
+                    be
+                    $S = \begin{pmatrix} \lambda
+                    & \mu a \\ 0
+                    & \mu c \end{pmatrix} $.
+                    Thus we see that
+                    $S$ and $U$ are not unique.
+
+                    
+
+
+
+        \end{solution}
+
+
+
+
+
+
+
+
+
+
+    %\bibliography{../refs.bib}
+\end{document}

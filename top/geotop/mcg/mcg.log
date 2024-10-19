@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  10 OCT 2024 10:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  10 OCT 2024 12:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -833,7 +833,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 232--260
  []
 
 [2]
-<lifts-of-paths.jpg, id=147, 1900.09875pt x 2055.68pt>
+<lifts-of-paths.jpg, id=155, 1900.09875pt x 2055.68pt>
 File: lifts-of-paths.jpg Graphic file (type jpg)
 <use lifts-of-paths.jpg>
 Package pdftex.def Info: lifts-of-paths.jpg  used on input line 263.
@@ -844,12 +844,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 289--292
  []
 
 [3 <./lifts-of-paths.jpg>] [4]
-<bigon.png, id=171, 368.37625pt x 138.5175pt>
+<bigon.png, id=179, 368.37625pt x 138.5175pt>
 File: bigon.png Graphic file (type png)
 <use bigon.png>
 Package pdftex.def Info: bigon.png  used on input line 465.
 (pdftex.def)             Requested size: 143.9978pt x 54.1463pt.
-<lemma-1-8.jpg, id=173, 1694.33pt x 740.7675pt>
+<lemma-1-8.jpg, id=181, 1694.33pt x 740.7675pt>
 File: lemma-1-8.jpg Graphic file (type jpg)
 <use lemma-1-8.jpg>
 Package pdftex.def Info: lemma-1-8.jpg  used on input line 480.
@@ -882,7 +882,7 @@ Overfull \hbox (4.73605pt too wide) in paragraph at lines 635--639
 [][]\T1/cmr/bx/n/10 Definition 3.27. []\T1/cmr/m/n/10 A \T1/cmr/m/it/10 proper arc \T1/cmr/m/n/10 in $\OML/cmm/m/it/10 S$ \T1/cmr/m/n/10 is a map $\OML/cmm/m/it/10  [] []  [] \U/matha/m/n/10 Ñ \OML/cmm/m/it/10 S$ \T1/cmr/m/n/10 such that $\OML/cmm/m/it/10 [] [] \U/matha/m/n/10 ^^P
  []
 
-<bigon-of-arcs.png, id=206, 397.485pt x 261.97874pt>
+<bigon-of-arcs.png, id=214, 397.485pt x 261.97874pt>
 File: bigon-of-arcs.png Graphic file (type png)
 <use bigon-of-arcs.png>
 Package pdftex.def Info: bigon-of-arcs.png  used on input line 660.
@@ -898,7 +898,7 @@ Overfull \hbox (23.20532pt too wide) in paragraph at lines 727--742
  []
 
 [8]
-<filling-genus-2-surface.png, id=234, 573.14125pt x 219.82124pt>
+<filling-genus-2-surface.png, id=242, 573.14125pt x 219.82124pt>
 File: filling-genus-2-surface.png Graphic file (type png)
 <use filling-genus-2-surface.png>
 Package pdftex.def Info: filling-genus-2-surface.png  used on input line 798.
@@ -947,13 +947,13 @@ Overfull \hbox (6.71767pt too wide) in paragraph at lines 1158--1164
 [][]\T1/cmr/bx/n/10 Corollary 4.10. []\T1/cmr/m/it/10 Since $\OML/cmm/m/it/10 H[] [] \U/matha/m/n/10 ^^S \U/msb/m/n/10 Z[]$\T1/cmr/m/it/10 , there is a homomorphism $\OML/cmm/m/it/10 ^^[ [] [] [] [] \U/matha/m/n/10 Ñ
  []
 
-<involution-on-torus-quotient.jpg, id=277, 2055.68pt x 820.06375pt>
+<involution-on-torus-quotient.jpg, id=285, 2055.68pt x 820.06375pt>
 File: involution-on-torus-quotient.jpg Graphic file (type jpg)
 <use involution-on-torus-quotient.jpg>
 Package pdftex.def Info: involution-on-torus-quotient.jpg  used on input line 1216.
 (pdftex.def)             Requested size: 216.0022pt x 86.16554pt.
 [13]
-<twists-along-curves-on-torus.jpg, id=292, 1716.4125pt x 744.7825pt>
+<twists-along-curves-on-torus.jpg, id=301, 1716.4125pt x 744.7825pt>
 File: twists-along-curves-on-torus.jpg Graphic file (type jpg)
 <use twists-along-curves-on-torus.jpg>
 Package pdftex.def Info: twists-along-curves-on-torus.jpg  used on input line 1248.
@@ -994,12 +994,12 @@ Overfull \hbox (11.54138pt too wide) in paragraph at lines 1795--1805
  []
 
 [19]
-<sigma_i_configuration.png, id=377, 247.92625pt x 179.67125pt>
+<sigma_i_configuration.png, id=385, 247.92625pt x 179.67125pt>
 File: sigma_i_configuration.png Graphic file (type png)
 <use sigma_i_configuration.png>
 Package pdftex.def Info: sigma_i_configuration.png  used on input line 1872.
 (pdftex.def)             Requested size: 90.0pt x 65.22168pt.
-<half-twist.png, id=379, 520.94624pt x 139.52126pt>
+<half-twist.png, id=387, 520.94624pt x 139.52126pt>
 File: half-twist.png Graphic file (type png)
 <use half-twist.png>
 Package pdftex.def Info: half-twist.png  used on input line 1923.
@@ -1014,22 +1014,197 @@ Overfull \hbox (7.93893pt too wide) in paragraph at lines 2080--2090
 \T1/cmr/m/n/10 so $\OML/cmm/m/it/10 F$ \T1/cmr/m/n/10 pushes $\OML/cmm/m/it/10 x$ \T1/cmr/m/n/10 around the core of the annulus. Now, the homeomorphism (representing
  []
 
-<push-point-map.png, id=399, 679.53876pt x 278.03876pt>
+<push-point-map.png, id=407, 679.53876pt x 278.03876pt>
 File: push-point-map.png Graphic file (type png)
 <use push-point-map.png>
 Package pdftex.def Info: push-point-map.png  used on input line 2093.
 (pdftex.def)             Requested size: 251.9989pt x 103.10606pt.
-[22 <./push-point-map.png>] [23]
-Overfull \hbox (20.79688pt too wide) in paragraph at lines 2168--2181
+./mcg.tex:2184: Extra }, or forgotten \right.
+<template> }
+            $}\ifmeasuring@ \savefieldlength@ \fi \set@field \endtemplate 
+l.2184      \end{align*}
+                        
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./mcg.tex:2184: Missing \right. inserted.
+<inserted text> 
+                \right .
+l.2184      \end{align*}
+                        
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./mcg.tex:2184: Missing } inserted.
+<inserted text> 
+                }
+l.2184      \end{align*}
+                        
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./mcg.tex:2184: Missing } inserted.
+<inserted text> 
+                }
+l.2184      \end{align*}
+                        
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./mcg.tex:2184: Extra \right.
+<argument> ...uad \left | i-j \right | >1 \right >
+                                                   
+l.2184      \end{align*}
+                        
+I'm ignoring a \right that had no matching \left.
+
+./mcg.tex:2184: Missing { inserted.
+<inserted text> 
+                {
+l.2184      \end{align*}
+                        
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+./mcg.tex:2184: Extra }, or forgotten \right.
+<template> }
+            $}\ifmeasuring@ \savefieldlength@ \fi \set@field \endtemplate 
+l.2184      \end{align*}
+                        
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./mcg.tex:2184: Missing \right. inserted.
+<inserted text> 
+                \right .
+l.2184      \end{align*}
+                        
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./mcg.tex:2184: Missing } inserted.
+<inserted text> 
+                }
+l.2184      \end{align*}
+                        
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./mcg.tex:2184: Missing } inserted.
+<inserted text> 
+                }
+l.2184      \end{align*}
+                        
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./mcg.tex:2184: Extra \right.
+<argument> ...uad \left | i-j \right | >1 \right >
+                                                   
+l.2184      \end{align*}
+                        
+I'm ignoring a \right that had no matching \left.
+
+./mcg.tex:2184: Missing \endgroup inserted.
+<inserted text> 
+                \endgroup 
+l.2184      \end{align*}
+                        
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+./mcg.tex:2184: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2184      \end{align*}
+                        
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./mcg.tex:2184: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2184      \end{align*}
+                        
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./mcg.tex:2184: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2184      \end{align*}
+                        
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+./mcg.tex:2184: Misplaced \omit.
+<recently read> \omit 
+                      
+l.2184      \end{align*}
+                        
+I expect to see \omit only after tab marks or the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+./mcg.tex:2184: Missing { inserted.
+<inserted text> 
+                {
+l.2184      \end{align*}
+                        
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+[22 <./push-point-map.png>] [23] [24]
+Overfull \hbox (20.79688pt too wide) in paragraph at lines 2248--2261
 [][]\T1/cmr/bx/n/10 Definition 8.4 \T1/cmr/m/n/10 (Orientation)\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 A closed $\OML/cmm/m/it/10 n$\T1/cmr/m/n/10 -manifold $\OML/cmm/m/it/10 M$ \T1/cmr/m/n/10 is called orientable if $\OML/cmm/m/it/10 H[] [] \U/matha/m/n/10 ^^P
  []
 
 
-Overfull \hbox (26.90675pt too wide) in paragraph at lines 2187--2192
+Overfull \hbox (26.90675pt too wide) in paragraph at lines 2267--2272
 \T1/cmr/m/n/10 corresponds to choosing an orientation of each $\OT1/cmr/m/n/10 2$\T1/cmr/m/n/10 -simplex in the triangulation (compatibly). 
  []
 
-[24] [25] [26] (./mcg.bbl) [27] (./mcg.aux)
+[25] [26] [27] (./mcg.bbl) [28] (./mcg.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -1039,21 +1214,21 @@ L3 programming layer <2024-01-22>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `mcg.out' has not changed.
-(rerunfilecheck)             Checksum: 66B68E0F7F0906A6088F09DD72729CA4;5116.
+(rerunfilecheck)             Checksum: CECC0350CB3DE62D93BE09CA75363758;5667.
  ) 
 Here is how much of TeX's memory you used:
- 24457 strings out of 474222
- 451765 string characters out of 5748733
+ 24467 strings out of 474222
+ 451892 string characters out of 5748733
  1950975 words of memory out of 5000000
- 45940 multiletter control sequences out of 15000+600000
+ 45943 multiletter control sequences out of 15000+600000
  575065 words of font info for 83 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  98i,15n,107p,592b,1139s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/jonas-trepiakas/.texlive2023/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathabx-type1/matha10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathabx-type1/matha5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathabx-type1/matha7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathabx-type1/mathb10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathabx-type1/mathx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on mcg.pdf (27 pages, 856206 bytes).
+Output written on mcg.pdf (28 pages, 860470 bytes).
 PDF statistics:
- 600 PDF objects out of 1000 (max. 8388607)
- 504 compressed objects within 6 object streams
- 216 named destinations out of 1000 (max. 500000)
- 287 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 622 PDF objects out of 1000 (max. 8388607)
+ 525 compressed objects within 6 object streams
+ 223 named destinations out of 1000 (max. 500000)
+ 303 words of extra memory for PDF output out of 10000 (max. 10000000)
 

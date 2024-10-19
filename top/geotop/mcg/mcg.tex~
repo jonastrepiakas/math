@@ -1906,7 +1906,7 @@ this isotopy produces a loop of these marked points,
 i.e., it produces a loop in $C \left( \mathbb{C},n \right) $.
 So we have produced a braid.
 
-\begin{question}
+\begin{question}\label{question-1}
     Does this association give a well-defined homomorphism
     $B_n \to \Mod(D_n) $ and would this be an isomorphism?
 \end{question}
@@ -2103,6 +2103,86 @@ induced by the inclusion
      \] 
  \end{remark}
 
+
+
+ \begin{proof}
+     Write a proof of the Birman exact sequence.
+ \end{proof}
+
+ \subsection{Generalized Birman Exact Sequence}
+
+ We now return to Question \ref{question-1}.
+ We wish to show that $\pi_1 \left( C
+ \left( \mathbb{C},n \right) \right) \approx
+ \Mod \left( D_n \right) $. 
+
+ \begin{definition}[$n$-stranded surface braid group of
+     $S$]
+     For an arbitrary surface $S$, we
+     call $\pi_1 \left( C \left( S,n \right)  \right) $ 
+     the $n$-stranded surface braid group of $S$.
+ \end{definition}
+
+ Let $S$ be a compact finite-type surface without marked
+ points. Let $\left( S, \left\{ x_1, \ldots, x_n \right\}  \right) $ 
+ denote $S$ with $n$ marked points $x_1, \ldots, x_n$ in
+ the interior. Equivalently to the construction
+ in the proof of the Birman exact sequence,
+ there is a fiber bundle
+ \[
+ \Homeo^{+} \left( \left( S,
+ \left\{ x_1, \ldots, x_n \right\} \right), \partial S  \right) 
+ \to \Homeo^{+} \left( S, \partial S \right) 
+ \to C \left( S^{\circ},n \right) 
+ \]
+ where $S^{\circ}$ is the interior of
+ $S$ and $\Homeo^{+} \left( \left( S,
+ \left\{ x_1,\ldots,x_n \right\} \right) ,\partial S \right) $ 
+ is the group of orientation-preserving homeomorphisms
+ of $S$ that preserve the set
+ $\left\{ x_1,\ldots,x_n \right\} $ (allowing permutations,
+ however) and fix the boundary of $S$ pointwise.
+
+ \begin{theorem}[Birman exact sequence generalized]
+     Let $S$ be a surface without marked points
+     and with $\pi_1 \left( \Homeo^{+} \left( 
+     S, \partial S\right)  \right) = 1$. The following
+     sequence is exact:
+     \[
+     1 \to \pi_1 \left( C \left( S,n \right)  \right) 
+     \stackrel{\Push}{\to } \Mod \left( S,
+     \left\{ x_1, \ldots, x_n \right\} \right) 
+     \stackrel{\Forget}{\to } \Mod (S) \to 1.
+     \] 
+ \end{theorem}
+
+
+ \begin{corollary}
+     When $S = D^2$, this gives the exact sequence
+     \[
+         1 \to
+         \underbrace{\pi_1 \left( C \left( D^2,n \right)\right)}_{B_n}
+     \to \Mod \left( D_n \right) \to 
+     \underbrace{\Mod \left( D^2 \right)}_{1} \to 1.
+     \] 
+     Hence $B_n \approx \Mod \left( D_n \right) $.
+ \end{corollary}
+
+ \subsection{Algebraic Structure of the Braid Group}
+
+ \begin{theorem}[]
+     \begin{align*}
+         B_n = \left<
+         \sigma_1, \ldots, \sigma_{n-1} \mid 
+         \sigma_i \sigma_{i+1} \sigma_i 
+         &= \sigma_{i+1} 
+         \sigma_i \sigma_{i+1}, \quad \forall i\\
+         \sigma_i \sigma_j 
+         &= \sigma_j \sigma_i, \quad
+         \left| i-j \right| >1
+         \right>
+     \end{align*}
+ \end{theorem}
 
 
 \newpage
