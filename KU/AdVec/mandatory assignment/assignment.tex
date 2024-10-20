@@ -79,6 +79,7 @@
 \DeclareMathOperator{\Alt}{Alt}
 \DeclareMathOperator{\Quad}{Quad}
 \DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Char}{char}
 
 
 %Row operations
@@ -125,10 +126,244 @@
 
 
 
+\title{Mandatory Assignment}
+\author{Jonas Trepiakas - hvn548} 
 
 \begin{document}
 
+\maketitle
 
+
+\begin{exercise}[1.11]
+    Let $x,y,z \in V$ be linearly independent in a 
+    vector space over a field of characteristic
+    $\neq 2$. Prove $x+y, y+z, z+x$ are linearly independent.
+    Show by an example that the conclusion can fail
+    in characteristic $2$.
+\end{exercise}
+
+\begin{proof}
+    Suppose $x+y, y+z, z+x$ are not linearly independent. Then
+    by lemma 1.10, there exist
+    $a,b,c \in F$ where $\Char F \neq 2$, such that
+    not all $a,b,c$ are $0$ and
+    $a\left( x+y \right) + b(y+z) + c(z+x) = 0$. Thus
+    $(a+c) x + (a+b) y + (b+c) z = 0$, so by linear independence,
+    we get $a+c = a+b = b+c = 0$. Hence
+    $a = b = c$ and so $2a = 2b = 2c = 0$, giving
+    $a = b = c = 0$ as $\Char F \neq 2$, giving a contradiction.
+    Thus $x+y, y+z, z+x$ are linearly independent.\\
+    \linebreak
+    To show that this fails in characteristic $2$,
+    take for example $V = \left( \mathbb{Z}/2\mathbb{Z} \right)^3$.
+    The field $\mathbb{Z} /2\mathbb{Z}$ has characteristic $2$, and
+    we can let $x = e_1 = (1,0,0), y = e_2 = (0,1,0)$ and
+    $z = e_3 = (0,0,1)$. These are linearly independent since
+    $(0,0,0) =ax+by+cz = \left( a,b,c \right) $ implies
+    $a,b,c = 0$ in  $\mathbb{Z}/2\mathbb{Z}$.
+    However,
+    \[
+        (x+y) + (y+z) + (z+x) = 
+        2x + 2y + 2z = 0 + 0 + 0 = 0
+    \] 
+    while the coefficients of each
+    $(x+y), (y+z)$ and $(z+x)$ is $1 \neq 0$ in
+    $\mathbb{Z} / 2\mathbb{Z}$, so by lemma 1.10,
+    $x+y, y+z, z+x$ are not linearly independent over
+    $\mathbb{Z} / 2\mathbb{Z}$.
+\end{proof}
+
+
+
+\begin{exercise}[2.5]
+    Let $A \in \Hom (U,V)$ and
+    $x_1 ,\ldots, x_k \in U$. Assume $Ax_1, \ldots, Ax_k$ are
+    distinct and linearly independent. Show that
+    $L = \left\{ x_1, \ldots, x_k \right\} $ is linearly
+    independent and that
+    $N (A) + \Span (L)$ is a direct sum.
+\end{exercise}
+
+\begin{proof}
+    Suppose for contradiction that
+    $L$ is not linearly dependent. By lemma 1.10 there
+    thus exist coefficients $\alpha_i, i
+    =1, \ldots, n$, not all $0$ such that
+    $\alpha_1 x_1 +\ldots + \alpha_k x_k = 0$. By linearity,
+    $0 = A(0) = 
+    A \left( \alpha_1 x_1 +\ldots+ \alpha_k x_k \right) 
+    = \sum \alpha_i A(x_i)$. By linear independence and
+    distinctness of
+    $Ax_1, \ldots, Ax_k$, we get using lemma 1.10 that
+    $ \alpha_i = 0$ for all $i$. Contradiction. Thus
+    $L$ is linearly independent.\\
+    Now, by the first line of page 14 and
+    lemma 1.8.(a),
+    $N(A)$ and $\Span (L)$ are subspaces of $U$. 
+    To show that $N(A) + \Span(L)$ is direct,
+    it suffices by lemma 2.12 to show that
+    $N(A) \cap \Span (L) = \left\{ 0 \right\} $.
+    Suppose $x \in N(A) \in \Span (L)$. By
+    lemma 1.10.(2), there exists a unique linear
+    combination $x = \sum \alpha_i x_i$. Now
+    $0 = A(x) = \sum \alpha_i A(x_i)$, so
+    again, by linear independence and distinctness of $A x_1,
+    \ldots, A x_k$, we get $\alpha_i = 0$ for all $i$. Hence
+     $x = 0$. So  $N(A) \cap \Span (L) \subset \left\{ 0 \right\} $,
+     and clearly $A(0) = 0$ and
+     $0 = \sum_{i} 0 \cdot x_i$, so
+     $\left\{ 0 \right\} \subset N(A)\cap \Span (L)$. Thus
+     $N(A) \cap \Span (L) = \left\{ 0 \right\} $, and hence
+     $N(A) + \Span (L)$ is a direct sum.
+\end{proof}
+
+
+
+\begin{exercise}[5.3]
+    The graph of a map $A \colon X \to Y$ is defined as the
+    set of all pairs $\left( x, Ax \right) $ in
+    $X \times Y$. Assuming $X$ and $Y$ are vector spaces,
+    prove that $A$ is linear if and only if its graph
+    is a subspace of $X \oplus Y$. Prove then that
+    a subspace $G \subset X \oplus Y$ is the graph of
+    a linear map if and only if $X \oplus Y = G \oplus Y$.
+\end{exercise}
+
+
+\begin{proof}
+    Let $\Gamma A$ denote the graph
+    $\Gamma A = \left\{ \left( x,Ax \right)  \mid 
+    x \in X\right\}  \subset X \times Y$.
+    We must show that this forms a vector space as a
+    subspace of $X \oplus Y$.\\
+    Firstly, since $A(0) = 0$ for any linear map, we have
+    $\left( 0,0 \right) \in \Gamma A$.
+    Now, if $\left( x, Ax \right) , (y,Ay)
+    \in \Gamma A$, then
+    $Ax + Ay = A(x+y)$ by linearity of $A$, so
+    $\left( x,Ax \right) + 
+    \left( y,Ay \right) = 
+    \left( x+y, Ax + Ay \right) \in \Gamma A$, hence
+    $\Gamma A$ is closed under the additive operation
+    inherited from $X \oplus Y$. Suppose
+    now $\alpha \in F$ where $F$ is the common field over
+    which $X$ and $Y$ are vector spaces.
+    Then $\alpha Ax = 
+    A(\alpha x)$ by linearity of $A$, so
+    $ \alpha \left( x,
+    Ax \right)  = \left( \alpha x, \alpha Ax \right) 
+    \in \Gamma A$, so
+    $\Gamma A$ is also closed under the scalar multiplication
+    inherited from $X \oplus Y$. By definition 1.4,
+    $\Gamma A$ is a subspace of $X \oplus Y$.\\
+    \linebreak
+    Now suppose conversely that
+    $\Gamma A$ is a subspace of $X \oplus Y$. We
+    must check definition 2.1.
+    Suppose $x,y \in X$ and $\alpha,\beta \in F$.
+    Then
+    \begin{align*}
+        A \left( \alpha x + \beta y \right) 
+        &= \alpha A(x) + \beta A(y)\\
+        &\iff \left( \alpha x + \beta y, 
+        \alpha A(x) + \beta A(y) \right) \in \Gamma A\\
+        &\iff \alpha \left( x, A(x) \right) +
+        \beta \left( y, A(y) \right) \in \Gamma A
+    \end{align*}
+    and the last line is true by assumption of
+    $\Gamma A$ being a vector space under the
+    operations inherited from $X \oplus Y$.
+    We thus see that if $\Gamma A$ is a linear subspace
+    of $X \oplus Y$ then $A$ is a linear map.\\
+    \linebreak
+    Now, to show
+    that $X \oplus Y = G \oplus Y$, we interpret this as
+    $Y$ being identified with the subspace
+    $\left\{ 0 \right\} \times Y \subset X \oplus Y$ and
+    then $G \oplus Y$ as the direct sum of subspaces.\\
+    Suppose $G$ is the graph of some linear map
+    $A \colon X \to Y$, $G = \Gamma A$. 
+    Let $\left( x,y \right) \in X \oplus Y$.
+    Then we can write $(x,y)$ as the sum
+    $\left( x, Ax \right) + \left( 0, y-Ax \right) 
+    \in G + Y$. So $G + Y = X \oplus Y$. To show that
+    the sum is direct, suppose
+    $\left( x,y \right) \in G \cap Y$.
+    Since  $\left( x,y \right) \in Y = \left\{ 0 \right\} \times Y$,
+    we have $x = 0$. Now since
+    $\left( x,y \right) \in G$, we have
+    $y = Ax = A(0) = 0$ by linearity of $A$, so
+    indeed $\left( x,y \right) = (0,0)$. Hence
+    $G \cap Y = \left\{ (0,0) \right\} $, so
+    $X \oplus Y = G \oplus Y$.\\
+    \linebreak
+    Conversely, suppose $X \oplus Y = G \oplus Y$ where
+    again $Y$ is identified with $\left\{ 0 \right\} \times Y$.
+    Then we must show that
+    there exists a linear map $A \colon X \to Y$ with
+    $\Gamma A = G$. To construct this as a map, we must
+    simply show that there do not exist elements
+    $\left( x,y \right) , \left( x,y' \right) \in G$ with
+    $y\neq y'$ and that for each $x \in X$, there
+    exists $y \in Y$ with $\left( x,y \right) \in G$. This
+    by definition will mean that $G$ is the
+    graph of a function.\\
+    Firstly, suppose
+    $ \left( x,y \right) , \left( x,y' \right) \in G$ with
+    $y \neq y'$. Then since $G$ is a subspace,
+    $\left( 0, y-y' \right) 
+    = \left( x,y \right) - (x,y') \in G$, so
+    since $G \oplus Y = X \oplus Y$ is direct, and
+    $\left( 0, y-y' \right) \in \left\{ 0 \right\} \times Y$, we
+    have $\left( 0, y-y' \right) \in G \cap Y
+    = \left\{ (0,0) \right\} $, so
+    $y = y'$.\\
+    Now, for existence, choose any
+    $y \in Y$. Then
+    $(x,y) \in X \oplus Y = G \oplus Y$, so
+    by directness, there exist unique vectors
+    $\left( a,b \right) , (0,c)$ with
+    $(a,b) \in G$ and $(0,c) \in Y$ such that
+    $(x,y) = (a,b) + (0,c)$. Hence
+    $x = a$, so indeed
+    $(x,b) \in G$, and by the above, this $b$ is the
+    unique element in $Y$ for which
+    $(x,b) \in G$. Denote now for an arbitrary $x \in X$ 
+    by $A(x)$ the element $b \in Y$ for which
+    $(x,b) \in G$. Thus
+    $\Gamma A
+    = \left\{ \left( x, A(x) \right)  \mid 
+    x \in X\right\} \subset X \times Y$ defines a function $X \to Y$ 
+    by sending $x \mapsto A(x)$.\\
+    \linebreak
+    But by the first part of this exercise,
+    $A$ is linear if and only if $\Gamma A$ is a
+    subspace of $X \oplus Y$. Since
+    $\Gamma A = G$ by construction and
+    $G$ is a subspace of $X \oplus Y$, we can thus conclude that
+    $A$ is linear.
+\end{proof}
+
+
+\begin{exercise}[6.25]
+    Assume $A^3 = A$ and $\Char F \neq 2$. Show that
+    $A$ is diagonable.
+\end{exercise}
+
+\begin{proof}
+    Since $A^3 = A$, we have
+    $A (A-1) (A+1) = A \left( A^2 - 1 \right) =
+    0$, so
+    letting $q (x) = x (x-1) (x+1)$, we have
+    $q (A) = 0$, hence by lemma 6.10, if $p(x)$ is the
+    minimal polynomial, we have $p(x) | q(x)$, so since
+    $q$ splits without repetition of linear factors (here is where
+    $\Char F \neq 2$ comes into play to allow us
+    to conclude that $x-1 \neq x+1$), $p$ must also
+    split without repetition, and
+    by theorem 6.17.(i), this implies that
+    $A$ is diagonable.
+\end{proof}
 
 
 
@@ -139,7 +374,35 @@
 \end{exercise}
 
 \begin{proof}
-    
+    Since $A$ is normal, we have $A A^{*} = A^{*} A$, so also
+    $A^{*}$ is normal.
+    By theorem 7.24, $A$ and $A^{*}$ being normal means
+    that they are orthogonally diagonable. By theorem 6.19.(7), we
+    now have that $B A^{*} = A^{*} B$ if
+    and only if $B E_{\overline{\lambda}} = E_{\overline{\lambda}} B$ 
+    for
+    all $\overline{\lambda}
+    \in \sigma \left( A^{*} \right) $ where
+    $E_{\overline{\lambda}}$ is the projection to
+    $V_{\overline{\lambda}}$ along the other eigenspace in the
+    decomposition
+    \[
+    V = \oplus_{\overline{\lambda} \in \sigma (A^{*})} 
+    V_{\overline{\lambda}}
+    \] 
+    But by theorem 7.21.(iii),
+    $V_{\lambda, A} = V_{A^{*}, \overline{\lambda}}$, so
+     \[
+    V = \oplus_{\lambda \in \sigma(A)}V_{\lambda}
+    \] 
+    and $E_{\overline{\lambda}} = E_{\lambda}$. But
+    then we indeed get that
+    $B E_{\overline{\lambda}} = E_{\overline{\lambda}}B$ if
+    and only if
+    $B E_{\lambda} = E_{\lambda} B$, and again
+    using theorem 6.19.(7), this is
+    true if and only if $AB = BA$ which we assumed to
+    be true by assumption. 
 \end{proof}
 
 
