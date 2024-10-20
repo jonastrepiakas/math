@@ -127,6 +127,24 @@
 
 
 \begin{document}
+
+
+
+
+
+\begin{exercise}[7.15]
+    Let $\dim V < \infty, F = \mathbb{C}$, and let
+    $A \in \End (V)$ be normal. Prove that if $B$ commutes
+    with $A$, then it commutes with $A^{*}$ as well.
+\end{exercise}
+
+
+
+
+
+
+
+
     \begin{exercise}[8.6]
        Let $A \in \End (V)$ be nilpotent, and
        $U \subset V$ invariant. Show that the quotient
@@ -176,6 +194,41 @@
 
     \end{proof}
 
+
+    \begin{exercise}[10.11]
+        Show $\chi_{A^{-1}} \left( \lambda \right) 
+        = \left( - \lambda \right)^{n}
+        \det (A)^{-1} \chi_{A} \left( \lambda^{-1} \right) $ 
+        for $A \in \text{GL} (V)$, $\lambda \neq 0$ and
+        $n = \dim V$.
+    \end{exercise}
+
+    \begin{proof}
+        We have
+        \begin{align*}
+            \det \left( A^{-1} - \lambda I \right) 
+            &= \det \left( A^{-1} \left( 
+            I - \lambda A \right)  \right) \\
+            &= \det \left( - A^{-1} \lambda 
+            \left( A - \lambda^{-1} I  \right) \right) \\
+            &= \det (A^{-1}) \det (- \lambda I) \det
+            \left( A - \lambda^{-1} I \right) \tag{Thm 10.1.(ii)}\\
+            &= \det(A)^{-1} \left( - \lambda \right)^{n}
+            \chi_{A}\left( \lambda^{-1} \right) 
+        \end{align*}
+        where the last step follows since
+        $\det \left( A^{-1} \right) =
+        \det (A)^{-1}$ by theorem 10.3,
+        $\det \left( - \lambda I \right) 
+        = \left( - \lambda \right)^{\dim V}=
+        \left( - \lambda \right)^{n}$ by
+        theorem 10.1.(i), and
+        $\det \left( A - \lambda^{-1}I \right) 
+        = \chi_{A} (\lambda^{-1})$ by definition
+        10.19, (10.2) and that
+        $\chi_A (x) := \chi_{\left[ A \right] }(x)$.
+    \end{proof}
+    
 
 
 
