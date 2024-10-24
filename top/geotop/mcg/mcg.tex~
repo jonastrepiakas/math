@@ -2170,19 +2170,6 @@ induced by the inclusion
 
  \subsection{Algebraic Structure of the Braid Group}
 
- \begin{theorem}[]
-     \begin{align*}
-         B_n = \left<
-         \sigma_1, \ldots, \sigma_{n-1} \mid 
-         \sigma_i \sigma_{i+1} \sigma_i 
-         &= \sigma_{i+1} 
-         \sigma_i \sigma_{i+1}, \quad \forall i\\
-         \sigma_i \sigma_j 
-         &= \sigma_j \sigma_i, \quad
-         \left| i-j \right| >1
-         \right>
-     \end{align*}
- \end{theorem}
 
 
 \newpage
@@ -2428,6 +2415,8 @@ induced by the inclusion
 \end{theorem}
 
 
+
+
 \begin{definition}[Fiber bundle]
     A fiber bundle structure on a space $E$, with fiber
     $F$, consists of a projection map
@@ -2458,6 +2447,30 @@ induced by the inclusion
     topology.
 \end{remark}
           
+\subsection{A couple of results on hyperelliptic involutions}
+
+\begin{lemma}[]
+    If $S$ is a Riemann surface of genus $g \ge 2$ admitting
+    an involution $J$ such that
+    $S / \left<J \right>$ has genus $0$, then
+    $S$ is a hyperelliptic Riemann surface with
+    equation of the form
+    $y^2 = \left( x-a_1 \right) \cdots
+    \left( x- a_{2g+1} \right) $
+\end{lemma}
+
+\begin{proposition}[]
+    The hyperelliptic involution
+    $J$ of a hyperelliptic Riemann surface $S$ is
+    the only automorphism of order $2$ such that
+    $S / \left<J \right> \approx \mathbb{P}^{1}$.
+\end{proposition}
+
+\begin{corollary}
+    The hyperelliptic involution $J$ of a hyperelliptic
+    Riemann surface lies in the centre of
+    $\Aut (S)$.
+\end{corollary}
           
 
 
