@@ -11,6 +11,7 @@
 %%For category theory diagrams:
 \usepackage{tikz-cd}
 \usepackage{enumitem}
+\usepackage{float}
 
 
 \setlength\parindent{0pt}
@@ -99,11 +100,14 @@
 \newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
 \newcommand{\id}{{\mathrm{id}}}
 \newcommand{\Mod}{{\mathrm{Mod}}}
+\newcommand{\SMod}{{\mathrm{SMod}}}
+\newcommand{\PMod}{{\mathrm{PMod}}}
 \newcommand{\ud}{{\mathrm{d}}}
 \newcommand{\Vol}{{\mathrm{Vol}}}
 \newcommand{\Area}{{\mathrm{Area}}}
 \newcommand{\diam}{{\mathrm{diam}}}
 \newcommand{\Homeo}{{\mathrm{Homeo}}}
+\newcommand{\SHomeo}{{\mathrm{SHomeo}}}
 
 
 \newcommand{\reg}{{\mathtt{reg}}}
@@ -2170,6 +2174,143 @@ induced by the inclusion
 
  \subsection{Algebraic Structure of the Braid Group}
 
+ \subsection{The pure braid group}
+
+ Recall that by definition of a braid group, we
+ are given a collection of $n$ points
+ $p_1, \ldots, p_n$, $n$ paths
+ $f_i \colon I \to \mathbb{C} \times I$ and
+ a permutation $\overline{f} \in \Sigma_n$ such that
+ $f_i(0) = p_i$
+ and $f_i(1) = p_{\overline{f}(i)}$.
+ We can thus define a homomorphism
+ $B_n \to \Sigma_n$ by sending
+ $f \mapsto \overline{f}$.
+ \begin{definition}[]
+     We define the \textit{pure braid group} $PB_n$ as
+     the kernel of the homomorphism
+     $B_n \to \Sigma_n$ given by $f \mapsto \overline{f}$.
+ \end{definition}
+ We obtain the short exact sequence
+ \[
+ 1 \to PB_n \to B_n \to \Sigma_n \to 1.
+ \] 
+ So a pure braid is a braid where each strand begins
+ and ends at the same point of $\mathbb{C}$.
+
+ \begin{exercise}[]
+     Show that
+     \[
+     PB_n \approx \pi_1 \left( C^{ord } 
+     \left( \mathbb{C},n \right) \right) \approx
+     \PMod (D_n)
+     \] 
+ \end{exercise}
+
+
+
+ \subsection{Braid group and symmetric mapping class groups}
+
+ Let $S_{g}^{1}$ be a surface of genus $g$ with
+ one boundary component. Define a
+ homomorphism $\psi \colon B_n \to 
+ \Mod \left( S_g^{1} \right) $ for
+ $n \le 2g+1$ as follows.
+ Choose a chain of simple closed curves
+ $\left\{ \alpha_i \right\} $ in
+ $S_{g}^{1}$, that is, a collection of
+ simple closed curves satisfying
+ $i \left( \alpha_i, \alpha_{i+1} \right) =1$ for
+ all $i$ and $i \left( \alpha_i, \alpha_j \right) =0$ otherwise.
+ We then define $\psi $ via
+ $\psi \left( \sigma_i \right) =
+ T_{\alpha_i}$.
+ This is well defined if and only if
+ $T$ respects all the relations in
+ $B_n$. Now, if $\sigma_i$ and
+ $\sigma_j$ are given with 
+ $\left| i-j \right| \ge 2$, then
+ $\sigma_i \sigma_j = \sigma_j \sigma_i$ and
+ indeed also
+ $i \left( \alpha_i, \alpha_j \right) =0$ so
+ by the disjointness relation for
+ Dehn twists (fact 3.9), we get
+ that $T$ respects this commutativity.
+
+ Similarly, we have that
+ $\sigma_i \sigma_{i+1} \sigma_i$, for all $i$,
+ is mapped to 
+ $T_{\alpha_i} T_{\alpha_{i+1}} T_{\alpha_i}$ which, by the
+ braid relation on Dehn twists and the
+ assumption that
+ $i\left( \alpha_i, \alpha_{i+1} \right) =1$ for all $i$,
+ is equivalent to
+ $T_{\alpha_{i+1}} T_{\alpha_i}T_{\alpha_{i+1}}$, so
+ the braid relation in $B_n$ is respected
+ under $\psi $.
+
+ \begin{question}
+     Can we say whether $\psi $ is injective?
+ \end{question}
+
+ \subsection{The Birman-Hilden Theorem}
+Let $\iota$ be the order  $2$ element of
+$\Homeo^{+} \left( S_g^{1} \right) $ as
+shown in figure \ref{fig:birman-hilden-double-cover-png}
+and let $\SHomeo^{+} \left( S_g^{1} \right) $ be
+the centralizer in
+$\Homeo^{+}\left( S_g^{1} \right) $ of
+$\iota$:
+\[
+\SHomeo^{+} \left( S_g^{1} \right) 
+= C_{\Homeo^{+} \left( S_g^{1} \right) }\left( \iota \right) .
+\] 
+
+ \begin{figure}[H]
+     \centering
+     \includegraphics[width=0.6\textwidth]{birman-hilden-double-cover.png}
+     \caption{The Birman-Hilden double cover}
+     \label{fig:birman-hilden-double-cover-png}
+ \end{figure}
+
+ \begin{definition}[]
+ The group $\SHomeo^{+} \left( S_g^{1} \right) $ is
+ called the group of orientation-preserving
+ symmetric homeomorphisms of $S_g^{1}$. 
+ The symmetric mapping class group is the group
+ \[
+ \SMod (S_g^{1}) = 
+ \SHomeo^{+} \left( S_g^{1} \right) / \text{isotopy},
+ \] 
+ i.e, the subgroup of $\Mod \left( S_g^{1} \right) $ that
+ is the image of $\SHomeo^{+} \left( S_g^{1} \right) $.
+ \end{definition}
+
+ The homeomorphism $\iota$ has
+  $2g+1$ fixed points in
+   $S_g^{1}$. The quotient of
+   $S_g^{1}$ by $\left<\iota \right>$ is
+   a topological disk
+   $D_{2g+1}$ with $2g+1$ cone points of order
+   $2$, with each cone point coming from a fixed point of $\iota$.
+   Since the elements of  $\SHomeo^{+} \left( S_g^{1} \right) $ 
+   commute with $\iota$, they descend to homeomorphisms
+   of the quotient disk, and by the commutativity, they
+   must preserve the set of  $2g+1$ fixed points of $\iota$,
+   and so there is a homomorphism
+    \[
+   \SHomeo^{+} \left( S_g^{1} \right) 
+   \to \Homeo^{+} \left( D_{2g+1} \right) 
+   \] 
+   by sending
+   $\varphi $ to
+   $\pi \circ \varphi $ where
+   $\pi \colon S_g^{1} \to 
+   D_{2g+1}$ is the quotient map. If
+   $\varphi  \mapsto \pi \circ \varphi  = \mathbbm{1}_{
+   D_{2g+1}}$
+
+ 
 
 
 \newpage

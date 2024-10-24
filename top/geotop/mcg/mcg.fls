@@ -234,6 +234,8 @@ INPUT /usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.m
 INPUT /usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
 INPUT /usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT /usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT ./mcg.aux
@@ -364,6 +366,11 @@ INPUT ./push-point-map.png
 INPUT ./push-point-map.png
 INPUT ./push-point-map.png
 INPUT ./push-point-map.png
+INPUT ./birman-hilden-double-cover.png
+INPUT ./birman-hilden-double-cover.png
+INPUT ./birman-hilden-double-cover.png
+INPUT ./birman-hilden-double-cover.png
+INPUT ./birman-hilden-double-cover.png
 INPUT ./mcg.bbl
 INPUT ./mcg.bbl
 INPUT mcg.bbl
