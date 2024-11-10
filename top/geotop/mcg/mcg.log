@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  24 OCT 2024 12:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  25 OCT 2024 17:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -840,7 +840,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 236--264
  []
 
 [2]
-<lifts-of-paths.jpg, id=171, 1900.09875pt x 2055.68pt>
+<lifts-of-paths.jpg, id=179, 1900.09875pt x 2055.68pt>
 File: lifts-of-paths.jpg Graphic file (type jpg)
 <use lifts-of-paths.jpg>
 Package pdftex.def Info: lifts-of-paths.jpg  used on input line 267.
@@ -856,12 +856,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has
                                                   \__shipout_drop_firstpage_...
 l.318  \end{proof}
                    <./lifts-of-paths.jpg>] [4]
-<bigon.png, id=196, 368.37625pt x 138.5175pt>
+<bigon.png, id=204, 368.37625pt x 138.5175pt>
 File: bigon.png Graphic file (type png)
 <use bigon.png>
 Package pdftex.def Info: bigon.png  used on input line 469.
 (pdftex.def)             Requested size: 143.9978pt x 54.1463pt.
-<lemma-1-8.jpg, id=198, 1694.33pt x 740.7675pt>
+<lemma-1-8.jpg, id=206, 1694.33pt x 740.7675pt>
 File: lemma-1-8.jpg Graphic file (type jpg)
 <use lemma-1-8.jpg>
 Package pdftex.def Info: lemma-1-8.jpg  used on input line 484.
@@ -904,7 +904,7 @@ Overfull \hbox (4.73605pt too wide) in paragraph at lines 639--643
 [][]\T1/cmr/bx/n/10 Definition 3.27. []\T1/cmr/m/n/10 A \T1/cmr/m/it/10 proper arc \T1/cmr/m/n/10 in $\OML/cmm/m/it/10 S$ \T1/cmr/m/n/10 is a map $\OML/cmm/m/it/10  [] []  [] \U/matha/m/n/10 Ñ \OML/cmm/m/it/10 S$ \T1/cmr/m/n/10 such that $\OML/cmm/m/it/10 [] [] \U/matha/m/n/10 ^^P
  []
 
-<bigon-of-arcs.png, id=230, 397.485pt x 261.97874pt>
+<bigon-of-arcs.png, id=238, 397.485pt x 261.97874pt>
 File: bigon-of-arcs.png Graphic file (type png)
 <use bigon-of-arcs.png>
 Package pdftex.def Info: bigon-of-arcs.png  used on input line 664.
@@ -925,7 +925,7 @@ Overfull \hbox (23.20532pt too wide) in paragraph at lines 731--746
  []
 
 [8]
-<filling-genus-2-surface.png, id=258, 573.14125pt x 219.82124pt>
+<filling-genus-2-surface.png, id=266, 573.14125pt x 219.82124pt>
 File: filling-genus-2-surface.png Graphic file (type png)
 <use filling-genus-2-surface.png>
 Package pdftex.def Info: filling-genus-2-surface.png  used on input line 802.
@@ -979,13 +979,13 @@ Overfull \hbox (6.71767pt too wide) in paragraph at lines 1162--1168
 [][]\T1/cmr/bx/n/10 Corollary 4.10. []\T1/cmr/m/it/10 Since $\OML/cmm/m/it/10 H[] [] \U/matha/m/n/10 ^^S \U/msb/m/n/10 Z[]$\T1/cmr/m/it/10 , there is a homomorphism $\OML/cmm/m/it/10 ^^[ [] [] [] [] \U/matha/m/n/10 Ñ
  []
 
-<involution-on-torus-quotient.jpg, id=301, 2055.68pt x 820.06375pt>
+<involution-on-torus-quotient.jpg, id=310, 2055.68pt x 820.06375pt>
 File: involution-on-torus-quotient.jpg Graphic file (type jpg)
 <use involution-on-torus-quotient.jpg>
 Package pdftex.def Info: involution-on-torus-quotient.jpg  used on input line 1220.
 (pdftex.def)             Requested size: 216.0022pt x 86.16554pt.
 [13]
-<twists-along-curves-on-torus.jpg, id=317, 1716.4125pt x 744.7825pt>
+<twists-along-curves-on-torus.jpg, id=325, 1716.4125pt x 744.7825pt>
 File: twists-along-curves-on-torus.jpg Graphic file (type jpg)
 <use twists-along-curves-on-torus.jpg>
 Package pdftex.def Info: twists-along-curves-on-torus.jpg  used on input line 1252.
@@ -1036,12 +1036,12 @@ Overfull \hbox (11.54138pt too wide) in paragraph at lines 1799--1809
  []
 
 [19]
-<sigma_i_configuration.png, id=401, 247.92625pt x 179.67125pt>
+<sigma_i_configuration.png, id=409, 247.92625pt x 179.67125pt>
 File: sigma_i_configuration.png Graphic file (type png)
 <use sigma_i_configuration.png>
 Package pdftex.def Info: sigma_i_configuration.png  used on input line 1876.
 (pdftex.def)             Requested size: 90.0pt x 65.22168pt.
-<half-twist.png, id=403, 520.94624pt x 139.52126pt>
+<half-twist.png, id=411, 520.94624pt x 139.52126pt>
 File: half-twist.png Graphic file (type png)
 <use half-twist.png>
 Package pdftex.def Info: half-twist.png  used on input line 1927.
@@ -1061,47 +1061,92 @@ Overfull \hbox (7.93893pt too wide) in paragraph at lines 2084--2094
 \T1/cmr/m/n/10 so $\OML/cmm/m/it/10 F$ \T1/cmr/m/n/10 pushes $\OML/cmm/m/it/10 x$ \T1/cmr/m/n/10 around the core of the annulus. Now, the homeomorphism (representing
  []
 
-<push-point-map.png, id=424, 679.53876pt x 278.03876pt>
+<push-point-map.png, id=432, 679.53876pt x 278.03876pt>
 File: push-point-map.png Graphic file (type png)
 <use push-point-map.png>
 Package pdftex.def Info: push-point-map.png  used on input line 2097.
 (pdftex.def)             Requested size: 251.9989pt x 103.10606pt.
 [22 <./push-point-map.png>]
-Overfull \hbox (24.60431pt too wide) in paragraph at lines 2190--2193
+Overfull \hbox (24.60431pt too wide) in paragraph at lines 2192--2195
 [][]\T1/cmr/bx/n/10 Definition 6.13. []\T1/cmr/m/n/10 We define the \T1/cmr/m/it/10 pure braid group $\OML/cmm/m/it/10 PB[]$ \T1/cmr/m/n/10 as the kernel of the homomorphism
  []
 
-
-Overfull \hbox (1.90128pt too wide) in paragraph at lines 2257--2264
+[23]
+Overfull \hbox (1.90128pt too wide) in paragraph at lines 2260--2267
  \T1/cmr/m/n/10 6.8.\T1/cmr/bx/n/10 The Birman-Hilden Theorem.[][] \T1/cmr/m/n/10 Let $\OML/cmm/m/it/10 ^^S$ \T1/cmr/m/n/10 be the order $\OT1/cmr/m/n/10 2$ \T1/cmr/m/n/10 element of $[][] []$
  []
 
-<birman-hilden-double-cover.png, id=435, 601.24625pt x 392.46625pt>
+<birman-hilden-double-cover.png, id=449, 601.24625pt x 392.46625pt>
 File: birman-hilden-double-cover.png Graphic file (type png)
 <use birman-hilden-double-cover.png>
-Package pdftex.def Info: birman-hilden-double-cover.png  used on input line 2271.
+Package pdftex.def Info: birman-hilden-double-cover.png  used on input line 2275.
 (pdftex.def)             Requested size: 216.0022pt x 140.9943pt.
-[23
+[24
 pdfTeX warning (ext4): destination with the same identifier (name{figure.9}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2281  \[
-           <./birman-hilden-double-cover.png>] [24] [25]
-Overfull \hbox (20.79688pt too wide) in paragraph at lines 2376--2389
+l.2326    \end{question}
+                         <./birman-hilden-double-cover.png>]
+Overfull \hbox (20.15262pt too wide) in paragraph at lines 2329--2340
+[][]\T1/cmr/bx/n/10 Definition 6.18. []\T1/cmr/m/n/10 We say two homeomorphisms $\OML/cmm/m/it/10 ';   \U/matha/m/n/10 P [][] []$ \T1/cmr/m/n/10 are symmetrically
+ []
+
+<Birman-Hilden-two-symmetric-boundary-components.png, id=460, 228.855pt x 137.51375pt>
+File: Birman-Hilden-two-symmetric-boundary-components.png Graphic file (type png)
+<use Birman-Hilden-two-symmetric-boundary-components.png>
+Package pdftex.def Info: Birman-Hilden-two-symmetric-boundary-components.png  used on input line 2392.
+(pdftex.def)             Requested size: 108.0011pt x 64.89584pt.
+<homology-basis-of-torus-and-double-torus.png, id=462, 853.1875pt x 340.27126pt>
+File: homology-basis-of-torus-and-double-torus.png Graphic file (type png)
+<use homology-basis-of-torus-and-double-torus.png>
+Package pdftex.def Info: homology-basis-of-torus-and-double-torus.png  used on input line 2444.
+(pdftex.def)             Requested size: 288.0011pt x 114.86514pt.
+[25
+pdfTeX warning (ext4): destination with the same identifier (name{figure.10}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.2458        N
+               ow, an isotopy between <./Birman-Hilden-two-symmetric-boundary-components.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 2505--2518
+
+ []
+
+[26
+pdfTeX warning (ext4): destination with the same identifier (name{figure.11}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.2534    \end{proof}
+                      <./homology-basis-of-torus-and-double-torus.png>]
+Overfull \hbox (30.81723pt too wide) detected at line 2552
+[]
+ []
+
+
+Overfull \hbox (18.0116pt too wide) in paragraph at lines 2554--2570
+[]\U/matha/m/n/10 p\OML/cmm/m/it/10 S[]\U/matha/m/n/10 q$ \T1/cmr/m/n/10 is mapped to $\OT1/cmr/m/n/10 0$\T1/cmr/m/n/10 . Since the composition $[][]\U/matha/m/n/10 p\OML/cmm/m/it/10 S[]\U/matha/m/n/10 q Ñ [][] [] Ñ
+ []
+
+
+Overfull \hbox (73.08698pt too wide) detected at line 2580
+[]
+ []
+
+[27] [28]
+Overfull \hbox (20.79688pt too wide) in paragraph at lines 2683--2696
 [][]\T1/cmr/bx/n/10 Definition 8.4 \T1/cmr/m/n/10 (Orientation)\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 A closed $\OML/cmm/m/it/10 n$\T1/cmr/m/n/10 -manifold $\OML/cmm/m/it/10 M$ \T1/cmr/m/n/10 is called orientable if $\OML/cmm/m/it/10 H[] [] \U/matha/m/n/10 ^^P
  []
 
 
-Overfull \hbox (26.90675pt too wide) in paragraph at lines 2395--2400
+Overfull \hbox (26.90675pt too wide) in paragraph at lines 2702--2707
 \T1/cmr/m/n/10 corresponds to choosing an orientation of each $\OT1/cmr/m/n/10 2$\T1/cmr/m/n/10 -simplex in the triangulation (compatibly). 
  []
 
-[26] [27]
-Overfull \hbox (3.30098pt too wide) in paragraph at lines 2604--2608
+[29] [30]
+Overfull \hbox (3.30098pt too wide) in paragraph at lines 2911--2915
 [][]\T1/cmr/bx/n/10 Proposition 9.11. []\T1/cmr/m/it/10 The hyperelliptic involution $\OML/cmm/m/it/10 J$ \T1/cmr/m/it/10 of a hyperelliptic Riemann surface
  []
 
-[28] (./mcg.bbl) [29] (./mcg.aux)
+[31] (./mcg.bbl) [32] (./mcg.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -1111,21 +1156,21 @@ L3 programming layer <2024-01-22>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `mcg.out' has not changed.
-(rerunfilecheck)             Checksum: 5AFB60723BCB25111B9635165E858D8B;6757.
+(rerunfilecheck)             Checksum: 7F9BA8AF0647AF3B618330FCF6F1746A;7248.
  ) 
 Here is how much of TeX's memory you used:
- 24563 strings out of 474222
- 453456 string characters out of 5748733
+ 24744 strings out of 474222
+ 458165 string characters out of 5748733
  1950975 words of memory out of 5000000
- 46023 multiletter control sequences out of 15000+600000
+ 46190 multiletter control sequences out of 15000+600000
  575065 words of font info for 83 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  98i,15n,107p,592b,1139s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/jonas-trepiakas/.texlive2023/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathabx-type1/matha10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathabx-type1/matha5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathabx-type1/matha7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathabx-type1/mathb10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathabx-type1/mathx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on mcg.pdf (29 pages, 886656 bytes).
+Output written on mcg.pdf (32 pages, 1102569 bytes).
 PDF statistics:
- 654 PDF objects out of 1000 (max. 8388607)
- 554 compressed objects within 6 object streams
- 235 named destinations out of 1000 (max. 500000)
- 340 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 694 PDF objects out of 1000 (max. 8388607)
+ 587 compressed objects within 6 object streams
+ 249 named destinations out of 1000 (max. 500000)
+ 366 words of extra memory for PDF output out of 10000 (max. 10000000)
 

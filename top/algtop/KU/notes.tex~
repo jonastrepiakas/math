@@ -132,5 +132,52 @@
         the lemma for composition of face maps gives a functor
         $\Delta_{\text{semi}} \to \Top $.
     \end{remark}
+
+
+
+
+
+
+
+
+    \begin{lemma}[]
+        If $G$ is a continuous left acting group on a space
+        $X$ on which it acts properly discontinuously and
+        $H \le G$ then the quotient map
+        $X /H \to X/G$ is a covering space.
+    \end{lemma}
+
+    \begin{proof}
+        We know that $p_H$ and $p_G$ are
+        local homeomorphisms. Suppose
+        $V \subset X$ is open such that
+        $gV \cap V = \varnothing$ for all $g \neq e$.
+        Then $p_H|_{gV} \colon gV \to 
+        p_H(gV)$ is a homeomorphism (indeed it is a continuous
+        injective open
+        map, hence an embedding), so if
+        $U = p_H(gV)$, then
+        $p'|_{U} = p_G|_{gV} p_H|_{U}^{-1} \colon
+        U \to p_G(gV)$ is a homeomorphism. Hence
+        $p'$ is a local homeomorphism.
+        But also,
+        $p'^{-1}(p_G(V)) =
+        \bigcup_{gH \text{ cosets}} p_H(gV) $, so
+        in particular, this is a disjoint union
+        of sets of the form above, so
+        $p'$ restricts to a homeomorphism on each of them.
+    \end{proof}
+
+
+
+
+
+
+
+
+
+
+    
     %\bibliography{../refs.bib}
+
 \end{document}

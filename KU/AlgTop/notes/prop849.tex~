@@ -50,6 +50,7 @@
 \DeclareMathOperator{\Ker}{Ker}
 \DeclareMathOperator{\ob}{ob}
 \DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
 \DeclareMathOperator{\sk}{sk}
 \DeclareMathOperator{\Vect}{Vect}
 \DeclareMathOperator{\Set}{Set}
@@ -71,12 +72,16 @@
 \DeclareMathOperator{\Int}{Int}
 \DeclareMathOperator{\sgn}{sgn}
 \DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\SHomeo}{SHomeo}
 \DeclareMathOperator{\PSL}{PSL}
 \DeclareMathOperator{\Bil}{Bil}
 \DeclareMathOperator{\Sym}{Sym}
 \DeclareMathOperator{\Skew}{Skew}
 \DeclareMathOperator{\Alt}{Alt}
 \DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Char}{char}
 
 
 %Row operations
@@ -104,6 +109,8 @@
 \newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
 \newcommand{\id}{{\mathrm{id}}}
 \newcommand{\Mod}{{\mathrm{Mod}}}
+\newcommand{\PMod}{{\mathrm{PMod}}}
+\newcommand{\SMod}{{\mathrm{SMod}}}
 \newcommand{\ud}{{\mathrm{d}}}
 \newcommand{\Vol}{{\mathrm{Vol}}}
 \newcommand{\Area}{{\mathrm{Area}}}
@@ -118,66 +125,33 @@
 \newcommand{\cpn}{{\mathtt{c}}}
 \newcommand{\pat}{{\mathtt{p}}}
 
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+
 
 
 
 \begin{document}
-    \begin{definition}[]
-        The semi-simplex category consists of intervals $\left[ 0,\ldots
-        , p\right] $ and order preserving injections.
-    \end{definition}
+    Given a $\Delta$-complex ($X$, $\Sigma = (\Sigma_p)_{p \in \mathbb{N}}$), we can consider the evaluation map $ev \colon \Sigma_n \times \Delta^n \to X^n$ by
+$(\sigma,t) \mapsto \sigma(t)$ where $X^n$ is the $n$-skeleton
+$$ X^n = \cup_{p \leq n} \cup_{\sigma \in \Sigma_p} \sigma(\Delta^p) $$.
 
-    \begin{remark}[]
-        The standard simplicies, the boundary maps and
-        the lemma for composition of face maps gives a functor
-        $\Delta_{\text{semi}} \to \Top $.
-    \end{remark}
+We give each $\Sigma_p$ the discrete topolgoy so that the evaluation map becomes continuous.
 
+We then are supposed to get a homeomorphism of quotients
+$$ Y:= \frac{\Sigma_n \times \Delta^n}{\Sigma_n \times \partial \Delta^n} 
+\stackrel{ev}{\to} \frac{X^n}{X^{n-1}}$$.
 
+I wanted to do this by showing that $ev$ is closed, but I'm not sure if the details work out. Here it is:
 
+Let $A \subset Y$ be closed and let $Z = \Sigma_n \times \partial \Delta^n$ and
+$\overline{Z} = \pi (Z)$ in the quotient. If $\overline{Z} \in A$ then $\pi^{-1}(Y-A)
+\subset \Sigma_n \times (\Delta^n - \partial \Delta^n)$ is open and $ev$ is injective on here. I claim $ev$ is a local homeomorphism on $\Sigma_n \times (\Delta^n - \partial \Delta^n)$: let $(\sigma, t) \in \Sigma_n \times (\Delta^n - \partial \Delta^n)$. Then
+we can find some open neighborhood $U$ of $t$ contained in $\Delta^n - \partial \Delta^n$ and since $\sigma$ is injective on $U$ and the subsets $\tau (\Delta^n - \partial \Delta^n)$ are disjoint for $\tau$ ranging over $\Sigma_n$, we have that $U = \sigma^{-1} (\sigma(U))$, hence $\sigma(U)$ is open in $X^n - X^{n-1}$, thus also saturated with respect to the quotient, hence also open in the quotient space. Bijective local homeomorphisms are homeomorphisms, so $ev$ restricted to
+$\Sigma_n \times (\Delta^n - \partial \Delta^n)$ is an embedding, so $\frac{X^n}{X^{n-1}} - ev(A) = ev (\pi^{-1}(Y-A))$ is open, hence $A$ is closed.
 
-
-
-
-
-    \begin{lemma}[]
-        If $G$ is a continuous left acting group on a space
-        $X$ on which it acts properly discontinuously and
-        $H \le G$ then the quotient map
-        $X /H \to X/G$ is a covering space.
-    \end{lemma}
-
-    \begin{proof}
-        We know that $p_H$ and $p_G$ are
-        local homeomorphisms. Suppose
-        $V \subset X$ is open such that
-        $gV \cap V = \varnothing$ for all $g \neq e$.
-        Then $p_H|_{gV} \colon gV \to 
-        p_H(gV)$ is a homeomorphism (indeed it is a continuous
-        injective open
-        map, hence an embedding), so if
-        $U = p_H(gV)$, then
-        $p'|_{U} = p_G|_{gV} p_H|_{U}^{-1} \colon
-        U \to p_G(gV)$ is a homeomorphism. Hence
-        $p'$ is a local homeomorphism.
-        But also,
-        $p'^{-1}(p_G(V)) =
-        \bigcup_{gH \text{ cosets}} p_H(gV) $, so
-        in particular, this is a disjoint union
-        of sets of the form above, so
-        $p'$ restricts to a homeomorphism on each of them.
-    \end{proof}
-
-
-
-
-
-
-
-
-
-
-    
+In the case where $\overline{Z} \not \subset A$, we have $\pi^{-1}(A) \subset \Sigma_n \times (\Delta^n - \partial \Delta^n)$ is closed, so by the above, its image under $ev$ is closed.
     %\bibliography{../refs.bib}
-
 \end{document}

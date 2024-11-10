@@ -2174,6 +2174,8 @@ induced by the inclusion
 
  \subsection{Algebraic Structure of the Braid Group}
 
+ \newpage
+
  \subsection{The pure braid group}
 
  Recall that by definition of a braid group, we
@@ -2208,6 +2210,7 @@ induced by the inclusion
  \end{exercise}
 
 
+ \newpage
 
  \subsection{Braid group and symmetric mapping class groups}
 
@@ -2259,11 +2262,12 @@ $\Homeo^{+} \left( S_g^{1} \right) $ as
 shown in figure \ref{fig:birman-hilden-double-cover-png}
 and let $\SHomeo^{+} \left( S_g^{1} \right) $ be
 the centralizer in
-$\Homeo^{+}\left( S_g^{1} \right) $ of
+$\Homeo^{+}\left( S_g^{1}, \partial S_g^{1} \right) $ of
 $\iota$:
 \[
 \SHomeo^{+} \left( S_g^{1} \right) 
-= C_{\Homeo^{+} \left( S_g^{1} \right) }\left( \iota \right) .
+= C_{\Homeo^{+} \left( S_g^{1}, \partial
+S_g^{1} \right) }\left( \iota \right) .
 \] 
 
  \begin{figure}[H]
@@ -2300,7 +2304,7 @@ $\iota$:
    and so there is a homomorphism
     \[
    \SHomeo^{+} \left( S_g^{1} \right) 
-   \to \Homeo^{+} \left( D_{2g+1} \right) 
+   \to \Homeo^{+} \left( D_{2g+1}, \partial D_{2g+1} \right) 
    \] 
    by sending
    $\varphi $ to
@@ -2309,13 +2313,311 @@ $\iota$:
    D_{2g+1}$ is the quotient map. If
    $\varphi  \mapsto \pi \circ \varphi  = \mathbbm{1}_{
    D_{2g+1}}$, then $\varphi  
-   \in \left<\iota \right>$, and since $\iota$ has
-   order  $2$ and
-   $\left<\iota \right>$ is normal in
-   $\SHomeo^{+} \left( S_g^{1} \right) $, we have
-   that either $\varphi  = 1$ or $\varphi  = \iota$
+   \in \left<\iota \right>$, and since $\iota 
+   \not\in \SHomeo^{+} \left( S_g^{1} \right) $, we have
+   $\varphi  = 1$.
+   
 
+
+   \begin{question}
+       Why does any
+   element of $\Homeo^{+} \left( D_{2g+1} \right) $ 
+   lift to $\SHomeo^{+} \left( S_g^{1} \right) $?
+   \end{question} 
+
+   \begin{definition}[]
+       We say two homeomorphisms
+       $\varphi , \psi \in \SHomeo^{+}\left( S_g^{1} \right) $ 
+       are symmetrically isotopic whenever
+       $\left[ \varphi  \right] =
+       \left[ \psi \right] $ in
+       $\pi_0 \left( \SHomeo^{+}\left( S_g^{1} \right)  \right) $.
+       Note that here,
+       $\SHomeo^{+} \left( S_g^{1} \right) $ inherits
+       the subspace topology from
+       $\Homeo^{+} \left( S_{g}^{1} \right) $ 
+       (actually, is this true?...)
+   \end{definition}
+
+   If we have this, we get an isomorphism of the
+   two, so
+   \begin{align*}
+       \SHomeo^{+} \left( S_g^{1} \right) /
+       \text{symmetric isotopy}
+       &= \pi_0 \left( \SHomeo^{+}(S_g^{1}) \right) \\
+       &\approx \pi_0 \left( \Homeo^{+} \left( 
+       D_{2g+1}, \partial D_{2g+1} \right)  \right) \\
+       &= \Mod \left( D_{2g+1} \right) \\
+       &\approx B_{2g+1}.
+   \end{align*}
+   
+   We want to show that
+   if two symmetric homeomorphisms of $S_{g}^{1}$ are
+   isotopic, then they must be symmetrically isotopic.
  
+
+   \subsection{The Birman-Hilden Theorem}
+
+   \begin{theorem}[Birman-Hilden]
+       $\SMod \left( S_g^{1} \right) \approx
+       B_{2g+1}$.
+   \end{theorem}
+
+
+   \begin{example}[]
+       Taking $g=1$, we will find
+       $\Mod \left( S_g^{1} \right) $.
+       Note that by corollary
+       \ref{hyperelliptic-involution-in-center},
+       $\iota \in C\left( 
+       \Homeo^{+}\left( S_g^{1} \right)  \right)  $, so
+       $\Mod \left( S_1^{1} \right) =
+       \SMod\left( S_g^{1} \right) $, and now it is
+       easy to see that
+       \[
+       \Mod \left( S_1^{1} \right) = \SMod \left( S_g^{1} \right) 
+       \approx B_{3} \approx \Mod \left( D_3 \right) 
+       \] 
+   \end{example}
+
+   \begin{remark}[]
+       The Birman-Hilden theorem also holds for
+       surfaces with two symmetric boundary
+       components that are interchanged by
+       $\iota$, see figure
+       \ref{fig:-Birman-Hilden-two-symmetric-boundary-components-png}.
+        \begin{figure}[htpb]
+           \centering
+           \includegraphics[width=0.3\textwidth]{
+           Birman-Hilden-two-symmetric-boundary-components.png}
+           \caption{Symmetric boundary components
+           interchanged by $\iota$.}
+           \label{fig:-Birman-Hilden-two-symmetric-boundary-components-png}
+       \end{figure}
+       Hence
+       \[
+       \SMod \left( S_g^{2} \right) 
+       \approx B_{2g+2}.
+       \] 
+   \end{remark}
+
+
+
+
+
+   \subsection{Proof of the Birman-Hilden Theorem}
+
+   \begin{definition}[]
+       A closed curve $\alpha$ in $S_g$ is symmetric
+       if $\iota \left( \alpha \right) = \alpha$ as sets.
+   \end{definition}
+
+   \begin{lemma}[]
+       Let $g \ge 2$ and let $\alpha$ and $\beta$ be
+       two symmetric nonseparating simple closed
+       curves in $S_g$. If $\alpha$ and $\beta$ are isotopic,
+       then they are symmetrically isotopic.
+   \end{lemma}
+
+   \begin{proof}
+       Let $\overline{\alpha}$ and $\overline{\beta}$ 
+       denote the images of $\alpha$ and $\beta$ 
+       in $S_{0,2g+2}\approx S_g / \left<\iota \right>$.
+       Now,
+       $ \overline{\alpha}$ and $ \overline{\beta}$
+       must be simple proper arcs in $S_{0,2g+2}$ (look
+       at it geometrically - in particular, remember $\alpha$ and
+       $\beta$ are symmetric).
+
+       Let's look at an example to get a picture. If
+       $\alpha$ and $\beta$ are symmetric choices of the
+       usual generating loops in the homology of a torus, these
+       will correspond to one loop being the
+       "innermost" meridian loop while we choose the
+       other loop to be a longitudinal loop
+       whose plan of existence is
+       normal to the axis of rotation. See
+       figure~\ref{fig:homology-basis-of-torus-and-double-torus-png}.
+
+       \begin{figure}[htpb]
+           \centering
+           \includegraphics[width=0.8\textwidth]{homology-basis-of-torus-and-double-torus.png}
+           \caption{Basis for homologies of torus and
+           double torus}
+           \label{fig:homology-basis-of-torus-and-double-torus-png}
+       \end{figure}
+       Imagine in this figure now we cut the surface into a "lower"
+       and "upper" half. Looking at the resulting paths of
+       our loops, we indeed get arcs for the longitudinal loops
+       and loop on the boundary for the meridian loops.
+
+
+
+
+       
+       Now, an isotopy between
+       these arcs will lift to a symmetric isotopy
+       between $\alpha$ and $\beta$.
+
+
+       I.e., if
+       $H$ is an isotopy between $\alpha$ and $\beta$, then
+       there exist an induced map $\tilde{H}$ such that
+       \begin{equation*}
+       \begin{tikzcd}
+           & S_g \ar[d] \\
+           I^2 \ar[ru, "\tilde{H}"] \ar[r, "H"'] &
+           S_g / \left<\iota \right>
+       \end{tikzcd}
+       \end{equation*}
+       commutes since $I^2$ is simply connected,
+       path-connected and locally path-connected
+       \cite[Cor~4.2]{Bredon}.
+       
+       We can modify $\alpha$ by a symmetric
+       isotopy so that it is transverse to $\beta$.
+       We claim that $\alpha$ cannot be
+       disjoint from $\beta$. Indeed,
+       for then $\overline{\alpha}$ and $\overline{\beta}$ 
+       are disjoint including endpoints. But
+       such arcs cannot correspond
+       to isotopic curves in $S_g$: we can choose
+       an arc $\overline{\gamma}$ that passes through
+        an odd number of endpoints of
+        $\overline{\alpha}$ and
+        an even number of endpoints of $\overline{\beta}$.
+        This will then lift to a loop
+        $\gamma$ in $S_g$ with
+        $i \left( \alpha, \gamma \right) $ odd
+        and $i \left( \beta, \gamma \right) $ even, contradicting
+        $\alpha$ isotopic to $\beta$.
+
+        Now, since $\alpha$ is isotopic to $\beta$ and
+        $\alpha \cap \beta \neq \varnothing$, the bigon
+        criterion gives that
+        $\alpha$ and $\beta$ form a bigon $B$. Assume
+        $B$ is the innermost bigon. As
+        $\alpha$ and $\beta$ are fixed (they are symmetric) by
+        $\iota$, we have that $\iota (B)$ is another
+        innermost bigon in the graph
+        $\alpha \cup \beta$.
+
+        But $\iota$ reverses the orientation of non-separating
+        closed curves (while preserving orientations
+        of separating closed curves), so
+        since the bigon $B$ lies to one side of $\alpha$,
+        $\iota(B)$ must lie on the other side of $\alpha$.\\
+        \linebreak
+        It follows that the image of 
+        $B$ in $S_{0,2g+2}$ is an innermost bigon $\overline{B}$ 
+        between $\overline{\alpha}$ and $\overline{\beta}$ (why?).
+        Furthermore, since $\iota (B) \neq B$, there are
+        no fixed points of $\iota$ in $B$ and hence
+        no marked points of
+        $S_{0,2g+2}$ in $\overline{B}$.
+
+        Now, considering the boundary of the bigon $\overline{B}$,
+        it can have zero, one or two of its vertices on
+        marked points of $S_{0,2g+2}$. In the first two cases,
+        we can modify $\overline{\alpha}$ by isotopy
+        in order to remove the bigon (why?), reducing the intersection
+        number of $\overline{\alpha}$ and $\overline{\beta}$.
+        In the last case, since $\overline{B}$ is innermost,
+        we see that $\overline{\alpha} \cup 
+        \overline{\beta}$ is a simple loop bounding
+        a disk (why?), and we can push $\overline{\alpha}$ onto
+        $\overline{\beta}$. Removing bigons inductively,
+        we see that $\overline{\alpha}$ is isotopic
+        to $\overline{\beta}$, and this isotopy lifts to a
+        symmetric isotopy between $\alpha$ and $\beta$.
+
+   \end{proof}
+
+   \begin{proposition}[]
+       Let $g \ge 2$ and let $\varphi , \psi \in 
+       \SHomeo^{+} (S_g)$. If $\varphi $ and $\psi$ are
+       isotopic, then they are symmetrically isotopic.
+   \end{proposition}
+
+   \begin{proof}[Proof of the Birman-Hilden theorem]
+       We have a commutative diagram
+       \begin{equation*}
+       \begin{tikzcd}
+           \SHomeo^{+} (S_g) \ar[r, twoheadrightarrow] & 
+           \Homeo^{+}\left( S_{0,2g+2}, \partial
+           S_{0,2g+2}\right) 
+           \ar[rr] \ar[dr] & & \Mod \left( S_{0,2g+2} \right) \\
+                           & & \SMod(S_g)  \ar[ru] &
+       \end{tikzcd}
+       \end{equation*}
+
+       We wish to find the kernel of
+       the map $\SMod (S_g) \to \Mod \left( S_{0,2g+2} \right) $.
+       Suppose $f \in \SMod(S_g)$ is mapped
+       to $0$. Since the composition
+       $\SHomeo^{+}(S_g) \to \Homeo^{+} \left( S_{0,2g+2} \right) 
+       \to \Mod \left( S_{0,2g+2} \right) $ is a surjective
+       homomorphism, we can choose a representative
+       $\varphi  \in \SHomeo^{+} \left( S_g \right) $.
+       Let $\overline{\varphi  }$ be the image
+       in $\Homeo^{+} \left( S_{0,2g+2} \right) $.
+       Then $\overline{\varphi }$ is isotopic to
+       the identity, say $H \colon I^2 \to 
+       \Homeo^{+} \left( S_{0,2g+2} \right) $. Then
+       this lifts to a symmetric isotopy
+       $\tilde{H} \colon I^2 \to \SHomeo^{+} \left( S_g \right) $ 
+       making the following diagram commute
+
+       \begin{equation*}
+       \begin{tikzcd}
+           & I^2 \ar[dl, "\tilde{H}"'] \ar[dr, "H"] & & &\\
+           \SHomeo^{+} (S_g) \ar[rr, twoheadrightarrow] & &
+           \Homeo^{+}\left( S_{0,2g+2}, \partial
+           S_{0,2g+2}\right) 
+           \ar[rr] \ar[dr] & & \Mod \left( S_{0,2g+2} \right) \\
+                           &  & & \SMod(S_g)  \ar[ru] &
+       \end{tikzcd}
+       \end{equation*}
+       Now, $\tilde{H}$ is an isotopy of $\varphi $ to
+       either the identity or $\iota$, so
+       \[
+       \SMod \left( S_g \right) / \left<\left[ \iota \right]  \right>
+       \approx \Mod \left( S_{0,2g+2} \right) .
+       \] 
+       
+   \end{proof}
+
+
+   \begin{remark}[]
+       We can generalize the proof of the Birman-Hilden
+       theorem a bit to the case of $S_g^{1}$ quite simply:
+       the quotient of $S_g^{1}$ by the hyperelliptic
+       involution $\iota \colon S_g^{1}\to 
+       S_g^{1}$ is a disk with $2g+1$ marked points.
+       Since  $\iota \colon S_g^{1} \to 
+       S_g^{1}$ is not an element of
+       $\Homeo^{+}\left( S_g^{1}, \partial
+       S_g^{1}\right) $, it does not represent an
+       element of $\SMod(S_g^{1})$, and so we 
+       get 
+       \[ \SMod \left( S_g^{1} \right) 
+       \approx \Mod \left( D_{2g+1} \right) 
+   \approx B_{2g+1}.\]
+   \end{remark}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \newpage
@@ -2612,9 +2914,9 @@ $\iota$:
     $S / \left<J \right> \approx \mathbb{P}^{1}$.
 \end{proposition}
 
-\begin{corollary}
+\begin{corollary}\label{hyperelliptic-involution-in-center}
     The hyperelliptic involution $J$ of a hyperelliptic
-    Riemann surface lies in the centre of
+    Riemann surface lies in the center of
     $\Aut (S)$.
 \end{corollary}
           
