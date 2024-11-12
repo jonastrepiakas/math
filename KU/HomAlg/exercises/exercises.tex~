@@ -1,0 +1,668 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\SHomeo}{SHomeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Char}{char}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\Mod}{{\mathrm{Mod}}}
+\newcommand{\PMod}{{\mathrm{PMod}}}
+\newcommand{\SMod}{{\mathrm{SMod}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+
+
+
+
+\begin{document}
+    \begin{exercise}[]
+        Show that an $R$-module homomorphism
+        $f \colon M \to N$ is an isomorphism if and
+        only if it is injective and surjective.
+    \end{exercise}
+
+    \begin{proof}
+        Suppose $f$ is an isomorphism, so
+        there exists a homomorphism
+        $f^{-1} \in \Hom_{R}(N,M)$ such that
+        $f \circ f^{-1} = \mathbbm{1}_{N}$ and
+        $f^{-1} \circ f = \mathbbm{1}_{M}$.
+        Suppose $f(v) = f(w)$. Then
+        $v = f^{-1} \circ f(v) = 
+        f^{-1} \circ f(w) = w$, so $f$ is injective.
+        Now for $ n\in N$, we have
+        $n = f \left( f^{-1}(n) \right) $, so
+        $f$ is surjective.
+
+        Conversely, if $f$ is  injective, it has
+        a left inverse as a function, and if it surjective, it
+        has a right inverse, and these are unique and equal (by
+        the same general property for functions). 
+        Denote this function by $f^{-1} \colon
+        N \to M$. We claim this is an
+        $R$-module homomorphism. Indeed, as
+        $f$ is a group homomorphism, we know the
+        inverse is as well. 
+        Now, since 
+        $f \circ f^{-1}(rn) = rn$ and
+        $rn = r f \circ f^{-1}(n) =
+        f \left( r f^{-1}(n) \right) $, we have
+        by injectivity of $f$ that
+        $f^{-1}(rn) = r f^{-1}(n)$, so
+        indeed $f^{-1}$ is an $R$-module homomorphism.
+    \end{proof}
+
+    \begin{exercise}[]
+        $\Hom_{R} (M,N)$ has the structure of an abelian group
+        with
+        \begin{align*}
+            \left( f+g \right) (x) 
+            &:= f(x) + g(x)\\
+            (-f) (x) 
+            &:= - f(x)
+        \end{align*}
+    \end{exercise}
+
+    \begin{proof}
+        We must check associativity, identity, inverse and
+        commutativity when
+        the set  $\Hom_R (M,N)$ is equipped with the
+        binary operator and inverse defined above.
+
+
+        Associativity is inherited from associativity of
+        functions. 
+        Now, let
+        $0_N$ denote the identity of
+        the abelian group $N$. Define a map
+        $0$ by
+        $0 (m)=
+         0_N$ for all $m \in M$.
+        Then
+        for any $f \in \Hom_R(M,N)$, we have
+        \[
+            (f+ 0)(x)
+            = f(x) + 0(x)
+            = f(x) + 0_N
+            = f(x)
+        \] 
+        and similarly, $0 + f = f$. Thus
+        $0$ is an identity for
+        $\Hom_R (M,N)$. 
+        Now
+        \[
+            \left( f + (-f) \right) (x)
+            = f(x) + (-f)(x)
+            = f(x) - f(x)
+            = 0_N
+        \] 
+        so $f+ (-f) = 0$, and similarly,
+        $(-f) + f = 0$.
+
+        Lastly, commutativity follows from commutativity
+        of $N$.
+    \end{proof}
+
+    \begin{exercise}[]
+        For a homomorphism $f \in \Hom_R(M,N)$, the kernel
+        $\ker (f) = \left\{ x  \mid 
+        f(x) = 0 \right\} $ and the
+        image $\im (f)$ are submodules.
+    \end{exercise}
+
+    \begin{proof}
+        For $x,y \in \ker f$, we have
+        $f(x-y) = f(x) - f(y) = \mathbbm{1}_R$ by
+        $f$ being a group homomorphism, and
+        $f(rx) = r f(x) = r \cdot \mathbbm{1}_R = \mathbbm{1}_R$
+        by the definition of an $R$-module and an
+        $R$-linear map, hence
+        $\ker f$ is also closed under multiplication by
+        elements of $R$. The inclusion
+        $\ker f \to M$ is $R$-linear since
+        if $x,y \in \ker f$, then
+        $\iota (rx+y) = rx+y = r \iota(x) + \iota (y)$.
+
+        Likewise, if $x,y \in \im f$, then let
+        $u,v \in M$ such that $f(u) =x$ and
+        $f(v) = y$. Then
+        $f(u-v) = f(u) - f(v) = x-y \in \im f$ and
+        $f(ru) = r f(u) = rx \in \im f$ for all $r \in R$ and
+        for all $x,y \in \im f$.
+        Furthermore,
+        for $x,y \in \im f$,
+        $\iota (rx+y) = rx+y = r \iota (x) + \iota (y)$
+        so the inclusion $\im f \to N$ is $R$-linear.
+    \end{proof}
+
+    
+    \begin{exercise}[]
+        $R /I$ is a ring if $I$ is a two-sided ideal of
+        $R$.
+    \end{exercise}
+
+    \begin{proof}
+        If $I$ is a two-sided ideal, then firstly,
+        $R /I$ is an abelian group under $+$ since
+        everything is abelian hence normal. 
+        All other requirements for a ring are inherited from
+        $R$. We must only check that multiplication is well-defined.
+        If $r + I = r'+I$ and $s + I = s' + I$ then
+        $s^{-1} \underbrace{r^{-1} r'}_{\in I} s'
+        \in I$, so indeed
+        $rs+ I = r's' + I$.
+    \end{proof}
+
+
+    \begin{exercise}[]
+        Show that a cokernel exists and is unique up
+        to isomorphism.
+    \end{exercise}
+
+    \begin{proof}
+        For an $R$-linear map $f \colon M \to N$, define
+        $\coker f := N / \im f$. 
+        Since $\im f$ is a submodule of $N$,
+        $N / \im f$ is an $R$-module. Furthermore, it
+        satisfies the diagram
+        \begin{equation*}
+        \begin{tikzcd}
+            M \ar[r, "f"] \ar[dr,"0"] & N \ar[r, "q"] 
+            \ar[d, "g"] & \coker f \ar[dl, "\exists ! \overline{g}"]\\
+                          & L &
+        \end{tikzcd}
+        \end{equation*}
+        since $\overline{g}$ must be defined by
+        $\overline{g}(q(n)) = g(n)$.
+        We must check that this is well-defined.
+
+        Suppose $\overline{a} = \overline{b} \in 
+        \coker f$, so $a-b \in \im f$, so
+        $f(m) = a-b$. Then
+        $0 = g f (m) = \overline{g} (q(a)- q(b))
+        = \overline{g}\left( \overline{a}-
+        \overline{b} \right) 
+        = \overline{g}(a) - \overline{g}(b)$.
+
+        It is also $R$-linear because
+        $\overline{g}\left( \overline{x}+ \overline{y} \right) 
+        = \overline{g}\left( \overline{x+y} \right) 
+        = g(x+y) = g(x) + g(y) = 
+        \overline{g}\left( \overline{x} \right) +
+        \overline{g}\left( \overline{y} \right) $, and
+        $\overline{g}\left( r \overline{x} \right) 
+        = \overline{g}\left( \overline{rx} \right) 
+        = g\left( rx \right) 
+        = r g(x) = r \overline{g}(\overline{x})$.
+
+        To check uniqueness, suppose
+        $(K,q')$ also satisfies the above diagram. Then
+        letting $g = q$ and $L = \coker f$, we get
+        \begin{equation*}
+        \begin{tikzcd}
+            M \ar[r, "f"] \ar[dr, "0"] & N \ar[r, "q'"]
+            \ar[d, "q"]& K \ar[dl, 
+            "\exists ! \overline{q}"] \\
+                          & \coker f &
+        \end{tikzcd}
+        \end{equation*}
+
+        \begin{equation*}
+        \begin{tikzcd}
+            M \ar[r, "f"] \ar[dr, "0"] & N \ar[r, "q"]
+            \ar[d, "q'"]& \coker f \ar[dl, 
+            "\exists ! \overline{q'}"] \\
+                          & K &
+        \end{tikzcd}
+        \end{equation*}
+
+
+        Interchanging $\coker f$ and 
+        $K$, we also get a unique map
+        $\overline{q'} \colon \coker f \to K$. These
+        have the property that
+        $ \overline{q'} \circ \overline{q} \circ q'
+        = \overline{q'} \circ q = q'$ so
+        by uniqueness of $\mathbbm{1}_K$ in the diagram
+        
+        \begin{equation*}
+        \begin{tikzcd}
+            M \ar[r, "f"] \ar[dr, "0"] & N \ar[r, "q'"]
+            \ar[d, "q'"]& K \ar[dl, 
+            "\mathbbm{1}_K"] \\
+                          & K &
+        \end{tikzcd}
+        \end{equation*}
+        we get 
+        $\overline{q'} \circ \overline{q} = \mathbbm{1}_K$, and
+        likewise, $\overline{q} \circ \overline{q'} = 
+        \mathbbm{1}_{\coker f}$. So
+        $\overline{q} \colon \coker f \to K$ is
+        an isomorphism.
+
+        
+    \end{proof}
+
+
+
+    \begin{exercise}[]
+        Prove uniqueness of the direct product.
+    \end{exercise}
+
+    \begin{proof}
+        Suppose
+        $A$ and $B$ are both direct products
+        with maps $\pi_{A,j} \colon A \to M_j$ and
+        $\pi_{B,j} \colon B \to M_j$ for all $j$ such
+        that the universal diagram is fulfilled.
+        Then, since we have
+        maps $\pi_{B,j} \colon B \to M_j$ for all $j$, we
+        have a unique map
+        $u \colon B \to A$ such that
+        $\pi_{A,j} \circ u = \pi_{B,j}$ for all $j$. And
+        similarly, we have a map
+        $v \colon A \to B$ such that
+        $\pi_{B,j} \circ v = \pi_{A,j}$ for all $j$.
+        But then
+        $\pi_{A,j} \circ u \circ v = \pi_{A,j}$ for all
+        $j$, so since $\pi_{A,j} \circ \mathbbm{1}_{A}
+        = \pi_{A,j}$ for all $j$, we get by uniqueness
+        that $u \circ v = \mathbbm{1}_A$, and similarly,
+        interchanging  $A$ for $B$ above, we get
+        $v \circ u = \mathbbm{1}_B$. Hence
+        $u \colon B \to A$ is an isomorphism.
+
+
+        
+
+
+    \end{proof}
+
+
+
+    \begin{remark}[Direct product]
+        Note that the direct product
+        of a family $\left( M_{i} \right)_{ i \in I}$
+        is simply the universal cone over the
+        diagram $I \to \Mod_R$ given by
+        sending $i \mapsto M_i$ where $I$ is 
+        a discrete category.
+    \end{remark}
+
+    \begin{remark}[Direct sum]
+        The direct sum is the dual of the direct
+        product.\\
+        Given a diagram
+        $I \to \Mod_R$ where $I$ is discrete, we
+        define the direct sum as the cone
+        under $I \to \Mod_R$ and let its nadir be
+        denoted $\bigoplus_{i \in I} M_i$ together with
+        $R$-linear maps 
+        $\iota_j \colon M_j \to \bigoplus_{i \in I}M_i$.
+
+    \end{remark}
+
+
+    \begin{remark}[]
+        For each $i \in I$, there is a unique map
+        $f_j \colon M_j \to \prod_{j \in I} M_j$ with
+        $\pi_i f_j = 0$ if $i \neq j$ and
+        $\pi_j f_j = \mathbbm{1}_{M_j}$.
+        By the universal property, we thus get a unique
+        map
+        $u \colon \bigoplus_{i \in I} M_i \to \prod_{i \in I}M_i$ 
+        given by  $u \left( x \right) 
+        = \sum_{i \in I} f_i\left( x(i) \right) $.
+        This map is an isomorphism when $I$ is finite, but
+        not necessarily when $I$ is infinite.
+    \end{remark}
+
+    \begin{corollary}
+        Summarizing, we have bijections
+
+
+        \begin{align*}
+            \Hom_R \left( N, \prod_{i \in I} M_i \right) 
+            &\stackrel{\approx}{\to} \prod_{i \in I} \Hom_R (N,M_i)\\
+            u 
+            &\mapsto \left( \pi_i u \right)_{i \in I}
+        \end{align*}
+        where we send
+        $\left( \pi_i u \right)_{i \in I} (j)
+        = \pi_j u \colon N \stackrel{u}{\to} \prod_{i \in I}M_i 
+        \stackrel{\pi_j}{\to} 
+        M_j$
+        and
+         \begin{align*}
+            \Hom_R\left( \bigoplus_{i \in I}M_i,
+            N\right) 
+            &\stackrel{\approx}{\to }
+            \prod_{i \in I}\Hom_R \left( M_i, N \right) \\
+            u
+            &\mapsto \left( u \iota_i \right)_{i \in I}
+        \end{align*}
+        which are in fact isomorphisms of abelian groups.
+    \end{corollary}
+
+    \begin{exercise}[]
+        Show that the above bijections are isomorphisms of
+        abelian groups.
+    \end{exercise}
+
+    \begin{proof}
+        Since they are bijections between abelian groups, we
+        must simply show that they are homomorphisms.
+
+        Now,
+        \[
+        u+v \mapsto \left( \pi_i \left( u+v \right)  \right)_{i \in I}
+        = \left( \pi_i u + \pi_i v \right)_{i \in I}
+        \] 
+        and
+        $\left( \pi_i u + \pi_i v \right)(j)
+        = \left( \pi_iu \right) (j) + 
+        \left( \pi_i v \right) (j)$
+        so $u+v \mapsto \left( \pi_i u \right) +
+        \left( \pi_i v \right) $ by the definition
+        of addition in the direct product, hence this
+        is indeed a homomorphism.
+
+        For the direct sum, we similarly have
+        \[
+        u+v \mapsto \left( \left( u+v \right) \iota_i \right)_{i \in I}
+        = \left( u \iota_i + v \iota_i \right)_{i \in I}
+        \] 
+        and
+        $\left( u \iota_i + v \iota_i \right)_{i \in I}(j)
+        = \left( u \iota_i \right)_{i \in I} (j)
+        + \left( v \iota_i \right)_{i \in I}(j)$, so
+        $u+v \mapsto \left( u \iota_i \right)_{i \in I}
+        + \left( v \iota_i \right)_{i \in I}$
+        which is indeed a homomorphism by
+        the additive structure on the direct product which
+        the direct sum inherits.
+        
+    \end{proof}
+        
+        \begin{exercise}[]
+            Show that cyclic left $R$-modules (of $R$?)
+            are precisely those
+            of the form $R /I$ for some left ideal
+            $I \subset R$.
+        \end{exercise}
+
+        \begin{proof}
+            Suppose $M$ is a cyclic left $R$-module.
+            Then $M = R x$ for some $x \in M$.
+
+        \end{proof}
+
+
+        \begin{exercise}[]
+            Show that an $R$-module is free if and only if
+            it has a basis.
+        \end{exercise}
+
+        \begin{proof}
+            Suppose $M$ is a free $R$-module.
+            Let $X$ be a generating set
+            and $\mu \colon X \to M$ the map satisfying the
+            universal property that for
+            any $R$-module $N$ and any map
+            $f \colon X \to N$, there exists a unique
+            $R$-linear map $\tilde{f} \colon M \to N$ 
+            such that
+            $\tilde{f}\mu = f$.
+
+            \begin{equation*}
+            \begin{tikzcd}
+                X \ar[r, "\mu"] \ar[dr, "f"] & M \ar[d, "\exists!
+                \tilde{f}",
+                dashed]\\
+                                             & N
+            \end{tikzcd}
+            \end{equation*}
+
+            We claim $M$ has $\mu (X)$ as a basis.
+            Suppose there exists
+            a finite linear combination
+            $\sum_{i=1}^{n} r_i x_i = 0$ with
+            $x_i \in \mu(X)$ and $r_i \in R$ such that
+            not all $r_i$ are $0$.
+            Then let $N = \bigoplus_{X} R$ and
+            $f \colon X \to \bigoplus_X R$ be the
+            inclusion
+            $x \mapsto \iota_x \left( \mathbbm{1}_R \right) $.
+            By uniqueness, we must have
+            that 
+            $0 = \tilde{f}\left( \mu (x_i) \right) 
+            = \iota_x \left( \mathbbm{1}_R \right) $, so
+            $\tilde{f}\left( \sum r_i x_i \right) 
+            = \sum r_i \tilde{f} \mu (x_i')
+            = \sum r_i f\left( x_i' \right)
+            = \sum r_i \iota_{x_i'}\left( \mathbbm{1}_R \right) $,
+            but by
+            definition then 
+            $0 = \left( \sum r_i f\left( x_i' \right)  \right) (j)
+            = \left( \sum r_i \iota_{x_i'} \left( \mathbbm{1}_R \right) 
+            \right) (j) =
+            \sum r_i \iota_{x_i'}\left( \mathbbm{1}_R \right) (j)
+            \sum r_i \mathbbm{1}_R \delta_{i,j}
+            = r_j
+            $ for all $j$, hence
+            we obtain linear indepence.
+
+            Conversely, suppose
+            $M$ has $X \subset M$ as a basis.
+            Let $\mu \colon X \to M$ be the inclusion.
+            We claim this is a free $R$-module.
+
+            Suppose $N$ is any other $R$-module
+            and we have any (not necessarily an
+            $R$-module homomorphism) map $f \colon X \to N$.
+            If $\tilde{f} \mu = f$, then we
+            must have $\tilde{f} (x) = f(x)$ for
+            all $x \in X$. Now, for any linear combination
+            $\sum r_i x_i \in M$, we have
+            by linearity, 
+            $\tilde{f} \left( \sum r_i x_i \right) 
+            = \sum r_i \tilde{f}(x_i)
+            = \sum r_i f(x_i)$, so
+            $\tilde{f}$ is indeed uniquely determined
+            by $f$.
+
+        \end{proof}
+
+
+        \begin{exercise}[]
+            Complete the proof that every commutative
+            ring $R$ has invariant basis number.
+        \end{exercise}
+
+        \begin{proof}
+            By Zorn's lemma, every commutative ring
+            $R$ has a maximal ideal $I \le R$. Then
+            $R /I$ is a field. Let
+            now $M$ be a free  $R$-module with basis
+            $\left\{ x_i \right\}_{i \in J}$. 
+
+            We claim $M / IM$ is an $R /I$ module.
+            Define
+            $\overline{r} \cdot  \overline{x} = \overline{rx}$ where
+            multiplication of $rx$ is done in $M$ over
+            $R$, and define $\overline{v} + \overline{w}
+            = \overline{v+w}$.\\
+            Suppose $\overline{r} = \overline{r'}$ and
+            $\overline{x} = \overline{x'}$.
+            So $r' -r \in I$ and
+            $x' -x \in IM$.
+            Then $r'x' - r x' \in IM$ and
+             $rx' - rx \in IM$, so
+             $r'x' - rx = r'x' - rx' + rx' - rx \in IM$,
+             hence $\overline{r'x'} = \overline{rx}$ is well
+             defined.
+             Similarly,  if 
+             $\overline{v} = \overline{v'}$ and
+             $\overline{w} = \overline{w'}$ then
+             $v-v', w-w' \in IM$, so
+             $v+w - \left( v'+w' \right) 
+             \in IM$, hence
+             $\overline{v+w} = \overline{v'+w'}$.\\
+
+             The properties for
+             $M /IM$ being an $R /I$-module are then inherited
+             from $M$ as an $R$-module.\\
+             \linebreak
+             But as $R /I$ is a field, $M /IM$ is a vector space
+             over $R /I$, hence its dimension is well-defined.
+             Now, suppose
+             $\sum \overline{r_i} \cdot  \overline{x_i} = 0$ in
+             $M /IM$. Then
+             $\overline{\sum r_i x_i} = 0$, hence
+             $\sum r_i x_i \in IM$. But  then
+             there exists a linear combination
+             $\sum s_i x_i$ such that $s_i \in I$ for all $i$,
+             and such that $\sum r_ix_i = \sum s_i x_i$.
+             Then $\sum (r_i - s_i) x_i = 0$ and linear
+             independence of $\left\{ x_i \right\}_{i \in J}$ 
+             gives $r_i = s_i$ for all $i$, hence
+             $\overline{r_i} = \overline{0}$.
+             So $\left\{ \overline{x_i} \right\}_{i \in J}$ 
+             is linearly independent over $R /I$ as well.
+             Hence as it clearly also spans
+             $M /IM$, we have that
+             $\dim_{R /I} M/IM = \left| J \right| $. 
+             Thus an bases for
+             $M $ over $R$ have the same cardinality, so
+             $R$ has invariant basis number.
+        \end{proof}
+
+
+
+
+
+
+
+
+
+    %\bibliography{../refs.bib}
+\end{document}
