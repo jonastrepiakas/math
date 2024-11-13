@@ -1,0 +1,290 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\SHomeo}{SHomeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Fun}{Fun}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\Mod}{{\mathrm{Mod}}}
+\newcommand{\PMod}{{\mathrm{PMod}}}
+\newcommand{\SMod}{{\mathrm{SMod}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+
+
+
+
+\begin{document}
+
+
+
+
+
+\section{Preparation}
+
+\subsection{Representability}
+
+\begin{definition}[Initial and terminal objects]
+    An object $c$ in a category $C$ is initial if
+    and only if the functor
+    $C \left( c,- \right) \colon C \to \Set$ is
+    naturally isomorphic to the constant functor
+    $* \colon C \to \Set$ that sends every object to
+    the singleton set.
+    That is, for any $d,e \in C $ and any
+    $f \colon d \to e$, we have
+    
+    \begin{equation*}
+    \begin{tikzcd}
+        C(c,d) \ar[d, "f_*"] \ar[r, "\approx"] & \left\{ * \right\} 
+        \ar[d] \\
+        C(c,e) \ar[r, "\approx"] & \left\{ * \right\} 
+    \end{tikzcd}
+    \end{equation*}
+    Since these are isomorphisms in set,
+    we can conclude that
+    $C(c,d)$ and $C(c,e)$ are singletons, and
+    as these is only one map between the singleton
+    sets $\left\{ * \right\} \to \left\{ * \right\} $, we
+    conclude that
+    $\Hom \left( C(c,d), C(c,e) \right) $ is also
+    a singleton set.
+    
+    
+\end{definition}
+
+\begin{theorem}[Yoneda lemma]
+    For any functor $F \colon C \to \Set$, whose
+    domain $C$ is locally small and any object
+     $c \in C$, there is a bijection
+     \[
+     \Hom \left( C(c,-),F \right) \cong Fc
+     \] 
+     that associates a natural transformation
+     $\alpha \colon C\left( c,- \right) \implies F$ to the
+     elements $\alpha_{c}\left( \mathbbm{1}_c \right) 
+     \in Fc$. Moreover, this correspondence is natural
+     in both $c$ and $F$.
+\end{theorem}
+
+
+\section{Limits and colimits}
+
+
+
+    \begin{definition}[]
+        A diagram of shame $J$ in a category $C$ is 
+        a functor $F \colon J \to C$.
+    \end{definition}
+
+    \begin{definition}[]
+        For any object $c \in C$ and any category
+        $J$, the constant functor $c \colon J \to C$ 
+        sends every object of $J$ to $c$ and every
+        morphism in $J$ to the identity morphism
+        $\mathbbm{1}_c$.
+    \end{definition}
+
+    \begin{definition}[Embedding]
+        Recall that an embedding is a faithful functor that
+        is injective on objects.\\
+        A fully faithful functor that is injective on
+        objects defines a full embedding. The domain
+        then defines a full subcategory of the codomain.
+    \end{definition}
+
+
+
+    \begin{remark}[]
+        The constant functors define an embedding
+        $\Delta \colon C \to \Fun (J,C)$
+        sending $c$ to the constant functor at
+        $c$ and a morphism $f \colon c \to c'$ to
+        the constant natural transformation, in
+        which each component is defined to be the morphism
+        $f$.
+    \end{remark}
+
+    \begin{definition}[Cones]
+        A cone over a diagram $F \colon J \to C$ with
+        summit or apex $c \in C$ is a natural
+        transformation $\lambda \colon c \implies F$, so
+        $\lambda \in \Fun (J,C)$, whose
+        domain is the constant functor at $c$.
+        The components
+        $\left( \lambda_j \colon c \to Fj \right)_{j \in J}$ 
+        of the natural transformation are
+        called the legs of the cone.
+
+        \begin{equation*}
+        \begin{tikzcd}
+            & c \ar[ld, "\lambda_j"'] \ar[dr, "\lambda_k"]&\\
+            F_j \ar[rr, "Ff"'] & & F_k
+        \end{tikzcd}
+        \end{equation*}
+
+    \end{definition}
+
+    \begin{definition}[Cocones]
+        Dually, a cone under $F$ with nadir $c$ is a natural
+        transformation $\lambda \colon F \implies c$ whose
+        legs are the components
+        $\left( \lambda_j \colon F_j \to c \right)_{j 
+        \in J}$.o
+        So naturality asserts that for each
+        morphism $f \colon j \to k$ of $J$, the triangle
+
+        \begin{equation*}
+        \begin{tikzcd}
+            F_j \ar[rr, "Ff"] \ar[dr, "\lambda_j"'] & & F_k
+            \ar[dl, "\lambda_k"] \\
+                                                   & c &
+        \end{tikzcd}
+        \end{equation*}
+       commutes in $C$. 
+       Cones under a diagram are also called cocones.
+    \end{definition}
+
+    \begin{definition}[Limits and colimits I]
+        For any diagram $F \colon J \to C$, there
+        is a functor
+        \[
+        \Cone (-,F) \colon C^{op} \to \Set
+        \] 
+        that sends $c \in C$ to the
+        set of cones over $F$ with
+        summit $c$.
+
+        A limit of $F$ is a representation
+        for $\Cone \left( -,F \right) $.
+    \end{definition}
+
+
+
+
+
+
+
+
+    %\bibliography{../refs.bib}
+\end{document}

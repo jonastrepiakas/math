@@ -656,6 +656,10 @@
              $R$ has invariant basis number.
         \end{proof}
 
+        \begin{exercise}[]
+            Find a free non commutative ring $R$ with
+            bases of different cardinalities.
+        \end{exercise}
 
 
 
