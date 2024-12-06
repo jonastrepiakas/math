@@ -143,11 +143,14 @@
 \section{Questions}
 
 \begin{itemize}
-    \item Grad school for algtop, geotop, alg?
     \item How does one check that $\gamma$ and $\beta$ fill
         the genus 2 surface in figure 1.7?
     \item How to find (or show existence of) orientation-preserving
         or orientation-reversing maps?
+    \item Example on p.9 in Nathalie and Randal-William's paper on
+        finite-dimensional $k$-vector spaces.
+        Why is
+        $\iota_V \oplus W = \left( \iota_W, V \right) $?
 \end{itemize}
 
 
@@ -2608,6 +2611,7 @@ S_g^{1} \right) }\left( \iota \right) .
 
 
 
+   \newpage
 
 
    \section{Braided monoidal categories}

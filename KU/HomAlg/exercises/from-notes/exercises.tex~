@@ -134,6 +134,9 @@
 
 
 \begin{document}
+
+
+\section{Modules}
     \begin{exercise}[]
         Show that an $R$-module homomorphism
         $f \colon M \to N$ is an isomorphism if and
@@ -363,6 +366,7 @@
     \end{proof}
 
 
+\subsection{Direct sum and direct product}
 
     \begin{exercise}[]
         Prove uniqueness of the direct product.
@@ -517,6 +521,8 @@
         \end{proof}
 
 
+        \subsection{Generation and free modules}
+
         \begin{exercise}[]
             Show that an $R$-module is free if and only if
             it has a basis.
@@ -661,8 +667,102 @@
             bases of different cardinalities.
         \end{exercise}
 
+        \subsection{Free modules over PID}
+
+        \subsection{Structure theorem for modules over
+        PID}
+        \subsection{Exact sequences}
+
+        \begin{exercise}[]
+            In the 2-out-of-3 lemma, what can
+            you say about a third map if
+            two of the $h_1,h_2,h_3$ are just
+            injective (or just surjective)?
+
+            \begin{equation*}
+            \begin{tikzcd}
+                0 \ar[r] & M' \ar[r, "f"]
+                \ar[d, "h_1"] & M \ar[r, "g"] 
+                \ar[d, "h_2"] &
+                M'' \ar[r] \ar[d, "h_3"] & 0\\
+                0 \ar[r] & N' \ar[r, "f'"] & N \ar[r, "g'"] &
+                N'' \ar[r] & 0
+            \end{tikzcd}
+            \end{equation*}
+        \end{exercise}
 
 
+        \begin{solution}
+            Suppose $h_1$ and $h_3$ are injective.
+            By the same argument as the one in
+            the notes, $h_2$ is also injective.
+
+            Similarly, if $h_1$ and $h_3$ are surjective, the
+            same argument as in the notes shows that
+            $h_2$ is surjective.
+
+            Suppose $h_1,h_2$ are injective. Let
+            $h_3 (m) = 0$. Then
+            by surjectivity of $g$,
+            let $m' \in M$ such that
+            $g(m') = m$. Then $g' h_2 (m') = 0$ so
+            there exists  $m'' \in M'$ such that
+            $f' h_1 (m'') = h_2 (m')$, so
+            $h_2 f (m'') = h_2 (m')$. But
+            $h_2$ is injective, so
+            $m' = f(m'')$. Thus
+            $m = g(m') = gf (m'') = 0$ by exactness.
+            So $h_3$ is injective.
+            If $h_2$ is surjective, then
+            letting $n \in N''$, there exists
+            $n' \in N$ with $g' (n') = n$ so by
+            surjectivity of
+            $h_2$, there exists $m \in M$ such that
+            $h_2 (m) = n'$. Then
+            $h_3 \left( g(m) \right) = n$, so
+            $h_3$ is surjective.
+        \end{solution}
+
+
+        \newpage
+
+
+
+
+        \begin{exercise}[]
+            Show that if $0 \to N' \stackrel{f}{\to} N 
+            \stackrel{g}{\to} N''$ is an exact sequence
+            of $R$-modules and $g$ is surjective, then
+            $g_*$ need not be surjective.
+        \end{exercise}
+
+
+        \subsection{Projective modules}
+
+        \begin{definition}[]
+            An $R$-module $P$ is projective if for
+            every $R$-linear map $f \colon P \to M$ and
+            every $R$-linear surjective map $q \colon N \to M$ 
+            of $R$-modules, there exists
+            an $R$-linear map $h \colon P \to N$ such that
+            \begin{equation*}\label{projective}
+            \begin{tikzcd}
+                & P \ar[dl, "\exists h"] \ar[d, "f"] \\
+                N \ar[r, "q", twoheadrightarrow] & M
+            \end{tikzcd} \tag{$\Omega$}
+            \end{equation*}
+            commutes.
+        \end{definition}
+
+        \begin{exercise}[]
+            Show that $h$ in~\eqref{projective}
+            is not necessarily unique.
+        \end{exercise}
+
+        \begin{proof}
+            
+        \end{proof}
+        
 
 
 

@@ -1,0 +1,828 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\SHomeo}{SHomeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Char}{char}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\Mod}{{\mathrm{Mod}}}
+\newcommand{\PMod}{{\mathrm{PMod}}}
+\newcommand{\SMod}{{\mathrm{SMod}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+
+
+
+
+\begin{document}
+    \begin{exercise}[1]
+        \begin{proof}
+            \begin{enumerate}
+                \item A left $\mathbb{Z}$-module is by
+                    definition already an abelian group.
+                    We must check that the module structure
+                    doesn't add any additional structure, or more
+                    specifically, that every abelian group has
+                    a unique $\mathbb{Z}$-module structure
+                    which is the one described below.
+                    \\
+                    Now, we are given a map
+                    $\mathbb{Z} \times M \to M$ 
+                    by $\left( n, x \right) \mapsto n\cdot x$ 
+                    where $M$ is some abelian group.
+                    Since by part (2) of the
+                    definition of being a module,
+                    i.e., $(r+s) \cdot x = r\cdot x + s\cdot x$,
+                    we have
+                    \[
+                        n\cdot x = \underbrace{1\cdot x + \ldots +
+                        1\cdot x}_{
+                        n \text{ times}}
+                        = \underbrace{x + \ldots + x}_{n\text{ times}}
+                    \] 
+                    where the second equality follows
+                    from (4) in the definition:
+                    $\mathbbm{1}_{R} \cdot x = x$.
+                    This tells us how to give any abelian group
+                    $M$ a $\mathbb{Z}$-module structure and
+                    that this must be unique. Simply
+                    define
+                    a map $\mathbb{Z} \times M \to M$ by
+                    \[
+                        \left( n,x \right) \mapsto 
+                        n\cdot x =
+                        \underbrace{x+ \ldots + x}_{n \text{ times}}.
+                    \] 
+                    This is indeed an element of $M$ since
+                    groups are closed under addition.
+                    Now we check that this map satisfies the
+                    axioms for a module.
+                    \begin{align*}
+                        n (x+y)
+                        &= \underbrace{(x+y) + (x+y) + \ldots
+                        + (x+y)}_{n \text{ times}}
+                        = \underbrace{x+\ldots+x}_{n \text{ times}}
+                        + \underbrace{y + \ldots + y}_{n \text{ times}}\\
+                    \end{align*}
+                    The others are checked similarly.
+                \item For $R = k$ a field, we have
+                    that the distribute laws are precisely
+                    those of (1) and (2) from the definition
+                    of a module in the notes,
+                    and $\alpha \left( \beta x \right) 
+                    = \left( \alpha \beta \right) x$ and
+                    $1 \cdot x = x$ are precisely axioms
+                    (3) and (4). Furthermore, we
+                    by assumption have that
+                    $M$ is an abelian group.
+                \item Suppose $M$ is a
+                    $k\left[ t \right] $-module. Then, in
+                    particular, $M$ inherits
+                    a $k$-multiplication making it into
+                    a $k$-vector space, but the question is
+                    whether it has additional structure. 
+                    If we know what  $\left( t,x \right) $ is
+                    mapped to, then by axiom (3), we know what
+                    $t^2 x = t \left( tx \right) $ will be, and
+                    likewise $t^k x$ for any $k \in \mathbb{N} $.
+                    Consider $M$ as a $k$-vector space
+                    with basis $\mathcal{B} = 
+                    \left\{ v_{\alpha}  \mid 
+                    \alpha \in I\right\} $ for some
+                    indexing set $I$. Now,
+                    we claim that
+                    $t \mathcal{B} = 
+                    \left\{ t v_{\alpha} \mid 
+                    \alpha \in I \right\} $ is also a basis.
+                    Suppose
+                    $\sum  c_{\alpha } t v_{\alpha} = 0$
+                    as a finite sum
+                    in $M$. By axiom (1), we then also have
+                    $t \left( \sum c_{\alpha} v_{\alpha} \right) 
+                    = 0$.
+                    Now, $\alpha x = 0 \iff
+                    \alpha = 0 \lor x = 0$ in
+                    a vector space, so
+                    $t = 0$ or 
+                    $\sum c_{\alpha} v_{\alpha} = 0$. 
+                    Now, if $t = 0$, then
+                    $M$ simply reduces to 
+                    a $k$-vector space with no additional structure.
+                    However, if $t \neq 0$, then
+                    by linear independence, $c_{\alpha} = 0$ 
+                    for all $\alpha$, so
+                    $t \mathcal{B}$ is again a basis.
+                    By induction then, $t^k \mathcal{B}$ will
+                    be a basis. We can define a linear map
+                    $T \colon M \to M$ by
+                    $v_{\alpha} \mapsto t v_{\alpha}$ on
+                    the basis and extend it linearly.
+                    Then we indeed have
+                    \[
+                        \left( \sum_{n=0}^{m} c_{n} t^n \right) 
+                        x = 
+                        \sum_{n=0}^{m} c_n t^n x
+                        = \sum_{n=0}^{m} c_n T^n x
+                    \] 
+                    so the action of
+                    any element of
+                     $k\left[ t \right] $ on
+                     some  $x \in M$ is uniquely determined
+                     by the linear map $T$.
+                     So we have an injective map
+
+                     \[
+                     \left\{ k\left[ t \right] \text{-modules}
+                     \right\} \to 
+                     \left\{ \left( V,T \right)  \mid 
+                     V \text{ is a } k\text{-vector space and
+                  } T \in \End_{k} (V)\right\}.
+                     \] 
+                     by sending
+                     $M \mapsto \left( V,T \right) $ where
+                     $V$ is $M$ considered as a vector space
+                     over $K$ and $T$ is the map
+                     $v \mapsto tv$.
+
+                     Conversely, given a pair
+                     $\left( M, T \right) $, we can make
+                     $M$ into a $k$-module by
+                     letting
+                     $\left( \sum c_n t^n \right) 
+                     x = \sum c_n T^n(x)$. This clearly
+                     satisfies the axioms for the map
+                     in the definition of a module.
+                 \item Suppose $M$ is a 
+                     $k \left[ G \right] $-module where
+                     $k\left[ G \right] $ is a $k$-algebra
+                     associated to a group $G$.
+                     Then $M$ inherits a vector space structure
+                     from $k$. Now, the map
+                     $k\left[ G \right] \times M \to M$ 
+                     sends  $(g,x) \mapsto gx$ which is invertible
+                     since $g^{-1}\left( g \cdot x \right) 
+                     = \left( g^{-1} g \right) \cdot x
+                     = 1 \cdot x = x$. Furthermore,
+                     since $g\left( x+y \right) = gx +gy$ 
+                     by the axioms of a module,
+                     the map $T_g (x) = gx$ is
+                     a group automorphism, so
+                     $g \mapsto T_g$ is a map
+                     $\rho \colon G \to \Aut (V)$.
+                     Furthermore, we have
+                     $\rho (g+g') (x) =
+                     T_{g +g'} (x) = 
+                     (g+g')x = gx + g'x = 
+                     \rho (g)(x) + \rho (g')(x)$. Thus
+                     $\rho$ is in fact a group homomorphism.
+
+                     Conversely, any such pair
+                     $M$ and a group homomorphism
+                     $\rho \colon G \to \Aut (V)$ defines
+                     a $k \left[ G \right] $-module
+                     by
+                     $(\sum c_g g) \cdot x =
+                     \sum c_g \rho (g)(x)$.
+            \end{enumerate}
+        \end{proof}
+    \end{exercise}
+
+
+    \begin{exercise}[2]
+        Let $M$ be a $k [t] / \left( t^n \right) $-module.
+        Then $M$ is in particular a $k$-vector space.
+        Now, if $\mathcal{B} = \left\{ v_{\alpha} \right\} $ 
+        is a basis for $M$ as a $k$-vector space, then
+        $t\mathcal{B}, \ldots, t^{n-1}\mathcal{B}$ 
+        are bases for $M$ as $k$-vector spaces, so
+        the map $T \colon M \to M$ sending
+        $x \to t x$ is a linear automorphism, but since
+        $t^n = 0$, we get $T^n = 0 \in \Hom_k \left( M,M \right) $.
+        So a $k [t] / \left( t^n \right) $-module consists
+        of a pair $\left( M, T \right) $ of a $k$-vector
+        space $M$ and a nilpotent map T of index $k$.
+
+        A $k[t,t^{-1}]$-module consists similarly of
+        a $k$-vector space and an invertible linear automorphism
+        of the $k$-vector space.
+    \end{exercise}
+
+    \begin{exercise}[5]
+        \begin{proof}
+            We have
+            $r \cdot (x+y) = \varphi  (r) (x+y)
+            = \varphi (r) x + \varphi (r) y
+            = r\cdot x + r\cdot y$,
+            $(r+s) \cdot x = \varphi (r+s)x
+            = \varphi (r)x + \varphi (s) x
+            = r\cdot x + s\cdot x$,
+            $r \cdot \left( s\cdot x \right) 
+            = r\cdot \varphi (s)x
+            = \varphi (r) \varphi (s) x
+            = \varphi (rs) x
+            = (rs)\cdot x$, and lastly,
+            $1_R \cdot x = \varphi (1_{R})x
+            = 1_{S} x = x$ (where we assume
+            that $\varphi  \neq 0$ )
+        \end{proof}
+    \end{exercise}
+
+    \begin{exercise}[6]
+        \begin{proof}
+            \begin{enumerate}
+                \item When $R = \mathbb{Z}$, we have $a \cdot x = 
+                    \underbrace{x+ \ldots +x}_{a \text{ times}}$, so
+
+                    $\varphi  (a\cdot x+y)
+                    = \varphi  \left( \underbrace{x + \ldots
+                    + x}_{a \text{ times}} \right) +
+                    \varphi (y)
+                    = \varphi (y)+ \sum_{i=1}^{a} \varphi (x)$,
+                    so again, no additional structure is preserved
+                    besides $\varphi $ being a group homomorphism.
+                    Converse is the same.
+                \item 
+                    Suppose
+                    $\varphi \colon M \to N$ is a $k$-linear
+                    homomorphism where $M$ and $N$ are
+                    $k$-modules.
+                    Then first, $M$ and $N$ can be considered
+                    as  $k$-vector spaces. If we consider them
+                    as such, we have for $\alpha, \beta \in k$ and
+                    $x,y \in M$ that
+                    $\varphi \left( \alpha x + \beta y \right) 
+                    = \varphi (\alpha x) + \varphi (\beta x)
+                    = \alpha \varphi (x) + \beta \varphi (x)$,
+                    where the first equality follows from
+                    $\varphi $ being a homomorphism
+                    of the underlying abelian groups, and
+                    the second equality follows from
+                    the additional assumption on
+                    $R$-maps that we can draw the
+                    scalar out.
+                \item Suppose
+                    $\varphi $ is a
+                    $k[t]$-linear homomorphism
+                    from $(V,T)$ to $(W,S)$. We then have
+                    $\varphi \left( \sum c_n T^n x \right) 
+                    = \varphi \left( \left( \sum c_n t^n \right) 
+                    x \right) 
+                    = \sum c_n t^n \varphi (x)
+                    = \sum c_n S^n \varphi (x)$, so
+                    it follows from the previous subexercise, that
+                    $\varphi $ is a vector space homomorphism
+                    with the property
+                    $\varphi  \left( T(x) \right) 
+                    = S\left( \varphi (x) \right) $ for
+                    all $x \in V$.
+            \end{enumerate}
+        \end{proof}
+    \end{exercise}
+
+    \begin{exercise}[8]
+        \begin{proof}
+            This follows from the same being true
+            for maps of sets which $\varphi $, in particular, is.
+        \end{proof}
+    \end{exercise}
+
+    \begin{exercise}[10]
+        \begin{proof}
+By exercise 6.(a), a
+                    $\mathbb{Z}$-linear homomorphism
+                    is simply a homomorphism of the underlying
+                    abelian groups.So we easily find that
+
+            \begin{enumerate}
+                \item $\Hom_{\mathbb{Z}} \left( \mathbb{Z},
+                    \mathbb{Z}\right) $ is in bijection with
+                    the integers, $\mathbb{Z}$.
+                \item Similar. Bijection with
+                    $\mathbb{Z} / m$.
+                \item Similarly, bijection with the underlying
+                    set of  $A$.
+                \item $\Hom_{\mathbb{Z}}\left( \mathbb{Z}/m,
+                    \mathbb{Z} \right) 
+                    = \left\{ 0 \right\}$ since for
+                    any $\mathbb{Z}$-linear homomorphism
+                    $\varphi  \colon
+                    \mathbb{Z} / m \to \mathbb{Z}$, we have
+                    $m \cdot \varphi  (1) = 0$ and hence
+                    $\varphi  (1) = 0$, so
+                    $\varphi  = 0$.
+                \item If $m = p_1^{\alpha_1} \cdots p_k^{\alpha_k}$ 
+                    and $n = q_1^{\beta_1} \cdots 
+                    q_{t}^{\beta_t}$, then
+                    \begin{align*}
+                    \Hom_{\mathbb{Z}} 
+                    \left( \mathbb{Z} / m , \mathbb{Z} /n \right) 
+                    &=
+                    \Hom_{\mathbb{Z}} \left( 
+                    \oplus_i \mathbb{Z} / \left( p_i^{\alpha_i}
+                    \right) 
+               , \oplus_{j} \mathbb{Z} / \left( 
+           q_{j}^{\beta_j}\right)   \right)\\
+           &= \bigoplus_{i,j} \Hom_{\mathbb{Z}}
+           \left( \mathbb{Z} / \left( p_i^{\alpha_i} \right) ,
+           \mathbb{Z} / \left( q_{j}^{\beta_j} \right) \right)\\
+                    \end{align*}
+
+                    Now if $p\neq q$, then the Hom set is
+                    trivial. If $p_i = q_j$ then we must
+                    have that $\varphi 
+                    \left( p_i^{\alpha_i} \right) = 0$, thus
+                    $\beta_j \le \alpha_i$. If
+                    $\beta_j \le \alpha_i$, then
+                    $\Hom_{\mathbb{Z}} 
+                    \left( \mathbb{Z} / \left( p_i^{\alpha_i} \right)
+                    , \mathbb{Z} / \left( q_j^{\beta_j} \right) 
+                \right) \approx
+                \mathbb{Z} / \left( q_j^{\beta_j} \right) $, so
+                \[
+                \Hom_{\mathbb{Z}} \left( \mathbb{Z} /m,
+                \mathbb{Z} / n\right) 
+                \approx
+                \bigoplus_{\substack{p_i = q_j \\ \beta_j \le 
+                \alpha_i }} \mathbb{Z} / \left( q_j^{\beta_j} \right) 
+                \] 
+
+            \item Suppose
+                $\varphi  \in \Hom_{\mathbb{Z}}
+                (\mathbb{Q},\mathbb{Z})$, then suppose
+                $\varphi \left( \frac{a}{b} \right) = m$. Then
+                $n \varphi \left( \frac{a}{bn} \right) = m $ 
+                so $n  \mid m$ for all $n> 1$. Thus
+                $m = 0$, so as $\frac{a}{b}$ was arbitrary,
+                $\varphi  = 0$. Hence
+                $\Hom_{\mathbb{Z}}\left( \mathbb{Q},\mathbb{Z} \right)
+                $.
+
+
+
+
+
+
+            \end{enumerate}
+        \end{proof}
+    \end{exercise}
+
+    \begin{exercise}[11]
+        \begin{proof}
+            Since $k$ is algebraically closed, we have
+            that $V$ decomposes as the direct sum
+            of its generalized eigenspaces. So
+            we now claim that
+            $M_{\lambda_i} = 
+            k[t] / \left( t-\lambda_i \right)^{e_i}$.
+            But
+            $M_{\lambda_i} = 
+            \left\{ x \in V  \mid 
+            \exists k > 0 \colon
+        \left( t - \lambda_i  \right)^{k} x
+    =  \left( T - \lambda_{i} \right)^{k} x = 0\right\} 
+         $. Now,
+         $M_{\lambda_i}$ is cyclic with
+         generator $x$ and has basis
+         $x, (T - \lambda_i) x, \ldots, (T-\lambda_i)^{k-1} x$.
+         Define now a map
+         $M_{\lambda_{i}} \to 
+         k[t] / \left( t - \lambda_i \right)^{k}$ by
+         $\left( T-\lambda_i \right)^{r} x 
+         \mapsto \left( t - \lambda_i \right)^{r}$ which
+         is clearly a linear isomorphism.
+         Thus the decomposition follows.
+
+        \end{proof}
+    \end{exercise}
+
+    \begin{exercise}[12]
+        \begin{proof}
+            We have that
+            $R [t] / \left( t^2 + 1 \right) 
+            \approx \left\{ a_0 + a_1 t  \mid a_0, a_1 \in 
+            \mathbb{R} \right\} $, and
+            on the other hand,
+            $t^2 
+            \begin{pmatrix} x_0 \\ x_1 \end{pmatrix} 
+            = \begin{pmatrix} 0& -1\\ 1 & 0 \end{pmatrix}^2 
+            \begin{pmatrix} x_0 \\ x_1 \end{pmatrix} 
+            = - \begin{pmatrix} x_0 \\ x_1 \end{pmatrix} $,
+            so we have that
+            $\left( \mathbb{R}^2, T \right) 
+            \approx \mathbb{R}[t] / \left( t^2 +1 \right) $ 
+            by $ct^n x \mapsto ct^n$.
+
+            Irreducibility of $t^2 + 1$ follows
+            from Eisenstein.
+        \end{proof}
+    \end{exercise}
+
+
+
+
+    \begin{exercise}[14]
+        \begin{proof}
+            Suppose $M$ is finitely generated by the set
+            $\left\{ x_1, \ldots, x_n \right\} \subset M$. Define
+            $\varphi  \colon R^n \to M$ by
+            $\varphi  \left( r_1, \ldots, r_n \right) 
+            = r_1 x_1 + \ldots + r_n x_n$. By definition
+            of a generating set, $\varphi $ is surjective, and
+            it is clear that it is an $R$-homomorphism.
+
+            Conversely, if
+            $\varphi  \colon \mathbb{R}^{m} \to M$ 
+            is a surjective homomorphism, then since
+            $\left\{ e_1, \ldots, e_m \right\} $ generates
+            $\mathbb{R}^{m}$,
+            $\left\{ \varphi e_1, \ldots, \varphi  e_m \right\} $ 
+            generates $M$.
+        \end{proof}
+    \end{exercise}
+
+    \begin{exercise}[15]
+        By exercise 14, there is a
+        surjective  $R$-homomorphism
+        $\varphi  \colon
+        R \to M$, so by the first isomorphism theorem,
+        $M \approx R / \ker \varphi $.
+        Conversely, if
+        $M \approx R /I$ then $M$ is cyclic as it
+        is generates by the inverse of
+        $\overline{1} \in R /I$ which generates
+        $R / I$.
+    \end{exercise}
+
+    \begin{exercise}[16]
+        To show surjectivity, we must show that
+        for any $m \in M$, there is an $R$-map
+        $\varphi  \colon R \to M$ with
+        $\varphi  (1) = m$.
+        But $R$ is cyclic, generated by
+        $1 \in R$. By prop 2.34 in Rotman, we can
+        extend a function
+        $\tilde{\varphi } \colon \left\{ 1 \right\} \to M$ 
+        mapping $1 \mapsto m$ to an $R$-map
+        $\varphi  \colon R \to M$ with
+        $\varphi (1) = m$. Hence
+        the map $\Hom_R \left( R,M \right) \to M$ by
+        $f \mapsto f(1)$ is surjective. Since
+        $R$ is generated by $1$ and any functions
+        are uniquely determined by their values on the
+        generating set, we get that
+        the map is also injective. Lastly, we must
+        check that it is an $R$-map.
+        Let $\psi (f) = f(1)$. Then
+        $\varphi (rf) = \left( rf \right) (1)
+        = r f(1) = r \psi (f)$ since $\Hom_R \left( R,M \right) $ 
+        has the structure of a group ring.
+    \end{exercise}
+
+    \begin{exercise}[17]
+        Suppose $M$ is an $R$-module which has a basis
+        $X$. Then let $\mu \colon X \to M$ be the inclusion.
+        Now for any function $X \to N$ for $N$ another $R$-module,
+        we have that it extends uniquely by linearity
+        to a function  $M \to N$. Namely, if
+        $f \colon X \to N$ is the function, then
+        the $R$-map $\tilde{f}\colon M \to N$ must be
+        \[
+        \tilde{f}\left( \sum_{x \in X} c_x x \right) 
+        = \sum_{x \in X} c_x f(x)
+        \] 
+        which is clearly $R$-linear.
+
+        Conversely, suppose $M$ is a free $R$-module
+        on the set $X$, given with the map
+        $\mu \colon X \to M$. We claim that
+        $\mu (X)$ is an $R$-linarly independent set
+        which generates $M$, i.e., a basis.
+        To show that it generates $M$, first note that
+        the inclusion
+        $X \to \left<X  \right>$ gives a map
+        $f \colon M \to \left<X \right>$ such that
+        \begin{equation*}
+        \begin{tikzcd}
+            X \ar[r, "\mu"] \ar[dr, "\iota"] & M \ar[d, "f"]\\
+                                             & \left<X \right>
+        \end{tikzcd}
+        \end{equation*}
+        commutes. But by extending linearly,
+        a map on $X$ can be extended to $\left<X \right>$,
+        so $\mu$ extends to a map $\tilde{\mu}\colon
+        \left<X \right>\to  M$ such that
+        
+        \begin{equation*}
+        \begin{tikzcd}
+            X \ar[r, "\mu"] \ar[dr, "\iota"] & M \ar[d, "f"]\\
+                                             & \left<X \right>
+                                             \ar[u, "\tilde{\mu}"]
+        \end{tikzcd}
+        \end{equation*}
+        commutes.
+        Then
+        $f \tilde{\mu} \iota = f \mu
+        = \iota $, which, by the universal of freeness of
+        $\left<X \right>$ on $X$, gives that
+        $f \tilde{\mu} = \mathbbm{1}_{\left<X \right>}$.
+        Likewise,
+        $\tilde{\mu} f \mu = \tilde{\mu} \iota = \mu$, so
+        by universality of freeness of $M$ on $X$, we get
+        $\tilde{\mu} f = \mathbbm{1}_M$. Thus
+        $f$ is indeed an isomorphism.
+    \end{exercise}
+
+    \begin{exercise}[20]
+        \begin{enumerate}
+            \item Let
+                $U$ be the set
+                of all $f\left( N \right) $ for
+                $f \colon M \to R$ an $R$-map.
+                We order $U$ by inclusion, so
+                $f(N) \le g(N)$ iff $f(N) \subset g(N)$.
+                Suppose
+                $f_1(N) \le f_2(N) \le \ldots$ is a tower.
+                By theorem 1.12 in the notes,
+                every submodule of a free
+                $R$-module is free, so $N$ is free.
+                Suppose $v_1, \ldots, v_k$ is a basis
+                for $N$. Then 
+                let $f_1 (v_{i_1}) , \ldots, 
+                f_1 \left( v_{i_r} \right) $ be
+                a basis for $f_1(N)$. Now,
+                for all $i$, $f_i(N)$ has dimension
+                at most $k$, so adjoining repeatedly
+                certain $f_{j} \left( v_{i_{j_{t}}} \right) $, we
+                obtain a basis for
+                $f_{i}(N)$ for all $i \ge K \in \mathbb{N} $ for
+                some $K$. Then
+                $f_K(N)$ is an upper bound.
+                By Zorn's lemma, there thus exists
+                a maximal element
+                $u(N)$ for some map $u \colon M \to R$.
+            \item If $a_1 = 0$ then
+                $u (N) = \left\{ 0 \right\} $, so
+                every $f \colon M \to R$ would have to vanish
+                on $N$. However, if
+                $N \neq 0$, then choosing a basis as above,
+                $v_1, \ldots, v_k$, we can define a map
+                $\tilde{g} \colon \left\{ v_1, \ldots, v_k \right\} 
+                \to R$ by $v_i \mapsto 1_{R}$ and then
+                extending linearly to a map
+                $g \colon N \to R$ which is nontrivial, hence
+                $g (N) \neq 0$, and then
+                 we can extend this again to a map on
+                 $M$ by mapping the rest of $M$ to $0$.
+                 Hence $a_1 \neq 0$.
+             \item 
+                 Since $\pi_i \in \Hom_R (M,R)$, we
+                 have that 
+                 $\pi_i (N) \subset u(N) =
+                 \left( a_1 \right) $, so
+                 in particular,
+                 $\pi_i \left( e_1' \right) 
+                 = a_1 \alpha_i$ for some
+                 $\alpha_i \in R$.
+             \item If $e_1' = 
+                 c_1 x_1 + \ldots + c_n x_n$, then
+                 $a_1 \alpha_i = \pi_i \left( e_1' \right) 
+                 = c_i$, so
+                 $e_1' = a_1 \sum_i \alpha_i x_i
+                 = a_1 e_1$.
+             \item 
+                 \[
+                     a_1 u(e_1) = u\left( a_1 e_1 \right) =
+                     u(e_1') = a_1
+                 \] 
+                 hence $a_1 \left( u(e_1)-1 \right) =0$ and
+                 since $a_1 \neq 0$ and $R$ is an integral
+                 domain, we have $u(e_1) = 1$.
+                 Now, define
+                 $\varphi (x) = 
+                 \left( x-u(x) e_1, u(x) \right) $.
+                 Then 
+                 $\left( 0,0 \right) =
+                 \varphi (x) = \left( x-u(x)e_1,u(x) \right) $ 
+                 if and only if $u(x) = 0$ and hence
+                 $x = 0$. So $\varphi $ is injective.
+                 Now suppose
+                 $\left( x,y \right) \in 
+                 \ker u \oplus R$. Then
+                 $u\left( y e_1 \right) = y$ and
+                 $y e_1 - u\left( y e_1 \right) e_1
+                 = 0$, so
+                 $\varphi  \left( y e_1 \right) = 
+                 \left( 0,y \right) $. Meanwhile,
+                 $x \in \ker u$, so
+                 $\varphi (x)
+                 = \left( x,0 \right) $. Hence
+                 $\varphi  (x+ y e_1) = 
+                 (x,y)$, so $\varphi $ is surjective.
+                 Lastly,
+                 $\varphi (x+x')
+                 = \left( x+x' - u\left( x+x' \right) e_1,
+                 u(x+x') \right) 
+                 = \left( x - u(x)e_1, u(x) \right) 
+                 + \left( x' - u(x')e_1, u(x') \right) 
+                 = \varphi (x) + \varphi (x')$ and
+                 $\varphi (rx) = 
+                 \left( rx - u(rx)e_1, u(rx) \right) 
+                 = \left( r\left( x-u(x)e_1 \right) ,
+                 r u(x)\right) 
+                 = r \left( x-u(x)e_1, u(x) \right) 
+                 = r \varphi (x)$, so
+                 $\varphi $ is an $R$-map.
+                 Thus $M \approx \ker u \oplus R$.
+             \item We can repeat the above
+                 process on
+                 $M' \cap N$ to decompose M' into
+                 $M'' \oplus R$ with some
+                 isomorphism $\varphi \colon
+                 M' \approx M'' \oplus R$ with
+                 $\varphi (x) = \left( x-
+                 u'(x) e_2, u'(x) \right) $ where
+                 $u'(e_2) = 1$ and
+                 $\alpha_2 e_2 \in 
+                 M' \cap N$. Thus, 
+                 \[
+                 M \approx
+                 \tilde{M} \oplus \underbrace{R \oplus \ldots \oplus R}_{n
+                 \text{ times}}
+                 \] 
+                 under the isomorphism
+                 \[
+                 x \mapsto 
+                 \left( x- u(x)e_1 - u^{(1)}(x)e_2
+                 - \ldots - u^{(n-1)}(x)e_n,
+             u^{(1)}(x), u^{(2)}(x) ,\ldots,
+         u^{(n-1)}(x) \right) .
+                 \] 
+                 How can we show that
+                 $a_1e_1, \ldots, a_n e_n$ are now
+                 linearly independent? 
+                 Suppose
+                 $\sum a_i e_i = 0$. Then
+                 this is mapped under the isomorphism
+                 to
+                 \[0 = 
+                 \left( \sum a_i e_i -
+                 a_1 e_1 - \ldots - a_n e_n,
+         a_1 , \ldots, a_n \right) \]
+         so $a_i = 0$ for all $i$.
+         \end{enumerate}
+    \end{exercise}
+
+    \begin{exercise}[21]
+        A free module $F$ of rank
+        $n$ is isomorphic to $R^{n}$, so we get from
+        the first isomorphism theorem that
+        \[
+        M \approx R^{n} / \left( \left<a_1  \right> \oplus
+        \left<a_2 \right> \oplus \ldots \oplus
+    \left<a_m  \right> \right) 
+    \approx
+    R^{k} \oplus R / \left( a_1 \right) 
+    \oplus \ldots \oplus R / \left( a_m \right) 
+        \] 
+        where 
+        $\ker \varphi =
+        \left<a_1e_1, \ldots, a_n e_n \right>$ as in the
+        previous exercise.
+    \item Apply the Chinese Remainder Theorem
+    \item 
+    \end{exercise}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    %\bibliography{../refs.bib}
+\end{document}

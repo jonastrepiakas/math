@@ -1,0 +1,357 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\SHomeo}{SHomeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Char}{char}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\Mod}{{\mathrm{Mod}}}
+\newcommand{\PMod}{{\mathrm{PMod}}}
+\newcommand{\SMod}{{\mathrm{SMod}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+
+
+
+\title{Assignment 1}
+\author{Jonas Trepiakas - KU-Id: hvn548}
+\date{}
+
+
+\begin{document}
+
+\maketitle
+
+    \begin{exercise}[H1.1]
+        \begin{proof}
+            \[
+            f * e (n) = \sum_{d  \mid n} f(d) e (\frac{n}{d})
+            = \sum_{d  \mid n} f(d) \delta_{\frac{n}{d},1}
+            = f(n)
+            \] 
+            and since the sets
+            $\left\{ d \colon d \mid n \right\} $ and
+            $\left\{ \frac{n}{d}  \colon
+            d  \mid n\right\} $ are equal, we have
+            \[
+            g * f = 
+            \sum_{d \mid n} g(d) f\left( \frac{n}{d} \right) 
+            =
+            \sum_{d  \mid n} g\left( \frac{n}{d} \right) 
+            f \left( \frac{n}{\frac{n}{d}} \right) 
+            = f * g (n)
+            \] 
+        \end{proof}
+    \end{exercise}
+
+
+    \begin{exercise}[H1.2]
+        \begin{proof}
+            \[
+            \mu * 1 (n)
+            = \sum_{d \mid n}
+            \mu (d) 1 \left( \frac{n}{d} \right) 
+            = \sum_{d \mid n} \mu(d)
+            \] 
+            If $n = p$ is a prime, we trivially
+            have
+            $\left\{ d \colon d \mid n \right\} 
+            = \left\{ 1,p \right\} $, so
+            $\sum_{d \mid n} \mu (d) =
+            1 -1 = 0 = e(p)$, so it is true for
+            $n$ a prime.
+
+            Now, if $n = p^{\alpha}$, then
+            \[
+            \mu * 1 (n) = 
+            \sum_{d  \mid n} \mu (d) 1\left( \frac{n}{d} \right) 
+            = \mu (p) + \mu (1)
+            = 0
+            \] 
+            since in all other terms, $\mu$ is evaluated at
+            a non-squarefree integer.
+
+
+            Lastly, for
+            $n = p_1^{\alpha_1} \cdots p_{k}^{\alpha_{k}}$, it
+            reduces to the previous case because
+            $\mu$ is only non-zero on squarefree integers, so
+            \begin{align*}
+                \mu * 1 (n)
+                &= \sum_{d  \mid \frac{n}{p_1^{\alpha_1-1} 
+                \cdots p_k^{\alpha_k-1}}}
+                \mu (d) = 0
+            \end{align*}
+            since the sets
+            $\left\{ d \colon
+            d  \mid 
+        \frac{n}{p_1^{\alpha_1 - 1} \cdots
+    p_k^{\alpha_k -1}}\right\} $ and
+    $\left\{ d \colon
+    d  \mid p_1 \cdots p_k \right\} $ are equal.
+
+    Thus, indeed, $\mu * 1 = e$.
+        \end{proof}
+    \end{exercise}
+
+    \begin{exercise}[H1.3]
+        We claim that the set of arithmetic functions
+        with Dirichlet convolution as a binary operation is
+        an abelian semigroup.
+        For this, if $f,g \colon \mathbb{N}  \to \mathbb{C}$, then
+        clearly $f * g \colon \mathbb{N} \to \mathbb{C}$ too.
+        Also,
+        $f *g(n) = \sum_{ab = n} f(a) g(b) = 
+        \sum_{ba = n} g(b) f(a) = g*f(n)$ by commutativity
+        of multiplication in $\mathbb{C}$.
+        Lastly,
+        \[
+            \left( f*g \right) *h(n)
+            = \sum_{ab = n} f*g(a) h(b)
+            = \sum_{ab=n} \sum_{cd = a} f(c) g(d) h(b)
+            = \sum_{cdb = n} f(c) g(d) h(b)
+        \] 
+        and
+        \[
+        f * \left( g*h \right) (n)
+        = \sum_{ab = n} f(a) g*h(b)
+        = \sum_{ab = n} \sum_{cd = b} f(a) g(c) h(d)
+        = \sum_{acd = n} f(a) g(c) h(d)
+        \] 
+        (all of this is just Theorem 5.1.4 in the book for Introduction to Number Theory
+        by Risager).
+
+        Now, if
+        $f = 1 * g$ then
+        $\mu * f = \mu * \left( 1 * g \right) 
+        = \left( \mu * 1 \right) * g
+        = e * g
+        = g * e = g$ by the above together with
+        H1.1.
+        Likewise, if $g = \mu * f$, then
+        $1 * g = 1 * \left( \mu * f \right) 
+        = \left( 1 * \mu \right) * f
+        = \left( \mu * 1 \right) * f
+        = e * f = f * e = f$ again.
+    \end{exercise}
+
+    \begin{exercise}[H1.4]
+        We have
+        \begin{align*}
+            \sum_{n=1}^{\infty} \left| 
+            \frac{f(n)}{n^{s}}\right| 
+            &\le 
+            \sum_{n=1}^{\infty } \frac{C n^{k}}{n^{\sigma}}\\
+            &\le \sum_{n=1}^{\infty}
+            \frac{C}{n^{\sigma - k}}\\
+            &< \infty
+        \end{align*}
+        as $\sigma - k > 1$. Thus the series
+        converges absolutely.
+    \end{exercise}
+
+    \begin{exercise}[H1.5]
+        \begin{proof}
+            We know that
+            $L_f$ converges absolutely for
+            $\sigma > 1 + k_f$ and
+            $L_g$ converges absolutely for
+            $\sigma > 1 + k_g$.
+            Now,
+            \begin{align*}
+                \sum_{n=1}^{\infty }
+                \left| \frac{\sum_{d  \mid n} f(d)
+                g(\frac{n}{d})}{n^{s}}
+                \right| 
+                &\le \sum_{n=1}^{\infty} \sum_{d \mid n}
+                \frac{C_f C_g d^{k_f} 
+                \left( \frac{n}{d} \right)^{k_g}}{n^{\sigma}}\\
+                &= \sum_{n=1}^{\infty} C \frac{1}{n^{\sigma -
+                k_g}}
+            \end{align*}
+            and by symmetric, likewise for a different
+            constant  $C$ with $k_f$ replacing $k_g$.
+            Hence the sum defining
+             $L_{f*g}(s)$ is absolutely convergent
+             for $\sigma > \min \left\{ 1+k_f, 1+k_g \right\} $,
+             and in this half-plane, 
+             \[
+             L_f(s) L_g(s) = 
+             \lim_{n \to \infty}
+             \sum_{k=1}^{n} \sum_{t=1}^{n} \frac{f(k)}{k^{s}}
+             \frac{g(t)}{t^{s}}
+             = \lim_{n \to \infty} 
+             \sum_{k=1}^{n} \sum_{d  \mid k} 
+             \frac{f(d) g(\frac{n}{d})}{k^{s}}
+             = L_{f*g}(s)
+             \] 
+        \end{proof}
+    \end{exercise}
+
+    \begin{exercise}[H1.6]
+        We have
+        $L_{1}(s) L_{\mu}(s) = 
+        L_{1 * \mu}(s) =
+        L_{e}(s)
+        = 1$, but
+        $L_1(s) = \zeta(s)$ and
+        $L_{\mu}(s) = \sum_{n=1}^{\infty} \frac{\mu(n)}{n^{s}}$, 
+        so the result follows from H1.5 since
+        $1(n) = O(1)$ and
+        $\mu (n) = O(1)$, so
+        $L_{1*\mu}$ is absolutely convergent
+        for $\sigma > 1$ with 
+        $L_{1} (s) L_{\mu}(s) = L_{1 * \mu}(s)$.
+    \end{exercise}
+
+
+    \begin{exercise}[H 1.7]
+        \begin{proof}
+            For $f(n) = n^{w}$, we have
+            $\sigma_w (n) = f * 1 (n)$.
+            The abscissa of convergence for
+            $1$ is $1$ and for $f$ it is
+            $1 + \Re (w)$. For  $\sigma > 
+            \min \left\{ 1, 1 + \Re (w) \right\} $, we have
+            $\sum_{n=1}^{\infty} \frac{\sigma_w (n)}{n^{s}}
+            = L_{\sigma_w}(s)
+            = L_{f}(s) L_{1}(s)$. Now
+            $L_1 (s) = \zeta(s)$, and
+            \[
+            L_f(s) = 
+            \sum_{n=1}^{\infty} \frac{n^{w}}{n^{s}}
+            = \sum_{n=1}^{\infty}
+            \frac{1}{n^{s-w}}
+            = \zeta(s-w).
+            \] 
+            Thus
+            $\sum_{n=1}^{\infty} \frac{\sigma_w(n)}{n^{s}}
+            = \zeta(s-w) \zeta(s)$
+        \end{proof}
+    \end{exercise}
+
+
+
+
+
+    %\bibliography{../refs.bib}
+\end{document}
