@@ -12,7 +12,7 @@
 \usepackage{tikz-cd}
 \usepackage{enumitem}
 \usepackage{float}
-
+\usepackage{adjustbox}
 
 \setlength\parindent{0pt}
 
@@ -2617,6 +2617,183 @@ S_g^{1} \right) }\left( \iota \right) .
    \section{Braided monoidal categories}
 
 
+   \subsection{Monoidal categories}
+
+   We first introduce the notion of a monoidal category.
+
+   \begin{definition}[Monoidal category]
+       A monoidal category is a tuple
+       $V = \left( V, \otimes, I, a, l ,r \right) $ consisting
+       of a category $V$, a functor
+       $\otimes \colon V \times V \to V$ called the
+       tensor product, and object $I \in V$ called the
+       unit, and natural isomorphisms
+       \begin{align*}
+           a &\colon \left( - \otimes - \right) \otimes -
+           \stackrel{\sim}{\implies} - \otimes \left( - 
+           \otimes - \right)\\
+           l &\colon I \otimes - \stackrel{\sim}{\implies} -\\
+           r &\colon - \otimes I \stackrel{\sim}{\implies} -
+       \end{align*}
+       called the associativity, left unit and right unit
+       constraints, respectively. 
+       Additionally, we require that for all
+       objects $A,B,C,D \in V$, the following two diagrams
+       commute:\\[2 ex]
+
+       \adjustbox{scale=0.9,center}{
+           \begin{tikzcd}
+	&& {\left( A \otimes B  \right) \otimes \left(         C \otimes D \right)} \\
+	{\left( \left( A \otimes B \right) \otimes C \right) \otimes D} &&&& {A \otimes \left( B   \otimes \left( C \otimes D \right) \right)} \\
+	& {\left( A \otimes                                 \left( B \otimes C \right) \right)         \otimes D} && {A \otimes \left( \left( B \otimes C \right)         \otimes D \right)}
+	\arrow["a", from=1-3, to=2-5]
+	\arrow["a", from=2-1, to=1-3]
+	\arrow["{a \otimes D}"', from=2-1, to=3-2]
+	\arrow["a"', from=3-2, to=3-4]
+	\arrow["{A \otimes a}"', from=3-4, to=2-5]
+\end{tikzcd}
+   }
+   \\[1 ex]
+   and
+   \\[1 ex]
+
+   \adjustbox{scale=0.9,center}{
+   \begin{tikzcd}
+	{(A \otimes I) \otimes B} && {A \otimes (I \otimes B)} \\
+	& {A \otimes B}
+	\arrow["a", from=1-1, to=1-3]
+	\arrow["{r \otimes B}"', from=1-1, to=2-2]
+	\arrow["{A \otimes l}", from=1-3, to=2-2]
+\end{tikzcd}
+}
+
+The monoidal category is called strict when all the
+natural isomorphisms are identity morphisms for all objects.
+   \end{definition}
+
+   \begin{definition}[Braiding]
+       A braiding for a monoidal category $V$ consists
+       for a natural family of isomorphisms
+       \[
+           c = c_{A,B} \colon A \otimes B \stackrel{\sim}{\to }
+           B \otimes A
+       \] 
+       in $V$ such that the following diagrams commute\\[3 ex]
+
+
+       \begin{tikzcd}
+	& {(B \otimes A) \otimes C} & {B \otimes (A \otimes C)} \\
+	{(A \otimes B) \otimes C} &&& {B \otimes (C \otimes A)} \\
+	& {A \otimes (B \otimes C)} & {(B \otimes C) \otimes A}
+	\arrow["a", from=1-2, to=1-3]
+	\arrow["{B \otimes c}", from=1-3, to=2-4]
+	\arrow["{c \otimes C}", from=2-1, to=1-2]
+	\arrow["a"', from=2-1, to=3-2]
+	\arrow["c"', from=3-2, to=3-3]
+	\arrow["a"', from=3-3, to=2-4]
+\end{tikzcd}
+\\[1 ex]
+and \\[1 ex]
+\begin{tikzcd}
+	& {A \otimes (C \otimes B)} & {(A \otimes C ) \otimes B} \\
+	{A \otimes (B \otimes C)} &&& {(C \otimes A) \otimes B} \\
+	& {(A \otimes B) \otimes C} & {C \otimes (A \otimes B)}
+	\arrow["{a^{-1}}", from=1-2, to=1-3]
+	\arrow["{c \otimes B}", from=1-3, to=2-4]
+	\arrow["{A \otimes c}", from=2-1, to=1-2]
+	\arrow["{a^{-1}}"', from=2-1, to=3-2]
+	\arrow["c"', from=3-2, to=3-3]
+	\arrow["{a^{-1}}"', from=3-3, to=2-4]
+\end{tikzcd}
+   \end{definition}
+
+
+   \subsection{Braided monoidal category of decorated surfaces}
+
+   \begin{definition}[Decorated surface]
+       A decorated surface is a pair
+       $(S,I)$ where $S$ is a compact connected
+       surface with at least one boundary component
+       and $I \colon \left[ -1,1 \right] 
+       \hookrightarrow \partial S$ is a parametrised interval
+       in its boundary.
+   \end{definition}
+
+   \begin{definition}[$\mathcal{M}_2$]
+       Let $\mathcal{M}_2$ denote the groupoid where
+       the objects are
+       decorated surfaces and
+       morphisms are isotopy classes of diffeomorphisms
+       restricting to the identity on a neighborhood
+       of $I$.
+   \end{definition}
+
+   We now construct a braided monoidal structure on
+   $\mathcal{M}_2$ : given decorated surfaces
+   $\left( S_1, I_1 \right) $ and
+   $\left( S_2,I_2 \right) $, define
+   $\left( S_1, I_1 \right) 
+   \otimes \left( S_2, I_2 \right) 
+   := \left( S_1 \# S_2, I_1 \# I_2 \right) $ to be
+   the surface obtained by gluing
+   $S_1$ and $S_2$ along the right half-interval
+   $I_1^{+} \in \partial S_1$ and the
+   left half-interval $I_2^{-} \in \partial S_2$, defining
+   $I_1 \# I_2 = I_1^{-} \cup I_2^{+}$.
+
+   \begin{figure}[htpb]
+       \centering
+       \includegraphics[width=0.35\textwidth]{connected-sum.png}
+       \label{fig:connected-sum-png}
+   \end{figure}
+
+   Furthermore, we define the unit object to be
+   $I := \left( D^2, I \right) $. 
+   In this case, the monoidal structure is clearly strict. 
+
+   We define a braiding $c$ on
+   $\left( S_1 \# S_2, I_1 \# I_2 \right) $ 
+   as the half-Dehn twist which satisfies that
+   $c \colon \left( S_1 \# S_2, I_1 \# I_2 \right) 
+   \stackrel{\sim}{\to } \left( S_2 \# S_1, I_2 \# I_1 \right)  $
+   is a natural isomorphism because we
+   it has the opposite half-Dehn twist as the inverse (why would
+   this be natural?...)
+
+   The B1 and B2 diagrams can be verified pictorially as follows:
+
+
+   \begin{figure}[H]
+    \centering
+    \begin{minipage}[b]{0.5\textwidth}
+        \centering
+        \includegraphics[width=1.1\textwidth]{B1.jpg} % first figure itself
+    \end{minipage}\hfill
+    \begin{minipage}[b]{0.5\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{B2.jpg} % second figure itself
+    \end{minipage}
+\end{figure}
+
+\newpage 
+
+\section{Geometric Representations of the Braid Group on
+non-orientable surfaces}
+
+A connected orientable (respectively nonorientable) surface
+of genus $g$ with $b$ boundary components will
+be denoted by $S_{g,b}$ (respectively $N_{g,b}$ ).
+
+Now, recall that the Möbius band, which are also called
+crosscaps), are the mapping cylinders on the map
+$z \mapsto z^2$ (see figure~\ref{fig:mapping-cylinder-mobius})
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{mapping-cylinder-mobius.jpg}
+    \label{fig:mapping-cylinder-mobius}
+    \caption{Möbius band}
+\end{figure}
 
 
 
