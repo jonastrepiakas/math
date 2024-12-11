@@ -930,7 +930,7 @@ we have the following lemma \cite[Prop A.14]{Hatcher}:
     tori with $b \ge 0$ disjoint open disks removed and
     $n \ge 0$ points removed from the interior. Let
     $\Homeo^{+} \left( S, \partial S \right)$ denote the group
-    of orientation-preserving homeomorphisms of $S$ that
+    of orientation-preserving self-homeomorphisms of $S$ that
     restrict to the identity on $\partial S$. We endow this
     group with the compact-open topology.
     The \textit{mapping class group} of  $S$, denoted
@@ -2793,6 +2793,12 @@ components of $S_{0,g+b}$.
     surface $S$.
 \end{definition}
 
+We will introduce three types of geometric representations
+of the braid group: the standard twist representation, the crosscap
+transposition representation, and lastly, transvection.\\
+\linebreak
+
+
 We call a curve two-sided (resp. one-sided) if its regular neighborhood is an
 annulus (resp a Möbius band). A sequence
 $C \left( a_1, \ldots, a_{n-1} \right) $ of two-sided
@@ -2800,6 +2806,8 @@ curves in $S$ is called a chain of nonseparating curves
 if $i \left( a_i, a_{i+1} \right) =1$ for
 $1 \le i \le n-2$ and
 $i \left( a_i, a_j \right) =0$ for $\left| i-j \right| >0$.
+
+\subsubsection{The standard twist representation}
 
 \begin{lemma}[]
     If we fix an orientation of a regular neighborhood
@@ -2819,6 +2827,103 @@ $i \left( a_i, a_j \right) =0$ for $\left| i-j \right| >0$.
     \includegraphics[width=0.8\textwidth]{standard-chain.png}
     \label{fig:standard-chain-png}
 \end{figure}
+
+
+\subsubsection{The crosscap transposition representation}
+
+Let $N = N_{g,b}$ be nonorientable. A sequence
+$C = \left( a_1, \ldots, a_{n-1} \right) $ of separating
+curves in $N$ is called \textit{a chain of separating curves} if
+\begin{enumerate}
+    \item $a_i$ bounds a one-holed Klein bottle
+        for $i = 1, \ldots, n-1$,
+    \item $i \left( a_i, a_{i+1} \right) = 2$ for
+        $i = 1,\ldots, n-2$,
+    \item $i\left( a_i, a_j \right) = 0$ for
+        $\left| i-j \right| > 1$.
+\end{enumerate}
+
+
+Here $a_i$ bounding a one-holed Klein bottle means
+that if we collapse $a_i$ to a point, we obtian a 
+sphere with two crosscaps which is equivalent to the Klein bottle
+(see figure~\ref{fig:klein-bottle})
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.2\textwidth]{klein-bottle.jpg}
+    \label{fig:klein-bottle}
+    \caption{Klein-bottle as the sphere with two crosscaps}
+\end{figure}
+
+Let $K_i$ be the one-hoeld Klein bottle bounded by
+$a_i$. Then $K_i \cap K_{i+1}$ will be a Möbius strip
+for $i = 1, \ldots, n-2$, and we denote its core curve
+by $\mu_{i+1}$. Let $\mu_1$ and $\mu_n$ be the core curves
+of $K_1 - K_2$ and $K_{n-1} - K_{n-2}$, respectively.
+Fix an orientation of a regular neighborhood of
+the union of the $a_i$. Let $T_{a_i}$ be the right-handed
+Dehn twist about $a_i$and let $u_i$ be the 
+\textit{crosscap transpostion} supported
+in $K_i$, swapping $\mu_i$ and $\mu_{i+1}$ such that
+$u_i^2 = T_{a_i}$ (essentially a half-Dehn twist but for crosscaps
+instead of punctures).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{chain-separating-curves.png}
+    \caption{A chain of separating curves in
+    $N_{g,b}$.}
+    \label{fig:chain-separating-curves-png}
+\end{figure}
+
+
+\begin{lemma}[]
+    The mapping $\theta_{C} \colon B_n \to \PMod (N)$ by
+    $\theta_C \left( \sigma_i \right) =u_i$ for
+    $i = 1,\ldots, n-1$, defines a homomorphisms
+    called crosscap transposition representation.
+\end{lemma}
+
+
+\subsubsection{Transvection}
+
+\begin{definition}[Transvection]
+    Given a homomorphism
+    $\rho \colon B_n \to \PMod (S)$ and an element
+    $\tau \in \PMod (S)$ such that
+    $\tau$ commutes with $\rho\left( \sigma_i \right) $ 
+    for $1 \le i \le n-1$, we define a homomorphism
+    $\rho^{\tau} \colon B_n \to \Mod (S)$, called
+    a \textit{transvection} of $\rho$, by
+    \[
+        \rho^{\tau} \left( \sigma_i \right) 
+        = \tau \rho \left( \sigma_i \right) , \quad
+        i = 1,\ldots, n-1.
+    \] 
+    A homomorphism $\rho \colon B_n \to \PMod (S)$ is called
+    \textit{cyclic} if $\rho \left( B_n \right) $ is a 
+    cyclic group. 
+\end{definition}
+
+\subsection{The main theorems}
+
+\begin{theorem}[]\label{Thm1.2}
+    Let $n \ge 14$ and let $N = N_{g,b}$ with
+    $g \le 2 \left\lfloor \frac{n}{2} \right\rfloor +1$ and
+    $b\ge 0$. Then any homomorphism
+    $\rho \colon B_n \to \PMod (N)$ is either
+    cyclic, or is a transvection of a standard twist
+    representation, or is a transvection of a crosscap
+    transposition representation.
+\end{theorem}
+
+\begin{theorem}[]\label{Thm1.3}
+    Theorem~\ref{Thm1.2} still holds
+    when $\PMod (N)$ is replaced by $\Mod \left( N,
+    \partial N \right) $.
+\end{theorem}
+
 
 
 
