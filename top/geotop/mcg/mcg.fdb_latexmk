@@ -1,12 +1,12 @@
 # Fdb version 4
-["bibtex mcg"] 1722889587.72561 "mcg.aux" "mcg.bbl" "mcg" 1733867515.47152 0
+["bibtex mcg"] 1722889587.72561 "mcg.aux" "mcg.bbl" "mcg" 1733879592.50631 0
   "mcg.aux" 1722889587.464 974 8a698ad7463f1950690f3c75c9465ef6 "pdflatex"
   "mcg.bib" 0 -1 0 ""
   (generated)
   "mcg.bbl"
   "mcg.blg"
   (rewritten before read)
-["pdflatex"] 1733867513.47352 "mcg.tex" "mcg.pdf" "mcg" 1733867515.47175 0
+["pdflatex"] 1733879590.32076 "mcg.tex" "mcg.pdf" "mcg" 1733879592.50653 0
   "/etc/texmf/web2c/texmf.cnf" 1718688975.81737 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/jonas-trepiakas/.texlive2023/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk" 1727527665.45445 6964 86acb68f026bd4eb7255bbd50e22f730 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -231,12 +231,13 @@
   "lemma-1-8.jpg" 1725374373.76166 46887 b342f35cf067c4b04a7e320195cf071e ""
   "lifts-of-paths.jpg" 1722893708.76281 203201 83ed0f50a606912a88eabfbe2318e4a3 ""
   "mapping-cylinder-mobius.jpg" 1733867323.69041 38531 317b9fecffe785fc00d9d1a3ed713c0d ""
-  "mcg.aux" 1733867515.1333 13328 67d522ff06793634975b0a1b5540b376 "pdflatex"
+  "mcg.aux" 1733879592.13381 13288 3c59b12e4138c027d08be8701b761c89 "pdflatex"
   "mcg.bbl" 1731708028.42828 1120 fb151e1e70c634278e8cea43e64fc93f "bibtex mcg"
-  "mcg.out" 1733867515.1343 8438 d720870bf1ba7bd3ba524a89f72d6a8b "pdflatex"
-  "mcg.tex" 1733867510.92926 106691 9ea1179afc4f6725647f00d204f1c9a9 ""
+  "mcg.out" 1733879592.13481 8086 101b758bef6771211659872e19faab96 "pdflatex"
+  "mcg.tex" 1733879591.37481 106340 3de1a059fb957c2dd0d4f31e7330284e ""
   "push-point-map.png" 1728512950.81616 42008 a9c8295eac0b41b0b5ff2cfb4d9e9ad4 ""
   "sigma_i_configuration.png" 1727899992.71127 7791 8c7e3841aee9b99d6123b25a799ae9c0 ""
+  "standard-chain.png" 1733877287.14402 27593 886242ac7dfd11d536b45767d57b4121 ""
   "twists-along-curves-on-torus.jpg" 1726068338.06894 61970 c61152c56695ccf71cd6adcae7d3325d ""
   (generated)
   "mcg.aux"
