@@ -2803,7 +2803,7 @@ t^{-1} \left( U_i - (1-t)I_n \right)
 \] 
 
 
-Now, for all $i,j$ with $j-i >2$, we have
+Now, for all $i,j$ with $j-i \ge 2$, we have
 \begin{align*}
     U_i U_j 
     &= 
@@ -2822,11 +2822,11 @@ Now, for all $i,j$ with $j-i >2$, we have
     &= 
     \begin{pmatrix} 
         I_{i-1} &  &  & & && \\
-         & 1-t &  & & &&\\
-         &  & 0 &  & &&\\
+         & 1-t & t & & &&\\
+         & 1 & 0 &  & &&\\
          &  &  & I_{j-i-2} & & &\\
-          & & & & 1-t &  & \\
-          &&&& & 0&\\
+          & & & & 1-t & t & \\
+          &&&& 1 & 0&\\
           & &&&&& I_{n-j-3}
     \end{pmatrix} \\
     &=

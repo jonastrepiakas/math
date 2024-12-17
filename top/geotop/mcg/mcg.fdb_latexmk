@@ -1,12 +1,12 @@
 # Fdb version 4
-["bibtex mcg"] 1722889587.72561 "mcg.aux" "mcg.bbl" "mcg" 1734019213.05106 0
+["bibtex mcg"] 1722889587.72561 "mcg.aux" "mcg.bbl" "mcg" 1734449437.59678 0
   "mcg.aux" 1722889587.464 974 8a698ad7463f1950690f3c75c9465ef6 "pdflatex"
   "mcg.bib" 0 -1 0 ""
   (generated)
   "mcg.bbl"
   "mcg.blg"
   (rewritten before read)
-["pdflatex"] 1734019209.70155 "mcg.tex" "mcg.pdf" "mcg" 1734019213.05134 0
+["pdflatex"] 1734449434.23032 "mcg.tex" "mcg.pdf" "mcg" 1734449437.59718 0
   "/etc/texmf/web2c/texmf.cnf" 1718688975.81737 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/jonas-trepiakas/.texlive2023/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk" 1727527665.45445 6964 86acb68f026bd4eb7255bbd50e22f730 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -233,10 +233,10 @@
   "lemma-1-8.jpg" 1725374373.76166 46887 b342f35cf067c4b04a7e320195cf071e ""
   "lifts-of-paths.jpg" 1722893708.76281 203201 83ed0f50a606912a88eabfbe2318e4a3 ""
   "mapping-cylinder-mobius.jpg" 1733867323.69041 38531 317b9fecffe785fc00d9d1a3ed713c0d ""
-  "mcg.aux" 1734019212.56229 14613 65647be6570dd96ff73749520f6ef51e "pdflatex"
+  "mcg.aux" 1734449437.08906 14613 4c1fbfcf65a64d24ec6d8bf559361e8b "pdflatex"
   "mcg.bbl" 1731708028.42828 1120 fb151e1e70c634278e8cea43e64fc93f "bibtex mcg"
-  "mcg.out" 1734019212.56429 8563 a32a6c675b9a1e13bc9fcf78c6ca30c1 "pdflatex"
-  "mcg.tex" 1734019209.36326 112224 fda99f6c1a89aa5751f23abc3dc0ee29 ""
+  "mcg.out" 1734449437.09106 8563 9006e4c7bdc3d97d689b61539a790a9a "pdflatex"
+  "mcg.tex" 1734449430.519 112243 8028a4b8420c7ebecd0d4589b50ee414 ""
   "push-point-map.png" 1728512950.81616 42008 a9c8295eac0b41b0b5ff2cfb4d9e9ad4 ""
   "sigma_i_configuration.png" 1727899992.71127 7791 8c7e3841aee9b99d6123b25a799ae9c0 ""
   "standard-chain.png" 1733877287.14402 27593 886242ac7dfd11d536b45767d57b4121 ""
