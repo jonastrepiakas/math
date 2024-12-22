@@ -1,5 +1,5 @@
 \documentclass[reqno]{amsart}
-\usepackage{amscd, amssymb, amsmath, amsthm, mathabx}
+\usepackage{amscd, amssymb, amsmath, amsthm, mathabx, mathrsfs}
 \usepackage{graphicx}
 \usepackage[colorlinks=true,linkcolor=blue]{hyperref}
 \usepackage[utf8]{inputenc}
@@ -13,6 +13,9 @@
 \usepackage{enumitem}
 \usepackage{float}
 \usepackage{adjustbox}
+\usepackage{todonotes}
+
+
 
 \setlength\parindent{0pt}
 
@@ -122,14 +125,20 @@
 \newcommand{\Cap}{{\mathcal{C}}ap}
 \newcommand{\Push}{{\mathcal{P}}ush}
 \newcommand{\Forget}{{\mathcal{F}}orget}
+\newcommand{\Mon}{{\mathcal{M}}on}
+\newcommand{\BMon}{{\mathcal{B}\mathcal{M}}on}
 
+\title{Mapping Class Groups, Braid Groups and Geometric Representations}
 
+\author{Jonas Trepiakas}
 
 \begin{document}
 
+\maketitle
+
 
 \section{Curves, Surfaces and Hyperbolic Geometry}
-\subsection{Simple closed curves}
+    \subsection{Simple closed curves}
 There is a bijective correspondence
 \[
 \left\{ 
@@ -505,7 +514,7 @@ For this, we need the notion of a \textit{bigon}:
     $i \left( \alpha, \beta \right) 
     = i \left( \alpha, \tilde{\alpha} \right) = 0$.
     Performing an isotopy of $\alpha$, we may assume that
-    $\alpha$ is transverse to $\beta$ (why?).
+    $\alpha$ is transverse to $\beta$ \todo{why?}.
     If $\alpha$ and $\beta$ are not disjoint, then by
     the bigon criterion, they form a bigon. A bigon
     prescribes an isotopy that reduces intersection, so we
@@ -866,6 +875,10 @@ is homotopic but not isotopic to the identity.
 
 \section{Mapping class group basics}
 
+We will be defining the mapping class group as $\pi_0$
+of a space of homeomorphisms, and as such, we must
+give this space a topology. For this, it turns out that we need
+the compact-open topology which we now describe.
 
 \subsection*{The compact-open topology}
 
@@ -1127,9 +1140,9 @@ $\Mod \left( S_{0,3} \right) $}
 
 \begin{proof}
     Additional notes on the proof:
-    why can we for any element $f \in \Mod \left( T^2 \right) $ 
+    \todo{why can we for any element $f \in \Mod \left( T^2 \right) $ 
     choose a representative $\varphi $ that fixes a basepoint
-    for $T^2$?
+for $T^2$?}
 \end{proof}
 
 
@@ -1284,10 +1297,10 @@ descending to the quotient.
     Notes on the proof: for the involutions
     $\iota_1, \iota_2$, we can lift them
     to homeomorphisms of $T^2$ by the lifting theorem
-    \cite[Thm~4.1]{Bredon}. But why would these
+    \cite[Thm~4.1]{Bredon}. \todo{But why would these
     necessarily have to be homeomorphisms that rotate
     one of the factors of $T^2 \approx S^{1} \times S^{1}$ by
-    $\pi$?
+$\pi$?}
 \end{proof}
 
 
@@ -1378,7 +1391,7 @@ class of $T_{\alpha}$ does not depend on the choice of
 $N$ or the choice of homeomorphism $\varphi$. Nor
 does $T_{\alpha}$ depend on the choice
 of simple closed curve $\alpha$ within its isotopy class." 
-Huh, why???
+\todo{why?}
 
 
 \subsubsection*{Dehn twists on the torus}
@@ -1394,6 +1407,7 @@ matrices
     \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix} 
 \] 
 \subsubsection{Dehn twist facts}
+\todo{This section is needed for the Birman-Hilden theorem}
 
 \begin{proposition}[]
     Let $a$ be the isotopy class of a simple closed curve
@@ -1864,8 +1878,16 @@ $B_n$ is torsion-free~\cite[Prop~2.45]{Hatcher}
 
 \subsection{Mapping Class Group of a punctured disk}
 
-Let $D_n$ be a closed disk $D^2$ with $n$ marked points.
-Then
+\begin{question}
+    Is there any relationship between braid groups and
+    mapping class groups?
+\end{question}
+
+
+
+The answer is that if we
+let $D_n$ be a closed disk $D^2$ with $n$ marked points,
+then
 \[
 B_n \approx \Mod\left( D_n \right) =
 \pi_0 \left( \Homeo^{+} \left( D_n, \partial D_n \right)  \right).
@@ -1913,6 +1935,14 @@ described on this support by figure \ref{fig:half-twist-png}.
     \label{fig:half-twist-png}
 \end{figure}
 
+The way to think about this is that while fixing the boundary
+pointwise, we take the two punctures and swap their places
+by moving them in semicircles to the other puncture's position and
+the movement of the remaining points can be
+thought of as if this were carried out on
+a surface made of rubber.\\
+
+
 We denote such a half-twist as $H_{\alpha}$, and we
 can think of $\alpha$ as either a simple closed
 curve with two punctures in its interior or a simple
@@ -1933,7 +1963,7 @@ homomorphism
 called the forgetful map which is realized by forgetting
 that the point $x$ is marked. This map is
 surjective as any homeomorphism of $S$ can
-be modified by isotopy to fix $x$ (why?). The
+be modified by isotopy to fix $x$ \todo{why?}. The
 group $\Mod(S,x)$ is isomorphic to the
 subgroup $G$ of $\Mod \left( S - x \right) $ 
 consisting of homeomorphisms preserving the
@@ -2027,7 +2057,7 @@ induced by the inclusion
      $\varphi_* \colon \pi_1 \left( S,x \right) 
      \to \pi_1 \left( S,x \right) $.
      This homomorphism is the inner automorphism
-     $I_{\alpha} (\gamma) = \alpha \gamma \alpha^{-1}$ (why?).
+     $I_{\alpha} (\gamma) = \alpha \gamma \alpha^{-1}$ \todo{why?}.
      Now, for $\chi (X) < 0$, the center of $\pi_1 (S)$ is
      trivial, so $I_{\alpha}$ is nontrivial whenever
      $\alpha \neq c_{x}$. If $\varphi $ had been
@@ -2094,7 +2124,8 @@ induced by the inclusion
 
 
  \begin{proof}
-     Write a proof of the Birman exact sequence.
+     Now write a proof of the Birman exact sequence.
+     \todo{Write out proof}
  \end{proof}
 
  \subsection{Generalized Birman Exact Sequence}
@@ -2117,6 +2148,8 @@ induced by the inclusion
  the interior. Equivalently to the construction
  in the proof of the Birman exact sequence,
  there is a fiber bundle
+
+ \todo{Prove that this is a fiber bundle}
  \[
  \Homeo^{+} \left( \left( S,
  \left\{ x_1, \ldots, x_n \right\} \right), \partial S  \right) 
@@ -2197,6 +2230,9 @@ induced by the inclusion
  \newpage
 
  \subsection{Braid group and symmetric mapping class groups}
+
+ \subsubsection{The construction of the
+ homomorphism}
 
  Let $S_{g}^{1}$ be a surface of genus $g$ with
  one boundary component. Define a
@@ -2494,7 +2530,7 @@ S_g^{1} \right) }\left( \iota \right) .
         \linebreak
         It follows that the image of 
         $B$ in $S_{0,2g+2}$ is an innermost bigon $\overline{B}$ 
-        between $\overline{\alpha}$ and $\overline{\beta}$ (why?).
+        between $\overline{\alpha}$ and $\overline{\beta}$ \todo{why?}.
         Furthermore, since $\iota (B) \neq B$, there are
         no fixed points of $\iota$ in $B$ and hence
         no marked points of
@@ -2504,12 +2540,12 @@ S_g^{1} \right) }\left( \iota \right) .
         it can have zero, one or two of its vertices on
         marked points of $S_{0,2g+2}$. In the first two cases,
         we can modify $\overline{\alpha}$ by isotopy
-        in order to remove the bigon (why?), reducing the intersection
+        in order to remove the bigon \todo{why?}, reducing the intersection
         number of $\overline{\alpha}$ and $\overline{\beta}$.
         In the last case, since $\overline{B}$ is innermost,
         we see that $\overline{\alpha} \cup 
         \overline{\beta}$ is a simple loop bounding
-        a disk (why?), and we can push $\overline{\alpha}$ onto
+        a disk \todo{why?}, and we can push $\overline{\alpha}$ onto
         $\overline{\beta}$. Removing bigons inductively,
         we see that $\overline{\alpha}$ is isotopic
         to $\overline{\beta}$, and this isotopy lifts to a
@@ -2597,6 +2633,17 @@ S_g^{1} \right) }\left( \iota \right) .
 
    \section{Braided monoidal categories}
 
+   The Birman-Hilden homomorphism is an example of a geometric
+   representation:
+
+\begin{definition}[Geometric representation]
+    A geometric representation of a group $G$ is any
+    homomorphism $G \to \Mod (S)$ for some
+    surface $S$.
+\end{definition}
+
+\todo{Write up connection between braided monoidal categories
+and geometric representations}
 
    \subsection{Monoidal categories}
 
@@ -2607,7 +2654,7 @@ S_g^{1} \right) }\left( \iota \right) .
        $V = \left( V, \otimes, I, a, l ,r \right) $ consisting
        of a category $V$, a functor
        $\otimes \colon V \times V \to V$ called the
-       tensor product, and object $I \in V$ called the
+       monoidal product, and object $I \in V$ called the
        unit, and natural isomorphisms
        \begin{align*}
            a &\colon \left( - \otimes - \right) \otimes -
@@ -2623,7 +2670,7 @@ S_g^{1} \right) }\left( \iota \right) .
        commute:\\[2 ex]
 
        \adjustbox{scale=0.9,center}{
-           \begin{tikzcd}
+           \begin{tikzcd}[sep=tiny]
 	&& {\left( A \otimes B  \right) \otimes \left(         C \otimes
     D \right)} \\
 	{\left( \left( A \otimes B \right) \otimes C \right) \otimes D} &&&& {A \otimes \left( B   \otimes \left( C \otimes D \right) \right)} \\
@@ -2652,6 +2699,83 @@ S_g^{1} \right) }\left( \iota \right) .
 The monoidal category is called strict when all the
 natural isomorphisms are identity morphisms for all objects.
    \end{definition}
+
+
+   \begin{definition}[Monoidal functor]
+       If $\mathcal{V}$ and $\mathcal{W}$ are monoidal categories,
+       then we define a \textit{monoidal functor} to be
+       a tuple $F = \left( F , \varphi_2, 
+       \varphi_0 \right) \colon
+       \mathcal{V} \to \mathcal{W}$ consisting of
+       a functor $F \colon \mathcal{V} \to \mathcal{W}$,
+       a family of natural isomorphisms
+       \[
+       \varphi_{2, A, B} \colon
+       FA \otimes FB \stackrel{\sim}{\to } F\left( A 
+       \otimes B \right) ,
+       \] 
+       and an isomorphism
+       $\varphi_0 \colon I \stackrel{\sim}{\to } FI $ such that
+       the following three diagrams commute:
+
+       \[\begin{tikzcd}
+	{(FA \otimes FB) \otimes FC} && {FA \otimes (F B \otimes FC)} \\
+	{F(A \otimes B) \otimes FC} && {FA \otimes F (B \otimes C)} \\
+	{F((A \otimes B) \otimes C)} && {F (A \otimes (B \otimes C))}
+	\arrow["a", from=1-1, to=1-3]
+	\arrow["{\varphi_2 \otimes FC}"', from=1-1, to=2-1]
+	\arrow["{FA \otimes \varphi_2}", from=1-3, to=2-3]
+	\arrow["{\varphi_2}"', from=2-1, to=3-1]
+	\arrow["{\varphi_2}", from=2-3, to=3-3]
+	\arrow["Fa"', from=3-1, to=3-3]
+\end{tikzcd}\]
+
+
+\[\begin{tikzcd}
+	{FA \otimes I} && FA && {I \otimes FA} && FA \\
+	{FA \otimes FI} && {F(A \otimes I)} && {FI \otimes FA} && {F (I \otimes A)}
+	\arrow["r", from=1-1, to=1-3]
+	\arrow["{FA \otimes \varphi_0}"', from=1-1, to=2-1]
+	\arrow["l", from=1-5, to=1-7]
+	\arrow["{\varphi_0 \otimes l}"', from=1-5, to=2-5]
+	\arrow["{\varphi_2}"', from=2-1, to=2-3]
+	\arrow["Fr"', from=2-3, to=1-3]
+	\arrow["{\varphi_2}"', from=2-5, to=2-7]
+	\arrow["Fl"', from=2-7, to=1-7]
+\end{tikzcd}\]
+
+A monoidal functor is called \textit{strict} when each
+of the isomorphisms
+$\varphi _{2, A, B}$ and $\varphi_0$ are all identities.
+
+   \end{definition}
+
+\begin{definition}[]
+    A morphism $\theta \colon F \implies G$ of monoidal functors
+    is a natural transformation
+    $\theta \colon F \implies G$ such that the following
+    diagrams commute:
+    \[
+   \adjustbox{scale=0.9,center}{
+        \begin{tikzcd}
+	{FA \otimes FB} && {F (A \otimes B)} &&&& FI \\
+	&&&& I \\
+	{GA \otimes GB} && {G (A \otimes B)} &&&& GI
+	\arrow["{\varphi_2}", from=1-1, to=1-3]
+	\arrow["{\theta_a \otimes \theta_b}"', from=1-1, to=3-1]
+	\arrow["{\theta_{A \otimes B}}", from=1-3, to=3-3]
+	\arrow["{\theta_I}", from=1-7, to=3-7]
+	\arrow["{\varphi_0}", from=2-5, to=1-7]
+	\arrow["{\varphi_0}"', from=2-5, to=3-7]
+	\arrow["{\varphi_2}"', from=3-1, to=3-3]
+\end{tikzcd}}
+\]
+
+
+
+\end{definition}
+
+
 
    \begin{definition}[Braiding]
        A braiding for a monoidal category $V$ consists
@@ -2690,7 +2814,108 @@ and \\[1 ex]
    \end{definition}
 
 
-   \subsection{Braided monoidal category of decorated surfaces}
+   \begin{proposition}[]\label{braiding-gives-yang-baxter}
+       In a braided monoidal category, the following
+       diagram commutes
+
+       \[\begin{tikzcd}
+	{(A \otimes B) \otimes C} & {A \otimes(B \otimes C)} & {A \otimes (C \otimes B)} & {(A \otimes C) \otimes B} \\
+	{(B \otimes A) \otimes C} &&& {(C \otimes A) \otimes B} \\
+	{B \otimes (A \otimes C)} &&& {C \otimes (A \otimes B)} \\
+	{B \otimes (C \otimes A)} & {(B \otimes C) \otimes A} & {(C \otimes B) \otimes A} & {C \otimes (B \otimes A)}
+	\arrow["a", from=1-1, to=1-2]
+	\arrow["{c \otimes C}"', from=1-1, to=2-1]
+	\arrow["{A \otimes c}", from=1-2, to=1-3]
+	\arrow["c"{description}, dashed, no head, from=1-2, to=4-2]
+	\arrow["{a^{-1}}", from=1-3, to=1-4]
+	\arrow["c"{description}, dashed, no head, from=1-3, to=4-3]
+	\arrow["{c \otimes B}", from=1-4, to=2-4]
+	\arrow["a"', from=2-1, to=3-1]
+	\arrow["a", from=2-4, to=3-4]
+	\arrow["{B \otimes c}"', from=3-1, to=4-1]
+	\arrow["{C \otimes c}", from=3-4, to=4-4]
+	\arrow["{a^{-1}}"', from=4-1, to=4-2]
+	\arrow["{c \otimes A}"', from=4-2, to=4-3]
+	\arrow["a"', from=4-3, to=4-4]
+\end{tikzcd}\]
+   \end{proposition}
+
+   \begin{proof}
+       Write up proof
+   \end{proof}
+
+   \begin{example}[Braids and labelled braids on strings]
+       We define the braid groupoid to
+       be the category $\mathcal{B}$ whose objects
+       are the natural numbers and whose morphisms
+       are given by
+       \[
+       B\left( m,n \right) =
+       \begin{cases}
+           B_n,& m=n\\
+           \varnothing,& m\neq n
+       \end{cases}
+       \] 
+       where composition of
+       morphisms is defined to be
+       the product of the braids (i.e., concatenation).
+
+       We can then equip $\mathcal{B}$ with a strinct
+       monoidal structure by letting
+       $\otimes \colon B_m \times B_n \to 
+       B_{m+n}$ be given by addition of braids
+       which is described algebraically by
+       \[
+       \sigma_i \otimes
+       \sigma_j = 
+       \sigma_i \sigma_{m+j} \left( =
+       \sigma_{m+j} \sigma_i \right) 
+       \] 
+       pictured as
+
+       \begin{figure}[H]
+           \centering
+           \includegraphics[width=1\textwidth]{braids-monoidal-structure.jpeg}
+           \label{fig:braids-monoidal-structure}
+       \end{figure}
+       Furthermore, we can give $\mathcal{B}$ a braiding
+       $c$ given by
+       $c = c_{m,n} \colon \underbrace{m \otimes n}_{
+       = m +n} \mapsto \underbrace{n \otimes m}_{=n+m}$
+       which, on morphisms,
+       can be illustrated by concatenating from, say above, with the
+       following braid 
+
+       \begin{figure}[H]
+           \centering
+           \includegraphics[width=0.6\textwidth]{braiding-on-braid-groupoid.jpeg}
+           \label{fig:braiding-on-braid-groupoid-jpeg}
+       \end{figure}
+       or, illustrated differently, as
+
+       \begin{figure}[H]
+           \centering
+           \includegraphics[width=0.55\textwidth]{braiding-on-braid-groupoid-2.jpeg}
+           \label{fig:braiding-on-braid-groupoid-jpeg}
+       \end{figure}
+       Then this is clearly an isomorphism since it has
+       the inverse
+
+       \begin{figure}[H]
+           \centering
+           \includegraphics[width=0.4\textwidth]{inverse-braiding.jpeg}
+           \label{fig:inverse-braiding-jpeg}
+       \end{figure}
+
+
+   \end{example}
+
+
+
+
+
+   \subsection{Braided monoidal category of decorated and
+   bidecorated surfaces}
 
    \begin{definition}[Decorated surface]
        A decorated surface is a pair
@@ -2701,8 +2926,8 @@ and \\[1 ex]
        in its boundary.
    \end{definition}
 
-   \begin{definition}[$\mathcal{M}_2$]
-       Let $\mathcal{M}_2$ denote the groupoid where
+   \begin{definition}[$\mathcal{M}_1$]
+       Let $\mathcal{M}_1$ denote the groupoid where
        the objects are
        decorated surfaces and
        morphisms are isotopy classes of diffeomorphisms
@@ -2711,7 +2936,7 @@ and \\[1 ex]
    \end{definition}
 
    We now construct a braided monoidal structure on
-   $\mathcal{M}_2$ : given decorated surfaces
+   $\mathcal{M}_1$ : given decorated surfaces
    $\left( S_1, I_1 \right) $ and
    $\left( S_2,I_2 \right) $, define
    $\left( S_1, I_1 \right) 
@@ -2739,8 +2964,9 @@ and \\[1 ex]
    $c \colon \left( S_1 \# S_2, I_1 \# I_2 \right) 
    \stackrel{\sim}{\to } \left( S_2 \# S_1, I_2 \# I_1 \right)  $
    is a natural isomorphism because we
-   it has the opposite half-Dehn twist as the inverse (why would
-   this be natural?...)
+   it has the opposite half-Dehn twist as the inverse. It is
+   natural because the induced map will simply be the one induced by
+   the naturality square.
 
    The B1 and B2 diagrams can be verified pictorially as follows:
 
@@ -2757,12 +2983,329 @@ and \\[1 ex]
     \end{minipage}
 \end{figure}
 
-\newpage 
+
+\begin{definition}[$X_i$]
+    A bidecorated surface is a surface with two intervals
+    marked in its boundary.
+
+    To give a precise definition, we first
+    define certain surfaces $X_i$ that will be convenient for
+    the monoidal structure, we set
+    $X_1 = D^2 \subset \mathbb{C}$ to be the unit disk,
+    and then define embeddings
+    $\iota_1^{0}, \iota_1^{1} \colon I \to X_1$ by
+
+    \[
+    \iota_1^{0} (t) =
+    e^{i \left( \frac{\pi}{4} + t \frac{\pi}{2} \right) }
+    \quad
+    \text{and}
+    \quad
+    \iota_{1}^{1} (t) = e^{i \left( 5 \frac{\pi}{4} +
+    t \frac{\pi}{2} \right) }.
+    \] 
+    We denote by
+    $\overline{\iota_1^{i}} \colon
+    I \to X_1$ the reverse map
+    $t \mapsto \iota_{1}^{i}(1-t)$ for $i = 0,1$.
+    Then we recursively define $X_{m+1}$ for 
+    $m\ge 1$ by
+    \[
+    X_{m+1} :=
+    \frac{X_m \sqcup X_1}{\iota_m^{i}(t) 
+\sim \overline{\iota_1^{i}}} \quad \text{for } t
+\in \left[ \frac{1}{2},1 \right]
+    \] 
+    and we define
+    \[
+    \iota_{m+1}^{i} (t) 
+    =
+    \begin{cases}
+        \iota_m^{i}(t),& \text{if } t \le \frac{1}{2}\\
+        \iota_1^{i}(t),& \text{else}
+    \end{cases}.
+    \] 
+
+    In this process, the marked intervals will live in
+    different boundary components every second time. 
+    The process for each of the two situations is illustrated below
+    in figures
+    \ref{fig:bidecorated-attaching-jpeg} and
+    \ref{fig:bidecorated-second-attaching-jpeg}.
+\end{definition}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{bidecorated-attaching.jpeg}
+    \caption{Marked intervals in single boundary components.}
+    \label{fig:bidecorated-attaching-jpeg}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{bidecorated-second-attaching.jpeg}
+    \caption{Marked intervals in different boundary components.}
+    \label{fig:bidecorated-second-attaching-jpeg}
+\end{figure}
+
+\begin{lemma}[]
+    For $m\ge 1$, $X_m \approx S_{g,r}$ where
+    \[
+        \left( g,r \right) =
+        \begin{cases}
+            \left( \frac{m}{2}-1,2 \right) ,& m \text{ even}\\
+            \left( \frac{m-1}{2},1 \right) ,& m \text{ odd}
+        \end{cases}.
+    \] 
+\end{lemma}
+
+\begin{proof}
+    Firstly, $X_m$ is clearly connected, and
+    we have
+    \[
+    \chi \left( X_{m} \right) 
+    = \chi \left( X_{m-1} \right) -1
+    \] 
+    since, for example, the $\Delta$-structure on
+    our surface $X_{m}$ can be chosen to be that for $X_{m-1}$ with
+    the boundary subdivided into four $2$-simplices with 
+    four vertices,
+    adding an additional two $2$-simplices and then
+    a disk.
+    By induction, we then get
+    $\chi \left( X_{m} \right) 
+    = \chi \left( X_1 \right) - \left( m-1 \right) 
+    = 2-m$.\\
+    Now, by the classification of surfaces with
+    boundary and genus, we simply need to
+    know how many boundary components $X_{m+1}$ has.
+    But as can be seen from the figures, 
+    if $m$ is odd, we will have one boundary component,
+    while if  $m$ is even, we will have
+    two boundary components.
+\end{proof}
+
+\begin{definition}[Bidecorated surface]
+    A bidecorated surface is a tuple
+    $\left( S, m , \varphi  \right) $ where
+    $S$ is a surface, $m\ge 1$ is an integer,
+    and
+    \[
+    \varphi \colon
+    \partial X_m \sqcup \left( \sqcup_{k} S^{1} \right) 
+    \stackrel{\sim}{\to } \partial S
+    \] 
+    is a homeomorphism, giving a parametrization of the boundary of
+    $S$. We think of $\left( S, m , \varphi  \right) $ as
+    a surface with two parametrized arcs
+    \[
+    I_0 := \varphi \circ \iota_{m}^{0} \quad
+    \text{and} \quad 
+    I_1 := \varphi \circ \iota_m^{1}
+    \] 
+    in its boundary, and $k$ additional parametrized
+    boundaries.
+\end{definition}
+
+
+\begin{definition}[$\mathcal{M}_2$]
+    Let $\mathcal{M}_2$ denote the monoidal groupoid
+    where objects are bidecorated surfaces together
+    with a formal unit $U$. The Hom set
+    between two bidecorated surfaces
+    $\left( S, m, \varphi  \right) $ and
+    $\left( S', m', \varphi' \right) $ is
+    empty if $m\neq m'$ or $S$ and $S'$ are nonhomeomorphic.
+    Otherwise, the Hom set consists of all mapping
+    classes of homeomorphisms that preserve the
+    boundary parametrizations:
+    \[
+    \Hom_{\mathcal{M}_2}\left( 
+    \left( S,m,\varphi  \right) , 
+\left( S', m, \varphi' \right) \right) 
+= 
+    \pi_0 \Homeo_{\partial}\left( S,S' \right) 
+    = \pi_0 \left\{ f \in \Homeo \left( S,S' \right) 
+    \mid f \circ \varphi  = \varphi' \right\}
+\] 
+where $\Homeo\left( S,S' \right) $ has the compact-open
+topology, and 
+$\Homeo_{\partial}\left( S,S' \right) $ the subspace topology.
+
+\end{definition}
+
+\subsection{Yang-Baxter operators}
+
+\begin{definition}[Yang-Baxter operator]
+    Let $T \colon \mathcal{A} \to 
+    \mathcal{V}$ be a functor from a category
+    $\mathcal{A}$ to a monoidal category
+    $\mathcal{V}$.
+    A \textit{Yang-Baxter operator on $T$} is a natural family
+    of isomorphisms
+    \[
+    y = y_{A,B} \colon
+    T A \otimes TB \stackrel{\sim}{\to } TB \otimes TA
+    \] 
+    such that the following diagram commutes.
+
+    \[\begin{tikzcd}\label{AA}
+	{(TA \otimes TB) \otimes TC} & {TA \otimes(TB \otimes TC)} & {TA \otimes (TC \otimes TB)} & {(TA \otimes TC) \otimes TB} \\
+	{(TB \otimes TA) \otimes TC} &&& {(TC \otimes TA) \otimes TB} \\
+	{TB \otimes (TA \otimes TC)} &&& {TC \otimes (TA \otimes TB)} \\
+	{TB \otimes (TC \otimes TA)} & {(TB \otimes TC) \otimes TA} & {(TC \otimes TB) \otimes TA} & {TC \otimes (TB \otimes TA)}
+	\arrow["a", from=1-1, to=1-2]
+	\arrow["{y \otimes TC}"', from=1-1, to=2-1]
+	\arrow["{TA \otimes y}", from=1-2, to=1-3]
+	\arrow["{a^{-1}}", from=1-3, to=1-4]
+	\arrow["{y \otimes TB}", from=1-4, to=2-4]
+	\arrow["a"', from=2-1, to=3-1]
+	\arrow["a", from=2-4, to=3-4]
+	\arrow["{TB \otimes y}"', from=3-1, to=4-1]
+	\arrow["{TC \otimes y}", from=3-4, to=4-4]
+	\arrow["{a^{-1}}"', from=4-1, to=4-2]
+	\arrow["{y \otimes TA}"', from=4-2, to=4-3]
+	\arrow["a"', from=4-3, to=4-4]
+\end{tikzcd}\]
+
+\end{definition}
+
+\begin{remark}[]
+    When $\mathcal{A} = \mathbbm{1}$, we say that
+    $y$ is a Yang-Baxter operator on
+    $X = T(\mathcal{A}) \in \mathcal{V}$ if
+    it is a Yang-Baxter operator on 
+    $T \colon \mathbbm{1} = \mathcal{A} \to 
+    \mathcal{V}$.
+\end{remark}
+
+
+    Let $\left( \mathcal{X}, \otimes, I \right) $ be a
+    monoidal category with $\tau \in 
+    \Aut_{\mathcal{X}} \left( X \otimes X \right) $ 
+    a Yang-Baxter operator in
+    $\mathcal{X}$. Suppose
+    $\mathcal{X}$ acts on a category
+    $\mathcal{M}$ via a functor
+    $\mathcal{M} \times \mathcal{X} \to \mathcal{M}$ 
+    which we also denote by $\otimes$. Then 
+    there is an action of the braid groupoid
+     $\alpha_\tau \colon \mathcal{M} \times B \to 
+     \mathcal{M}$ given on objects
+     by
+     $\alpha_{\tau} (A,n) = 
+     A \otimes X^{\otimes n}$ and determined on morphisms
+     by
+     $\alpha_{\tau} \left( f, \sigma_i \right) 
+     = f \otimes \id_{X^{\otimes i-1}} 
+     \otimes \tau \otimes \id_{X^{\otimes n - i -1}}$.
+
+     \begin{example}[]
+         If $\mathcal{X} = \left( 
+         \mathcal{X, \otimes, I}\right) $ admits a braiding
+         $b$, then $\tau = b_{X,X} \in 
+         \Aut_{\mathcal{X}} \left( X \otimes X \right) $ 
+         is a Yang-Baxter operator for any object
+         $X$. The thing that needs verifying here
+         is that the big Yang-Baxter diagram in definition~\ref{AA}
+         is satisfied, but
+         this follows directly from
+         proposition~\ref{braiding-gives-yang-baxter}.
+     \end{example}
+
+
+     We want to show that the category of strong
+     monoidal functors from the braid groupoid
+     into $\mathcal{X}$ is equivalent to a naturally
+     defined category of Yang-Baxter operators in
+     $\mathcal{X}$.
+
+     \begin{proposition}[]
+         For any strict monoidal category $\mathcal{V}$ and
+         any Yang-Baxter operator $y$ on $T \colon
+         \mathcal{A} \to \mathcal{V}$, there exists
+         a unique strict tensor functor
+         $T' \colon \mathcal{B} \int \mathcal{A} \to \mathcal{V}$ 
+         such that $T' \circ z = y$ and
+         the following diagram commutes:
+         \begin{equation*}
+         \begin{tikzcd}
+             \mathcal{A} \ar[r, "\iota"] \ar[rd, "T"] & 
+             \mathcal{B} \int \mathcal{A} \ar[d, "T'"] \\
+                                                      & \mathcal{V}
+         \end{tikzcd}
+         \end{equation*}
+         
+     \end{proposition}
+
+     \begin{proposition}[]
+         For any strict monoidal category $\mathcal{V}$ and
+         any Yang-Baxter $\tau$ on an element $X \in V$, there
+         exists a unique strict monoidal functor
+         $\Phi_{X, \tau} \colon \mathcal{B} \to \mathcal{V}$ such that
+         $\Phi_{X, \tau} \circ z = y$.
+     \end{proposition}
+
+     \begin{proof}[Proof and construction]
+         Define $\Phi_{X, \tau} \colon \mathcal{B} \to \mathcal{V}$ 
+         on objects by $\Phi_{X,\tau} (n) = 
+         X^{\otimes n}$. For
+         $0 \le i < n$, define 
+         \[
+         y_i = X^{\otimes (i-1)} \otimes y 
+         \otimes X^{\otimes (n-i-1)} \colon X^{\otimes n} \to 
+         X^{\otimes n}.
+         \] 
+         These satisfy the braid group relations.
+         Thus we obtain a monoid homomorphism
+         $\Phi_{X, \tau, n} \colon \mathcal{B}_n \to 
+         \mathcal{V} \left( X^{\otimes n}, X^{\otimes n} \right) $ 
+         taking $\sigma_i$ to $y_i$ for all
+         $0 \le i <n$. Clearly $\Phi_{X, \tau}$ is the unique
+         strict monoidal functor with these properties.
+         \todo{More explicit details.}
+     \end{proof}
+
+     \begin{definition}[]
+         If $\mathcal{V}$ and $\mathcal{W}$ are monoidal categories,
+         we define $\Mon \left( 
+         \mathcal{V}, \mathcal{W}\right) $ to be the
+         category whose objects are
+         monoidal functors $F \colon \mathcal{V} \to 
+         \mathcal{W}$ and whose morphisms are
+         morphisms $\psi \colon F \implies G$ of
+         monoidal functors.
+
+         If $\mathcal{V}, \mathcal{W}$ are braided monoidal
+         categories, we write
+         $\BMon \left( \mathcal{V}, \mathcal{W} \right) $ for
+         the full subcategory of
+         $\Mon \left( \mathcal{V}, \mathcal{W} \right) $ consisting
+         of the braided monoidal functors.
+     \end{definition}
+
+
+     \subsubsection{Braiding inducing geometric representation}
+     
+     Putting the things above together, we have that a 
+     Yang-Baxter operator $\tau \in \Aut_{\mathcal{X}} 
+     \left( X \otimes X \right) $ gives a collection
+     of homomorphisms
+     $\varphi_{X, \tau} \colon B_n \to \Aut_{\mathcal{X}}
+     \left( X^{\otimes n} \right) $. There
+     are two standard ways to embed braid groups in mapping class
+     groups of surfaces and we will describe how they
+     both come from Yang-Baxter elements in appropriate categories
+     of surfaces.
+
+
 
 \newpage
 
 \section{Geometric Representations of the Braid Group on
 non-orientable surfaces}
+
 
 A connected orientable (respectively nonorientable) surface
 of genus $g$ with $b$ boundary components will
@@ -2771,6 +3314,7 @@ be denoted by $S_{g,b}$ (respectively $N_{g,b}$ ).
 Now, recall that the Möbius band, which are also called
 crosscaps), are the mapping cylinders on the map
 $z \mapsto z^2$ (see figure~\ref{fig:mapping-cylinder-mobius})
+
 
 \begin{figure}[htpb]
     \centering
@@ -2795,6 +3339,13 @@ components of $S_{0,g+b}$.
     homomorphism $G \to \Mod (S)$ for some
     surface $S$.
 \end{definition}
+
+\begin{example}[]
+    The homomorphism $\psi  \colon B_n \to \Mod(S_{g}^{1})$ 
+    defined in the Birman-Hilden isomorphism is an
+    example of a geometric representation of the braid group.
+\end{example}
+
 
 We will introduce three types of geometric representations
 of the braid group: the standard twist representation, the crosscap
@@ -3102,6 +3653,17 @@ Now, for all $i,j$ with $j-i \ge 2$, we have
     $G$.
 \end{definition}
 
+
+
+\begin{remark}[]
+    A monoidal functor is also sometimes called a strong
+    monoidal functor if one wants to distinguish it
+    from a \textit{lax monoidal functor} which is
+    the definition of a monoidal functor
+    without the requirements that 
+    $\varphi_0$ and $\varphi_{2,A,B}$ be isomorphisms.
+\end{remark}
+
 \section{Appendix}
 
 \subsection{Fiber Bundles}
@@ -3296,6 +3858,8 @@ Now, for all $i,j$ with $j-i \ge 2$, we have
     Riemann surface lies in the center of
     $\Aut (S)$.
 \end{corollary}
+
+
           
 
 
