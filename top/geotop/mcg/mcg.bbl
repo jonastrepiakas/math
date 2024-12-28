@@ -1,47 +1,217 @@
-\begin{thebibliography}{99}
-    \bibitem[Bredon]{Bredon}
-    Glen E. Bredon
-    \newblock {Geometry and Topology}
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
 
 
-    \bibitem[Hirsch]{Hirsch}
-    Morris W. Hirsch
-    \newblock {Differential Topology}
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{Bredon}{book}{}
+      \name{author}{1}{}{%
+        {{hash=9c4bb39f297b8837de2c1a53b0b3e7db}{%
+           family={Bredon},
+           familyi={B\bibinitperiod},
+           given={Glen\bibnamedelima E.},
+           giveni={G\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag, New York}%
+      }
+      \strng{namehash}{9c4bb39f297b8837de2c1a53b0b3e7db}
+      \strng{fullhash}{9c4bb39f297b8837de2c1a53b0b3e7db}
+      \strng{bibnamehash}{9c4bb39f297b8837de2c1a53b0b3e7db}
+      \strng{authorbibnamehash}{9c4bb39f297b8837de2c1a53b0b3e7db}
+      \strng{authornamehash}{9c4bb39f297b8837de2c1a53b0b3e7db}
+      \strng{authorfullhash}{9c4bb39f297b8837de2c1a53b0b3e7db}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0-387-97926-3}
+      \field{series}{Graduate Texts in Mathematics}
+      \field{title}{Topology and geometry}
+      \field{volume}{139}
+      \field{year}{1993}
+      \field{pages}{xiv+557}
+      \range{pages}{-1}
+    \endentry
+    \entry{Farb-Margalit}{book}{}
+      \name{author}{2}{}{%
+        {{hash=5b0089d70abcfe34be37d817a1622b42}{%
+           family={Farb},
+           familyi={F\bibinitperiod},
+           given={Benson},
+           giveni={B\bibinitperiod}}}%
+        {{hash=53e4c55b9dbbda75397b53fe89cf3971}{%
+           family={Margalit},
+           familyi={M\bibinitperiod},
+           given={Dan},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Princeton University Press}%
+      }
+      \strng{namehash}{fa223b7b743f1696aef9386d4064faa0}
+      \strng{fullhash}{fa223b7b743f1696aef9386d4064faa0}
+      \strng{bibnamehash}{fa223b7b743f1696aef9386d4064faa0}
+      \strng{authorbibnamehash}{fa223b7b743f1696aef9386d4064faa0}
+      \strng{authornamehash}{fa223b7b743f1696aef9386d4064faa0}
+      \strng{authorfullhash}{fa223b7b743f1696aef9386d4064faa0}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780691147949}
+      \field{title}{A Primer on Mapping Class Groups (PMS-49)}
+      \field{urlday}{28}
+      \field{urlmonth}{12}
+      \field{urlyear}{2024}
+      \field{year}{2012}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb http://www.jstor.org/stable/j.ctt7rkjw
+      \endverb
+      \verb{url}
+      \verb http://www.jstor.org/stable/j.ctt7rkjw
+      \endverb
+    \endentry
+    \entry{Hatcher}{book}{}
+      \name{author}{1}{}{%
+        {{hash=0a94eadf86d8b878d4c37bc5640e53e3}{%
+           family={Hatcher},
+           familyi={H\bibinitperiod},
+           given={Allen},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press, Cambridge}%
+      }
+      \strng{namehash}{0a94eadf86d8b878d4c37bc5640e53e3}
+      \strng{fullhash}{0a94eadf86d8b878d4c37bc5640e53e3}
+      \strng{bibnamehash}{0a94eadf86d8b878d4c37bc5640e53e3}
+      \strng{authorbibnamehash}{0a94eadf86d8b878d4c37bc5640e53e3}
+      \strng{authornamehash}{0a94eadf86d8b878d4c37bc5640e53e3}
+      \strng{authorfullhash}{0a94eadf86d8b878d4c37bc5640e53e3}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0-521-79160-X; 0-521-79540-0}
+      \field{title}{Algebraic topology}
+      \field{year}{2002}
+      \field{pages}{xii+544}
+      \range{pages}{-1}
+    \endentry
+    \entry{Hirsch}{book}{}
+      \name{author}{1}{}{%
+        {{hash=697b9e10d72a5f4aec2034a99cf01a9b}{%
+           family={Hirsch},
+           familyi={H\bibinitperiod},
+           given={Morris\bibnamedelima W.},
+           giveni={M\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag, New York}%
+      }
+      \strng{namehash}{697b9e10d72a5f4aec2034a99cf01a9b}
+      \strng{fullhash}{697b9e10d72a5f4aec2034a99cf01a9b}
+      \strng{bibnamehash}{697b9e10d72a5f4aec2034a99cf01a9b}
+      \strng{authorbibnamehash}{697b9e10d72a5f4aec2034a99cf01a9b}
+      \strng{authornamehash}{697b9e10d72a5f4aec2034a99cf01a9b}
+      \strng{authorfullhash}{697b9e10d72a5f4aec2034a99cf01a9b}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-387-90148-0}
+      \field{series}{Graduate Texts in Mathematics}
+      \field{title}{Differential topology}
+      \field{volume}{33}
+      \field{year}{1976}
+      \field{pages}{x+230}
+      \range{pages}{-1}
+    \endentry
+    \entry{LeeTM}{book}{}
+      \name{author}{1}{}{%
+        {{hash=36896354ee3aedc1a13d683ea773634e}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={John\bibnamedelima M.},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer, New York}%
+      }
+      \strng{namehash}{36896354ee3aedc1a13d683ea773634e}
+      \strng{fullhash}{36896354ee3aedc1a13d683ea773634e}
+      \strng{bibnamehash}{36896354ee3aedc1a13d683ea773634e}
+      \strng{authorbibnamehash}{36896354ee3aedc1a13d683ea773634e}
+      \strng{authornamehash}{36896354ee3aedc1a13d683ea773634e}
+      \strng{authorfullhash}{36896354ee3aedc1a13d683ea773634e}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{Second}
+      \field{isbn}{978-1-4419-7939-1}
+      \field{series}{Graduate Texts in Mathematics}
+      \field{title}{Introduction to topological manifolds}
+      \field{volume}{202}
+      \field{year}{2011}
+      \field{pages}{xviii+433}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1007/978-1-4419-7940-7
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/978-1-4419-7940-7
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/978-1-4419-7940-7
+      \endverb
+    \endentry
+    \entry{Munkres}{book}{}
+      \name{author}{1}{}{%
+        {{hash=681c503f86c5b4758bc41fce37310d03}{%
+           family={Munkres},
+           familyi={M\bibinitperiod},
+           given={James\bibnamedelima R.},
+           giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Prentice Hall, Inc., Upper Saddle River, NJ}%
+      }
+      \strng{namehash}{681c503f86c5b4758bc41fce37310d03}
+      \strng{fullhash}{681c503f86c5b4758bc41fce37310d03}
+      \strng{bibnamehash}{681c503f86c5b4758bc41fce37310d03}
+      \strng{authorbibnamehash}{681c503f86c5b4758bc41fce37310d03}
+      \strng{authornamehash}{681c503f86c5b4758bc41fce37310d03}
+      \strng{authorfullhash}{681c503f86c5b4758bc41fce37310d03}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0-13-181629-2}
+      \field{note}{Second edition of [ MR0464128]}
+      \field{title}{Topology}
+      \field{year}{2000}
+      \field{pages}{xvi+537}
+      \range{pages}{-1}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
 
-    \bibitem[Kosinski]{Kosinski}
-    Antoni A. Kosinski
-    \newblock {Differential Manifolds}
-
-    \bibitem[Milnor]{Milnor}
-    John W. Milnor
-    \newblock {Topology from the differentiable viewpoint}
-
-    \bibitem[Thurston]{Thurston}
-    William P. Thurston
-    \newblock {Three-dimensional Geometry and Topology}
-
-    \bibitem[Wilton]{Wilton}
-    Henry Wilton
-    \newblock {Mapping Class Groups - notes - March 8, 2021}
-
-    \bibitem[Hatcher]{Hatcher}
-    Allen Hatcher
-    \newblock {Algebraic Topology}
-
-    \bibitem[Calegari]{Calegari}
-    Danny Calegari
-    \newblock {Foliations and the Geometry of 3-Manifolds}
-
-    \bibitem[LeeTM]{LeeTM}
-    John M. Lee
-    \newblock {Introduction to Topological Manifolds}
-    
-    \bibitem[LeeSM]{LeeSM}
-    John M. Lee
-    \newblock {Introduction to Smooth Manifolds}
-
-    \bibitem[Munkres]{Munkres}
-    James Munkres
-    \newblock {Topology}
-
-\end{thebibliography}

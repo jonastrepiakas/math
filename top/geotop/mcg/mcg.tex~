@@ -5,7 +5,6 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
-\usepackage{babel}
 %% for identity function 1:
 \usepackage{bbm}
 %%For category theory diagrams:
@@ -15,6 +14,8 @@
 \usepackage{adjustbox}
 \usepackage{todonotes}
 
+\usepackage[backend=biber]{biblatex}
+\addbibresource{mcg.bib}
 
 
 \setlength\parindent{0pt}
@@ -1002,6 +1003,9 @@ we have the following lemma \cite[Prop A.14]{Hatcher}:
 \end{proposition}
 
 \subsubsection*{The Alexander Lemma}
+
+Here we will describe some of the simplest examples of
+mapping class groups following \cite[]{Farb-Margalit}
 
 \begin{lemma}[Alexander lemma]
    The group $\Mod\left( D^2 \right) $ is trivial. 
@@ -3867,5 +3871,5 @@ Now, for all $i,j$ with $j-i \ge 2$, we have
 
 \newpage
 
-\bibliography{mcg}
+\printbibliography
 \end{document}

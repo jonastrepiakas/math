@@ -5,6 +5,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
+\usepackage{babel}
 %% for identity function 1:
 \usepackage{bbm}
 %%For category theory diagrams:
@@ -13,9 +14,8 @@
 \usepackage{float}
 \usepackage{adjustbox}
 \usepackage{todonotes}
-
 \usepackage[backend=biber]{biblatex}
-\addbibresource{mcg.bib}
+
 
 
 \setlength\parindent{0pt}
@@ -3871,5 +3871,5 @@ Now, for all $i,j$ with $j-i \ge 2$, we have
 
 \newpage
 
-\printbibliography
+\bibliography{mcg}
 \end{document}
