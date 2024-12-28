@@ -1,0 +1,290 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\SHomeo}{SHomeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Char}{char}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\Mod}{{\mathrm{Mod}}}
+\newcommand{\PMod}{{\mathrm{PMod}}}
+\newcommand{\SMod}{{\mathrm{SMod}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+
+
+
+
+\begin{document}
+    \begin{exercise}[18]
+        Show that every free module is projective.
+    \end{exercise}
+
+    \begin{proof}
+        Suppose $F$ is a free $R$-module on a set $X$.
+        Let $f \colon F \to M$ be a map
+        and $q \colon N \to M$ a surjective map. We have
+        the diagram
+        \begin{equation*}
+        \begin{tikzcd}
+            & P \ar[d, "f"] \ar[dl, "g"] & X \ar[l] \ar[ld, dashed, " 
+            \exists ! \tilde{f}"] \\
+            N \ar[r, "q"]  & M & 
+        \end{tikzcd}
+        \end{equation*}
+        We define a map
+        $X \to N$ by sending $x \in X$ to
+        some $n \in N$ such that
+        $q(n) = \tilde{f}(x)$ - this exists by
+        surjectivity of $q$. Then this
+        extends to a unique map $g \colon P \to N$ such that
+        $q \circ g \circ \iota (x) = \tilde{f}(x)$ for all $x \in X$.
+        But this extends to a unique map
+        $\tilde{g} \colon P \to M$ such that
+        $\tilde{g} \circ \iota = q \circ g \circ \iota
+        = \tilde{f}$. Since
+        $q \circ g$ is the unique map for
+        the first equality, we obtain
+        $\tilde{g} = q \circ g$. But for
+        $\tilde{g} \circ \iota = \tilde{f}$, we obtain again
+        by uniqueness that $\tilde{g} = f$. Hence
+        $f = q \circ g$.
+        
+    \end{proof}
+
+    \begin{exercise}[19]
+        Suppose $R$ is a PID and let $F$ be a projective
+        $R$-module. Show that $F$ is free.
+    \end{exercise}
+
+    \begin{proof}
+        Since $F$ is projective, $F$ is a direct
+        summand in a free $R$-module, hence in particular,
+        it is finitely generated. Hence
+        $\bigoplus_{i \in I} R \approx F \oplus K$ and
+        by the structure theorem, also
+        $F \approx R^{n} \oplus \bigoplus_{i=1}^{r} 
+        \bigoplus_{j=1}^{s_i} R /\left( p_i^{m_{ij}} \right) $.
+        But $\bigoplus_{i\in I} R$ has no torsion, so
+        $F$ must also be torsion-free, hence
+        $F \approx R^{n}$, i.e, $F$ is free.
+    \end{proof}
+
+    \begin{exercise}[20]
+        Let $M$ be an $R$-module. We say that
+        $M$ is torsion-free if whenver
+        $rm = 0$ for $r \in R$ and $m \in M$, then
+        either $r = 0$ or $m=0$.
+        \begin{enumerate}
+            \item Show that $R$ is torsion-free
+                when considered as a module over itself
+                if and only if $R$ is an integral domain.
+            \item Let $R$ be an integral domain.
+                Show that any projective $R$-module is
+                torsion-free.
+        \end{enumerate}
+
+    \end{exercise}
+
+    \begin{proof}
+        \begin{enumerate}
+            \item Saying that $R$ is torsion-free as a 
+                module over itself is the same as saying
+                $r r' = 0$ for $r \in R$ and $r' \in R$ 
+                if and only if $r = 0$ or $r' =0$ which
+                is precisely the same as saying that
+                $R$ is an integral domain.
+
+            \item If $P$ is a projective $R$-module,
+                then it is a direct summand in a free
+                $R$-module. But any free $R$-module is
+                torsion-free, so $P$ must be as well.
+
+            \item $\mathbb{Q}$ as a $\mathbb{Z}$-module
+                is torsion-free, however
+                $\mathbb{Q}$ is not projective over
+                $\mathbb{Z}$ since
+                the sequence
+                $0 \to \mathbb{Z} \to \mathbb{Q} \to 
+                \mathbb{Q} / \mathbb{Z} \to 0$ is exact, but
+                \[0 \to \underbrace{\Hom_{\mathbb{Z}}\left(
+                        \mathbb{Q},
+                \mathbb{Z}\right)}_{=0} \to 
+                \underbrace{\Hom_{\mathbb{Z}}
+                \left( \mathbb{Q},\mathbb{Q} \right)}_{\approx 
+            \mathbb{Q}}
+                \to \underbrace{\Hom_{\mathbb{Z}} 
+                \left( \mathbb{Q}, \mathbb{Q} / \mathbb{Z} \right)}_{
+            = 0}
+            \to  0\]
+            is not exact.
+
+
+
+
+
+        \end{enumerate}
+    \end{proof}
+
+    \begin{exercise}[21]
+        Let $P$ be a projective $R$-module. Prove
+        that there exists a free $R$-module $F$ such that
+        $P \oplus F$ is free.
+    \end{exercise}
+
+    \begin{proof}
+        $P$ is a quotient of a 
+        free $R$-module, $T$, say
+        $P = T /A$. Also, $P$ is a direct summand of
+        a free $R$-module $\overline{F}$, say
+        $\overline{F} = P \oplus S$.
+        Then
+        \[
+        P \oplus \left( \oplus_{i \in \mathbb{N} }
+        \overline{F}_i \right)
+        \approx
+        P \oplus \left( \oplus_{i \in \mathbb{N} }
+        S_i \oplus P_i\right) 
+        \approx
+        \oplus_{i \in \mathbb{N} }
+        P \oplus S
+        \approx \oplus_{i \in \mathbb{N} }\overline{F}.
+        \] 
+    \end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    %\bibliography{../refs.bib}
+\end{document}
