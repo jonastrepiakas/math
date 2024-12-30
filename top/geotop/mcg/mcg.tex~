@@ -423,7 +423,7 @@ primitive elements of $\pi_1 (S)$.
     equivariant with respect to the deck transformations, so
     it descends to a homotopy of $\alpha$. Just as above,
     the descended loop will be simple if and only if
-    there do not exist $t,t' \in \left[ 0,1 \right] $ with
+    there do not exist $t,t' \in [ 0,1 ) $ with
     $t\neq t'$ and $\left( t-t' \right) p, \left( t-t' \right) q
     \in \mathbb{Z}$.
 
