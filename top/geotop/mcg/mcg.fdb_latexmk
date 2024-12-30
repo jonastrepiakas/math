@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber mcg"] 1735385238.50312 "mcg.bcf" "mcg.bbl" "mcg" 1735385248.97453 0
-  "mcg.bcf" 1735385248.80025 108375 f75890ab95d38173b755ad6a3c4574ca "pdflatex"
+["biber mcg"] 1735398847.66739 "mcg.bcf" "mcg.bbl" "mcg" 1735521919.67028 0
+  "mcg.bcf" 1735521919.39626 108437 659585f1e525d0bc8cacd0608240f691 "pdflatex"
   "mcg.bib" 1735384616.41493 4081 93827f78d26d672b90657a4d6e02e168 ""
   (generated)
   "mcg.bbl"
   "mcg.blg"
   (rewritten before read)
-["pdflatex"] 1735385245.76423 "mcg.tex" "mcg.pdf" "mcg" 1735385248.97483 0
+["pdflatex"] 1735521916.18838 "mcg.tex" "mcg.pdf" "mcg" 1735521919.67076 0
   "/etc/texmf/web2c/texmf.cnf" 1718688975.81737 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/jonas-trepiakas/.texlive2023/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk" 1727527665.45445 6964 86acb68f026bd4eb7255bbd50e22f730 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -243,6 +243,7 @@
   "B1.jpg" 1733860410.82375 91852 0c5ac93827381f5cb5e00ac77f4274ce ""
   "B2.jpg" 1733860416.58578 184920 560980d5fdcf44c87673992cdaa86a6a ""
   "Birman-Hilden-two-symmetric-boundary-components.png" 1729798554.94017 10068 4ae1c00a54c03391ca7fc688f8964dd4 ""
+  "alexander-trick.png" 1735395646.15109 10848 aa85834a671e031771bade6dfcc43cc2 ""
   "bidecorated-attaching.jpeg" 1734628680.47156 66164 982b81d152a7824635c59db05ee6ab69 ""
   "bidecorated-second-attaching.jpeg" 1734638385.00283 181864 1220bdf1fcffef1ff5fb6cb0bcf13e13 ""
   "bigon-of-arcs.png" 1725901119.52017 26050 9cf5226a38dcc132a57c5801be3c9d54 ""
@@ -262,11 +263,11 @@
   "lemma-1-8.jpg" 1725374373.76166 46887 b342f35cf067c4b04a7e320195cf071e ""
   "lifts-of-paths.jpg" 1722893708.76281 203201 83ed0f50a606912a88eabfbe2318e4a3 ""
   "mapping-cylinder-mobius.jpg" 1733867323.69041 38531 317b9fecffe785fc00d9d1a3ed713c0d ""
-  "mcg.aux" 1735385248.79525 20306 1a4208911d4a43c093d823ab0cca8570 "pdflatex"
-  "mcg.bbl" 1735385239.30008 7870 aebf718f0f769f91f6269d7e3eed2be0 "biber mcg"
-  "mcg.out" 1735385248.79625 8844 c71f9e288fcf5142ac5cd958e8f8954a "pdflatex"
-  "mcg.run.xml" 1735385248.80125 2291 ea095ae86321b5bc0eeb8ead9760d63f "pdflatex"
-  "mcg.tex" 1735385210.16757 131161 4bf4fd8da172f7fcf256267b69340110 ""
+  "mcg.aux" 1735521919.39126 21506 9ed76ff372deec14c4f83c8e7754ce86 "pdflatex"
+  "mcg.bbl" 1735398848.60137 7870 aebf718f0f769f91f6269d7e3eed2be0 "biber mcg"
+  "mcg.out" 1735521919.39226 8875 2f1c374684bf84411acc4111a4102698 "pdflatex"
+  "mcg.run.xml" 1735521919.39726 2291 ea095ae86321b5bc0eeb8ead9760d63f "pdflatex"
+  "mcg.tex" 1735521914.40597 139701 1aa6e872f56cd89cee41d7368a27a68a ""
   "push-point-map.png" 1728512950.81616 42008 a9c8295eac0b41b0b5ff2cfb4d9e9ad4 ""
   "sigma_i_configuration.png" 1727899992.71127 7791 8c7e3841aee9b99d6123b25a799ae9c0 ""
   "standard-chain.png" 1733877287.14402 27593 886242ac7dfd11d536b45767d57b4121 ""

@@ -417,6 +417,11 @@ INPUT ./filling-genus-2-surface.png
 INPUT ./filling-genus-2-surface.png
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecti0700.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecti0500.tfm
+INPUT ./alexander-trick.png
+INPUT ./alexander-trick.png
+INPUT ./alexander-trick.png
+INPUT ./alexander-trick.png
+INPUT ./alexander-trick.png
 INPUT ./involution-on-torus-quotient.jpg
 INPUT ./involution-on-torus-quotient.jpg
 INPUT ./involution-on-torus-quotient.jpg

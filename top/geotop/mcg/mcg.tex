@@ -372,7 +372,7 @@ primitive elements of $\pi_1 (S)$.
 
 \subsection*{Example: simple closed curves on the torus}
 
-\begin{proposition}[]
+\begin{proposition}[]\label{torus-primitive-elts}
     The nontrivial homotopy classes of oriented simple closed
     curves in $T^2$ are in bijective correspondence with the set of primitive
     elements of $\pi_1\left( T^2 \right) \approx \mathbb{Z}^2$ which is
@@ -380,6 +380,55 @@ primitive elements of $\pi_1 (S)$.
     either $(p,q) = (0,\pm 1)$ or  $(p,q) = (\pm 1,0)$ or
      $\gcd(p,q) = 1$.
 \end{proposition}
+
+
+\begin{proof}
+    Firstly, primitive elements
+    of $\pi_1 T^2 \approx \mathbb{Z}^2$ are those
+    $\left( a,b \right) $ such that there
+    does not exist $(c,d)$ and $k \in \mathbb{Z}$ such that
+    $\left| k \right| >1$ and $\left( kc,kd \right) =
+    \left( a,b \right) $. But this is equivalent to saying that
+    either $\gcd (a,b) = 1$ or $\left( a,b \right) 
+    \in \left\{ \left( \pm 1,0 \right) ,
+    \left( 0, \pm 1 \right) \right\} $.\\
+    
+    We now claim that for a nontrivial closed curve $\alpha$ in $T^2$,
+    $\alpha$ is homotopic to a simple closed curve if and only
+    if $\alpha$ represents a primitive element of
+    $\pi_1 T^2 \approx \mathbb{Z}^2$.
+
+    Suppose $ (p,q) = \alpha$ represents a primitive element of
+    $\pi_1 T^2 \approx \mathbb{Z}^2$. Then if we choose
+    the origin as basepoint, we can lift  $\alpha$ to
+    the straight-line path starting at the origin and 
+    ending at $\left( p,q \right)  \in \mathbb{Z}^2$. 
+    The projected loop is simple since otherwise,
+    we would have for $t,t' \in t,t' \in [0,1) $ with
+    $t \neq t'$ that
+    $\left( tp,tq \right) = \left( t'p,t'q \right) +
+    \left( m,n \right) $ for $m,n \in \mathbb{Z}$.
+    But then $\frac{p}{q} \in \mathbb{Z}$ contradicting
+    $\gcd \left( p,q \right) = 1$ except when
+    $q = \pm 1$. But then $\pm t = \pm t' + n$ necessarily
+    gives $n = 0$ and $t = t'$, contradiction.\\
+    \linebreak
+    Conversely, suppose $\alpha$ is homotopic to
+    a nontrivial simple closed curve which we will also
+    denote $\alpha$. Then lifting $\alpha$ to a path
+    starting at  $0$ in $\mathbb{R}^2$, it ends
+    at a point $\left( p,q \right)  \in \mathbb{Z}^2$. This
+    path is homotopic to the straight-line path from
+    $0$ to $\left( p,q \right) $, and the homotopy is
+    equivariant with respect to the deck transformations, so
+    it descends to a homotopy of $\alpha$. Just as above,
+    the descended loop will be simple if and only if
+    there do not exist $t,t' \in [ 0,1 ) $ with
+    $t\neq t'$ and $\left( t-t' \right) p, \left( t-t' \right) q
+    \in \mathbb{Z}$.
+
+
+\end{proof}
 
 \subsection*{Closed geodesics}
 
@@ -412,6 +461,30 @@ It is often useful to put an inner product on a vector space to check
 if two vectors are linearly independent. We can pursue something similar for
 surfaces.
 
+
+\begin{definition}[Transversality for curves]
+If $\alpha \cap \beta$ is finite and, at every intersection, each
+curve locally separates the other curve, then we say that
+$\alpha$ and $\beta$ are \textit{transverse}.
+\end{definition}
+
+\begin{definition}[Algebraic intersection number]
+    Let $\alpha$ and $\beta$ be a pair of transverse, oriented,
+    simple closed curves in $S$. Their \textit{algebraic intersection
+    number} $\hat{i}\left( \alpha,\beta \right) $ is
+    defined as the sum of the indices
+    of the intersection points of $\alpha$ and $\beta$,
+    where the intersection point is of index $+1$ when the
+    orientation of intersection agrees with
+    the orientation of $S$ and is $-1$ otherwise.
+\end{definition}
+
+\begin{remark}[]
+    The algebraic intersection number only depends on the
+    homology classes of the curves and defines
+    a symplectic form on homology.
+\end{remark}
+
 \begin{definition}[Geometric intersection number]
     Let $\alpha, \beta$ be closed curves on a surface $S$.
     Their \textit{geometric intersection number} is
@@ -422,11 +495,80 @@ surfaces.
     \] 
 \end{definition}
 
-\begin{definition}[Preliminary definition for transversality]
-If $\alpha \cap \beta$ is finite and, at every intersection, each
-curve locally separates the other curve, then we say that
-$\alpha$ and $\beta$ are \textit{transverse}.
-\end{definition}
+Intersection numbers are a useful general tool, and we will
+encounter them not only in applications of the Bigon criterion
+which we describe in a moment, but also in direct computations.
+One such computation will be the mapping class group of the
+torus $T^2$. For this, we will need an explicit expression
+for the intersection number of curves on the torus.
+
+\begin{example}[Intersection numbers on the torus]
+    By proposition \ref{torus-primitive-elts}, the nontrivial
+    homotopy classes of oriented simple closed curves in
+    $T^2$ are in bijective correspondence with the
+    set of primitive elements of 
+    $\mathbb{Z}^2$.
+    For two such homotopy classes
+    $\left( p,q \right) $ and $p', q'$, we claim that
+    \[
+    i \left( \left( p,q \right) , \left( p',q' \right)  \right) 
+    = \left| pq' - p'q \right| .
+    \] 
+    Suppose first that $\left( p,q \right) =(1,0)$. Through a
+    homotopy, we can assume that $\left( p',q' \right) $ is
+    represented by a loop which first winds around the
+    torus $p'$ times horizontally without
+    intersecting $(1,0)$ and then $q'$ times vertically. 
+    It then is clear that
+    $i \left( \left( p,q \right) , \left( p',q' \right)  \right) 
+    = \left| q' \right| = \left| pq' - p'q \right| $.
+    For the algebraic case, we choose $\left( 1,0 \right) $ 
+    to be along the orientation direction. Then
+    $\hat{i} \left( \left( p,q \right) , \left( p',q' \right) 
+    \right) = q' = pq' - p'q$.\\
+    For the general case, suppose
+    $\gcd (p,q) = 1$. Then by Bezout's lemma, there
+    exist $a,b \in \mathbb{Z}$ such that
+    $ap + bq = 1$. The system of equations
+    \begin{align*}
+        qd + pc &= 0\\
+        ad - bc &= 1
+    \end{align*}
+    has $\left( c,d \right) = \left( -q,p \right) $ as a solution.
+    So letting
+    \[
+    A =
+    \begin{pmatrix} a & b \\ -q & p \end{pmatrix} \in 
+    \SL \left( 2, \mathbb{Z} \right) 
+    \] 
+    we get $A \begin{pmatrix} p \\ q \end{pmatrix} 
+    = \begin{pmatrix} 1 \\ 0 \end{pmatrix} $.
+    Since $A$ is a linear, orientation-preserving
+    homeomorphism of $\mathbb{R}^2$ preserving
+    $\mathbb{Z}^2$, it induces
+    an orientation-preserving homeomorphism
+    on the quotient $\mathbb{R}^2 / \mathbb{Z}^2
+    \approx T^2$ whose action on
+    the fundamental group $\pi_1 \left( T^2 \right) 
+    \approx \mathbb{Z}^2$ is given by $A$.
+    Now, homeomorphisms preserve
+    algebraic and 
+    geometric intersection numbers.
+    Then
+    \begin{align*}
+    i \left( \left( p,q \right) , \left( p',q' \right)  \right) 
+    = i \left( A \left( p,q \right) , A\left( p',q' \right)  \right) 
+    &= i \left( \left( 1,0 \right) , \left( ap'+bq',
+    -qp' + pq'\right)  \right)\\
+    &= \left| pq' - qp'
+ \right|
+    \end{align*}
+    and likewise 
+    $\hat{i}\left( \left( p,q \right) , \left( p',q' \right) 
+    \right) = pq' - qp'$.\\
+    The other primitive cases are checked easily.
+\end{example}
+
 
 \begin{definition}[Minimal position]
     Two curves $\alpha$ and $\beta$ are in \textit{minimal
@@ -602,7 +744,8 @@ t \in I\right\} $.
 \end{definition}
 
 
-\begin{theorem}[Isotopy extension theorem]\label{Hirsch-isotopy-extension}
+\begin{theorem}[Isotopy extension theorem]\label{isotopy-extension}
+    \cite[Theorem 1.3, chapter 8]{Hirsch}
     Let $V \subset M$ be a compact submanifold
     and $F \colon V \times I \to M$ an isotopy
     of $V$. If either $F\left( V \times I \right) 
@@ -611,10 +754,11 @@ t \in I\right\} $.
     an ambient isotopy of $M$ having compact support.
 \end{theorem}
 
+\todo{Insert proof?}
 
 
 
-\subsection*{Arcs}
+\subsection{Arcs}
 $ $ \newline \newline
 Assume $S$ is a compact surface, possibly with boundary
 and possibly with finitely many marked points in the interior.
@@ -1005,22 +1149,61 @@ we have the following lemma \cite[Prop A.14]{Hatcher}:
 \subsubsection*{The Alexander Lemma}
 
 Here we will describe some of the simplest examples of
-mapping class groups following \cite[]{Farb-Margalit}
+mapping class groups following \cite[Chapter 2.1]{Farb-Margalit}
 
 \begin{lemma}[Alexander lemma]
    The group $\Mod\left( D^2 \right) $ is trivial. 
 \end{lemma}
 
+\begin{proof}
+    Let $\varphi  \colon D^2 \to D^2$ be a homeomorphism
+    with $\varphi |_{\partial D^2} = \id_{\partial D^2}$.
+    Define 
+    \[
+    F(x,t) = 
+    \begin{cases}
+        (1-t) \varphi \left( \frac{x}{1-t} \right) ,& 
+        0\le \left| x \right| <1-t\\
+        x,& 1-t \le \left| x \right| \le 1
+    \end{cases}
+    \] 
+    for $0\le t < 1$, and let 
+    $F(x,1) = \id_{D^2}$. Then $F$ is an isotopy from
+    $\varphi $ to the identity. The reason it is an
+    isotopy is because at time $t$, $F(-,t)$ is
+    a homeomorphism on the disk of
+    radius  $1-t$ where it is $\varphi $ and
+    outside this disk, it is the identity. On the boundary
+    of this disk, both $\varphi $ and the identity are
+    the identity, so $F(-,t)$ is continuous by the pasting lemma,
+    and thus a homeomorphism for each $t$.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.25\textwidth]{alexander-trick.png}
+        \caption{The Alexander trick. We envision 
+        $F$ as performing the homeomorphism on the disk $D^2$ 
+    and embedding it at time $t$ as a disk of radius
+$1-t$ as shown in the picture. Thus $F$ will have support
+the cone as shown.}
+        \label{fig:alexander-trick-png}
+    \end{figure}
+\end{proof}
+
 \begin{remark}
     Also $0 \approx \Mod\left( D - \left\{ 0 \right\}  \right) 
     \approx \Mod \left( S_{0,1} \right) \approx
-    \Mod\left( S^2 \right) $.
+    \Mod\left( S^2 \right) $ using the Alexander trick again.
 \end{remark}
 
 \subsubsection*{The mapping class group of the thrice-punctured sphere,
 $\Mod \left( S_{0,3} \right) $}
 
-\begin{proposition}[]
+
+We will now present a couple other computations of
+some simple mapping class groups.
+
+\begin{proposition}[]\label{prop2.2}
     Any two essential simple proper arcs in $S_{0,3}$ with the
     same endpoints are isotopic. Any two essential arcs that both
     start and end at the same marked point of $S_{0,3}$ are isotopic.
@@ -1064,6 +1247,7 @@ $\Mod \left( S_{0,3} \right) $}
     Now suppose we remove $\alpha \cup  \beta$. Then
     we get a disjoint union of a disk and a punctured
     disk (by the classification of surfaces - expound on this).
+    \todo{}
     Thus the embedded disk in $S_{0,3}$ gives an isotopy
     of $\alpha$ to $\beta$.
 \end{proof}
@@ -1081,12 +1265,43 @@ $\Mod \left( S_{0,3} \right) $}
 \end{proposition}
 
 \begin{proof}
-    This is just additional notes to the proof in the book.
-    The reason it is surjective is that the previous proposition
-    gives an isotopy between arcs which we can extend to
-    an ambient isotopy relative to the boundary which
-    is an element of the mapping class group. (can we
-    be sure the last marked point stays fixed?)
+
+    The map is a surjective homomorphism since, for
+    any choice of punctures $S_{0,3}$, we can, using the
+    classification of surfaces, modify where the punctures
+    are so that the desired permutation can easily be obtain from
+    a rotation.\\
+    \linebreak
+    It thus suffices to show injectivity. So
+    suppose $\varphi $ is a homomorphism fixing
+    the three marked points, call them $p,q$, and $r$.
+    Choose an arc $\alpha$ in $S_{0,3}$ with
+    distinct endpoints, say $p$ and $q$.
+    Since $\varphi $ fixes the marked points,
+    proposition \ref{prop2.2} gives that
+    $\varphi \circ \alpha$ is isotopic to $\alpha$,
+    or equivalently, that $\alpha$ is
+    isotopic to $\varphi^{-1} \circ \alpha$, say
+    through an isotopy
+    $F \colon I \times I \to S_{0,3}$.
+    By theorem \ref{isotopy-extension}, we can
+    extend $F$ to an ambient isotopy, and
+    by composing with $\varphi $, we get an
+    isotopy from $\varphi $ to
+    a homeomorphism which fixes $\alpha$ pointwise.\\
+    \linebreak
+    Now cut $S_{0,3}$ along $\alpha$ so as to obtain
+    a disk with one marked point. Since
+    $\varphi $ preserves the orientations of
+    $S_{0,3}$ and of $\alpha$, it follows that
+    $\varphi $ induces a homemomorphism
+    $\overline{\varphi }$ of this disk which is the
+    identity on the boundary.
+
+    But $\Mod \left( S_{0,1} \right) \approx 0$, so
+    $\overline{\varphi }$ is homotopic to the identity.
+    And this homotopy induces a homotopy from $\varphi $ to
+    the identity.
 \end{proof}
 
 
@@ -1143,6 +1358,14 @@ $\Mod \left( S_{0,3} \right) $}
 \end{theorem}
 
 \begin{proof}
+    Any homeomorphism $\varphi $ of $T^2$ induces
+    an isomorphism on homology: $\varphi_* \colon
+    \mathbb{Z}^2 \approx H_1 (T^2) \to H_1\left( T^2 \right) 
+    \approx \mathbb{Z}^2$.
+
+
+
+
     Additional notes on the proof:
     \todo{why can we for any element $f \in \Mod \left( T^2 \right) $ 
     choose a representative $\varphi $ that fixes a basepoint
@@ -2000,7 +2223,7 @@ induced by the inclusion
  consider $\alpha \colon \left[ 0,1 \right] \to S$ as
  an isotopy $h \colon \left\{ x \right\} \times I
  \to S$ with $h(x,0) = h(x,1) = x$ and extend this
- to the whole surface using \ref{Hirsch-isotopy-extension} (here,
+ to the whole surface using \ref{isotopy-extension} (here,
  $V = \left\{ x \right\} $ ), denote this by
  $h \colon S \times I \to S$ also. Let
  $\varphi (x) = h(x,1) $ be the homeomorphism
@@ -2093,7 +2316,7 @@ induced by the inclusion
      \left( \theta + 2 \pi (2-r)t,r \right) ,& 1 \le r \le 2.
  \end{cases}
  \]
- By \ref{Hirsch-isotopy-extension}, we can extend
+ By \ref{isotopy-extension}, we can extend
  $F$ to an ambient isotopy of $S$. Restricting
  $F$ to $\left\{ x \right\} \times \left[ 0,1 \right] $, we
  get
