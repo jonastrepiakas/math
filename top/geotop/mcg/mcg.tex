@@ -415,19 +415,24 @@ primitive elements of $\pi_1 (S)$.
     \linebreak
     Conversely, suppose $\alpha$ is homotopic to
     a nontrivial simple closed curve which we will also
-    denote $\alpha$. Then lifting $\alpha$ to a path
-    starting at  $0$ in $\mathbb{R}^2$, it ends
-    at a point $\left( p,q \right)  \in \mathbb{Z}^2$. This
-    path is homotopic to the straight-line path from
-    $0$ to $\left( p,q \right) $, and the homotopy is
-    equivariant with respect to the deck transformations, so
-    it descends to a homotopy of $\alpha$. Just as above,
-    the descended loop will be simple if and only if
-    there do not exist $t,t' \in [ 0,1 ) $ with
-    $t\neq t'$ and $\left( t-t' \right) p, \left( t-t' \right) q
-    \in \mathbb{Z}$.
-
-
+    denote $\alpha$. A lift of $\alpha$ will consist
+    of a collection of biinfinite disjoint topological lines.
+    We can homotopy this collection into a collection of disjoint
+    straight biinfinite lines, where the integer points on
+    the lines are fixed during the homotopy. 
+    Since these collections and the homotopy are equivariant
+    with respect to deck transformations, this descends
+    to a homotopy of $\alpha$. If the descended loop
+    from the straight lines were not simple, we would
+    have intersections in the universal cover - i.e. nonparallel
+    lines which we do not have. This is the information of
+    Lemma \ref{simple-loop-lifts} below.
+    As the straight-line respresentative is simple, we
+    must therefore have that if $\alpha$ is represented by
+    $\left( p,q \right) $, we have that
+    $ \gcd \left( p,q \right) = 1$ or
+    $\left( p,q \right) \in \left\{ \left( \pm 1,0 \right) ,
+    \left( 0, \pm 1 \right) \right\} $.
 \end{proof}
 
 \subsection*{Closed geodesics}
@@ -442,7 +447,7 @@ primitive elements of $\pi_1 (S)$.
 
 \begin{proof}
     Follows from the following lemma:
-    \begin{lemma}[]
+    \begin{lemma}[]\label{simple-loop-lifts}
         Let $X$ be a topological space with a universal covering space
          $\tilde{X}$. A closed curve $\beta$ in $X$ is simple if and
         only if the following properties hold:
@@ -1618,7 +1623,7 @@ class of $T_{\alpha}$ does not depend on the choice of
 $N$ or the choice of homeomorphism $\varphi$. Nor
 does $T_{\alpha}$ depend on the choice
 of simple closed curve $\alpha$ within its isotopy class." 
-\todo{why?}
+\todo{See theorem 1.8 in Hempel}
 
 
 \subsubsection*{Dehn twists on the torus}
@@ -1734,7 +1739,7 @@ Throughout this section, $a$ and $b$ denote arbitrary
     $\Mod(S)$.
 \end{corollary}
 
-\begin{lemma}[]
+\begin{lemma}[]\label{dehn-intersection-0}
     For any two isotopy classes $a$ and $b$ of simple
     closed curves in a surface $S$, we have
     \[
@@ -1770,7 +1775,7 @@ Throughout this section, $a$ and $b$ denote arbitrary
 
 \subsubsection{Relations between two Dehn twists}
 
-\begin{proposition}[Braid relation]
+\begin{proposition}[Braid relation]\label{dehn-braid-relation}
     If $a$ and $b$ are isotopy classes of simple closed
     curves with $i(a,b) = 1$, then
     \[
@@ -2535,6 +2540,14 @@ S_g^{1} \right) }\left( \iota \right) .
  \] 
  i.e, the subgroup of $\Mod \left( S_g^{1} \right) $ that
  is the image of $\SHomeo^{+} \left( S_g^{1} \right) $.
+ In particular,
+ $\SMod \left( S_g^{1} \right) $ is not the same
+ as
+ $\pi_0 \left( \SHomeo^{+} 
+ \left( S_g^{1} \right) \right) $ as isotopies are
+ allowed to pass through all homeomorphisms 
+ in $\SMod \left( S_g^{1} \right) $, but not
+ in the latter.
  \end{definition}
 
  The homeomorphism $\iota$ has
@@ -2586,8 +2599,7 @@ S_g^{1} \right) }\left( \iota \right) .
        (actually, is this true?...)
    \end{definition}
 
-   If we have this, we get an isomorphism of the
-   two, so
+   If we have this, we get the isomorphism
    \begin{align*}
        \SHomeo^{+} \left( S_g^{1} \right) /
        \text{symmetric isotopy}
@@ -2600,7 +2612,8 @@ S_g^{1} \right) }\left( \iota \right) .
    
    We want to show that
    if two symmetric homeomorphisms of $S_{g}^{1}$ are
-   isotopic, then they must be symmetrically isotopic.
+   isotopic, then they must be symmetrically isotopic, since then
+   we will derive the Birman-Hilden theorem which we now state.
  
 
    \subsection{The Birman-Hilden Theorem}
@@ -2614,7 +2627,7 @@ S_g^{1} \right) }\left( \iota \right) .
    \begin{example}[]
        Taking $g=1$, we will find
        $\Mod \left( S_g^{1} \right) $.
-       Note that by corollary
+       Note that by Corollary
        \ref{hyperelliptic-involution-in-center},
        $\iota \in C\left( 
        \Homeo^{+}\left( S_g^{1} \right)  \right)  $, so
@@ -2633,6 +2646,12 @@ S_g^{1} \right) }\left( \iota \right) .
        components that are interchanged by
        $\iota$, see figure
        \ref{fig:-Birman-Hilden-two-symmetric-boundary-components-png}.
+       Hence
+       \[
+       \SMod \left( S_g^{2} \right) 
+       \approx B_{2g+2}.
+       \] 
+
         \begin{figure}[htpb]
            \centering
            \includegraphics[width=0.3\textwidth]{
@@ -2641,11 +2660,6 @@ S_g^{1} \right) }\left( \iota \right) .
            interchanged by $\iota$.}
            \label{fig:-Birman-Hilden-two-symmetric-boundary-components-png}
        \end{figure}
-       Hence
-       \[
-       \SMod \left( S_g^{2} \right) 
-       \approx B_{2g+2}.
-       \] 
    \end{remark}
 
 
@@ -2689,7 +2703,7 @@ S_g^{1} \right) }\left( \iota \right) .
        \begin{figure}[htpb]
            \centering
            \includegraphics[width=0.8\textwidth]{homology-basis-of-torus-and-double-torus.png}
-           \caption{Basis for homologies of torus and
+           \caption{Basis for homology groups of torus and
            double torus}
            \label{fig:homology-basis-of-torus-and-double-torus-png}
        \end{figure}
@@ -3138,231 +3152,9 @@ and \\[1 ex]
    \end{example}
 
 
-
-
-
-   \subsection{Braided monoidal category of decorated and
-   bidecorated surfaces}
-
-   \begin{definition}[Decorated surface]
-       A decorated surface is a pair
-       $(S,I)$ where $S$ is a compact connected
-       surface with at least one boundary component
-       and $I \colon \left[ -1,1 \right] 
-       \hookrightarrow \partial S$ is a parametrised interval
-       in its boundary.
-   \end{definition}
-
-   \begin{definition}[$\mathcal{M}_1$]
-       Let $\mathcal{M}_1$ denote the groupoid where
-       the objects are
-       decorated surfaces and
-       morphisms are isotopy classes of diffeomorphisms
-       restricting to the identity on a neighborhood
-       of $I$.
-   \end{definition}
-
-   We now construct a braided monoidal structure on
-   $\mathcal{M}_1$ : given decorated surfaces
-   $\left( S_1, I_1 \right) $ and
-   $\left( S_2,I_2 \right) $, define
-   $\left( S_1, I_1 \right) 
-   \otimes \left( S_2, I_2 \right) 
-   := \left( S_1 \# S_2, I_1 \# I_2 \right) $ to be
-   the surface obtained by gluing
-   $S_1$ and $S_2$ along the right half-interval
-   $I_1^{+} \in \partial S_1$ and the
-   left half-interval $I_2^{-} \in \partial S_2$, defining
-   $I_1 \# I_2 = I_1^{-} \cup I_2^{+}$.
-
-   \begin{figure}[htpb]
-       \centering
-       \includegraphics[width=0.35\textwidth]{connected-sum.png}
-       \label{fig:connected-sum-png}
-   \end{figure}
-
-   Furthermore, we define the unit object to be
-   $I := \left( D^2, I \right) $. 
-   In this case, the monoidal structure is clearly strict. 
-
-   We define a braiding $c$ on
-   $\left( S_1 \# S_2, I_1 \# I_2 \right) $ 
-   as the half-Dehn twist which satisfies that
-   $c \colon \left( S_1 \# S_2, I_1 \# I_2 \right) 
-   \stackrel{\sim}{\to } \left( S_2 \# S_1, I_2 \# I_1 \right)  $
-   is a natural isomorphism because we
-   it has the opposite half-Dehn twist as the inverse. It is
-   natural because the induced map will simply be the one induced by
-   the naturality square.
-
-   The B1 and B2 diagrams can be verified pictorially as follows:
-
-
-   \begin{figure}[H]
-    \centering
-    \begin{minipage}[b]{0.7\textwidth}
-        \centering
-        \includegraphics[width=1.1\textwidth]{B1.jpg} % first figure itself
-    \end{minipage}\hfill
-    \begin{minipage}[b]{0.7\textwidth}
-        \centering
-        \includegraphics[width=0.9\textwidth]{B2.jpg} % second figure itself
-    \end{minipage}
-\end{figure}
-
-
-\begin{definition}[$X_i$]
-    A bidecorated surface is a surface with two intervals
-    marked in its boundary.
-
-    To give a precise definition, we first
-    define certain surfaces $X_i$ that will be convenient for
-    the monoidal structure, we set
-    $X_1 = D^2 \subset \mathbb{C}$ to be the unit disk,
-    and then define embeddings
-    $\iota_1^{0}, \iota_1^{1} \colon I \to X_1$ by
-
-    \[
-    \iota_1^{0} (t) =
-    e^{i \left( \frac{\pi}{4} + t \frac{\pi}{2} \right) }
-    \quad
-    \text{and}
-    \quad
-    \iota_{1}^{1} (t) = e^{i \left( 5 \frac{\pi}{4} +
-    t \frac{\pi}{2} \right) }.
-    \] 
-    We denote by
-    $\overline{\iota_1^{i}} \colon
-    I \to X_1$ the reverse map
-    $t \mapsto \iota_{1}^{i}(1-t)$ for $i = 0,1$.
-    Then we recursively define $X_{m+1}$ for 
-    $m\ge 1$ by
-    \[
-    X_{m+1} :=
-    \frac{X_m \sqcup X_1}{\iota_m^{i}(t) 
-\sim \overline{\iota_1^{i}}} \quad \text{for } t
-\in \left[ \frac{1}{2},1 \right]
-    \] 
-    and we define
-    \[
-    \iota_{m+1}^{i} (t) 
-    =
-    \begin{cases}
-        \iota_m^{i}(t),& \text{if } t \le \frac{1}{2}\\
-        \iota_1^{i}(t),& \text{else}
-    \end{cases}.
-    \] 
-
-    In this process, the marked intervals will live in
-    different boundary components every second time. 
-    The process for each of the two situations is illustrated below
-    in figures
-    \ref{fig:bidecorated-attaching-jpeg} and
-    \ref{fig:bidecorated-second-attaching-jpeg}.
-\end{definition}
-
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\textwidth]{bidecorated-attaching.jpeg}
-    \caption{Marked intervals in single boundary components.}
-    \label{fig:bidecorated-attaching-jpeg}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\textwidth]{bidecorated-second-attaching.jpeg}
-    \caption{Marked intervals in different boundary components.}
-    \label{fig:bidecorated-second-attaching-jpeg}
-\end{figure}
-
-\begin{lemma}[]
-    For $m\ge 1$, $X_m \approx S_{g,r}$ where
-    \[
-        \left( g,r \right) =
-        \begin{cases}
-            \left( \frac{m}{2}-1,2 \right) ,& m \text{ even}\\
-            \left( \frac{m-1}{2},1 \right) ,& m \text{ odd}
-        \end{cases}.
-    \] 
-\end{lemma}
-
-\begin{proof}
-    Firstly, $X_m$ is clearly connected, and
-    we have
-    \[
-    \chi \left( X_{m} \right) 
-    = \chi \left( X_{m-1} \right) -1
-    \] 
-    since, for example, the $\Delta$-structure on
-    our surface $X_{m}$ can be chosen to be that for $X_{m-1}$ with
-    the boundary subdivided into four $2$-simplices with 
-    four vertices,
-    adding an additional two $2$-simplices and then
-    a disk.
-    By induction, we then get
-    $\chi \left( X_{m} \right) 
-    = \chi \left( X_1 \right) - \left( m-1 \right) 
-    = 2-m$.\\
-    Now, by the classification of surfaces with
-    boundary and genus, we simply need to
-    know how many boundary components $X_{m+1}$ has.
-    But as can be seen from the figures, 
-    if $m$ is odd, we will have one boundary component,
-    while if  $m$ is even, we will have
-    two boundary components.
-\end{proof}
-
-\begin{definition}[Bidecorated surface]
-    A bidecorated surface is a tuple
-    $\left( S, m , \varphi  \right) $ where
-    $S$ is a surface, $m\ge 1$ is an integer,
-    and
-    \[
-    \varphi \colon
-    \partial X_m \sqcup \left( \sqcup_{k} S^{1} \right) 
-    \stackrel{\sim}{\to } \partial S
-    \] 
-    is a homeomorphism, giving a parametrization of the boundary of
-    $S$. We think of $\left( S, m , \varphi  \right) $ as
-    a surface with two parametrized arcs
-    \[
-    I_0 := \varphi \circ \iota_{m}^{0} \quad
-    \text{and} \quad 
-    I_1 := \varphi \circ \iota_m^{1}
-    \] 
-    in its boundary, and $k$ additional parametrized
-    boundaries.
-\end{definition}
-
-
-\begin{definition}[$\mathcal{M}_2$]
-    Let $\mathcal{M}_2$ denote the monoidal groupoid
-    where objects are bidecorated surfaces together
-    with a formal unit $U$. The Hom set
-    between two bidecorated surfaces
-    $\left( S, m, \varphi  \right) $ and
-    $\left( S', m', \varphi' \right) $ is
-    empty if $m\neq m'$ or $S$ and $S'$ are nonhomeomorphic.
-    Otherwise, the Hom set consists of all mapping
-    classes of homeomorphisms that preserve the
-    boundary parametrizations:
-    \[
-    \Hom_{\mathcal{M}_2}\left( 
-    \left( S,m,\varphi  \right) , 
-\left( S', m, \varphi' \right) \right) 
-= 
-    \pi_0 \Homeo_{\partial}\left( S,S' \right) 
-    = \pi_0 \left\{ f \in \Homeo \left( S,S' \right) 
-    \mid f \circ \varphi  = \varphi' \right\}
-\] 
-where $\Homeo\left( S,S' \right) $ has the compact-open
-topology, and 
-$\Homeo_{\partial}\left( S,S' \right) $ the subspace topology.
-
-\end{definition}
-
 \subsection{Yang-Baxter operators}
+
+
 
 \begin{definition}[Yang-Baxter operator]
     Let $T \colon \mathcal{A} \to 
@@ -3513,7 +3305,356 @@ $\Homeo_{\partial}\left( S,S' \right) $ the subspace topology.
      \end{definition}
 
 
-     \subsubsection{Braiding inducing geometric representation}
+
+
+   \subsection{Braided monoidal category of decorated and
+   bidecorated surfaces}
+
+   \begin{definition}[Decorated surface]
+       A decorated surface is a pair
+       $(S,I)$ where $S$ is a compact connected
+       surface with at least one boundary component
+       and $I \colon \left[ -1,1 \right] 
+       \hookrightarrow \partial S$ is a parametrised interval
+       in its boundary.
+   \end{definition}
+
+   \begin{definition}[$\mathcal{M}_1$]
+       Let $\mathcal{M}_1$ denote the groupoid where
+       the objects are
+       decorated surfaces and
+       morphisms are isotopy classes of diffeomorphisms
+       restricting to the identity on a neighborhood
+       of $I$.
+   \end{definition}
+
+   We now construct a braided monoidal structure on
+   $\mathcal{M}_1$ : given decorated surfaces
+   $\left( S_1, I_1 \right) $ and
+   $\left( S_2,I_2 \right) $, define
+   $\left( S_1, I_1 \right) 
+   \otimes \left( S_2, I_2 \right) 
+   := \left( S_1 \# S_2, I_1 \# I_2 \right) $ to be
+   the surface obtained by gluing
+   $S_1$ and $S_2$ along the right half-interval
+   $I_1^{+} \in \partial S_1$ and the
+   left half-interval $I_2^{-} \in \partial S_2$, defining
+   $I_1 \# I_2 = I_1^{-} \cup I_2^{+}$.
+
+   \begin{figure}[htpb]
+       \centering
+       \includegraphics[width=0.35\textwidth]{connected-sum.png}
+       \label{fig:connected-sum-png}
+   \end{figure}
+
+   Furthermore, we define the unit object to be
+   $I := \left( D^2, I \right) $. For it to be a strict unit, 
+   we define $\left( S_1 \# D^2, I_1 \# I \right) 
+   := \left( S_1, I_1 \right) $ and
+   $\left( D^2 \# S_2, I \# I_2 \right) :=
+   \left( S_2, I_2 \right) $.\\
+   
+
+   We define a braiding $c$ on
+   $\left( S_1 \# S_2, I_1 \# I_2 \right) $ 
+   as the half-Dehn twist which satisfies that
+   $c \colon \left( S_1 \# S_2, I_1 \# I_2 \right) 
+   \stackrel{\sim}{\to } \left( S_2 \# S_1, I_2 \# I_1 \right)  $
+   is a natural isomorphism because we
+   it has the opposite half-Dehn twist as the inverse. It is
+   natural because the induced map will simply be the one induced by
+   the naturality square.
+
+   The B1 and B2 diagrams can be verified pictorially as follows:
+
+
+   \begin{figure}[H]
+    \centering
+    \begin{minipage}[b]{0.7\textwidth}
+        \centering
+        \includegraphics[width=1.1\textwidth]{B1.jpg} % first figure itself
+    \end{minipage}\hfill
+    \begin{minipage}[b]{0.7\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{B2.jpg} % second figure itself
+    \end{minipage}
+\end{figure}
+
+We will also consider a different monoidal category of
+surfaces. Informally, a bidecorated surface is a surface with two 
+intervals marked in its boundary.
+
+
+    To give a precise definition, we first
+    define certain surfaces $X_i$ that will be convenient for
+    the monoidal structure, we set
+    $X_1 = D^2 \subset \mathbb{C}$ to be the unit disk,
+    and then define embeddings
+    $\iota_1^{0}, \iota_1^{1} \colon I \to X_1$ by
+
+    \[
+    \iota_1^{0} (t) =
+    e^{i \left( \frac{\pi}{4} + t \frac{\pi}{2} \right) }
+    \quad
+    \text{and}
+    \quad
+    \iota_{1}^{1} (t) = e^{i \left( 5 \frac{\pi}{4} +
+    t \frac{\pi}{2} \right) }.
+    \] 
+    We denote by
+    $\overline{\iota_1^{i}} \colon
+    I \to X_1$ the reverse map
+    $t \mapsto \iota_{1}^{i}(1-t)$ for $i = 0,1$.
+    Then we recursively define $X_{m+1}$ for 
+    $m\ge 1$ by
+    \[
+    X_{m+1} :=
+    \frac{X_m \sqcup X_1}{\iota_m^{i}(t) 
+\sim \overline{\iota_1^{i}}} \quad \text{for } t
+\in \left[ \frac{1}{2},1 \right]
+    \] 
+    and we define
+    \[
+    \iota_{m+1}^{i} (t) 
+    =
+    \begin{cases}
+        \iota_m^{i}(t),& \text{if } t \le \frac{1}{2}\\
+        \iota_1^{i}(t),& \text{else}
+    \end{cases}.
+    \] 
+
+    In this process, the marked intervals will live in
+    different boundary components every second time. 
+    The process for each of the two situations is illustrated below
+    in figures
+    \ref{fig:bidecorated-attaching-jpeg} and
+    \ref{fig:bidecorated-second-attaching-jpeg}.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{bidecorated-attaching.jpeg}
+    \caption{Marked intervals in single boundary components.}
+    \label{fig:bidecorated-attaching-jpeg}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{bidecorated-second-attaching.jpeg}
+    \caption{Marked intervals in different boundary components.}
+    \label{fig:bidecorated-second-attaching-jpeg}
+\end{figure}
+
+\begin{lemma}[]
+    For $m\ge 1$, $X_m \approx S_{g,r}$ where
+    \[
+        \left( g,r \right) =
+        \begin{cases}
+            \left( \frac{m}{2}-1,2 \right) ,& m \text{ even}\\
+            \left( \frac{m-1}{2},1 \right) ,& m \text{ odd}
+        \end{cases}.
+    \] 
+\end{lemma}
+
+\begin{proof}
+    Firstly, $X_m$ is clearly connected, and
+    we have
+    \[
+    \chi \left( X_{m} \right) 
+    = \chi \left( X_{m-1} \right) -1
+    \] 
+    since, for example, the $\Delta$-structure on
+    our surface $X_{m}$ can be chosen to be that for $X_{m-1}$ with
+    the boundary subdivided into four $2$-simplices with 
+    four vertices,
+    adding an additional two $2$-simplices and then
+    a disk.
+    By induction, we then get
+    $\chi \left( X_{m} \right) 
+    = \chi \left( X_1 \right) - \left( m-1 \right) 
+    = 2-m$.\\
+    Now, by the classification of surfaces with
+    boundary and genus, we simply need to
+    know how many boundary components $X_{m+1}$ has.
+    But as can be seen from the figures, 
+    if $m$ is odd, we will have one boundary component,
+    while if  $m$ is even, we will have
+    two boundary components.
+\end{proof}
+
+\begin{definition}[Bidecorated surface]
+    A bidecorated surface is a tuple
+    $\left( S, m , \varphi  \right) $ where
+    $S$ is a surface, $m\ge 1$ is an integer,
+    and
+    \[
+    \varphi \colon
+    \partial X_m \sqcup \left( \sqcup_{k} S^{1} \right) 
+    \stackrel{\sim}{\to } \partial S
+    \] 
+    is a homeomorphism, giving a parametrization of the boundary of
+    $S$. We think of $\left( S, m , \varphi  \right) $ as
+    a surface with two parametrized arcs
+    \[
+    I_0 := \varphi \circ \iota_{m}^{0} \quad
+    \text{and} \quad 
+    I_1 := \varphi \circ \iota_m^{1}
+    \] 
+    in its boundary, and $k$ additional parametrized
+    boundaries.
+\end{definition}
+
+
+\begin{definition}[$\mathcal{M}_2$]
+    Let $\mathcal{M}_2$ denote the monoidal groupoid
+    where objects are bidecorated surfaces together
+    with a formal unit $U$. The Hom set
+    between two bidecorated surfaces
+    $\left( S, m, \varphi  \right) $ and
+    $\left( S', m', \varphi' \right) $ is
+    empty if $m\neq m'$ or $S$ and $S'$ are nonhomeomorphic.
+    Otherwise, the Hom set consists of all mapping
+    classes of homeomorphisms that preserve the
+    boundary parametrizations:
+    \[
+    \Hom_{\mathcal{M}_2}\left( 
+    \left( S,m,\varphi  \right) , 
+\left( S', m, \varphi' \right) \right) 
+= 
+    \pi_0 \Homeo_{\partial}\left( S,S' \right) 
+    = \pi_0 \left\{ f \in \Homeo \left( S,S' \right) 
+    \mid f \circ \varphi  = \varphi' \right\}
+\] 
+where $\Homeo\left( S,S' \right) $ has the compact-open
+topology, and 
+$\Homeo_{\partial}\left( S,S' \right) $ the subspace topology.
+\end{definition}
+
+The monoidal structure $\# $ on $\mathcal{M}_2$ is defined
+as follows. The object $U$ is by definition a unit,
+and for the remaining objects, we define
+\[
+    \left( S,m, \varphi  \right) \#
+    \left( S',m', \varphi ' \right) 
+    :=
+    \left( \frac{S \sqcup S'}{I_i(t)
+    \sim \overline{I_i'}(t), t \in 
+\left[ \frac{1}{2},1 \right] }, m+m',
+\varphi \# \varphi ' \right) 
+\] 
+for $i = 0,1$, and where
+\[
+\varphi \# \varphi ' \colon
+\partial X_{m+m'} \sqcup \left( \sqcup_{k+k'}
+S^{1}\right) \hookrightarrow \partial
+\left( S \# S' \right) 
+\] 
+is obtained using the canonical identification
+$\partial X_{m+m'} \approx 
+\left( \partial X_{n - \iota_m \left( \frac{1}{2},1
+\right) } \right) \cup 
+\left( \partial X_{m'} - 
+\iota_{m'} \left( 0, \frac{1}{2} \right) \right)$.
+
+Now we will construct a Yang-Baxter element
+in $\mathcal{M}_2$ as follows. Let
+$D^{\# m} = D_1 \# \ldots \# \left( D_i \# D_{i+1} \right) 
+\# \ldots \# D_m$, where subscripts are used to enumerate
+the disks. The underlying surface, by construction, will
+be $X_m$. Let
+$a_i$ defnote the isotopy class of a curve in the interior
+$D_i \# D_{i+1} \approx
+S^{1} \times I$ that is parallel to its
+boundary components, see figure \ref{fig:curvem2-png}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{curvem2.png}
+    \label{fig:curvem2-png}
+    \caption{The curve $a_i$ in $D_i \# D_{i+1}$}
+\end{figure}
+
+\begin{lemma}[]
+    The curves $a_1, \ldots, a_{m-1}$ form a chain in
+    $D^{\# m}$.
+\end{lemma}
+
+\begin{proof}
+    The curve $a_i$ has image contained in $D_i \# D_{i+1}$,
+    so it can only intersect $a_{i-1}$ and $a_{i+1}$ nontrivially.
+    So it suffices to look at the subsurface of
+    $D^{\# m}$ corresponding to
+    $D_i \# D_{i+1} \# D_{i+2}$.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{intersection-a_is.png}
+        \caption{Intersection of
+        $a_i$ and $a_{i+1}$ in
+    $D_i \# D_{i+1} \# D_{i+2}$.}
+        \label{fig:intersection-a_is-png}
+    \end{figure}
+\end{proof}
+
+
+Now by Lemma \ref{dehn-intersection-0} and Proposition \ref{dehn-braid-relation}
+(the braid relation), we get that the
+braid group relations hold for the Dehn twists
+$T_i \in \Aut_{\mathcal{M}_2}\left( D^{\# m} \right) $ 
+where $T_i$ is the Dehn twist along the curve
+$a_i$ in $D^{\# m}$, i.e.,
+\begin{align*}
+    T_{i}T_{i+1}T_i 
+    &= T_{i+1} T_i T_{i+1} &\forall i\\
+    T_i T_j 
+    &= T_j T_i &\text{for } \left| i-j \right| >1
+\end{align*}
+Hence the same relations hold for the
+inverses $T_{i}^{-1}$.\\
+\linebreak
+If we add a disk to either side of $D^{\# m}$, we get
+\[
+T_i \# \id_{D} = T_i \quad \text{and} \quad
+\id_{D}\# T_i = T_{i+1}
+\] 
+in $\Aut_{\mathcal{M}_2}\left( D^{\# m+1} \right) $.
+Hence this gives the relation
+\[
+    \left( T_1^{-1} \# \id_D \right) \left( \id_D \#
+    T_1^{-1} \right) \left( T_1^{-1} \# id_D \right) 
+    = 
+    \left( \id_D \# T_1^{-1} \right) 
+    \left( T_1^{-1} \# \id_D \right) 
+    \left( \id_D \# T_1^{-1} \right) 
+\] 
+in $\Aut_{\mathcal{M}_2} \left( D^{\# 3} \right) $,
+meaning that $T_1^{-1}$ is a Yang-Baxter element. This
+yields a monoidal functor
+\[
+\Phi = \Phi_{D, T_1^{-1}} \colon
+\left( B, \otimes \right) 
+\to \left( \mathcal{M}_2, \# \right) 
+\] 
+uniquely determined up to monoidal natural
+isomorphism by
+$\Phi (n) = D^{\# n}$ and
+$\Phi_{D, T_1^{-1}, n} \left( \sigma_1 \right) =
+D^{\# i-1} \#  T_1^{-1} \# D^{\# n - i -1} =
+T_i^{-1} \in 
+\Aut_{\mathcal{M}_2}\left( D^{\# m} \right) 
+= \pi_0 \Homeo_{\partial} \left( X_m \right)$.
+But by the Birman-Hilden theorem, the homomorphisms
+$\Phi_{D, T_1^{-1}, m} \colon
+B_m \to \Aut_{\mathcal{M}_2} 
+\left( D^{\# m} \right) $ are injective.
+
+
+
+
+
+
+
+\subsection{Braiding inducing geometric representation}
      
      Putting the things above together, we have that a 
      Yang-Baxter operator $\tau \in \Aut_{\mathcal{X}} 
@@ -3525,6 +3666,14 @@ $\Homeo_{\partial}\left( S,S' \right) $ the subspace topology.
      groups of surfaces and we will describe how they
      both come from Yang-Baxter elements in appropriate categories
      of surfaces.
+
+
+     
+     \subsubsection{The bidecorated case}
+
+
+
+
 
 
 

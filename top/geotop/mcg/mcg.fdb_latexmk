@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber mcg"] 1735398847.66739 "mcg.bcf" "mcg.bbl" "mcg" 1735521919.67028 0
-  "mcg.bcf" 1735521919.39626 108437 659585f1e525d0bc8cacd0608240f691 "pdflatex"
+["biber mcg"] 1735398847.66739 "mcg.bcf" "mcg.bbl" "mcg" 1735661333.92071 0
+  "mcg.bcf" 1735661333.73105 108437 659585f1e525d0bc8cacd0608240f691 "pdflatex"
   "mcg.bib" 1735384616.41493 4081 93827f78d26d672b90657a4d6e02e168 ""
   (generated)
   "mcg.bbl"
   "mcg.blg"
   (rewritten before read)
-["pdflatex"] 1735521916.18838 "mcg.tex" "mcg.pdf" "mcg" 1735521919.67076 0
+["pdflatex"] 1735661330.44067 "mcg.tex" "mcg.pdf" "mcg" 1735661333.92113 0
   "/etc/texmf/web2c/texmf.cnf" 1718688975.81737 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/jonas-trepiakas/.texlive2023/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk" 1727527665.45445 6964 86acb68f026bd4eb7255bbd50e22f730 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -254,20 +254,22 @@
   "braids-monoidal-structure.jpeg" 1734571166.34686 44293 d99b4fd11fe8fb9349661e7c360ab137 ""
   "chain-separating-curves.png" 1733922761.63122 36736 e7582ea90e36eb8d73df8c655e18ab45 ""
   "connected-sum.png" 1733863593.47634 26455 d3b1681b2207665d53da8960f10d8b95 ""
+  "curvem2.png" 1735611648.41829 26800 e5a3477d686136e498f0a72a9859c9a5 ""
   "filling-genus-2-surface.png" 1725914561.68095 24969 93de8e69c5cfe110fcea73351cff97af ""
   "half-twist.png" 1727948834.35787 13428 c12df1bb06edc6eb55be35d9dc4125b3 ""
   "homology-basis-of-torus-and-double-torus.png" 1729845145.91043 182722 d215c2cd74994197363a337b5678075d ""
+  "intersection-a_is.png" 1735651548.92515 52931 1d8283648cb86f0d2dc9fcba9bb77bbe ""
   "inverse-braiding.jpeg" 1734573891.47765 180255 1ddbb931dee083a9848a46dca83229c6 ""
   "involution-on-torus-quotient.jpg" 1726055336.71566 54343 66090363d886cc8805e1374a1f2434c5 ""
   "klein-bottle.jpg" 1733922372.33924 29133 0d55f6df491f3df876bb117e80649a67 ""
   "lemma-1-8.jpg" 1725374373.76166 46887 b342f35cf067c4b04a7e320195cf071e ""
   "lifts-of-paths.jpg" 1722893708.76281 203201 83ed0f50a606912a88eabfbe2318e4a3 ""
   "mapping-cylinder-mobius.jpg" 1733867323.69041 38531 317b9fecffe785fc00d9d1a3ed713c0d ""
-  "mcg.aux" 1735521919.39126 21506 9ed76ff372deec14c4f83c8e7754ce86 "pdflatex"
+  "mcg.aux" 1735661333.72605 22447 543314e0b1ce4fbefcb33b79f7ab42fd "pdflatex"
   "mcg.bbl" 1735398848.60137 7870 aebf718f0f769f91f6269d7e3eed2be0 "biber mcg"
-  "mcg.out" 1735521919.39226 8875 2f1c374684bf84411acc4111a4102698 "pdflatex"
-  "mcg.run.xml" 1735521919.39726 2291 ea095ae86321b5bc0eeb8ead9760d63f "pdflatex"
-  "mcg.tex" 1735521914.40597 139701 1aa6e872f56cd89cee41d7368a27a68a ""
+  "mcg.out" 1735661333.72705 9180 61302ac2625fd182f3364c33166f6664 "pdflatex"
+  "mcg.run.xml" 1735661333.73105 2291 ea095ae86321b5bc0eeb8ead9760d63f "pdflatex"
+  "mcg.tex" 1735661325.40599 144406 8722af54cb25b5ba12ff37d2e2cc62ea ""
   "push-point-map.png" 1728512950.81616 42008 a9c8295eac0b41b0b5ff2cfb4d9e9ad4 ""
   "sigma_i_configuration.png" 1727899992.71127 7791 8c7e3841aee9b99d6123b25a799ae9c0 ""
   "standard-chain.png" 1733877287.14402 27593 886242ac7dfd11d536b45767d57b4121 ""
