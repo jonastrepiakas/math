@@ -2464,7 +2464,7 @@ induced by the inclusion
  \subsection{Braid group and symmetric mapping class groups}
 
  \subsubsection{The construction of the
- homomorphism}
+ homomorphism}\label{birman-hilden-embedding-construction}
 
  Let $S_{g}^{1}$ be a surface of genus $g$ with
  one boundary component. Define a
@@ -3334,12 +3334,12 @@ and \\[1 ex]
    $\left( S_2,I_2 \right) $, define
    $\left( S_1, I_1 \right) 
    \otimes \left( S_2, I_2 \right) 
-   := \left( S_1 \# S_2, I_1 \# I_2 \right) $ to be
+   := \left( S_1 \natural S_2, I_1 \natural I_2 \right) $ to be
    the surface obtained by gluing
    $S_1$ and $S_2$ along the right half-interval
    $I_1^{+} \in \partial S_1$ and the
    left half-interval $I_2^{-} \in \partial S_2$, defining
-   $I_1 \# I_2 = I_1^{-} \cup I_2^{+}$.
+   $I_1 \natural I_2 = I_1^{-} \cup I_2^{+}$.
 
    \begin{figure}[htpb]
        \centering
@@ -3349,17 +3349,17 @@ and \\[1 ex]
 
    Furthermore, we define the unit object to be
    $I := \left( D^2, I \right) $. For it to be a strict unit, 
-   we define $\left( S_1 \# D^2, I_1 \# I \right) 
+   we define $\left( S_1 \natural D^2, I_1 \natural I \right) 
    := \left( S_1, I_1 \right) $ and
-   $\left( D^2 \# S_2, I \# I_2 \right) :=
+   $\left( D^2 \natural S_2, I \natural I_2 \right) :=
    \left( S_2, I_2 \right) $.\\
    
 
    We define a braiding $c$ on
-   $\left( S_1 \# S_2, I_1 \# I_2 \right) $ 
+   $\left( S_1 \natural S_2, I_1 \natural I_2 \right) $ 
    as the half-Dehn twist which satisfies that
-   $c \colon \left( S_1 \# S_2, I_1 \# I_2 \right) 
-   \stackrel{\sim}{\to } \left( S_2 \# S_1, I_2 \# I_1 \right)  $
+   $c \colon \left( S_1 \natural S_2, I_1 \natural I_2 \right) 
+   \stackrel{\sim}{\to } \left( S_2 \natural S_1, I_2 \natural I_1 \right)  $
    is a natural isomorphism because we
    it has the opposite half-Dehn twist as the inverse. It is
    natural because the induced map will simply be the one induced by
@@ -3530,24 +3530,24 @@ topology, and
 $\Homeo_{\partial}\left( S,S' \right) $ the subspace topology.
 \end{definition}
 
-The monoidal structure $\# $ on $\mathcal{M}_2$ is defined
+The monoidal structure $\natural $ on $\mathcal{M}_2$ is defined
 as follows. The object $U$ is by definition a unit,
 and for the remaining objects, we define
 \[
-    \left( S,m, \varphi  \right) \#
+    \left( S,m, \varphi  \right) \natural
     \left( S',m', \varphi ' \right) 
     :=
     \left( \frac{S \sqcup S'}{I_i(t)
     \sim \overline{I_i'}(t), t \in 
 \left[ \frac{1}{2},1 \right] }, m+m',
-\varphi \# \varphi ' \right) 
+\varphi \natural \varphi ' \right) 
 \] 
 for $i = 0,1$, and where
 \[
-\varphi \# \varphi ' \colon
+\varphi \natural \varphi ' \colon
 \partial X_{m+m'} \sqcup \left( \sqcup_{k+k'}
 S^{1}\right) \hookrightarrow \partial
-\left( S \# S' \right) 
+\left( S \natural S' \right) 
 \] 
 is obtained using the canonical identification
 $\partial X_{m+m'} \approx 
@@ -3558,12 +3558,12 @@ $\partial X_{m+m'} \approx
 
 Now we will construct a Yang-Baxter element
 in $\mathcal{M}_2$ as follows. Let
-$D^{\# m} = D_1 \# \ldots \# \left( D_i \# D_{i+1} \right) 
-\# \ldots \# D_m$, where subscripts are used to enumerate
+$D^{\natural m} = D_1 \natural \ldots \natural \left( D_i \natural D_{i+1} \right) 
+\natural \ldots \natural D_m$, where subscripts are used to enumerate
 the disks. The underlying surface, by construction, will
 be $X_m$. Let
-$a_i$ defnote the isotopy class of a curve in the interior
-$D_i \# D_{i+1} \approx
+$a_i$ denote the isotopy class of a curve in the interior
+$D_i \natural D_{i+1} \approx
 S^{1} \times I$ that is parallel to its
 boundary components, see figure \ref{fig:curvem2-png}.
 
@@ -3571,27 +3571,27 @@ boundary components, see figure \ref{fig:curvem2-png}.
     \centering
     \includegraphics[width=0.4\textwidth]{curvem2.png}
     \label{fig:curvem2-png}
-    \caption{The curve $a_i$ in $D_i \# D_{i+1}$}
+    \caption{The curve $a_i$ in $D_i \natural D_{i+1}$}
 \end{figure}
 
 \begin{lemma}[]
     The curves $a_1, \ldots, a_{m-1}$ form a chain in
-    $D^{\# m}$.
+    $D^{\natural m}$.
 \end{lemma}
 
 \begin{proof}
-    The curve $a_i$ has image contained in $D_i \# D_{i+1}$,
+    The curve $a_i$ has image contained in $D_i \natural D_{i+1}$,
     so it can only intersect $a_{i-1}$ and $a_{i+1}$ nontrivially.
     So it suffices to look at the subsurface of
-    $D^{\# m}$ corresponding to
-    $D_i \# D_{i+1} \# D_{i+2}$.
+    $D^{\natural m}$ corresponding to
+    $D_i \natural D_{i+1} \natural D_{i+2}$.
 
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.6\textwidth]{intersection-a_is.png}
         \caption{Intersection of
         $a_i$ and $a_{i+1}$ in
-    $D_i \# D_{i+1} \# D_{i+2}$.}
+    $D_i \natural D_{i+1} \natural D_{i+2}$.}
         \label{fig:intersection-a_is-png}
     \end{figure}
 \end{proof}
@@ -3600,9 +3600,9 @@ boundary components, see figure \ref{fig:curvem2-png}.
 Now by Lemma \ref{dehn-intersection-0} and Proposition \ref{dehn-braid-relation}
 (the braid relation), we get that the
 braid group relations hold for the Dehn twists
-$T_i \in \Aut_{\mathcal{M}_2}\left( D^{\# m} \right) $ 
+$T_i \in \Aut_{\mathcal{M}_2}\left( D^{\natural m} \right) $ 
 where $T_i$ is the Dehn twist along the curve
-$a_i$ in $D^{\# m}$, i.e.,
+$a_i$ in $D^{\natural m}$, i.e.,
 \begin{align*}
     T_{i}T_{i+1}T_i 
     &= T_{i+1} T_i T_{i+1} &\forall i\\
@@ -3612,41 +3612,60 @@ $a_i$ in $D^{\# m}$, i.e.,
 Hence the same relations hold for the
 inverses $T_{i}^{-1}$.\\
 \linebreak
-If we add a disk to either side of $D^{\# m}$, we get
+If we add a disk to either side of $D^{\natural m}$, we get
 \[
-T_i \# \id_{D} = T_i \quad \text{and} \quad
-\id_{D}\# T_i = T_{i+1}
+T_i \natural \id_{D} = T_i \quad \text{and} \quad
+\id_{D}\natural T_i = T_{i+1}
 \] 
-in $\Aut_{\mathcal{M}_2}\left( D^{\# m+1} \right) $.
+in $\Aut_{\mathcal{M}_2}\left( D^{\natural m+1} \right) $.
 Hence this gives the relation
 \[
-    \left( T_1^{-1} \# \id_D \right) \left( \id_D \#
-    T_1^{-1} \right) \left( T_1^{-1} \# id_D \right) 
+    \left( T_1^{-1} \natural \id_D \right) \left( \id_D \natural
+    T_1^{-1} \right) \left( T_1^{-1} \natural id_D \right) 
     = 
-    \left( \id_D \# T_1^{-1} \right) 
-    \left( T_1^{-1} \# \id_D \right) 
-    \left( \id_D \# T_1^{-1} \right) 
+    \left( \id_D \natural T_1^{-1} \right) 
+    \left( T_1^{-1} \natural \id_D \right) 
+    \left( \id_D \natural T_1^{-1} \right) 
 \] 
-in $\Aut_{\mathcal{M}_2} \left( D^{\# 3} \right) $,
+in $\Aut_{\mathcal{M}_2} \left( D^{\natural 3} \right) $,
 meaning that $T_1^{-1}$ is a Yang-Baxter element. This
 yields a monoidal functor
 \[
 \Phi = \Phi_{D, T_1^{-1}} \colon
 \left( B, \otimes \right) 
-\to \left( \mathcal{M}_2, \# \right) 
+\to \left( \mathcal{M}_2, \natural \right) 
 \] 
 uniquely determined up to monoidal natural
 isomorphism by
-$\Phi (n) = D^{\# n}$ and
+$\Phi (n) = D^{\natural n}$ and
 $\Phi_{D, T_1^{-1}, n} \left( \sigma_1 \right) =
-D^{\# i-1} \#  T_1^{-1} \# D^{\# n - i -1} =
+D^{\natural i-1} \natural  T_1^{-1} \natural D^{\natural n - i -1} =
 T_i^{-1} \in 
-\Aut_{\mathcal{M}_2}\left( D^{\# m} \right) 
+\Aut_{\mathcal{M}_2}\left( D^{\natural m} \right) 
 = \pi_0 \Homeo_{\partial} \left( X_m \right)$.
 But by the Birman-Hilden theorem, the homomorphisms
 $\Phi_{D, T_1^{-1}, m} \colon
 B_m \to \Aut_{\mathcal{M}_2} 
-\left( D^{\# m} \right) $ are injective.
+\left( D^{\natural m} \right) $ are injective.
+
+In particular, 
+\[
+    \Phi_m = \Phi_{D,T_1^{-1},m}
+\colon B_m \to \Aut_{\mathcal{M}_2}
+\left( D^{\natural m} \right) \approx
+\Aut_{\mathcal{M}_2} \left( 
+X_m\right)
+\approx
+\begin{cases}
+    \Aut_{\mathcal{M}_2} 
+    \left( S_{\frac{m}{2}-1,2} \right) ,& m\text{ even}\\
+    \Aut_{\mathcal{M}_2} \left( 
+S_{\frac{m-1}{2}, 1} \right),& m\text{ odd}
+\end{cases}.
+\] 
+recovers the Birman-Hilden embedding from
+section \ref{birman-hilden-embedding-construction}.
+
 
 
 
@@ -3687,8 +3706,8 @@ A connected orientable (respectively nonorientable) surface
 of genus $g$ with $b$ boundary components will
 be denoted by $S_{g,b}$ (respectively $N_{g,b}$ ).
 
-Now, recall that the Möbius band, which are also called
-crosscaps), are the mapping cylinders on the map
+Now, recall that the Möbius band (which is also called
+a crosscap), is the mapping cylinder on the map
 $z \mapsto z^2$ (see figure~\ref{fig:mapping-cylinder-mobius})
 
 
@@ -3708,6 +3727,15 @@ surface of one higher genus.\\
 We can then obtain $N_{g,b}$ from $S_{0,g+b}$ by
 gluing $g$ Möbius bands along $g$ distinct boundary
 components of $S_{0,g+b}$.
+
+Note that by the classification of surfaces
+\[
+N_{g,b} \approx \left( \mathbb{R}\mathbb{P}^2 \right)^{\# g} -
+\sqcup_{b} \mathring{D} \approx 
+ \left(\mathbb{R}\mathbb{P}^2 - \mathring{D} 
+\right)^{\natural g} - \sqcup_{b-1} \mathring{D}
+\] 
+where $\mathbb{R}\mathbb{P}^2 - \mathring{D}$ is a Möbius band.
 
 
 \begin{definition}[Geometric representation]
