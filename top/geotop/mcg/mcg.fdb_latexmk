@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber mcg"] 1735398847.66739 "mcg.bcf" "mcg.bbl" "mcg" 1735762726.00664 0
-  "mcg.bcf" 1735762725.82222 108437 659585f1e525d0bc8cacd0608240f691 "pdflatex"
+["biber mcg"] 1735398847.66739 "mcg.bcf" "mcg.bbl" "mcg" 1735860113.26209 0
+  "mcg.bcf" 1735860113.01331 108437 659585f1e525d0bc8cacd0608240f691 "pdflatex"
   "mcg.bib" 1735384616.41493 4081 93827f78d26d672b90657a4d6e02e168 ""
   (generated)
   "mcg.bbl"
   "mcg.blg"
   (rewritten before read)
-["pdflatex"] 1735762722.49293 "mcg.tex" "mcg.pdf" "mcg" 1735762726.00699 0
+["pdflatex"] 1735860108.98096 "mcg.tex" "mcg.pdf" "mcg" 1735860113.26258 0
   "/etc/texmf/web2c/texmf.cnf" 1718688975.81737 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/jonas-trepiakas/.texlive2023/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk" 1727527665.45445 6964 86acb68f026bd4eb7255bbd50e22f730 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -265,11 +265,11 @@
   "lemma-1-8.jpg" 1725374373.76166 46887 b342f35cf067c4b04a7e320195cf071e ""
   "lifts-of-paths.jpg" 1722893708.76281 203201 83ed0f50a606912a88eabfbe2318e4a3 ""
   "mapping-cylinder-mobius.jpg" 1733867323.69041 38531 317b9fecffe785fc00d9d1a3ed713c0d ""
-  "mcg.aux" 1735762725.81722 22599 378080b1427ebd4dc6fc3bda279011b4 "pdflatex"
+  "mcg.aux" 1735860113.00631 22902 26974e59cfa787d3a629eed76ec007b2 "pdflatex"
   "mcg.bbl" 1735398848.60137 7870 aebf718f0f769f91f6269d7e3eed2be0 "biber mcg"
-  "mcg.out" 1735762725.81922 9180 61302ac2625fd182f3364c33166f6664 "pdflatex"
-  "mcg.run.xml" 1735762725.82322 2291 ea095ae86321b5bc0eeb8ead9760d63f "pdflatex"
-  "mcg.tex" 1735762721.63318 145543 96488a542e8036f337af3113195c7d8d ""
+  "mcg.out" 1735860113.00831 9180 7064af46328f20e4a1659aa44d397c78 "pdflatex"
+  "mcg.run.xml" 1735860113.01431 2291 ea095ae86321b5bc0eeb8ead9760d63f "pdflatex"
+  "mcg.tex" 1735860105.49725 146560 9f4fdd4a20d55c02fd73700f1ef433a1 ""
   "push-point-map.png" 1728512950.81616 42008 a9c8295eac0b41b0b5ff2cfb4d9e9ad4 ""
   "sigma_i_configuration.png" 1727899992.71127 7791 8c7e3841aee9b99d6123b25a799ae9c0 ""
   "standard-chain.png" 1733877287.14402 27593 886242ac7dfd11d536b45767d57b4121 ""

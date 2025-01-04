@@ -2477,6 +2477,7 @@ induced by the inclusion
  simple closed curves satisfying
  $i \left( \alpha_i, \alpha_{i+1} \right) =1$ for
  all $i$ and $i \left( \alpha_i, \alpha_j \right) =0$ otherwise.
+ \todo{Insert picture of Humphries generators}
  We then define $\psi $ via
  $\psi \left( \sigma_i \right) =
  T_{\alpha_i}$.
@@ -3732,10 +3733,40 @@ Note that by the classification of surfaces
 \[
 N_{g,b} \approx \left( \mathbb{R}\mathbb{P}^2 \right)^{\# g} -
 \sqcup_{b} \mathring{D} \approx 
-\underbrace{\left(\mathbb{R}\mathbb{P}^2 - \mathring{D} 
-\right)}_{\text{Möbius band}}^{\natural g} - \sqcup_{b-1} \mathring{D}
+ \left(\mathbb{R}\mathbb{P}^2 - \mathring{D} 
+\right)^{\natural g} - \sqcup_{b-1} \mathring{D}
 \] 
+where $\mathbb{R}\mathbb{P}^2 - \mathring{D}$ is a Möbius band.
 
+Note also that $\mathbb{R}\mathbb{P}^2 \# \mathbb{R}\mathbb{P}^2
+\approx K$, the Klein bottle.
+
+
+\begin{lemma}[]\label{prop61}
+    $N_{g,1} \approx S_{n,1} \natural M$ for
+    $g = 2n+1$.
+\end{lemma}
+
+\begin{proof}
+
+For $g = 2n+1$ with $n\ge 0$, we have
+\begin{align*}
+N_{2n+1,1} \approx
+\left( \mathbb{R}\mathbb{P}^2 \right)^{\# 2n+1} -
+\mathring{D} 
+&\approx K^{\# n} \# M
+\approx K^{\# n-1} \# K \# M\\
+&\approx K^{\# n-1} \# T^2 \# M\\
+&\approx \ldots\\
+&\approx \left( T^2 \right)^{\# n} \# M\\
+&\approx S_{n,0} \# M\\
+&\approx S_{n,1} \natural M
+\end{align*}
+\end{proof}
+
+Hence for $g$ odd, we have an embedding
+$B_{g} \hookrightarrow N_{g,1}$ by the Birman-Hilden
+embedding into the $S_{n,1}$ summand.
 
 \begin{definition}[Geometric representation]
     A geometric representation of a group $G$ is any
@@ -3783,6 +3814,17 @@ $i \left( a_i, a_j \right) =0$ for $\left| i-j \right| >0$.
     \includegraphics[width=0.8\textwidth]{standard-chain.png}
     \label{fig:standard-chain-png}
 \end{figure}
+
+\begin{question}
+    Is the standard twist representation
+    $\rho_{C} \colon B_g \to \PMod (N_{g,b})$ the
+    same as the Birman-Hilden embedding?
+\end{question}
+
+Let us first approach the question for
+$g$ odd since here
+we can use proposition \ref{prop61}
+
 
 
 \subsubsection{The crosscap transposition representation}
