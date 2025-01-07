@@ -10,6 +10,7 @@
 \usepackage{bbm}
 %%For category theory diagrams:
 \usepackage{tikz-cd}
+\usepackage{todonotes}
 
 
 \setlength\parindent{0pt}
@@ -194,6 +195,279 @@
                 to the trivial ring.
         \end{enumerate}
     \end{proof}
+
+    \begin{exercise}[3]
+        Let $R$ be a commutative ring.
+        \begin{enumerate}
+            \item Show that if
+                $\left\{ e_i  \mid i \in I \right\} $ and
+                $\left\{ e_{j}'  \mid j \in J \right\} $ 
+                are bases for
+                $E$ and $E'$, respectively, where
+                $E$ and $E'$ are both free $R$-modules,
+                then $E \otimes_{R} E'$ is a free
+                $R$-module with
+                the simple tensors $e_i \otimes e_{j}'$  as a
+                basis.
+            \item Show that if $E$ and $E'$ are 
+                projective $R$-modules, then
+                $E \otimes_R E'$ is a projective $R$-module.
+        \end{enumerate}
+    \end{exercise}
+
+    \begin{proof}
+        \begin{enumerate}
+            \item 
+                The simple tensors
+                span $E \otimes_R E'$ since 
+                $\left( e_i, e_j' \right) $ are
+                a basis for $E \times E'$ of which
+                $E \otimes_R E'$ is a quotient.
+
+                Suppose
+                 \[
+                \sum c_{i,j} e_i \otimes e_j' = 0,
+                \] 
+                with $c_{i_0,j_0}\neq 0$. Then
+                since $E \times E'$ is free
+                on $\left\{ \left( e_i, e_{j}' \right)  \right\} $,
+                we define a map
+                $\tilde{\varphi } 
+                \colon E \times E' \to 
+                E \otimes_R E'$ by
+                $\left( e_i, e_j' \right) =
+                e_i \otimes e_j'$ when
+                $\left( i,j \right) = \left( i_0,j_0 \right) $ 
+                and $0$ otherwise. Then
+                the induced map
+                 $\varphi \colon E \otimes_R E' \to E \otimes_R E'$ is not
+                 identically $0$. Then
+                 \[
+                      0 = \sum c_{i,j} \varphi \left( e_i
+                      \otimes e_j' \right) 
+                      = c_{i_0,j_0} e_{i_0} \otimes
+                      e_{j_0}'.
+                 \] 
+                 Now, suppose
+                 $e_{i_0} \otimes
+                 e_{j_0}' = 0$. But
+                 then let 
+                 $f \colon E \times E' \to E \times E'$ 
+                 be the identity.
+                 We then get a map
+                 $\overline{f} \colon
+                 E \otimes_R E' \to 
+                 E \times E'$ sending
+                 $e_{i_0} \otimes e_{j_0}'$ to
+                 $\left( e_{i_0},e_{j_0}' \right) $, but
+                 also
+                 $\overline{f}$ is a homomorphism of
+                 abelian groups, so it sends
+                 $0$ to $0$, giving
+                 $\left( e_{i_0}, e_{j_0}' \right) = \left( 0,0
+                 \right) $, contradicting it being
+                 a basis element. Hence
+                 the set
+                 $\left\{ e_i \otimes e_{j}'  \mid 
+                 i \in I, j \in J\right\} $ is a basis
+                 for $E \otimes_R E'$.
+             \item 
+
+                 Suppose we have maps $f,g$ as follows
+                 \begin{equation*}
+                 \begin{tikzcd}
+                     E \times E' \ar[r, "h"]
+                     \ar[dashed, dr, "\overline{h}"] 
+                     & E \otimes_R E' \ar[d, "f"] \\
+                     X \ar[r, two heads, "g"] & Y
+                 \end{tikzcd}
+                 \end{equation*}
+                 Since $E$ and $E'$ are projective,
+                 restricting $\overline{h}$ to either
+                 coordinate induces a map
+                 into $X$. So for
+                 $e \in E$ fixed, there exists
+                 $k_e \colon E' \to X$ such that
+                 $g \circ k_e = \overline{h}(e,-)$.
+                 Define a map
+                 $k \colon E \times E' \to X$ by
+                 $k\left( e,e' \right) =
+                 k_{e}(e')$. Then
+                 $g \circ k \left( e,e' \right) 
+                 = g \circ k_e (e')
+                 = \overline{h}\left( e,e' \right) 
+                 = f \circ h \left( e,e' \right) $, hence
+                 the diagram
+                 
+                 \begin{equation*}
+                 \begin{tikzcd}
+                     E \times E' \ar[r, "h"]
+                     \ar[dashed, dr, "\overline{h}"] 
+                     \ar[d, "k"]
+                     & E \otimes_R E' \ar[d, "f"] \\
+                     X \ar[r, two heads, "g"] & Y
+                 \end{tikzcd}
+                 \end{equation*}
+                 commutes.
+                 By the universal property of tensor products,
+                 there exists a unique map
+                 $\overline{k} \colon
+                 E \otimes_R E' \to X$ such that
+
+                 \begin{equation*}
+                 \begin{tikzcd}
+                     E \times E' \ar[r, "h"]
+                     \ar[d, "k"]
+                     & E \otimes_R E' \ar[d, "f"]
+                     \ar[dl, "\exists !\overline{k}"']\\
+                     X \ar[r, two heads, "g"] & Y
+                 \end{tikzcd}
+                 \end{equation*}
+                 commutes.
+                 Thus $E \otimes_R E'$ is projective.
+
+        \end{enumerate}
+    \end{proof}
+
+
+    \begin{exercise}[4]
+        Let $M$ be an $R$-module.
+        \begin{enumerate}
+            \item Show that for any two-sided ideal
+                $\mathfrak{a} \subset R$, the set
+                \[
+                M \left[ \mathfrak{a} \right] 
+                = \left\{ x \in M
+                 \mid ax = 0 \text{ for each }
+             a \in \mathfrak{a} \right\} \subset 
+             M.
+                \] 
+              is a submodule of $M$.  
+        \end{enumerate}
+    \end{exercise}
+
+
+    \begin{proof}
+        \begin{enumerate}
+            \item A submodule is a subgroup which is
+                closed under multiplication by
+                elements of the ring.
+
+                Suppose $x,y \in 
+                M\left[ \mathfrak{a} \right] $. Then
+                for any $a \in \mathfrak{a}$,
+                $a \left( x-y \right) 
+                = ax + a (-1)y
+                = 0$ whenever $\mathfrak{a}$ is a right
+                ideal.
+
+                Now, if $x \in M \left[ \mathfrak{a} \right] $,
+                then
+                for any $r \in R$ and any
+                $a \in \mathfrak{a}$, we have
+                $ar \in \mathfrak{a}$, so
+                $a \cdot \left( rx \right) 
+                = \left( ar \right) \cdot x
+                = 0$ by assumption, so
+                $rx \in M \left[ \mathfrak{a} \right] $.
+            \item If $\mathfrak{b} \subset \mathfrak{a}$, then
+                for any
+                $x \in M\left[ \mathfrak{a} \right] $, we have
+                that for all $b \in \mathfrak{b} \subset 
+                \mathfrak{a}$,
+                $bx = 0$, so
+                $x \in M \left[ \mathfrak{b} \right] $.
+                In particular, since
+                $\mathfrak{a}^{s} \subset 
+                \mathfrak{a}^{r}$ for $r \le s$,
+                we have
+                $M \left[ \mathfrak{a}^{r} \right] 
+                \subset M\left[ \mathfrak{a}^{s} \right] $.
+            \item We define the
+                scalar multiplication by
+                $\left[ r \right]_{R / \mathfrak{a}}
+                \cdot \left[ x \right]_{M \left[ \mathfrak{a}^{r} \right] 
+                / M\left[ \mathfrak{a}^{r-1} \right] }
+                = \left[ rx \right]_{
+                M\left[ \mathfrak{a}^{r} \right] 
+            / M\left[ \mathfrak{a}^{r-1} \right] }$.
+            We check that this is well-defined.
+            Suppose
+            $\overline{r} = \overline{r'}$ and
+            $\overline{x } = \overline{x'}$. Then
+            $r^{-1} r' \in \mathfrak{a}$ and
+            $x' - x  \in M\left[ \mathfrak{a}^{r-1} \right] $.
+            Then
+            $r'x' - rx 
+            = r' \left( x'-x \right) +
+            \left( r'-r \right) x
+            \in M \left[ \mathfrak{a}^{r-1} \right] $.
+            The remaining module properties are inherited
+            from $M$.
+
+            \item
+                Suppose $t \ge n$. Then
+                for any $\overline{r} \in 
+                R / \mathfrak{m}^{n}$ and
+                any $m \in \mathfrak{m}^{t}$, we have
+                $rm \in \mathfrak{m}^{n}$, so
+                $\left( R / \mathfrak{m}^{n} \right) 
+                \left[ \mathfrak{m}^{t} \right] 
+                = R / \mathfrak{m}^{n}$.
+                Suppose $t < n$. Then
+                we claim
+                $\left( R / \mathfrak{m}^{n} \right) 
+                \left[ \mathfrak{m}^{t} \right] 
+                = \left( \mathfrak{m}^{n-t}R \right) /
+                \mathfrak{m}^{n}$. 
+                $\mathfrak{m}^{n-t}R$ is generated
+                by elements of the form
+                $m_1 \cdots m_{n-t}r$, and
+                $\mathfrak{m}^{t}$ is generated by
+                elements of the form
+                $m_{n-t+1} \cdots m_{n}$, so
+                $r m_{n-t+1} \cdots m_n
+                (r'm_1) m_2 \cdots m_{n-t}$ and
+                $r' m_1 \in \mathfrak{m}$ as it is an ideal.
+                Hence this is an element in
+                $\mathfrak{m}^{n}$. So
+                we have $\left( \mathfrak{m}^{n-t}R \right) /
+                \mathfrak{m}^{n} \subset 
+                \left( R / \mathfrak{m}^{n} 
+                \right) \left[ \mathfrak{m}^{t} \right] $.
+                If
+                $n \in \left( R / \mathfrak{m}^{n} \right) 
+                \left[ \mathfrak{m}^{t} \right] $, then
+                for all  $m \in \mathfrak{m}^{t}$, we have
+                $m n = 0$, so
+                $mn \in \mathfrak{m}^{n}$.
+                Let's postpone this for later.
+
+                \todo{}
+
+        \end{enumerate}
+    \end{proof}
+
+    \begin{exercise}[5]
+        Show that $\mathbb{Z} / 3 $ is a projective
+        $\mathbb{Z} /6$-module.
+    \end{exercise}
+
+    \begin{proof}
+        $\mathbb{Z} /3$ is a projective
+        $\mathbb{Z} / 6$-module if and only if
+        $\mathbb{Z} / 3$ is a direct summand in a 
+        free $\mathbb{Z} / 6$-module which it indeed is:
+        $\mathbb{Z} / 6 \approx \mathbb{Z} / 3 \oplus
+        \mathbb{Z} / 2$.
+    \end{proof}
+
+    
+
+
+
+
+
 
 
 

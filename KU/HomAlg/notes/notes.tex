@@ -82,6 +82,7 @@
 \DeclareMathOperator{\Sin}{Sin}
 \DeclareMathOperator{\Supp}{Supp}
 \DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\colim}{colim}
 
 
 %Row operations
@@ -340,6 +341,57 @@
 \end{theorem}
     
 
+\begin{lemma}[]
+    Suppose $M$ is an $R$-module. Then
+    \[
+        M = \bigcup_{\substack{M' \subset M\\ M' \text{ fin. gen.}}} 
+        M'.
+    \] 
+    We claim that
+    \begin{enumerate}
+        \item $M \otimes_R A = 
+            \bigcup_{\substack{M' \subset M \\
+            M' \text{ fin. gen.}}} M' \otimes_R A $.
+        \item If $\id_{M'} \otimes f\colon 
+            M' \otimes_R A \to M' \otimes_R B$ is injective
+            for all finitely generated
+            $M' \subset M$, then so is
+            \[
+            \id_M \otimes f \colon
+\bigcup_{\substack{M' \subset M \\
+            M' \text{ fin. gen.}}} M' \otimes_R A
+            \to \bigcup_{\substack{M' \subset M \\
+            M' \text{ fin. gen.}}} M' \otimes_R B
+            \] 
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    \begin{enumerate}
+        \item Define a diagram $F \colon I \to \, _{R}\Mod$
+            which has maps to all 
+            finitely generated submodules of
+            $M$ and all
+            inclusions between them.
+            Then by the universal property, the
+            $\colim F = \bigcup_{\substack{M' \subset M \\
+            M' \text{ fin. gen.}}} M' = M 
+            $ with maps
+            $i_{M'} \colon M' \to \colim F$ satisfying the
+            commutativity of the inclusions.
+            Since $- \otimes A$ is a left adjoint, we have
+            \[
+                M \otimes_R A = 
+                L \left( \colim F \right) 
+                = \colim \left( L \circ F \right) 
+                =  \bigcup_{\substack{M' \subset M \\
+            M' \text{ fin. gen.}}} M' \otimes_R A
+            \] 
+           the last equality again following from the
+           universal property.
+       \item 
+    \end{enumerate}
+\end{proof}
 
 
 
