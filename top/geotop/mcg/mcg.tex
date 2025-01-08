@@ -80,6 +80,7 @@
 \DeclareMathOperator{\Int}{Int}
 \DeclareMathOperator{\sgn}{sgn}
 \DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\GL}{GL}
 \DeclareMathOperator{\Supp}{Supp}
 \DeclareMathOperator{\tr}{tr}
 
@@ -511,7 +512,8 @@ One such computation will be the mapping class group of the
 torus $T^2$. For this, we will need an explicit expression
 for the intersection number of curves on the torus.
 
-\begin{example}[Intersection numbers on the torus]
+\begin{example}[Intersection numbers on the
+    torus]\label{intersection-numbers-torus}
     By proposition \ref{torus-primitive-elts}, the nontrivial
     homotopy classes of oriented simple closed curves in
     $T^2$ are in bijective correspondence with the
@@ -522,6 +524,12 @@ for the intersection number of curves on the torus.
     \[
     i \left( \left( p,q \right) , \left( p',q' \right)  \right) 
     = \left| pq' - p'q \right| .
+    \] 
+    and
+    \[
+    \hat{i}\left( \left( p,q \right) ,
+    \left( p',q' \right) \right) 
+    = pq' - p'q.
     \] 
     Suppose first that $\left( p,q \right) =(1,0)$. Through a
     homotopy, we can assume that $\left( p',q' \right) $ is
@@ -1373,17 +1381,52 @@ some simple mapping class groups.
     Any homeomorphism $\varphi $ of $T^2$ induces
     an isomorphism on homology: $\varphi_* \colon
     \mathbb{Z}^2 \approx H_1 (T^2) \to H_1\left( T^2 \right) 
-    \approx \mathbb{Z}^2$.
+    \approx \mathbb{Z}^2$, and
+    since homotopic maps induce
+    the same map on homology,
+    we get a map
+    $\sigma \colon \Mod \left( T^2 \right) 
+    \to \Aut\left( \mathbb{Z}^2 \right) 
+    \approx
+    \GL \left( 2,\mathbb{Z} \right) $.
+    However, we must necessarily have that
+    $\sigma (f) \in \SL(2,\mathbb{Z})$ since
+    orientation-preserving homeomorphisms
+    preserve algebraic intersection numbers
+    which correspond to determinants 
+    for $T^2$ by Example \ref{intersection-numbers-torus}.
+    
+    It remains to prove that the map is bijective.\\
+    
 
+    For surjectivity, any element $M$ of
+    $\SL \left( 2,\mathbb{Z} \right) $ induces
+    an equivariant orientation-preserving linear homeomorphism
+    of $\mathbb{R}^2$ which thus descends
+    to a linear homeomorphism
+    $\varphi_{M}$ of the torus $T^2 = \mathbb{R}^2
+    / \mathbb{Z}^2$. Using our identification
+    of primitive elements in $\mathbb{Z}^2$ with
+    homotopy classes of orientated simple closed
+    curves in $T^2$, we have
+    $\sigma \left( \left[ \varphi_M \right]  \right) =M$.\\
+    
 
+    For injectivity, note that
+    $T^2$ is a $K\left( G,1 \right) $-space, so
+    by Proposition 1B.9 in \cite{Hatcher}, we have
+    that every homomorphism
+    $ \mathbb{Z}^2 \to \mathbb{Z}^2 $ is induced by
+    a homotopy class of based maps
+    $T^2 \to T^2$.
 
+    Furthermore, any element $f \in \Mod \left( T^2 \right) $ 
+    has a representative $\varphi $ that fixes a basepoint
+    for $T^2$. So if $f \in \ker \left( \sigma \right) $, then
+    $\varphi $ is homotopic as a based map to
+    the identity, so $\sigma$ is injective. 
 
-    Additional notes on the proof:
-    \todo{why can we for any element $f \in \Mod \left( T^2 \right) $ 
-    choose a representative $\varphi $ that fixes a basepoint
-for $T^2$?}
 \end{proof}
-
 
 \begin{corollary}
     Since $H_1 \left( S_{1,1}; \mathbb{Z} \right) \approx
@@ -1723,7 +1766,6 @@ surgered arc turns left at the intersection.
 
 \subsubsection{Dehn twist facts}
 
-\todo{This section is needed for the Birman-Hilden theorem}
 
 \begin{proposition}[]
     Let $a$ be the isotopy class of a simple closed curve
@@ -1732,7 +1774,7 @@ surgered arc turns left at the intersection.
     Dehn twist $T_a$ is a nontrivial element of $\Mod(S)$.
 \end{proposition}
 
-\begin{proposition}[]
+\begin{proposition}[]\label{dehn-twist-formula}
     Let $a$ and $b$ be arbitrary isotopy classes of essential
     simple closed curves in a surface and let $k$ be
     an arbitrary integer. We have
@@ -1819,7 +1861,7 @@ surgered arc turns left at the intersection.
     with respect to both $\alpha$ and $\beta$.
 \end{proposition}
 
-
+\todo{Probably remove the following}
 \begin{proposition}[]
     Let $a_1 ,\ldots, a_n$ be a collection of pairwise
     disjoint isotopy classes of simple closed curves in
@@ -1867,6 +1909,39 @@ Throughout this section, $a$ and $b$ denote arbitrary
     $T_a = T_b \iff a = b$.
 \end{lemma}
 
+\begin{proof}
+    The only if part simply says that Dehn twists are well-defined
+    on isotopy classes.
+
+    For the if part, suppose
+    $a \neq b$. We want to find an isotopy class
+    $c$ of simple closed curves
+    such that $i(a,c) = 0$ and $i(b,c) \neq 0$.
+
+    If $i(a,b) \neq 0$, then
+    choosing $c = a$ works.
+
+    If $i(a,b) = 0$, then
+    choosing a representative $\alpha$ of $a$ and
+    $\beta$ of $b$ such that $\alpha$ and $\beta$ are disjoint,
+    we havethat $\alpha$ is contained in the interior of
+    some component of the cut surface $S_{\beta}$.
+    This surface has at least one boundary component.
+    If it has genus at least $1$, then by the classification
+    of surfaces and nontriviality of $\alpha$, it is
+    easy to find some $\gamma$ such that
+    $\gamma$ is contained in the interior and has
+    geometric intersection number $1$ with $\alpha$.
+    If the genus is $0$, we are looking at a component
+    which is a sphere with at least one disk removed and
+    potentially some punctures. Since $\alpha$ and 
+    $\beta$ are not isotopic, we cannot have
+    a disk, once or twice punctured disk or annulus.
+    For the remaining cases, one can also easily find a
+    choice of $\gamma$.
+\end{proof}
+
+
 \begin{lemma}[]
     For any $f \in \Mod(S)$ and any isotopy class $a$ of
     simple closed curves in $S$, we have
@@ -1875,8 +1950,22 @@ Throughout this section, $a$ and $b$ denote arbitrary
     \] 
 \end{lemma}
 
+\begin{proof}
+    Letting $\varphi $ be a representative of $f$,
+    $\alpha$ a representative of $a$, and
+    $\psi_{\alpha}$ a representative of
+    $T_a$ whose support is an annulus, we get that
+    $\varphi^{-1}$ takes a regular neighborhood
+    of $\varphi \left( \alpha \right) $ to a regular neighborhood
+    of $\alpha$ preserving the orientation. Then
+    $\psi_{\alpha}$ twists the neighborhood of $\alpha$ and
+    $\varphi $ takes this neighborhood of $\alpha$ back to
+    a neighborhood of $\varphi \left( \alpha \right) $.
+    Hence we get a Dehn twist about $\varphi \left( \alpha \right) $.
+\end{proof}
 
-\begin{corollary}
+
+\begin{corollary}\label{dehn-commute}
     For any $f \in \Mod(S)$ and any isotopy class $a$ of simple
     closed curves in $S$, we have
     \[
@@ -1900,6 +1989,23 @@ Throughout this section, $a$ and $b$ denote arbitrary
     \] 
 \end{lemma}
 
+\begin{proof}
+    For the first if and only if, if $i(a,b) = 0$, then
+    choosing a regular neighborhood of $a$ such that
+    $b$ is not contained in it, we see that the
+    Dehn twist using this regular neighborhood leaves
+    $b$ fixed, so $T_a (b) = b$. Conversely, if
+    $T_a (b) = b$, then 
+    $i \left( T_a(b), b \right) = i(b,b) = 0$, so
+    by proposition \ref{dehn-twist-formula}, we have
+    $i\left( a,b \right)^2 = 
+    i \left( T_a(b), b \right) = 0$, hence
+    $i (a,b) = 0$.
+
+    The second if and only if follows from
+    Corollary \ref{dehn-commute}.
+\end{proof}
+
 \begin{proposition}[]
     The above results have the following analogues for
     powers of Dehn twists:
@@ -1916,14 +2022,6 @@ Throughout this section, $a$ and $b$ denote arbitrary
     \end{align*}
 \end{proposition}
 
-\subsubsection{The center of the mapping class group}
-
-\begin{theorem}[]
-    For $g \ge 3$, $Z\left( G \right) $, for
-    any finite index subgroup $G \le \Mod (S_g)$, is trivial.
-    In particular, $Z\left( \Mod(S_g) \right) $ is trivial
-    for $g\ge 3$.
-\end{theorem}
 
 \subsubsection{Relations between two Dehn twists}
 
@@ -1936,6 +2034,20 @@ Throughout this section, $a$ and $b$ denote arbitrary
     Equivalently, this read
     $T_a T_b(a) = b$.
 \end{proposition}
+
+\begin{proof}
+    We have
+    \[
+    T_a T_b T_a = T_b T_a T_b \iff
+    \left( T_a T_b \right) T_a \left( T_a T_b \right)^{-1}
+    = T_b
+    \iff
+    T_{T_a T_b (a)} = T_b
+    \iff
+    T_a T_b (a) = b
+    \] 
+    
+\end{proof}
 
 \begin{question}
     Does the converse also work? I.e., if two Dehn twists
@@ -2160,19 +2272,19 @@ its finitely many corssings occur at different horizontal levels.
     the configuration space of $n$ distinct, ordered
     points in $S$, given by
     $C^{ord} (S,n) = 
-    \bigtimes_n S - \text{BigDiag}(\bigtimes_n S)$
-    where $\text{BigDiag}\left( \bigtimes_n S \right) 
+    S^{\times n} - \text{BigDiag}(S^{\times n})$
+    where $\text{BigDiag}\left( S^{\times n} \right) 
     = \left\{ \left( 
     x_1, \ldots, x_n \right) \in 
-\bigtimes_n S  \mid \exists 1 \le i < j \le n \colon
+ S^{\times n}  \mid \exists 1 \le i < j \le n \colon
 x_i = x_j \right\} $.
 \end{definition}
 
 
 Now, the symmetric group $\Sigma_n$ acts on 
-$\bigtimes_n S$ by permuting
+$S^{\times n}$ by permuting
 the coordinates. This action preserves $\text{BigDiag}\left( 
-\bigtimes_n S\right) $ and thus induces an action
+ S^{\times n}\right) $ and thus induces an action
 of $\Sigma_n$ by homeomorphisms on
 $C^{ord}\left( S,n \right) $. Since the action of
 $\Sigma_n$ permutes the $n$ coordinates and since
@@ -2708,8 +2820,8 @@ S_g^{1} \right) }\left( \iota \right) .
    $S_g^{1}$. The quotient of
    $S_g^{1}$ by $\left<\iota \right>$ is
    a topological disk
-   $D_{2g+1}$ with $2g+1$ cone points of order
-   $2$, with each cone point coming from a fixed point of $\iota$.
+   $D_{2g+1}$ with $2g+1$ branch points of order
+   $2$, with each branch point coming from a fixed point of $\iota$.
    Since the elements of  $\SHomeo^{+} \left( S_g^{1} \right) $ 
    commute with $\iota$, they descend to homeomorphisms
    of the quotient disk, and by the commutativity, they
@@ -2732,11 +2844,6 @@ S_g^{1} \right) }\left( \iota \right) .
    
 
 
-   \begin{question}
-       Why does any
-   element of $\Homeo^{+} \left( D_{2g+1} \right) $ 
-   lift to $\SHomeo^{+} \left( S_g^{1} \right) $?
-   \end{question} 
 
    \begin{definition}[]
        We say two homeomorphisms
@@ -2748,8 +2855,7 @@ S_g^{1} \right) }\left( \iota \right) .
        Note that here,
        $\SHomeo^{+} \left( S_g^{1} \right) $ inherits
        the subspace topology from
-       $\Homeo^{+} \left( S_{g}^{1} \right) $ 
-       (actually, is this true?...)
+       $\Homeo^{+} \left( S_{g}^{1} \right) $.
    \end{definition}
 
    If we have this, we get the isomorphism
@@ -2826,7 +2932,7 @@ S_g^{1} \right) }\left( \iota \right) .
        if $\iota \left( \alpha \right) = \alpha$ as sets.
    \end{definition}
 
-   \begin{lemma}[]
+   \begin{lemma}[]\label{loops-isotopic-iff-symmetrically-isotopic}
        Let $g \ge 2$ and let $\alpha$ and $\beta$ be
        two symmetric nonseparating simple closed
        curves in $S_g$. If $\alpha$ and $\beta$ are isotopic,
@@ -2892,7 +2998,7 @@ S_g^{1} \right) }\left( \iota \right) .
        isotopy so that it is transverse to $\beta$.
        We claim that $\alpha$ cannot be
        disjoint from $\beta$. Indeed,
-       for then $\overline{\alpha}$ and $\overline{\beta}$ 
+       then $\overline{\alpha}$ and $\overline{\beta}$ 
        are disjoint including endpoints. But
        such arcs cannot correspond
        to isotopic curves in $S_g$: we can choose
@@ -2924,7 +3030,9 @@ S_g^{1} \right) }\left( \iota \right) .
         \linebreak
         It follows that the image of 
         $B$ in $S_{0,2g+2}$ is an innermost bigon $\overline{B}$ 
-        between $\overline{\alpha}$ and $\overline{\beta}$ \todo{why?}.
+        between $\overline{\alpha}$ and $\overline{\beta}$ as
+        otherwise its preimage would have bigons inside it
+        as well.
         Furthermore, since $\iota (B) \neq B$, there are
         no fixed points of $\iota$ in $B$ and hence
         no marked points of
@@ -2934,66 +3042,86 @@ S_g^{1} \right) }\left( \iota \right) .
         it can have zero, one or two of its vertices on
         marked points of $S_{0,2g+2}$. In the first two cases,
         we can modify $\overline{\alpha}$ by isotopy
-        in order to remove the bigon \todo{why?}, reducing the intersection
+        in order to remove the bigon by pushing the
+        vertex to the other, reducing the intersection
         number of $\overline{\alpha}$ and $\overline{\beta}$.
         In the last case, since $\overline{B}$ is innermost,
         we see that $\overline{\alpha} \cup 
         \overline{\beta}$ is a simple loop bounding
-        a disk \todo{why?}, and we can push $\overline{\alpha}$ onto
+        a disk, and we can push $\overline{\alpha}$ onto
         $\overline{\beta}$. Removing bigons inductively,
         we see that $\overline{\alpha}$ is isotopic
         to $\overline{\beta}$, and this isotopy lifts to a
         symmetric isotopy between $\alpha$ and $\beta$.
-
    \end{proof}
 
-   \begin{proposition}[]
+   \begin{proposition}[]\label{isotopic-iff-symmetrically-isotopic}
        Let $g \ge 2$ and let $\varphi , \psi \in 
        \SHomeo^{+} (S_g)$. If $\varphi $ and $\psi$ are
        isotopic, then they are symmetrically isotopic.
    \end{proposition}
 
+   \begin{proof}
+       It suffices to treat the case where
+       $\psi $ is the identity. Let
+       $\overline{\varphi }$ denote the induced
+       homeomorphism
+       of $S_{0, 2g+2}$.
+       
+       Let $\left( \gamma_1, \ldots, \gamma_{2g+1} \right) $ 
+       be a chain of nonseparating symmetric
+       simple closed curves in $S_g$. By assumption,
+       $\varphi $ is isotopic to the identity, so for
+       each $i$, $\varphi \left( \gamma_i \right) $ is
+       isotopic to $\gamma_i$. By Lemma
+       \ref{loops-isotopic-iff-symmetrically-isotopic},
+       $\varphi  \left( \gamma_i \right) $ is symmetrically
+       isotopic to $\gamma_i$ for each $i$.
+       Letting $\overline{\gamma_i}$ and $
+       \overline{\varphi \left( \gamma_i \right) }$ be
+       the images in $S_{0,2g+2}$, this implies that
+       the arc $\overline{\varphi \left( \gamma_i \right) }$ is
+       isotopic to $\overline{\gamma_i}$. By the
+       3.(ii) in \ref{Alexander-method}
+       (the Alexander method), we deduce that
+       $\overline{\varphi }$ is isotopic to the identity.
+       This isotopy then lifts to a symmetric isotopy
+       of $\varphi $ to the identity.
+   \end{proof}
+
    \begin{proof}[Proof of the Birman-Hilden theorem]
        We have a commutative diagram
+
        \begin{equation*}
        \begin{tikzcd}
-           \SHomeo^{+} (S_g) \ar[r, twoheadrightarrow] & 
+           \SHomeo^{+} (S_g) \ar[drr, "\text{mod isotopy}"']  \ar[rr, twoheadrightarrow] & &
            \Homeo^{+}\left( S_{0,2g+2}, \partial
            S_{0,2g+2}\right) 
-           \ar[rr] \ar[dr] & & \Mod \left( S_{0,2g+2} \right) \\
-                           & & \SMod(S_g)  \ar[ru] &
+           \ar[rr, "\pi_0"]  & & \Mod \left( S_{0,2g+2} \right) \\
+                    &  & \SMod(S_g) \ar[rru, twoheadrightarrow] &  &
        \end{tikzcd}
        \end{equation*}
+       where the composite
+       map factors through $\SMod \left( S_g \right) 
+       \to \Mod \left( S_{0,2g+2} \right) $ by
+       Proposition \ref{isotopic-iff-symmetrically-isotopic}.
+
 
        We wish to find the kernel of
        the map $\SMod (S_g) \to \Mod \left( S_{0,2g+2} \right) $.
        Suppose $f \in \SMod(S_g)$ is mapped
-       to $0$. Since the composition
+       to $\left[ \id \right] $. Since the composition
        $\SHomeo^{+}(S_g) \to \Homeo^{+} \left( S_{0,2g+2} \right) 
-       \to \Mod \left( S_{0,2g+2} \right) $ is a surjective
+       \to \SMod \left( S_g \right) $ is a surjective
        homomorphism, we can choose a representative
        $\varphi  \in \SHomeo^{+} \left( S_g \right) $.
        Let $\overline{\varphi  }$ be the image
-       in $\Homeo^{+} \left( S_{0,2g+2} \right) $.
-       Then $\overline{\varphi }$ is isotopic to
-       the identity, say $H \colon I^2 \to 
-       \Homeo^{+} \left( S_{0,2g+2} \right) $. Then
-       this lifts to a symmetric isotopy
-       $\tilde{H} \colon I^2 \to \SHomeo^{+} \left( S_g \right) $ 
-       making the following diagram commute
-
-       \begin{equation*}
-       \begin{tikzcd}
-           & I^2 \ar[dl, "\tilde{H}"'] \ar[dr, "H"] & & &\\
-           \SHomeo^{+} (S_g) \ar[rr, twoheadrightarrow] & &
-           \Homeo^{+}\left( S_{0,2g+2}, \partial
-           S_{0,2g+2}\right) 
-           \ar[rr] \ar[dr] & & \Mod \left( S_{0,2g+2} \right) \\
-                           &  & & \SMod(S_g)  \ar[ru] &
-       \end{tikzcd}
-       \end{equation*}
-       Now, $\tilde{H}$ is an isotopy of $\varphi $ to
-       either the identity or $\iota$, so
+       in $\Homeo^{+} \left( S_{0,2g+2} ,
+       \partial S_{0,2g+2}\right) $.
+       By assumption, $\overline{\varphi }$ is isotopic
+       to the identity, so this isotopy lifts
+       to an isotopy of $\varphi $ to either the idenity
+       or $\iota$. Therefore
        \[
        \SMod \left( S_g \right) / \left<\left[ \iota \right]  \right>
        \approx \Mod \left( S_{0,2g+2} \right) .
@@ -3027,7 +3155,9 @@ S_g^{1} \right) }\left( \iota \right) .
 
    \section{Braided monoidal categories}
 
-   The Birman-Hilden homomorphism is an example of a geometric
+   The Birman-Hilden homomorphism
+   $\psi \colon B_n \to \Mod \left( S_g^{1} \right) $
+   is an example of a geometric
    representation:
 
 \begin{definition}[Geometric representation]
@@ -3035,9 +3165,14 @@ S_g^{1} \right) }\left( \iota \right) .
     homomorphism $G \to \Mod (S)$ for some
     surface $S$.
 \end{definition}
+In particular, the Birman-Hilden theorem shows that this
+representation is an embedding. There are different
+geometric representations and embeddings of the braid
+group that one could look at, and one goal in this section will be
+to show that these naturally arise through Yang-Baxter operators
+in certain categories of surfaces. 
 
-\todo{Write up connection between braided monoidal categories
-and geometric representations}
+We start by introducing the categorical language.
 
    \subsection{Monoidal categories}
 
@@ -3246,7 +3381,7 @@ and \\[1 ex]
    \end{proposition}
 
    \begin{proof}
-       Write up proof
+       \todo{Write up proof}
    \end{proof}
 
    \begin{example}[Braids and labelled braids on strings]
@@ -3395,6 +3530,21 @@ and \\[1 ex]
          is satisfied, but
          this follows directly from
          proposition~\ref{braiding-gives-yang-baxter}.
+
+         Likewise, for any functor
+         $T \colon \mathcal{A} \to \mathcal{V}$ into a 
+         braided tensor category $\mathcal{V}$, we obtain
+         a Yang-Baxter operator as
+         \[
+         y_{A,B} = c_{TA,TB} \colon TA \otimes TB
+         \stackrel{\sim}{\to } TB \otimes TA.
+         \] 
+         In particular, we obtain a Yang-Baxter operator
+         on the inclusion functor 
+         $\iota \colon \mathbbm{1} \to \mathcal{B}$ 
+         identifying $\mathbbm{1}$ with the braid
+         of a single string. We will
+         denote this Yang-Baxter operator by $z$.
      \end{example}
 
 

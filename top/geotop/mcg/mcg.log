@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  7 JAN 2025 23:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  8 JAN 2025 21:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1091,38 +1091,38 @@ LaTeX Warning: Label `fig:braiding-on-braid-groupoid-jpeg' multiply defined.
 )
 \openout1 = `mcg.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 139.
-LaTeX Font Info:    ... okay on input line 139.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 139.
-LaTeX Font Info:    ... okay on input line 139.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 139.
-LaTeX Font Info:    ... okay on input line 139.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 139.
-LaTeX Font Info:    ... okay on input line 139.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 139.
-LaTeX Font Info:    ... okay on input line 139.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 139.
-LaTeX Font Info:    ... okay on input line 139.
-LaTeX Font Info:    Checking defaults for U/mathx/m/n on input line 139.
-LaTeX Font Info:    ... okay on input line 139.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 139.
-LaTeX Font Info:    ... okay on input line 139.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 139.
-LaTeX Font Info:    ... okay on input line 139.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 139.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 140.
+LaTeX Font Info:    ... okay on input line 140.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 140.
+LaTeX Font Info:    ... okay on input line 140.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 140.
+LaTeX Font Info:    ... okay on input line 140.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 140.
+LaTeX Font Info:    ... okay on input line 140.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 140.
+LaTeX Font Info:    ... okay on input line 140.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 140.
+LaTeX Font Info:    ... okay on input line 140.
+LaTeX Font Info:    Checking defaults for U/mathx/m/n on input line 140.
+LaTeX Font Info:    ... okay on input line 140.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 140.
+LaTeX Font Info:    ... okay on input line 140.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 140.
+LaTeX Font Info:    ... okay on input line 140.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 140.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 139.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 140.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 139.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 140.
  (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Info: Command `\dddot' is already robust on input line 139.
-LaTeX Info: Command `\ddddot' is already robust on input line 139.
+LaTeX Info: Command `\dddot' is already robust on input line 140.
+LaTeX Info: Command `\ddddot' is already robust on input line 140.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count455
@@ -1142,7 +1142,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring ON on input line 139.
+Package hyperref Info: Link coloring ON on input line 140.
  (./mcg.out) (./mcg.out)
 \@outlinefile=\write5
 \openout5 = `mcg.out'.
@@ -1162,14 +1162,14 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'mcg.bbl' found.
  (./mcg.bbl)
-Package biblatex Info: Reference section=0 on input line 139.
-Package biblatex Info: Reference segment=0 on input line 139.
+Package biblatex Info: Reference section=0 on input line 140.
+Package biblatex Info: Reference segment=0 on input line 140.
  (./mcg.toc [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}])
 \tf@toc=\write6
 \openout6 = `mcg.toc'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 225--253
+Underfull \hbox (badness 10000) in paragraph at lines 226--254
 
  []
 
@@ -1177,20 +1177,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 225--253
 <lifts-of-paths.jpg, id=243, 1900.09875pt x 2055.68pt>
 File: lifts-of-paths.jpg Graphic file (type jpg)
 <use lifts-of-paths.jpg>
-Package pdftex.def Info: lifts-of-paths.jpg  used on input line 256.
+Package pdftex.def Info: lifts-of-paths.jpg  used on input line 257.
 (pdftex.def)             Requested size: 288.0011pt x 311.5695pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 282--285
+Underfull \hbox (badness 10000) in paragraph at lines 283--286
 
  []
 
 [3 <./lifts-of-paths.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 390--399
+Underfull \hbox (badness 10000) in paragraph at lines 391--400
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 405--440
+Underfull \hbox (badness 10000) in paragraph at lines 406--441
 
  []
 
@@ -1198,65 +1198,65 @@ Underfull \hbox (badness 10000) in paragraph at lines 405--440
 <bigon.png, id=287, 368.37625pt x 138.5175pt>
 File: bigon.png Graphic file (type png)
 <use bigon.png>
-Package pdftex.def Info: bigon.png  used on input line 605.
+Package pdftex.def Info: bigon.png  used on input line 613.
 (pdftex.def)             Requested size: 143.9978pt x 54.1463pt.
 <lemma-1-8.jpg, id=289, 1694.33pt x 740.7675pt>
 File: lemma-1-8.jpg Graphic file (type jpg)
 <use lemma-1-8.jpg>
-Package pdftex.def Info: lemma-1-8.jpg  used on input line 620.
+Package pdftex.def Info: lemma-1-8.jpg  used on input line 628.
 (pdftex.def)             Requested size: 288.0011pt x 125.90619pt.
  [7 <./bigon.png> <./lemma-1-8.jpg>]
-Package hyperref Info: bookmark level for unknown todo defaults to 0 on input line 669.
+Package hyperref Info: bookmark level for unknown todo defaults to 0 on input line 677.
 
-Underfull \hbox (badness 10000) in paragraph at lines 658--688
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 658--688
+Underfull \hbox (badness 10000) in paragraph at lines 666--696
 
  []
 
-LaTeX Font Info:    Trying to load font information for U+bbm on input line 742.
+
+Underfull \hbox (badness 10000) in paragraph at lines 666--696
+
+ []
+
+LaTeX Font Info:    Trying to load font information for U+bbm on input line 750.
 (/usr/share/texlive/texmf-dist/tex/latex/bbm-macros/ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 ) [8]
-Underfull \hbox (badness 10000) in paragraph at lines 771--775
+Underfull \hbox (badness 10000) in paragraph at lines 779--783
 
  []
 
 
-Overfull \hbox (4.73605pt too wide) in paragraph at lines 777--781
+Overfull \hbox (4.73605pt too wide) in paragraph at lines 785--789
 [][]\T1/cmr/bx/n/10 Definition 1.29. []\T1/cmr/m/n/10 A \T1/cmr/m/it/10 proper arc \T1/cmr/m/n/10 in $\OML/cmm/m/it/10 S$ \T1/cmr/m/n/10 is a map $\OML/cmm/m/it/10  [] []  [] \U/matha/m/n/10 Ñ \OML/cmm/m/it/10 S$ \T1/cmr/m/n/10 such that $\OML/cmm/m/it/10 [] [] \U/matha/m/n/10 ^^P
  []
 
 <bigon-of-arcs.png, id=322, 397.485pt x 261.97874pt>
 File: bigon-of-arcs.png Graphic file (type png)
 <use bigon-of-arcs.png>
-Package pdftex.def Info: bigon-of-arcs.png  used on input line 802.
+Package pdftex.def Info: bigon-of-arcs.png  used on input line 810.
 (pdftex.def)             Requested size: 180.0pt x 118.64087pt.
 [9 <./bigon-of-arcs.png>] [10]
 <filling-genus-2-surface.png, id=349, 573.14125pt x 219.82124pt>
 File: filling-genus-2-surface.png Graphic file (type png)
 <use filling-genus-2-surface.png>
-Package pdftex.def Info: filling-genus-2-surface.png  used on input line 943.
+Package pdftex.def Info: filling-genus-2-surface.png  used on input line 951.
 (pdftex.def)             Requested size: 251.9989pt x 96.6512pt.
 
 
-LaTeX Warning: Reference `fig:filling-genus-2-surface.png' on page 11 undefined on input line 948.
+LaTeX Warning: Reference `fig:filling-genus-2-surface.png' on page 11 undefined on input line 956.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 986--1001
+Underfull \hbox (badness 10000) in paragraph at lines 994--1009
 
  []
 
 [11 <./filling-genus-2-surface.png>] [12]
-Underfull \hbox (badness 10000) in paragraph at lines 1074--1080
+Underfull \hbox (badness 10000) in paragraph at lines 1082--1088
 
  []
 
 
-Overfull \hbox (7.32402pt too wide) in paragraph at lines 1132--1136
+Overfull \hbox (7.32402pt too wide) in paragraph at lines 1140--1144
 []\T1/cmr/m/n/10 If $[][]\U/matha/m/n/10 p\OML/cmm/m/it/10 S; \U/matha/m/n/10 B\OML/cmm/m/it/10 S\U/matha/m/n/10 q$ \T1/cmr/m/n/10 de-notes the con-nected com-po-nent of the iden-tity in $[][] []$,
  []
 
@@ -1264,391 +1264,390 @@ Overfull \hbox (7.32402pt too wide) in paragraph at lines 1132--1136
 <alexander-trick.png, id=381, 206.7725pt x 256.96pt>
 File: alexander-trick.png Graphic file (type png)
 <use alexander-trick.png>
-Package pdftex.def Info: alexander-trick.png  used on input line 1195.
+Package pdftex.def Info: alexander-trick.png  used on input line 1203.
 (pdftex.def)             Requested size: 90.0pt x 111.84726pt.
  [14 <./alexander-trick.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1281--1312
+Underfull \hbox (badness 10000) in paragraph at lines 1289--1320
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1281--1312
+Underfull \hbox (badness 10000) in paragraph at lines 1289--1320
 
  []
 
 [15]
-Overfull \hbox (5.3503pt too wide) in paragraph at lines 1373--1377
+Overfull \hbox (5.3503pt too wide) in paragraph at lines 1381--1398
 []\T1/cmr/m/n/10 Any home-o-mor-phism $\OML/cmm/m/it/10 '$ \T1/cmr/m/n/10 of $\OML/cmm/m/it/10 T[]$ \T1/cmr/m/n/10 in-duces an iso-mor-phism on ho-mol-ogy: $\OML/cmm/m/it/10 '[] [] [] \U/msb/m/n/10 Z[] \U/matha/m/n/10 ^^S
  []
 
 
-Overfull \hbox (6.71767pt too wide) in paragraph at lines 1389--1395
+Underfull \hbox (badness 10000) in paragraph at lines 1399--1400
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1402--1413
+
+ []
+
+
+Overfull \hbox (6.71767pt too wide) in paragraph at lines 1432--1438
 [][]\T1/cmr/bx/n/10 Corollary 2.10. []\T1/cmr/m/it/10 Since $\OML/cmm/m/it/10 H[] [] \U/matha/m/n/10 ^^S \U/msb/m/n/10 Z[]$\T1/cmr/m/it/10 , there is a ho-mo-mor-phism $\OML/cmm/m/it/10 ^^[ [] [] [] [] \U/matha/m/n/10 Ñ
  []
 
-<involution-on-torus-quotient.jpg, id=403, 2055.68pt x 820.06375pt>
+[16]
+<involution-on-torus-quotient.jpg, id=413, 2055.68pt x 820.06375pt>
 File: involution-on-torus-quotient.jpg Graphic file (type jpg)
 <use involution-on-torus-quotient.jpg>
-Package pdftex.def Info: involution-on-torus-quotient.jpg  used on input line 1447.
+Package pdftex.def Info: involution-on-torus-quotient.jpg  used on input line 1490.
 (pdftex.def)             Requested size: 216.0022pt x 86.16554pt.
-[16]
-<twists-along-curves-on-torus.jpg, id=417, 1716.4125pt x 744.7825pt>
+<twists-along-curves-on-torus.jpg, id=414, 1716.4125pt x 744.7825pt>
 File: twists-along-curves-on-torus.jpg Graphic file (type jpg)
 <use twists-along-curves-on-torus.jpg>
-Package pdftex.def Info: twists-along-curves-on-torus.jpg  used on input line 1479.
+Package pdftex.def Info: twists-along-curves-on-torus.jpg  used on input line 1522.
 (pdftex.def)             Requested size: 323.9978pt x 140.57826pt.
- [17 <./involution-on-torus-quotient.jpg> <./twists-along-curves-on-torus.jpg>]
-Overfull \hbox (7.10475pt too wide) in paragraph at lines 1529--1535
+ [17 <./involution-on-torus-quotient.jpg>]
+Overfull \hbox (7.10475pt too wide) in paragraph at lines 1572--1578
 []\T1/cmr/m/n/10 To show [][]2.13[][], it thus suf-fices to find a ho-mo-mor-phism $[] [] \U/matha/m/n/10 Ñ [] []$
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1611--1618
+[18 <./twists-along-curves-on-torus.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 1654--1661
 
  []
 
-<dehn-twist-annulus.png, id=430, 345.29pt x 132.495pt>
+<dehn-twist-annulus.png, id=445, 345.29pt x 132.495pt>
 File: dehn-twist-annulus.png Graphic file (type png)
 <use dehn-twist-annulus.png>
-Package pdftex.def Info: dehn-twist-annulus.png  used on input line 1626.
+Package pdftex.def Info: dehn-twist-annulus.png  used on input line 1669.
 (pdftex.def)             Requested size: 180.0pt x 69.06963pt.
-[18]
-<dehn-twist-cutting-and-gluing.png, id=446, 636.3775pt x 343.2825pt>
+<dehn-twist-cutting-and-gluing.png, id=447, 636.3775pt x 343.2825pt>
 File: dehn-twist-cutting-and-gluing.png Graphic file (type png)
 <use dehn-twist-cutting-and-gluing.png>
-Package pdftex.def Info: dehn-twist-cutting-and-gluing.png  used on input line 1680.
+Package pdftex.def Info: dehn-twist-cutting-and-gluing.png  used on input line 1723.
 (pdftex.def)             Requested size: 288.0011pt x 155.35568pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 1689--1697
-
- []
-
-[19 <./dehn-twist-annulus.png> <./dehn-twist-cutting-and-gluing.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1698--1702
+[19 <./dehn-twist-annulus.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1732--1740
 
  []
 
-<dehn-twist-via-surgery.png, id=460, 525.965pt x 192.72pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 1741--1745
+
+ []
+
+<dehn-twist-via-surgery.png, id=459, 525.965pt x 192.72pt>
 File: dehn-twist-via-surgery.png Graphic file (type png)
 <use dehn-twist-via-surgery.png>
-Package pdftex.def Info: dehn-twist-via-surgery.png  used on input line 1713.
+Package pdftex.def Info: dehn-twist-via-surgery.png  used on input line 1756.
 (pdftex.def)             Requested size: 216.0022pt x 79.14508pt.
-<prop32.png, id=462, 322.20375pt x 280.04625pt>
+[20 <./dehn-twist-cutting-and-gluing.png> <./dehn-twist-via-surgery.png>]
+<prop32.png, id=471, 322.20375pt x 280.04625pt>
 File: prop32.png Graphic file (type png)
 <use prop32.png>
-Package pdftex.def Info: prop32.png  used on input line 1764.
+Package pdftex.def Info: prop32.png  used on input line 1806.
 (pdftex.def)             Requested size: 144.00055pt x 125.16501pt.
-<prop32b.png, id=463, 386.44376pt x 272.01625pt>
+<prop32b.png, id=472, 386.44376pt x 272.01625pt>
 File: prop32b.png Graphic file (type png)
 <use prop32b.png>
-Package pdftex.def Info: prop32b.png  used on input line 1770.
+Package pdftex.def Info: prop32b.png  used on input line 1812.
 (pdftex.def)             Requested size: 161.9989pt x 114.03021pt.
 
-Underfull \vbox (badness 4752) has occurred while \output is active []
-
- [20 <./dehn-twist-via-surgery.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1782--1788
+Underfull \hbox (badness 10000) in paragraph at lines 1824--1830
 
  []
 
 [21 <./prop32.png> <./prop32b.png>] [22]
-Underfull \hbox (badness 10000) in paragraph at lines 1990--2006
-
+Overfull \hbox (16.57344pt too wide) detected at line 2048
+\OML/cmm/m/it/10 T[]T[]T[] \U/matha/m/n/10 ^^P \OML/cmm/m/it/10 T[]T[]T[]  \U/matha/m/n/10 ð[]ñ  [] \OML/cmm/m/it/10 T[] [][] \U/matha/m/n/10 ^^P \OML/cmm/m/it/10 T[]  \U/matha/m/n/10 ð[]ñ  \OML/cmm/m/it/10 T[] \U/matha/m/n/10 ^^P \OML/cmm/m/it/10 T[]  \U/matha/m/n/10 ð[]ñ  \OML/cmm/m/it/10 T[]T[]\U/matha/m/n/10 p\OML/cmm/m/it/10 a\U/matha/m/n/10 q ^^P \OML/cmm/m/it/10 b
  []
 
 [23]
-Overfull \hbox (4.47891pt too wide) in paragraph at lines 2122--2128
-[]\T1/cmr/m/it/10 Remark. []\T1/cmr/m/n/10 Here an iso-topy of the braid is a col-lec-tion of iso-topies $[]$
- []
+Underfull \hbox (badness 10000) in paragraph at lines 2102--2118
 
-
-Overfull \hbox (5.1725pt too wide) in paragraph at lines 2159--2169
-\T1/cmr/m/n/10 space of $\OML/cmm/m/it/10 n$ \T1/cmr/m/n/10 dis-tinct, or-dered points in $\OML/cmm/m/it/10 S$\T1/cmr/m/n/10 , given by $\OML/cmm/m/it/10 C[]\U/matha/m/n/10 p\OML/cmm/m/it/10 S; n\U/matha/m/n/10 q ^^P [][] \OML/cmm/m/it/10 S \U/matha/m/n/10 ^^A []p[][] \OML/cmm/m/it/10 S\U/matha/m/n/10 q$
  []
 
 [24]
-<sigma_i_configuration.png, id=532, 247.92625pt x 179.67125pt>
+Overfull \hbox (4.47891pt too wide) in paragraph at lines 2234--2240
+[]\T1/cmr/m/it/10 Remark. []\T1/cmr/m/n/10 Here an iso-topy of the braid is a col-lec-tion of iso-topies $[]$
+ []
+
+[25]
+<sigma_i_configuration.png, id=540, 247.92625pt x 179.67125pt>
 File: sigma_i_configuration.png Graphic file (type png)
 <use sigma_i_configuration.png>
-Package pdftex.def Info: sigma_i_configuration.png  used on input line 2249.
+Package pdftex.def Info: sigma_i_configuration.png  used on input line 2361.
 (pdftex.def)             Requested size: 90.0pt x 65.22168pt.
- [25 <./sigma_i_configuration.png>]
-<half-twist.png, id=547, 520.94624pt x 139.52126pt>
+ [26 <./sigma_i_configuration.png>]
+<half-twist.png, id=552, 520.94624pt x 139.52126pt>
 File: half-twist.png Graphic file (type png)
 <use half-twist.png>
-Package pdftex.def Info: half-twist.png  used on input line 2317.
+Package pdftex.def Info: half-twist.png  used on input line 2429.
 (pdftex.def)             Requested size: 180.0pt x 48.20726pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 2322--2328
+Underfull \hbox (badness 10000) in paragraph at lines 2434--2440
 
  []
 
-[26 <./half-twist.png>]
-<push-point-map.png, id=561, 679.53876pt x 278.03876pt>
+[27 <./half-twist.png>]
+<push-point-map.png, id=566, 679.53876pt x 278.03876pt>
 File: push-point-map.png Graphic file (type png)
 <use push-point-map.png>
-Package pdftex.def Info: push-point-map.png  used on input line 2495.
+Package pdftex.def Info: push-point-map.png  used on input line 2607.
 (pdftex.def)             Requested size: 251.9989pt x 103.10606pt.
- [27] [28 <./push-point-map.png>] [29]
-Overfull \hbox (1.90128pt too wide) in paragraph at lines 2665--2672
+ [28 <./push-point-map.png>] [29] [30]
+Overfull \hbox (1.90128pt too wide) in paragraph at lines 2777--2784
  \T1/cmr/m/n/10 4.8.\T1/cmr/bx/n/10 The Birman-Hilden The-o-rem.[][] \T1/cmr/m/n/10 Let $\OML/cmm/m/it/10 ^^S$ \T1/cmr/m/n/10 be the or-der $\OT1/cmr/m/n/10 2$ \T1/cmr/m/n/10 el-e-ment of $[][] []$
  []
 
-<birman-hilden-double-cover.png, id=589, 601.24625pt x 392.46625pt>
+<birman-hilden-double-cover.png, id=594, 601.24625pt x 392.46625pt>
 File: birman-hilden-double-cover.png Graphic file (type png)
 <use birman-hilden-double-cover.png>
-Package pdftex.def Info: birman-hilden-double-cover.png  used on input line 2680.
+Package pdftex.def Info: birman-hilden-double-cover.png  used on input line 2792.
 (pdftex.def)             Requested size: 216.0022pt x 140.9943pt.
-[30 <./birman-hilden-double-cover.png>]
-<Birman-Hilden-two-symmetric-boundary-components.png, id=602, 228.855pt x 137.51375pt>
+[31 <./birman-hilden-double-cover.png>]
+<Birman-Hilden-two-symmetric-boundary-components.png, id=608, 228.855pt x 137.51375pt>
 File: Birman-Hilden-two-symmetric-boundary-components.png Graphic file (type png)
 <use Birman-Hilden-two-symmetric-boundary-components.png>
-Package pdftex.def Info: Birman-Hilden-two-symmetric-boundary-components.png  used on input line 2811.
+Package pdftex.def Info: Birman-Hilden-two-symmetric-boundary-components.png  used on input line 2917.
 (pdftex.def)             Requested size: 108.0011pt x 64.89584pt.
- [31 <./Birman-Hilden-two-symmetric-boundary-components.png>]
-<homology-basis-of-torus-and-double-torus.png, id=616, 853.1875pt x 340.27126pt>
+ [32 <./Birman-Hilden-two-symmetric-boundary-components.png>]
+<homology-basis-of-torus-and-double-torus.png, id=622, 853.1875pt x 340.27126pt>
 File: homology-basis-of-torus-and-double-torus.png Graphic file (type png)
 <use homology-basis-of-torus-and-double-torus.png>
-Package pdftex.def Info: homology-basis-of-torus-and-double-torus.png  used on input line 2858.
+Package pdftex.def Info: homology-basis-of-torus-and-double-torus.png  used on input line 2964.
 (pdftex.def)             Requested size: 288.0011pt x 114.86514pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 2919--2932
+Underfull \hbox (badness 10000) in paragraph at lines 3025--3040
 
  []
 
-[32 <./homology-basis-of-torus-and-double-torus.png>]
-Overfull \hbox (30.81723pt too wide) detected at line 2966
+[33 <./homology-basis-of-torus-and-double-torus.png>]
+Overfull \hbox (2.0864pt too wide) detected at line 3103
 []
  []
 
 
-Overfull \hbox (18.0116pt too wide) in paragraph at lines 2968--2984
-[]\U/matha/m/n/10 p\OML/cmm/m/it/10 S[]\U/matha/m/n/10 q$ \T1/cmr/m/n/10 is mapped to $\OT1/cmr/m/n/10 0$\T1/cmr/m/n/10 . Since the com-po-si-tion $[][]\U/matha/m/n/10 p\OML/cmm/m/it/10 S[]\U/matha/m/n/10 q Ñ [][] [] Ñ
+Overfull \hbox (28.23215pt too wide) in paragraph at lines 3110--3125
+[]\U/matha/m/n/10 p\OML/cmm/m/it/10 S[]\U/matha/m/n/10 q$ \T1/cmr/m/n/10 is mapped to $[]$. Since the com-po-si-tion $[][]\U/matha/m/n/10 p\OML/cmm/m/it/10 S[]\U/matha/m/n/10 q Ñ [][] [] Ñ
  []
 
-
-Overfull \hbox (73.08698pt too wide) detected at line 2994
-[]
- []
-
-[33]
-Overfull \hbox (20.33705pt too wide) in paragraph at lines 3047--3053
+[34]
+Overfull \hbox (20.33705pt too wide) in paragraph at lines 3182--3188
 [][]\T1/cmr/bx/n/10 Definition 5.2 \T1/cmr/m/n/10 (Monoidal cat-e-gory)\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 A monoidal cat-e-gory is a tu-ple $\OML/cmm/m/it/10 V \U/matha/m/n/10 ^^P []$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3059--3065
+Underfull \hbox (badness 10000) in paragraph at lines 3194--3200
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3078--3082
-
- []
-
-[34]
-Underfull \hbox (badness 10000) in paragraph at lines 3191--3193
+Underfull \hbox (badness 10000) in paragraph at lines 3213--3217
 
  []
 
 [35]
-<braids-monoidal-structure.jpeg, id=649, 1606.0pt x 374.39874pt>
+Underfull \hbox (badness 10000) in paragraph at lines 3326--3328
+
+ []
+
+[36]
+<braids-monoidal-structure.jpeg, id=651, 1606.0pt x 374.39874pt>
 File: braids-monoidal-structure.jpeg Graphic file (type jpg)
 <use braids-monoidal-structure.jpeg>
-Package pdftex.def Info: braids-monoidal-structure.jpeg  used on input line 3283.
+Package pdftex.def Info: braids-monoidal-structure.jpeg  used on input line 3418.
 (pdftex.def)             Requested size: 360.0pt x 83.92188pt.
-<braiding-on-braid-groupoid.jpeg, id=650, 3011.25pt x 1427.3325pt>
+<braiding-on-braid-groupoid.jpeg, id=652, 3011.25pt x 1427.3325pt>
 File: braiding-on-braid-groupoid.jpeg Graphic file (type jpg)
 <use braiding-on-braid-groupoid.jpeg>
-Package pdftex.def Info: braiding-on-braid-groupoid.jpeg  used on input line 3296.
+Package pdftex.def Info: braiding-on-braid-groupoid.jpeg  used on input line 3431.
 (pdftex.def)             Requested size: 216.0022pt x 102.38454pt.
-
-Underfull \vbox (badness 1484) has occurred while \output is active []
-
- [36 <./braids-monoidal-structure.jpeg>]
-<braiding-on-braid-groupoid-2.jpeg, id=657, 1531.7225pt x 925.4575pt>
+ [37 <./braids-monoidal-structure.jpeg>]
+<braiding-on-braid-groupoid-2.jpeg, id=662, 1531.7225pt x 925.4575pt>
 File: braiding-on-braid-groupoid-2.jpeg Graphic file (type jpg)
 <use braiding-on-braid-groupoid-2.jpeg>
-Package pdftex.def Info: braiding-on-braid-groupoid-2.jpeg  used on input line 3303.
+Package pdftex.def Info: braiding-on-braid-groupoid-2.jpeg  used on input line 3438.
 (pdftex.def)             Requested size: 198.0011pt x 119.62175pt.
-<inverse-braiding.jpeg, id=658, 3011.25pt x 1735.48375pt>
+<inverse-braiding.jpeg, id=663, 3011.25pt x 1735.48375pt>
 File: inverse-braiding.jpeg Graphic file (type jpg)
 <use inverse-braiding.jpeg>
-Package pdftex.def Info: inverse-braiding.jpeg  used on input line 3311.
+Package pdftex.def Info: inverse-braiding.jpeg  used on input line 3446.
 (pdftex.def)             Requested size: 143.9978pt x 82.96596pt.
 
-Overfull \hbox (55.8725pt too wide) detected at line 3353
+Overfull \hbox (55.8725pt too wide) detected at line 3488
 [][]
  []
 
 
 Underfull \vbox (badness 1902) has occurred while \output is active []
 
- [37 <./braiding-on-braid-groupoid.jpeg> <./braiding-on-braid-groupoid-2.jpeg> <./inverse-braiding.jpeg>]
-Overfull \hbox (3.41042pt too wide) in paragraph at lines 3388--3398
+ [38 <./braiding-on-braid-groupoid.jpeg> <./braiding-on-braid-groupoid-2.jpeg> <./inverse-braiding.jpeg>]
+Overfull \hbox (3.41042pt too wide) in paragraph at lines 3523--3533
 [][]\T1/cmr/bx/n/10 Example 5.9. []\T1/cmr/m/n/10 If $\OMS/cmsy/m/n/10 X \U/matha/m/n/10 ^^P []$ \T1/cmr/m/n/10 ad-mits a braid-ing $\OML/cmm/m/it/10 b$\T1/cmr/m/n/10 , then $\OML/cmm/m/it/10 ^^\ \U/matha/m/n/10 ^^P \OML/cmm/m/it/10 b[] \U/matha/m/n/10 P [][] []$
  []
 
-[38]
-<connected-sum.png, id=679, 420.57124pt x 372.39125pt>
+[39]
+<connected-sum.png, id=682, 420.57124pt x 372.39125pt>
 File: connected-sum.png Graphic file (type png)
 <use connected-sum.png>
-Package pdftex.def Info: connected-sum.png  used on input line 3510.
+Package pdftex.def Info: connected-sum.png  used on input line 3660.
 (pdftex.def)             Requested size: 126.0022pt x 111.5648pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 3514--3520
+Underfull \hbox (badness 10000) in paragraph at lines 3664--3670
 
  []
 
-<B1.jpg, id=680, 1792.6975pt x 1063.975pt>
+<B1.jpg, id=683, 1792.6975pt x 1063.975pt>
 File: B1.jpg Graphic file (type jpg)
 <use B1.jpg>
-Package pdftex.def Info: B1.jpg  used on input line 3539.
+Package pdftex.def Info: B1.jpg  used on input line 3689.
 (pdftex.def)             Requested size: 277.20032pt x 164.50854pt.
 
-Overfull \hbox (25.20142pt too wide) in paragraph at lines 3539--3540
+Overfull \hbox (25.20142pt too wide) in paragraph at lines 3689--3690
  [][] 
  []
 
-<B2.jpg, id=681, 2055.68pt x 1688.3075pt>
+<B2.jpg, id=684, 2055.68pt x 1688.3075pt>
 File: B2.jpg Graphic file (type jpg)
 <use B2.jpg>
-Package pdftex.def Info: B2.jpg  used on input line 3543.
+Package pdftex.def Info: B2.jpg  used on input line 3693.
 (pdftex.def)             Requested size: 226.79747pt x 186.25539pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 4013) has occurred while \output is active []
 
- [39 <./connected-sum.png>]
-<bidecorated-attaching.jpeg, id=693, 1505.625pt x 1114.1625pt>
+ [40 <./connected-sum.png>]
+<bidecorated-attaching.jpeg, id=697, 1505.625pt x 1114.1625pt>
 File: bidecorated-attaching.jpeg Graphic file (type jpg)
 <use bidecorated-attaching.jpeg>
-Package pdftex.def Info: bidecorated-attaching.jpeg  used on input line 3600.
+Package pdftex.def Info: bidecorated-attaching.jpeg  used on input line 3750.
 (pdftex.def)             Requested size: 216.0022pt x 159.84085pt.
- [40 <./B1.jpg> <./B2.jpg>]
-<bidecorated-second-attaching.jpeg, id=701, 3216.015pt x 1252.68pt>
+ [41 <./B1.jpg> <./B2.jpg>]
+<bidecorated-second-attaching.jpeg, id=705, 3216.015pt x 1252.68pt>
 File: bidecorated-second-attaching.jpeg Graphic file (type jpg)
 <use bidecorated-second-attaching.jpeg>
-Package pdftex.def Info: bidecorated-second-attaching.jpeg  used on input line 3607.
+Package pdftex.def Info: bidecorated-second-attaching.jpeg  used on input line 3757.
 (pdftex.def)             Requested size: 216.0022pt x 84.12218pt.
- [41 <./bidecorated-attaching.jpeg> <./bidecorated-second-attaching.jpeg>]
-Overfull \hbox (30.98196pt too wide) detected at line 3691
+ [42 <./bidecorated-attaching.jpeg> <./bidecorated-second-attaching.jpeg>]
+Overfull \hbox (30.98196pt too wide) detected at line 3841
 [][] [] \U/matha/m/n/10 ^^P \OML/cmm/m/it/10 ^^Y[][][] [] \U/matha/m/n/10 ^^P \OML/cmm/m/it/10 ^^Y[] []
  []
 
 
-Overfull \hbox (44.43192pt too wide) in paragraph at lines 3715--3722
+Overfull \hbox (44.43192pt too wide) in paragraph at lines 3865--3872
 \T1/cmr/m/n/10 is ob-tained us-ing the canon-i-cal iden-ti-fi-ca-tion $\U/matha/m/n/10 B\OML/cmm/m/it/10 X[] \U/matha/m/n/10 ^^S [] Y []$\T1/cmr/m/n/10 . 
  []
 
 
-Package caption Warning: \label without proper reference on input line 3737.
+Package caption Warning: \label without proper reference on input line 3887.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `fig:curvem2-png' on page 42 undefined on input line 3732.
+LaTeX Warning: Reference `fig:curvem2-png' on page 43 undefined on input line 3882.
 
-<curvem2.png, id=709, 345.29pt x 323.2075pt>
+<curvem2.png, id=713, 345.29pt x 323.2075pt>
 File: curvem2.png Graphic file (type png)
 <use curvem2.png>
-Package pdftex.def Info: curvem2.png  used on input line 3736.
+Package pdftex.def Info: curvem2.png  used on input line 3886.
 (pdftex.def)             Requested size: 143.9978pt x 134.78946pt.
-<intersection-a_is.png, id=710, 557.08125pt x 373.395pt>
+<intersection-a_is.png, id=714, 557.08125pt x 373.395pt>
 File: intersection-a_is.png Graphic file (type png)
 <use intersection-a_is.png>
-Package pdftex.def Info: intersection-a_is.png  used on input line 3755.
+Package pdftex.def Info: intersection-a_is.png  used on input line 3905.
 (pdftex.def)             Requested size: 216.0022pt x 144.78023pt.
-[42 <./curvem2.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 3775--3780
+[43 <./curvem2.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 3925--3930
 
  []
 
 
-Overfull \hbox (2.93793pt too wide) in paragraph at lines 3793--3797
+Overfull \hbox (2.93793pt too wide) in paragraph at lines 3943--3947
 \T1/cmr/m/n/10 in $[][] []$, mean-ing that $\OML/cmm/m/it/10 T[]$ \T1/cmr/m/n/10 is a Yang-Baxter el-e-ment. This yields a monoidal
  []
 
 
-Overfull \hbox (24.77435pt too wide) in paragraph at lines 3801--3814
+Overfull \hbox (24.77435pt too wide) in paragraph at lines 3951--3964
 \T1/cmr/m/n/10 But by the Birman-Hilden the-o-rem, the ho-mo-mor-phisms $\OT1/cmr/m/n/10 ^^H[] [] [] \OML/cmm/m/it/10 B[] \U/matha/m/n/10 Ñ [][] []$
  []
 
 
-Overfull \hbox (24.69733pt too wide) detected at line 3829
+Overfull \hbox (24.69733pt too wide) detected at line 3979
 \OT1/cmr/m/n/10 ^^H[] \U/matha/m/n/10 ^^P \OT1/cmr/m/n/10 ^^H[] [] [] \OML/cmm/m/it/10 B[] \U/matha/m/n/10 Ñ [][] [] ^^S [][] [] ^^S [] \OML/cmm/m/it/10 :
  []
 
-[43 <./intersection-a_is.png>] [44]
+[44 <./intersection-a_is.png>] [45]
 
-Package caption Warning: \label without proper reference on input line 3881.
+Package caption Warning: \label without proper reference on input line 4031.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `fig:mapping-cylinder-mobius' on page 45 undefined on input line 3875.
+LaTeX Warning: Reference `fig:mapping-cylinder-mobius' on page 46 undefined on input line 4025.
 
-<mapping-cylinder-mobius.jpg, id=735, 1895.08pt x 652.4375pt>
+<mapping-cylinder-mobius.jpg, id=739, 1895.08pt x 652.4375pt>
 File: mapping-cylinder-mobius.jpg Graphic file (type jpg)
 <use mapping-cylinder-mobius.jpg>
-Package pdftex.def Info: mapping-cylinder-mobius.jpg  used on input line 3880.
+Package pdftex.def Info: mapping-cylinder-mobius.jpg  used on input line 4030.
 (pdftex.def)             Requested size: 251.9989pt x 86.75119pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 3885--3889
+Underfull \hbox (badness 10000) in paragraph at lines 4035--4039
 
  []
 
-<N_3,1.jpg, id=736, 710.655pt x 476.78125pt>
+<N_3,1.jpg, id=740, 710.655pt x 476.78125pt>
 File: N_3,1.jpg Graphic file (type jpg)
 <use N_3,1.jpg>
-Package pdftex.def Info: N_3,1.jpg  used on input line 3931.
+Package pdftex.def Info: N_3,1.jpg  used on input line 4081.
 (pdftex.def)             Requested size: 360.0pt x 241.53287pt.
 
 Underfull \vbox (badness 3428) has occurred while \output is active []
 
- [45 <./mapping-cylinder-mobius.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 3955--3958
+ [46 <./mapping-cylinder-mobius.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 4105--4108
 
  []
 
-<standard-chain.png, id=743, 527.9725pt x 187.70125pt>
+<standard-chain.png, id=747, 527.9725pt x 187.70125pt>
 File: standard-chain.png Graphic file (type png)
 <use standard-chain.png>
-Package pdftex.def Info: standard-chain.png  used on input line 3985.
+Package pdftex.def Info: standard-chain.png  used on input line 4135.
 (pdftex.def)             Requested size: 288.0011pt x 102.38823pt.
-[46 <./N_3,1.jpg>]
+[47 <./N_3,1.jpg>]
 
-Package caption Warning: \label without proper reference on input line 4024.
+Package caption Warning: \label without proper reference on input line 4174.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `fig:klein-bottle' on page 47 undefined on input line 4019.
+LaTeX Warning: Reference `fig:klein-bottle' on page 48 undefined on input line 4169.
 
-<klein-bottle.jpg, id=755, 1656.1875pt x 297.11pt>
+<klein-bottle.jpg, id=759, 1656.1875pt x 297.11pt>
 File: klein-bottle.jpg Graphic file (type jpg)
 <use klein-bottle.jpg>
-Package pdftex.def Info: klein-bottle.jpg  used on input line 4023.
+Package pdftex.def Info: klein-bottle.jpg  used on input line 4173.
 (pdftex.def)             Requested size: 431.9989pt x 77.49611pt.
 
-Overfull \hbox (71.9989pt too wide) in paragraph at lines 4023--4025
+Overfull \hbox (71.9989pt too wide) in paragraph at lines 4173--4175
  [][] 
  []
 
-<chain-separating-curves.png, id=756, 593.21625pt x 211.79124pt>
+<chain-separating-curves.png, id=760, 593.21625pt x 211.79124pt>
 File: chain-separating-curves.png Graphic file (type png)
 <use chain-separating-curves.png>
-Package pdftex.def Info: chain-separating-curves.png  used on input line 4043.
+Package pdftex.def Info: chain-separating-curves.png  used on input line 4193.
 (pdftex.def)             Requested size: 216.0022pt x 77.11734pt.
 
 Underfull \vbox (badness 1668) has occurred while \output is active []
 
- [47 <./standard-chain.png> <./klein-bottle.jpg>] [48 <./chain-separating-curves.png>] [49]
-Overfull \hbox (20.79688pt too wide) in paragraph at lines 4227--4240
+ [48 <./standard-chain.png> <./klein-bottle.jpg>] [49 <./chain-separating-curves.png>] [50]
+Overfull \hbox (20.79688pt too wide) in paragraph at lines 4377--4390
 [][]\T1/cmr/bx/n/10 Definition 8.4 \T1/cmr/m/n/10 (Ori-en-ta-tion)\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 A closed $\OML/cmm/m/it/10 n$\T1/cmr/m/n/10 -manifold $\OML/cmm/m/it/10 M$ \T1/cmr/m/n/10 is called ori-entable if $\OML/cmm/m/it/10 H[] [] \U/matha/m/n/10 ^^P
  []
 
-[50] [51] [52]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 4478.
+[51] [52] [53]
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 4628.
  (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-) [53] (./mcg.aux)
+) [54] (./mcg.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -1661,24 +1660,24 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `mcg.out' has not changed.
-(rerunfilecheck)             Checksum: FA44E61CEB0CB8FAA1C3E7D22D8EF704;9181.
+(rerunfilecheck)             Checksum: B1DDB3B4A178CC74C648916FF585C8AF;9181.
 Package logreq Info: Writing requests to 'mcg.run.xml'.
 \openout1 = `mcg.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 35195 strings out of 474222
- 674450 string characters out of 5748733
- 1981975 words of memory out of 5000000
- 56421 multiletter control sequences out of 15000+600000
+ 35109 strings out of 474222
+ 672345 string characters out of 5748733
+ 1974975 words of memory out of 5000000
+ 56341 multiletter control sequences out of 15000+600000
  577642 words of font info for 91 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  98i,16n,117p,676b,1600s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/jonas-trepiakas/.texlive2023/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathabx-type1/matha10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathabx-type1/matha5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathabx-type1/matha7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathabx-type1/mathb10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathabx-type1/mathx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on mcg.pdf (53 pages, 2590706 bytes).
+Output written on mcg.pdf (54 pages, 2598957 bytes).
 PDF statistics:
- 1020 PDF objects out of 1200 (max. 8388607)
- 849 compressed objects within 9 object streams
- 351 named destinations out of 1000 (max. 500000)
+ 1023 PDF objects out of 1200 (max. 8388607)
+ 851 compressed objects within 9 object streams
+ 345 named destinations out of 1000 (max. 500000)
  516 words of extra memory for PDF output out of 10000 (max. 10000000)
 
