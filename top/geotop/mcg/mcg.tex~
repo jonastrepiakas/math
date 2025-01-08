@@ -14,6 +14,9 @@
 \usepackage{adjustbox}
 \usepackage{todonotes}
 
+\usepackage{caption}
+\usepackage{subcaption}
+
 \usepackage[backend=biber]{biblatex}
 \addbibresource{mcg.bib}
 
@@ -137,6 +140,7 @@
 
 \maketitle
 
+\tableofcontents
 
 \section{Curves, Surfaces and Hyperbolic Geometry}
     \subsection{Simple closed curves}
@@ -841,6 +845,9 @@ under the bottom one along the boundary.
     $S_{\alpha}$ is not connected.
 \end{definition}
 
+
+As an important consequence of the classification of surfaces, we
+obtain the following theorem:
 
 \begin{theorem}[]
     If $\alpha$ and $\beta$ are any two nonseparating simple
@@ -1601,6 +1608,27 @@ $\pi$?}
 
 \section{Dehn Twists}
 
+For an annulus $A = S^{1} \times \left[ 0,1 \right]$, we
+orient $A$ via the induced orientation from
+the standard orientation of the plane under the
+embedding 
+$\left( \theta, t \right) \mapsto 
+\left( \theta, t+1 \right) $ where
+the plane is taken in $\left( \theta, r \right) $-coordinates.\\
+
+Define the left twist map of $A$ as $T \colon A \to A$ given
+by
+$T\left( \theta, t \right) = \left( \theta
++ 2\pi t, t\right) $.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{dehn-twist-annulus.png}
+    \caption{The effect of the right twist on a curve
+    on the annulus.}
+    \label{fig:dehn-twist-annulus-png}
+\end{figure}
+
 Let $S$ be an oriented surface and let $\alpha$ be
 a simple closed curve in $S$. Let $N$ be a tubular
 neighborhood of $\alpha$ and choose
@@ -1638,7 +1666,63 @@ matrices
     \quad \text{and} \quad 
     \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix} 
 \] 
+
+\subsubsection{Dehn twists via cutting and gluing and surgery}
+\label{dehn-twist-cut-glue-surgery}
+
+One useful visual picture to have in mind for Dehn twists
+is to cut $S$ along $\alpha$, twist a neighborhood of
+one boundary component through an angle of $2\pi$ and then
+reglue.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{dehn-twist-cutting-and-gluing.png}
+    \caption{Dehn twist of $b$ along $a$ via a
+    cutting along $a$}
+    \label{fig:dehn-twist-cutting-and-gluing-png}
+\end{figure}
+
+The global picture is nice, but it is often easier to think 
+about things locally.
+
+Here surgery can be quite useful. Suppose we have
+a loop $b$ with $i \left( a,b \right) \neq 0$. Then
+the isotopy class $T_a (b)$ is determined by the following
+procedure: taking representatives $\alpha$ and $\beta$ of
+$a$ and $b$, respectively, each segment of $\beta$ crossing
+$\alpha$ is replaced with a segment that turns left before crossing,
+follows $\alpha$ all the way around parallel, and then
+turns right and continues to intersect. \\
+
+This is of course a very nice way to visualize what happens to
+individual curves, however, when $i \left( a,b \right) $ is
+larger, it can be difficult to draw the global picture
+of $T_a (b)$ using this turn left-turn right procedure.\\
+
+This is where surging the curves comes in handy. Suppose
+we start with one curve $\beta$ in the class $b$ and
+$i \left( a,b \right) $ parallel curves $\alpha_i$, each in
+the class $a$, each in minimal position with
+$\beta$. At each intersection point between $\beta$ and
+some $\alpha_i$, we do surgery as demonstrated in figure
+\ref{fig:dehn-twist-via-surgery-png}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{dehn-twist-via-surgery.png}
+    \caption{Dehn twist via surgery}
+    \label{fig:dehn-twist-via-surgery-png}
+\end{figure}
+
+We then resolve the intersection in the unique way so that
+if we follow an arc of $\beta$ toward the intersection, the 
+surgered arc turns left at the intersection.
+
+
+
 \subsubsection{Dehn twist facts}
+
 \todo{This section is needed for the Birman-Hilden theorem}
 
 \begin{proposition}[]
@@ -1657,6 +1741,68 @@ matrices
     \left| k \right| i\left( a,b \right)^2.
     \] 
 \end{proposition}
+
+\begin{proof}
+    Choose representative simple closed curves
+    $\alpha$ and $\beta$ in minimal position and form
+    a simple closed curve $\beta'$ in the class
+    of $T_a(b)$ using the following surgical principle.
+    We place $k i\left( a,b \right) $ parallel copies of
+    $\alpha$ to one side of $\alpha$ and
+    then we surger the as described in section
+    \ref{dehn-twist-cut-glue-surgery}(the reason is that
+    for each twist, we essentially run along $\alpha$ which
+    intersects $\beta$ $i(a,b)$ times, hence if we twist
+    $k$ times, we will end up intersecting $\beta$ 
+    $ k i \left( a,b \right) $ times).
+
+
+    \begin{figure}[H]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{prop32.png}
+  \caption{}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{prop32b.png}
+  \caption{A subfigure}
+  \label{fig:sub2}
+\end{subfigure}
+\label{fig:test}
+\caption{One Dehn twist about $\alpha$.}
+\end{figure}
+
+    Note that in the figure $\beta$ intersects $\alpha$ from the
+    same side each time, but we could also have the
+    case where it intersects $\alpha$ from the other side.
+
+    Now, by counting, we see that
+    $\left| \beta \cap \beta' \right| 
+    = \left| k \right| i \left( a,b \right)^2$, so
+    it suffices to show that $\alpha$ and $\beta$ are in
+    minimal position. This is equivalent to showing that
+    they form no bigons by the bigon criterion.\\
+    
+    First we cut $\beta$ and $\beta'$ at the
+    points of intersection and obtain arcs
+    $\left\{ \beta_i \right\} $ and
+    $\left\{ \beta_i' \right\} $.
+    Then for the potential bigons that can be formed
+    from one arc of $\beta_i$ and one $\beta_j'$, we
+    either have that the orientations at the intersection points
+    are compatible or not compatible as for
+    $\gamma_1$ and $\gamma_2$ in figure \ref{fig:sub2}.
+    In a bigon, the orientations will be different, so
+    we must be in the situation of $\gamma_2$. However, the
+    vertical line segments of $\beta'$ are parallel to $\alpha$,
+    so if $\gamma_2$ forms a bigon, then $\alpha$ also
+    forms a bigon with $\beta$, contradicting
+    them being in minimal position.
+
+\end{proof}
 
 \begin{proposition}[]
     Let $\alpha$ and $\beta$ be simple closed curves in a surface.
@@ -2992,6 +3138,17 @@ $\varphi _{2, A, B}$ and $\varphi_0$ are all identities.
 
    \end{definition}
 
+
+
+\begin{remark}[]
+    A monoidal functor is also sometimes called a strong
+    monoidal functor if one wants to distinguish it
+    from a \textit{lax monoidal functor} which is
+    the definition of a monoidal functor
+    without the requirements that 
+    $\varphi_0$ and $\varphi_{2,A,B}$ be isomorphisms.
+\end{remark}
+
 \begin{definition}[]
     A morphism $\theta \colon F \implies G$ of monoidal functors
     is a natural transformation
@@ -3762,6 +3919,14 @@ N_{2n+1,1} \approx
 &\approx S_{n,0} \# M\\
 &\approx S_{n,1} \natural M
 \end{align*}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{N_3,1.jpg}
+    \label{fig:N_3-1-jpg}
+\end{figure}
+
+
 \end{proof}
 
 Hence for $g$ odd, we have an embedding
@@ -3823,7 +3988,7 @@ $i \left( a_i, a_j \right) =0$ for $\left| i-j \right| >0$.
 
 Let us first approach the question for
 $g$ odd since here
-we can use proposition \ref{prop61}
+we can use Proposition \ref{prop61}
 
 
 
@@ -4100,14 +4265,6 @@ Now, for all $i,j$ with $j-i \ge 2$, we have
 
 
 
-\begin{remark}[]
-    A monoidal functor is also sometimes called a strong
-    monoidal functor if one wants to distinguish it
-    from a \textit{lax monoidal functor} which is
-    the definition of a monoidal functor
-    without the requirements that 
-    $\varphi_0$ and $\varphi_{2,A,B}$ be isomorphisms.
-\end{remark}
 
 \section{Appendix}
 
