@@ -1,0 +1,4657 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm, mathabx, mathrsfs}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{adjustbox}
+\usepackage{todonotes}
+
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage[backend=biber]{biblatex}
+\addbibresource{mcg.bib}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\tr}{tr}
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\Mod}{{\mathrm{Mod}}}
+\newcommand{\SMod}{{\mathrm{SMod}}}
+\newcommand{\PMod}{{\mathrm{PMod}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\Homeo}{{\mathrm{Homeo}}}
+\newcommand{\SHomeo}{{\mathrm{SHomeo}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+\newcommand{\Mon}{{\mathcal{M}}on}
+\newcommand{\BMon}{{\mathcal{B}\mathcal{M}}on}
+
+\title{Mapping Class Groups, Braid Groups and Geometric Representations}
+
+\author{Jonas Trepiakas}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section{Curves, Surfaces and Hyperbolic Geometry}
+    \subsection{Simple closed curves}
+There is a bijective correspondence
+\[
+\left\{ 
+    \begin{tabular}{c}
+    Nontrivial\\
+    conjugacy classes\\
+    in $\pi_1 (S)$
+\end{tabular}
+\right\} 
+\longleftrightarrow
+\left\{ 
+    \begin{tabular}{c}
+        Nontrivial free\\
+        homotopy classes of oriented\\
+        closed curves in $S$
+\end{tabular}
+\right\} 
+\] 
+
+\begin{definition}[Primitive and multiple elements]
+    An element $g$ of a group $G$ is \textit{primitive} if there
+    does not exist any $h \in G$ so that $g = h^{k}$ for
+    $\left| k \right| >1$. The property of being a primitive
+    is a conjugacy class invariant. In particular, it makes
+    sense to say that a closed curve in a surface is primitive.\\
+    A closed curve in $S$ is a multiple if it is a map
+    $S^{1} \to S$ that factors through the map
+    $S^{1} \stackrel{\times n}{\to } S^{1}$ for
+    $n >1$, i.e., there exists a map $\tilde{\alpha} \colon
+    S^{1} \to S$ such that the following diagram commutes:
+    \begin{equation*}
+    \begin{tikzcd}
+        S^{1} \ar[r, "\times n"] \ar[rr, bend left = 45, dashed,
+        "\tilde{\alpha}"] & S^{1} \ar[r,
+        "\alpha"] & S
+    \end{tikzcd}
+    \end{equation*}
+\end{definition}
+
+\begin{definition}[Lifts]
+    We make a distinction between lifts: let $p \colon
+    \tilde{S} \to S$ be a covering space. By a \textit{lift} of a closed
+    curve $\alpha$ to $\tilde{S}$ we will always mean the image of
+    a lift $\mathbb{R} \to \tilde{S}$ of the map
+    $\alpha \circ \pi$ where $\pi \colon \mathbb{R} \to S^{1}$ is
+    the usual covering map. I.e., a lift of $\alpha \colon
+    S^{1} \to S$ is a map  $\tilde{\alpha} \colon \mathbb{R} \to 
+    \tilde{S}$ such that the following diagram commutes
+    \begin{equation*}
+    \begin{tikzcd}
+        & & \tilde{S} \ar[d, "p"]\\
+        \mathbb{R} \ar[r, "\pi"'] \ar[rru, "\tilde{\alpha}"] & S^{1} \ar[r, 
+        "\alpha"'] & S
+    \end{tikzcd}
+    \end{equation*}
+    A lift is different from a \textit{path lift} which is
+    a proper subset of a lift. Namely, it would be
+    the restriction of $\tilde{\alpha}$ to some interval of
+    $\mathbb{R}$ of length $2 \pi$ if the covering map
+    $\pi$ is of the form $t \mapsto e^{it}$.
+\end{definition}
+
+Now suppose $p \colon \tilde{S} \to S$ is the universal cover
+and $\alpha$ is a simple closed curve in $S$ that is
+not a multiple of another closed curve. In this case, there
+is a bijective correspondence
+between cosets in $ \pi_1 (S)$
+ of the infinite cyclic subgroup $\left<\alpha \right>$ and
+ the lifts of $\alpha$. This can be seen as follows: first choose
+ a basepoint $\alpha(1) =  x_0 \in S$
+and
+ some $\tilde{x_0} \in p^{-1}(x_0)$. There exists a unique lift
+ $\tilde{\alpha}$ of $\alpha$ such that
+ \begin{equation*}
+ \begin{tikzcd}
+     & & \tilde{S}\ar[d, "p"] \\
+     \mathbb{R} \ar[r] \ar[rru, "\tilde{\alpha}"] & S^{1} \ar[r, "\alpha"] & S
+ \end{tikzcd}
+ \end{equation*}
+ commutes and such that
+ $\tilde{\alpha}(0) = \tilde{x} \in p^{-1}(\alpha \circ \pi (0))$
+ for some specific $\tilde{x}$  \cite[Cor. 4.2]{Bredon}.
+ But the set
+ $p^{-1} \left( \alpha \circ \pi (0) \right) $ is in bijective
+ correspondence with the loops in $\pi_1 (S)$ by the path lifting lemma. 
+ Now, under which path lifts are the lifts the same? The lifts of
+ $\alpha$ to two points $\tilde{x}, \tilde{y} \in 
+ p^{-1}\left( \alpha \circ \pi (0) \right) $ will be the same if
+ $\alpha^{k} \cdot \tilde{x} = \tilde{y}$ where
+ $\cdot $ denotes the monodromy action of $\pi_1 (S)$ on
+ the fiber. Now, there exist $\gamma_x$ and
+ $\gamma_y$ in $\pi_1 (S)$ such that
+ $\gamma_x \cdot \tilde{x_0} = \tilde{x}$ and
+ $\gamma_y \cdot \tilde{x_0} = \tilde{y}$, so
+ $\alpha^k \gamma_x = \gamma_y$. Hence the lifts
+ corresponding to $\gamma_x$ and $\gamma_y$ are the same if and only
+ if $\alpha^k \gamma_x = \gamma_y$ for some $k$, i.e. if and only if
+ $\gamma_x = \gamma_y$ in $\pi_1(S) / \left<\alpha \right>$.\\
+ \linebreak
+ As usual, the group $\pi_1 (S)$ acts on the set of lifts
+ of $\alpha$ by deck transformations, and this action agrees
+ with the usual left action of $\pi_1 (S)$ on the
+ cosets of $\left<\alpha \right>$. The stabilizer of the lift
+ corresponding to the coset $\gamma \left<\alpha \right>$ is
+ the cyclic group $\left<\gamma \alpha \gamma^{-1} \right>$. See
+ figure~\ref{fig:lifts-of-paths}.
+
+ \begin{figure}[http]
+     \centering
+     \includegraphics[width=0.8\textwidth]{lifts-of-paths.jpg}
+     \caption{}
+     \label{fig:lifts-of-paths}
+ \end{figure}
+
+ \begin{theorem}[]
+When $S$ admits a hyperbolic metric and
+$\alpha$ is a primitive element of $\pi_1 (S)$, we have
+a bijective correspondence
+\[
+\left\{ 
+    \begin{tabular}{c}
+    Elements of the conjugacy\\
+    class of $\alpha$ in $\pi_1 (S)$
+\end{tabular}
+\right\} 
+\longleftrightarrow
+\left\{ 
+    \begin{tabular}{c}
+    Lifts to $\tilde{S}$ of the\\
+    closed curve $\alpha$
+\end{tabular}
+\right\} 
+\] 
+
+
+More precisely, we claim that the map which sends the lift
+given by the coset $\gamma \left<\alpha \right>$ to
+$\gamma \alpha \gamma^{-1}$ is bijective and well-defined.\\
+ \end{theorem}
+
+ \begin{proof}
+To show that it is well-defined, suppose $\gamma \left<\alpha \right>$ and
+$\beta \left<\alpha \right>$ give the same lift. Then
+$\gamma = \beta \alpha^k$. So in particular,
+\[
+    \gamma \alpha \gamma^{-1} = \beta \alpha^k \alpha \alpha^{-k} \beta^{-1}
+    = \beta \alpha \beta^{-1}
+\] 
+so they do correspond to the same element of the conjugacy class
+$\left[ \alpha \right] $. It is clear that this is a surjective map.
+Now suppose that $\gamma \alpha \gamma^{-1} = \beta \alpha \beta^{-1}$. 
+Then $\beta^{-1} \gamma \alpha \left( \beta^{-1} \gamma \right)^{-1} =
+\alpha$, so in particular, $\beta^{-1} \gamma \in C_{\pi_1(S)}(\alpha)$
+which is a cyclic group generated by, say, $\theta$. But then
+$\theta^l = \alpha$ since $\alpha$ is trivially in the centralizer of
+$\alpha$; however, $\alpha$ is primitive, so
+$l$ must be $\pm 1$, but then  $\alpha$ generates the centralizer of
+$\alpha$, $C_{\pi_1 (S)}(\alpha) = \left<\alpha \right>$, and hence
+$\gamma = \beta \alpha^l$, so $\gamma \left<\alpha \right>
+= \beta \left<\alpha \right>$.
+ \end{proof}
+
+ \begin{remark}[]
+     If $\alpha$ is any multiple, then we still have a bijective correspondence
+     between elements of the conjugacy class of $\alpha$ and the
+     lifts of $\alpha$. However, if $\alpha$ is not primitive and not
+     a multiple, then there are more lifts of $\alpha$ than there
+     are conjugates. Indeed, if $\alpha = \beta^{k}$, where $k > 1$, then
+     $\beta \left<\alpha \right> \neq \left<\alpha \right>$ while
+     $\beta \alpha \beta^{-1} = \alpha$.
+ \end{remark}
+
+ \begin{example}[]
+     The above correspondence does not hold for the torus $T^2$ because
+     each closed curve has infinitely many lifts, while
+     each element of $\pi_1 \left( T^2 \right) \approx \mathbb{Z}^2$ 
+     is its own conjugacy class because $\pi_1 \left( T^2 \right) $ is
+     abelian. 
+ \end{example}
+
+ \subsubsection*{Geodesic representatives}
+ \begin{proposition}[]\label{unique-geodesic-representative}
+     Let $S$ be a hyperbolic surface. If $\alpha$ is a closed curve
+     in $S$ that is not homotopic into a neighborhood of a puncture, then
+     $\alpha$ is homotopic to a unique geodesic closed curve $\gamma$.
+ \end{proposition}
+ 
+ \begin{corollary}
+     For compact hyperbolic surfaces, 
+     there is a bijective correspondence:
+\[
+\left\{ 
+    \begin{tabular}{c}
+        Conjugacy classes\\
+        in $\pi_1 (S)$
+\end{tabular}
+\right\} 
+\longleftrightarrow
+\left\{ 
+    \begin{tabular}{c}
+        Oriented geodesic\\
+        closed curves in $S$
+\end{tabular}
+\right\} 
+\] 
+ \end{corollary}
+
+ \subsection*{Simple closed curves}
+ 
+\begin{definition}[Simple curves]
+    A closed curve in $S$ is \textit{simple} if it is topologically embedded, i.e.,
+    if the map $S^{1} \to S$ is injective.  
+\end{definition}
+
+By \cite[Thm~11.8]{Bredon}, any closed curve $\alpha$ can be approximated 
+(arbitrarily close) by
+a smooth closed curve which is homotopic to $\alpha$. Moreover,
+if $\alpha$ is simple, then the smooth approximation can be chosen to be
+simple. Smooth curves are advantageous because we can make use of notions
+such as transversality.
+
+Simple closed curves are also natural to study because they represent
+primitive elements of $\pi_1 (S)$.
+
+\begin{proposition}[]
+    Let $\alpha$ be a simple closed curve in a surface $S$. If $\alpha$ 
+    is not null homotopic, then each element of the corresponding conjugacy
+    class in $\pi_1(S)$ is primitive.
+\end{proposition}
+
+\subsection*{Example: simple closed curves on the torus}
+
+\begin{proposition}[]\label{torus-primitive-elts}
+    The nontrivial homotopy classes of oriented simple closed
+    curves in $T^2$ are in bijective correspondence with the set of primitive
+    elements of $\pi_1\left( T^2 \right) \approx \mathbb{Z}^2$ which is
+    the set of elements $\left( p,q \right)  \in \mathbb{Z}^2$ such that
+    either $(p,q) = (0,\pm 1)$ or  $(p,q) = (\pm 1,0)$ or
+     $\gcd(p,q) = 1$.
+\end{proposition}
+
+
+\begin{proof}
+    Firstly, primitive elements
+    of $\pi_1 T^2 \approx \mathbb{Z}^2$ are those
+    $\left( a,b \right) $ such that there
+    does not exist $(c,d)$ and $k \in \mathbb{Z}$ such that
+    $\left| k \right| >1$ and $\left( kc,kd \right) =
+    \left( a,b \right) $. But this is equivalent to saying that
+    either $\gcd (a,b) = 1$ or $\left( a,b \right) 
+    \in \left\{ \left( \pm 1,0 \right) ,
+    \left( 0, \pm 1 \right) \right\} $.\\
+    
+    We now claim that for a nontrivial closed curve $\alpha$ in $T^2$,
+    $\alpha$ is homotopic to a simple closed curve if and only
+    if $\alpha$ represents a primitive element of
+    $\pi_1 T^2 \approx \mathbb{Z}^2$.
+
+    Suppose $ (p,q) = \alpha$ represents a primitive element of
+    $\pi_1 T^2 \approx \mathbb{Z}^2$. Then if we choose
+    the origin as basepoint, we can lift  $\alpha$ to
+    the straight-line path starting at the origin and 
+    ending at $\left( p,q \right)  \in \mathbb{Z}^2$. 
+    The projected loop is simple since otherwise,
+    we would have for $t,t' \in t,t' \in [0,1) $ with
+    $t \neq t'$ that
+    $\left( tp,tq \right) = \left( t'p,t'q \right) +
+    \left( m,n \right) $ for $m,n \in \mathbb{Z}$.
+    But then $\frac{p}{q} \in \mathbb{Z}$ contradicting
+    $\gcd \left( p,q \right) = 1$ except when
+    $q = \pm 1$. But then $\pm t = \pm t' + n$ necessarily
+    gives $n = 0$ and $t = t'$, contradiction.\\
+    \linebreak
+    Conversely, suppose $\alpha$ is homotopic to
+    a nontrivial simple closed curve which we will also
+    denote $\alpha$. A lift of $\alpha$ will consist
+    of a collection of biinfinite disjoint topological lines.
+    We can homotopy this collection into a collection of disjoint
+    straight biinfinite lines, where the integer points on
+    the lines are fixed during the homotopy. 
+    Since these collections and the homotopy are equivariant
+    with respect to deck transformations, this descends
+    to a homotopy of $\alpha$. If the descended loop
+    from the straight lines were not simple, we would
+    have intersections in the universal cover - i.e. nonparallel
+    lines which we do not have. This is the information of
+    Lemma \ref{simple-loop-lifts} below.
+    As the straight-line respresentative is simple, we
+    must therefore have that if $\alpha$ is represented by
+    $\left( p,q \right) $, we have that
+    $ \gcd \left( p,q \right) = 1$ or
+    $\left( p,q \right) \in \left\{ \left( \pm 1,0 \right) ,
+    \left( 0, \pm 1 \right) \right\} $.
+\end{proof}
+
+\subsection*{Closed geodesics}
+
+\begin{proposition}[]
+    Let $S$ be a hyperbolic surface. Let $\alpha$ be a closed curve
+    in $S$ not homotopic into a neighborhood of a puncture. Let
+    $\gamma$ be the unique geodesic in the free homotopy class of
+    $\alpha$ guaranteed by proposition \ref{unique-geodesic-representative}.
+    If $\alpha$ is simple, then $\gamma$ is simple.
+\end{proposition}
+
+\begin{proof}
+    Follows from the following lemma:
+    \begin{lemma}[]\label{simple-loop-lifts}
+        Let $X$ be a topological space with a universal covering space
+         $\tilde{X}$. A closed curve $\beta$ in $X$ is simple if and
+        only if the following properties hold:
+        \begin{enumerate}
+            \item Each lift of $\beta$ to $\tilde{X}$ is simple.
+            \item No two lifts of $\beta$ intersect.
+            \item  $\beta$ is not a nontrivial multiple of another closed
+                curve.
+         \end{enumerate}
+    \end{lemma}
+\end{proof}
+
+\subsection*{Intersection numbers}
+
+It is often useful to put an inner product on a vector space to check
+if two vectors are linearly independent. We can pursue something similar for
+surfaces.
+
+
+\begin{definition}[Transversality for curves]
+If $\alpha \cap \beta$ is finite and, at every intersection, each
+curve locally separates the other curve, then we say that
+$\alpha$ and $\beta$ are \textit{transverse}.
+\end{definition}
+
+\begin{definition}[Algebraic intersection number]
+    Let $\alpha$ and $\beta$ be a pair of transverse, oriented,
+    simple closed curves in $S$. Their \textit{algebraic intersection
+    number} $\hat{i}\left( \alpha,\beta \right) $ is
+    defined as the sum of the indices
+    of the intersection points of $\alpha$ and $\beta$,
+    where the intersection point is of index $+1$ when the
+    orientation of intersection agrees with
+    the orientation of $S$ and is $-1$ otherwise.
+\end{definition}
+
+\begin{remark}[]
+    The algebraic intersection number only depends on the
+    homology classes of the curves and defines
+    a symplectic form on homology.
+\end{remark}
+
+\begin{definition}[Geometric intersection number]
+    Let $\alpha, \beta$ be closed curves on a surface $S$.
+    Their \textit{geometric intersection number} is
+    \[
+    i \left( \alpha, \beta \right) =
+    \min_{\alpha' \simeq \alpha, \beta' \simeq \beta}
+    \# \left( \alpha' \cap \beta' \right) 
+    \] 
+\end{definition}
+
+Intersection numbers are a useful general tool, and we will
+encounter them not only in applications of the Bigon criterion
+which we describe in a moment, but also in direct computations.
+One such computation will be the mapping class group of the
+torus $T^2$. For this, we will need an explicit expression
+for the intersection number of curves on the torus.
+
+\begin{example}[Intersection numbers on the
+    torus]\label{intersection-numbers-torus}
+    By proposition \ref{torus-primitive-elts}, the nontrivial
+    homotopy classes of oriented simple closed curves in
+    $T^2$ are in bijective correspondence with the
+    set of primitive elements of 
+    $\mathbb{Z}^2$.
+    For two such homotopy classes
+    $\left( p,q \right) $ and $p', q'$, we claim that
+    \[
+    i \left( \left( p,q \right) , \left( p',q' \right)  \right) 
+    = \left| pq' - p'q \right| .
+    \] 
+    and
+    \[
+    \hat{i}\left( \left( p,q \right) ,
+    \left( p',q' \right) \right) 
+    = pq' - p'q.
+    \] 
+    Suppose first that $\left( p,q \right) =(1,0)$. Through a
+    homotopy, we can assume that $\left( p',q' \right) $ is
+    represented by a loop which first winds around the
+    torus $p'$ times horizontally without
+    intersecting $(1,0)$ and then $q'$ times vertically. 
+    It then is clear that
+    $i \left( \left( p,q \right) , \left( p',q' \right)  \right) 
+    = \left| q' \right| = \left| pq' - p'q \right| $.
+    For the algebraic case, we choose $\left( 1,0 \right) $ 
+    to be along the orientation direction. Then
+    $\hat{i} \left( \left( p,q \right) , \left( p',q' \right) 
+    \right) = q' = pq' - p'q$.\\
+    For the general case, suppose
+    $\gcd (p,q) = 1$. Then by Bezout's lemma, there
+    exist $a,b \in \mathbb{Z}$ such that
+    $ap + bq = 1$. The system of equations
+    \begin{align*}
+        qd + pc &= 0\\
+        ad - bc &= 1
+    \end{align*}
+    has $\left( c,d \right) = \left( -q,p \right) $ as a solution.
+    So letting
+    \[
+    A =
+    \begin{pmatrix} a & b \\ -q & p \end{pmatrix} \in 
+    \SL \left( 2, \mathbb{Z} \right) 
+    \] 
+    we get $A \begin{pmatrix} p \\ q \end{pmatrix} 
+    = \begin{pmatrix} 1 \\ 0 \end{pmatrix} $.
+    Since $A$ is a linear, orientation-preserving
+    homeomorphism of $\mathbb{R}^2$ preserving
+    $\mathbb{Z}^2$, it induces
+    an orientation-preserving homeomorphism
+    on the quotient $\mathbb{R}^2 / \mathbb{Z}^2
+    \approx T^2$ whose action on
+    the fundamental group $\pi_1 \left( T^2 \right) 
+    \approx \mathbb{Z}^2$ is given by $A$.
+    Now, homeomorphisms preserve
+    algebraic and 
+    geometric intersection numbers.
+    Then
+    \begin{align*}
+    i \left( \left( p,q \right) , \left( p',q' \right)  \right) 
+    = i \left( A \left( p,q \right) , A\left( p',q' \right)  \right) 
+    &= i \left( \left( 1,0 \right) , \left( ap'+bq',
+    -qp' + pq'\right)  \right)\\
+    &= \left| pq' - qp'
+ \right|
+    \end{align*}
+    and likewise 
+    $\hat{i}\left( \left( p,q \right) , \left( p',q' \right) 
+    \right) = pq' - qp'$.\\
+    The other primitive cases are checked easily.
+\end{example}
+
+
+\begin{definition}[Minimal position]
+    Two curves $\alpha$ and $\beta$ are in \textit{minimal
+    position} if $\# \left( \alpha \cap \beta \right) =
+    i\left( \alpha, \beta \right) $.
+\end{definition}
+
+\subsection*{Bigons}
+
+We want a procedure to put curves into minimal position so
+we can compute intersection numbers.
+
+For this, we need the notion of a \textit{bigon}:
+
+\begin{definition}[Bigon]
+    Two transverse simple closed curves $\alpha$ and $\beta$ 
+    in a surface $S$ form a \textit{bigon} if there is a
+    topologically embedded disk in $S$ (the bigon) whose
+    boundary is the union of an arc of $\alpha$ and an
+    arc of  $\beta$ intersecting in exactly two points.
+\end{definition}
+
+\begin{figure}[http]
+    \centering
+    \includegraphics[width=0.4\textwidth]{bigon.png}
+    \caption{Local picture of a bigon}
+    \label{fig:bigon}
+\end{figure}
+
+\begin{lemma}[]\label{lemma-intersections-of-lifts}
+    If transverse simple closed curves $\alpha$ and $\beta$ in
+    a surface $S$ do not form any bigons, then in the
+    universal cover of $S$, and pair of lifts
+    $\tilde{\alpha}$ and $\tilde{\beta}$ of $\alpha$ and $\beta$ 
+    intersect in at most one point.
+\end{lemma}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{lemma-1-8.jpg}
+    \caption{Lemma \ref{lemma-intersections-of-lifts} illustrated}
+    \label{fig:lemma-1-8-jpg}
+\end{figure}
+
+
+\begin{proposition}[The bigon criterion]
+    Two transverse simple closed curves in a surface $S$ are in
+    minimal position if and only if they do not form
+    a bigon.
+\end{proposition}
+
+\begin{corollary}
+    Any two transverse simple closed curves that intersect exactly once are in
+    minimal position.
+\end{corollary}
+
+\subsection*{Homotopy versus isotopy for simple closed curves}
+
+\begin{definition}[Isotopy]
+    Two simple closed curves $\alpha$ and $\beta$ are \textit{isotopic}
+    if there is a homotopy 
+    \[
+    H \colon S^{1} \times \left[ 0,1 \right] \to 
+    S
+    \] 
+    from $\alpha$ to $\beta$ with the property that the closed
+    curve $H \left( S^{1} \times \left\{ t \right\}  \right) $ 
+    is simple for each $t \in \left[ 0,1 \right] $.
+\end{definition}
+
+\begin{proposition}[Baer]
+    Let $\alpha$ and $\beta$ be two essential simple closed curves
+    in a surface $S$. Then $\alpha$ is isotopic to $\beta$ if and
+    only if $\alpha$ is homotopoic to $\beta$.
+\end{proposition}
+
+\begin{proof}
+    If $\alpha$ is isotopic to $\beta$ then they are clearly also
+    homotopic.\\
+    \linebreak
+    Suppose $\alpha$ and $\beta$ are homotopic. Taking a
+    tubular neighborhood around $\alpha$, we can find
+    a disjoint simple loop $\tilde{\alpha}$ which is homotopic to
+    $\alpha$ but disjoint from it. Then $\beta$ is homotopic
+    to $\tilde{\alpha}$, and hence
+    $i \left( \alpha, \beta \right) 
+    = i \left( \alpha, \tilde{\alpha} \right) = 0$.
+    Performing an isotopy of $\alpha$, we may assume that
+    $\alpha$ is transverse to $\beta$ \todo{why?}.
+    If $\alpha$ and $\beta$ are not disjoint, then by
+    the bigon criterion, they form a bigon. A bigon
+    prescribes an isotopy that reduces intersection, so we
+    may remove bigons by isotopy until $\alpha$ and $\beta$ are
+    disjoint.\\
+    \linebreak
+    Suppose $\chi (S) <0$. Lift $\alpha$ and $\beta$ to
+    $\tilde{a}$ and $\tilde{\beta}$ with the
+    same endpoints in $\partial \mathbb{H}^2$. There
+    is a hyperbolic isometry $\varphi$ that leaves
+    $\tilde{\alpha}$ and $\tilde{\beta}$ invariant and
+    acts by translation on the lifts. As $\tilde{\alpha}$ and
+    $\tilde{\beta}$ are disjoint, let $R$ denote the region
+    between them. We claim that the quotient surface
+    $R' = R / \left<\varphi \right>$ is an annulus.
+    The fundamental group of $R'$ is isomorphic to the group of
+    deck transformations $\left<\varphi \right>$ and is hence
+    infinite cyclic. Furthermore, $R'$ has two boundary components.
+\end{proof}
+
+
+\subsubsection*{Extension of isotopies}
+
+\begin{definition}[]
+    An isotopy of a surface $S$ is a homotopy $H \colon 
+    S \times I \to S$ such that for each
+    $t \in \left[ 0,1 \right] $, the map
+    $H \left( S, t \right) \colon S \times \left\{ t \right\} \to 
+    S$ is a homeomorphism. Given an isotopy between
+    two simple closed curves in $S$, it will often be useful
+    to promote this to an isotopy of $S$ which we call an
+    ambient isotopy of $S$.
+\end{definition}
+
+\begin{proposition}[]
+    Let $S$ be any surface. If $F \colon S^{1} \times I \to 
+    S$ is a smooth isotopy of simple closed curves, then
+    there is an isotopy $H \colon S \times I \to S$ so that
+    $H |_{S \times 0}$ is the identity and 
+    $H|_{F\left( S^{1} \times 0 \right) \times I} = F$.
+\end{proposition}
+
+\begin{proof}
+    \cite[Ch~8, Thm 1.3]{Hirsch}
+\end{proof}
+
+\subsection{Small digression isotopies and their extensions}
+
+\begin{definition}[Isotopy in general and their tracks]
+    Let $V$ and $M$ be manifolds. An
+    isotopy from $V$ to $M$ is a map
+    $F \colon V \times I \to M$ such that
+    for each $t \in I$, the map
+    \[
+    F_t \colon V \to M, \quad x \mapsto F(x,t)
+    \] 
+    is an embedding.
+
+    The \textit{track} of the isotopy $F$ is the embedding
+    \[
+    \hat{F} \colon V \times I \to M \times I, \quad
+    \left( x,t \right) \mapsto \left( F(x,t),t \right) 
+    \] 
+\end{definition}
+
+\begin{definition}[Isotopic embeddings and ambient isotopies]
+    If $F \colon V \times I \to M$ is an isotopy, we call
+    the two embeddings $F_0$ and $F_1$ 
+    isotopic. If $V$ is a submanifold of $M$ and
+    $F_0$ is the inclusion, we call $F$ an isotopy
+    of $V$ in $M$.
+    When $V = M$ and each $F_t$ is a diffeomorphism, and
+    $F_0 = \mathbbm{1}_M$, then $F$ is called
+    an ambient isotopy.
+\end{definition}
+
+\begin{definition}[Support of isotopy]
+    The \textit{support} $\Supp F
+    \subset V $ of an isotopy $F \colon V \times I \to M$ 
+    is the closure of
+    $\left\{ x \in V \colon
+    F(x,t) \neq F(x,0) \text{ for some }
+t \in I\right\} $.
+\end{definition}
+
+
+\begin{theorem}[Isotopy extension theorem]\label{isotopy-extension}
+    \cite[Theorem 1.3, chapter 8]{Hirsch}
+    Let $V \subset M$ be a compact submanifold
+    and $F \colon V \times I \to M$ an isotopy
+    of $V$. If either $F\left( V \times I \right) 
+    \subset \partial M$ or $F\left( V \times I \right) 
+    \subset M - \partial M$, then $F$ extends to
+    an ambient isotopy of $M$ having compact support.
+\end{theorem}
+
+\todo{Insert proof?}
+
+
+
+\subsection{Arcs}
+$ $ \newline \newline
+Assume $S$ is a compact surface, possibly with boundary
+and possibly with finitely many marked points in the interior.
+Denote the set of marked points by $\mathcal{P}$.
+
+\begin{definition}[]
+    A \textit{proper arc} in $S$ is a map $\alpha \colon
+    \left[ 0,1 \right]  \to S$ such that
+    $\alpha^{-1} \left( \mathcal{P} \cup \partial S \right) 
+    = \left\{ 0,1 \right\} $.
+\end{definition}
+\begin{definition}[]
+    The arc $\alpha$ is \textit{simple} if it is an embedding
+on its interior.
+\end{definition}
+
+\begin{remark}[]
+    The homotopy class of a proper arc is taken to be
+    the homotopy class within the class of proper arcs.
+    Thus points on $\partial S$ cannot move off the boundary
+    during the homotopy.\\
+    A homotopy (or isotopy) of an arc is said to
+    be \textit{relative to the boundary} if its endpoints
+    stay fixed throughout the homotopy. 
+    An arc in a surface $S$ is \textit{essential} if it
+    is neither homotopic into a boundary component of $S$ nor a
+    marked point of $S$.
+\end{remark}
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.5\textwidth]{bigon-of-arcs.png}
+    \caption{bigon-of-arcs.png}
+    \label{fig:bigon-of-arcs-png}
+\end{figure}
+Note in this picture how if isotopies are considered relative
+to the boundary, then the two arcs are in minimal position, while
+if we consider general isotopies, then the half-bigon shows that
+they are not in minimal position as we can pull the top strand down
+under the bottom one along the boundary.
+
+\begin{itemize}
+    \item The bigon criterion holds for arcs.
+    \item Corollary 1.9 (geodesics are in minimal position)
+        and prop 1.3 (existence and uniqueness of geodesic 
+        representatives) work for arcs in surfaces with
+        punctures and/or boundary.
+    \item Prop 1.10 (homotopy versus isotopy for curves) and
+        theorem 1.13 (extension of isotopies) also
+        work for arcs.
+\end{itemize}
+
+\subsection*{Change of coordinates principle}
+
+\subsubsection*{Classification of simple closed curves}
+
+\begin{definition}[]
+    Given a simple closed curve or
+    a simple proper arc $\alpha$ in a surface $S$,
+    the surface obtain by cutting $S$ along $\alpha$ is
+    a compact surface $S_{\alpha}$ equipped with an attaching
+    map $h$ (i.e.
+    \begin{enumerate}
+        \item $S_{\alpha} / \left( x \sim h(x) \right) 
+            \approx S$ 
+        \item the image of the distinguished boundary components
+            under this quotient map is $\alpha$.
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[]
+    We say that a simple closed curve $\alpha$ in the surface
+    $S$ is \textit{nonseparating} if the cut surface
+    $S_{\alpha}$ is connected, and \textit{separating} if
+    $S_{\alpha}$ is not connected.
+\end{definition}
+
+
+As an important consequence of the classification of surfaces, we
+obtain the following theorem:
+
+\begin{theorem}[]
+    If $\alpha$ and $\beta$ are any two nonseparating simple
+    closed curves in a surface $S$, then there
+    is a homeomorphism $\varphi \colon S \to S$ with
+    $\varphi \left( \alpha \right) = \beta$.
+\end{theorem}
+
+\begin{proof}
+    The cut surface $S_{\alpha}$ and $S_{\beta}$ have
+    two boundary component corresponding to $\alpha$ and 
+    $\beta$, respectively. 
+    Now, suppose $S_{\alpha}$ has
+    $n_{\alpha}$ vertices, $m_{\alpha}$ edges and
+    $t_{\alpha}$ triangles in a triangulation. Then
+    in obtaining $S$ from $S_{\alpha}$, we identify the vertices
+    and edges, but no triangles are identified, so we get
+    $n_{S} = n_{\alpha}-3$ and $m_{S} = m_{\alpha}-3$, but
+    $t_{S} = t_{\alpha}$. Thus $\chi (S_{\alpha}) = 
+    \chi (S)$.
+
+    Since both $S_{\alpha}$ and
+    $S_{\beta}$ have the same Euler characteristic, number of
+    boundary components and number of punctures, it follows
+    that $S_{\alpha} \approx S_{\beta}$. Choose
+    a homeomorphism $\varphi \colon S_{\alpha} \to S_{\beta}$ such 
+    that if $h_{\alpha}$ is the attaching map for $S_{\alpha}$ 
+    and $h_{\beta}$ is the attaching map for $S_{\beta}$,
+    then $\varphi$ takes $\left\{ x, h_{\alpha}(x) \right\} $ 
+    to $\left\{ y, h_{\beta}(y) \right\} $ - i.e., the
+    identification are respected under the map.
+    This homeomorphism gives the desired
+    homeomorphism of $S$ taking $\alpha$ to $\beta$.
+    If we want an orientation preserving homeomorphism, we
+    can postcompose by an orientation-reversing homeomorphism
+    fixing $\beta$ if necessary.
+\end{proof}
+
+\begin{theorem}[]
+    When $S$ is closed, $\beta$ is separating if and only
+    if it is the boundary of some subsurface of $S$. Which
+    is equivalent to the vanishing of the
+    homology class of $\beta$ in $H_1 \left( S, \mathbb{Z} \right) $.
+\end{theorem}
+
+\begin{remark}[]
+    By the "classification of disconnected surfaces", there
+    are finitely many separating simple closed curves in $S$ 
+    up to homeomorphism.
+\end{remark}
+
+
+\begin{corollary}\label{cut-surface-homeo-1}
+    There is an orientation-preserving homeomorphism of a surface
+    taking one simple closed curve to another if and only
+    if the corresponding cut surfaces (which may be disconnected)
+    are homeomorphic.
+\end{corollary}
+
+\begin{definition}[Topological type]
+    The existence of a homeomorphism as in \ref{cut-surface-homeo-1}
+    is an equivalence relation. The equivalence class
+    of a simple closed curve or a collection of simple closed
+    curves is called its \textit{topological type}.
+\end{definition}
+
+A seprarating simple closed curve in the closed surface
+$S_g$ divides $S_g$ into two disjoint subsurfaces of genus
+$k$ and $g-k$. The minimum of $\left\{ k, g-k \right\} $ is
+called the genus of the separating simple closed curve. 
+There are $\left\lfloor \frac{g}{2} \right\rfloor$ topological
+types of essential separating simple closed curves in
+a closed surface.
+
+\begin{question}
+    Suppose $\alpha$ is any nonseparating simple closed curve
+    on a surface $S$.
+    \begin{enumerate}
+        \item Is there a simple closed curve
+            $\gamma$ in $S$ so that $\alpha$ and $\gamma$ 
+            \textit{fill} $S$, i.e., such that
+            $\alpha$ and $\gamma$ are in minimal position
+            and the complement of $\alpha \cup  \gamma$ is
+            a union of topological disks.
+        \item Is there a simple closed curve $\delta$ in
+            $S$ with $i(\alpha,\beta) = 0$? $i(\alpha,\beta)=1$?
+            $i(\alpha,\beta)=k$?
+    \end{enumerate}
+\end{question}
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{filling-genus-2-surface.png}
+    \caption{a}
+    \label{fig:filling-genus-2-surface-png}
+\end{figure}
+
+Figure \ref{fig:filling-genus-2-surface.png} shows
+two filling simple closed curves on the genus $2$ surface.
+By the classification of simple closed curves on a surface,
+there is a homeomorphism $\varphi \colon S_2 \to S_2$ such
+that $\varphi\left( \beta \right) =\alpha$. Then
+the image of $\gamma$ under $\varphi$ fills $S_2$ with
+$\alpha$ since filling is a topological property (show this).
+
+\subsubsection*{Examples of change of coordinate principle}
+
+\begin{enumerate}
+    \item \textit{Pairs of simple closed curves that intersect
+        once are all of the same topological type}.
+        Suppose $\alpha_1$ and $\beta_1$ form
+        such a pair on a surface $S$. Then
+        $\beta_1$ must be an arc connecting the two
+        boundary components in $S_{\alpha_1}$. But the boundary
+        component is homeomorphic to $S^{1}$, so removing a 
+        point leaves it connected. Thus removing
+        $\beta_1$ leaves $\left( S_{\alpha_1} \right)_{\beta_1}$
+        path-connected. Similarly,
+        $\left( S_{\alpha_2} \right)_{\beta_2}$ is path-connected
+        for any other pair $\alpha_2$ and $\beta_2$ that
+        constitute a pair of simple closed curves
+        that intersect once in $S$. By the classification
+        of surfaces with boundary, $\left( S_{\alpha_1} \right)_{\beta_1}$ is
+        homeomorphic to $\left( S_{\alpha_2} \right)_{\beta_2}$ 
+        which preserves equivalence classes on the boundary,
+        and as we can construct this homeomorphism first
+        for the $\beta$'s and then for the $\alpha$'s, 
+        this homeomorphism descends to a self-homeomorphism
+        of $S$ taking the pair $\left\{ \alpha_1, \beta_1 \right\} $ 
+        to $\left\{ \alpha_2, \beta_2 \right\} $.
+\end{enumerate}
+
+
+\subsection*{Three facts about homeomorphisms}
+
+Suppose $f \colon D \to D$ is an orientation-reversing map.
+Then $f$ restricts to a map on $S^{1} \to S^{1}$, and
+if $f$ is smooth considered as such a map, then the
+reversal of orientation implies that since the fiber
+of any point is a single point, the degree of $f$ 
+must be $-1$. But thus $f$ is not isotopic to the identity
+as the identity has degree $1$ and the isotopy would
+have to restrict to a homotopy on the boundary, but
+degree is a homotopy invariant for maps $S^{n} \to S^{n}$.\\
+However, the straight-line homotopy does give a homotopy
+between $f$ and the identity.\\
+\linebreak
+On $A = S^{1} \times I$, the orientation-reversing map
+that fixes the $S^{1}$ factor and reflects the $I$ factor
+is homotopic but not isotopic to the identity.
+
+
+\begin{theorem}[]
+    Let $S$ be any compact surface and let $f$ and $g$ be
+    homotopic homeomorphisms of $S$. Then $f$ and $g$ are
+    isotopic unless they are one of the two examples described
+    above (on $S = D^2$ and $S = A$ ). In particular,
+    if $f$ and $g$ are orientation-preserving, then they
+    are isotopic.
+\end{theorem}
+
+
+
+\begin{theorem}[]
+    Let $S$ be a compact surface. Then every homeomorphism of
+    $S$ is isotopic to a diffeomorphism of $S$.
+\end{theorem}
+
+\begin{theorem}[Hamstrom]
+    Let $S$ be a compact surface, possibly minus a finite
+    number of points from the interior. Assume that
+    $S$ is not homeomorphic to
+    $S^2, \mathbb{R}^2, D^2, T^2$, the closed annulus,
+    the once-punctured disk, or the once-punctured plane. Then
+    the space $\Homeo_0 (S)$ is contractible.
+\end{theorem}
+
+
+
+
+\newpage
+
+\section{Mapping class group basics}
+
+We will be defining the mapping class group as $\pi_0$
+of a space of homeomorphisms, and as such, we must
+give this space a topology. For this, it turns out that we need
+the compact-open topology which we now describe.
+
+\subsection*{The compact-open topology}
+
+\begin{definition}[]
+    The \textit{weak} or \textit{compact-open $C^{r}$ }
+    topology on $C^{r} \left( M,N \right) $, where
+    $M$ and $N$ are $C^{r}$ manifolds, is generated
+    by sets defined as follows:
+    let $f \in C^{r}(M,N)$. Let $\left( U, \varphi \right),
+    \left( V, \psi  \right) $ be charts on
+    $M$ and $N$ ; let $K \subset U$ be compact such that
+    $f(K) \subset V$ and let $0 < \varepsilon \le 
+    \infty $. Then a \textit{weak subbasic neighborhood}
+    \[
+    \mathcal{N}^{r} \left( f ; \left( U, \varphi  \right) ,
+    \left( V, \psi  \right) , K, \varepsilon \right) 
+    \tag{$\zeta$}\label{eq:compact-open-subbasis-nbhds}
+    \] 
+    is the set of $C^{r}$ maps $g \colon M \to N$ such that
+    $g(K) \subset V$ and
+    \[
+    \|D^{k}\left( \psi f \varphi^{-1} \right) (x)
+    -D^{k} \left( \psi g \varphi^{-1} \right) (x)\|< \varepsilon
+    \] 
+    for all $x \in \varphi(K)$, for $k = 0, \ldots, r$.
+    The \textit{compact-open $C^{r}$ topology} on
+    $C^{r}(M,N)$ is generated by the set of weak subbasic
+    neighborhoods, and defines the topological space
+    $C_W^{r} (M,N)$.
+    A neighborhood of $f$ is then
+    any set containing the intersection
+    of a finite number of sets of the
+    type \eqref{eq:compact-open-subbasis-nbhds}.
+\end{definition}
+
+We are interested in the subspace
+$\Homeo (S) \subset C_W^{0} (S,S)$, inheriting the
+subspace topology.\\
+\linebreak
+The compact-open topology might seem a bit confusing, but
+we have the following lemma \cite[Prop A.14]{Hatcher}:
+
+\begin{lemma}[]\label{compact-open-isotopy}
+    Let $X,Y,Z$ be Hausdorff topological spaces.
+    Suppose $Y$ is locally compact. Then a 
+    map $f \colon X \to C_W^{0}(Y,Z)$ is
+    continuous if and only if the associated map
+    $F \colon X \times Y \to Z$ defined by
+    \[
+    F(x,y) := f(x)(y)
+    \] 
+    is continuous.
+\end{lemma}
+
+
+
+
+
+\subsection{Definitions and first examples}
+
+\begin{definition}[]
+    Let $S$ be a surface which is the connected sum of $g\ge 0$ 
+    tori with $b \ge 0$ disjoint open disks removed and
+    $n \ge 0$ points removed from the interior. Let
+    $\Homeo^{+} \left( S, \partial S \right)$ denote the group
+    of orientation-preserving self-homeomorphisms of $S$ that
+    restrict to the identity on $\partial S$. We endow this
+    group with the compact-open topology.
+    The \textit{mapping class group} of  $S$, denoted
+    $\Mod (S)$, is the group
+    \[
+    \Mod(S) = \pi_0 \left( \Homeo^{+} \left( S, \partial S
+    \right) \right) 
+    \] 
+
+
+\begin{remark}[]
+    From Lemma \ref{compact-open-isotopy}, we
+    see that a path $\gamma \colon I \to 
+    \Homeo^{+}\left( S, \partial S \right) $
+    is precisely equivalent to an isotopy 
+    $F \colon I \times S \to S$ from
+    $\gamma(0)$ to $\gamma(1)$ (isotopy because at each
+    time $t$, $\gamma(t) \colon S \to S$ is indeed a topological
+    embedding as it is a homeomorphism). In fact, it's an isotopy
+    of $S$. Here isotopies are required to fix
+    boundaries.
+\end{remark}
+
+
+
+
+
+    If
+    $\Homeo_0 (S, \partial S)$ denotes the connected component of
+    the identity in $\Homeo^{+}\left( S, \partial S \right) $, then
+    we can equivalently write
+    \[
+    \Mod (S) = \Homeo^{+} \left( S, \partial S \right) /
+    \Homeo_0 \left( S, \partial S \right) .
+    \] 
+\end{definition}
+
+\begin{proposition}[]
+    \begin{align*}
+        \Mod (S) 
+        &= \pi_0 \left( \Homeo^{+} \left( S, \partial S \right) 
+        \right) \\
+        &\approx \Homeo^{+}\left( S, \partial S \right) /
+        \text{homotopy}\\
+        &\approx \pi_0 \left( \mathrm{Diff}^{+} \left( 
+        S, \partial S \right)  \right) \\
+        &\approx \textrm{Diff}^{+}\left( S, \partial S \right) /
+        \sim
+    \end{align*}
+    where $\mathrm{Diff}^{+}\left( S, \partial S \right) $ is the group of
+    orientation preserving diffeomorphisms of $S$ that are the
+    identity on the boundary and $\sim$ can be taken to be either
+    smooth homotopy relative to the boundary or smooth isotopy relative to the
+    boundary.
+\end{proposition}
+
+\subsubsection*{The Alexander Lemma}
+
+Here we will describe some of the simplest examples of
+mapping class groups following \cite[Chapter 2.1]{Farb-Margalit}
+
+\begin{lemma}[Alexander lemma]
+   The group $\Mod\left( D^2 \right) $ is trivial. 
+\end{lemma}
+
+\begin{proof}
+    Let $\varphi  \colon D^2 \to D^2$ be a homeomorphism
+    with $\varphi |_{\partial D^2} = \id_{\partial D^2}$.
+    Define 
+    \[
+    F(x,t) = 
+    \begin{cases}
+        (1-t) \varphi \left( \frac{x}{1-t} \right) ,& 
+        0\le \left| x \right| <1-t\\
+        x,& 1-t \le \left| x \right| \le 1
+    \end{cases}
+    \] 
+    for $0\le t < 1$, and let 
+    $F(x,1) = \id_{D^2}$. Then $F$ is an isotopy from
+    $\varphi $ to the identity. The reason it is an
+    isotopy is because at time $t$, $F(-,t)$ is
+    a homeomorphism on the disk of
+    radius  $1-t$ where it is $\varphi $ and
+    outside this disk, it is the identity. On the boundary
+    of this disk, both $\varphi $ and the identity are
+    the identity, so $F(-,t)$ is continuous by the pasting lemma,
+    and thus a homeomorphism for each $t$.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.25\textwidth]{alexander-trick.png}
+        \caption{The Alexander trick. We envision 
+        $F$ as performing the homeomorphism on the disk $D^2$ 
+    and embedding it at time $t$ as a disk of radius
+$1-t$ as shown in the picture. Thus $F$ will have support
+the cone as shown.}
+        \label{fig:alexander-trick-png}
+    \end{figure}
+\end{proof}
+
+\begin{remark}
+    Also $0 \approx \Mod\left( D - \left\{ 0 \right\}  \right) 
+    \approx \Mod \left( S_{0,1} \right) \approx
+    \Mod\left( S^2 \right) $ using the Alexander trick again.
+\end{remark}
+
+\subsubsection*{The mapping class group of the thrice-punctured sphere,
+$\Mod \left( S_{0,3} \right) $}
+
+
+We will now present a couple other computations of
+some simple mapping class groups.
+
+\begin{proposition}[]\label{prop2.2}
+    Any two essential simple proper arcs in $S_{0,3}$ with the
+    same endpoints are isotopic. Any two essential arcs that both
+    start and end at the same marked point of $S_{0,3}$ are isotopic.
+\end{proposition}
+
+\begin{proof}
+    Let $\alpha$ and $\beta$ be two simple proper arcs in
+    $S_{0,3}$ connecting the same two distinct marked points.
+    By isotopy, we may modify $\alpha$ so that
+    it intersects transversally with $\beta$.
+    Letting the last marked point become the point at infinity,
+    we can consider $\alpha$ and $\beta$ as being
+    arcs in $\mathbb{R}^2 - \left\{ p,q \right\} $ for
+    the two marked points $p,q$.
+    An example is illustrated below.
+    Now, suppose the arcs are disjoint.
+    Then, choosing an intersection point, we can follow
+    the path to the other intersection point and obtain
+    either a bigon, in which case we can remove it by isotopy,
+    or a bigon with path segments inside.
+    Now, suppose
+    the there is some point of $\alpha$ inside the bigon.
+    Then since this is part of the arc $\alpha$, we can find
+    a simple path connecting this point to two points
+    of $\beta$. There could, however, be infinitely many
+    such paths inside the bigon, preventing us choosing the
+    innermost (think concentric semicircles).
+    However, by transversality, the preimages of the 
+    intersection points
+    form a $0$-dimensional submanifold of $I$ which is closed
+    (as the preimage of a closed path segment of $ \beta$)
+    and discrete.
+    But discrete subsets of compact spaces are finite. Hence
+    we can choose the innermost such path of $ \alpha$.
+    By isotopy, we can remove the bigon formed by  this alpha.
+    Continuing a finite amount of times, we remove the original
+    bigon. After a finite amount of reiterations, we can
+    therefore remove all bigons, and we get
+    disjoint $ \alpha$ and $\beta$.
+
+    Now suppose we remove $\alpha \cup  \beta$. Then
+    we get a disjoint union of a disk and a punctured
+    disk (by the classification of surfaces - expound on this).
+    \todo{}
+    Thus the embedded disk in $S_{0,3}$ gives an isotopy
+    of $\alpha$ to $\beta$.
+\end{proof}
+ 
+
+
+
+\begin{proposition}[]
+    The natural map
+    \[
+    \Mod\left( S_{0,3} \right) \to \Sigma_{3}
+    \] 
+    given by the action of $\Mod\left( S_{0,3} \right) $ on the
+    set of marked points of $S_{0,3}$ is an isomorphism.
+\end{proposition}
+
+\begin{proof}
+
+    The map is a surjective homomorphism since, for
+    any choice of punctures $S_{0,3}$, we can, using the
+    classification of surfaces, modify where the punctures
+    are so that the desired permutation can easily be obtain from
+    a rotation.\\
+    \linebreak
+    It thus suffices to show injectivity. So
+    suppose $\varphi $ is a homomorphism fixing
+    the three marked points, call them $p,q$, and $r$.
+    Choose an arc $\alpha$ in $S_{0,3}$ with
+    distinct endpoints, say $p$ and $q$.
+    Since $\varphi $ fixes the marked points,
+    proposition \ref{prop2.2} gives that
+    $\varphi \circ \alpha$ is isotopic to $\alpha$,
+    or equivalently, that $\alpha$ is
+    isotopic to $\varphi^{-1} \circ \alpha$, say
+    through an isotopy
+    $F \colon I \times I \to S_{0,3}$.
+    By theorem \ref{isotopy-extension}, we can
+    extend $F$ to an ambient isotopy, and
+    by composing with $\varphi $, we get an
+    isotopy from $\varphi $ to
+    a homeomorphism which fixes $\alpha$ pointwise.\\
+    \linebreak
+    Now cut $S_{0,3}$ along $\alpha$ so as to obtain
+    a disk with one marked point. Since
+    $\varphi $ preserves the orientations of
+    $S_{0,3}$ and of $\alpha$, it follows that
+    $\varphi $ induces a homemomorphism
+    $\overline{\varphi }$ of this disk which is the
+    identity on the boundary.
+
+    But $\Mod \left( S_{0,1} \right) \approx 0$, so
+    $\overline{\varphi }$ is homotopic to the identity.
+    And this homotopy induces a homotopy from $\varphi $ to
+    the identity.
+\end{proof}
+
+
+
+
+\begin{exercise}[]
+    Show similarly that $\Mod \left( S_{0,2} \right) \approx
+    \mathbb{Z}/ 2\mathbb{Z}$.
+\end{exercise}
+
+
+\begin{solution}
+    Let $\alpha, \beta$ be arcs with the same distinct
+    marked endpoints. Equivalently to before, we can reduce
+    bigons by isotopy until $\alpha$ and $\beta$ are disjoint.
+    Then removing $\alpha \cup  \beta$ we would get
+    two disjoint disks (firstly, $\alpha \cup \beta$ 
+    make up a closed simple curve which is trivial since
+    $H_1 \left( S^{1} \right) = \left\{ 0 \right\} $ and
+    thus separating. Therefore we get a disconnected
+    space with as many vertices as edges whose
+    Euler characteristic must add to
+    $2 = \chi \left( S^{2} \right) $, so
+    it must precisely have $1$ face each, i.e., they are disks)
+    which will descend to give the desired
+    isotopy in $S_{0,2}$.
+    
+    So assume no intersection. Let $\varphi$ be an orientation
+    preserving homeomorphism fixing the marked points. Then
+     $\varphi \left( \alpha \right) $ is isotopic
+     to $\alpha$, so $\varphi$ is isotopic to a homeomorphism which
+     fixes $\alpha$ pointwise, call it $\psi$.
+     This induces a homeomorphism on $S^{2} - \alpha$ which
+     is a disk that is the identity on the boundary, and hence
+     isotopic to the identity homeomorphism on the disk
+     since $\Mod \left( D^2 \right) \approx \left\{ 0 \right\} $.
+     This isotopy gives an isotopy of $ \psi$ to the identity.
+     The composition of all these
+     isotopies gives an isotopy of 
+     $\varphi$ with the identity.
+     Hence the map is injective.
+\end{solution}
+
+
+
+\begin{theorem}[]\label{mcg-of-torus}
+    The homomorphism
+    \[
+    \sigma \colon \Mod \left( T^2 \right) \to 
+    \SL \left( 2, \mathbb{Z} \right) 
+    \] 
+    given by the action on $H_1 \left( T ;\mathbb{Z} \right) 
+    \approx \mathbb{Z}^2$ is an isomorphism.
+\end{theorem}
+
+\begin{proof}
+    Any homeomorphism $\varphi $ of $T^2$ induces
+    an isomorphism on homology: $\varphi_* \colon
+    \mathbb{Z}^2 \approx H_1 (T^2) \to H_1\left( T^2 \right) 
+    \approx \mathbb{Z}^2$, and
+    since homotopic maps induce
+    the same map on homology,
+    we get a map
+    $\sigma \colon \Mod \left( T^2 \right) 
+    \to \Aut\left( \mathbb{Z}^2 \right) 
+    \approx
+    \GL \left( 2,\mathbb{Z} \right) $.
+    However, we must necessarily have that
+    $\sigma (f) \in \SL(2,\mathbb{Z})$ since
+    orientation-preserving homeomorphisms
+    preserve algebraic intersection numbers
+    which correspond to determinants 
+    for $T^2$ by Example \ref{intersection-numbers-torus}.
+    
+    It remains to prove that the map is bijective.\\
+    
+
+    For surjectivity, any element $M$ of
+    $\SL \left( 2,\mathbb{Z} \right) $ induces
+    an equivariant orientation-preserving linear homeomorphism
+    of $\mathbb{R}^2$ which thus descends
+    to a linear homeomorphism
+    $\varphi_{M}$ of the torus $T^2 = \mathbb{R}^2
+    / \mathbb{Z}^2$. Using our identification
+    of primitive elements in $\mathbb{Z}^2$ with
+    homotopy classes of orientated simple closed
+    curves in $T^2$, we have
+    $\sigma \left( \left[ \varphi_M \right]  \right) =M$.\\
+    
+
+    For injectivity, note that
+    $T^2$ is a $K\left( G,1 \right) $-space, so
+    by Proposition 1B.9 in \cite{Hatcher}, we have
+    that every homomorphism
+    $ \mathbb{Z}^2 \to \mathbb{Z}^2 $ is induced by
+    a homotopy class of based maps
+    $T^2 \to T^2$.
+
+    Furthermore, any element $f \in \Mod \left( T^2 \right) $ 
+    has a representative $\varphi $ that fixes a basepoint
+    for $T^2$. So if $f \in \ker \left( \sigma \right) $, then
+    $\varphi $ is homotopic as a based map to
+    the identity, so $\sigma$ is injective. 
+
+\end{proof}
+
+\begin{corollary}
+    Since $H_1 \left( S_{1,1}; \mathbb{Z} \right) \approx
+    \mathbb{Z}^2$, there is a homomorphism
+    $\sigma \colon \Mod \left( S_{1,1} \right) \to 
+    SL(2, \mathbb{Z})$ which is determined
+    which isomorphism the homomorphism induces in
+    homology. This map is an isomorphism.
+\end{corollary}
+
+\begin{exercise}[]
+    Prove this explicitly.
+\end{exercise}
+
+\subsubsection*{The mapping class group of
+$S_{0,4}$}
+
+Consider the torus $T^2$ as $I^2 / \sim$ under the usual
+identification. Then consider the
+linear map $\iota \colon \mathbb{R} \to \mathbb{R}$ 
+by
+$\iota = \begin{pmatrix} -1 & 0\\ 0 & -1 \end{pmatrix} 
+= - I
+\in SL(2, \mathbb{Z})$ which rotates about the origin
+by $\pi$ radians.
+
+The map is equivarient with respect to the quotient map
+so it induces a map $I^2 / \sim \to I^2 / \sim$
+and we wish to take the quotient space that identifies
+fibers of this map. This is equivalent to taking
+the quotient space of $\mathbb{R}^2$ induced by the
+following actions: for $\left( a,b \right) \in \mathbb{R}^2$,
+\begin{enumerate}
+    \item sending $(a,b)$ to $(a+2k,b)$ for $k \in \mathbb{Z}$,
+    \item sending $(a,b)$ to $(a, b+ 2t)$ for $t \in \mathbb{Z}$,
+    \item or sending $(a,b)$ to $(-a, -b)$.
+\end{enumerate}
+We claim the quotient of $\left[ 0,2 \right] \times I $ 
+under this action
+is a fundamental domain for the action.
+Clearly, the action is transitive. Now
+if $(a,b),(c,d) \in (0,2) \times I $ are in the same orbit,
+then
+\begin{align*}
+    a &= (-1)^{\alpha} c + 2k \\
+    b &= (-1)^{\alpha} d + 2t
+\end{align*}
+for some $k,t \in \mathbb{Z}$. But then
+if $b+d = 2t$, we  get $b+d \in 2 \mathbb{Z} \cap \left( 0,2 \right) 
+= \varnothing$, so $\alpha$ must be even, and
+$b = d$. But then
+$a-c \in  2\mathbb{Z} \cap \left( -2, 2 \right) =
+\left\{ 0 \right\} $, so $a=c$ and $b=d$.
+The identifications on the boundary become as in figure
+\ref{fig:involution-on-torus-quotient} which becomes
+$S^2$.
+
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{involution-on-torus-quotient.jpg}
+    \caption{}
+    \label{fig:involution-on-torus-quotient}
+\end{figure}
+
+We identify the quotient
+by $S_{0,4}$ where the $4$ marked points are
+the $4$ fixed points under the involution, namely, the images
+of the
+center of $I^2$, the midpoints of the edges and corner vertices.
+This is clearly also a $2$-fold cover of the sphere.
+
+Now, since for any $A \in \SL (2,\mathbb{Z})$,
+$A (-I) = (-I) A$,
+each element of $\Mod \left( T^2 \right) $ induces
+an element of $\Mod \left( S_{0,4} \right) $ by
+descending to the quotient.
+
+
+\begin{proposition}[]
+    The hyperelliptic involution induces a bijection
+    between the set of homotopy classes of essential
+    simple closed curves in $T^2$ and the
+    set of homotopy classes of essential simple closed 
+    curves in $S_{0,4}$.
+\end{proposition}
+
+\begin{proof}
+    Notes:
+
+    \begin{figure}[htpb]
+        \centering
+        \includegraphics[width=0.9\textwidth]{twists-along-curves-on-torus.jpg}
+        \caption{Twists along the meridian circle on the torus}
+        \label{fig:twists-along-curves-on-torus-jpg}
+    \end{figure}
+
+
+    Why is the preimage of a $\left( p,q \right) $-curve in
+    $S_{0,4}$ in $T^2$ a $\left( 2p,2q \right) $-curve?
+
+\end{proof}
+
+\begin{proposition}[]\label{mcg-of-4-punctured-sphere}
+    $\Mod \left( S_{0,4} \right) \approx
+    \PSL \left( 2, \mathbb{Z} \right) \ltimes
+    \left( \mathbb{Z}/ 2 \mathbb{Z} \times 
+    \mathbb{Z} / 2 \mathbb{Z} \right) $.
+\end{proposition}
+
+
+\begin{lemma}[]
+    If the short exact sequence of groups
+    \[
+    1 \to N \to G \to H \to 1
+    \] 
+    has a right inverse for $G \to H$, then
+    $G$ is naturally isomorphic to
+    $N \ltimes H$.
+\end{lemma}
+
+\begin{proof}
+    Let $f \colon N \to G, g \colon G \to H$ and
+    $h \colon H \to G$ be the inverse. Then
+    $f$ and $g$ are injective. Suppose
+    $z \in f(N) \cap h(H)$. Then there exists a
+    $v \in N$ and $u \in H$ such that
+    $f(v) = z = h(u)$, so 
+    $u = g\left( h(u) \right) = g(z)
+    = g(f(v)) = 0$, so $z = 0$.
+    Since $f(N)$ is the kernel of $g$, it is
+    normal in $G$, so $f(N) h(H)$ forms
+    a subgroup of $G$. Now suppose
+    $p \in G - f(N)h(H)$. Then since
+    $g\left( p - h(g(p)) \right) = 0$, there
+    exists $n \in N$ such that
+    $p = f(n) + h(g(p)) \in f(N) h(H)$, contradiction.
+    So $G = f(N) h(H)$, giving $G = f(N) \ltimes h(H)
+    \approx N \ltimes H$.
+\end{proof}
+
+\begin{proof}
+    To show \ref{mcg-of-4-punctured-sphere}, it
+    thus suffices to find a homomorphism
+    $\Mod \left( S_{0,4} \right) \to 
+    \PSL \left( 2, \mathbb{Z} \right) $ with a right
+    inverse, and show that the kernel
+    is $\mathbb{Z} /2 \mathbb{Z} \times \mathbb{Z} / 2 \mathbb{Z}$.
+
+    Notes on the proof: for the involutions
+    $\iota_1, \iota_2$, we can lift them
+    to homeomorphisms of $T^2$ by the lifting theorem
+    \cite[Thm~4.1]{Bredon}. \todo{But why would these
+    necessarily have to be homeomorphisms that rotate
+    one of the factors of $T^2 \approx S^{1} \times S^{1}$ by
+$\pi$?}
+\end{proof}
+
+
+\subsubsection{The Alexander method}
+
+\begin{proposition}[Alexander method]\label{Alexander-method}
+    Let $S$ be a compact surface, possibly with marked points,
+    and let $\varphi \in \Homeo^{+}\left( S, \partial S \right) $.
+    Let $\gamma_1, \ldots, \gamma_n$ be a collection of essential
+    simple closed curves and simple proper arcs in $S$ with
+    the following properties.
+    \begin{enumerate}
+        \item The $\gamma_i$ are pairwise in minimal position.
+        \item The $\gamma_i$ are pairwise nonisotopic.
+        \item For distinct $i,j,k$, at least one of
+            $\gamma_i \cap \gamma_j, \gamma_i\cap \gamma_k$,
+            or $\gamma_j \cap \gamma_k$ is empty.
+    \end{enumerate}
+    \begin{enumerate}[label=(\roman*)]
+        \item If there is a permutation $\sigma$ of $
+            \left\{ 1, \ldots, n \right\} $ so that
+            $\varphi \left( \gamma_i \right) $ is isotopic
+            to $\gamma_{\sigma (i)}$ relative to
+            $\partial S$ for each $i$, then
+            $\varphi \left( \cup \gamma_i \right) $ is
+            isotopic to $\cup \gamma_i$ relative to
+            $\partial S$.
+
+            If we regard $\cup \gamma_i$ as a (possibily disconnected)
+            graph $\Gamma $ in $S$, with vertices at the
+            intersection points and at the endpoints of arcs, then
+            the composition of $\varphi $ with this isotopy
+            gives an automorphism $\varphi_* $ of $\Gamma$.
+
+        \item Suppose now that $\left\{ \gamma_i \right\} $ fills
+            $S$. If $\varphi_*$ fixes each vertex and each
+            edge of $\Gamma$ with orientations, then
+            $\varphi $ is isotopic to the identity. Otherwise,
+            $\varphi $ has a nontrivial power that is
+            isotopic to the identity.
+    \end{enumerate}
+\end{proposition}
+
+\begin{lemma}[]
+    Let $S$ be a compact surface, possibly with marked points,
+    and let $\gamma_1, \ldots, \gamma_n$ be a collection of
+    essential simple closed curves and simple proper arcs
+    in $S$ that satisfy the three properties from 
+    proposition \ref{Alexander-method}. If
+    $\gamma_1', \ldots, \gamma_n'$ is another such collection
+    so that $\gamma_i'$ is isotopic to $\gamma_i$ relative
+    to $\partial S$ for each $i$, then there is an
+    isotopy of $S$ relative to $\partial S$ that takes
+    $\gamma_i'$ to $\gamma_i$ for all $i$ simultaneously and
+    hence takes $\cup \gamma_i$ to $\cup \gamma_i'$.
+\end{lemma}
+
+
+\begin{remark}[]
+    I put lemma 4.16 here since it's a slight generalization of
+    (i) above and is used in the proof of Alexander's method
+    too.
+\end{remark}
+
+
+
+\section{Dehn Twists}
+
+For an annulus $A = S^{1} \times \left[ 0,1 \right]$, we
+orient $A$ via the induced orientation from
+the standard orientation of the plane under the
+embedding 
+$\left( \theta, t \right) \mapsto 
+\left( \theta, t+1 \right) $ where
+the plane is taken in $\left( \theta, r \right) $-coordinates.\\
+
+Define the left twist map of $A$ as $T \colon A \to A$ given
+by
+$T\left( \theta, t \right) = \left( \theta
++ 2\pi t, t\right) $.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{dehn-twist-annulus.png}
+    \caption{The effect of the right twist on a curve
+    on the annulus.}
+    \label{fig:dehn-twist-annulus-png}
+\end{figure}
+
+Let $S$ be an oriented surface and let $\alpha$ be
+a simple closed curve in $S$. Let $N$ be a tubular
+neighborhood of $\alpha$ and choose
+an orientation preserving homeomorphsim
+$\varphi \colon A \to N$. We then obtain
+a homeomorphism $T_{\alpha} \colon
+S \to S$, called a \textit{Dehn twist about $\alpha$}, as
+follows:
+\[
+T_{\alpha}(x) = 
+\begin{cases}
+    \varphi \circ T \circ \varphi^{-1}& \text{if } 
+    x\in N \\
+    x& \text{if } x\in S - N
+\end{cases}.
+\] 
+
+"By the uniqueness of regular neighborhoods, the isotopy
+class of $T_{\alpha}$ does not depend on the choice of
+$N$ or the choice of homeomorphism $\varphi$. Nor
+does $T_{\alpha}$ depend on the choice
+of simple closed curve $\alpha$ within its isotopy class." 
+\todo{See theorem 1.8 in Hempel}
+
+
+\subsubsection*{Dehn twists on the torus}
+Via the isomorphism
+$\Mod \left( T^2 \right)  \to \SL\left( 2, \mathbb{Z} \right) $ 
+from \ref{mcg-of-torus}, the Dehn twists
+about the $(1,0)$-curve and the $(0,1)$-curve
+in $\Mod\left( T^2 \right) $ correspond to the
+matrices
+\[
+    \begin{pmatrix} 1 & -1 \\ 0 & 1 \end{pmatrix} 
+    \quad \text{and} \quad 
+    \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix} 
+\] 
+
+\subsubsection{Dehn twists via cutting and gluing and surgery}
+\label{dehn-twist-cut-glue-surgery}
+
+One useful visual picture to have in mind for Dehn twists
+is to cut $S$ along $\alpha$, twist a neighborhood of
+one boundary component through an angle of $2\pi$ and then
+reglue.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{dehn-twist-cutting-and-gluing.png}
+    \caption{Dehn twist of $b$ along $a$ via a
+    cutting along $a$}
+    \label{fig:dehn-twist-cutting-and-gluing-png}
+\end{figure}
+
+The global picture is nice, but it is often easier to think 
+about things locally.
+
+Here surgery can be quite useful. Suppose we have
+a loop $b$ with $i \left( a,b \right) \neq 0$. Then
+the isotopy class $T_a (b)$ is determined by the following
+procedure: taking representatives $\alpha$ and $\beta$ of
+$a$ and $b$, respectively, each segment of $\beta$ crossing
+$\alpha$ is replaced with a segment that turns left before crossing,
+follows $\alpha$ all the way around parallel, and then
+turns right and continues to intersect. \\
+
+This is of course a very nice way to visualize what happens to
+individual curves, however, when $i \left( a,b \right) $ is
+larger, it can be difficult to draw the global picture
+of $T_a (b)$ using this turn left-turn right procedure.\\
+
+This is where surging the curves comes in handy. Suppose
+we start with one curve $\beta$ in the class $b$ and
+$i \left( a,b \right) $ parallel curves $\alpha_i$, each in
+the class $a$, each in minimal position with
+$\beta$. At each intersection point between $\beta$ and
+some $\alpha_i$, we do surgery as demonstrated in figure
+\ref{fig:dehn-twist-via-surgery-png}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{dehn-twist-via-surgery.png}
+    \caption{Dehn twist via surgery}
+    \label{fig:dehn-twist-via-surgery-png}
+\end{figure}
+
+We then resolve the intersection in the unique way so that
+if we follow an arc of $\beta$ toward the intersection, the 
+surgered arc turns left at the intersection.
+
+
+
+\subsubsection{Dehn twist facts}
+
+
+\begin{proposition}[]
+    Let $a$ be the isotopy class of a simple closed curve
+    $\alpha$ in a surface $S$. If $\alpha$ is not
+    homotopic to a point or a puncture of $S$, then the
+    Dehn twist $T_a$ is a nontrivial element of $\Mod(S)$.
+\end{proposition}
+
+\begin{proposition}[]\label{dehn-twist-formula}
+    Let $a$ and $b$ be arbitrary isotopy classes of essential
+    simple closed curves in a surface and let $k$ be
+    an arbitrary integer. We have
+    \[
+    i \left( T_{a}^{k}(b), b \right) =
+    \left| k \right| i\left( a,b \right)^2.
+    \] 
+\end{proposition}
+
+\begin{proof}
+    Choose representative simple closed curves
+    $\alpha$ and $\beta$ in minimal position and form
+    a simple closed curve $\beta'$ in the class
+    of $T_a(b)$ using the following surgical principle.
+    We place $k i\left( a,b \right) $ parallel copies of
+    $\alpha$ to one side of $\alpha$ and
+    then we surger the as described in section
+    \ref{dehn-twist-cut-glue-surgery}(the reason is that
+    for each twist, we essentially run along $\alpha$ which
+    intersects $\beta$ $i(a,b)$ times, hence if we twist
+    $k$ times, we will end up intersecting $\beta$ 
+    $ k i \left( a,b \right) $ times).
+
+
+    \begin{figure}[H]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{prop32.png}
+  \caption{}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{prop32b.png}
+  \caption{A subfigure}
+  \label{fig:sub2}
+\end{subfigure}
+\label{fig:test}
+\caption{One Dehn twist about $\alpha$.}
+\end{figure}
+
+    Note that in the figure $\beta$ intersects $\alpha$ from the
+    same side each time, but we could also have the
+    case where it intersects $\alpha$ from the other side.
+
+    Now, by counting, we see that
+    $\left| \beta \cap \beta' \right| 
+    = \left| k \right| i \left( a,b \right)^2$, so
+    it suffices to show that $\alpha$ and $\beta$ are in
+    minimal position. This is equivalent to showing that
+    they form no bigons by the bigon criterion.\\
+    
+    First we cut $\beta$ and $\beta'$ at the
+    points of intersection and obtain arcs
+    $\left\{ \beta_i \right\} $ and
+    $\left\{ \beta_i' \right\} $.
+    Then for the potential bigons that can be formed
+    from one arc of $\beta_i$ and one $\beta_j'$, we
+    either have that the orientations at the intersection points
+    are compatible or not compatible as for
+    $\gamma_1$ and $\gamma_2$ in figure \ref{fig:sub2}.
+    In a bigon, the orientations will be different, so
+    we must be in the situation of $\gamma_2$. However, the
+    vertical line segments of $\beta'$ are parallel to $\alpha$,
+    so if $\gamma_2$ forms a bigon, then $\alpha$ also
+    forms a bigon with $\beta$, contradicting
+    them being in minimal position.
+\end{proof}
+
+
+\begin{corollary}
+    Dehn twists about essential simple closed curves
+    in a surface are nontrivial infinite order elements
+    of the mapping class group.
+\end{corollary}
+
+\begin{proposition}[]
+    Let $\alpha$ and $\beta$ be simple closed curves in a surface.
+    Suppose that $\alpha$ and $\beta$ are in minimal position.
+    Given a third simple closed curve $\gamma$, there
+    exists a simple closed curve $\gamma'$ that is
+    homotopic to $\gamma$ and that is in minimal position
+    with respect to both $\alpha$ and $\beta$.
+\end{proposition}
+
+\todo{Probably remove the following}
+\begin{proposition}[]
+    Let $a_1 ,\ldots, a_n$ be a collection of pairwise
+    disjoint isotopy classes of simple closed curves in
+    a surface $S$ and let $M = \Pi_{i=1}^{n}T_{a_i}^{e_i}$.
+    Suppose that $e_i > 0$ for all $i$ or $e_i < 0$ for
+    all $i$. If $b$ and $c$ are arbitrary isotopy
+    classes of simple closed curves in $S$, then
+    \[
+    \left| i \left( M(b), c \right) -
+    \sum_{i=1}^{n} \left| e_i \right| i(a_i,b)
+    i(a_i,c) \right| \le i(b,c).
+    \] 
+\end{proposition}
+
+\begin{definition}[Pairs of filling curves]
+    We say a pair of isotopy classes $\left\{ a,b \right\} $ of
+    simple closed curves in a surface $S$ \textit{fill} if
+    any pair of minimal position representatives
+    fill (i.e., the complement of the representatives
+    in the surface is a collection of disks and
+    once-punctured disks).
+    This is equivalent to saying that for every
+    isotopy class $c$ of essential simple closed curves
+    in the surface, either
+    $i \left( a,c \right) >0$ or $i(b,c) > 0$.
+\end{definition}
+
+\begin{proposition}[]
+    Let $g, n \ge 0$ and assume $\chi \left( S_{g,n} \right) <0$.
+    Then there exists a pair of simple closed curves in
+    $S_{g,n}$ that fill $S_{g,n}$.
+\end{proposition}
+
+The equivalence is intuitive since otherwise, it would be
+contained in one of the disks and hence not be essential, and
+the converse is similarly seen.
+
+
+\subsubsection{Basic facts about Dehn twists}
+
+Throughout this section, $a$ and $b$ denote arbitrary
+(unoriented) isotopy classes of simple closed curves.
+
+\begin{lemma}[]
+    $T_a = T_b \iff a = b$.
+\end{lemma}
+
+\begin{proof}
+    The only if part simply says that Dehn twists are well-defined
+    on isotopy classes.
+
+    For the if part, suppose
+    $a \neq b$. We want to find an isotopy class
+    $c$ of simple closed curves
+    such that $i(a,c) = 0$ and $i(b,c) \neq 0$.
+
+    If $i(a,b) \neq 0$, then
+    choosing $c = a$ works.
+
+    If $i(a,b) = 0$, then
+    choosing a representative $\alpha$ of $a$ and
+    $\beta$ of $b$ such that $\alpha$ and $\beta$ are disjoint,
+    we havethat $\alpha$ is contained in the interior of
+    some component of the cut surface $S_{\beta}$.
+    This surface has at least one boundary component.
+    If it has genus at least $1$, then by the classification
+    of surfaces and nontriviality of $\alpha$, it is
+    easy to find some $\gamma$ such that
+    $\gamma$ is contained in the interior and has
+    geometric intersection number $1$ with $\alpha$.
+    If the genus is $0$, we are looking at a component
+    which is a sphere with at least one disk removed and
+    potentially some punctures. Since $\alpha$ and 
+    $\beta$ are not isotopic, we cannot have
+    a disk, once or twice punctured disk or annulus.
+    For the remaining cases, one can also easily find a
+    choice of $\gamma$.
+\end{proof}
+
+
+\begin{lemma}[]
+    For any $f \in \Mod(S)$ and any isotopy class $a$ of
+    simple closed curves in $S$, we have
+    \[
+    T_{f(a)} = f T_a f^{-1}.
+    \] 
+\end{lemma}
+
+\begin{proof}
+    Letting $\varphi $ be a representative of $f$,
+    $\alpha$ a representative of $a$, and
+    $\psi_{\alpha}$ a representative of
+    $T_a$ whose support is an annulus, we get that
+    $\varphi^{-1}$ takes a regular neighborhood
+    of $\varphi \left( \alpha \right) $ to a regular neighborhood
+    of $\alpha$ preserving the orientation. Then
+    $\psi_{\alpha}$ twists the neighborhood of $\alpha$ and
+    $\varphi $ takes this neighborhood of $\alpha$ back to
+    a neighborhood of $\varphi \left( \alpha \right) $.
+    Hence we get a Dehn twist about $\varphi \left( \alpha \right) $.
+\end{proof}
+
+
+\begin{corollary}\label{dehn-commute}
+    For any $f \in \Mod(S)$ and any isotopy class $a$ of simple
+    closed curves in $S$, we have
+    \[
+    f \text{ commutes with }T_a \iff
+    f(a) = a.
+    \] 
+\end{corollary}
+
+\begin{corollary}
+    If $a$ and $b$ are nonseparating simple closed curves
+    in $S$, then $T_a$ and $T_b$ are conjugate in
+    $\Mod(S)$.
+\end{corollary}
+
+\begin{lemma}[]\label{dehn-intersection-0}
+    For any two isotopy classes $a$ and $b$ of simple
+    closed curves in a surface $S$, we have
+    \[
+    i(a,b) = 0 \iff T_a(b) = b \iff
+    T_a T_b = T_b T_a.
+    \] 
+\end{lemma}
+
+\begin{proof}
+    For the first if and only if, if $i(a,b) = 0$, then
+    choosing a regular neighborhood of $a$ such that
+    $b$ is not contained in it, we see that the
+    Dehn twist using this regular neighborhood leaves
+    $b$ fixed, so $T_a (b) = b$. Conversely, if
+    $T_a (b) = b$, then 
+    $i \left( T_a(b), b \right) = i(b,b) = 0$, so
+    by proposition \ref{dehn-twist-formula}, we have
+    $i\left( a,b \right)^2 = 
+    i \left( T_a(b), b \right) = 0$, hence
+    $i (a,b) = 0$.
+
+    The second if and only if follows from
+    Corollary \ref{dehn-commute}.
+\end{proof}
+
+\begin{proposition}[]
+    The above results have the following analogues for
+    powers of Dehn twists:
+    for $f \in \Mod(S)$, we have
+    \[
+    f T_a^{j} f^{-1} = T_{f(a)}^{j}
+    \] 
+    and so $f$ commutes with $T_a^{j}$ if and only if
+    $f(a) = a$. Also, for nontrivial Dehn
+    twists $T_a, T_b$ and nonzero integers $j,k$, we have
+    \begin{align*}
+        T_a^{j} = T_b^{k} &\iff a=b \text{ and } j=k\\
+        T_a^{j} T_b^{k} = T_b^{k} T_a^{j} &\iff i(a,b) =0.
+    \end{align*}
+\end{proposition}
+
+
+\subsubsection{Relations between two Dehn twists}
+
+\begin{proposition}[Braid relation]\label{dehn-braid-relation}
+    If $a$ and $b$ are isotopy classes of simple closed
+    curves with $i(a,b) = 1$, then
+    \[
+    T_a T_b T_a = T_b T_a T_b.
+    \] 
+    Equivalently, this read
+    $T_a T_b(a) = b$.
+\end{proposition}
+
+\begin{proof}
+    We have
+    \[
+    T_a T_b T_a = T_b T_a T_b \iff
+    \left( T_a T_b \right) T_a \left( T_a T_b \right)^{-1}
+    = T_b
+    \iff
+    T_{T_a T_b (a)} = T_b
+    \iff
+    T_a T_b (a) = b
+    \] 
+    
+\end{proof}
+
+\begin{question}
+    Does the converse also work? I.e., if two Dehn twists
+    satisfy the braid relation algebraically, do the
+    corresponding curves necessarily have intersection
+    number equal to $1$?
+\end{question}
+
+\begin{proposition}[]
+    If $a$ and $b$ are distinct isotopy classes of simple closed
+    curves and the Dehn twists $T_a$ and $T_b$ satisfy
+    $T_a T_b T_a = T_b T_a T_b$, then
+    $i(a,b) = 1$.
+\end{proposition}
+
+\subsubsection*{Groups generated by two Dehn twists}
+
+\begin{theorem}[]
+    Let $a$ and $b$ be two isotopy classes of simple closed
+    curves in a surface $S$. If $i(a,b) \ge 2$, then
+    $\left<T_a ,T_b \right> \approx F_2$, where
+    $F_2$ is the free group of rank 2.
+\end{theorem}
+
+\begin{proof}
+   The slick proof makes use of this basic but nice
+   lemma from geometric group theory:
+
+\begin{lemma}[Ping pong lemma]
+    Let $G$ be a group acting on a set $X$. Let
+    $g_1, \ldots, g_n$ be elements of $G$. Suppose
+    that there are nonempty, disjoint subsets $X_1, \ldots,
+    X_n$ of $X$ with the property that, for each
+    $i$ and each $j\neq i$, we have
+    $g_i^{k} \left( X_j  \right) \subset X_i$ for every
+    nonzero integer $k$. Then the group generated
+    by the $g_i$ is a free group of rank $n$.
+\end{lemma}
+
+\begin{exercise}[]
+    Complete the proof.
+\end{exercise}
+
+
+\end{proof}
+
+
+\subsection{Cutting, capping and including}
+
+\subsubsection{Including}
+
+When $S$ is a closed subsurface of a surface $S'$, we
+can define a natural homomorphism $\eta \colon
+\Mod(S) \to \Mod(S')$ as follows. For
+$f \in \Mod(S)$, we represent it by some
+$\varphi \in \Homeo^{+} \left( S, \partial S \right) $. Then,
+if $\hat{\varphi} \in \Homeo^{+} \left( S', \partial S' \right) $ 
+denotes the element that agrees with $\varphi $ on $S$ and
+is the identity outside of $S$, we define
+$\eta (f)$ to be the class of $\hat{\varphi }$. The map
+$\eta $ is well defined because any homotopy
+between two elements of $\varphi \in \Homeo^{+} (S, \partial
+S)$ gives a homotopy between the corresponding elements
+of $\Homeo^{+}\left( S', \partial S' \right) $ (the homotopy
+is simply relative to $S' - S$).\\
+\linebreak
+The goal is to find $\ker \eta$.
+
+\begin{lemma}[]
+    Let $\alpha_1, \ldots, \alpha_n$  be a collection of
+    homotopically distinct simple closed curves in a surface
+    $S$, each not homotopic to a point in $S$. Let
+    $ \beta $ and $\beta'$ be simple closed curves in $S$ that
+    are both disjoint from $\cup  \alpha_i $ and are
+    homotopically distinct from each $\alpha_i$. If
+    $\beta$ and $\beta'$ are isotopic in $S$, then
+    they are isotopic in $S- \cup \alpha_i$.
+\end{lemma}
+
+\begin{theorem}[The kernel of the inclusion homomorphism]
+    \label{kernel-of-inclusion-homomorphism}
+   Let $S$ be a closed subsurface of a surface $S'$.
+   Assume that $S$ is not homeomorphic to a closed
+   annulus and that no component of $S' - S$ is an open
+   disk. Let $\eta \colon \Mod(S) \to \Mod(S')$ be the
+   induced map. Let $\alpha_1, \ldots, \alpha_m$ denote
+   the boundary components of $S$ that bound once-punctured
+   disks in $S' - S$ and let
+   $\left\{ \beta_1, \gamma_1 \right\} ,\ldots , 
+   \left\{ \beta_n , \gamma_n \right\} $ denote the pairs
+   of boundary components of $S$ that bound annuli
+   in $S' - S$. Then the kernel of $\eta $ is the free abelian
+   group
+   \[
+   \ker \eta = \left<T_{\alpha_1}, \ldots,
+   T_{\alpha_m}, \ldots, T_{\beta_1} T_{\gamma_1}^{-1},
+   \ldots, T_{\beta_n}T_{\gamma_n}^{-1}\right>.
+   \] 
+   In particular, i no connected component of
+   $S' - S$ is an open annulus, an open disk, or
+   an open once-marked disk, then $\eta$ is injective.
+\end{theorem}
+
+
+\subsubsection{The capping homomorphism}
+
+One useful special case of theorem \ref{kernel-of-inclusion-homomorphism} is
+the case where $S' - S$ is a once-punctured disk. We say that
+$S'$ is the surface obtained from
+$S$ by \textit{capping} one boundary component. In this
+case, we have
+
+\begin{proposition}[The capping homomorphism]
+    Let $S'$ be the surface obtained from a surface
+    $S$ by capping the boundary component $\beta $ with
+    a once-marked disk; call the marked point in this disk
+    $p_0$. Denote by 
+    $\Mod \left( S, \left\{ p_1, \ldots, p_k \right\}  \right) $ 
+    the subgroup of $\Mod(S)$ consisting of elements
+    that fix the punctures $p_1, \ldots, p_k$, where
+    $k \ge 0$. Let
+    $\Mod \left( S', \left\{ p_0, \ldots, p_k \right\}  \right) $ 
+    denote the subgroup of $\Mod(S')$ consisting
+    of elements that fix the marked points
+    $p_0, \ldots, p_k$ and then let
+    $\Cap \colon \Mod \left( S, \left\{ p_1, \ldots,
+    p_k \right\}  \right) \to \Mod \left( S',
+    \left\{ p_0, \ldots, p_k \right\} \right) $ be the
+    induced homomorphism. Then the following
+    sequence is exact:
+    \[
+    1 \to 
+    \left<T_{\beta} \right>
+    \to \Mod \left( S, \left\{ p_1, \ldots, p_k \right\}  \right) 
+    \stackrel{\Cap}{\to}  
+    \Mod \left( S', \left\{ p_0, \ldots, p_k \right\}  \right) 
+    \to 1
+    \] 
+\end{proposition}
+
+\begin{remark}[]
+In the case where $S'$ is capped by an
+unmarked disk, the kernel is isomorphic to 
+$\pi_1 \left( TS' \right) $, i.e., the fundamental group
+of the tangent bundle of $S'$.
+\end{remark}
+
+
+
+\section{Braid Groups}
+
+
+\begin{definition}[Braids]
+    Let $p_1, \ldots, p_n$ be distinguished points
+    in $\mathbb{C}$. A \textit{braid} is a collection
+    of $n$ paths $f_i \colon \left[ 0,1 \right] 
+    \to \mathbb{C} \times \left[ 0,1 \right] , 1\le i \le n$,
+    called \textit{strands}, and a
+    permutation $\overline{f}
+    \in \Sigma_n$ such that the following hold:
+    \begin{itemize}
+        \item the strands 
+            $f_i \left( \left[ 0,1 \right]  \right) $ are
+            disjoint
+        \item $f_i (0) = p_i$ 
+        \item $f_i (1) = p_{\overline{f}(i)}$ 
+        \item $f_i (t) \in \mathbb{C} \times \left\{ t \right\} $.
+    \end{itemize}
+\end{definition}
+
+Usually we picture
+this by its \textit{braid diagram} which is
+the projection of the images of the strands to
+the plane $\mathbb{R} \times \left[ 0,1 \right] $ (with
+indications as to which strands pass over and under which
+others).
+
+\begin{definition}[]
+    The \textit{braid group on $n$ strands}, denoted
+    $B_n$, is the group of isotopy classes of braids.
+\end{definition}
+
+\begin{remark}[]
+    Here an isotopy of the braid is a collection of isotopies
+    $\left( h_1(x,t), \ldots, h_n(x,t) \right) $ where
+    $h_i$ is an isotopy of $f_i$ and such that
+    $\left( h_1 \left( -,t \right) , \ldots,
+    h_n \left( -,t \right) \right) $ is a braid
+    for each $t \in \left[ 0,1 \right] $.
+\end{remark}
+
+\begin{definition}[]
+    The product of the braid $\left( f_i(t) \right) $ and
+    the braid  $\left( g_i(t) \right) $ is the
+    braid $\left( h_i(t) \right) $, where
+    \[
+    h_i(t) = 
+    \begin{cases}
+        f_i(2t),& t \in \left[ 0, \frac{1}{2} \right] \\
+        g_{\overline{f}(i)}(2t-1),& t \in \left[ \frac{1}{2},1
+        \right] 
+    \end{cases}.
+    \] 
+\end{definition}
+
+For $1 \le i \le n-1$, let
+$\sigma_i \in B_n$ denote the braid
+whose only crossing is the
+$\left( i+1 \right) $ st strand passing in front
+of the $i$ th strand.
+
+We claim that the group $B_n$ is generated by
+the elements $\sigma_1, \ldots, \sigma_{n-1}$.
+This claim follows from the fact that any
+braid $\beta$ can be isotoped so that
+its finitely many corssings occur at different horizontal levels.
+
+\subsection{Fundamental groups of configuration spaces}
+
+\begin{definition}[]
+    Let $S$ be a surface and let $C^{ord}(S,n)$ denote
+    the configuration space of $n$ distinct, ordered
+    points in $S$, given by
+    $C^{ord} (S,n) = 
+    S^{\times n} - \text{BigDiag}(S^{\times n})$
+    where $\text{BigDiag}\left( S^{\times n} \right) 
+    = \left\{ \left( 
+    x_1, \ldots, x_n \right) \in 
+ S^{\times n}  \mid \exists 1 \le i < j \le n \colon
+x_i = x_j \right\} $.
+\end{definition}
+
+
+Now, the symmetric group $\Sigma_n$ acts on 
+$S^{\times n}$ by permuting
+the coordinates. This action preserves $\text{BigDiag}\left( 
+ S^{\times n}\right) $ and thus induces an action
+of $\Sigma_n$ by homeomorphisms on
+$C^{ord}\left( S,n \right) $. Since the action of
+$\Sigma_n$ permutes the $n$ coordinates and since
+these coordinates are always distinct
+for points in $C^{ord}\left( S,n \right) $, we see
+that this action is free. The quotient space
+\[
+C \left( S,n \right) =
+C^{ord}\left( S,n \right) / \Sigma_n
+\] 
+is just the configuration space of $n$ distinct,
+\textit{unordered} points in $S$.
+
+
+Now we note the following lemma \cite[Cor~12.27]{LeeTM}
+and proposition \cite[Prop~12.22]{LeeTM}
+
+\begin{lemma}[]
+    Let $M$ be a connected $n$-manifold on which a discrete
+    group $\Gamma$ acts continuously, freely, and properly.
+    Then $M / \Gamma $ is an $n$-manifold.
+\end{lemma}
+
+\begin{proposition}[]
+    Every continuous action of a compact topological group
+    on a Hausdorff space is proper
+\end{proposition}
+
+
+Since $C\left( S,n \right) $ is the quotient of a
+manifold by a continuous free action of a finite group (hence
+compact),
+it follows that $C\left( S,n \right) $ is a manifold.
+
+Since each strand of a braid is a map
+$f_i \colon I \to \mathbb{C} \times I$ with
+$f_i(t) \in \mathbb{C} \times \left\{ t \right\} $, we can
+think of each $f_i$ as a map
+$I \to \mathbb{C}$, so that
+a braid essetially becomes a path
+$I \to \mathbb{C}^{n}$ with equal end points, i.e., a loop, where
+each $t$ is mapped to the point
+whose $i$th coordinate is $I \stackrel{f_i}{\to} \mathbb{C} 
+\times \left\{ t \right\} \stackrel{\text{proj}}{\to }
+\mathbb{C}
+$. By assumption, the strands are disjoint, so
+each  $t$ is mapped to a point in
+$C^{\text{ord}}\left( \mathbb{C},n \right) $,
+and essentially, forgetting
+the strand index, we can regard this as a map
+$I \to C \left( \mathbb{C}, n \right) $. Said in a different
+way, if we consider a slice $\mathbb{C} \times \left\{ t \right\} $
+and intersect it with any braid, then we get a point
+in $C \left( \mathbb{C},n \right) $, so the whole braid,
+which can be seen as a path in $C \left( \mathbb{C},n \right) $ 
+between these intersections, gives an element
+of $\pi_1 \left( C \left( \mathbb{C},n \right)  \right) $, and
+this
+gives the isomorphism
+\[
+B_n \approx \pi_1 \left( C \left( \mathbb{C}, n \right)  \right) 
+\] 
+
+In this case, the generator 
+$\sigma_i$ of $B_n$ corresponds to the element
+of $\pi_1 \left( C \left( \mathbb{C},n \right)  \right) $ 
+given by the loop of $n$-point configurations in
+$\mathbb{C}$ where the $i$ th and $\left( i+1 \right) $ st
+points switch places by moving in a clockwise fashion,
+and the other $n-2$ points remain fixed.
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.25\textwidth]{sigma_i_configuration.png}
+    \label{fig:sigma_i_configuration-png}
+\end{figure}
+
+\subsubsection{The torsion of a braid group}
+
+Since we just saw that
+$B_n \approx \pi_1 \left( C \left( \mathbb{C},n \right)  \right) $,
+and $C \left( \mathbb{C},n \right) $ 
+is a finite-dimensional CW-complex that
+is $K\left( B_n, 1 \right) $, we get that
+$B_n$ is torsion-free~\cite[Prop~2.45]{Hatcher}
+
+
+\subsection{Mapping Class Group of a punctured disk}
+
+\begin{question}
+    Is there any relationship between braid groups and
+    mapping class groups?
+\end{question}
+
+
+
+The answer is that if we
+let $D_n$ be a closed disk $D^2$ with $n$ marked points,
+then
+\[
+B_n \approx \Mod\left( D_n \right) =
+\pi_0 \left( \Homeo^{+} \left( D_n, \partial D_n \right)  \right).
+\] 
+
+To see this, let $\varphi$ be a representative
+of some element in $\Mod \left( D_n \right) $ which
+leaves the set of marked points invariant under
+$\varphi$ - i.e., if $\left\{ x_0, \ldots,x_n \right\} 
+\subset D_n$ are the $n$ marked points, then
+$\varphi \left( \left\{ x_0, \ldots,x_n \right\}  \right) 
+= \left\{ x_0, \ldots, x_n \right\} $. Note that we
+do not regard these marked points as punctures because
+we will not want to consider isotopies which "move" these
+marked points around which is not allowed when the marked points
+represent punctures.
+We see that
+$\varphi $ is simply a homeomorphism of $D^2$ fixing
+$\partial D^2$ pointwise, so by the Alexander
+lemma, $\varphi $ is isotopic to the identity. Now, throughout
+such an isotopy, the marked points must again be send to
+themselves, albeit they might move around through
+in the interior of $D^2 $ (which we identify with
+$\mathbb{C}$ ) throughout the isotopy. Thus
+this isotopy produces a loop of these marked points,
+i.e., it produces a loop in $C \left( \mathbb{C},n \right) $.
+So we have produced a braid.
+
+\begin{question}\label{question-1}
+    Does this association give a well-defined homomorphism
+    $B_n \to \Mod(D_n) $ and would this be an isomorphism?
+\end{question}
+
+The answer is yes, and since $\sigma_i$ generate
+$B_n$, the images generate $\Mod(D_n)$. Now, the
+image of $\sigma_i$ will be the
+homotopy class of a homeomorphism
+of $D_n$ that has support a twice-punctured disk and is
+described on this support by figure \ref{fig:half-twist-png}.
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.5\textwidth]{half-twist.png}
+    \caption{A half-twist}
+    \label{fig:half-twist-png}
+\end{figure}
+
+The way to think about this is that while fixing the boundary
+pointwise, we take the two punctures and swap their places
+by moving them in semicircles to the other puncture's position and
+the movement of the remaining points can be
+thought of as if this were carried out on
+a surface made of rubber.\\
+
+
+We denote such a half-twist as $H_{\alpha}$, and we
+can think of $\alpha$ as either a simple closed
+curve with two punctures in its interior or a simple
+proper arc connecting two punctures.
+
+
+\subsection{The Birman Exact Sequence}
+
+Let $S$ be any surface, possibly with punctures (but no 
+marked points) and let
+$\left( S, x \right) $ denote the surface obtained
+from $S$ by marking a point $x$ in the
+interior of $S$. There is a natural
+homomorphism
+\[
+\Forget \colon \Mod \left( S, x \right) \to \Mod(S)
+\] 
+called the forgetful map which is realized by forgetting
+that the point $x$ is marked. This map is
+surjective as any homeomorphism of $S$ can
+be modified by isotopy to fix $x$ \todo{why?}. The
+group $\Mod(S,x)$ is isomorphic to the
+subgroup $G$ of $\Mod \left( S - x \right) $ 
+consisting of homeomorphisms preserving the
+puncture coming from $x$.
+
+The forgetful map can then be interpreted
+as the map $G \to \Mod(S)$ obtained by "filling in" the
+puncture $x$. I.e., $\Forget$ is the map
+induced by the inclusion
+ $S -x \hookrightarrow S$.
+
+
+
+ 
+
+ \subsubsection{Analyzing the kernel of $\Forget$}
+
+ Let $f \in \Mod(S,x)$ be an element of the kernel
+ of $\Forget$ and let  $\varphi $ be a homeomorphism
+ representing $f$. We can think of
+ $\varphi $ as a homeomorphism $\overline{\varphi}$ of
+ $S$.
+
+ Since $\Forget (f) = 1$, there is an isotopy
+ from $\overline{\varphi }$ to $\mathbbm{1}_S$. During
+ this isotopy, the image of the point $x$ traces out a
+ loop $\alpha$ in $S$ based at $x$. Now
+ we will introduce the $\Push$ map:
+ given a loop $\alpha$ in $S$ based at $x$, we can
+ consider $\alpha \colon \left[ 0,1 \right] \to S$ as
+ an isotopy $h \colon \left\{ x \right\} \times I
+ \to S$ with $h(x,0) = h(x,1) = x$ and extend this
+ to the whole surface using \ref{isotopy-extension} (here,
+ $V = \left\{ x \right\} $ ), denote this by
+ $h \colon S \times I \to S$ also. Let
+ $\varphi (x) = h(x,1) $ be the homeomorphism
+ of $S$ obtained at the end of the isotopy. Taking its
+ isotopy class in $\Mod \left( S,x \right) $, we get
+ $\left[ \varphi  \right] = : 
+ \Push(\alpha) \in \Mod\left( S,x \right) $.
+ Think of $\Push(\alpha)$ as placing your finger on
+ $x$ and pushing $x$ along $\alpha$, draggin the
+ rest of the surface along as you go (indeed, locally,
+ this is what must happen).
+
+ The question of whether this mapping class
+ is independent of the choice of isotopy extension
+ as well as the choice of $\alpha$ within its homotopy class.
+ I.e., whether $\Push$ defines a 
+ well-defined map
+ \[
+ \Push \colon \pi_1 \left( S,x \right) 
+ \to \Mod \left( S,x \right) .
+ \] 
+ For that, we show look at the
+ Birman exact sequence.
+
+
+
+
+
+
+ \begin{theorem}[Birman exact sequence]
+     Let $S$ be a surface with $\chi (S) < 0$, possibily
+     with punctures and/or boundary. Let
+     $\left( S, x \right) $ be the surface
+     obtained from $S$ by marking a point $x$ in
+     the interior of $S$. Then the following
+     sequence is exact:
+     \[
+         1 \to \pi_1 \left( S, x \right) \stackrel{\Push}{\to }
+         \Mod \left( S, x \right) 
+         \stackrel{\Forget}{\to } \Mod(S) \to 1.
+     \] 
+ \end{theorem}
+
+
+ \begin{lemma}[]
+     $\Push \colon \pi_1 \left( S,x \right) 
+     \to \Mod (S,x)$ is injective when
+     $\chi (S) <0$.
+ \end{lemma}
+
+ \begin{proof}
+     Let $\varphi $ represent 
+     $\Push \left( \alpha \right) \in 
+     \Mod \left( S,x \right) $. Then
+     $\varphi $ is a map
+     $\left( S,x \right) \to \left( S,x \right) $, so
+     in particular, we have an induced homomorphism
+     $\varphi_* \colon \pi_1 \left( S,x \right) 
+     \to \pi_1 \left( S,x \right) $.
+     This homomorphism is the inner automorphism
+     $I_{\alpha} (\gamma) = \alpha \gamma \alpha^{-1}$ \todo{why?}.
+     Now, for $\chi (X) < 0$, the center of $\pi_1 (S)$ is
+     trivial, so $I_{\alpha}$ is nontrivial whenever
+     $\alpha \neq c_{x}$. If $\varphi $ had been
+     homotopic to the identity, their
+     induced homomorphisms would be equal, so we conclude
+     that $\Push \left( \alpha \right) $ is nontrivial whenever
+     $\alpha$ is nontrivial.
+ \end{proof}
+
+ \subsubsection{Push maps along loops in terms of Dehn twists}
+
+ Let $\alpha \in \pi_1 \left( S,x \right) $ be simple.
+ Let $S^{1} \times \left[ 0,2 \right] $ be an annulus
+ about $\alpha$ with $S^{1} \times \left\{ 1 \right\} $ 
+ identified with $\alpha$ with
+ $(0,1)$ identified with the marked point
+ $x$. We orient 
+ $S^{1} \times \left[ 0,2 \right] $ with the
+ standard orientations on
+ $S^{1}$ and $\left[ 0,2 \right] $. 
+
+ Let $F \colon A \times I \to A$ be the
+ isotopy given by
+ \[
+ F \left( \left( \theta,r \right) ,t \right) 
+ = 
+ \begin{cases}
+     \left( \theta + 2\pi r t, r \right) ,& 0 \le r \le 1\\
+     \left( \theta + 2 \pi (2-r)t,r \right) ,& 1 \le r \le 2.
+ \end{cases}
+ \]
+ By \ref{isotopy-extension}, we can extend
+ $F$ to an ambient isotopy of $S$. Restricting
+ $F$ to $\left\{ x \right\} \times \left[ 0,1 \right] $, we
+ get
+ \[
+ F\left( (0,1),t \right) = \left( 2 \pi t,1 \right),
+ \] 
+ so $F$ pushes $x$ around the core of the annulus.
+ Now, the homeomorphism (representing $\Push\left( \alpha \right) $ )
+ $\varphi $ of $\left( S,x \right) $ given by
+ $F\left( (\theta, r),1 \right) $ is a product
+ of two Dehn twists,  $T_a T_{b}^{-1}$ where
+ $a$ is the closed curve identified with
+ $S^{1} \times \left\{ 0 \right\} $ and
+ $b$ is the closed curve identified with
+ $S^{1} \times \left\{ 2 \right\} $.
+
+ \begin{figure}[htpb]
+     \centering
+     \includegraphics[width=0.7\textwidth]{push-point-map.png}
+     \label{fig:push-point-map-png}
+ \end{figure}
+
+ \begin{remark}[Naturality]
+     For any $h \in \Mod (S,x)$ and any
+     $\alpha \in \pi_1 \left( S,x \right) $, we have
+     \[
+     \Push \left( h_* \left( \alpha \right)  \right) 
+     = h\Push \left( \alpha \right) h^{-1}.
+     \] 
+ \end{remark}
+
+
+
+ \begin{proof}
+     Now write a proof of the Birman exact sequence.
+     \todo{Write out proof}
+ \end{proof}
+
+ \subsection{Generalized Birman Exact Sequence}
+
+ We now return to Question \ref{question-1}.
+ We wish to show that $\pi_1 \left( C
+ \left( \mathbb{C},n \right) \right) \approx
+ \Mod \left( D_n \right) $. 
+
+ \begin{definition}[$n$-stranded surface braid group of
+     $S$]
+     For an arbitrary surface $S$, we
+     call $\pi_1 \left( C \left( S,n \right)  \right) $ 
+     the $n$-stranded surface braid group of $S$.
+ \end{definition}
+
+ Let $S$ be a compact finite-type surface without marked
+ points. Let $\left( S, \left\{ x_1, \ldots, x_n \right\}  \right) $ 
+ denote $S$ with $n$ marked points $x_1, \ldots, x_n$ in
+ the interior. Equivalently to the construction
+ in the proof of the Birman exact sequence,
+ there is a fiber bundle
+
+ \todo{Prove that this is a fiber bundle}
+ \[
+ \Homeo^{+} \left( \left( S,
+ \left\{ x_1, \ldots, x_n \right\} \right), \partial S  \right) 
+ \to \Homeo^{+} \left( S, \partial S \right) 
+ \to C \left( S^{\circ},n \right) 
+ \]
+ where $S^{\circ}$ is the interior of
+ $S$ and $\Homeo^{+} \left( \left( S,
+ \left\{ x_1,\ldots,x_n \right\} \right) ,\partial S \right) $ 
+ is the group of orientation-preserving homeomorphisms
+ of $S$ that preserve the set
+ $\left\{ x_1,\ldots,x_n \right\} $ (allowing permutations,
+ however) and fix the boundary of $S$ pointwise.
+
+ \begin{theorem}[Birman exact sequence generalized]
+     Let $S$ be a surface without marked points
+     and with $\pi_1 \left( \Homeo^{+} \left( 
+     S, \partial S\right)  \right) = 1$. The following
+     sequence is exact:
+     \[
+     1 \to \pi_1 \left( C \left( S,n \right)  \right) 
+     \stackrel{\Push}{\to } \Mod \left( S,
+     \left\{ x_1, \ldots, x_n \right\} \right) 
+     \stackrel{\Forget}{\to } \Mod (S) \to 1.
+     \] 
+ \end{theorem}
+
+
+ \begin{corollary}
+     When $S = D^2$, this gives the exact sequence
+     \[
+         1 \to
+         \underbrace{\pi_1 \left( C \left( D^2,n \right)\right)}_{B_n}
+     \to \Mod \left( D_n \right) \to 
+     \underbrace{\Mod \left( D^2 \right)}_{1} \to 1.
+     \] 
+     Hence $B_n \approx \Mod \left( D_n \right) $.
+ \end{corollary}
+
+ \subsection{Algebraic Structure of the Braid Group}
+
+ \newpage
+
+ \subsection{The pure braid group}
+
+ Recall that by definition of a braid group, we
+ are given a collection of $n$ points
+ $p_1, \ldots, p_n$, $n$ paths
+ $f_i \colon I \to \mathbb{C} \times I$ and
+ a permutation $\overline{f} \in \Sigma_n$ such that
+ $f_i(0) = p_i$
+ and $f_i(1) = p_{\overline{f}(i)}$.
+ We can thus define a homomorphism
+ $B_n \to \Sigma_n$ by sending
+ $f \mapsto \overline{f}$.
+ \begin{definition}[]
+     We define the \textit{pure braid group} $PB_n$ as
+     the kernel of the homomorphism
+     $B_n \to \Sigma_n$ given by $f \mapsto \overline{f}$.
+ \end{definition}
+ We obtain the short exact sequence
+ \[
+ 1 \to PB_n \to B_n \to \Sigma_n \to 1.
+ \] 
+ So a pure braid is a braid where each strand begins
+ and ends at the same point of $\mathbb{C}$.
+
+ \begin{exercise}[]
+     Show that
+     \[
+     PB_n \approx \pi_1 \left( C^{ord } 
+     \left( \mathbb{C},n \right) \right) \approx
+     \PMod (D_n)
+     \] 
+ \end{exercise}
+
+
+ \newpage
+
+ \subsection{Braid group and symmetric mapping class groups}
+
+ \subsubsection{The construction of the
+ homomorphism}\label{birman-hilden-embedding-construction}
+
+ Let $S_{g}^{1}$ be a surface of genus $g$ with
+ one boundary component. Define a
+ homomorphism $\psi \colon B_n \to 
+ \Mod \left( S_g^{1} \right) $ for
+ $n \le 2g+1$ as follows.
+ Choose a chain of simple closed curves
+ $\left\{ \alpha_i \right\} $ in
+ $S_{g}^{1}$, that is, a collection of
+ simple closed curves satisfying
+ $i \left( \alpha_i, \alpha_{i+1} \right) =1$ for
+ all $i$ and $i \left( \alpha_i, \alpha_j \right) =0$ otherwise.
+ \todo{Insert picture of Humphries generators}
+ We then define $\psi $ via
+ $\psi \left( \sigma_i \right) =
+ T_{\alpha_i}$.
+ This is well defined if and only if
+ $T$ respects all the relations in
+ $B_n$. Now, if $\sigma_i$ and
+ $\sigma_j$ are given with 
+ $\left| i-j \right| \ge 2$, then
+ $\sigma_i \sigma_j = \sigma_j \sigma_i$ and
+ indeed also
+ $i \left( \alpha_i, \alpha_j \right) =0$ so
+ by the disjointness relation for
+ Dehn twists (fact 3.9), we get
+ that $T$ respects this commutativity.
+
+ Similarly, we have that
+ $\sigma_i \sigma_{i+1} \sigma_i$, for all $i$,
+ is mapped to 
+ $T_{\alpha_i} T_{\alpha_{i+1}} T_{\alpha_i}$ which, by the
+ braid relation on Dehn twists and the
+ assumption that
+ $i\left( \alpha_i, \alpha_{i+1} \right) =1$ for all $i$,
+ is equivalent to
+ $T_{\alpha_{i+1}} T_{\alpha_i}T_{\alpha_{i+1}}$, so
+ the braid relation in $B_n$ is respected
+ under $\psi $.
+
+ \begin{question}
+     Can we say whether $\psi $ is injective?
+ \end{question}
+
+ \subsection{The Birman-Hilden Theorem}
+Let $\iota$ be the order  $2$ element of
+$\Homeo^{+} \left( S_g^{1} \right) $ as
+shown in figure \ref{fig:birman-hilden-double-cover-png}
+and let $\SHomeo^{+} \left( S_g^{1} \right) $ be
+the centralizer in
+$\Homeo^{+}\left( S_g^{1}, \partial S_g^{1} \right) $ of
+$\iota$:
+\[
+\SHomeo^{+} \left( S_g^{1} \right) 
+= C_{\Homeo^{+} \left( S_g^{1}, \partial
+S_g^{1} \right) }\left( \iota \right) .
+\] 
+
+ \begin{figure}[H]
+     \centering
+     \includegraphics[width=0.6\textwidth]{birman-hilden-double-cover.png}
+     \caption{The Birman-Hilden double cover}
+     \label{fig:birman-hilden-double-cover-png}
+ \end{figure}
+
+ \begin{definition}[]
+ The group $\SHomeo^{+} \left( S_g^{1} \right) $ is
+ called the group of orientation-preserving
+ symmetric homeomorphisms of $S_g^{1}$. 
+ The symmetric mapping class group is the group
+ \[
+ \SMod (S_g^{1}) = 
+ \SHomeo^{+} \left( S_g^{1} \right) / \text{isotopy},
+ \] 
+ i.e, the subgroup of $\Mod \left( S_g^{1} \right) $ that
+ is the image of $\SHomeo^{+} \left( S_g^{1} \right) $.
+ In particular,
+ $\SMod \left( S_g^{1} \right) $ is not the same
+ as
+ $\pi_0 \left( \SHomeo^{+} 
+ \left( S_g^{1} \right) \right) $ as isotopies are
+ allowed to pass through all homeomorphisms 
+ in $\SMod \left( S_g^{1} \right) $, but not
+ in the latter.
+ \end{definition}
+
+ The homeomorphism $\iota$ has
+  $2g+1$ fixed points in
+   $S_g^{1}$. The quotient of
+   $S_g^{1}$ by $\left<\iota \right>$ is
+   a topological disk
+   $D_{2g+1}$ with $2g+1$ branch points of order
+   $2$, with each branch point coming from a fixed point of $\iota$.
+   Since the elements of  $\SHomeo^{+} \left( S_g^{1} \right) $ 
+   commute with $\iota$, they descend to homeomorphisms
+   of the quotient disk, and by the commutativity, they
+   must preserve the set of  $2g+1$ fixed points of $\iota$,
+   and so there is a homomorphism
+    \[
+   \SHomeo^{+} \left( S_g^{1} \right) 
+   \to \Homeo^{+} \left( D_{2g+1}, \partial D_{2g+1} \right) 
+   \] 
+   by sending
+   $\varphi $ to
+   $\pi \circ \varphi $ where
+   $\pi \colon S_g^{1} \to 
+   D_{2g+1}$ is the quotient map. If
+   $\varphi  \mapsto \pi \circ \varphi  = \mathbbm{1}_{
+   D_{2g+1}}$, then $\varphi  
+   \in \left<\iota \right>$, and since $\iota 
+   \not\in \SHomeo^{+} \left( S_g^{1} \right) $, we have
+   $\varphi  = 1$.
+   
+
+
+
+   \begin{definition}[]
+       We say two homeomorphisms
+       $\varphi , \psi \in \SHomeo^{+}\left( S_g^{1} \right) $ 
+       are symmetrically isotopic whenever
+       $\left[ \varphi  \right] =
+       \left[ \psi \right] $ in
+       $\pi_0 \left( \SHomeo^{+}\left( S_g^{1} \right)  \right) $.
+       Note that here,
+       $\SHomeo^{+} \left( S_g^{1} \right) $ inherits
+       the subspace topology from
+       $\Homeo^{+} \left( S_{g}^{1} \right) $.
+   \end{definition}
+
+   If we have this, we get the isomorphism
+   \begin{align*}
+       \SHomeo^{+} \left( S_g^{1} \right) /
+       \text{symmetric isotopy}
+       &= \pi_0 \left( \SHomeo^{+}(S_g^{1}) \right) \\
+       &\approx \pi_0 \left( \Homeo^{+} \left( 
+       D_{2g+1}, \partial D_{2g+1} \right)  \right) \\
+       &= \Mod \left( D_{2g+1} \right) \\
+       &\approx B_{2g+1}.
+   \end{align*}
+   
+   We want to show that
+   if two symmetric homeomorphisms of $S_{g}^{1}$ are
+   isotopic, then they must be symmetrically isotopic, since then
+   we will derive the Birman-Hilden theorem which we now state.
+ 
+
+   \subsection{The Birman-Hilden Theorem}
+
+   \begin{theorem}[Birman-Hilden]
+       $\SMod \left( S_g^{1} \right) \approx
+       B_{2g+1}$.
+   \end{theorem}
+
+
+   \begin{example}[]
+       Taking $g=1$, we will find
+       $\Mod \left( S_g^{1} \right) $.
+       Note that by Corollary
+       \ref{hyperelliptic-involution-in-center},
+       $\iota \in C\left( 
+       \Homeo^{+}\left( S_g^{1} \right)  \right)  $, so
+       $\Mod \left( S_1^{1} \right) =
+       \SMod\left( S_g^{1} \right) $, and now it is
+       easy to see that
+       \[
+       \Mod \left( S_1^{1} \right) = \SMod \left( S_g^{1} \right) 
+       \approx B_{3} \approx \Mod \left( D_3 \right) 
+       \] 
+   \end{example}
+
+   \begin{remark}[]
+       The Birman-Hilden theorem also holds for
+       surfaces with two symmetric boundary
+       components that are interchanged by
+       $\iota$, see figure
+       \ref{fig:-Birman-Hilden-two-symmetric-boundary-components-png}.
+       Hence
+       \[
+       \SMod \left( S_g^{2} \right) 
+       \approx B_{2g+2}.
+       \] 
+
+        \begin{figure}[htpb]
+           \centering
+           \includegraphics[width=0.3\textwidth]{
+           Birman-Hilden-two-symmetric-boundary-components.png}
+           \caption{Symmetric boundary components
+           interchanged by $\iota$.}
+           \label{fig:-Birman-Hilden-two-symmetric-boundary-components-png}
+       \end{figure}
+   \end{remark}
+
+
+
+
+
+   \subsection{Proof of the Birman-Hilden Theorem}
+
+   \begin{definition}[]
+       A closed curve $\alpha$ in $S_g$ is symmetric
+       if $\iota \left( \alpha \right) = \alpha$ as sets.
+   \end{definition}
+
+   \begin{lemma}[]\label{loops-isotopic-iff-symmetrically-isotopic}
+       Let $g \ge 2$ and let $\alpha$ and $\beta$ be
+       two symmetric nonseparating simple closed
+       curves in $S_g$. If $\alpha$ and $\beta$ are isotopic,
+       then they are symmetrically isotopic.
+   \end{lemma}
+
+   \begin{proof}
+       Let $\overline{\alpha}$ and $\overline{\beta}$ 
+       denote the images of $\alpha$ and $\beta$ 
+       in $S_{0,2g+2}\approx S_g / \left<\iota \right>$.
+       Now,
+       $ \overline{\alpha}$ and $ \overline{\beta}$
+       must be simple proper arcs in $S_{0,2g+2}$ (look
+       at it geometrically - in particular, remember $\alpha$ and
+       $\beta$ are symmetric).
+
+       Let's look at an example to get a picture. If
+       $\alpha$ and $\beta$ are symmetric choices of the
+       usual generating loops in the homology of a torus, these
+       will correspond to one loop being the
+       "innermost" meridian loop while we choose the
+       other loop to be a longitudinal loop
+       whose plan of existence is
+       normal to the axis of rotation. See
+       figure~\ref{fig:homology-basis-of-torus-and-double-torus-png}.
+
+       \begin{figure}[htpb]
+           \centering
+           \includegraphics[width=0.8\textwidth]{homology-basis-of-torus-and-double-torus.png}
+           \caption{Basis for homology groups of torus and
+           double torus}
+           \label{fig:homology-basis-of-torus-and-double-torus-png}
+       \end{figure}
+       Imagine in this figure now we cut the surface into a "lower"
+       and "upper" half. Looking at the resulting paths of
+       our loops, we indeed get arcs for the longitudinal loops
+       and loop on the boundary for the meridian loops.
+
+
+
+
+       
+       Now, an isotopy between
+       these arcs will lift to a symmetric isotopy
+       between $\alpha$ and $\beta$.
+
+
+       I.e., if
+       $H$ is an isotopy between $\alpha$ and $\beta$, then
+       there exist an induced map $\tilde{H}$ such that
+       \begin{equation*}
+       \begin{tikzcd}
+           & S_g \ar[d] \\
+           I^2 \ar[ru, "\tilde{H}"] \ar[r, "H"'] &
+           S_g / \left<\iota \right>
+       \end{tikzcd}
+       \end{equation*}
+       commutes since $I^2$ is simply connected,
+       path-connected and locally path-connected
+       \cite[Cor~4.2]{Bredon}.
+       
+       We can modify $\alpha$ by a symmetric
+       isotopy so that it is transverse to $\beta$.
+       We claim that $\alpha$ cannot be
+       disjoint from $\beta$. Indeed,
+       then $\overline{\alpha}$ and $\overline{\beta}$ 
+       are disjoint including endpoints. But
+       such arcs cannot correspond
+       to isotopic curves in $S_g$: we can choose
+       an arc $\overline{\gamma}$ that passes through
+        an odd number of endpoints of
+        $\overline{\alpha}$ and
+        an even number of endpoints of $\overline{\beta}$.
+        This will then lift to a loop
+        $\gamma$ in $S_g$ with
+        $i \left( \alpha, \gamma \right) $ odd
+        and $i \left( \beta, \gamma \right) $ even, contradicting
+        $\alpha$ isotopic to $\beta$.
+
+        Now, since $\alpha$ is isotopic to $\beta$ and
+        $\alpha \cap \beta \neq \varnothing$, the bigon
+        criterion gives that
+        $\alpha$ and $\beta$ form a bigon $B$. Assume
+        $B$ is the innermost bigon. As
+        $\alpha$ and $\beta$ are fixed (they are symmetric) by
+        $\iota$, we have that $\iota (B)$ is another
+        innermost bigon in the graph
+        $\alpha \cup \beta$.
+
+        But $\iota$ reverses the orientation of non-separating
+        closed curves (while preserving orientations
+        of separating closed curves), so
+        since the bigon $B$ lies to one side of $\alpha$,
+        $\iota(B)$ must lie on the other side of $\alpha$.\\
+        \linebreak
+        It follows that the image of 
+        $B$ in $S_{0,2g+2}$ is an innermost bigon $\overline{B}$ 
+        between $\overline{\alpha}$ and $\overline{\beta}$ as
+        otherwise its preimage would have bigons inside it
+        as well.
+        Furthermore, since $\iota (B) \neq B$, there are
+        no fixed points of $\iota$ in $B$ and hence
+        no marked points of
+        $S_{0,2g+2}$ in $\overline{B}$.
+
+        Now, considering the boundary of the bigon $\overline{B}$,
+        it can have zero, one or two of its vertices on
+        marked points of $S_{0,2g+2}$. In the first two cases,
+        we can modify $\overline{\alpha}$ by isotopy
+        in order to remove the bigon by pushing the
+        vertex to the other, reducing the intersection
+        number of $\overline{\alpha}$ and $\overline{\beta}$.
+        In the last case, since $\overline{B}$ is innermost,
+        we see that $\overline{\alpha} \cup 
+        \overline{\beta}$ is a simple loop bounding
+        a disk, and we can push $\overline{\alpha}$ onto
+        $\overline{\beta}$. Removing bigons inductively,
+        we see that $\overline{\alpha}$ is isotopic
+        to $\overline{\beta}$, and this isotopy lifts to a
+        symmetric isotopy between $\alpha$ and $\beta$.
+   \end{proof}
+
+   \begin{proposition}[]\label{isotopic-iff-symmetrically-isotopic}
+       Let $g \ge 2$ and let $\varphi , \psi \in 
+       \SHomeo^{+} (S_g)$. If $\varphi $ and $\psi$ are
+       isotopic, then they are symmetrically isotopic.
+   \end{proposition}
+
+   \begin{proof}
+       It suffices to treat the case where
+       $\psi $ is the identity. Let
+       $\overline{\varphi }$ denote the induced
+       homeomorphism
+       of $S_{0, 2g+2}$.
+       
+       Let $\left( \gamma_1, \ldots, \gamma_{2g+1} \right) $ 
+       be a chain of nonseparating symmetric
+       simple closed curves in $S_g$. By assumption,
+       $\varphi $ is isotopic to the identity, so for
+       each $i$, $\varphi \left( \gamma_i \right) $ is
+       isotopic to $\gamma_i$. By Lemma
+       \ref{loops-isotopic-iff-symmetrically-isotopic},
+       $\varphi  \left( \gamma_i \right) $ is symmetrically
+       isotopic to $\gamma_i$ for each $i$.
+       Letting $\overline{\gamma_i}$ and $
+       \overline{\varphi \left( \gamma_i \right) }$ be
+       the images in $S_{0,2g+2}$, this implies that
+       the arc $\overline{\varphi \left( \gamma_i \right) }$ is
+       isotopic to $\overline{\gamma_i}$. By the
+       3.(ii) in \ref{Alexander-method}
+       (the Alexander method), we deduce that
+       $\overline{\varphi }$ is isotopic to the identity.
+       This isotopy then lifts to a symmetric isotopy
+       of $\varphi $ to the identity.
+   \end{proof}
+
+   \begin{proof}[Proof of the Birman-Hilden theorem]
+       We have a commutative diagram
+
+       \begin{equation*}
+       \begin{tikzcd}
+           \SHomeo^{+} (S_g) \ar[drr, "\text{mod isotopy}"']  \ar[rr, twoheadrightarrow] & &
+           \Homeo^{+}\left( S_{0,2g+2}, \partial
+           S_{0,2g+2}\right) 
+           \ar[rr, "\pi_0"]  & & \Mod \left( S_{0,2g+2} \right) \\
+                    &  & \SMod(S_g) \ar[rru, twoheadrightarrow] &  &
+       \end{tikzcd}
+       \end{equation*}
+       where the composite
+       map factors through $\SMod \left( S_g \right) 
+       \to \Mod \left( S_{0,2g+2} \right) $ by
+       Proposition \ref{isotopic-iff-symmetrically-isotopic}.
+
+
+       We wish to find the kernel of
+       the map $\SMod (S_g) \to \Mod \left( S_{0,2g+2} \right) $.
+       Suppose $f \in \SMod(S_g)$ is mapped
+       to $\left[ \id \right] $. Since the composition
+       $\SHomeo^{+}(S_g) \to \Homeo^{+} \left( S_{0,2g+2} \right) 
+       \to \SMod \left( S_g \right) $ is a surjective
+       homomorphism, we can choose a representative
+       $\varphi  \in \SHomeo^{+} \left( S_g \right) $.
+       Let $\overline{\varphi  }$ be the image
+       in $\Homeo^{+} \left( S_{0,2g+2} ,
+       \partial S_{0,2g+2}\right) $.
+       By assumption, $\overline{\varphi }$ is isotopic
+       to the identity, so this isotopy lifts
+       to an isotopy of $\varphi $ to either the idenity
+       or $\iota$. Therefore
+       \[
+       \SMod \left( S_g \right) / \left<\left[ \iota \right]  \right>
+       \approx \Mod \left( S_{0,2g+2} \right) .
+       \] 
+       
+   \end{proof}
+
+
+   \begin{remark}[]
+       We can generalize the proof of the Birman-Hilden
+       theorem a bit to the case of $S_g^{1}$ quite simply:
+       the quotient of $S_g^{1}$ by the hyperelliptic
+       involution $\iota \colon S_g^{1}\to 
+       S_g^{1}$ is a disk with $2g+1$ marked points.
+       Since  $\iota \colon S_g^{1} \to 
+       S_g^{1}$ is not an element of
+       $\Homeo^{+}\left( S_g^{1}, \partial
+       S_g^{1}\right) $, it does not represent an
+       element of $\SMod(S_g^{1})$, and so we 
+       get 
+       \[ \SMod \left( S_g^{1} \right) 
+       \approx \Mod \left( D_{2g+1} \right) 
+   \approx B_{2g+1}.\]
+   \end{remark}
+
+
+
+
+   \newpage
+
+
+   \section{Braided monoidal categories}
+
+   The Birman-Hilden homomorphism
+   $\psi \colon B_n \to \Mod \left( S_g^{1} \right) $
+   is an example of a geometric
+   representation:
+
+\begin{definition}[Geometric representation]
+    A geometric representation of a group $G$ is any
+    homomorphism $G \to \Mod (S)$ for some
+    surface $S$.
+\end{definition}
+In particular, the Birman-Hilden theorem shows that this
+representation is an embedding. There are different
+geometric representations and embeddings of the braid
+group that one could look at, and one goal in this section will be
+to show that these naturally arise through Yang-Baxter operators
+in certain categories of surfaces. 
+
+We start by introducing the categorical language.
+
+   \subsection{Monoidal categories}
+
+   We first introduce the notion of a monoidal category.
+
+   \begin{definition}[Monoidal category]
+       A monoidal category is a tuple
+       $V = \left( V, \otimes, I, a, l ,r \right) $ consisting
+       of a category $V$, a functor
+       $\otimes \colon V \times V \to V$ called the
+       monoidal product, and object $I \in V$ called the
+       unit, and natural isomorphisms
+       \begin{align*}
+           a &\colon \left( - \otimes - \right) \otimes -
+           \stackrel{\sim}{\implies} - \otimes \left( - 
+           \otimes - \right)\\
+           l &\colon I \otimes - \stackrel{\sim}{\implies} -\\
+           r &\colon - \otimes I \stackrel{\sim}{\implies} -
+       \end{align*}
+       called the associativity, left unit and right unit
+       constraints, respectively. 
+       Additionally, we require that for all
+       objects $A,B,C,D \in V$, the following two diagrams
+       commute:\\[2 ex]
+
+       \adjustbox{scale=0.9,center}{
+           \begin{tikzcd}[sep=tiny]
+	&& {\left( A \otimes B  \right) \otimes \left(         C \otimes
+    D \right)} \\
+	{\left( \left( A \otimes B \right) \otimes C \right) \otimes D} &&&& {A \otimes \left( B   \otimes \left( C \otimes D \right) \right)} \\
+	& {\left( A \otimes                                 \left( B \otimes C \right) \right)         \otimes D} && {A \otimes \left( \left( B \otimes C \right)         \otimes D \right)}
+	\arrow["a", from=1-3, to=2-5]
+	\arrow["a", from=2-1, to=1-3]
+	\arrow["{a \otimes D}"', from=2-1, to=3-2]
+	\arrow["a"', from=3-2, to=3-4]
+	\arrow["{A \otimes a}"', from=3-4, to=2-5]
+\end{tikzcd}
+   }
+   \\[1 ex]
+   and
+   \\[1 ex]
+
+   \adjustbox{scale=0.9,center}{
+   \begin{tikzcd}
+	{(A \otimes I) \otimes B} && {A \otimes (I \otimes B)} \\
+	& {A \otimes B}
+	\arrow["a", from=1-1, to=1-3]
+	\arrow["{r \otimes B}"', from=1-1, to=2-2]
+	\arrow["{A \otimes l}", from=1-3, to=2-2]
+\end{tikzcd}
+}
+
+The monoidal category is called strict when all the
+natural isomorphisms are identity morphisms for all objects.
+   \end{definition}
+
+
+   \begin{definition}[Monoidal functor]
+       If $\mathcal{V}$ and $\mathcal{W}$ are monoidal categories,
+       then we define a \textit{monoidal functor} to be
+       a tuple $F = \left( F , \varphi_2, 
+       \varphi_0 \right) \colon
+       \mathcal{V} \to \mathcal{W}$ consisting of
+       a functor $F \colon \mathcal{V} \to \mathcal{W}$,
+       a family of natural isomorphisms
+       \[
+       \varphi_{2, A, B} \colon
+       FA \otimes FB \stackrel{\sim}{\to } F\left( A 
+       \otimes B \right) ,
+       \] 
+       and an isomorphism
+       $\varphi_0 \colon I \stackrel{\sim}{\to } FI $ such that
+       the following three diagrams commute:
+
+       \[\begin{tikzcd}
+	{(FA \otimes FB) \otimes FC} && {FA \otimes (F B \otimes FC)} \\
+	{F(A \otimes B) \otimes FC} && {FA \otimes F (B \otimes C)} \\
+	{F((A \otimes B) \otimes C)} && {F (A \otimes (B \otimes C))}
+	\arrow["a", from=1-1, to=1-3]
+	\arrow["{\varphi_2 \otimes FC}"', from=1-1, to=2-1]
+	\arrow["{FA \otimes \varphi_2}", from=1-3, to=2-3]
+	\arrow["{\varphi_2}"', from=2-1, to=3-1]
+	\arrow["{\varphi_2}", from=2-3, to=3-3]
+	\arrow["Fa"', from=3-1, to=3-3]
+\end{tikzcd}\]
+
+
+\[\begin{tikzcd}
+	{FA \otimes I} && FA && {I \otimes FA} && FA \\
+	{FA \otimes FI} && {F(A \otimes I)} && {FI \otimes FA} && {F (I \otimes A)}
+	\arrow["r", from=1-1, to=1-3]
+	\arrow["{FA \otimes \varphi_0}"', from=1-1, to=2-1]
+	\arrow["l", from=1-5, to=1-7]
+	\arrow["{\varphi_0 \otimes l}"', from=1-5, to=2-5]
+	\arrow["{\varphi_2}"', from=2-1, to=2-3]
+	\arrow["Fr"', from=2-3, to=1-3]
+	\arrow["{\varphi_2}"', from=2-5, to=2-7]
+	\arrow["Fl"', from=2-7, to=1-7]
+\end{tikzcd}\]
+
+A monoidal functor is called \textit{strict} when each
+of the isomorphisms
+$\varphi _{2, A, B}$ and $\varphi_0$ are all identities.
+
+   \end{definition}
+
+
+
+\begin{remark}[]
+    A monoidal functor is also sometimes called a strong
+    monoidal functor if one wants to distinguish it
+    from a \textit{lax monoidal functor} which is
+    the definition of a monoidal functor
+    without the requirements that 
+    $\varphi_0$ and $\varphi_{2,A,B}$ be isomorphisms.
+\end{remark}
+
+\begin{definition}[]
+    A morphism $\theta \colon F \implies G$ of monoidal functors
+    is a natural transformation
+    $\theta \colon F \implies G$ such that the following
+    diagrams commute:
+    \[
+   \adjustbox{scale=0.9,center}{
+        \begin{tikzcd}
+	{FA \otimes FB} && {F (A \otimes B)} &&&& FI \\
+	&&&& I \\
+	{GA \otimes GB} && {G (A \otimes B)} &&&& GI
+	\arrow["{\varphi_2}", from=1-1, to=1-3]
+	\arrow["{\theta_a \otimes \theta_b}"', from=1-1, to=3-1]
+	\arrow["{\theta_{A \otimes B}}", from=1-3, to=3-3]
+	\arrow["{\theta_I}", from=1-7, to=3-7]
+	\arrow["{\varphi_0}", from=2-5, to=1-7]
+	\arrow["{\varphi_0}"', from=2-5, to=3-7]
+	\arrow["{\varphi_2}"', from=3-1, to=3-3]
+\end{tikzcd}}
+\]
+
+
+
+\end{definition}
+
+
+
+   \begin{definition}[Braiding]
+       A braiding for a monoidal category $V$ consists
+       for a natural family of isomorphisms
+       \[
+           c = c_{A,B} \colon A \otimes B \stackrel{\sim}{\to }
+           B \otimes A
+       \] 
+       in $V$ such that the following diagrams commute\\[3 ex]
+
+
+       \begin{tikzcd}
+	& {(B \otimes A) \otimes C} & {B \otimes (A \otimes C)} \\
+	{(A \otimes B) \otimes C} &&& {B \otimes (C \otimes A)} \\
+	& {A \otimes (B \otimes C)} & {(B \otimes C) \otimes A}
+	\arrow["a", from=1-2, to=1-3]
+	\arrow["{B \otimes c}", from=1-3, to=2-4]
+	\arrow["{c \otimes C}", from=2-1, to=1-2]
+	\arrow["a"', from=2-1, to=3-2]
+	\arrow["c"', from=3-2, to=3-3]
+	\arrow["a"', from=3-3, to=2-4]
+\end{tikzcd}
+\\[1 ex]
+and \\[1 ex]
+\begin{tikzcd}
+	& {A \otimes (C \otimes B)} & {(A \otimes C ) \otimes B} \\
+	{A \otimes (B \otimes C)} &&& {(C \otimes A) \otimes B} \\
+	& {(A \otimes B) \otimes C} & {C \otimes (A \otimes B)}
+	\arrow["{a^{-1}}", from=1-2, to=1-3]
+	\arrow["{c \otimes B}", from=1-3, to=2-4]
+	\arrow["{A \otimes c}", from=2-1, to=1-2]
+	\arrow["{a^{-1}}"', from=2-1, to=3-2]
+	\arrow["c"', from=3-2, to=3-3]
+	\arrow["{a^{-1}}"', from=3-3, to=2-4]
+\end{tikzcd}
+   \end{definition}
+
+
+   \begin{proposition}[]\label{braiding-gives-yang-baxter}
+       In a braided monoidal category, the following
+       diagram commutes
+
+       \[\begin{tikzcd}
+	{(A \otimes B) \otimes C} & {A \otimes(B \otimes C)} & {A \otimes (C \otimes B)} & {(A \otimes C) \otimes B} \\
+	{(B \otimes A) \otimes C} &&& {(C \otimes A) \otimes B} \\
+	{B \otimes (A \otimes C)} &&& {C \otimes (A \otimes B)} \\
+	{B \otimes (C \otimes A)} & {(B \otimes C) \otimes A} & {(C \otimes B) \otimes A} & {C \otimes (B \otimes A)}
+	\arrow["a", from=1-1, to=1-2]
+	\arrow["{c \otimes C}"', from=1-1, to=2-1]
+	\arrow["{A \otimes c}", from=1-2, to=1-3]
+	\arrow["c"{description}, dashed, no head, from=1-2, to=4-2]
+	\arrow["{a^{-1}}", from=1-3, to=1-4]
+	\arrow["c"{description}, dashed, no head, from=1-3, to=4-3]
+	\arrow["{c \otimes B}", from=1-4, to=2-4]
+	\arrow["a"', from=2-1, to=3-1]
+	\arrow["a", from=2-4, to=3-4]
+	\arrow["{B \otimes c}"', from=3-1, to=4-1]
+	\arrow["{C \otimes c}", from=3-4, to=4-4]
+	\arrow["{a^{-1}}"', from=4-1, to=4-2]
+	\arrow["{c \otimes A}"', from=4-2, to=4-3]
+	\arrow["a"', from=4-3, to=4-4]
+\end{tikzcd}\]
+   \end{proposition}
+
+   \begin{proof}
+       \todo{Write up proof}
+   \end{proof}
+
+   \begin{example}[Braids and labelled braids on strings]
+       We define the braid groupoid to
+       be the category $\mathcal{B}$ whose objects
+       are the natural numbers and whose morphisms
+       are given by
+       \[
+       B\left( m,n \right) =
+       \begin{cases}
+           B_n,& m=n\\
+           \varnothing,& m\neq n
+       \end{cases}
+       \] 
+       where composition of
+       morphisms is defined to be
+       the product of the braids (i.e., concatenation).
+
+       We can then equip $\mathcal{B}$ with a strinct
+       monoidal structure by letting
+       $\otimes \colon B_m \times B_n \to 
+       B_{m+n}$ be given by addition of braids
+       which is described algebraically by
+       \[
+       \sigma_i \otimes
+       \sigma_j = 
+       \sigma_i \sigma_{m+j} \left( =
+       \sigma_{m+j} \sigma_i \right) 
+       \] 
+       pictured as
+
+       \begin{figure}[H]
+           \centering
+           \includegraphics[width=1\textwidth]{braids-monoidal-structure.jpeg}
+           \label{fig:braids-monoidal-structure}
+       \end{figure}
+       Furthermore, we can give $\mathcal{B}$ a braiding
+       $c$ given by
+       $c = c_{m,n} \colon \underbrace{m \otimes n}_{
+       = m +n} \mapsto \underbrace{n \otimes m}_{=n+m}$
+       which, on morphisms,
+       can be illustrated by concatenating from, say above, with the
+       following braid 
+
+       \begin{figure}[H]
+           \centering
+           \includegraphics[width=0.6\textwidth]{braiding-on-braid-groupoid.jpeg}
+           \label{fig:braiding-on-braid-groupoid-jpeg}
+       \end{figure}
+       or, illustrated differently, as
+
+       \begin{figure}[H]
+           \centering
+           \includegraphics[width=0.55\textwidth]{braiding-on-braid-groupoid-2.jpeg}
+           \label{fig:braiding-on-braid-groupoid-jpeg}
+       \end{figure}
+       Then this is clearly an isomorphism since it has
+       the inverse
+
+       \begin{figure}[H]
+           \centering
+           \includegraphics[width=0.4\textwidth]{inverse-braiding.jpeg}
+           \label{fig:inverse-braiding-jpeg}
+       \end{figure}
+
+
+   \end{example}
+
+
+\subsection{Yang-Baxter operators}
+
+
+
+\begin{definition}[Yang-Baxter operator]
+    Let $T \colon \mathcal{A} \to 
+    \mathcal{V}$ be a functor from a category
+    $\mathcal{A}$ to a monoidal category
+    $\mathcal{V}$.
+    A \textit{Yang-Baxter operator on $T$} is a natural family
+    of isomorphisms
+    \[
+    y = y_{A,B} \colon
+    T A \otimes TB \stackrel{\sim}{\to } TB \otimes TA
+    \] 
+    such that the following diagram commutes.
+
+    \[\begin{tikzcd}\label{AA}
+	{(TA \otimes TB) \otimes TC} & {TA \otimes(TB \otimes TC)} & {TA \otimes (TC \otimes TB)} & {(TA \otimes TC) \otimes TB} \\
+	{(TB \otimes TA) \otimes TC} &&& {(TC \otimes TA) \otimes TB} \\
+	{TB \otimes (TA \otimes TC)} &&& {TC \otimes (TA \otimes TB)} \\
+	{TB \otimes (TC \otimes TA)} & {(TB \otimes TC) \otimes TA} & {(TC \otimes TB) \otimes TA} & {TC \otimes (TB \otimes TA)}
+	\arrow["a", from=1-1, to=1-2]
+	\arrow["{y \otimes TC}"', from=1-1, to=2-1]
+	\arrow["{TA \otimes y}", from=1-2, to=1-3]
+	\arrow["{a^{-1}}", from=1-3, to=1-4]
+	\arrow["{y \otimes TB}", from=1-4, to=2-4]
+	\arrow["a"', from=2-1, to=3-1]
+	\arrow["a", from=2-4, to=3-4]
+	\arrow["{TB \otimes y}"', from=3-1, to=4-1]
+	\arrow["{TC \otimes y}", from=3-4, to=4-4]
+	\arrow["{a^{-1}}"', from=4-1, to=4-2]
+	\arrow["{y \otimes TA}"', from=4-2, to=4-3]
+	\arrow["a"', from=4-3, to=4-4]
+\end{tikzcd}\]
+
+\end{definition}
+
+\begin{remark}[]
+    When $\mathcal{A} = \mathbbm{1}$, we say that
+    $y$ is a Yang-Baxter operator on
+    $X = T(\mathcal{A}) \in \mathcal{V}$ if
+    it is a Yang-Baxter operator on 
+    $T \colon \mathbbm{1} = \mathcal{A} \to 
+    \mathcal{V}$.
+\end{remark}
+
+
+    Let $\left( \mathcal{X}, \otimes, I \right) $ be a
+    monoidal category with $\tau \in 
+    \Aut_{\mathcal{X}} \left( X \otimes X \right) $ 
+    a Yang-Baxter operator in
+    $\mathcal{X}$. Suppose
+    $\mathcal{X}$ acts on a category
+    $\mathcal{M}$ via a functor
+    $\mathcal{M} \times \mathcal{X} \to \mathcal{M}$ 
+    which we also denote by $\otimes$. Then 
+    there is an action of the braid groupoid
+     $\alpha_\tau \colon \mathcal{M} \times B \to 
+     \mathcal{M}$ given on objects
+     by
+     $\alpha_{\tau} (A,n) = 
+     A \otimes X^{\otimes n}$ and determined on morphisms
+     by
+     $\alpha_{\tau} \left( f, \sigma_i \right) 
+     = f \otimes \id_{X^{\otimes i-1}} 
+     \otimes \tau \otimes \id_{X^{\otimes n - i -1}}$.
+
+     \begin{example}[]
+         If $\mathcal{X} = \left( 
+         \mathcal{X, \otimes, I}\right) $ admits a braiding
+         $b$, then $\tau = b_{X,X} \in 
+         \Aut_{\mathcal{X}} \left( X \otimes X \right) $ 
+         is a Yang-Baxter operator for any object
+         $X$. The thing that needs verifying here
+         is that the big Yang-Baxter diagram in definition~\ref{AA}
+         is satisfied, but
+         this follows directly from
+         proposition~\ref{braiding-gives-yang-baxter}.
+
+         Likewise, for any functor
+         $T \colon \mathcal{A} \to \mathcal{V}$ into a 
+         braided tensor category $\mathcal{V}$, we obtain
+         a Yang-Baxter operator as
+         \[
+         y_{A,B} = c_{TA,TB} \colon TA \otimes TB
+         \stackrel{\sim}{\to } TB \otimes TA.
+         \] 
+         In particular, we obtain a Yang-Baxter operator
+         on the inclusion functor 
+         $\iota \colon \mathbbm{1} \to \mathcal{B}$ 
+         identifying $\mathbbm{1}$ with the braid
+         of a single string. We will
+         denote this Yang-Baxter operator by $z$.
+     \end{example}
+
+
+     We want to show that the category of strong
+     monoidal functors from the braid groupoid
+     into $\mathcal{X}$ is equivalent to a naturally
+     defined category of Yang-Baxter operators in
+     $\mathcal{X}$.
+
+     \begin{proposition}[]
+         For any strict monoidal category $\mathcal{V}$ and
+         any Yang-Baxter operator $y$ on $T \colon
+         \mathcal{A} \to \mathcal{V}$, there exists
+         a unique strict tensor functor
+         $T' \colon \mathcal{B} \int \mathcal{A} \to \mathcal{V}$ 
+         such that $T' \circ z = y$ and
+         the following diagram commutes:
+         \begin{equation*}
+         \begin{tikzcd}
+             \mathcal{A} \ar[r, "\iota"] \ar[rd, "T"] & 
+             \mathcal{B} \int \mathcal{A} \ar[d, "T'"] \\
+                                                      & \mathcal{V}
+         \end{tikzcd}
+         \end{equation*}
+         
+     \end{proposition}
+
+     \begin{proposition}[]\label{yang-baxter-inducing-representation}
+         For any strict monoidal category $\mathcal{V}$ and
+         any Yang-Baxter $\tau$ on an element $X \in V$, there
+         exists a unique strict monoidal functor
+         $\Phi_{X, \tau} \colon \mathcal{B} \to \mathcal{V}$ such that
+         $\Phi_{X, \tau} \circ z = y$.
+     \end{proposition}
+
+     \todo{We do not want this result for strict categories
+     only since our categories of surfaces later are not strict.
+ However, we can just remove strictness in the proposition and
+everything goes through.}
+
+     \begin{proof}[Proof and construction]
+         Define $\Phi_{X, \tau} \colon \mathcal{B} \to \mathcal{V}$ 
+         on objects by $\Phi_{X,\tau} (n) = 
+         X^{\otimes n}$. For
+         $0 \le i < n$, define 
+         \[
+         y_i = X^{\otimes (i-1)} \otimes y 
+         \otimes X^{\otimes (n-i-1)} \colon X^{\otimes n} \to 
+         X^{\otimes n}.
+         \] 
+         These satisfy the braid group relations.
+         Thus we obtain a monoid homomorphism
+         $\Phi_{X, \tau, n} \colon \mathcal{B}_n \to 
+         \mathcal{V} \left( X^{\otimes n}, X^{\otimes n} \right) $ 
+         taking $\sigma_i$ to $y_i$ for all
+         $0 \le i <n$. Clearly $\Phi_{X, \tau}$ is the unique
+         strict monoidal functor with these properties.
+         \todo{More explicit details.}
+     \end{proof}
+
+     \begin{remark}[]
+         In particular,
+         $\Phi_{X,\tau,n} \colon
+         \mathcal{B}_n \to \Aut_{\mathcal{V}}
+         \left( X^{\otimes n} \right) $ for all
+         $n$.\\
+
+         As we said in the beginning, our goal
+         is to get geometric representations from
+         Yang-Baxter operators, so given our construction
+         of $\Phi_{X,\tau}$, we might hope to
+         find a category $\mathcal{V}$ such that
+         its objects are surfaces and
+         $\Aut_{\mathcal{V}} \left( X^{\otimes n} \right) $ 
+         might correspond to a mapping class group. Indeed,
+         this is what we shall do now in two
+         different cases: the category of decorated surfaces
+         and the category of bidecorated surfaces.
+     \end{remark}
+
+
+
+
+   \subsection{Braided monoidal category of decorated and
+   bidecorated surfaces}
+
+   \begin{definition}[Decorated surface]
+       A decorated surface is a pair
+       $(S,I)$ where $S$ is a compact connected
+       surface with at least one boundary component
+       and $I \colon \left[ -1,1 \right] 
+       \hookrightarrow \partial S$ is a parametrised interval
+       in its boundary.
+   \end{definition}
+
+   \begin{definition}[$\mathcal{M}_1$]
+       Let $\mathcal{M}_1$ denote the groupoid where
+       the objects are
+       decorated surfaces and
+       morphisms are isotopy classes of diffeomorphisms/homeomorphisms
+       restricting to the identity on a neighborhood
+       of $I$.
+   \end{definition}
+
+   \begin{remark}[]
+       In particular, $\Aut_{\mathcal{M}_1} 
+       \left( S \right) = \Mod (S)$.
+   \end{remark}
+
+   We now construct a braided monoidal structure on
+   $\mathcal{M}_1$ : given decorated surfaces
+   $\left( S_1, I_1 \right) $ and
+   $\left( S_2,I_2 \right) $, define
+   $\left( S_1, I_1 \right) 
+   \otimes \left( S_2, I_2 \right) 
+   := \left( S_1 \natural S_2, I_1 \natural I_2 \right) $ to be
+   the surface obtained by gluing
+   $S_1$ and $S_2$ along the right half-interval
+   $I_1^{+} \in \partial S_1$ and the
+   left half-interval $I_2^{-} \in \partial S_2$, defining
+   $I_1 \natural I_2 = I_1^{-} \cup I_2^{+}$.
+
+   \begin{figure}[htpb]
+       \centering
+       \includegraphics[width=0.35\textwidth]{connected-sum.png}
+       \label{fig:connected-sum-png}
+   \end{figure}
+
+   Furthermore, we define the unit object to be
+   $I := \left( D^2, I \right) $. For it to be a strict unit, 
+   we define $\left( S_1 \natural D^2, I_1 \natural I \right) 
+   := \left( S_1, I_1 \right) $ and
+   $\left( D^2 \natural S_2, I \natural I_2 \right) :=
+   \left( S_2, I_2 \right) $.\\
+   
+
+   We define a braiding $c$ on
+   $\left( S_1 \natural S_2, I_1 \natural I_2 \right) $ 
+   as the half-Dehn twist which satisfies that
+   $c \colon \left( S_1 \natural S_2, I_1 \natural I_2 \right) 
+   \stackrel{\sim}{\to } \left( S_2 \natural S_1, I_2 \natural I_1 \right)  $
+   is a natural isomorphism because
+   it has the opposite half-Dehn twist as the inverse. It is
+   natural because the induced map will simply be the one induced by
+   the naturality square.
+
+   The B1 and B2 diagrams can be verified pictorially as follows:
+
+
+   \begin{figure}[H]
+    \centering
+    \begin{minipage}[b]{0.7\textwidth}
+        \centering
+        \includegraphics[width=1.1\textwidth]{B1.jpg} % first figure itself
+    \end{minipage}\hfill
+    \begin{minipage}[b]{0.7\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{B2.jpg} % second figure itself
+    \end{minipage}
+\end{figure}
+
+This is precisely the requirements needed in
+Proposition \ref{yang-baxter-inducing-representation}, so
+we obtain a monoidal functor
+$\Phi \colon \mathcal{B} \to \mathcal{M}_1$ 
+such that $\Phi \circ z = y$ where
+$y \in \Aut_{\mathcal{M}_1}
+\left( S \natural S \right)
+= \Mod \left( S \natural S \right) $
+is the induced Yang-Baxter operator
+on some decorated surface $S$ from the braiding.
+So again, we obtain
+a geometric representation
+$\Phi_{n} \colon \mathcal{B}_n \to 
+\Mod \left( S^{\natural n} \right) $\\
+\linebreak
+
+
+We will also consider a different monoidal category of
+surfaces. Informally, a bidecorated surface is a surface with two 
+intervals marked in its boundary.
+
+
+    To give a precise definition, we first
+    define certain surfaces $X_i$ that will be convenient for
+    the monoidal structure, we set
+    $X_1 = D^2 \subset \mathbb{C}$ to be the unit disk,
+    and then define embeddings
+    $\iota_1^{0}, \iota_1^{1} \colon I \to X_1$ by
+
+    \[
+    \iota_1^{0} (t) =
+    e^{i \left( \frac{\pi}{4} + t \frac{\pi}{2} \right) }
+    \quad
+    \text{and}
+    \quad
+    \iota_{1}^{1} (t) = e^{i \left( 5 \frac{\pi}{4} +
+    t \frac{\pi}{2} \right) }.
+    \] 
+    We denote by
+    $\overline{\iota_1^{i}} \colon
+    I \to X_1$ the reverse map
+    $t \mapsto \iota_{1}^{i}(1-t)$ for $i = 0,1$.
+    Then we recursively define $X_{m+1}$ for 
+    $m\ge 1$ by
+    \[
+    X_{m+1} :=
+    \frac{X_m \sqcup X_1}{\iota_m^{i}(t) 
+\sim \overline{\iota_1^{i}}} \quad \text{for } t
+\in \left[ \frac{1}{2},1 \right]
+    \] 
+    and we define
+    \[
+    \iota_{m+1}^{i} (t) 
+    =
+    \begin{cases}
+        \iota_m^{i}(t),& \text{if } t \le \frac{1}{2}\\
+        \iota_1^{i}(t),& \text{else}
+    \end{cases}.
+    \] 
+
+    In this process, the marked intervals will live in
+    different boundary components every second time. 
+    The process for each of the two situations is illustrated below
+    in figures
+    \ref{fig:bidecorated-attaching-jpeg} and
+    \ref{fig:bidecorated-second-attaching-jpeg}.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{bidecorated-attaching.jpeg}
+    \caption{Marked intervals in single boundary components.}
+    \label{fig:bidecorated-attaching-jpeg}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{bidecorated-second-attaching.jpeg}
+    \caption{Marked intervals in different boundary components.}
+    \label{fig:bidecorated-second-attaching-jpeg}
+\end{figure}
+
+\begin{lemma}[]
+    For $m\ge 1$, $X_m \approx S_{g,r}$ where
+    \[
+        \left( g,r \right) =
+        \begin{cases}
+            \left( \frac{m}{2}-1,2 \right) ,& m \text{ even}\\
+            \left( \frac{m-1}{2},1 \right) ,& m \text{ odd}
+        \end{cases}.
+    \] 
+\end{lemma}
+
+\begin{proof}
+    Firstly, $X_m$ is clearly connected, and
+    we have
+    \[
+    \chi \left( X_{m} \right) 
+    = \chi \left( X_{m-1} \right) -1
+    \] 
+    since, for example, the $\Delta$-structure on
+    our surface $X_{m}$ can be chosen to be that for $X_{m-1}$ with
+    the boundary subdivided into four $2$-simplices with 
+    four vertices,
+    adding an additional two $2$-simplices and then
+    a disk.
+    By induction, we then get
+    $\chi \left( X_{m} \right) 
+    = \chi \left( X_1 \right) - \left( m-1 \right) 
+    = 2-m$.\\
+    Now, by the classification of surfaces with
+    boundary and genus, we simply need to
+    know how many boundary components $X_{m+1}$ has.
+    But as can be seen from the figures, 
+    if $m$ is odd, we will have one boundary component,
+    while if  $m$ is even, we will have
+    two boundary components.
+\end{proof}
+
+\begin{definition}[Bidecorated surface]
+    A bidecorated surface is a tuple
+    $\left( S, m , \varphi  \right) $ where
+    $S$ is a surface, $m\ge 1$ is an integer,
+    and
+    \[
+    \varphi \colon
+    \partial X_m \sqcup \left( \sqcup_{k} S^{1} \right) 
+    \stackrel{\sim}{\to } \partial S
+    \] 
+    is a homeomorphism, giving a parametrization of the boundary of
+    $S$. We think of $\left( S, m , \varphi  \right) $ as
+    a surface with two parametrized arcs
+    \[
+    I_0 := \varphi \circ \iota_{m}^{0} \quad
+    \text{and} \quad 
+    I_1 := \varphi \circ \iota_m^{1}
+    \] 
+    in its boundary, and $k$ additional parametrized
+    boundaries.
+\end{definition}
+
+
+\begin{definition}[$\mathcal{M}_2$]
+    Let $\mathcal{M}_2$ denote the monoidal groupoid
+    where objects are bidecorated surfaces together
+    with a formal unit $U$. The Hom set
+    between two bidecorated surfaces
+    $\left( S, m, \varphi  \right) $ and
+    $\left( S', m', \varphi' \right) $ is
+    empty if $m\neq m'$ or $S$ and $S'$ are nonhomeomorphic.
+    Otherwise, the Hom set consists of all mapping
+    classes of homeomorphisms that preserve the
+    boundary parametrizations:
+    \[
+    \Hom_{\mathcal{M}_2}\left( 
+    \left( S,m,\varphi  \right) , 
+\left( S', m, \varphi' \right) \right) 
+= 
+    \pi_0 \Homeo_{\partial}\left( S,S' \right) 
+    = \pi_0 \left\{ f \in \Homeo \left( S,S' \right) 
+    \mid f \circ \varphi  = \varphi' \right\}
+\] 
+where $\Homeo\left( S,S' \right) $ has the compact-open
+topology, and 
+$\Homeo_{\partial}\left( S,S' \right) $ the subspace topology.
+\end{definition}
+
+\begin{remark}[]
+    We again obtain that
+    $\Aut_{\mathcal{M}_2}
+    \left( \left( S,m,\varphi  \right)  \right) 
+    = \Mod (S)$.
+\end{remark}
+
+The monoidal structure $\natural^2 $ on $\mathcal{M}_2$ is defined
+as follows. The object $U$ is by definition a unit,
+and for the remaining objects, we define
+\[
+    \left( S,m, \varphi  \right) \natural^2
+    \left( S',m', \varphi ' \right) 
+    :=
+    \left( \frac{S \sqcup S'}{I_i(t)
+    \sim \overline{I_i'}(t), t \in 
+\left[ \frac{1}{2},1 \right] }, m+m',
+\varphi \natural^2 \varphi ' \right) 
+\] 
+for $i = 0,1$, and where
+\[
+\varphi \natural^2 \varphi ' \colon
+\partial X_{m+m'} \sqcup \left( \sqcup_{k+k'}
+S^{1}\right) \hookrightarrow \partial
+\left( S \natural^2 S' \right) 
+\] 
+is obtained using the canonical identification
+$\partial X_{m+m'} \approx 
+\left( \partial X_{n - \iota_m \left( \frac{1}{2},1
+\right) } \right) \cup 
+\left( \partial X_{m'} - 
+\iota_{m'} \left( 0, \frac{1}{2} \right) \right)$.
+
+Now we will construct a Yang-Baxter element
+in $\mathcal{M}_2$ as follows. Let
+$D^{\natural^2 m} = D_1 \natural^2 \ldots \natural^2
+\left( D_i \natural^2 D_{i+1} \right) 
+\natural^2 \ldots \natural^2 D_m$, where subscripts are used to enumerate
+the disks. The underlying surface, by construction, will
+be $X_m$. Let
+$a_i$ denote the isotopy class of a curve in the interior
+$D_i \natural^2 D_{i+1} \approx
+S^{1} \times I$ that is parallel to its
+boundary components, see figure \ref{fig:curve-m-2-png}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{curvem2.png}
+    \caption{The curve $a_i$ in $D_i \natural D_{i+1}$}
+    \label{fig:curve-m-2-png}
+\end{figure}
+
+\begin{lemma}[]
+    The curves $a_1, \ldots, a_{m-1}$ form a chain in
+    $D^{\natural^2 m}$.
+\end{lemma}
+
+\begin{proof}
+    The curve $a_i$ has image contained in $D_i \natural^2 D_{i+1}$,
+    so it can only intersect $a_{i-1}$ and $a_{i+1}$ nontrivially.
+    So it suffices to look at the subsurface of
+    $D^{\natural^2 m}$ corresponding to
+    $D_i \natural^2 D_{i+1} \natural^2 D_{i+2}$.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{intersection-a_is.png}
+        \caption{Intersection of
+        $a_i$ and $a_{i+1}$ in
+    $D_i \natural^2 D_{i+1} \natural^2 D_{i+2}$.}
+        \label{fig:intersection-a_is-png}
+    \end{figure}
+\end{proof}
+
+
+Now by Lemma \ref{dehn-intersection-0} and Proposition \ref{dehn-braid-relation}
+(the braid relation), we get that the
+braid group relations hold for the Dehn twists
+$T_i \in \Aut_{\mathcal{M}_2}\left( D^{\natural^2 m} \right) $ 
+where $T_i$ is the Dehn twist along the curve
+$a_i$ in $D^{\natural^2 m}$, i.e.,
+\begin{align*}
+    T_{i}T_{i+1}T_i 
+    &= T_{i+1} T_i T_{i+1} &\forall i\\
+    T_i T_j 
+    &= T_j T_i &\text{for } \left| i-j \right| >1
+\end{align*}
+Hence the same relations hold for the
+inverses $T_{i}^{-1}$.\\
+\linebreak
+If we add a disk to either side of $D^{\natural^2 m}$, we get
+\[
+T_i \natural^2 \id_{D} = T_i \quad \text{and} \quad
+\id_{D}\natural^2 T_i = T_{i+1}
+\] 
+in $\Aut_{\mathcal{M}_2}\left( D^{\natural^2 m+1} \right) $.
+Hence this gives the relation
+\[
+    \left( T_1^{-1} \natural^2 \id_D \right) \left( \id_D \natural^2
+    T_1^{-1} \right) \left( T_1^{-1} \natural^2 id_D \right) 
+    = 
+    \left( \id_D \natural^2 T_1^{-1} \right) 
+    \left( T_1^{-1} \natural^2 \id_D \right) 
+    \left( \id_D \natural^2 T_1^{-1} \right) 
+\] 
+in $\Aut_{\mathcal{M}_2} \left( D^{\natural^2 3} \right) $,
+meaning that $T_1^{-1}$ is a Yang-Baxter element. This
+yields a monoidal functor
+\[
+\Phi = \Phi_{D, T_1^{-1}} \colon
+\left( \mathcal{B}, \otimes \right) 
+\to \left( \mathcal{M}_2, \natural^2 \right) 
+\] 
+uniquely determined up to monoidal natural
+isomorphism by
+$\Phi (n) = D^{\natural^2 n}$ and
+$\Phi_{D, T_1^{-1}, n} \left( \sigma_1 \right) =
+D^{\natural^2 i-1} \natural^2  T_1^{-1} \natural^2
+D^{\natural^2 n - i -1} =
+T_i^{-1} \in 
+\Aut_{\mathcal{M}_2}\left( D^{\natural^2 m} \right) 
+= \pi_0 \Homeo_{\partial} \left( X_m \right)$.
+Seeing that this is exactly
+the setup for the Birman-Hilden theorem,
+we note that the homomorphisms
+\[
+    \Phi_m = \Phi_{D,T_1^{-1},m}
+\colon B_m \to \Aut_{\mathcal{M}_2}
+\left( D^{\natural^2 m} \right) \approx
+\Aut_{\mathcal{M}_2} \left( 
+X_m\right)
+\approx
+\begin{cases}
+    \Mod 
+    \left( S_{\frac{m}{2}-1,2} \right) ,& m\text{ even}\\
+    \Mod \left( 
+S_{\frac{m-1}{2}, 1} \right),& m\text{ odd}
+\end{cases}.
+\] 
+recover the Birman-Hilden embeddings from
+section \ref{birman-hilden-embedding-construction}.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+
+\section{Geometric Representations of the Braid Group on
+non-orientable surfaces}
+
+
+A connected orientable (respectively nonorientable) surface
+of genus $g$ with $b$ boundary components will
+be denoted by $S_{g,b}$ (respectively $N_{g,b}$ ).
+
+Now, recall that the Möbius band (which is also called
+a crosscap), is the mapping cylinder on the map
+$z \mapsto z^2$ (see figure~\ref{fig:mapping-cylinder-mobius})
+
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{mapping-cylinder-mobius.jpg}
+    \caption{Möbius band}
+    \label{fig:mapping-cylinder-mobius}
+\end{figure}
+
+In this case, any of the two curves making up the half-circles which
+get identified can be cut along, rendering a connected surface.
+Thus gluing on a Möbius strip along the boundary, we obtain a
+surface of one higher genus.\\
+
+
+We can then obtain $N_{g,b}$ from $S_{0,g+b}$ by
+gluing $g$ Möbius bands along $g$ distinct boundary
+components of $S_{0,g+b}$.
+
+Note that by the classification of surfaces
+\[
+N_{g,b} \approx \left( \mathbb{R}\mathbb{P}^2 \right)^{\# g} -
+\sqcup_{b} \mathring{D} \approx 
+ \left(\mathbb{R}\mathbb{P}^2 - \mathring{D} 
+\right)^{\natural g} - \sqcup_{b-1} \mathring{D}
+\] 
+where $\mathbb{R}\mathbb{P}^2 - \mathring{D}$ is a Möbius band.
+
+Note also that $\mathbb{R}\mathbb{P}^2 \# \mathbb{R}\mathbb{P}^2
+\approx K$, the Klein bottle.
+
+
+\begin{lemma}[]\label{prop61}
+    $N_{g,1} \approx S_{n,1} \natural M$ for
+    $g = 2n+1$.
+\end{lemma}
+
+\begin{proof}
+
+For $g = 2n+1$ with $n\ge 0$, we have
+(see \ref{fig:N_3-1-jpg} for a visual argument for
+$T^2 \# M \approx K \# M$ )
+\begin{align*}
+N_{2n+1,1} \approx
+\left( \mathbb{R}\mathbb{P}^2 \right)^{\# 2n+1} -
+\mathring{D} 
+&\approx K^{\# n} \# M
+\approx K^{\# n-1} \# K \# M\\
+&\approx K^{\# n-1} \# T^2 \# M\\
+&\approx \ldots\\
+&\approx \left( T^2 \right)^{\# n} \# M\\
+&\approx S_{n,0} \# M\\
+&\approx S_{n,1} \natural M
+\end{align*}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{N_3,1.jpg}
+    \caption{A hemeomorphism between 
+    $T^2 \# M$ and $K \# M$}
+    \label{fig:N_3-1-jpg}
+\end{figure}
+
+\end{proof}
+
+Hence for $g$ odd, we have an embedding
+$B_{g} \hookrightarrow N_{g,1}$ by the Birman-Hilden
+embedding into the $S_{n,1}$ summand. A similar thing
+can be done for the even case.\\
+\linebreak
+
+
+
+
+We will introduce three types of geometric representations
+of the braid group: the standard twist representation, the crosscap
+transposition representation, and lastly, transvection.\\
+
+
+\begin{definition}[]
+We call a curve two-sided (resp. one-sided) if its regular neighborhood is an
+annulus (resp a Möbius band).
+\end{definition}
+
+\subsubsection{The standard twist representation}
+
+\begin{lemma}[]
+    If we fix an orientation of a regular neighborhood
+    of the union of the curves $a_i$, then
+    $C$ determines \textit{the standard twist representation}
+    $\rho_{C} \colon B_n \to \PMod (S)$ defined by
+    \[
+    \rho_C \left( \sigma_i \right) = t_{a_i}, \quad
+    i = 1, \ldots, n-1,
+    \] 
+    where $t_{a_i}$ is the right-handed Dehn twist
+    about $a_i$ with respect to the orientation.
+\end{lemma}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{standard-chain.png}
+    \label{fig:standard-chain-png}
+\end{figure}
+
+\begin{question}
+    One might wonder whether the standard twist representation
+    corresponds to an induced representation from a Yang-Baxter
+    operator on some category of surfaces.
+\end{question}
+
+To answer whether this is the case, we claim the following:
+
+\begin{proposition}[]
+    The standard twist representation
+    $\rho_{C} \colon B_g \to \Mod (N_{g,b})$ is the
+    same as the Birman-Hilden embedding.
+\end{proposition}
+
+\begin{proof}
+Let us first approach the question for
+$g$ odd using Proposition \ref{prop61}.
+
+
+
+
+
+
+\end{proof}
+
+
+
+\subsubsection{The crosscap transposition representation}
+
+Let $N = N_{g,b}$ be nonorientable. A sequence
+$C = \left( a_1, \ldots, a_{n-1} \right) $ of separating
+curves in $N$ is called \textit{a chain of separating curves} if
+\begin{enumerate}
+    \item $a_i$ bounds a one-holed Klein bottle
+        for $i = 1, \ldots, n-1$,
+    \item $i \left( a_i, a_{i+1} \right) = 2$ for
+        $i = 1,\ldots, n-2$,
+    \item $i\left( a_i, a_j \right) = 0$ for
+        $\left| i-j \right| > 1$.
+\end{enumerate}
+
+
+Here $a_i$ bounding a one-holed Klein bottle means
+that if we collapse $a_i$ to a point, we obtian a 
+sphere with two crosscaps which is equivalent to the Klein bottle
+(see figure~\ref{fig:klein-bottle})
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.2\textwidth]{klein-bottle.jpg}
+    \caption{Klein-bottle as the sphere with two crosscaps}
+    \label{fig:klein-bottle}
+\end{figure}
+
+Let $K_i$ be the one-hoeld Klein bottle bounded by
+$a_i$. Then $K_i \cap K_{i+1}$ will be a Möbius strip
+for $i = 1, \ldots, n-2$, and we denote its core curve
+by $\mu_{i+1}$. Let $\mu_1$ and $\mu_n$ be the core curves
+of $K_1 - K_2$ and $K_{n-1} - K_{n-2}$, respectively.
+Fix an orientation of a regular neighborhood of
+the union of the $a_i$. Let $T_{a_i}$ be the right-handed
+Dehn twist about $a_i$and let $u_i$ be the 
+\textit{crosscap transpostion} supported
+in $K_i$, swapping $\mu_i$ and $\mu_{i+1}$ such that
+$u_i^2 = T_{a_i}$ (essentially a half-Dehn twist but for crosscaps
+instead of punctures).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{chain-separating-curves.png}
+    \caption{A chain of separating curves in
+    $N_{g,b}$.}
+    \label{fig:chain-separating-curves-png}
+\end{figure}
+
+
+\begin{lemma}[]
+    The mapping $\theta_{C} \colon B_n \to \PMod (N)$ by
+    $\theta_C \left( \sigma_i \right) =u_i$ for
+    $i = 1,\ldots, n-1$, defines a homomorphisms
+    called crosscap transposition representation.
+\end{lemma}
+
+
+\subsubsection{Transvection}
+
+\begin{definition}[Transvection]
+    Given a homomorphism
+    $\rho \colon B_n \to \PMod (S)$ and an element
+    $\tau \in \PMod (S)$ such that
+    $\tau$ commutes with $\rho\left( \sigma_i \right) $ 
+    for $1 \le i \le n-1$, we define a homomorphism
+    $\rho^{\tau} \colon B_n \to \Mod (S)$, called
+    a \textit{transvection} of $\rho$, by
+    \[
+        \rho^{\tau} \left( \sigma_i \right) 
+        = \tau \rho \left( \sigma_i \right) , \quad
+        i = 1,\ldots, n-1.
+    \] 
+    A homomorphism $\rho \colon B_n \to \PMod (S)$ is called
+    \textit{cyclic} if $\rho \left( B_n \right) $ is a 
+    cyclic group. 
+\end{definition}
+
+\subsection{The main theorems}
+
+\begin{theorem}[]\label{Thm1.2}
+    Let $n \ge 14$ and let $N = N_{g,b}$ with
+    $g \le 2 \left\lfloor \frac{n}{2} \right\rfloor +1$ and
+    $b\ge 0$. Then any homomorphism
+    $\rho \colon B_n \to \PMod (N)$ is either
+    cyclic, or is a transvection of a standard twist
+    representation, or is a transvection of a crosscap
+    transposition representation.
+\end{theorem}
+
+\begin{theorem}[]\label{Thm1.3}
+    Theorem~\ref{Thm1.2} still holds
+    when $\PMod (N)$ is replaced by $\Mod \left( N,
+    \partial N \right) $.
+\end{theorem}
+
+Note that $\Mod (N, \partial N) \not \le 
+\PMod (N)$ as, for example, the Dehn twist about a boundary
+curve is non-trivial in $\Mod \left( N, \partial N \right) $, but
+becomes trivial in $\PMod (N)$.
+
+
+
+\newpage
+
+
+\section{The Burau Representations of the Braid Group}
+
+Let $\Lambda = \mathbb{Z} \left[ t,t^{-1} \right] $ and
+$n \ge 2$. Over $\Lambda$, consider the $n\times n$-matrix
+\[
+U_i =
+\begin{pmatrix} 
+    I_{i-1} & 0 & 0 & 0\\
+    0 & 1-t & t & 0\\
+    0 & 1 & 0 & 0\\
+    0 & 0 & 0 & I_{n-i-1}
+\end{pmatrix}.
+\] 
+So letting
+$U = \begin{pmatrix} 1- t & t \\ 1 & 0 \end{pmatrix} $,
+$U_i$ becomes a block matrix on identity matrices and $U$.
+
+\begin{proposition}[]
+    Each $U_i$ is invertible, and the $U_i$ for $i \in 
+    \left\{ 1, \ldots, n \right\} $, for $n\ge 2$, satisfy
+    the braid relations.
+\end{proposition}
+
+\begin{proof}
+By the Cayley-Hamilton theorem, any $2 \times 2$-matrix
+$M$ over the ring $\Lambda$ satisfies
+$M^2 - \tr (M) M + \det (M) I_{2} = 0$. For
+$M = U$, we get $U^2 - \left( 1-t \right) U - t I_2 = 0$.
+Clearly, also $I_n^2 - (1-t) I_n - t I_n = 0$ for all $n$, so
+we find that $U_i^2 - (1-t)U_i - t I_n = 0$ for all
+$i$, giving
+$U_i \left( U_i - (1-t)I_n \right) = t I_n$, so
+$U_i$ is invertible with inverse
+\[
+U_i^{-1} =
+t^{-1} \left( U_i - (1-t)I_n \right) 
+=
+\begin{pmatrix} I_{i-1} & 0 & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & t^{-1} & 1-t^{-1} & 0 \\
+0 & 0 & 0 & I_{n-i-1} \end{pmatrix} .
+\] 
+
+
+Now, for all $i,j$ with $j-i \ge 2$, we have
+\begin{align*}
+    U_i U_j 
+    &= 
+    \begin{pmatrix} 
+        I_{i-1} & 0 & 0 & 0\\
+        0 & 1-t & t & 0 \\
+        0 & 1 & 0 & 0\\
+        0 & 0 & 0 & I_{n-i-1}
+    \end{pmatrix} 
+    \begin{pmatrix} 
+        I_{j-1} & 0 & 0 & 0\\
+        0 & 1-t & t & 0 \\
+        0 & 1 & 0 & 0\\
+        0 & 0 & 0 & I_{n-j-1}
+    \end{pmatrix}\\
+    &= 
+    \begin{pmatrix} 
+        I_{i-1} &  &  & & && \\
+         & 1-t & t & & &&\\
+         & 1 & 0 &  & &&\\
+         &  &  & I_{j-i-2} & & &\\
+          & & & & 1-t & t & \\
+          &&&& 1 & 0&\\
+          & &&&&& I_{n-j-3}
+    \end{pmatrix} \\
+    &=
+    \begin{pmatrix} 
+        I_{j-1} & 0 & 0 & 0\\
+        0 & 1-t & t & 0 \\
+        0 & 1 & 0 & 0\\
+        0 & 0 & 0 & I_{n-j-1}
+    \end{pmatrix}
+    \begin{pmatrix} 
+        I_{i-1} & 0 & 0 & 0\\
+        0 & 1-t & t & 0 \\
+        0 & 1 & 0 & 0\\
+        0 & 0 & 0 & I_{n-i-1}
+    \end{pmatrix} 
+\end{align*}
+
+
+
+\end{proof}
+
+
+
+
+
+\newpage
+
+\section{Glossary}
+
+\begin{definition}[Equivariant maps]
+    Suppose a group $G$ acts on spaces $X$ and $Y$, and let $f \colon X
+    \to Y$ be a map. Then  $f$ is said to be equivariant if
+    $f (g \cdot x) = g \cdot  f(x)$ for all $x \in X$ and all $g \in G$.
+\end{definition}
+
+\begin{definition}[Closed surface]
+    A \textit{closed surface} is a surface that is compact
+    and without boundary.
+\end{definition}
+
+\begin{definition}[Isotopy]
+    A topological isotopy is a homotopy
+    $F \colon X \times I \to Y$ such that for each $t_0 \in I$,
+    $F(x,t_0) \colon X \to Y$ is a topological embedding (homeomorphism onto
+    some subspace of $Y$ ).
+
+    Two embeddings $f,g \colon X \to Y$ are said to be
+    isotopic if there exists an isotopy $F \colon X \times I
+    \to Y$ such that $F(x,0) = f(x)$ and $F(x,1) = g(x)$.
+\end{definition}
+
+
+\begin{definition}[Orientation]
+    A closed $n$-manifold $M$ is called orientable
+    if $H_n \left( M ; \mathbb{Z} \right) = \mathbb{Z}$.
+    The choice of generator $\left[ M \right] $ in
+    $\mathbb{Z}$ is called an orientation, and the generator
+    is called the fundamental class of $M$. A manifold
+    together with a choice of orientation is
+    called oriented. A compact $n$-manifold $M$ with
+    boundary is called orientable if
+    $H_n \left( M, \partial M ; \mathbb{Z} \right) = \mathbb{Z}$.
+    The choice of generator $\left[ M, \partial M \right] $ in
+    $\mathbb{Z}$ is called an orientation, and
+    $\left[ M, \partial M \right] $ is referred to as
+    the fundamental class of $M$.
+
+    A smooth manifold $M$ is orientable if and only if
+    the restriction of its tangent bundle to every smooth
+    curve is trivial.
+
+    \begin{remark}[]
+        This makes sense since T. Radó showed that every surface
+        is triangulable and it is clear then that the $2$-cycles
+        form a cyclic group. A choice of generator corresponds
+        to choosing an orientation of each $2$-simplex in the
+        triangulation (compatibly).
+    \end{remark}
+\end{definition}
+
+\begin{definition}[Inner and outer automorphisms]
+    Let $G$ be any group and $\gamma \in G$. A conjugate
+    automorphism 
+    \[
+    I_{\gamma} \colon g \mapsto \gamma g \gamma^{-1}
+    \] 
+    is called an \textit{inner automorphism} of $G$.
+    The group of inner automorphisms is denoted
+    by $\text{Inn}(G)$. It is isomorphic to
+    $G / Z(G)$, and is a normal subgroup of
+    $\Aut(G)$. The quotient
+    \[
+    \text{Out}(G) := \Aut(G) / \text{Inn}(G)
+    \] 
+    is called the \textit{outer automorphism group} of
+    $G$.
+\end{definition}
+
+
+
+
+\section{Appendix}
+
+\subsection{Fiber Bundles}
+
+\subsubsection{Bredon}
+
+\begin{definition}[]
+    Let $X, B$ and $F$ be Hausdorff spaces and
+    $p \colon X \to B$ a map.
+    Then $p$ is called a bundle projection with
+    fiber $F$, if each point of
+    $B$ has a neighborhood $U$ such that there
+    is a homeomorphism $\varphi \colon U \times F \to 
+    p^{-1}(U) $ such that $p \left( \varphi
+    \left<b,y  \right>\right) = b$ for all $b \in U$ and
+    $y \in F$. That is, on  $p^{-1}(U)$, $p$ corresponds
+    to projection $U \times F \to U$. Such a map
+    $\varphi $ is called a \textit{trivialization} of the
+    bundle over $U$.
+\end{definition}
+
+\begin{definition}[]
+    An action of a group $G$ on a space $X$ is
+    said to be \textit{effective} if
+    \[
+        \left( \forall x \in X \colon
+        gx = x \right) \implies g = e.
+    \] 
+\end{definition}
+
+\begin{definition}[]
+    Let $K$ be a topological group acting effectively on
+    the Hausdorff space $F$ as a group of homeomorphisms.
+    Let $X$ and $B$ be Hausdorff spaces. By a 
+    \textit{fiber bundle} over the base space $B$ with
+    total space $X$, fiber $F$, and
+    structure group $K$, we mean a bundle projection
+    $p \colon X \to B$ together with a collection
+    $\Phi $ of trivializations $\varphi \colon
+    U \times F \to p^{-1}(U)$, of $p$ over $U$, called
+    \textit{charts} over $U$, such that
+    \begin{enumerate}
+        \item each point of $B$ has a neighborhood
+            over which there is a chart in $\Phi $ ;
+        \item if $\varphi \colon U \times F \to 
+            p^{-1}(U)$ is in $\Phi $ and
+            $V \subset U$ then the restriction
+            of $\varphi $ to $V \times F$ is in $\Phi$;
+        \item if $\varphi, \psi \in \Phi$ are
+            charts over $U$, then there is a map
+            $\theta \colon U \to K$ such that
+            $\psi \left<u,y \right> = 
+            \varphi \left<u , \theta(u) (y) \right>$ ;
+        \item the set $\Phi $ is maximal among
+            collections satisfying (1), (2) and (3).
+    \end{enumerate}
+
+    The bundle is called \textit{smooth} if all these spaces
+    are manifolds and all maps involved are smooth.
+\end{definition}
+
+
+
+
+\begin{definition}[]
+    A \textit{vector bundle} is a fiber bundle
+    in which the fiber is a Euclidean space
+    and the structure group is the general linear group
+    if this Euclidean space or some subgroup of that
+    group.
+\end{definition}
+
+\subsubsection{Hatcher}
+
+\begin{definition}[Homotopy lifting property]
+    A map $p \colon E \to B$ is said to have the
+    homotopy lifting property with respect to
+    a space $X$ if, given a homotopy
+    $g \colon X \times I \to B$ and a map
+    $\tilde{g}_0 \colon X \times \left\{ 0 \right\}  \to E$ lifting
+    $g(x,0)$, so $p \tilde{g}_0(t,0) = g(t,0)$, then
+    there exists a homotopy
+    $\tilde{g} \colon X \times I \to E$ lifting
+    $g_t$.
+    \begin{equation*}
+    \begin{tikzcd}
+        X \times \left\{ 0 \right\} \ar[d, hookrightarrow] 
+        \ar[r, "\tilde{g}_0"] & E \ar[d, "p"] \\
+        X \times I \ar[r, "g"'] \ar[ru, dashed, "\tilde{g}"'] & B
+    \end{tikzcd}
+    \end{equation*}
+    This is a special case of the \textit{lift extension property
+    for a pair $\left( Z,A \right) $} (See \cite{Munkres})
+\end{definition}
+
+\begin{definition}[Fibration]
+    A fibration is a map $p \colon E \to B$ having the
+    homotopy lifting property with respect to
+    all spaces $X$. For example, a projection
+    $B \times F \to B$ is a fibration
+    since we can choose lifts of the form
+    $\tilde{g}(x,t) = \left( g(x,t),h(x) \right) $ 
+    where $\tilde{g}(x,0) = \left( g(x,0),h(x) \right) $.
+\end{definition}
+
+\begin{definition}[Homotopy lifting property for a pair
+    $(X,A)$]
+   The map $p \colon E \to B$ is said to have the
+   \textit{homotopy lifting property for a pair
+   $(X,A)$} if each homotopy
+   $f \colon X \times I \to B$ lifts to a homotopy
+   $\tilde{g} \colon X \times I \to E$ starting
+   with a given lift $\tilde{g}_0 \colon 
+   X \times \left\{ 0 \right\} \to E$ and
+   extending a given lift 
+   $\tilde{g} \colon A \times I \to E$.
+\end{definition}
+
+\begin{theorem}[]
+    Suppose $p \colon E \to B$ has the homotopy
+    lifting property with respect to disks
+    $D^{k}$ for all $k \ge 0$. Choose basepoints
+    $b_0 \in B$ and
+    $x_0 \in F = p^{-1}\left( b_0 \right) $. Then
+    the map $p_* \colon \pi_n \left( E, F,x_0 \right) 
+    \to \pi_n \left( B, b_0 \right) $ is an isomorphism
+    for all $n\ge 1$. Hence if $B$ is
+    path-connected, there is a long exact sequence
+    \[
+    \ldots \to \pi_n \left( F,x_0 \right) \to 
+    \pi_n \left( E,x_0 \right) \stackrel{p_*}{\to }
+    \pi_n \left( B,b_0 \right) \to 
+    \pi_{n-1}(F,x_0) \to \ldots \to 
+    \pi_0 \left( E,x_0 \right) \to 0
+    \] 
+\end{theorem}
+
+
+
+
+\begin{definition}[Fiber bundle]
+    A fiber bundle structure on a space $E$, with fiber
+    $F$, consists of a projection map
+    $p \colon E \to B$ such that each point of $B$ has
+    a neighborhood $U$ for which there is a homeomorphism
+    $h \colon p^{-1}(U) \to U \times F$ making
+    the following diagram commute
+    \begin{equation*}
+    \begin{tikzcd}
+        p^{-1}(U) \ar[rr, "h"] \ar[dr, "p"'] & & U \times F
+        \ar[dl, "proj"] \\
+                                            & U&
+    \end{tikzcd}
+    \end{equation*}
+    Thus
+    $h \left( p^{-1}(b) \right) 
+    = \left\{ b \right\} \times F$ by the projection map 
+    $p \colon E \to B$, but to indicate what the fiber
+    is we sometimes write a fiber bundle as
+    $F \to E \to B$, a "short exact sequence of spaces".
+    The space $B$ is called the \textit{base space} of the
+    bundle, and $E$ is the \textit{total space}.
+\end{definition}          
+
+\begin{remark}[]
+    This is just the definition of a covering map
+    without the restriction of $F$ having the discrete
+    topology.
+\end{remark}
+          
+\subsection{A couple of results on hyperelliptic involutions}
+
+\begin{lemma}[]
+    If $S$ is a Riemann surface of genus $g \ge 2$ admitting
+    an involution $J$ such that
+    $S / \left<J \right>$ has genus $0$, then
+    $S$ is a hyperelliptic Riemann surface with
+    equation of the form
+    $y^2 = \left( x-a_1 \right) \cdots
+    \left( x- a_{2g+1} \right) $
+\end{lemma}
+
+\begin{proposition}[]
+    The hyperelliptic involution
+    $J$ of a hyperelliptic Riemann surface $S$ is
+    the only automorphism of order $2$ such that
+    $S / \left<J \right> \approx \mathbb{P}^{1}$.
+\end{proposition}
+
+\begin{corollary}\label{hyperelliptic-involution-in-center}
+    The hyperelliptic involution $J$ of a hyperelliptic
+    Riemann surface lies in the center of
+    $\Aut (S)$.
+\end{corollary}
+
+
+          
+
+
+
+
+\newpage
+
+\printbibliography
+\end{document}
