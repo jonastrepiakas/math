@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber mcg"] 1736358102.83428 "mcg.bcf" "mcg.bbl" "mcg" 1736369308.80551 0
-  "mcg.bcf" 1736369308.5819 108500 3f41058af7682c74c5dd52aacdaee6dd "pdflatex"
+["biber mcg"] 1736358102.83428 "mcg.bcf" "mcg.bbl" "mcg" 1736373683.10194 0
+  "mcg.bcf" 1736373682.74324 108500 3f41058af7682c74c5dd52aacdaee6dd "pdflatex"
   "mcg.bib" 1735384616.41493 4081 93827f78d26d672b90657a4d6e02e168 ""
   (generated)
   "mcg.bbl"
   "mcg.blg"
   (rewritten before read)
-["pdflatex"] 1736369305.08083 "mcg.tex" "mcg.pdf" "mcg" 1736369308.80597 0
+["pdflatex"] 1736373677.31112 "mcg.tex" "mcg.pdf" "mcg" 1736373683.10246 0
   "/etc/texmf/web2c/texmf.cnf" 1718688975.81737 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/jonas-trepiakas/.texlive2023/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk" 1727527665.45445 6964 86acb68f026bd4eb7255bbd50e22f730 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -277,12 +277,12 @@
   "lemma-1-8.jpg" 1725374373.76166 46887 b342f35cf067c4b04a7e320195cf071e ""
   "lifts-of-paths.jpg" 1722893708.76281 203201 83ed0f50a606912a88eabfbe2318e4a3 ""
   "mapping-cylinder-mobius.jpg" 1733867323.69041 38531 317b9fecffe785fc00d9d1a3ed713c0d ""
-  "mcg.aux" 1736369308.5759 24997 b054d479b2b187ba0822c0170392bb98 "pdflatex"
+  "mcg.aux" 1736373682.73424 25059 9b34bcdaf0f8a26c4a2c62caabef1c3b "pdflatex"
   "mcg.bbl" 1736358103.77303 7870 aebf718f0f769f91f6269d7e3eed2be0 "biber mcg"
-  "mcg.out" 1736369308.5779 9181 b1ddb3b4a178cc74c648916ff585c8af "pdflatex"
-  "mcg.run.xml" 1736369308.5829 2291 ea095ae86321b5bc0eeb8ead9760d63f "pdflatex"
-  "mcg.tex" 1736369300.66989 157760 e19018c1185992c3ce572932977a8c1e ""
-  "mcg.toc" 1736369308.5829 6934 50a1fe70160e61885389110d8406f7c7 "pdflatex"
+  "mcg.out" 1736373682.73724 8931 11fd83e9a038e2d93cd0d193870b9164 "pdflatex"
+  "mcg.run.xml" 1736373682.74424 2291 ea095ae86321b5bc0eeb8ead9760d63f "pdflatex"
+  "mcg.tex" 1736373668.3862 158182 069194bb7edc0b98ddd62a11913e0508 ""
+  "mcg.toc" 1736373682.74424 6722 40cf4d28b3c00a0849aca8c69fa256f9 "pdflatex"
   "prop32.png" 1736285650.2702 9932 8c449564d35b59826e36f4986b3dde5c ""
   "prop32b.png" 1736288842.18806 5438 a1e4601bf635d4707d497ae9cc8d6b6d ""
   "push-point-map.png" 1728512950.81616 42008 a9c8295eac0b41b0b5ff2cfb4d9e9ad4 ""

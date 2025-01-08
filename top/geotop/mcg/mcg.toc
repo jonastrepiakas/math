@@ -8,7 +8,7 @@
 \contentsline {subsection}{\tocsubsection {}{}{Bigons}}{7}{section*.8}%
 \contentsline {subsection}{\tocsubsection {}{}{Homotopy versus isotopy for simple closed curves}}{8}{section*.11}%
 \contentsline {subsubsection}{\tocsubsubsection {}{}{Extension of isotopies}}{8}{section*.13}%
-\contentsline {subsection}{\tocsubsection {}{1.2}{Small digression on Hirsch chapter 8}}{8}{subsection.1.2}%
+\contentsline {subsection}{\tocsubsection {}{1.2}{Small digression isotopies and their extensions}}{8}{subsection.1.2}%
 \contentsline {subsection}{\tocsubsection {}{1.3}{Arcs}}{9}{subsection.1.3}%
 \contentsline {subsection}{\tocsubsection {}{}{Change of coordinates principle}}{9}{section*.16}%
 \contentsline {subsubsection}{\tocsubsubsection {}{}{Classification of simple closed curves}}{10}{section*.17}%
@@ -50,8 +50,6 @@
 \contentsline {subsection}{\tocsubsection {}{5.1}{Monoidal categories}}{35}{subsection.5.1}%
 \contentsline {subsection}{\tocsubsection {}{5.2}{Yang-Baxter operators}}{38}{subsection.5.2}%
 \contentsline {subsection}{\tocsubsection {}{5.3}{Braided monoidal category of decorated and bidecorated surfaces}}{40}{subsection.5.3}%
-\contentsline {subsection}{\tocsubsection {}{5.4}{Braiding inducing geometric representation}}{44}{subsection.5.4}%
-\contentsline {subsubsection}{\tocsubsubsection {}{5.4.1}{The bidecorated case}}{45}{subsubsection.5.4.1}%
 \contentsline {section}{\tocsection {}{6}{Geometric Representations of the Braid Group on non-orientable surfaces}}{46}{section.6}%
 \contentsline {subsubsection}{\tocsubsubsection {}{6.0.1}{The standard twist representation}}{47}{subsubsection.6.0.1}%
 \contentsline {subsubsection}{\tocsubsubsection {}{6.0.2}{The crosscap transposition representation}}{48}{subsubsection.6.0.2}%
@@ -64,4 +62,4 @@
 \contentsline {subsubsection}{\tocsubsubsection {}{9.1.1}{Bredon}}{51}{subsubsection.9.1.1}%
 \contentsline {subsubsection}{\tocsubsubsection {}{9.1.2}{Hatcher}}{52}{subsubsection.9.1.2}%
 \contentsline {subsection}{\tocsubsection {}{9.2}{A couple of results on hyperelliptic involutions}}{53}{subsection.9.2}%
-\contentsline {section}{\tocsection {}{}{References}}{54}{section*.67}%
+\contentsline {section}{\tocsection {}{}{References}}{54}{section*.68}%

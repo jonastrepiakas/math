@@ -721,7 +721,7 @@ For this, we need the notion of a \textit{bigon}:
     \cite[Ch~8, Thm 1.3]{Hirsch}
 \end{proof}
 
-\subsection{Small digression on Hirsch chapter 8}
+\subsection{Small digression isotopies and their extensions}
 
 \begin{definition}[Isotopy in general and their tracks]
     Let $V$ and $M$ be manifolds. An
@@ -3572,13 +3572,18 @@ and \\[1 ex]
          
      \end{proposition}
 
-     \begin{proposition}[]
+     \begin{proposition}[]\label{yang-baxter-inducing-representation}
          For any strict monoidal category $\mathcal{V}$ and
          any Yang-Baxter $\tau$ on an element $X \in V$, there
          exists a unique strict monoidal functor
          $\Phi_{X, \tau} \colon \mathcal{B} \to \mathcal{V}$ such that
          $\Phi_{X, \tau} \circ z = y$.
      \end{proposition}
+
+     \todo{We do not want this result for strict categories
+     only since our categories of surfaces later are not strict.
+ However, we can just remove strictness in the proposition and
+everything goes through.}
 
      \begin{proof}[Proof and construction]
          Define $\Phi_{X, \tau} \colon \mathcal{B} \to \mathcal{V}$ 
@@ -3600,23 +3605,25 @@ and \\[1 ex]
          \todo{More explicit details.}
      \end{proof}
 
-     \begin{definition}[]
-         If $\mathcal{V}$ and $\mathcal{W}$ are monoidal categories,
-         we define $\Mon \left( 
-         \mathcal{V}, \mathcal{W}\right) $ to be the
-         category whose objects are
-         monoidal functors $F \colon \mathcal{V} \to 
-         \mathcal{W}$ and whose morphisms are
-         morphisms $\psi \colon F \implies G$ of
-         monoidal functors.
+     \begin{remark}[]
+         In particular,
+         $\Phi_{X,\tau,n} \colon
+         \mathcal{B}_n \to \Aut_{\mathcal{V}}
+         \left( X^{\otimes n} \right) $ for all
+         $n$.\\
 
-         If $\mathcal{V}, \mathcal{W}$ are braided monoidal
-         categories, we write
-         $\BMon \left( \mathcal{V}, \mathcal{W} \right) $ for
-         the full subcategory of
-         $\Mon \left( \mathcal{V}, \mathcal{W} \right) $ consisting
-         of the braided monoidal functors.
-     \end{definition}
+         As we said in the beginning, our goal
+         is to get geometric representations from
+         Yang-Baxter operators, so given our construction
+         of $\Phi_{X,\tau}$, we might hope to
+         find a category $\mathcal{V}$ such that
+         its objects are surfaces and
+         $\Aut_{\mathcal{V}} \left( X^{\otimes n} \right) $ 
+         might correspond to a mapping class group. Indeed,
+         this is what we shall do now in two
+         different cases: the category of decorated surfaces
+         and the category of bidecorated surfaces.
+     \end{remark}
 
 
 
@@ -3637,10 +3644,15 @@ and \\[1 ex]
        Let $\mathcal{M}_1$ denote the groupoid where
        the objects are
        decorated surfaces and
-       morphisms are isotopy classes of diffeomorphisms
+       morphisms are isotopy classes of diffeomorphisms/homeomorphisms
        restricting to the identity on a neighborhood
        of $I$.
    \end{definition}
+
+   \begin{remark}[]
+       In particular, $\Aut_{\mathcal{M}_1} 
+       \left( S \right) = \Mod (S)$.
+   \end{remark}
 
    We now construct a braided monoidal structure on
    $\mathcal{M}_1$ : given decorated surfaces
@@ -3674,7 +3686,7 @@ and \\[1 ex]
    as the half-Dehn twist which satisfies that
    $c \colon \left( S_1 \natural S_2, I_1 \natural I_2 \right) 
    \stackrel{\sim}{\to } \left( S_2 \natural S_1, I_2 \natural I_1 \right)  $
-   is a natural isomorphism because we
+   is a natural isomorphism because
    it has the opposite half-Dehn twist as the inverse. It is
    natural because the induced map will simply be the one induced by
    the naturality square.
@@ -3693,6 +3705,23 @@ and \\[1 ex]
         \includegraphics[width=0.9\textwidth]{B2.jpg} % second figure itself
     \end{minipage}
 \end{figure}
+
+This is precisely the requirements needed in
+Proposition \ref{yang-baxter-inducing-representation}, so
+we obtain a monoidal functor
+$\Phi \colon \mathcal{B} \to \mathcal{M}_1$ 
+such that $\Phi \circ z = y$ where
+$y \in \Aut_{\mathcal{M}_1}
+\left( S \natural S \right)
+= \Mod \left( S \natural S \right) $
+is the induced Yang-Baxter operator
+on some decorated surface $S$ from the braiding.
+So again, we obtain
+a geometric representation
+$\Phi_{n} \colon \mathcal{B}_n \to 
+\Mod \left( S^{\natural n} \right) $\\
+\linebreak
+
 
 We will also consider a different monoidal category of
 surfaces. Informally, a bidecorated surface is a surface with two 
@@ -3844,24 +3873,31 @@ topology, and
 $\Homeo_{\partial}\left( S,S' \right) $ the subspace topology.
 \end{definition}
 
-The monoidal structure $\natural $ on $\mathcal{M}_2$ is defined
+\begin{remark}[]
+    We again obtain that
+    $\Aut_{\mathcal{M}_2}
+    \left( \left( S,m,\varphi  \right)  \right) 
+    = \Mod (S)$.
+\end{remark}
+
+The monoidal structure $\natural^2 $ on $\mathcal{M}_2$ is defined
 as follows. The object $U$ is by definition a unit,
 and for the remaining objects, we define
 \[
-    \left( S,m, \varphi  \right) \natural
+    \left( S,m, \varphi  \right) \natural^2
     \left( S',m', \varphi ' \right) 
     :=
     \left( \frac{S \sqcup S'}{I_i(t)
     \sim \overline{I_i'}(t), t \in 
 \left[ \frac{1}{2},1 \right] }, m+m',
-\varphi \natural \varphi ' \right) 
+\varphi \natural^2 \varphi ' \right) 
 \] 
 for $i = 0,1$, and where
 \[
-\varphi \natural \varphi ' \colon
+\varphi \natural^2 \varphi ' \colon
 \partial X_{m+m'} \sqcup \left( \sqcup_{k+k'}
 S^{1}\right) \hookrightarrow \partial
-\left( S \natural S' \right) 
+\left( S \natural^2 S' \right) 
 \] 
 is obtained using the canonical identification
 $\partial X_{m+m'} \approx 
@@ -3872,40 +3908,41 @@ $\partial X_{m+m'} \approx
 
 Now we will construct a Yang-Baxter element
 in $\mathcal{M}_2$ as follows. Let
-$D^{\natural m} = D_1 \natural \ldots \natural \left( D_i \natural D_{i+1} \right) 
-\natural \ldots \natural D_m$, where subscripts are used to enumerate
+$D^{\natural^2 m} = D_1 \natural^2 \ldots \natural^2
+\left( D_i \natural^2 D_{i+1} \right) 
+\natural^2 \ldots \natural^2 D_m$, where subscripts are used to enumerate
 the disks. The underlying surface, by construction, will
 be $X_m$. Let
 $a_i$ denote the isotopy class of a curve in the interior
-$D_i \natural D_{i+1} \approx
+$D_i \natural^2 D_{i+1} \approx
 S^{1} \times I$ that is parallel to its
-boundary components, see figure \ref{fig:curvem2-png}.
+boundary components, see figure \ref{fig:curve-m-2-png}.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.4\textwidth]{curvem2.png}
-    \label{fig:curvem2-png}
     \caption{The curve $a_i$ in $D_i \natural D_{i+1}$}
+    \label{fig:curve-m-2-png}
 \end{figure}
 
 \begin{lemma}[]
     The curves $a_1, \ldots, a_{m-1}$ form a chain in
-    $D^{\natural m}$.
+    $D^{\natural^2 m}$.
 \end{lemma}
 
 \begin{proof}
-    The curve $a_i$ has image contained in $D_i \natural D_{i+1}$,
+    The curve $a_i$ has image contained in $D_i \natural^2 D_{i+1}$,
     so it can only intersect $a_{i-1}$ and $a_{i+1}$ nontrivially.
     So it suffices to look at the subsurface of
-    $D^{\natural m}$ corresponding to
-    $D_i \natural D_{i+1} \natural D_{i+2}$.
+    $D^{\natural^2 m}$ corresponding to
+    $D_i \natural^2 D_{i+1} \natural^2 D_{i+2}$.
 
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.6\textwidth]{intersection-a_is.png}
         \caption{Intersection of
         $a_i$ and $a_{i+1}$ in
-    $D_i \natural D_{i+1} \natural D_{i+2}$.}
+    $D_i \natural^2 D_{i+1} \natural^2 D_{i+2}$.}
         \label{fig:intersection-a_is-png}
     \end{figure}
 \end{proof}
@@ -3914,9 +3951,9 @@ boundary components, see figure \ref{fig:curvem2-png}.
 Now by Lemma \ref{dehn-intersection-0} and Proposition \ref{dehn-braid-relation}
 (the braid relation), we get that the
 braid group relations hold for the Dehn twists
-$T_i \in \Aut_{\mathcal{M}_2}\left( D^{\natural m} \right) $ 
+$T_i \in \Aut_{\mathcal{M}_2}\left( D^{\natural^2 m} \right) $ 
 where $T_i$ is the Dehn twist along the curve
-$a_i$ in $D^{\natural m}$, i.e.,
+$a_i$ in $D^{\natural^2 m}$, i.e.,
 \begin{align*}
     T_{i}T_{i+1}T_i 
     &= T_{i+1} T_i T_{i+1} &\forall i\\
@@ -3926,58 +3963,56 @@ $a_i$ in $D^{\natural m}$, i.e.,
 Hence the same relations hold for the
 inverses $T_{i}^{-1}$.\\
 \linebreak
-If we add a disk to either side of $D^{\natural m}$, we get
+If we add a disk to either side of $D^{\natural^2 m}$, we get
 \[
-T_i \natural \id_{D} = T_i \quad \text{and} \quad
-\id_{D}\natural T_i = T_{i+1}
+T_i \natural^2 \id_{D} = T_i \quad \text{and} \quad
+\id_{D}\natural^2 T_i = T_{i+1}
 \] 
-in $\Aut_{\mathcal{M}_2}\left( D^{\natural m+1} \right) $.
+in $\Aut_{\mathcal{M}_2}\left( D^{\natural^2 m+1} \right) $.
 Hence this gives the relation
 \[
-    \left( T_1^{-1} \natural \id_D \right) \left( \id_D \natural
-    T_1^{-1} \right) \left( T_1^{-1} \natural id_D \right) 
+    \left( T_1^{-1} \natural^2 \id_D \right) \left( \id_D \natural^2
+    T_1^{-1} \right) \left( T_1^{-1} \natural^2 id_D \right) 
     = 
-    \left( \id_D \natural T_1^{-1} \right) 
-    \left( T_1^{-1} \natural \id_D \right) 
-    \left( \id_D \natural T_1^{-1} \right) 
+    \left( \id_D \natural^2 T_1^{-1} \right) 
+    \left( T_1^{-1} \natural^2 \id_D \right) 
+    \left( \id_D \natural^2 T_1^{-1} \right) 
 \] 
-in $\Aut_{\mathcal{M}_2} \left( D^{\natural 3} \right) $,
+in $\Aut_{\mathcal{M}_2} \left( D^{\natural^2 3} \right) $,
 meaning that $T_1^{-1}$ is a Yang-Baxter element. This
 yields a monoidal functor
 \[
 \Phi = \Phi_{D, T_1^{-1}} \colon
-\left( B, \otimes \right) 
-\to \left( \mathcal{M}_2, \natural \right) 
+\left( \mathcal{B}, \otimes \right) 
+\to \left( \mathcal{M}_2, \natural^2 \right) 
 \] 
 uniquely determined up to monoidal natural
 isomorphism by
-$\Phi (n) = D^{\natural n}$ and
+$\Phi (n) = D^{\natural^2 n}$ and
 $\Phi_{D, T_1^{-1}, n} \left( \sigma_1 \right) =
-D^{\natural i-1} \natural  T_1^{-1} \natural D^{\natural n - i -1} =
+D^{\natural^2 i-1} \natural^2  T_1^{-1} \natural^2
+D^{\natural^2 n - i -1} =
 T_i^{-1} \in 
-\Aut_{\mathcal{M}_2}\left( D^{\natural m} \right) 
+\Aut_{\mathcal{M}_2}\left( D^{\natural^2 m} \right) 
 = \pi_0 \Homeo_{\partial} \left( X_m \right)$.
-But by the Birman-Hilden theorem, the homomorphisms
-$\Phi_{D, T_1^{-1}, m} \colon
-B_m \to \Aut_{\mathcal{M}_2} 
-\left( D^{\natural m} \right) $ are injective.
-
-In particular, 
+Seeing that this is exactly
+the setup for the Birman-Hilden theorem,
+we note that the homomorphisms
 \[
     \Phi_m = \Phi_{D,T_1^{-1},m}
 \colon B_m \to \Aut_{\mathcal{M}_2}
-\left( D^{\natural m} \right) \approx
+\left( D^{\natural^2 m} \right) \approx
 \Aut_{\mathcal{M}_2} \left( 
 X_m\right)
 \approx
 \begin{cases}
-    \Aut_{\mathcal{M}_2} 
+    \Mod 
     \left( S_{\frac{m}{2}-1,2} \right) ,& m\text{ even}\\
-    \Aut_{\mathcal{M}_2} \left( 
+    \Mod \left( 
 S_{\frac{m-1}{2}, 1} \right),& m\text{ odd}
 \end{cases}.
 \] 
-recovers the Birman-Hilden embedding from
+recover the Birman-Hilden embeddings from
 section \ref{birman-hilden-embedding-construction}.
 
 
@@ -3987,22 +4022,6 @@ section \ref{birman-hilden-embedding-construction}.
 
 
 
-\subsection{Braiding inducing geometric representation}
-     
-     Putting the things above together, we have that a 
-     Yang-Baxter operator $\tau \in \Aut_{\mathcal{X}} 
-     \left( X \otimes X \right) $ gives a collection
-     of homomorphisms
-     $\varphi_{X, \tau} \colon B_n \to \Aut_{\mathcal{X}}
-     \left( X^{\otimes n} \right) $. There
-     are two standard ways to embed braid groups in mapping class
-     groups of surfaces and we will describe how they
-     both come from Yang-Baxter elements in appropriate categories
-     of surfaces.
-
-
-     
-     \subsubsection{The bidecorated case}
 
 
 
@@ -4028,8 +4047,8 @@ $z \mapsto z^2$ (see figure~\ref{fig:mapping-cylinder-mobius})
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=0.7\textwidth]{mapping-cylinder-mobius.jpg}
-    \label{fig:mapping-cylinder-mobius}
     \caption{Möbius band}
+    \label{fig:mapping-cylinder-mobius}
 \end{figure}
 
 In this case, any of the two curves making up the half-circles which
@@ -4063,6 +4082,8 @@ Note also that $\mathbb{R}\mathbb{P}^2 \# \mathbb{R}\mathbb{P}^2
 \begin{proof}
 
 For $g = 2n+1$ with $n\ge 0$, we have
+(see \ref{fig:N_3-1-jpg} for a visual argument for
+$T^2 \# M \approx K \# M$ )
 \begin{align*}
 N_{2n+1,1} \approx
 \left( \mathbb{R}\mathbb{P}^2 \right)^{\# 2n+1} -
@@ -4076,30 +4097,25 @@ N_{2n+1,1} \approx
 &\approx S_{n,1} \natural M
 \end{align*}
 
+
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{N_3,1.jpg}
+    \caption{A hemeomorphism between 
+    $T^2 \# M$ and $K \# M$}
     \label{fig:N_3-1-jpg}
 \end{figure}
-
 
 \end{proof}
 
 Hence for $g$ odd, we have an embedding
 $B_{g} \hookrightarrow N_{g,1}$ by the Birman-Hilden
-embedding into the $S_{n,1}$ summand.
+embedding into the $S_{n,1}$ summand. A similar thing
+can be done for the even case.\\
+\linebreak
 
-\begin{definition}[Geometric representation]
-    A geometric representation of a group $G$ is any
-    homomorphism $G \to \Mod (S)$ for some
-    surface $S$.
-\end{definition}
 
-\begin{example}[]
-    The homomorphism $\psi  \colon B_n \to \Mod(S_{g}^{1})$ 
-    defined in the Birman-Hilden isomorphism is an
-    example of a geometric representation of the braid group.
-\end{example}
 
 
 We will introduce three types of geometric representations
@@ -4107,13 +4123,10 @@ of the braid group: the standard twist representation, the crosscap
 transposition representation, and lastly, transvection.\\
 
 
+\begin{definition}[]
 We call a curve two-sided (resp. one-sided) if its regular neighborhood is an
-annulus (resp a Möbius band). A sequence
-$C \left( a_1, \ldots, a_{n-1} \right) $ of two-sided
-curves in $S$ is called a chain of nonseparating curves
-if $i \left( a_i, a_{i+1} \right) =1$ for
-$1 \le i \le n-2$ and
-$i \left( a_i, a_j \right) =0$ for $\left| i-j \right| >0$.
+annulus (resp a Möbius band).
+\end{definition}
 
 \subsubsection{The standard twist representation}
 
@@ -4137,14 +4150,29 @@ $i \left( a_i, a_j \right) =0$ for $\left| i-j \right| >0$.
 \end{figure}
 
 \begin{question}
-    Is the standard twist representation
-    $\rho_{C} \colon B_g \to \PMod (N_{g,b})$ the
-    same as the Birman-Hilden embedding?
+    One might wonder whether the standard twist representation
+    corresponds to an induced representation from a Yang-Baxter
+    operator on some category of surfaces.
 \end{question}
 
+To answer whether this is the case, we claim the following:
+
+\begin{proposition}[]
+    The standard twist representation
+    $\rho_{C} \colon B_g \to \Mod (N_{g,b})$ is the
+    same as the Birman-Hilden embedding.
+\end{proposition}
+
+\begin{proof}
 Let us first approach the question for
-$g$ odd since here
-we can use Proposition \ref{prop61}
+$g$ odd using Proposition \ref{prop61}.
+
+
+
+
+
+
+\end{proof}
 
 
 
@@ -4171,8 +4199,8 @@ sphere with two crosscaps which is equivalent to the Klein bottle
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.2\textwidth]{klein-bottle.jpg}
-    \label{fig:klein-bottle}
     \caption{Klein-bottle as the sphere with two crosscaps}
+    \label{fig:klein-bottle}
 \end{figure}
 
 Let $K_i$ be the one-hoeld Klein bottle bounded by
