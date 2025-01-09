@@ -1,17 +1,17 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
 [0] Config.pm:310> INFO - Logfile is 'mcg.blg'
-[95] biber:340> INFO - === Wed Jan  8, 2025, 18:41:43
-[114] Biber.pm:419> INFO - Reading 'mcg.bcf'
-[165] Biber.pm:979> INFO - Found 6 citekeys in bib section 0
-[175] Biber.pm:4419> INFO - Processing section 0
-[183] Biber.pm:4610> INFO - Looking for bibtex file 'mcg.bib' for section 0
-[184] bibtex.pm:1713> INFO - LaTeX decoding ...
-[198] bibtex.pm:1519> INFO - Found BibTeX data source 'mcg.bib'
-[255] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[79] biber:340> INFO - === Thu Jan  9, 2025, 04:57:39
+[92] Biber.pm:419> INFO - Reading 'mcg.bcf'
+[145] Biber.pm:979> INFO - Found 7 citekeys in bib section 0
+[156] Biber.pm:4419> INFO - Processing section 0
+[165] Biber.pm:4610> INFO - Looking for bibtex file 'mcg.bib' for section 0
+[166] bibtex.pm:1713> INFO - LaTeX decoding ...
+[184] bibtex.pm:1519> INFO - Found BibTeX data source 'mcg.bib'
 [255] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[255] Biber.pm:4239> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
-[255] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
-[263] bbl.pm:660> INFO - Writing 'mcg.bbl' with encoding 'UTF-8'
-[265] bbl.pm:763> INFO - Output to mcg.bbl
-[265] Biber.pm:131> WARN - ISBN '0-521-79160-X; 0-521-79540-0' in entry 'Hatcher' is invalid - run biber with '--validate_datamodel' for details.
-[265] Biber.pm:133> INFO - WARNINGS: 1
+[256] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[256] Biber.pm:4239> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[256] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[265] bbl.pm:660> INFO - Writing 'mcg.bbl' with encoding 'UTF-8'
+[267] bbl.pm:763> INFO - Output to mcg.bbl
+[268] Biber.pm:131> WARN - ISBN '0-521-79160-X; 0-521-79540-0' in entry 'Hatcher' is invalid - run biber with '--validate_datamodel' for details.
+[268] Biber.pm:133> INFO - WARNINGS: 1

@@ -211,6 +211,35 @@
       \field{pages}{xvi+537}
       \range{pages}{-1}
     \endentry
+    \entry{StSz}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=f6083947268d47ae2154a78e035f21e8}{%
+           family={Stukow},
+           familyi={S\bibinitperiod},
+           given={Michał},
+           giveni={M\bibinitperiod}}}%
+        {{hash=a041cff405cef023e48fb89dc4715951}{%
+           family={Szepietowski},
+           familyi={S\bibinitperiod},
+           given={Błażej},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{527508edf73b3f1eaa1a1c420ae29360}
+      \strng{fullhash}{527508edf73b3f1eaa1a1c420ae29360}
+      \strng{bibnamehash}{527508edf73b3f1eaa1a1c420ae29360}
+      \strng{authorbibnamehash}{527508edf73b3f1eaa1a1c420ae29360}
+      \strng{authornamehash}{527508edf73b3f1eaa1a1c420ae29360}
+      \strng{authorfullhash}{527508edf73b3f1eaa1a1c420ae29360}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Geometric representations of the braid group on a nonorientable surface}
+      \field{year}{2024}
+      \verb{doi}
+      \verb 10.48550/arXiv.2408.04707
+      \endverb
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

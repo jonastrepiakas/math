@@ -153,5 +153,6 @@ MRREVIEWER = {Thilo Kuessner},
    AUTHOR  = {Stukow, Michał AND Szepietowski, Błażej},
    TITLE   = {Geometric representations of the braid group on a nonorientable surface},
    YEAR    = {2024},
+   URL = {a}
    DOI = {10.48550/arXiv.2408.04707}
 }

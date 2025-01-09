@@ -2740,8 +2740,17 @@ induced by the inclusion
  $S_{g}^{1}$, that is, a collection of
  simple closed curves satisfying
  $i \left( \alpha_i, \alpha_{i+1} \right) =1$ for
- all $i$ and $i \left( \alpha_i, \alpha_j \right) =0$ otherwise.
- \todo{Insert picture of Humphries generators}
+ all $i$ and $i \left( \alpha_i, \alpha_j \right) =0$ otherwise,
+ see Figure \ref{fig:Humphreys-generators-png}.
+
+ \begin{figure}[htpb]
+     \centering
+     \includegraphics[width=0.8\textwidth]{Humphreys-generators.png}
+     \caption{A chain of simple closed curves (Humphreys generators ).
+     }
+     \label{fig:Humphreys-generators-png}
+ \end{figure}
+
  We then define $\psi $ via
  $\psi \left( \sigma_i \right) =
  T_{\alpha_i}$.
@@ -4107,7 +4116,10 @@ N_{2n+1,1} \approx
     \label{fig:N_3-1-jpg}
 \end{figure}
 
+
+
 \end{proof}
+
 
 Hence for $g$ odd, we have an embedding
 $B_{g} \hookrightarrow N_{g,1}$ by the Birman-Hilden
@@ -4146,6 +4158,8 @@ annulus (resp a Möbius band).
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{standard-chain.png}
+    \caption{Standard chain of non-separating curves
+    in $N_{g,b}$}
     \label{fig:standard-chain-png}
 \end{figure}
 
@@ -4158,23 +4172,110 @@ annulus (resp a Möbius band).
 To answer whether this is the case, we claim the following:
 
 \begin{proposition}[]
-    The standard twist representation
+    For $b\ge 1$ and
+    $g$ odd, the standard twist representation
     $\rho_{C} \colon B_g \to \Mod (N_{g,b})$ is the
-    same as the Birman-Hilden embedding.
+    same as the Birman-Hilden embedding
+    $B_g \hookrightarrow S_{\frac{g-1}{2}, b-1} \# M $
+    into the orientable factor.
 \end{proposition}
 
 \begin{proof}
 Let us first approach the question for
 $g$ odd using Proposition \ref{prop61}.
 
+To make use of the visualization from Figure
+\ref{fig:N_3-1-jpg}, we need the steps to go from 
+$K - D^2$ as a sphere with two crosscaps and a disk removed
+to the depiction in Figure \ref{fig:N_3-1-jpg}. This 
+is shown in 
+Figure \ref{fig:part1-deformation-jpg}.
+
+Suppose we look at the chandard chain of non-separating curves
+in $N_{3,b}$, so we have curves $a_1$ and $a_2$ as
+in Figure \ref{fig:standard-chain-png}.
+Now, since
+ $N_{3,1} = K \# M $, we can decompose the loops
+ $a_1$ and $a_2$ and follow
+ it through the homeomorphisms for
+ $K - D$ and for $M - D$ as in 
+ in Figure \ref{fig:part1-deformation-curve-jpg} and
+ Figure \ref{fig:part2-deformation-curve-jpg}.
+
+ After the transformations, we reglue the surfaces
+ and twist
+ the tube from the Klein bottle around
+ to obtain a torus 
+ as in Figure \ref{fig:klein-to-torus-curve-jpg}.
+
+ Now, noting that 
+ \[
+ N_{2g+1,1}
+ \approx 
+ \left( \left( \mathbb{R}\mathbb{P}^2 - \mathring{D} \right)
+\natural \left( \mathbb{R}\mathbb{P}^2 
+- \mathring{D} \right)\right)^{\natural g}
+\natural M - \bigsqcup_{b-1} \mathring{D} 
+= K^{\natural g} \natural M - 
+\bigsqcup_{b-1} \mathring{D},
+\]
+we find that for $N_{2g+1,1}$ with $g>1$, we get a similar
+picture as for $N_{3,1}$, depicted in Figure
+\ref{fig:many-klein-torus-curve-jpg}, where
+we can also twist the tube around.
+
+In conclusion, the loops really correspond to a
+standard chain in $S_g$, so the
+standard twist representation
+$\rho_{C} \colon
+B_{2g+1} \to \Mod \left( N_{2g+1,1} \right) 
+\approx \Mod \left( S_{g,1} \natural M \right) $ 
+corresponds to the Birman-Hilden embedding
+into the $S_{g,1}$ factor.
 
 
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{part1-deformation.jpg}
+    \caption{The}
+    \label{fig:part1-deformation-jpg}
+\end{figure}
 
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{part1-deformation-curve.jpg}
+    \caption{aaa}
+    \label{fig:part1-deformation-curve-jpg}
+\end{figure}
 
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{part2-deformation-curve.jpg}
+    \caption{bbb}
+    \label{fig:part2-deformation-curve-jpg}
+\end{figure}
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{klein-to-torus-curve.jpg}
+    \caption{ccc}
+    \label{fig:klein-to-torus-curve-jpg}
+\end{figure}
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.5\textwidth]{many-klein-torus-curve.jpg}
+    \caption{many-klein-torus-curve.jpg}
+    \label{fig:many-klein-torus-curve-jpg}
+\end{figure}
 
 \end{proof}
 
 
+\begin{question}
+    What happens in the case of
+    $b=0$ or $g$ even?
+\end{question}
 
 \subsubsection{The crosscap transposition representation}
 
@@ -4203,7 +4304,7 @@ sphere with two crosscaps which is equivalent to the Klein bottle
     \label{fig:klein-bottle}
 \end{figure}
 
-Let $K_i$ be the one-hoeld Klein bottle bounded by
+Let $K_i$ be the one-holed Klein bottle bounded by
 $a_i$. Then $K_i \cap K_{i+1}$ will be a Möbius strip
 for $i = 1, \ldots, n-2$, and we denote its core curve
 by $\mu_{i+1}$. Let $\mu_1$ and $\mu_n$ be the core curves
@@ -4232,6 +4333,12 @@ instead of punctures).
     called crosscap transposition representation.
 \end{lemma}
 
+\begin{remark}[]
+    This is simply the geometric representation
+    arising from the Yang-Baxter element associated to
+    the Möbius band in $\mathcal{M}_1$.
+\end{remark}
+
 
 \subsubsection{Transvection}
 
@@ -4253,7 +4360,19 @@ instead of punctures).
     cyclic group. 
 \end{definition}
 
+\begin{note}
+    Note that transvection defines an
+    equivalence relation on
+    the set of representations
+    $B_n \to \PMod(S)$.
+\end{note}
+
+
 \subsection{The main theorems}
+
+Following work by Castel and generalizations by
+Chen and Mukherjea, Stukow and 
+\cite{StSz}
 
 \begin{theorem}[]\label{Thm1.2}
     Let $n \ge 14$ and let $N = N_{g,b}$ with
@@ -4275,101 +4394,6 @@ Note that $\Mod (N, \partial N) \not \le
 \PMod (N)$ as, for example, the Dehn twist about a boundary
 curve is non-trivial in $\Mod \left( N, \partial N \right) $, but
 becomes trivial in $\PMod (N)$.
-
-
-
-\newpage
-
-
-\section{The Burau Representations of the Braid Group}
-
-Let $\Lambda = \mathbb{Z} \left[ t,t^{-1} \right] $ and
-$n \ge 2$. Over $\Lambda$, consider the $n\times n$-matrix
-\[
-U_i =
-\begin{pmatrix} 
-    I_{i-1} & 0 & 0 & 0\\
-    0 & 1-t & t & 0\\
-    0 & 1 & 0 & 0\\
-    0 & 0 & 0 & I_{n-i-1}
-\end{pmatrix}.
-\] 
-So letting
-$U = \begin{pmatrix} 1- t & t \\ 1 & 0 \end{pmatrix} $,
-$U_i$ becomes a block matrix on identity matrices and $U$.
-
-\begin{proposition}[]
-    Each $U_i$ is invertible, and the $U_i$ for $i \in 
-    \left\{ 1, \ldots, n \right\} $, for $n\ge 2$, satisfy
-    the braid relations.
-\end{proposition}
-
-\begin{proof}
-By the Cayley-Hamilton theorem, any $2 \times 2$-matrix
-$M$ over the ring $\Lambda$ satisfies
-$M^2 - \tr (M) M + \det (M) I_{2} = 0$. For
-$M = U$, we get $U^2 - \left( 1-t \right) U - t I_2 = 0$.
-Clearly, also $I_n^2 - (1-t) I_n - t I_n = 0$ for all $n$, so
-we find that $U_i^2 - (1-t)U_i - t I_n = 0$ for all
-$i$, giving
-$U_i \left( U_i - (1-t)I_n \right) = t I_n$, so
-$U_i$ is invertible with inverse
-\[
-U_i^{-1} =
-t^{-1} \left( U_i - (1-t)I_n \right) 
-=
-\begin{pmatrix} I_{i-1} & 0 & 0 & 0\\
-0 & 0 & 1 & 0\\
-0 & t^{-1} & 1-t^{-1} & 0 \\
-0 & 0 & 0 & I_{n-i-1} \end{pmatrix} .
-\] 
-
-
-Now, for all $i,j$ with $j-i \ge 2$, we have
-\begin{align*}
-    U_i U_j 
-    &= 
-    \begin{pmatrix} 
-        I_{i-1} & 0 & 0 & 0\\
-        0 & 1-t & t & 0 \\
-        0 & 1 & 0 & 0\\
-        0 & 0 & 0 & I_{n-i-1}
-    \end{pmatrix} 
-    \begin{pmatrix} 
-        I_{j-1} & 0 & 0 & 0\\
-        0 & 1-t & t & 0 \\
-        0 & 1 & 0 & 0\\
-        0 & 0 & 0 & I_{n-j-1}
-    \end{pmatrix}\\
-    &= 
-    \begin{pmatrix} 
-        I_{i-1} &  &  & & && \\
-         & 1-t & t & & &&\\
-         & 1 & 0 &  & &&\\
-         &  &  & I_{j-i-2} & & &\\
-          & & & & 1-t & t & \\
-          &&&& 1 & 0&\\
-          & &&&&& I_{n-j-3}
-    \end{pmatrix} \\
-    &=
-    \begin{pmatrix} 
-        I_{j-1} & 0 & 0 & 0\\
-        0 & 1-t & t & 0 \\
-        0 & 1 & 0 & 0\\
-        0 & 0 & 0 & I_{n-j-1}
-    \end{pmatrix}
-    \begin{pmatrix} 
-        I_{i-1} & 0 & 0 & 0\\
-        0 & 1-t & t & 0 \\
-        0 & 1 & 0 & 0\\
-        0 & 0 & 0 & I_{n-i-1}
-    \end{pmatrix} 
-\end{align*}
-
-
-
-\end{proof}
-
 
 
 
