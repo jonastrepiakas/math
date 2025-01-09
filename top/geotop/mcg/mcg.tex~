@@ -4277,9 +4277,61 @@ annulus (resp a Möbius band).
     operator on some category of surfaces.
 \end{question}
 
-To answer whether this is the case, we claim the following:
+To answer this question, the intuitive monoidal category to
+look at given Figure \ref{fig:standard-chain-png} is
+$\mathcal{M}_1$ with a Yang-Baxter operator
+on the Möbius band with the parametrized interval
+as depicted on the left in Figure \ref{fig:mobius-decorated-jpg}
+and the Yang-Baxter operator given by
+the homeomorphism which is the Dehn twist about the curve in
+$M \natural M$ depicted on the right side in Figure
+\ref{fig:mobius-decorated-jpg}.
 
-\begin{proposition}[]
+Continuing in this manner, we find that
+$M^{\natural g}$ is as depicted in
+Figure \ref{fig:Ng1-jpg} which is homeomorphic to
+$N_{g,1}$, and we see that the loops precisely coincide with
+those from the standard chain depicted in
+Figure \ref{fig:standard-chain-png}.
+
+Now, note that the Yang-Baxter equation in this case
+again is satisfied because of the
+braid relation for Dehn twists,
+Proposition \ref{dehn-braid-relation}. Thus
+we obtain a monoidal functor
+$\Phi_{M, std} \colon \mathcal{B} \to 
+\mathcal{M}_1$ with
+$\Phi_{M, std, g} \colon \mathcal{B}_n
+\to \Mod \left( N_{g,1} \right) $ the standard twist representation.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{mobius-decorated.jpg}
+    \caption{mobius-decorated.jpg}
+    \label{fig:mobius-decorated-jpg}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Ng1.jpg}
+    \caption{The standard chain in
+    $M^{\natural g} \approx N_{g,1}$.}
+    \label{fig:Ng1-jpg}
+\end{figure}
+
+
+
+Recall that the Birman-Hilden embedding was obtained
+as an induced geometric representation from a Yang-Baxter
+operator in the category of bidecorated surfaces.
+
+The following proposition shows that 
+the standard twist representation, in fact, 
+is also the Birman-Hilden embedding now obtained
+from a Yang-Baxter operator in the category of
+decorated surfaces and in a seemingly different form.
+
+\begin{proposition}[]\label{standard-twist-birman-hilden}
     For $b\ge 1$ and
     $g$ odd, the standard twist representation
     $\rho_{C} \colon B_g \to \Mod (N_{g,b})$ is the
@@ -4289,9 +4341,6 @@ To answer whether this is the case, we claim the following:
 \end{proposition}
 
 \begin{proof}
-Let us first approach the question for
-$g$ odd using Proposition \ref{prop61}.
-
 
 To make use of the visualization from Figure
 \ref{fig:N_3-1-jpg}, we need the steps to go from 
@@ -4377,10 +4426,29 @@ $K-D^2$}
 
 \end{proof}
 
+\begin{note}
+    In the case where we do not have boundary components, we
+    can simple remove a disk, perform the operations 
+    from Proposition \ref{standard-twist-birman-hilden} and then
+    reglue. Thus we can actually extend the proposition
+    to the case of $b = 0$ as well.
+\end{note}
 
 \begin{question}
-    What happens in the case of
-    $b=0$ or $g$ even?
+    What happens in the case where
+    $g$ is even?
+\end{question}
+
+\begin{question}
+    If $g$ is odd and $g \ge 5$, the standard chain
+    can be extended by adding a curve
+    $a_g$ passing once through each of the first
+    $g-1$ crosscaps. This
+    extended chain also determines
+    a standard twist representation
+    $\rho_{C'} \colon \mathcal{B}_{g+1} \to 
+    \PMod \left( N_{g,b} \right) $. Does it correspond to
+    something we know as well?
 \end{question}
 
 \subsubsection{The crosscap transposition representation}
@@ -4399,7 +4467,7 @@ curves in $N$ is called \textit{a chain of separating curves} if
 
 
 Here $a_i$ bounding a one-holed Klein bottle means
-that if we collapse $a_i$ to a point, we obtian a 
+that if we collapse $a_i$ to a point, we obtain a 
 sphere with two crosscaps which is equivalent to the Klein bottle
 
 
@@ -4435,7 +4503,8 @@ instead of punctures).
 \begin{remark}[]
     This is simply the geometric representation
     arising from the Yang-Baxter element associated to
-    the Möbius band in $\mathcal{M}_1$.
+    the Möbius band in $\mathcal{M}_1$ which
+    is the half-twist on crosscaps.
 \end{remark}
 
 
@@ -4499,14 +4568,15 @@ Note that $\Mod (N, \partial N) \not \le
 curve is non-trivial in $\Mod \left( N, \partial N \right) $, but
 becomes trivial in $\PMod (N)$.\\
 \linebreak
-We have shown that certain of these representations
-arise naturally through Yang-Baxter elements
-in categories of surfaces. It is natural to ask
-whether the remaining cases also
-correspond to
-representations induced by Yang-Baxter elements and to
-find these desired categories and elements.
+We have shown that
+the standard twist representation for odd genus and the
+crosscap transposition naturally arise as
+Yang-Baxter operators on appropriate objects in
+an appropriate category of surfaces.
 
+By Theorem \ref{Thm1.2}, these are in fact all the possible
+geometric representations on non-orientable surfaces
+up to transvection.
 
 
 \newpage

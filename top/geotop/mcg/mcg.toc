@@ -50,13 +50,13 @@
 \contentsline {subsection}{\tocsubsection {}{6.3}{Braided monoidal category of decorated and bidecorated surfaces}}{41}{subsection.6.3}%
 \contentsline {section}{\tocsection {}{7}{Geometric Representations of the Braid Group on non-orientable surfaces}}{47}{section.7}%
 \contentsline {subsubsection}{\tocsubsubsection {}{7.0.1}{The standard twist representation}}{48}{subsubsection.7.0.1}%
-\contentsline {subsubsection}{\tocsubsubsection {}{7.0.2}{The crosscap transposition representation}}{50}{subsubsection.7.0.2}%
-\contentsline {subsubsection}{\tocsubsubsection {}{7.0.3}{Transvection}}{52}{subsubsection.7.0.3}%
-\contentsline {subsection}{\tocsubsection {}{7.1}{The main theorems}}{52}{subsection.7.1}%
-\contentsline {section}{\tocsection {}{8}{Glossary}}{53}{section.8}%
-\contentsline {section}{\tocsection {}{9}{Appendix}}{53}{section.9}%
-\contentsline {subsection}{\tocsubsection {}{9.1}{Fiber Bundles}}{53}{subsection.9.1}%
-\contentsline {subsubsection}{\tocsubsubsection {}{9.1.1}{Bredon}}{53}{subsubsection.9.1.1}%
-\contentsline {subsubsection}{\tocsubsubsection {}{9.1.2}{Hatcher}}{54}{subsubsection.9.1.2}%
-\contentsline {subsection}{\tocsubsection {}{9.2}{A couple of results on hyperelliptic involutions}}{55}{subsection.9.2}%
-\contentsline {section}{\tocsection {}{}{References}}{56}{section*.61}%
+\contentsline {subsubsection}{\tocsubsubsection {}{7.0.2}{The crosscap transposition representation}}{52}{subsubsection.7.0.2}%
+\contentsline {subsubsection}{\tocsubsubsection {}{7.0.3}{Transvection}}{53}{subsubsection.7.0.3}%
+\contentsline {subsection}{\tocsubsection {}{7.1}{The main theorems}}{53}{subsection.7.1}%
+\contentsline {section}{\tocsection {}{8}{Glossary}}{54}{section.8}%
+\contentsline {section}{\tocsection {}{9}{Appendix}}{54}{section.9}%
+\contentsline {subsection}{\tocsubsection {}{9.1}{Fiber Bundles}}{54}{subsection.9.1}%
+\contentsline {subsubsection}{\tocsubsubsection {}{9.1.1}{Bredon}}{54}{subsubsection.9.1.1}%
+\contentsline {subsubsection}{\tocsubsubsection {}{9.1.2}{Hatcher}}{55}{subsubsection.9.1.2}%
+\contentsline {subsection}{\tocsubsection {}{9.2}{A couple of results on hyperelliptic involutions}}{56}{subsection.9.2}%
+\contentsline {section}{\tocsection {}{}{References}}{57}{section*.64}%

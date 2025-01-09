@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber mcg"] 1736424243.43105 "mcg.bcf" "mcg.bbl" "mcg" 1736426565.97951 0
-  "mcg.bcf" 1736426565.68846 108829 957099a4888ded0bf6a813b4be872da8 "pdflatex"
+["biber mcg"] 1736424243.43105 "mcg.bcf" "mcg.bbl" "mcg" 1736441143.99702 0
+  "mcg.bcf" 1736441143.72213 108829 957099a4888ded0bf6a813b4be872da8 "pdflatex"
   "mcg.bib" 1736397033.16194 4506 1ccb8ec32e8f91fefd9d84ee25115c83 ""
   (generated)
   "mcg.bbl"
   "mcg.blg"
   (rewritten before read)
-["pdflatex"] 1736426561.94682 "mcg.tex" "mcg.pdf" "mcg" 1736426565.98002 0
+["pdflatex"] 1736441137.72818 "mcg.tex" "mcg.pdf" "mcg" 1736441143.99752 0
   "/etc/texmf/web2c/texmf.cnf" 1718688975.81737 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/jonas-trepiakas/.texlive2023/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk" 1727527665.45445 6964 86acb68f026bd4eb7255bbd50e22f730 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -253,6 +253,7 @@
   "Birman-Hilden-two-symmetric-boundary-components.png" 1729798554.94017 10068 4ae1c00a54c03391ca7fc688f8964dd4 ""
   "Humphreys-generators.png" 1736377411.00985 24620 9a6deca46f7cc47128fb08aa7a0a7dc7 ""
   "N_3,1.jpg" 1736275446.2877 83871 16cd5bc73684f14462ec92c88065b258 ""
+  "Ng1.jpg" 1736437631.05132 108661 98b2579340a47b0816824d3828f24cd5 ""
   "alexander-trick.png" 1735395646.15109 10848 aa85834a671e031771bade6dfcc43cc2 ""
   "bidecorated-attaching.jpeg" 1734628680.47156 66164 982b81d152a7824635c59db05ee6ab69 ""
   "bidecorated-second-attaching.jpeg" 1734638385.00283 181864 1220bdf1fcffef1ff5fb6cb0bcf13e13 ""
@@ -282,12 +283,13 @@
   "lifts-of-paths.jpg" 1722893708.76281 203201 83ed0f50a606912a88eabfbe2318e4a3 ""
   "many-klein-torus-curve.jpg" 1736385502.05275 150446 4de0fa2ffee4a0c69280d51c12c48773 ""
   "mapping-cylinder-mobius.jpg" 1733867323.69041 38531 317b9fecffe785fc00d9d1a3ed713c0d ""
-  "mcg.aux" 1736426565.68246 27505 ca779aa3764d111b84451a2e8515ad30 "pdflatex"
+  "mcg.aux" 1736441143.71413 28307 447eed6c88b33dca95b7eceece7ba996 "pdflatex"
   "mcg.bbl" 1736424244.50775 10059 3568eb48cfee8b6578e83e17f0a4b2d6 "biber mcg"
-  "mcg.out" 1736426565.68446 8038 4d62cf8c3cf42e9e1c707c8804de034b "pdflatex"
-  "mcg.run.xml" 1736426565.68946 2291 ea095ae86321b5bc0eeb8ead9760d63f "pdflatex"
-  "mcg.tex" 1736426559.97842 164083 e0f7100ac63577cd45e0720fa5989c5a ""
-  "mcg.toc" 1736426565.68946 6542 ec0b964f7c81c6cfa3b998b6a7fb96df "pdflatex"
+  "mcg.out" 1736441143.71713 8038 ddccf004df334cc56440e8c069b11e6f "pdflatex"
+  "mcg.run.xml" 1736441143.72413 2291 ea095ae86321b5bc0eeb8ead9760d63f "pdflatex"
+  "mcg.tex" 1736441129.98602 166627 2a8241e6097808523e75f87e3d49576b ""
+  "mcg.toc" 1736441143.72413 6542 8c009528a1311f6e5848446588cb702c "pdflatex"
+  "mobius-decorated.jpg" 1736436852.30434 98340 f39f92395103b6fd4d585fc296eb4d8b ""
   "part1-deformation-curve.jpg" 1736392013.28484 160665 939b6374b7b22edd5c7c013b040b97d1 ""
   "part2-deformation-curve.jpg" 1736381071.65793 63087 7ac4e5b4d37364edd2cc7283dec2a8f0 ""
   "prop32.png" 1736285650.2702 9932 8c449564d35b59826e36f4986b3dde5c ""
