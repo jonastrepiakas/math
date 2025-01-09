@@ -143,52 +143,7 @@
 
 \tableofcontents
 
-\section{Introduction}
-
-In this thesis, we develop the theory of mapping class groups
-of surfaces and its connection to braid groups via the Birman-Hilden
-theorem. This is done following the book 'A Primer on Mapping Class Groups' by
-Farb and Margalit \cite{Farb-Margalit}. In particular, we start by
-developing the necessary basics of surface topology which we will
-need with an emphasis on curves since studying the
-action of the mapping class group on simple closed curves
-on the surface will prove a strong tool. For
-genus $\ge 2$, hyperbolic geometry allows for strong tools, and
-we will develop other essential techniques such as intersection
-numbers, the bigon criterion, the change of coordinates principle.
-
-Afterwards, we will give an account of the basics of
-mapping class groups for surfaces and compute basic examples.
-
-Subsequently, we will introduce a particular isotopy class
-of homeomorphisms called Dehn twists which will 
-be important in the connection between braid groups and
-mapping class groups. We will show that
-Dehn twists satisfy the relations given in the presentation
-for the braid group allowing us to consider homomorphisms
-from the braid group into mapping class groups of surfaces -
-this is called a geometric representation of the braid group.
-
-We will prove the Birman-Hilden theorem which precisely says
-that the geometric representation corresponding to
-sending generators to Dehn twists for a chain of curves 
-is, in fact, an embedding of the braid group. 
-
-Afterwards, we will show that
-general monoidal categories that come equipped with a
-so called Yang-Baxter element induce a geometric representation
-of the braid group. We will construct certain categories
-of surfaces with Yang-Baxter elements which induce 
-different geometric representations of the braid group, amongst
-which we will recover the Birman-Hilden embedding.
-
-We will then turn our attention to
-geometric representations of the braid group on non-orientable
-surfaces and once again recover previously constructed
-representations in a new light. 
-
 \section{Curves, Surfaces and Hyperbolic Geometry}
-
 
 Just as linear transformations are determined by
 their actions on vectors, we shall see
@@ -201,7 +156,8 @@ as we can understand the surfaces as endowed with a
 hyperbolic metric. 
 
 Another important tool for us will be the intersection
-numbers of curves which is a \todo{} 
+numbers of curves which is a symplectic form
+on the homology of the surface. 
 
 Lastly, we shall introduce the change of coordinates
 principle which is a strong application of
@@ -479,13 +435,6 @@ primitive elements of $\pi_1 (S)$.
     $t \neq t'$ that
     $\left( tp,tq \right) = \left( t'p,t'q \right) +
     \left( m,n \right) $ for $m,n \in \mathbb{Z}$.
-    Then $p \left( t-t' \right) = m$ and
-    $q \left( t-t' \right) = n$, so
-    $t-t' \in \mathbb{Q}$; let $t-t' = \frac{a}{b}$ and
-    assume $\gcd \left( a,b \right) = 1$. Then
-    $pa = bm$ and $qa = bn$, so
-    $b  \mid p,q$ and hence $b  \mid \gcd(p,q) = 1$, so
-    $b = 1$.
     But then $\frac{p}{q} \in \mathbb{Z}$ contradicting
     $\gcd \left( p,q \right) = 1$ except when
     $q = \pm 1$. But then $\pm t = \pm t' + n$ necessarily
@@ -525,7 +474,6 @@ primitive elements of $\pi_1 (S)$.
 
 \begin{proof}
     Follows from the following lemma:
-    \todo{Insert reference}
     \begin{lemma}[]\label{simple-loop-lifts}
         Let $X$ be a topological space with a universal covering space
          $\tilde{X}$. A closed curve $\beta$ in $X$ is simple if and
@@ -697,90 +645,12 @@ For this, we need the notion of a \textit{bigon}:
     intersect in at most one point.
 \end{lemma}
 
-
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{lemma-1-8.jpg}
     \caption{Lemma \ref{lemma-intersections-of-lifts} illustrated}
     \label{fig:lemma-1-8-jpg}
 \end{figure}
-
-\begin{proof}
-    Assume first
-    $\chi (S) \le 0$, so the universal cover
-    $\tilde{S}$ is homeomorphic to $\mathbb{R}^2$.
-    Let $p \colon \tilde{S} \to S$ be the covering map.
-
-    Suppose the lifts $\tilde{\alpha}$ and
-    $\tilde{\beta}$ of $\alpha$ and
-    $\beta$ intersect in at least two points. It
-    follows that there is an embedded disk
-    $D_0$ in $\tilde{S}$ bounded by one
-    subarc of $\tilde{\alpha}$ and one subarc
-    of $\tilde{\beta}$.
-    Using compactness and transversality, the
-    intersection
-    $\left( p^{-1}\left( \alpha \right) 
-    \cup p^{-1}\left( \beta \right) \right) 
-    \cap D_0$ is a finite graph with intersection points
-    as vertices. Thus, there is an innermost disk
-    $D$ in $\tilde{S}$ bounded by
-    an arc of $p^{-1}\left( \alpha \right) $ and
-    an arc of $p^{-1}\left( \beta \right) $.
-    Denote the vertices of $D$ by $v_1$ and $v_2$ and
-    the edges by $\tilde{\alpha_1}$ and
-    $\tilde{\beta_1}$.
-
-    \begin{figure}[htpb]
-        \centering
-        \includegraphics[width=0.4\textwidth]{innermost-bigon.jpg}
-        \caption{An innermost bigon}
-        \label{fig:innermost-bigon-jpg}
-    \end{figure}
-
-    We claim that $p$ restricted to
-    $\partial D$ is injective. 
-    The points $v_1$ and $v_2$ map to distinct points since
-    $\tilde{\alpha}$ and
-    $\tilde{\beta}$ intersect with
-    opposite orientations at these points and
-    covering maps are local homeomorphisms. \todo{Ask
-    Erik}. If a point of
-    $\tilde{\alpha_1}$ and a point of
-    $\tilde{\beta_1}$ have the same image in
-    $S$, then both points would be an intersection of
-    $p^{-1}\left( \alpha \right) $ with
-    $p^{-1}\left( \beta \right) $, contradicting
-    $D$ being innermost.
-
-    Similarly, if two points of
-    $\tilde{\alpha_1}$ or of
-    $\tilde{\beta_1}$ map to the same point in $S$, then
-    since both $\alpha$ and $\beta$ are simple,
-    there is a lift of
-    $p \left( v_1 \right) $ between the two points, contradicting
-    $D$ being innermost.
-
-    Now we claim that
-    $p(D)$ is an embedded disk in $S$.
-    Suppose $x,y \in D$ with
-    $p(x)=p(y)$. Then
-    $x = \varphi (y)$ for some deck transformation
-    $\varphi $. Since $p$ is injective on
-    $\partial D$, either
-    $\varphi \left( \partial D \right) \cap
-    \partial D = \varnothing$ or
-    $\varphi = \id$ since
-    otherwise, if $\varphi \neq \id$ and
-    $\varphi \left( \partial D \right) \cap
-    \partial D \neq \varnothing$, then
-    choosing a point $x \in \partial D$ such that
-    $\varphi (x) \neq x$, we have
-    $p \circ \varphi (x) = p(x)$, and thus
-    $p$ is not injective on $\partial D$.
-    
-
-\end{proof}
 
 
 \begin{proposition}[The bigon criterion]
@@ -826,7 +696,7 @@ For this, we need the notion of a \textit{bigon}:
     $i \left( \alpha, \beta \right) 
     = i \left( \alpha, \tilde{\alpha} \right) = 0$.
     Performing an isotopy of $\alpha$, we may assume that
-    $\alpha$ is transverse to $\beta$ \todo{why?}.
+    $\alpha$ is transverse to $\beta$.
     If $\alpha$ and $\beta$ are not disjoint, then by
     the bigon criterion, they form a bigon. A bigon
     prescribes an isotopy that reduces intersection, so we
@@ -923,7 +793,6 @@ t \in I\right\} $.
     an ambient isotopy of $M$ having compact support.
 \end{theorem}
 
-\todo{Insert proof?}
 
 
 
@@ -1067,7 +936,6 @@ obtain the following theorem:
     are homeomorphic.
 \end{corollary}
 
-\todo{Probably remove the following}
 \begin{definition}[Topological type]
     The existence of a homeomorphism as in \ref{cut-surface-homeo-1}
     is an equivalence relation. The equivalence class
@@ -1391,6 +1259,7 @@ some simple mapping class groups.
     we can consider $\alpha$ and $\beta$ as being
     arcs in $\mathbb{R}^2 - \left\{ p,q \right\} $ for
     the two marked points $p,q$.
+    An example is illustrated below.
     Now, suppose the arcs are disjoint.
     Then, choosing an intersection point, we can follow
     the path to the other intersection point and obtain
@@ -1418,8 +1287,7 @@ some simple mapping class groups.
 
     Now suppose we remove $\alpha \cup  \beta$. Then
     we get a disjoint union of a disk and a punctured
-    disk (by the classification of surfaces - expound on this).
-    \todo{}
+    disk by the classification of surfaces.
     Thus the embedded disk in $S_{0,3}$ gives an isotopy
     of $\alpha$ to $\beta$.
 \end{proof}
@@ -1570,7 +1438,7 @@ some simple mapping class groups.
     that every homomorphism
     $ \mathbb{Z}^2 \to \mathbb{Z}^2 $ is induced by
     a homotopy class of based maps
-    $T^2 \to T^2$.\todo{}
+    $T^2 \to T^2$.
 
     Furthermore, any element $f \in \Mod \left( T^2 \right) $ 
     has a representative $\varphi $ that fixes a basepoint
@@ -1731,10 +1599,8 @@ descending to the quotient.
     Notes on the proof: for the involutions
     $\iota_1, \iota_2$, we can lift them
     to homeomorphisms of $T^2$ by the lifting theorem
-    \cite[Thm~4.1]{Bredon}. \todo{But why would these
-    necessarily have to be homeomorphisms that rotate
-    one of the factors of $T^2 \approx S^{1} \times S^{1}$ by
-$\pi$?}
+    \cite[Thm~4.1]{Bredon}.
+\todo{Write up proof}
 \end{proof}
 
 
@@ -2167,7 +2033,7 @@ Throughout this section, $a$ and $b$ denote arbitrary
     to check the last
     formula for any two isotopy classes
     $a$ and $b$ with $i(a,b) = 1$. This is
-    shown in Figure \ref{fig:dehn-twist-braid-relation-png}
+    shown in Figure \ref{dehn-twist-braid-relation-png}
     with $\alpha$ and $\beta$ representatives of
     $a$ and $b$, respectively.
 
@@ -2592,7 +2458,7 @@ homomorphism
 called the forgetful map which is realized by forgetting
 that the point $x$ is marked. This map is
 surjective as any homeomorphism of $S$ can
-be modified by isotopy to fix $x$ \todo{why?}. The
+be modified by isotopy to fix $x$. The
 group $\Mod(S,x)$ is isomorphic to the
 subgroup $G$ of $\Mod \left( S - x \right) $ 
 consisting of homeomorphisms preserving the
@@ -2686,7 +2552,7 @@ induced by the inclusion
      $\varphi_* \colon \pi_1 \left( S,x \right) 
      \to \pi_1 \left( S,x \right) $.
      This homomorphism is the inner automorphism
-     $I_{\alpha} (\gamma) = \alpha \gamma \alpha^{-1}$ \todo{why?}.
+     $I_{\alpha} (\gamma) = \alpha \gamma \alpha^{-1}$.
      Now, for $\chi (X) < 0$, the center of $\pi_1 (S)$ is
      trivial, so $I_{\alpha}$ is nontrivial whenever
      $\alpha \neq c_{x}$. If $\varphi $ had been
@@ -2753,7 +2619,6 @@ induced by the inclusion
 
 
  \begin{proof}
-     Now write a proof of the Birman exact sequence.
      \todo{Write out proof}
  \end{proof}
 
@@ -3653,42 +3518,17 @@ and \\[1 ex]
      \end{example}
 
 
-     We want to show that the category of strong
-     monoidal functors from the braid groupoid
-     into $\mathcal{X}$ is equivalent to a naturally
-     defined category of Yang-Baxter operators in
-     $\mathcal{X}$.
 
-     \begin{proposition}[]
-         For any strict monoidal category $\mathcal{V}$ and
-         any Yang-Baxter operator $y$ on $T \colon
-         \mathcal{A} \to \mathcal{V}$, there exists
-         a unique strict tensor functor
-         $T' \colon \mathcal{B} \int \mathcal{A} \to \mathcal{V}$ 
-         such that $T' \circ z = y$ and
-         the following diagram commutes:
-         \begin{equation*}
-         \begin{tikzcd}
-             \mathcal{A} \ar[r, "\iota"] \ar[rd, "T"] & 
-             \mathcal{B} \int \mathcal{A} \ar[d, "T'"] \\
-                                                      & \mathcal{V}
-         \end{tikzcd}
-         \end{equation*}
          
-     \end{proposition}
 
      \begin{proposition}[]\label{yang-baxter-inducing-representation}
-         For any strict monoidal category $\mathcal{V}$ and
+         For any monoidal category $\mathcal{V}$ and
          any Yang-Baxter $\tau$ on an element $X \in V$, there
-         exists a unique strict monoidal functor
+         exists a unique monoidal functor
          $\Phi_{X, \tau} \colon \mathcal{B} \to \mathcal{V}$ such that
          $\Phi_{X, \tau} \circ z = y$.
      \end{proposition}
 
-     \todo{We do not want this result for strict categories
-     only since our categories of surfaces later are not strict.
- However, we can just remove strictness in the proposition and
-everything goes through.}
 
      \begin{proof}[Proof and construction]
          Define $\Phi_{X, \tau} \colon \mathcal{B} \to \mathcal{V}$ 

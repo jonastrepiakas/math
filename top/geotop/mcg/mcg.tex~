@@ -143,7 +143,73 @@
 
 \tableofcontents
 
+\section{Introduction}
+
+In this thesis, we develop the theory of mapping class groups
+of surfaces and its connection to braid groups via the Birman-Hilden
+theorem. This is done following the book 'A Primer on Mapping Class Groups' by
+Farb and Margalit \cite{Farb-Margalit}. In particular, we start by
+developing the necessary basics of surface topology which we will
+need with an emphasis on curves since studying the
+action of the mapping class group on simple closed curves
+on the surface will prove a strong tool. For
+genus $\ge 2$, hyperbolic geometry allows for strong tools, and
+we will develop other essential techniques such as intersection
+numbers, the bigon criterion, the change of coordinates principle.
+
+Afterwards, we will give an account of the basics of
+mapping class groups for surfaces and compute basic examples.
+
+Subsequently, we will introduce a particular isotopy class
+of homeomorphisms called Dehn twists which will 
+be important in the connection between braid groups and
+mapping class groups. We will show that
+Dehn twists satisfy the relations given in the presentation
+for the braid group allowing us to consider homomorphisms
+from the braid group into mapping class groups of surfaces -
+this is called a geometric representation of the braid group.
+
+We will prove the Birman-Hilden theorem which precisely says
+that the geometric representation corresponding to
+sending generators to Dehn twists for a chain of curves 
+is, in fact, an embedding of the braid group. 
+
+Afterwards, we will show that
+general monoidal categories that come equipped with a
+so called Yang-Baxter element induce a geometric representation
+of the braid group. We will construct certain categories
+of surfaces with Yang-Baxter elements which induce 
+different geometric representations of the braid group, amongst
+which we will recover the Birman-Hilden embedding.
+
+We will then turn our attention to
+geometric representations of the braid group on non-orientable
+surfaces and once again recover previously constructed
+representations in a new light. 
+
 \section{Curves, Surfaces and Hyperbolic Geometry}
+
+
+Just as linear transformations are determined by
+their actions on vectors, we shall see
+that in many cases, we can understand the mapping
+class groups of a surface by its action on 
+simple loops on the surface.
+
+For $g \ge 2$, hyperbolic geometry will play an important part
+as we can understand the surfaces as endowed with a
+hyperbolic metric. 
+
+Another important tool for us will be the intersection
+numbers of curves which is a \todo{} 
+
+Lastly, we shall introduce the change of coordinates
+principle which is a strong application of
+the classification of surfaces used to
+reduce situations with complicated curves on a surface
+to simpler cases - it plays a similar role to changes
+of bases for matrices.
+
     \subsection{Simple closed curves}
 There is a bijective correspondence
 \[
@@ -325,7 +391,7 @@ $\gamma = \beta \alpha^l$, so $\gamma \left<\alpha \right>
      abelian. 
  \end{example}
 
- \subsubsection*{Geodesic representatives}
+ \subsubsection{Geodesic representatives}
  \begin{proposition}[]\label{unique-geodesic-representative}
      Let $S$ be a hyperbolic surface. If $\alpha$ is a closed curve
      in $S$ that is not homotopic into a neighborhood of a puncture, then
@@ -352,7 +418,7 @@ $\gamma = \beta \alpha^l$, so $\gamma \left<\alpha \right>
 \] 
  \end{corollary}
 
- \subsection*{Simple closed curves}
+ \subsection{Simple closed curves}
  
 \begin{definition}[Simple curves]
     A closed curve in $S$ is \textit{simple} if it is topologically embedded, i.e.,
@@ -375,7 +441,7 @@ primitive elements of $\pi_1 (S)$.
     class in $\pi_1(S)$ is primitive.
 \end{proposition}
 
-\subsection*{Example: simple closed curves on the torus}
+\subsubsection{Example: simple closed curves on the torus}
 
 \begin{proposition}[]\label{torus-primitive-elts}
     The nontrivial homotopy classes of oriented simple closed
@@ -413,6 +479,13 @@ primitive elements of $\pi_1 (S)$.
     $t \neq t'$ that
     $\left( tp,tq \right) = \left( t'p,t'q \right) +
     \left( m,n \right) $ for $m,n \in \mathbb{Z}$.
+    Then $p \left( t-t' \right) = m$ and
+    $q \left( t-t' \right) = n$, so
+    $t-t' \in \mathbb{Q}$; let $t-t' = \frac{a}{b}$ and
+    assume $\gcd \left( a,b \right) = 1$. Then
+    $pa = bm$ and $qa = bn$, so
+    $b  \mid p,q$ and hence $b  \mid \gcd(p,q) = 1$, so
+    $b = 1$.
     But then $\frac{p}{q} \in \mathbb{Z}$ contradicting
     $\gcd \left( p,q \right) = 1$ except when
     $q = \pm 1$. But then $\pm t = \pm t' + n$ necessarily
@@ -440,7 +513,7 @@ primitive elements of $\pi_1 (S)$.
     \left( 0, \pm 1 \right) \right\} $.
 \end{proof}
 
-\subsection*{Closed geodesics}
+\subsection{Closed geodesics}
 
 \begin{proposition}[]
     Let $S$ be a hyperbolic surface. Let $\alpha$ be a closed curve
@@ -452,6 +525,7 @@ primitive elements of $\pi_1 (S)$.
 
 \begin{proof}
     Follows from the following lemma:
+    \todo{Insert reference}
     \begin{lemma}[]\label{simple-loop-lifts}
         Let $X$ be a topological space with a universal covering space
          $\tilde{X}$. A closed curve $\beta$ in $X$ is simple if and
@@ -465,7 +539,7 @@ primitive elements of $\pi_1 (S)$.
     \end{lemma}
 \end{proof}
 
-\subsection*{Intersection numbers}
+\subsection{Intersection numbers}
 
 It is often useful to put an inner product on a vector space to check
 if two vectors are linearly independent. We can pursue something similar for
@@ -593,7 +667,7 @@ for the intersection number of curves on the torus.
     i\left( \alpha, \beta \right) $.
 \end{definition}
 
-\subsection*{Bigons}
+\subsection{Bigons}
 
 We want a procedure to put curves into minimal position so
 we can compute intersection numbers.
@@ -623,12 +697,90 @@ For this, we need the notion of a \textit{bigon}:
     intersect in at most one point.
 \end{lemma}
 
+
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{lemma-1-8.jpg}
     \caption{Lemma \ref{lemma-intersections-of-lifts} illustrated}
     \label{fig:lemma-1-8-jpg}
 \end{figure}
+
+\begin{proof}
+    Assume first
+    $\chi (S) \le 0$, so the universal cover
+    $\tilde{S}$ is homeomorphic to $\mathbb{R}^2$.
+    Let $p \colon \tilde{S} \to S$ be the covering map.
+
+    Suppose the lifts $\tilde{\alpha}$ and
+    $\tilde{\beta}$ of $\alpha$ and
+    $\beta$ intersect in at least two points. It
+    follows that there is an embedded disk
+    $D_0$ in $\tilde{S}$ bounded by one
+    subarc of $\tilde{\alpha}$ and one subarc
+    of $\tilde{\beta}$.
+    Using compactness and transversality, the
+    intersection
+    $\left( p^{-1}\left( \alpha \right) 
+    \cup p^{-1}\left( \beta \right) \right) 
+    \cap D_0$ is a finite graph with intersection points
+    as vertices. Thus, there is an innermost disk
+    $D$ in $\tilde{S}$ bounded by
+    an arc of $p^{-1}\left( \alpha \right) $ and
+    an arc of $p^{-1}\left( \beta \right) $.
+    Denote the vertices of $D$ by $v_1$ and $v_2$ and
+    the edges by $\tilde{\alpha_1}$ and
+    $\tilde{\beta_1}$.
+
+    \begin{figure}[htpb]
+        \centering
+        \includegraphics[width=0.4\textwidth]{innermost-bigon.jpg}
+        \caption{An innermost bigon}
+        \label{fig:innermost-bigon-jpg}
+    \end{figure}
+
+    We claim that $p$ restricted to
+    $\partial D$ is injective. 
+    The points $v_1$ and $v_2$ map to distinct points since
+    $\tilde{\alpha}$ and
+    $\tilde{\beta}$ intersect with
+    opposite orientations at these points and
+    covering maps are local homeomorphisms. \todo{Ask
+    Erik}. If a point of
+    $\tilde{\alpha_1}$ and a point of
+    $\tilde{\beta_1}$ have the same image in
+    $S$, then both points would be an intersection of
+    $p^{-1}\left( \alpha \right) $ with
+    $p^{-1}\left( \beta \right) $, contradicting
+    $D$ being innermost.
+
+    Similarly, if two points of
+    $\tilde{\alpha_1}$ or of
+    $\tilde{\beta_1}$ map to the same point in $S$, then
+    since both $\alpha$ and $\beta$ are simple,
+    there is a lift of
+    $p \left( v_1 \right) $ between the two points, contradicting
+    $D$ being innermost.
+
+    Now we claim that
+    $p(D)$ is an embedded disk in $S$.
+    Suppose $x,y \in D$ with
+    $p(x)=p(y)$. Then
+    $x = \varphi (y)$ for some deck transformation
+    $\varphi $. Since $p$ is injective on
+    $\partial D$, either
+    $\varphi \left( \partial D \right) \cap
+    \partial D = \varnothing$ or
+    $\varphi = \id$ since
+    otherwise, if $\varphi \neq \id$ and
+    $\varphi \left( \partial D \right) \cap
+    \partial D \neq \varnothing$, then
+    choosing a point $x \in \partial D$ such that
+    $\varphi (x) \neq x$, we have
+    $p \circ \varphi (x) = p(x)$, and thus
+    $p$ is not injective on $\partial D$.
+    
+
+\end{proof}
 
 
 \begin{proposition}[The bigon criterion]
@@ -642,7 +794,7 @@ For this, we need the notion of a \textit{bigon}:
     minimal position.
 \end{corollary}
 
-\subsection*{Homotopy versus isotopy for simple closed curves}
+\subsection{Homotopy versus isotopy for simple closed curves}
 
 \begin{definition}[Isotopy]
     Two simple closed curves $\alpha$ and $\beta$ are \textit{isotopic}
@@ -696,7 +848,7 @@ For this, we need the notion of a \textit{bigon}:
 \end{proof}
 
 
-\subsubsection*{Extension of isotopies}
+\subsubsection{Extension of isotopies}
 
 \begin{definition}[]
     An isotopy of a surface $S$ is a homotopy $H \colon 
@@ -721,7 +873,7 @@ For this, we need the notion of a \textit{bigon}:
     \cite[Ch~8, Thm 1.3]{Hirsch}
 \end{proof}
 
-\subsection{Small digression isotopies and their extensions}
+\subsection{Small digression on isotopies and their extensions}
 
 \begin{definition}[Isotopy in general and their tracks]
     Let $V$ and $M$ be manifolds. An
@@ -828,9 +980,9 @@ under the bottom one along the boundary.
         work for arcs.
 \end{itemize}
 
-\subsection*{Change of coordinates principle}
+\subsection{Change of coordinates principle}
 
-\subsubsection*{Classification of simple closed curves}
+\subsubsection{Classification of simple closed curves}
 
 \begin{definition}[]
     Given a simple closed curve or
@@ -915,6 +1067,7 @@ obtain the following theorem:
     are homeomorphic.
 \end{corollary}
 
+\todo{Probably remove the following}
 \begin{definition}[Topological type]
     The existence of a homeomorphism as in \ref{cut-surface-homeo-1}
     is an equivalence relation. The equivalence class
@@ -961,7 +1114,7 @@ that $\varphi\left( \beta \right) =\alpha$. Then
 the image of $\gamma$ under $\varphi$ fills $S_2$ with
 $\alpha$ since filling is a topological property (show this).
 
-\subsubsection*{Examples of change of coordinate principle}
+\subsubsection{Examples of change of coordinate principle}
 
 \begin{enumerate}
     \item \textit{Pairs of simple closed curves that intersect
@@ -989,7 +1142,7 @@ $\alpha$ since filling is a topological property (show this).
 \end{enumerate}
 
 
-\subsection*{Three facts about homeomorphisms}
+\subsection{Three facts about homeomorphisms}
 
 Suppose $f \colon D \to D$ is an orientation-reversing map.
 Then $f$ restricts to a map on $S^{1} \to S^{1}$, and
@@ -1045,7 +1198,7 @@ of a space of homeomorphisms, and as such, we must
 give this space a topology. For this, it turns out that we need
 the compact-open topology which we now describe.
 
-\subsection*{The compact-open topology}
+\subsection{The compact-open topology}
 
 \begin{definition}[]
     The \textit{weak} or \textit{compact-open $C^{r}$ }
@@ -1166,7 +1319,7 @@ we have the following lemma \cite[Prop A.14]{Hatcher}:
     boundary.
 \end{proposition}
 
-\subsubsection*{The Alexander Lemma}
+\subsubsection{The Alexander Lemma}
 
 Here we will describe some of the simplest examples of
 mapping class groups following \cite[Chapter 2.1]{Farb-Margalit}
@@ -1216,7 +1369,7 @@ the cone as shown.}
     \Mod\left( S^2 \right) $ using the Alexander trick again.
 \end{remark}
 
-\subsubsection*{The mapping class group of the thrice-punctured sphere,
+\subsubsection{The mapping class group of the thrice-punctured sphere,
 $\Mod \left( S_{0,3} \right) $}
 
 
@@ -1238,7 +1391,6 @@ some simple mapping class groups.
     we can consider $\alpha$ and $\beta$ as being
     arcs in $\mathbb{R}^2 - \left\{ p,q \right\} $ for
     the two marked points $p,q$.
-    An example is illustrated below.
     Now, suppose the arcs are disjoint.
     Then, choosing an intersection point, we can follow
     the path to the other intersection point and obtain
@@ -1418,7 +1570,7 @@ some simple mapping class groups.
     that every homomorphism
     $ \mathbb{Z}^2 \to \mathbb{Z}^2 $ is induced by
     a homotopy class of based maps
-    $T^2 \to T^2$.
+    $T^2 \to T^2$.\todo{}
 
     Furthermore, any element $f \in \Mod \left( T^2 \right) $ 
     has a representative $\varphi $ that fixes a basepoint
@@ -1588,7 +1740,10 @@ $\pi$?}
 
 \subsubsection{The Alexander method}
 
+We state the following important proposition without proof.
+
 \begin{proposition}[Alexander method]\label{Alexander-method}
+    \cite[Proposition 2.8]{Farb-Margalit}
     Let $S$ be a compact surface, possibly with marked points,
     and let $\varphi \in \Homeo^{+}\left( S, \partial S \right) $.
     Let $\gamma_1, \ldots, \gamma_n$ be a collection of essential
@@ -1689,12 +1844,11 @@ T_{\alpha}(x) =
 \end{cases}.
 \] 
 
-"By the uniqueness of regular neighborhoods, the isotopy
+By the uniqueness of regular neighborhoods, the isotopy
 class of $T_{\alpha}$ does not depend on the choice of
-$N$ or the choice of homeomorphism $\varphi$. Nor
+$N$ or the choice of homeomorphism $\varphi$ \cite[Theorem 1.8]{Hempel}; nor
 does $T_{\alpha}$ depend on the choice
-of simple closed curve $\alpha$ within its isotopy class." 
-\todo{See theorem 1.8 in Hempel}
+of simple closed curve $\alpha$ within its isotopy class. 
 
 
 \subsubsection*{Dehn twists on the torus}
@@ -1861,43 +2015,6 @@ surgered arc turns left at the intersection.
     with respect to both $\alpha$ and $\beta$.
 \end{proposition}
 
-\todo{Probably remove the following}
-\begin{proposition}[]
-    Let $a_1 ,\ldots, a_n$ be a collection of pairwise
-    disjoint isotopy classes of simple closed curves in
-    a surface $S$ and let $M = \Pi_{i=1}^{n}T_{a_i}^{e_i}$.
-    Suppose that $e_i > 0$ for all $i$ or $e_i < 0$ for
-    all $i$. If $b$ and $c$ are arbitrary isotopy
-    classes of simple closed curves in $S$, then
-    \[
-    \left| i \left( M(b), c \right) -
-    \sum_{i=1}^{n} \left| e_i \right| i(a_i,b)
-    i(a_i,c) \right| \le i(b,c).
-    \] 
-\end{proposition}
-
-\begin{definition}[Pairs of filling curves]
-    We say a pair of isotopy classes $\left\{ a,b \right\} $ of
-    simple closed curves in a surface $S$ \textit{fill} if
-    any pair of minimal position representatives
-    fill (i.e., the complement of the representatives
-    in the surface is a collection of disks and
-    once-punctured disks).
-    This is equivalent to saying that for every
-    isotopy class $c$ of essential simple closed curves
-    in the surface, either
-    $i \left( a,c \right) >0$ or $i(b,c) > 0$.
-\end{definition}
-
-\begin{proposition}[]
-    Let $g, n \ge 0$ and assume $\chi \left( S_{g,n} \right) <0$.
-    Then there exists a pair of simple closed curves in
-    $S_{g,n}$ that fill $S_{g,n}$.
-\end{proposition}
-
-The equivalence is intuitive since otherwise, it would be
-contained in one of the disks and hence not be essential, and
-the converse is similarly seen.
 
 
 \subsubsection{Basic facts about Dehn twists}
@@ -2031,7 +2148,7 @@ Throughout this section, $a$ and $b$ denote arbitrary
     \[
     T_a T_b T_a = T_b T_a T_b.
     \] 
-    Equivalently, this read
+    Equivalently, this reads
     $T_a T_b(a) = b$.
 \end{proposition}
 
@@ -2046,6 +2163,22 @@ Throughout this section, $a$ and $b$ denote arbitrary
     \iff
     T_a T_b (a) = b
     \] 
+    By a change of coordinates principle, it suffices
+    to check the last
+    formula for any two isotopy classes
+    $a$ and $b$ with $i(a,b) = 1$. This is
+    shown in Figure \ref{fig:dehn-twist-braid-relation-png}
+    with $\alpha$ and $\beta$ representatives of
+    $a$ and $b$, respectively.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{dehn-twist-braid-relation.png}
+        \caption{Checking
+        $T_a T_b \left( \alpha \right) =
+    \beta$.}
+        \label{fig:dehn-twist-braid-relation-png}
+    \end{figure}
     
 \end{proof}
 
@@ -2056,7 +2189,7 @@ Throughout this section, $a$ and $b$ denote arbitrary
     number equal to $1$?
 \end{question}
 
-\begin{proposition}[]
+\begin{proposition}\cite[Proposition 3.13]{Farb-Margalit}
     If $a$ and $b$ are distinct isotopy classes of simple closed
     curves and the Dehn twists $T_a$ and $T_b$ satisfy
     $T_a T_b T_a = T_b T_a T_b$, then
@@ -2645,7 +2778,6 @@ induced by the inclusion
  in the proof of the Birman exact sequence,
  there is a fiber bundle
 
- \todo{Prove that this is a fiber bundle}
  \[
  \Homeo^{+} \left( \left( S,
  \left\{ x_1, \ldots, x_n \right\} \right), \partial S  \right) 
@@ -2685,45 +2817,10 @@ induced by the inclusion
      Hence $B_n \approx \Mod \left( D_n \right) $.
  \end{corollary}
 
- \subsection{Algebraic Structure of the Braid Group}
 
  \newpage
 
- \subsection{The pure braid group}
 
- Recall that by definition of a braid group, we
- are given a collection of $n$ points
- $p_1, \ldots, p_n$, $n$ paths
- $f_i \colon I \to \mathbb{C} \times I$ and
- a permutation $\overline{f} \in \Sigma_n$ such that
- $f_i(0) = p_i$
- and $f_i(1) = p_{\overline{f}(i)}$.
- We can thus define a homomorphism
- $B_n \to \Sigma_n$ by sending
- $f \mapsto \overline{f}$.
- \begin{definition}[]
-     We define the \textit{pure braid group} $PB_n$ as
-     the kernel of the homomorphism
-     $B_n \to \Sigma_n$ given by $f \mapsto \overline{f}$.
- \end{definition}
- We obtain the short exact sequence
- \[
- 1 \to PB_n \to B_n \to \Sigma_n \to 1.
- \] 
- So a pure braid is a braid where each strand begins
- and ends at the same point of $\mathbb{C}$.
-
- \begin{exercise}[]
-     Show that
-     \[
-     PB_n \approx \pi_1 \left( C^{ord } 
-     \left( \mathbb{C},n \right) \right) \approx
-     \PMod (D_n)
-     \] 
- \end{exercise}
-
-
- \newpage
 
  \subsection{Braid group and symmetric mapping class groups}
 
@@ -2884,7 +2981,6 @@ S_g^{1} \right) }\left( \iota \right) .
    we will derive the Birman-Hilden theorem which we now state.
  
 
-   \subsection{The Birman-Hilden Theorem}
 
    \begin{theorem}[Birman-Hilden]
        $\SMod \left( S_g^{1} \right) \approx
@@ -4080,8 +4176,16 @@ N_{g,b} \approx \left( \mathbb{R}\mathbb{P}^2 \right)^{\# g} -
 where $\mathbb{R}\mathbb{P}^2 - \mathring{D}$ is a Möbius band.
 
 Note also that $\mathbb{R}\mathbb{P}^2 \# \mathbb{R}\mathbb{P}^2
-\approx K$, the Klein bottle.
+\approx K$, the Klein bottle,
+see figure~\ref{fig:klein-bottle}.
 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.2\textwidth]{klein-bottle.jpg}
+    \caption{Klein-bottle as the sphere with two crosscaps}
+    \label{fig:klein-bottle}
+\end{figure}
 
 \begin{lemma}[]\label{prop61}
     $N_{g,1} \approx S_{n,1} \natural M$ for
@@ -4092,7 +4196,11 @@ Note also that $\mathbb{R}\mathbb{P}^2 \# \mathbb{R}\mathbb{P}^2
 
 For $g = 2n+1$ with $n\ge 0$, we have
 (see \ref{fig:N_3-1-jpg} for a visual argument for
-$T^2 \# M \approx K \# M$ )
+$T^2 \# M \approx K \# M$ - 
+to see why the top-right surface is $K - D^2$, take
+the usual Klein-bottle, remove a disk such that
+it is embeddable in $\mathbb{R}^{3}$, and
+then enlarge the hole.)
 \begin{align*}
 N_{2n+1,1} \approx
 \left( \mathbb{R}\mathbb{P}^2 \right)^{\# 2n+1} -
@@ -4106,6 +4214,7 @@ N_{2n+1,1} \approx
 &\approx S_{n,1} \natural M
 \end{align*}
 
+\end{proof}
 
 
 \begin{figure}[H]
@@ -4118,7 +4227,6 @@ N_{2n+1,1} \approx
 
 
 
-\end{proof}
 
 
 Hence for $g$ odd, we have an embedding
@@ -4129,10 +4237,8 @@ can be done for the even case.\\
 
 
 
-
-We will introduce three types of geometric representations
-of the braid group: the standard twist representation, the crosscap
-transposition representation, and lastly, transvection.\\
+We will now introduce different types of representations
+of the braid group on non-orientable surfaces.
 
 
 \begin{definition}[]
@@ -4143,6 +4249,8 @@ annulus (resp a Möbius band).
 \subsubsection{The standard twist representation}
 
 \begin{lemma}[]
+    Take a chain of two-sided curves
+    $C = \left( a_1, \ldots, a_{n-1} \right) $.
     If we fix an orientation of a regular neighborhood
     of the union of the curves $a_i$, then
     $C$ determines \textit{the standard twist representation}
@@ -4184,14 +4292,13 @@ To answer whether this is the case, we claim the following:
 Let us first approach the question for
 $g$ odd using Proposition \ref{prop61}.
 
+
 To make use of the visualization from Figure
 \ref{fig:N_3-1-jpg}, we need the steps to go from 
 $K - D^2$ as a sphere with two crosscaps and a disk removed
-to the depiction in Figure \ref{fig:N_3-1-jpg}. This 
-is shown in 
-Figure \ref{fig:part1-deformation-jpg}.
+to the depiction in Figure \ref{fig:N_3-1-jpg}.
 
-Suppose we look at the chandard chain of non-separating curves
+Suppose we look at the standard chain of non-separating curves
 in $N_{3,b}$, so we have curves $a_1$ and $a_2$ as
 in Figure \ref{fig:standard-chain-png}.
 Now, since
@@ -4210,14 +4317,15 @@ Now, since
 
  Now, noting that 
  \[
- N_{2g+1,1}
+ N_{2g+1,b}
  \approx 
  \left( \left( \mathbb{R}\mathbb{P}^2 - \mathring{D} \right)
 \natural \left( \mathbb{R}\mathbb{P}^2 
 - \mathring{D} \right)\right)^{\natural g}
 \natural M - \bigsqcup_{b-1} \mathring{D} 
 = K^{\natural g} \natural M - 
-\bigsqcup_{b-1} \mathring{D},
+\bigsqcup_{b-1} \mathring{D}
+= \left( K^{\natural g} \right) 
 \]
 we find that for $N_{2g+1,1}$ with $g>1$, we get a similar
 picture as for $N_{3,1}$, depicted in Figure
@@ -4234,38 +4342,36 @@ corresponds to the Birman-Hilden embedding
 into the $S_{g,1}$ factor.
 
 
-\begin{figure}[htpb]
-    \centering
-    \includegraphics[width=0.6\textwidth]{part1-deformation.jpg}
-    \caption{The}
-    \label{fig:part1-deformation-jpg}
-\end{figure}
 
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=0.8\textwidth]{part1-deformation-curve.jpg}
-    \caption{aaa}
+    \caption{The loop
+    $a_1$ and the arc $a_2$ throughout the homeomorphisms for
+$K-D^2$}
     \label{fig:part1-deformation-curve-jpg}
 \end{figure}
 
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=0.8\textwidth]{part2-deformation-curve.jpg}
-    \caption{bbb}
+    \caption{The arc from $a_2$ throughout the homeomorphisms
+    for $M-D^2$}
     \label{fig:part2-deformation-curve-jpg}
 \end{figure}
 
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=0.8\textwidth]{klein-to-torus-curve.jpg}
-    \caption{ccc}
+    \caption{The connected sum
+    of $K$ and $M$ by regluing.}
     \label{fig:klein-to-torus-curve-jpg}
 \end{figure}
 
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=0.5\textwidth]{many-klein-torus-curve.jpg}
-    \caption{many-klein-torus-curve.jpg}
+    \caption{The case of $K^{\natural g} \natural M$}
     \label{fig:many-klein-torus-curve-jpg}
 \end{figure}
 
@@ -4295,14 +4401,7 @@ curves in $N$ is called \textit{a chain of separating curves} if
 Here $a_i$ bounding a one-holed Klein bottle means
 that if we collapse $a_i$ to a point, we obtian a 
 sphere with two crosscaps which is equivalent to the Klein bottle
-(see figure~\ref{fig:klein-bottle})
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1.2\textwidth]{klein-bottle.jpg}
-    \caption{Klein-bottle as the sphere with two crosscaps}
-    \label{fig:klein-bottle}
-\end{figure}
 
 Let $K_i$ be the one-holed Klein bottle bounded by
 $a_i$. Then $K_i \cap K_{i+1}$ will be a Möbius strip
@@ -4371,8 +4470,13 @@ instead of punctures).
 \subsection{The main theorems}
 
 Following work by Castel and generalizations by
-Chen and Mukherjea, Stukow and 
-\cite{StSz}
+Chen and Mukherjea on classifications
+of geometric representations of the braid
+group on orientable surfaces in certain ranges,
+Stukow and Szepietowski
+proved the following two theorems in \cite{StSz} which classify
+all geometric representations on non-orientable surfaces
+in a certain range. 
 
 \begin{theorem}[]\label{Thm1.2}
     Let $n \ge 14$ and let $N = N_{g,b}$ with
@@ -4393,8 +4497,15 @@ Chen and Mukherjea, Stukow and
 Note that $\Mod (N, \partial N) \not \le 
 \PMod (N)$ as, for example, the Dehn twist about a boundary
 curve is non-trivial in $\Mod \left( N, \partial N \right) $, but
-becomes trivial in $\PMod (N)$.
-
+becomes trivial in $\PMod (N)$.\\
+\linebreak
+We have shown that certain of these representations
+arise naturally through Yang-Baxter elements
+in categories of surfaces. It is natural to ask
+whether the remaining cases also
+correspond to
+representations induced by Yang-Baxter elements and to
+find these desired categories and elements.
 
 
 

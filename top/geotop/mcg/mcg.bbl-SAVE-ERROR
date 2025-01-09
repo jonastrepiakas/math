@@ -115,32 +115,6 @@
       \field{pages}{xii+544}
       \range{pages}{-1}
     \endentry
-    \entry{Hempel}{book}{}
-      \name{author}{1}{}{%
-        {{hash=804535ea89750be0e0e3f8ae76ca9ccd}{%
-           family={Hempel},
-           familyi={H\bibinitperiod},
-           given={J.},
-           giveni={J\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {AMS Chelsea Pub., American Mathematical Society}%
-      }
-      \strng{namehash}{804535ea89750be0e0e3f8ae76ca9ccd}
-      \strng{fullhash}{804535ea89750be0e0e3f8ae76ca9ccd}
-      \strng{bibnamehash}{804535ea89750be0e0e3f8ae76ca9ccd}
-      \strng{authorbibnamehash}{804535ea89750be0e0e3f8ae76ca9ccd}
-      \strng{authornamehash}{804535ea89750be0e0e3f8ae76ca9ccd}
-      \strng{authorfullhash}{804535ea89750be0e0e3f8ae76ca9ccd}
-      \field{sortinit}{H}
-      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{isbn}{9780821836958}
-      \field{series}{AMS Chelsea Publishing Series}
-      \field{title}{3-Manifolds}
-      \field{year}{2004}
-    \endentry
     \entry{Hirsch}{book}{}
       \name{author}{1}{}{%
         {{hash=697b9e10d72a5f4aec2034a99cf01a9b}{%

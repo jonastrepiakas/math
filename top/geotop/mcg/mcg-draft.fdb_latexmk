@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber mcg"] 1736424243.43105 "mcg.bcf" "mcg.bbl" "mcg" 1736426565.97951 0
-  "mcg.bcf" 1736426565.68846 108829 957099a4888ded0bf6a813b4be872da8 "pdflatex"
+["biber mcg-draft"] 1736401491.65184 "mcg-draft.bcf" "mcg-draft.bbl" "mcg-draft" 1736406800.90265 0
+  "mcg-draft.bcf" 1736406800.64422 108760 c873a1240f126aa75d732a59cfbf9b9d "pdflatex"
   "mcg.bib" 1736397033.16194 4506 1ccb8ec32e8f91fefd9d84ee25115c83 ""
   (generated)
-  "mcg.bbl"
-  "mcg.blg"
+  "mcg-draft.bbl"
+  "mcg-draft.blg"
   (rewritten before read)
-["pdflatex"] 1736426561.94682 "mcg.tex" "mcg.pdf" "mcg" 1736426565.98002 0
+["pdflatex"] 1736406797.26116 "mcg-draft.tex" "mcg-draft.pdf" "mcg-draft" 1736406800.9032 0
   "/etc/texmf/web2c/texmf.cnf" 1718688975.81737 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/jonas-trepiakas/.texlive2023/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk" 1727527665.45445 6964 86acb68f026bd4eb7255bbd50e22f730 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -272,7 +272,6 @@
   "filling-genus-2-surface.png" 1725914561.68095 24969 93de8e69c5cfe110fcea73351cff97af ""
   "half-twist.png" 1727948834.35787 13428 c12df1bb06edc6eb55be35d9dc4125b3 ""
   "homology-basis-of-torus-and-double-torus.png" 1729845145.91043 182722 d215c2cd74994197363a337b5678075d ""
-  "innermost-bigon.jpg" 1736415323.968 81421 5de629f19196d8399fce5f3f4618df80 ""
   "intersection-a_is.png" 1735651548.92515 52931 1d8283648cb86f0d2dc9fcba9bb77bbe ""
   "inverse-braiding.jpeg" 1734573891.47765 180255 1ddbb931dee083a9848a46dca83229c6 ""
   "involution-on-torus-quotient.jpg" 1726055336.71566 54343 66090363d886cc8805e1374a1f2434c5 ""
@@ -282,12 +281,12 @@
   "lifts-of-paths.jpg" 1722893708.76281 203201 83ed0f50a606912a88eabfbe2318e4a3 ""
   "many-klein-torus-curve.jpg" 1736385502.05275 150446 4de0fa2ffee4a0c69280d51c12c48773 ""
   "mapping-cylinder-mobius.jpg" 1733867323.69041 38531 317b9fecffe785fc00d9d1a3ed713c0d ""
-  "mcg.aux" 1736426565.68246 27505 ca779aa3764d111b84451a2e8515ad30 "pdflatex"
-  "mcg.bbl" 1736424244.50775 10059 3568eb48cfee8b6578e83e17f0a4b2d6 "biber mcg"
-  "mcg.out" 1736426565.68446 8038 4d62cf8c3cf42e9e1c707c8804de034b "pdflatex"
-  "mcg.run.xml" 1736426565.68946 2291 ea095ae86321b5bc0eeb8ead9760d63f "pdflatex"
-  "mcg.tex" 1736426559.97842 164083 e0f7100ac63577cd45e0720fa5989c5a ""
-  "mcg.toc" 1736426565.68946 6542 ec0b964f7c81c6cfa3b998b6a7fb96df "pdflatex"
+  "mcg-draft.aux" 1736406800.63822 24342 fee332062c81bf7147c25af7a14a33c7 "pdflatex"
+  "mcg-draft.bbl" 1736401492.46282 10059 3568eb48cfee8b6578e83e17f0a4b2d6 "biber mcg-draft"
+  "mcg-draft.out" 1736406800.64022 7916 2d077d27d14ca0bc5818b0ece2109bbb "pdflatex"
+  "mcg-draft.run.xml" 1736406800.64522 2333 944d66724d1ecc094b64d7f5589d9fb3 "pdflatex"
+  "mcg-draft.tex" 1736406792.99813 157682 ae6451dc369d8f29971495b031d9169b ""
+  "mcg-draft.toc" 1736406800.64522 6465 f1e3c7305292c11947e0b26507076148 "pdflatex"
   "part1-deformation-curve.jpg" 1736392013.28484 160665 939b6374b7b22edd5c7c013b040b97d1 ""
   "part2-deformation-curve.jpg" 1736381071.65793 63087 7ac4e5b4d37364edd2cc7283dec2a8f0 ""
   "prop32.png" 1736285650.2702 9932 8c449564d35b59826e36f4986b3dde5c ""
@@ -297,11 +296,11 @@
   "standard-chain.png" 1733877287.14402 27593 886242ac7dfd11d536b45767d57b4121 ""
   "twists-along-curves-on-torus.jpg" 1726068338.06894 61970 c61152c56695ccf71cd6adcae7d3325d ""
   (generated)
-  "mcg.aux"
-  "mcg.bcf"
-  "mcg.log"
-  "mcg.out"
-  "mcg.pdf"
-  "mcg.run.xml"
-  "mcg.toc"
+  "mcg-draft.aux"
+  "mcg-draft.bcf"
+  "mcg-draft.log"
+  "mcg-draft.out"
+  "mcg-draft.pdf"
+  "mcg-draft.run.xml"
+  "mcg-draft.toc"
   (rewritten before read)
