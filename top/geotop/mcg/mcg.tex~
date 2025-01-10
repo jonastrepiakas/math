@@ -317,13 +317,19 @@ There is a bijective correspondence
     $\pi$ is of the form $t \mapsto e^{it}$.
 \end{definition}
 
-Now suppose $p \colon \tilde{S} \to S$ is the universal cover
+\begin{proposition}[]
+Suppose $p \colon \tilde{S} \to S$ is the universal cover
 and $\alpha$ is a simple closed curve in $S$ that is
 not a multiple of another closed curve. In this case, there
 is a bijective correspondence
 between cosets in $ \pi_1 (S)$
  of the infinite cyclic subgroup $\left<\alpha \right>$ and
- the lifts of $\alpha$. This can be seen as follows: first choose
+ the lifts of $\alpha$.
+\end{proposition}
+
+\begin{proof}
+    
+ This can be seen as follows: first choose
  a basepoint $\alpha(1) =  x_0 \in S$
 and
  some $\tilde{x_0} \in p^{-1}(x_0)$. There exists a unique lift
@@ -352,8 +358,10 @@ and
  $\alpha^k \gamma_x = \gamma_y$. Hence the lifts
  corresponding to $\gamma_x$ and $\gamma_y$ are the same if and only
  if $\alpha^k \gamma_x = \gamma_y$ for some $k$, i.e. if and only if
- $\gamma_x = \gamma_y$ in $\pi_1(S) / \left<\alpha \right>$.\\
- \linebreak
+ $\gamma_x = \gamma_y$ in $\pi_1(S) / \left<\alpha \right>$.
+
+\end{proof}
+
  As usual, the group $\pi_1 (S)$ acts on the set of lifts
  of $\alpha$ by deck transformations, and this action agrees
  with the usual left action of $\pi_1 (S)$ on the
@@ -368,6 +376,7 @@ and
      \caption{}
      \label{fig:lifts-of-paths}
  \end{figure}
+
 
  \begin{theorem}[]
 When $S$ admits a hyperbolic metric and
@@ -394,6 +403,8 @@ More precisely, we claim that the map which sends the lift
 given by the coset $\gamma \left<\alpha \right>$ to
 $\gamma \alpha \gamma^{-1}$ is bijective and well-defined.\\
  \end{theorem}
+
+ \todo{Delete?}
 
  \begin{proof}
 To show that it is well-defined, suppose $\gamma \left<\alpha \right>$ and
@@ -435,32 +446,6 @@ $\gamma = \beta \alpha^l$, so $\gamma \left<\alpha \right>
      abelian. 
  \end{example}
 
- \subsubsection{Geodesic representatives}
- \begin{proposition}[]\label{unique-geodesic-representative}
-     Let $S$ be a hyperbolic surface. If $\alpha$ is a closed curve
-     in $S$ that is not homotopic into a neighborhood of a puncture, then
-     $\alpha$ is homotopic to a unique geodesic closed curve $\gamma$.
- \end{proposition}
- 
- \begin{corollary}
-     For compact hyperbolic surfaces, 
-     there is a bijective correspondence:
-\[
-\left\{ 
-    \begin{tabular}{c}
-        Conjugacy classes\\
-        in $\pi_1 (S)$
-\end{tabular}
-\right\} 
-\longleftrightarrow
-\left\{ 
-    \begin{tabular}{c}
-        Oriented geodesic\\
-        closed curves in $S$
-\end{tabular}
-\right\} 
-\] 
- \end{corollary}
 
  \subsection{Simple closed curves}
  
@@ -555,21 +540,7 @@ primitive elements of $\pi_1 (S)$.
     $ \gcd \left( p,q \right) = 1$ or
     $\left( p,q \right) \in \left\{ \left( \pm 1,0 \right) ,
     \left( 0, \pm 1 \right) \right\} $.
-\end{proof}
 
-\subsection{Closed geodesics}
-
-\begin{proposition}[]
-    Let $S$ be a hyperbolic surface. Let $\alpha$ be a closed curve
-    in $S$ not homotopic into a neighborhood of a puncture. Let
-    $\gamma$ be the unique geodesic in the free homotopy class of
-    $\alpha$ guaranteed by proposition \ref{unique-geodesic-representative}.
-    If $\alpha$ is simple, then $\gamma$ is simple.
-\end{proposition}
-
-\begin{proof}
-    Follows from the following lemma:
-    \todo{Insert reference}
     \begin{lemma}[]\label{simple-loop-lifts}
         Let $X$ be a topological space with a universal covering space
          $\tilde{X}$. A closed curve $\beta$ in $X$ is simple if and
@@ -581,7 +552,9 @@ primitive elements of $\pi_1 (S)$.
                 curve.
          \end{enumerate}
     \end{lemma}
+
 \end{proof}
+
 
 \subsection{Intersection numbers}
 
@@ -906,34 +879,10 @@ For this, we need the notion of a \textit{bigon}:
 \end{proof}
 
 
-\subsubsection{Extension of isotopies}
 
-\begin{definition}[]
-    An isotopy of a surface $S$ is a homotopy $H \colon 
-    S \times I \to S$ such that for each
-    $t \in \left[ 0,1 \right] $, the map
-    $H \left( S, t \right) \colon S \times \left\{ t \right\} \to 
-    S$ is a homeomorphism. Given an isotopy between
-    two simple closed curves in $S$, it will often be useful
-    to promote this to an isotopy of $S$ which we call an
-    ambient isotopy of $S$.
-\end{definition}
+\subsection{Digression on isotopies and their extensions}
 
-\begin{proposition}[]
-    Let $S$ be any surface. If $F \colon S^{1} \times I \to 
-    S$ is a smooth isotopy of simple closed curves, then
-    there is an isotopy $H \colon S \times I \to S$ so that
-    $H |_{S \times 0}$ is the identity and 
-    $H|_{F\left( S^{1} \times 0 \right) \times I} = F$.
-\end{proposition}
-
-\begin{proof}
-    \cite[Ch~8, Thm 1.3]{Hirsch}
-\end{proof}
-
-\subsection{Small digression on isotopies and their extensions}
-
-\begin{definition}[Isotopy in general and their tracks]
+\begin{definition}[General isotopies]
     Let $V$ and $M$ be manifolds. An
     isotopy from $V$ to $M$ is a map
     $F \colon V \times I \to M$ such that
@@ -942,12 +891,6 @@ For this, we need the notion of a \textit{bigon}:
     F_t \colon V \to M, \quad x \mapsto F(x,t)
     \] 
     is an embedding.
-
-    The \textit{track} of the isotopy $F$ is the embedding
-    \[
-    \hat{F} \colon V \times I \to M \times I, \quad
-    \left( x,t \right) \mapsto \left( F(x,t),t \right) 
-    \] 
 \end{definition}
 
 \begin{definition}[Isotopic embeddings and ambient isotopies]
@@ -970,6 +913,7 @@ For this, we need the notion of a \textit{bigon}:
 t \in I\right\} $.
 \end{definition}
 
+The vital theorem is the following:
 
 \begin{theorem}[Isotopy extension theorem]\label{isotopy-extension}
     \cite[Theorem 1.3, chapter 8]{Hirsch}
@@ -981,7 +925,6 @@ t \in I\right\} $.
     an ambient isotopy of $M$ having compact support.
 \end{theorem}
 
-\todo{Insert proof?}
 
 
 
@@ -1033,6 +976,7 @@ under the bottom one along the boundary.
         and prop 1.3 (existence and uniqueness of geodesic 
         representatives) work for arcs in surfaces with
         punctures and/or boundary.
+        \todo{}
     \item Prop 1.10 (homotopy versus isotopy for curves) and
         theorem 1.13 (extension of isotopies) also
         work for arcs.
@@ -1104,12 +1048,6 @@ obtain the following theorem:
     fixing $\beta$ if necessary.
 \end{proof}
 
-\begin{theorem}[]
-    When $S$ is closed, $\beta$ is separating if and only
-    if it is the boundary of some subsurface of $S$. Which
-    is equivalent to the vanishing of the
-    homology class of $\beta$ in $H_1 \left( S, \mathbb{Z} \right) $.
-\end{theorem}
 
 \begin{remark}[]
     By the "classification of disconnected surfaces", there
@@ -1125,21 +1063,7 @@ obtain the following theorem:
     are homeomorphic.
 \end{corollary}
 
-\todo{Probably remove the following}
-\begin{definition}[Topological type]
-    The existence of a homeomorphism as in \ref{cut-surface-homeo-1}
-    is an equivalence relation. The equivalence class
-    of a simple closed curve or a collection of simple closed
-    curves is called its \textit{topological type}.
-\end{definition}
 
-A seprarating simple closed curve in the closed surface
-$S_g$ divides $S_g$ into two disjoint subsurfaces of genus
-$k$ and $g-k$. The minimum of $\left\{ k, g-k \right\} $ is
-called the genus of the separating simple closed curve. 
-There are $\left\lfloor \frac{g}{2} \right\rfloor$ topological
-types of essential separating simple closed curves in
-a closed surface.
 
 \begin{question}
     Suppose $\alpha$ is any nonseparating simple closed curve
@@ -1164,19 +1088,19 @@ a closed surface.
     \label{fig:filling-genus-2-surface-png}
 \end{figure}
 
-Figure \ref{fig:filling-genus-2-surface.png} shows
+Figure \ref{fig:filling-genus-2-surface-png} shows
 two filling simple closed curves on the genus $2$ surface.
 By the classification of simple closed curves on a surface,
 there is a homeomorphism $\varphi \colon S_2 \to S_2$ such
 that $\varphi\left( \beta \right) =\alpha$. Then
 the image of $\gamma$ under $\varphi$ fills $S_2$ with
-$\alpha$ since filling is a topological property (show this).
+$\alpha$ since filling is a topological property.
 
-\subsubsection{Examples of change of coordinate principle}
+\subsubsection{Example of the change of coordinates principle}
 
 \begin{enumerate}
     \item \textit{Pairs of simple closed curves that intersect
-        once are all of the same topological type}.
+        once are all homeomorphic as in Corollary \ref{cut-surface-homeo-1}}.
         Suppose $\alpha_1$ and $\beta_1$ form
         such a pair on a surface $S$. Then
         $\beta_1$ must be an arc connecting the two
@@ -1212,14 +1136,14 @@ as the identity has degree $1$ and the isotopy would
 have to restrict to a homotopy on the boundary, but
 degree is a homotopy invariant for maps $S^{n} \to S^{n}$.\\
 However, the straight-line homotopy does give a homotopy
-between $f$ and the identity.\\
+between $f$ and the identity.\todo{} \\
 \linebreak
 On $A = S^{1} \times I$, the orientation-reversing map
 that fixes the $S^{1}$ factor and reflects the $I$ factor
 is homotopic but not isotopic to the identity.
 
 
-\begin{theorem}[]
+\begin{theorem}[]\cite[Theorem 2.34]{Farb-Margalit}
     Let $S$ be any compact surface and let $f$ and $g$ be
     homotopic homeomorphisms of $S$. Then $f$ and $g$ are
     isotopic unless they are one of the two examples described
@@ -1230,12 +1154,12 @@ is homotopic but not isotopic to the identity.
 
 
 
-\begin{theorem}[]
+\begin{theorem}[]\cite[Theorem 2.35]{Farb-Margalit}
     Let $S$ be a compact surface. Then every homeomorphism of
     $S$ is isotopic to a diffeomorphism of $S$.
 \end{theorem}
 
-\begin{theorem}[Hamstrom]
+\begin{theorem}[Hamstrom]\cite[Theorem 2.36]{Farb-Margalit}
     Let $S$ be a compact surface, possibly minus a finite
     number of points from the interior. Assume that
     $S$ is not homeomorphic to
@@ -1791,11 +1715,12 @@ $S_{0,4}$ up to isotopy.
     simple closed curves
     $\overline{\alpha}$ and $\overline{\beta}$ 
     in $S_{0,4}$ that intersect in two points as in
+    Figure \ref{fig:S04-jpg}
     
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.5\textwidth]{S04.jpg}
-        \caption{S04.jpg}
+        \caption{$S_{0,4}$}
         \label{fig:S04-jpg}
     \end{figure}
     Analogously, we can construct a $\left( p,q \right) $-curve
@@ -1811,7 +1736,7 @@ $S_{0,4}$ up to isotopy.
     $\gamma$ is in minimal position with respect to
     $\alpha$. Now cut $S_{0,4}$ along $\beta$ to
     obtain two twice-punctured disks, and $\gamma$ and
-    $\gamma$ both give collections of disjoint
+    $\alpha$ both give collections of disjoint
     arcs on each (check the cases here). By
     assumption on minimal position, these arcs
     are all essential. Now
@@ -2006,7 +1931,7 @@ reglue.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{dehn-twist-cutting-and-gluing.png}
+    \includegraphics[width=0.4\textwidth]{dehn-twist-cutting-and-gluing.jpg}
     \caption{Dehn twist of $b$ along $a$ via a
     cutting along $a$}
     \label{fig:dehn-twist-cutting-and-gluing-png}
@@ -2793,9 +2718,8 @@ induced by the inclusion
  \Push \colon \pi_1 \left( S,x \right) 
  \to \Mod \left( S,x \right) .
  \] 
- For that, we show look at the
- Birman exact sequence.
 
+ We will show this to prove the Birman exact sequence.
 
 
 
@@ -2832,9 +2756,10 @@ induced by the inclusion
      $\varphi_* \colon \pi_1 \left( S,x \right) 
      \to \pi_1 \left( S,x \right) $.
      This homomorphism is the inner automorphism
-     $I_{\alpha} (\gamma) = \alpha \gamma \alpha^{-1}$ \todo{why?}.
+     $I_{\alpha} (\gamma) = \alpha \gamma \alpha^{-1}$ as
+     can be checked visually.
      Now, for $\chi (X) < 0$, the center of $\pi_1 (S)$ is
-     trivial, so $I_{\alpha}$ is nontrivial whenever
+     trivial \cite[p. 22]{Farb-Margalit}, so $I_{\alpha}$ is nontrivial whenever
      $\alpha \neq c_{x}$. If $\varphi $ had been
      homotopic to the identity, their
      induced homomorphisms would be equal, so we conclude
@@ -2864,7 +2789,7 @@ induced by the inclusion
      \left( \theta + 2 \pi (2-r)t,r \right) ,& 1 \le r \le 2.
  \end{cases}
  \]
- By \ref{isotopy-extension}, we can extend
+ By Theorem \ref{isotopy-extension}, we can extend
  $F$ to an ambient isotopy of $S$. Restricting
  $F$ to $\left\{ x \right\} \times \left[ 0,1 \right] $, we
  get
@@ -2898,9 +2823,55 @@ induced by the inclusion
 
 
 
- \begin{proof}
-     Now write a proof of the Birman exact sequence.
-     \todo{Write out proof}
+ \begin{proof}[Birman exact sequence]
+     There is a natural fiber bundle
+     \[
+     \Homeo^{+}\left( S,x \right) 
+     \to \Homeo^{+}(S) \stackrel{\mathcal{E}}{\to } S
+     \] 
+     where $\mathcal{E}$ is evaluation at
+     $x$ and the fiber is the subgroup of
+     $\Homeo^{+}(S)$ consisting of elemnets
+     that fix the point $x$.
+     We must explain why $\Homeo^{+}(S)$ is locally
+     homeomorphic to a product of an open set
+     $U$ of $S$ with $\Homeo^{+}(S,x)$ so that the
+     restriction of $\mathcal{E}$ is projection to the
+     first factor (see definition \ref{fiber-bundle-def})
+     Let $U$ be some open neighborhood
+     of $x$ in $S$ that is homeomorphic to
+     a disk. Given
+     $u \in U$, we can choose
+     $\varphi_u \in \Homeo^{+}(U)$ such that
+     $\varphi_u (x) = u$ and such that
+     $\varphi_u$ varies continuously as a function
+     of $u$. We then get a homeomorphism
+     $U \times \Homeo^{+}(S,x) \to \mathcal{E}^{-1}(U)$ 
+     given by
+     \[
+         \left( u, \psi  \right) \mapsto 
+         \varphi_u \circ \psi .
+     \] 
+     The inverse map is given by
+     $\psi \mapsto \left( \psi (x), 
+     \varphi_{\psi (x)}^{-1} \circ \psi \right) $.
+     For any other point $y \in S$, we can choose
+     a homeomorphism
+     $\xi$ taking  $x$ to $y$, giving a homeomorphism
+     $\mathcal{E}^{-1}(U) \to \mathcal{E}^{1}\left( 
+     \xi(U)\right) $ by $\psi \mapsto \xi \circ \psi $, hence
+     we have a fiber bundle.
+
+     By the long exact sequence of homotopy groups for
+     the fiber bundle, we get
+     \[
+         \ldots \to \underbrace{\pi_1 \left( \Homeo^{+}(S) \right)}_{
+         = 1}
+         \to \pi_1(S) \stackrel{\Push}{\to} 
+         \pi_0 \left( \Homeo^{+}(S,x) \right) 
+         \stackrel{\Forget}{\to} \pi_0 \left( \Homeo^{+}(S) \right) \to 
+         \underbrace{\pi_0(S)}_{=1} \to \ldots
+     \] 
  \end{proof}
 
  \subsection{Generalized Birman Exact Sequence}
@@ -2939,6 +2910,7 @@ induced by the inclusion
  however) and fix the boundary of $S$ pointwise.
 
  \begin{theorem}[Birman exact sequence generalized]
+     \cite[Theorem 9.1]{Farb-Margalit}
      Let $S$ be a surface without marked points
      and with $\pi_1 \left( \Homeo^{+} \left( 
      S, \partial S\right)  \right) = 1$. The following
@@ -3908,6 +3880,7 @@ everything goes through.}
    \begin{figure}[htpb]
        \centering
        \includegraphics[width=0.35\textwidth]{connected-sum.png}
+       \caption{$S_1 \# S_2$ \cite[Figure 2]{Wahl-Randal-Williams}}
        \label{fig:connected-sum-png}
    \end{figure}
 
@@ -4159,7 +4132,8 @@ boundary components, see figure \ref{fig:curve-m-2-png}.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.4\textwidth]{curvem2.png}
-    \caption{The curve $a_i$ in $D_i \natural D_{i+1}$}
+    \caption{The curve $a_i$ in $D_i \natural D_{i+1}$
+    \cite[Figure 4]{Harr-Vistrup-Wahl}}
     \label{fig:curve-m-2-png}
 \end{figure}
 
@@ -4180,7 +4154,8 @@ boundary components, see figure \ref{fig:curve-m-2-png}.
         \includegraphics[width=0.6\textwidth]{intersection-a_is.png}
         \caption{Intersection of
         $a_i$ and $a_{i+1}$ in
-    $D_i \natural^2 D_{i+1} \natural^2 D_{i+2}$.}
+    $D_i \natural^2 D_{i+1} \natural^2 D_{i+2}$.
+\cite[Figure 5]{Harr-Vistrup-Wahl}}
         \label{fig:intersection-a_is-png}
     \end{figure}
 \end{proof}
@@ -4267,7 +4242,6 @@ section \ref{birman-hilden-embedding-construction}.
 
 
 
-\newpage
 
 \section{Geometric Representations of the Braid Group on
 non-orientable surfaces}
@@ -4929,7 +4903,7 @@ up to transvection. \todo{}
 
 
 
-\begin{definition}[Fiber bundle]
+\begin{definition}[Fiber bundle]\label{fiber-bundle-def}
     A fiber bundle structure on a space $E$, with fiber
     $F$, consists of a projection map
     $p \colon E \to B$ such that each point of $B$ has

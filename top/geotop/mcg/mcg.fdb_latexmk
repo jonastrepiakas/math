@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber mcg"] 1736445394.17517 "mcg.bcf" "mcg.bbl" "mcg" 1736470401.78312 0
-  "mcg.bcf" 1736470401.02685 109038 c3b77c08b28d6ef79ffa8fa1d447860b "pdflatex"
+["biber mcg"] 1736479280.93221 "mcg.bcf" "mcg.bbl" "mcg" 1736481984.47278 0
+  "mcg.bcf" 1736481984.27138 109765 88f5bd978b4bb62b4f08e23f7148c4bc "pdflatex"
   "mcg.bib" 1736445388.07072 5055 c291791c609466890fee98a0c6757cdc ""
   (generated)
   "mcg.bbl"
   "mcg.blg"
   (rewritten before read)
-["pdflatex"] 1736470391.73157 "mcg.tex" "mcg.pdf" "mcg" 1736470401.78419 0
+["pdflatex"] 1736481980.67935 "mcg.tex" "mcg.pdf" "mcg" 1736481984.47311 0
   "/etc/texmf/web2c/texmf.cnf" 1718688975.81737 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/jonas-trepiakas/.texlive2023/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk" 1727527665.45445 6964 86acb68f026bd4eb7255bbd50e22f730 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -271,7 +271,7 @@
   "curvem2.png" 1735611648.41829 26800 e5a3477d686136e498f0a72a9859c9a5 ""
   "dehn-twist-annulus.png" 1736267581.49759 13538 e4b92ec386048a894b34806d89b8cee4 ""
   "dehn-twist-braid-relation.png" 1736395538.40165 66014 12f5efa695302a6612cc6361f478ac82 ""
-  "dehn-twist-cutting-and-gluing.png" 1736269328.12984 31833 957042e4e96bcd3116ae0eb76e65a0b6 ""
+  "dehn-twist-cutting-and-gluing.jpg" 1736479765.73242 141510 7c7bfddd1e521da36613e87396c6b589 ""
   "dehn-twist-via-surgery.png" 1736274977.38443 4693 64af7d696f9b2a966c25f17a7f0489d4 ""
   "filling-genus-2-surface.png" 1725914561.68095 24969 93de8e69c5cfe110fcea73351cff97af ""
   "half-twist.png" 1727948834.35787 13428 c12df1bb06edc6eb55be35d9dc4125b3 ""
@@ -286,12 +286,12 @@
   "lifts-of-paths.jpg" 1722893708.76281 203201 83ed0f50a606912a88eabfbe2318e4a3 ""
   "many-klein-torus-curve.jpg" 1736385502.05275 150446 4de0fa2ffee4a0c69280d51c12c48773 ""
   "mapping-cylinder-mobius.jpg" 1733867323.69041 38531 317b9fecffe785fc00d9d1a3ed713c0d ""
-  "mcg.aux" 1736470401.01085 30361 ade2926b8096a8ca35b2d54b88009eec "pdflatex"
-  "mcg.bbl" 1736445395.59679 12774 ee02dca4961cc530972d739a0661b4fd "biber mcg"
-  "mcg.out" 1736470401.01685 8197 5656e87c4f53f21c8f08e959aebfabec "pdflatex"
-  "mcg.run.xml" 1736470401.02985 2291 ea095ae86321b5bc0eeb8ead9760d63f "pdflatex"
-  "mcg.tex" 1736470390.56881 171155 ccb0a59233d9b958dcc7cca69079c567 ""
-  "mcg.toc" 1736470401.02985 6630 313d3caf8007fd0d4dee8374354a8ba5 "pdflatex"
+  "mcg.aux" 1736481984.26538 30487 35a36200d0bc89fa2d7f9d10140f4d7d "pdflatex"
+  "mcg.bbl" 1736479281.81376 12774 ee02dca4961cc530972d739a0661b4fd "biber mcg"
+  "mcg.out" 1736481984.26838 7989 95068b3cd0cb5ce8137fe3d0b736652b "pdflatex"
+  "mcg.run.xml" 1736481984.27238 2291 ea095ae86321b5bc0eeb8ead9760d63f "pdflatex"
+  "mcg.tex" 1736481978.82235 170218 85130bc205c6008ebfe15f5901c2839f ""
+  "mcg.toc" 1736481984.27238 6317 1025483913bec8f5f5956c7c7f680ea7 "pdflatex"
   "mobius-decorated.jpg" 1736436852.30434 98340 f39f92395103b6fd4d585fc296eb4d8b ""
   "part1-deformation-curve.jpg" 1736392013.28484 160665 939b6374b7b22edd5c7c013b040b97d1 ""
   "part2-deformation-curve.jpg" 1736381071.65793 63087 7ac4e5b4d37364edd2cc7283dec2a8f0 ""
