@@ -469,6 +469,7 @@ primitive elements of $\pi_1 (S)$.
     is not null homotopic, then each element of the corresponding conjugacy
     class in $\pi_1(S)$ is primitive.
 \end{proposition}
+\todo{Delete?}
 
 \subsubsection{Example: simple closed curves on the torus}
 
@@ -1075,7 +1076,7 @@ obtain the following theorem:
             $\alpha$ and $\gamma$ are in minimal position
             and the complement of $\alpha \cup  \gamma$ is
             a union of topological disks.
-        \item Is there a simple closed curve $\delta$ in
+        \item Is there a simple closed curve $\beta$ in
             $S$ with $i(\alpha,\beta) = 0$? $i(\alpha,\beta)=1$?
             $i(\alpha,\beta)=k$?
     \end{enumerate}
@@ -1144,6 +1145,7 @@ is homotopic but not isotopic to the identity.
 
 
 \begin{theorem}[]\cite[Theorem 2.34]{Farb-Margalit}
+    \label{thm234}
     Let $S$ be any compact surface and let $f$ and $g$ be
     homotopic homeomorphisms of $S$. Then $f$ and $g$ are
     isotopic unless they are one of the two examples described
@@ -2663,7 +2665,12 @@ homomorphism
 called the forgetful map which is realized by forgetting
 that the point $x$ is marked. This map is
 surjective as any homeomorphism of $S$ can
-be modified by isotopy to fix $x$ \todo{why?}. The
+be modified by isotopy to fix $x$ using the same
+argument as for the torus in Theorem \ref{mcg-of-torus} - namely,
+we pick some arc connecting $x$ to the image of $x$ and
+then create a local isotopy supported
+in a regular neighborhood of the arc moving the image of $x$ to
+$x$. The
 group $\Mod(S,x)$ is isomorphic to the
 subgroup $G$ of $\Mod \left( S - x \right) $ 
 consisting of homeomorphisms preserving the
@@ -2823,7 +2830,7 @@ induced by the inclusion
 
 
 
- \begin{proof}[Birman exact sequence]
+ \begin{proof}[Proof of Birman exact sequence]
      There is a natural fiber bundle
      \[
      \Homeo^{+}\left( S,x \right) 
@@ -2831,7 +2838,7 @@ induced by the inclusion
      \] 
      where $\mathcal{E}$ is evaluation at
      $x$ and the fiber is the subgroup of
-     $\Homeo^{+}(S)$ consisting of elemnets
+     $\Homeo^{+}(S)$ consisting of elements
      that fix the point $x$.
      We must explain why $\Homeo^{+}(S)$ is locally
      homeomorphic to a product of an open set
@@ -2872,6 +2879,10 @@ induced by the inclusion
          \stackrel{\Forget}{\to} \pi_0 \left( \Homeo^{+}(S) \right) \to 
          \underbrace{\pi_0(S)}_{=1} \to \ldots
      \] 
+     where
+     $\pi_1 \left( \Homeo^{+}(S) \right) = 1$ follows from
+     Theorem \ref{thm234}
+     
  \end{proof}
 
  \subsection{Generalized Birman Exact Sequence}
