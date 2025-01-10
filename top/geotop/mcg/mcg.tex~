@@ -2881,8 +2881,7 @@ induced by the inclusion
      \] 
      where
      $\pi_1 \left( \Homeo^{+}(S) \right) = 1$ follows from
-     Theorem \ref{thm234}
-     
+     Theorem \ref{thm234}.
  \end{proof}
 
  \subsection{Generalized Birman Exact Sequence}
