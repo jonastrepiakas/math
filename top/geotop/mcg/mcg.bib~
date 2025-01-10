@@ -140,7 +140,7 @@ MRREVIEWER = {Thilo Kuessner},
 @book {Munkres,
     AUTHOR = {Munkres, James R.},
      TITLE = {Topology},
-      NOTE = {Second edition of [ MR0464128]},
+      NOTE = {Second edition},
  PUBLISHER = {Prentice Hall, Inc., Upper Saddle River, NJ},
       YEAR = {2000},
      PAGES = {xvi+537},
@@ -155,3 +155,65 @@ MRREVIEWER = {Thilo Kuessner},
    YEAR    = {2024},
    DOI = {10.48550/arXiv.2408.04707}
 }
+
+@MISC{Harr-Vistrup-Wahl,
+   AUTHOR  = {Harr, Oscar AND Vistrup, Max AND Wahl, Nathalie},
+   TITLE   = {Disordered arcs and Harer stability},
+   YEAR    = {2022},
+   DOI = {10.48550/arXiv.2211.03858}
+}
+
+@article {Wahl-Randal-Williams,
+    AUTHOR = {Wahl, Nathalie AND Randal-Williams, Oscar},
+     TITLE = {Homological stability for automorphism groups},
+   JOURNAL = {Adv. Math.},
+  FJOURNAL = {Advances in Mathematics},
+    VOLUME = {318},
+      YEAR = {2017},
+       DOI = {10.1016/j.aim.2017.07.022},
+       URL = {https://doi.org/10.1016/j.aim.2017.07.022},
+}
+
+@article {Galatius-Kupers-Randal-Williams,
+    AUTHOR = {Galatius, Søren AND Kupers, Alexander AND Randal-Williams, Oscar},
+     TITLE = {$E_2$-Cells and Mapping Class Groups},
+   JOURNAL = {Publ. Math. Inst. Hautes Études Sci.   130 (2019), 1–61.},
+    VOLUME = {130},
+      YEAR = {2018},
+       DOI = {10.48550/arXiv.1805.07187},
+}
+
+@book {Weeks,
+    AUTHOR = {Weeks, Jeffrey R.},
+     TITLE = {The shape of space},
+    SERIES = {Monographs and Textbooks in Pure and Applied Mathematics},
+    VOLUME = {249},
+   EDITION = {Second},
+ PUBLISHER = {Marcel Dekker, Inc., New York},
+      YEAR = {2002},
+      ISBN = {0-8247-0709-5},
+}
+
+@article {Joyal,
+    AUTHOR = {Joyal, André AND Street, Ross},
+     TITLE = {Braided tensor categories},
+   JOURNAL = {Adv. Math.},
+  FJOURNAL = {Advances in Mathematics},
+    VOLUME = {102},
+      YEAR = {1993},
+    NUMBER = {1},
+     PAGES = {20--78},
+      ISSN = {0001-8708},
+       DOI = {10.1006/aima.1993.1055},
+}
+
+
+@book{Hempel,
+  title={3-Manifolds},
+  author={Hempel, J.},
+  isbn={9780821836958},
+  series={AMS Chelsea Publishing Series},
+  year={2004},
+  publisher={AMS Chelsea Pub., American Mathematical Society}
+}
+

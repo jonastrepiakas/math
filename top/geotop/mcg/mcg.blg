@@ -1,17 +1,17 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
-[1] Config.pm:310> INFO - Logfile is 'mcg.blg'
-[97] biber:340> INFO - === Fri Jan 10, 2025, 04:21:21
-[110] Biber.pm:419> INFO - Reading 'mcg.bcf'
-[163] Biber.pm:979> INFO - Found 10 citekeys in bib section 0
-[173] Biber.pm:4419> INFO - Processing section 0
-[181] Biber.pm:4610> INFO - Looking for bibtex file 'mcg.bib' for section 0
-[182] bibtex.pm:1713> INFO - LaTeX decoding ...
-[198] bibtex.pm:1519> INFO - Found BibTeX data source 'mcg.bib'
-[269] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[269] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[269] Biber.pm:4239> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
-[269] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
-[279] bbl.pm:660> INFO - Writing 'mcg.bbl' with encoding 'UTF-8'
-[281] bbl.pm:763> INFO - Output to mcg.bbl
-[281] Biber.pm:131> WARN - ISBN '0-521-79160-X; 0-521-79540-0' in entry 'Hatcher' is invalid - run biber with '--validate_datamodel' for details.
-[281] Biber.pm:133> INFO - WARNINGS: 1
+[0] Config.pm:310> INFO - Logfile is 'mcg.blg'
+[73] biber:340> INFO - === Fri Jan 10, 2025, 11:49:10
+[88] Biber.pm:419> INFO - Reading 'mcg.bcf'
+[150] Biber.pm:979> INFO - Found 14 citekeys in bib section 0
+[160] Biber.pm:4419> INFO - Processing section 0
+[168] Biber.pm:4610> INFO - Looking for bibtex file 'mcg.bib' for section 0
+[169] bibtex.pm:1713> INFO - LaTeX decoding ...
+[188] bibtex.pm:1519> INFO - Found BibTeX data source 'mcg.bib'
+[280] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[280] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[280] Biber.pm:4239> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[280] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[291] bbl.pm:660> INFO - Writing 'mcg.bbl' with encoding 'UTF-8'
+[295] bbl.pm:763> INFO - Output to mcg.bbl
+[295] Biber.pm:131> WARN - ISBN '0-521-79160-X; 0-521-79540-0' in entry 'Hatcher' is invalid - run biber with '--validate_datamodel' for details.
+[296] Biber.pm:133> INFO - WARNINGS: 1

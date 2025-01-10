@@ -88,6 +88,42 @@
       \verb http://www.jstor.org/stable/j.ctt7rkjw
       \endverb
     \endentry
+    \entry{Galatius-Kupers-Randal-Williams}{article}{}
+      \name{author}{3}{}{%
+        {{hash=c3779e0f8aa2783e12ceca0d4a14be97}{%
+           family={Galatius},
+           familyi={G\bibinitperiod},
+           given={Søren},
+           giveni={S\bibinitperiod}}}%
+        {{hash=22ba2c7da2772a75d541322953e9be48}{%
+           family={Kupers},
+           familyi={K\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod}}}%
+        {{hash=53ef82a1efc665566d50076ea26bdfa1}{%
+           family={Randal-Williams},
+           familyi={R\bibinithyphendelim W\bibinitperiod},
+           given={Oscar},
+           giveni={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{cc089f5c7d4794d7c35ea2101dec35a4}
+      \strng{fullhash}{cc089f5c7d4794d7c35ea2101dec35a4}
+      \strng{bibnamehash}{cc089f5c7d4794d7c35ea2101dec35a4}
+      \strng{authorbibnamehash}{cc089f5c7d4794d7c35ea2101dec35a4}
+      \strng{authornamehash}{cc089f5c7d4794d7c35ea2101dec35a4}
+      \strng{authorfullhash}{cc089f5c7d4794d7c35ea2101dec35a4}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Publ. Math. Inst. Hautes Études Sci. 130 (2019), 1–61.}
+      \field{title}{$E_2$-Cells and Mapping Class Groups}
+      \field{volume}{130}
+      \field{year}{2018}
+      \verb{doi}
+      \verb 10.48550/arXiv.1805.07187
+      \endverb
+    \endentry
     \entry{Harr-Vistrup-Wahl}{misc}{}
       \name{author}{3}{}{%
         {{hash=681386cc323d6eb69cf84874a45b4db4}{%
@@ -203,6 +239,41 @@
       \field{year}{1976}
       \field{pages}{x+230}
       \range{pages}{-1}
+    \endentry
+    \entry{Joyal}{article}{}
+      \name{author}{2}{}{%
+        {{hash=879e6f70ccf8d5999602c642fcda57b3}{%
+           family={Joyal},
+           familyi={J\bibinitperiod},
+           given={André},
+           giveni={A\bibinitperiod}}}%
+        {{hash=faea870f61e1c45828077d18a31465d2}{%
+           family={Street},
+           familyi={S\bibinitperiod},
+           given={Ross},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{d92010c48602800b7ba54dde2f390632}
+      \strng{fullhash}{d92010c48602800b7ba54dde2f390632}
+      \strng{bibnamehash}{d92010c48602800b7ba54dde2f390632}
+      \strng{authorbibnamehash}{d92010c48602800b7ba54dde2f390632}
+      \strng{authornamehash}{d92010c48602800b7ba54dde2f390632}
+      \strng{authorfullhash}{d92010c48602800b7ba54dde2f390632}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0001-8708}
+      \field{journaltitle}{Adv. Math.}
+      \field{number}{1}
+      \field{title}{Braided tensor categories}
+      \field{volume}{102}
+      \field{year}{1993}
+      \field{pages}{20\bibrangedash 78}
+      \range{pages}{59}
+      \verb{doi}
+      \verb 10.1006/aima.1993.1055
+      \endverb
     \endentry
     \entry{LeeTM}{book}{}
       \name{author}{1}{}{%
@@ -335,6 +406,60 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1016/j.aim.2017.07.022
+      \endverb
+    \endentry
+    \entry{Weeks}{book}{}
+      \name{author}{1}{}{%
+        {{hash=e0135acf91fb479d44072a9386f776c5}{%
+           family={Weeks},
+           familyi={W\bibinitperiod},
+           given={Jeffrey\bibnamedelima R.},
+           giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Marcel Dekker, Inc., New York}%
+      }
+      \strng{namehash}{e0135acf91fb479d44072a9386f776c5}
+      \strng{fullhash}{e0135acf91fb479d44072a9386f776c5}
+      \strng{bibnamehash}{e0135acf91fb479d44072a9386f776c5}
+      \strng{authorbibnamehash}{e0135acf91fb479d44072a9386f776c5}
+      \strng{authornamehash}{e0135acf91fb479d44072a9386f776c5}
+      \strng{authorfullhash}{e0135acf91fb479d44072a9386f776c5}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{Second}
+      \field{isbn}{0-8247-0709-5}
+      \field{series}{Monographs and Textbooks in Pure and Applied Mathematics}
+      \field{title}{The shape of space}
+      \field{volume}{249}
+      \field{year}{2002}
+    \endentry
+    \entry{Wilton}{online}{}
+      \name{author}{1}{}{%
+        {{hash=117af1ea8e369346326a484becee6672}{%
+           family={Wilton},
+           familyi={W\bibinitperiod},
+           given={Henry},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{117af1ea8e369346326a484becee6672}
+      \strng{fullhash}{117af1ea8e369346326a484becee6672}
+      \strng{bibnamehash}{117af1ea8e369346326a484becee6672}
+      \strng{authorbibnamehash}{117af1ea8e369346326a484becee6672}
+      \strng{authornamehash}{117af1ea8e369346326a484becee6672}
+      \strng{authorfullhash}{117af1ea8e369346326a484becee6672}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Mapping Class Groups}
+      \verb{urlraw}
+      \verb https://www.dpmms.cam.ac.uk/~hjrw2/MCG%20lectures.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.dpmms.cam.ac.uk/~hjrw2/MCG%20lectures.pdf
       \endverb
     \endentry
   \enddatalist
