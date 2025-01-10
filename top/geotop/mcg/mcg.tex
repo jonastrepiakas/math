@@ -21,6 +21,8 @@
 \addbibresource{mcg.bib}
 
 
+
+
 \setlength\parindent{0pt}
 
 \pdfsuppresswarningpagegroup=1
@@ -133,9 +135,14 @@
 \newcommand{\Mon}{{\mathcal{M}}on}
 \newcommand{\BMon}{{\mathcal{B}\mathcal{M}}on}
 
+
+
 \title{Mapping Class Groups, Braid Groups and Geometric Representations}
 
+
 \author{Jonas Trepiakas}
+
+
 
 \begin{document}
 
@@ -146,43 +153,78 @@
 \section{Introduction}
 
 In this thesis, we develop the theory of mapping class groups
-of surfaces and its connection to braid groups via the Birman-Hilden
-theorem. This is done following the book 'A Primer on Mapping Class Groups' by
-Farb and Margalit \cite{Farb-Margalit}. In particular, we start by
+of surfaces and its connection to braid groups.
+The mapping class group of a surface $S$
+is the group $\Mod(S)$ of isotopy classes of homeomorphisms of
+the surface. The braid group on $n$ strands,  $B_n$,
+is the group of
+isotopy classes of a collection of
+strands in $\mathbb{C} \times \left[ 0,1 \right] $ which
+we call braids. 
+The goal of this thesis is to study connections
+between these groups, in particular, we study
+geometric representations which are homomorphisms
+from braid groups into the mapping class group of some surface.
+
+Our goal is in particular to place these representations in
+the more general categorical framework of monoidal categories
+- primarily
+following Harr, Vistrup and Wahl \cite{Harr-Vistrup-Wahl} and
+\cite{Wahl-Randal-Williams}
+where many representations are induced by so called Yang-Baxter
+operators on certain monoidal categories of surfaces.
+
+Using a classification of geometric representations
+of braid groups on non-orientable surfaces by 
+Stukow and Szepietowski \cite{StSz}, we show that
+each such geometric representation is obtained 
+by an appropriate choice of monoidal category of surfaces
+and choice of Yang-Baxter operator.
+
+
+
+
+
+
+This is done following the book 'A Primer on Mapping Class Groups' by
+Farb and Margalit \cite{Farb-Margalit}. 
+
+\subsection{Thesis Summary} 
+We start by
 developing the necessary basics of surface topology which we will
 need with an emphasis on curves since studying the
 action of the mapping class group on simple closed curves
 on the surface will prove a strong tool. For
 genus $\ge 2$, hyperbolic geometry allows for strong tools, and
-we will develop other essential techniques such as intersection
+we develop other essential techniques such as intersection
 numbers, the bigon criterion, the change of coordinates principle.
 
-Afterwards, we will give an account of the basics of
+Afterwards, we give an account of the basics of
 mapping class groups for surfaces and compute basic examples.
 
-Subsequently, we will introduce a particular isotopy class
+Subsequently, we introduce a particular isotopy class
 of homeomorphisms called Dehn twists which will 
 be important in the connection between braid groups and
-mapping class groups. We will show that
+mapping class groups. We show that
 Dehn twists satisfy the relations given in the presentation
 for the braid group allowing us to consider homomorphisms
 from the braid group into mapping class groups of surfaces -
 this is called a geometric representation of the braid group.
 
-We will prove the Birman-Hilden theorem which precisely says
+We prove the Birman-Hilden theorem which precisely says
 that the geometric representation corresponding to
 sending generators to Dehn twists for a chain of curves 
 is, in fact, an embedding of the braid group. 
 
-Afterwards, we will show that
+Afterwards, we show that
 general monoidal categories that come equipped with a
 so called Yang-Baxter element induce a geometric representation
-of the braid group. We will construct certain categories
+of the braid group. We construct certain categories
 of surfaces with Yang-Baxter elements which induce 
 different geometric representations of the braid group, amongst
-which we will recover the Birman-Hilden embedding.
+which we recover the Birman-Hilden embedding.
 
-We will then turn our attention to
+We then turn our attention to
 geometric representations of the braid group on non-orientable
 surfaces and once again recover previously constructed
 representations in a new light. 
@@ -194,14 +236,16 @@ Just as linear transformations are determined by
 their actions on vectors, we shall see
 that in many cases, we can understand the mapping
 class groups of a surface by its action on 
-simple loops on the surface.
+simple loops on the surface.\\
 
-For $g \ge 2$, hyperbolic geometry will play an important part
+For $g \ge 2$, hyperbolic geometry plays an important part
 as we can understand the surfaces as endowed with a
-hyperbolic metric. 
+hyperbolic metric. \\
 
-Another important tool for us will be the intersection
-numbers of curves which is a \todo{} 
+Another important tool is the algebraic and geometric intersection
+number associated to a pair of simple curves on the surface
+which functions as the analogue of an inner product on a
+vector space.\\
 
 Lastly, we shall introduce the change of coordinates
 principle which is a strong application of
@@ -560,8 +604,22 @@ $\alpha$ and $\beta$ are \textit{transverse}.
     of the intersection points of $\alpha$ and $\beta$,
     where the intersection point is of index $+1$ when the
     orientation of intersection agrees with
-    the orientation of $S$ and is $-1$ otherwise.
+    the orientation of $S$ and is $-1$ otherwise. See
+    Figure \ref{fig:algebraic-intersection-number-jpg}.
 \end{definition}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{algebraic-intersection-number.jpg}
+    \caption{Curves $\alpha$ and $\beta$ intersecting. 
+    If the orientation of intersection created here is
+compatible with the orientation of the surface as
+depicted on the right side, the index
+of intersection for
+$\hat{i} \left( \alpha,\beta \right) $ is $+1$, otherwise, if the
+orientation is as on the left, the index is $-1$.}
+    \label{fig:algebraic-intersection-number-jpg}
+\end{figure}
 
 \begin{remark}[]
     The algebraic intersection number only depends on the
@@ -692,7 +750,7 @@ For this, we need the notion of a \textit{bigon}:
 \begin{lemma}[]\label{lemma-intersections-of-lifts}
     If transverse simple closed curves $\alpha$ and $\beta$ in
     a surface $S$ do not form any bigons, then in the
-    universal cover of $S$, and pair of lifts
+    universal cover of $S$, any pair of lifts
     $\tilde{\alpha}$ and $\tilde{\beta}$ of $\alpha$ and $\beta$ 
     intersect in at most one point.
 \end{lemma}
@@ -744,8 +802,7 @@ For this, we need the notion of a \textit{bigon}:
     $\tilde{\alpha}$ and
     $\tilde{\beta}$ intersect with
     opposite orientations at these points and
-    covering maps are local homeomorphisms. \todo{Ask
-    Erik}. If a point of
+    covering maps are local homeomorphisms. If a point of
     $\tilde{\alpha_1}$ and a point of
     $\tilde{\beta_1}$ have the same image in
     $S$, then both points would be an intersection of
@@ -761,24 +818,22 @@ For this, we need the notion of a \textit{bigon}:
     $p \left( v_1 \right) $ between the two points, contradicting
     $D$ being innermost.
 
-    Now we claim that
-    $p(D)$ is an embedded disk in $S$.
-    Suppose $x,y \in D$ with
-    $p(x)=p(y)$. Then
-    $x = \varphi (y)$ for some deck transformation
-    $\varphi $. Since $p$ is injective on
-    $\partial D$, either
-    $\varphi \left( \partial D \right) \cap
-    \partial D = \varnothing$ or
-    $\varphi = \id$ since
-    otherwise, if $\varphi \neq \id$ and
-    $\varphi \left( \partial D \right) \cap
-    \partial D \neq \varnothing$, then
-    choosing a point $x \in \partial D$ such that
-    $\varphi (x) \neq x$, we have
-    $p \circ \varphi (x) = p(x)$, and thus
-    $p$ is not injective on $\partial D$.
-    
+    If $x,y \in D$ project to the same point in
+    $S$, then $x = \varphi (y)$ for some
+    deck transformation $\varphi $. Since
+    $\partial D$ embeds under the covering map
+    and the group of deck transformations act freely, we
+    must have that $\varphi \left( \partial D \right) \cap
+    \partial D$ is either empty or all of $\partial D$ in the
+    case of $\varphi  = \id$. But $\varphi (y) = x
+    \in D$, so as $\varphi $ is a deck transformation,
+    either
+    $\varphi (D)$ contains $D$ or $D$ contains
+    $\varphi (D)$, so in either case,
+    $\varphi (D)$ or $\varphi^{-1}(D)$ must be contained
+    in $D$. By Brouwer's fixed point theorem,
+    $\varphi $ has a fixed point, contradicting freeness unless
+    $\varphi  = \id$. 
 
 \end{proof}
 
@@ -845,6 +900,9 @@ For this, we need the notion of a \textit{bigon}:
     The fundamental group of $R'$ is isomorphic to the group of
     deck transformations $\left<\varphi \right>$ and is hence
     infinite cyclic. Furthermore, $R'$ has two boundary components.
+    By considering representative examples of surfaces
+    with two boundaries in the classification of surfaces,
+    we obtain that $R'$ must be homeomorphic to an annulus.
 \end{proof}
 
 
@@ -960,7 +1018,7 @@ on its interior.
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=0.5\textwidth]{bigon-of-arcs.png}
-    \caption{bigon-of-arcs.png}
+    \caption{Bigon of arcs}
     \label{fig:bigon-of-arcs-png}
 \end{figure}
 Note in this picture how if isotopies are considered relative
@@ -1574,7 +1632,25 @@ some simple mapping class groups.
 
     Furthermore, any element $f \in \Mod \left( T^2 \right) $ 
     has a representative $\varphi $ that fixes a basepoint
-    for $T^2$. So if $f \in \ker \left( \sigma \right) $, then
+    for $T^2$:
+    suppose
+    $\psi $ is a representative
+    of $f$ and
+    $x$ is the basepoint. Then
+    we can take a regular neighborhood of the path from
+    $x$ to $\psi (x)$ with support
+    a disk. For any two points on a disk, we
+    can find a homeomorphism taking one point to the other, so
+    let $g$ be a homeomorphism taking
+    $\psi (x)$ to $x$.
+    Since $\Mod \left( D^2 \right) = 0$ by
+    the Alexander trick, we get an
+    isotopy from the $g$ to the identity, and
+    postcomposing $\psi $ with
+    this isotopy gives an isotopy from
+    a homeomorphism fixing $x$ to
+    $\psi $.
+    So if $f \in \ker \left( \sigma \right) $, then
     $\varphi $ is homotopic as a based map to
     the identity, so $\sigma$ is injective. 
 
@@ -1595,6 +1671,12 @@ some simple mapping class groups.
 
 \subsubsection*{The mapping class group of
 $S_{0,4}$}
+
+We will give a connection between the torus and the
+sphere with four punctures. First, we show
+how we quotient the torus by the hyperelliptic involution to
+get $S_{0,4}$.\\
+
 
 Consider the torus $T^2$ as $I^2 / \sim$ under the usual
 identification. Then consider the
@@ -1657,6 +1739,8 @@ each element of $\Mod \left( T^2 \right) $ induces
 an element of $\Mod \left( S_{0,4} \right) $ by
 descending to the quotient.
 
+We now classify the simple closed curves in
+$S_{0,4}$ up to isotopy.
 
 \begin{proposition}[]
     The hyperelliptic involution induces a bijection
@@ -1667,7 +1751,75 @@ descending to the quotient.
 \end{proposition}
 
 \begin{proof}
-    Notes:
+    Proposition \ref{torus-primitive-elts} gives
+    a bijection between homotopy classes
+    of essential simple closed curves in $T^2$ and the
+    set of primitive elements of $\mathbb{Z}^2$.
+    Given a primitive element of $\mathbb{Z}^2$, we can
+    get a $\left( p,q \right) $-curve by projecting
+    a line of slope $\frac{q}{p}$ to $T^2$ - i.e., the straight
+    line path from $\left( 0,0 \right) $ to 
+    $\left( p,q \right) $.
+
+    Now, the following will take two
+    parts: we will give a different construction of
+    $\left( p,q \right) $-curves on $T^2$ and
+    $S_{0,4}$, and then we will show that
+    the lift of a $\left( p,q \right) $-curve in
+    $S_{0,4}$ to $T^2$ is a $\left( p,q \right) $-curve.
+
+
+    Let $\alpha$ and $\beta$ be two simple closed
+    curves in $T^2$ that intersect each other in
+    one point. We identity $\alpha$ with
+    $\left( 1,0 \right) $ and $\beta$ with
+    $\left( 0,1 \right) $. Let
+    $\left( p,q \right) $ be a primitive element 
+    of $\mathbb{Z}^2$. A simple closed curve is a
+    $\left( p,q \right) $ curve if we have
+    $\left( \hat{i}\left( \gamma,\beta \right) ,
+    \hat{i} \left( \gamma,\alpha \right) \right) 
+    = \pm \left( p,q \right) $. We
+    construct a $\left( p,q \right) $-curve now by
+    taking $p$ parallel copies of  $\alpha$ and
+    modifying this collection by a
+    $\frac{2\pi}{q}$ twist along $\beta$, see Figure
+    \ref{fig:twists-along-curves-on-torus-jpg}.
+
+    Up to homotopy in $T^2$, we may assume that
+    $\alpha$ and $\beta$ project via $\iota$ to
+    simple closed curves
+    $\overline{\alpha}$ and $\overline{\beta}$ 
+    in $S_{0,4}$ that intersect in two points as in
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\textwidth]{S04.jpg}
+        \caption{S04.jpg}
+        \label{fig:S04-jpg}
+    \end{figure}
+    Analogously, we can construct a $\left( p,q \right) $-curve
+    in $S_{0,4}$ by taking $p$ parallel copies of
+    $\overline{\alpha}$ and twisting
+    along $\overline{\beta}$ by
+    $\frac{\pi}{q}$.
+
+    
+    Suppose now that
+    $\gamma$ is an arbitrary simple closed curve
+    in $S_{0,4}$. Up to homotopy, we may assume that
+    $\gamma$ is in minimal position with respect to
+    $\alpha$. Now cut $S_{0,4}$ along $\beta$ to
+    obtain two twice-punctured disks, and $\gamma$ and
+    $\gamma$ both give collections of disjoint
+    arcs on each (check the cases here). By
+    assumption on minimal position, these arcs
+    are all essential. Now
+    Proposition \ref{prop2.2} gives that
+    the arcs of $\alpha$ and the arcs of $\gamma$ are
+    freely homotopic.
+
+    
 
     \begin{figure}[htpb]
         \centering
@@ -1781,26 +1933,6 @@ We state the following important proposition without proof.
     \end{enumerate}
 \end{proposition}
 
-\begin{lemma}[]
-    Let $S$ be a compact surface, possibly with marked points,
-    and let $\gamma_1, \ldots, \gamma_n$ be a collection of
-    essential simple closed curves and simple proper arcs
-    in $S$ that satisfy the three properties from 
-    proposition \ref{Alexander-method}. If
-    $\gamma_1', \ldots, \gamma_n'$ is another such collection
-    so that $\gamma_i'$ is isotopic to $\gamma_i$ relative
-    to $\partial S$ for each $i$, then there is an
-    isotopy of $S$ relative to $\partial S$ that takes
-    $\gamma_i'$ to $\gamma_i$ for all $i$ simultaneously and
-    hence takes $\cup \gamma_i$ to $\cup \gamma_i'$.
-\end{lemma}
-
-
-\begin{remark}[]
-    I put lemma 4.16 here since it's a slight generalization of
-    (i) above and is used in the proof of Alexander's method
-    too.
-\end{remark}
 
 
 
@@ -1964,12 +2096,13 @@ surgered arc turns left at the intersection.
 \begin{subfigure}{.5\textwidth}
   \centering
   \includegraphics[width=.9\linewidth]{prop32b.png}
-  \caption{A subfigure}
+  \caption{.}
   \label{fig:sub2}
 \end{subfigure}
 \label{fig:test}
 \caption{One Dehn twist about $\alpha$.}
 \end{figure}
+\todo{Add captions}
 
     Note that in the figure $\beta$ intersects $\alpha$ from the
     same side each time, but we could also have the
@@ -2014,6 +2147,8 @@ surgered arc turns left at the intersection.
     homotopic to $\gamma$ and that is in minimal position
     with respect to both $\alpha$ and $\beta$.
 \end{proposition}
+
+\todo{What is this?}
 
 
 
@@ -2351,6 +2486,13 @@ of the tangent bundle of $S'$.
     \end{itemize}
 \end{definition}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{braid-diagram.jpg}
+    \caption{Depiction of a braid}
+    \label{fig:braid-diagram-jpg}
+\end{figure}
+
 Usually we picture
 this by its \textit{braid diagram} which is
 the projection of the images of the strands to
@@ -2500,9 +2642,12 @@ and the other $n-2$ points remain fixed.
 Since we just saw that
 $B_n \approx \pi_1 \left( C \left( \mathbb{C},n \right)  \right) $,
 and $C \left( \mathbb{C},n \right) $ 
-is a finite-dimensional CW-complex that
-is $K\left( B_n, 1 \right) $, we get that
+is a finite-dimensional CW-complex which one
+can show is
+$K\left( B_n, 1 \right) $, we get that
 $B_n$ is torsion-free~\cite[Prop~2.45]{Hatcher}
+
+\todo{maybe remove}
 
 
 \subsection{Mapping Class Group of a punctured disk}
@@ -2514,7 +2659,7 @@ $B_n$ is torsion-free~\cite[Prop~2.45]{Hatcher}
 
 
 
-The answer is that if we
+On relationship is the following: 
 let $D_n$ be a closed disk $D^2$ with $n$ marked points,
 then
 \[
@@ -2530,7 +2675,7 @@ $\varphi$ - i.e., if $\left\{ x_0, \ldots,x_n \right\}
 $\varphi \left( \left\{ x_0, \ldots,x_n \right\}  \right) 
 = \left\{ x_0, \ldots, x_n \right\} $. Note that we
 do not regard these marked points as punctures because
-we will not want to consider isotopies which "move" these
+we will want to consider isotopies which "move" these
 marked points around which is not allowed when the marked points
 represent punctures.
 We see that
@@ -2553,9 +2698,10 @@ So we have produced a braid.
 The answer is yes, and since $\sigma_i$ generate
 $B_n$, the images generate $\Mod(D_n)$. Now, the
 image of $\sigma_i$ will be the
-homotopy class of a homeomorphism
+isotopy class of a homeomorphism
 of $D_n$ that has support a twice-punctured disk and is
-described on this support by figure \ref{fig:half-twist-png}.
+described on this support by figure \ref{fig:half-twist-png} - we
+will call such a homeomorphism a half-twist.
 
 \begin{figure}[htpb]
     \centering
@@ -2818,7 +2964,6 @@ induced by the inclusion
  \end{corollary}
 
 
- \newpage
 
 
 
@@ -2936,6 +3081,7 @@ S_g^{1} \right) }\left( \iota \right) .
     \[
    \SHomeo^{+} \left( S_g^{1} \right) 
    \to \Homeo^{+} \left( D_{2g+1}, \partial D_{2g+1} \right) 
+   \label{Omega} \tag{$\Omega$}
    \] 
    by sending
    $\varphi $ to
@@ -2946,7 +3092,9 @@ S_g^{1} \right) }\left( \iota \right) .
    D_{2g+1}}$, then $\varphi  
    \in \left<\iota \right>$, and since $\iota 
    \not\in \SHomeo^{+} \left( S_g^{1} \right) $, we have
-   $\varphi  = 1$.
+   $\varphi  = 1$, so
+   the homomorphism is injective. Furthermore, it
+   is clearly surjective, hence an isomorphism.
    
 
 
@@ -2964,7 +3112,8 @@ S_g^{1} \right) }\left( \iota \right) .
        $\Homeo^{+} \left( S_{g}^{1} \right) $.
    \end{definition}
 
-   If we have this, we get the isomorphism
+   Recalling that \eqref{Omega} is an isomorphism, we
+   get
    \begin{align*}
        \SHomeo^{+} \left( S_g^{1} \right) /
        \text{symmetric isotopy}
@@ -2975,12 +3124,14 @@ S_g^{1} \right) }\left( \iota \right) .
        &\approx B_{2g+1}.
    \end{align*}
    
-   We want to show that
-   if two symmetric homeomorphisms of $S_{g}^{1}$ are
-   isotopic, then they must be symmetrically isotopic, since then
-   we will derive the Birman-Hilden theorem which we now state.
- 
-
+   Since
+   $\SMod \left( S_g^{1} \right) 
+   = \SHomeo^{+} \left( S_g^{1} \right) 
+   / \text{isotopy}$,
+   if we can show that 
+   two symmetric homeomorphisms of $S_{g}^{1}$ which are
+   isotopic must be symmetrically isotopic, then
+   we will thus derive the Birman-Hilden theorem which we now state.
 
    \begin{theorem}[Birman-Hilden]
        $\SMod \left( S_g^{1} \right) \approx
@@ -3024,6 +3175,7 @@ S_g^{1} \right) }\left( \iota \right) .
            interchanged by $\iota$.}
            \label{fig:-Birman-Hilden-two-symmetric-boundary-components-png}
        \end{figure}
+       \todo{replace by own drawing}
    \end{remark}
 
 
@@ -3066,7 +3218,7 @@ S_g^{1} \right) }\left( \iota \right) .
 
        \begin{figure}[htpb]
            \centering
-           \includegraphics[width=0.8\textwidth]{homology-basis-of-torus-and-double-torus.png}
+           \includegraphics[width=0.8\textwidth]{homology-basis-of-torus-and-double-torus.jpg}
            \caption{Basis for homology groups of torus and
            double torus}
            \label{fig:homology-basis-of-torus-and-double-torus-png}
@@ -3255,7 +3407,6 @@ S_g^{1} \right) }\left( \iota \right) .
 
 
 
-   \newpage
 
 
    \section{Braided monoidal categories}
@@ -3540,7 +3691,7 @@ and \\[1 ex]
 
        \begin{figure}[H]
            \centering
-           \includegraphics[width=0.55\textwidth]{braiding-on-braid-groupoid-2.jpeg}
+           \includegraphics[width=0.35\textwidth]{braiding-on-braid-groupoid-2.jpeg}
            \label{fig:braiding-on-braid-groupoid-jpeg}
        \end{figure}
        Then this is clearly an isomorphism since it has
@@ -3659,23 +3810,6 @@ and \\[1 ex]
      defined category of Yang-Baxter operators in
      $\mathcal{X}$.
 
-     \begin{proposition}[]
-         For any strict monoidal category $\mathcal{V}$ and
-         any Yang-Baxter operator $y$ on $T \colon
-         \mathcal{A} \to \mathcal{V}$, there exists
-         a unique strict tensor functor
-         $T' \colon \mathcal{B} \int \mathcal{A} \to \mathcal{V}$ 
-         such that $T' \circ z = y$ and
-         the following diagram commutes:
-         \begin{equation*}
-         \begin{tikzcd}
-             \mathcal{A} \ar[r, "\iota"] \ar[rd, "T"] & 
-             \mathcal{B} \int \mathcal{A} \ar[d, "T'"] \\
-                                                      & \mathcal{V}
-         \end{tikzcd}
-         \end{equation*}
-         
-     \end{proposition}
 
      \begin{proposition}[]\label{yang-baxter-inducing-representation}
          For any strict monoidal category $\mathcal{V}$ and
@@ -3707,7 +3841,6 @@ everything goes through.}
          taking $\sigma_i$ to $y_i$ for all
          $0 \le i <n$. Clearly $\Phi_{X, \tau}$ is the unique
          strict monoidal functor with these properties.
-         \todo{More explicit details.}
      \end{proof}
 
      \begin{remark}[]
@@ -3775,6 +3908,7 @@ everything goes through.}
    \begin{figure}[htpb]
        \centering
        \includegraphics[width=0.35\textwidth]{connected-sum.png}
+       \caption{$S_1 \# S_2$ }
        \label{fig:connected-sum-png}
    \end{figure}
 
@@ -4147,6 +4281,7 @@ be denoted by $S_{g,b}$ (respectively $N_{g,b}$ ).
 Now, recall that the Möbius band (which is also called
 a crosscap), is the mapping cylinder on the map
 $z \mapsto z^2$ (see figure~\ref{fig:mapping-cylinder-mobius})
+We will denote the Möbius band by $M$.
 
 
 \begin{figure}[htpb]

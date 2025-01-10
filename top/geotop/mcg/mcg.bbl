@@ -88,6 +88,40 @@
       \verb http://www.jstor.org/stable/j.ctt7rkjw
       \endverb
     \endentry
+    \entry{Harr-Vistrup-Wahl}{misc}{}
+      \name{author}{3}{}{%
+        {{hash=681386cc323d6eb69cf84874a45b4db4}{%
+           family={Harr},
+           familyi={H\bibinitperiod},
+           given={Oscar},
+           giveni={O\bibinitperiod}}}%
+        {{hash=c135f4e707db04142a3dde9d1d6117c9}{%
+           family={Vistrup},
+           familyi={V\bibinitperiod},
+           given={Max},
+           giveni={M\bibinitperiod}}}%
+        {{hash=66a0675635bef8e4bf51f2da23422364}{%
+           family={Wahl},
+           familyi={W\bibinitperiod},
+           given={Nathalie},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{ae952ab9fefacd99e60697b99ffa8849}
+      \strng{fullhash}{ae952ab9fefacd99e60697b99ffa8849}
+      \strng{bibnamehash}{ae952ab9fefacd99e60697b99ffa8849}
+      \strng{authorbibnamehash}{ae952ab9fefacd99e60697b99ffa8849}
+      \strng{authornamehash}{ae952ab9fefacd99e60697b99ffa8849}
+      \strng{authorfullhash}{ae952ab9fefacd99e60697b99ffa8849}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Disordered arcs and Harer stability}
+      \field{year}{2022}
+      \verb{doi}
+      \verb 10.48550/arXiv.2211.03858
+      \endverb
+    \endentry
     \entry{Hatcher}{book}{}
       \name{author}{1}{}{%
         {{hash=0a94eadf86d8b878d4c37bc5640e53e3}{%
@@ -231,7 +265,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{isbn}{0-13-181629-2}
-      \field{note}{Second edition of [ MR0464128]}
+      \field{note}{Second edition}
       \field{title}{Topology}
       \field{year}{2000}
       \field{pages}{xvi+537}
@@ -264,6 +298,43 @@
       \field{year}{2024}
       \verb{doi}
       \verb 10.48550/arXiv.2408.04707
+      \endverb
+    \endentry
+    \entry{Wahl-Randal-Williams}{article}{}
+      \name{author}{2}{}{%
+        {{hash=66a0675635bef8e4bf51f2da23422364}{%
+           family={Wahl},
+           familyi={W\bibinitperiod},
+           given={Nathalie},
+           giveni={N\bibinitperiod}}}%
+        {{hash=53ef82a1efc665566d50076ea26bdfa1}{%
+           family={Randal-Williams},
+           familyi={R\bibinithyphendelim W\bibinitperiod},
+           given={Oscar},
+           giveni={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{c79e10bd294bd994d1e715b8aae863ae}
+      \strng{fullhash}{c79e10bd294bd994d1e715b8aae863ae}
+      \strng{bibnamehash}{c79e10bd294bd994d1e715b8aae863ae}
+      \strng{authorbibnamehash}{c79e10bd294bd994d1e715b8aae863ae}
+      \strng{authornamehash}{c79e10bd294bd994d1e715b8aae863ae}
+      \strng{authorfullhash}{c79e10bd294bd994d1e715b8aae863ae}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Adv. Math.}
+      \field{title}{Homological stability for automorphism groups}
+      \field{volume}{318}
+      \field{year}{2017}
+      \verb{doi}
+      \verb 10.1016/j.aim.2017.07.022
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1016/j.aim.2017.07.022
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1016/j.aim.2017.07.022
       \endverb
     \endentry
   \enddatalist
