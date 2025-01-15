@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1733149326.04201 "exercises.tex" "exercises.pdf" "exercises" 1733149327.83785 0
+["pdflatex"] 1736950418.59961 "exercises.tex" "exercises.pdf" "exercises" 1736950419.82137 0
   "/etc/texmf/web2c/texmf.cnf" 1718688975.81737 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/jonas-trepiakas/.texlive2023/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk" 1727527665.45445 6964 86acb68f026bd4eb7255bbd50e22f730 ""
   "/home/jonas-trepiakas/.texlive2023/texmf-var/fonts/pk/ljfour/public/bbm/bbm7.600pk" 1731319425.84189 4840 7e840aee700de9cddc49ee9d83e5a24c ""
@@ -177,9 +177,9 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1719350542.55051 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1719350620 8213228 2bf4bdc60b7e8eadcc399e002a7ccc4d ""
-  "exercises.aux" 1733149327.70137 1379 0766bde6b600fcd81de005bd8919ec96 "pdflatex"
-  "exercises.out" 1733149327.70237 1397 b74b8c28c26b99e9369cec9ca70df339 "pdflatex"
-  "exercises.tex" 1733149325.33532 24798 e0b8115e7cb34761b1ef78828ffc2b33 ""
+  "exercises.aux" 1736950419.68459 1379 0766bde6b600fcd81de005bd8919ec96 "pdflatex"
+  "exercises.out" 1736950419.68459 1397 b74b8c28c26b99e9369cec9ca70df339 "pdflatex"
+  "exercises.tex" 1736950417.37757 24831 584c3658143f76a299f5c516175c31f3 ""
   (generated)
   "exercises.aux"
   "exercises.log"

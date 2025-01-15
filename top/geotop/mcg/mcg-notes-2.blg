@@ -1,0 +1,17 @@
+[0] Config.pm:307> INFO - This is Biber 2.19
+[0] Config.pm:310> INFO - Logfile is 'mcg-notes-2.blg'
+[127] biber:340> INFO - === Mon Jan 13, 2025, 18:55:09
+[159] Biber.pm:419> INFO - Reading 'mcg-notes-2.bcf'
+[269] Biber.pm:979> INFO - Found 14 citekeys in bib section 0
+[288] Biber.pm:4419> INFO - Processing section 0
+[304] Biber.pm:4610> INFO - Looking for bibtex file 'mcg.bib' for section 0
+[306] bibtex.pm:1713> INFO - LaTeX decoding ...
+[347] bibtex.pm:1519> INFO - Found BibTeX data source 'mcg.bib'
+[499] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[499] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[500] Biber.pm:4239> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[500] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[526] bbl.pm:660> INFO - Writing 'mcg-notes-2.bbl' with encoding 'UTF-8'
+[532] bbl.pm:763> INFO - Output to mcg-notes-2.bbl
+[532] Biber.pm:131> WARN - ISBN '0-521-79160-X; 0-521-79540-0' in entry 'Hatcher' is invalid - run biber with '--validate_datamodel' for details.
+[533] Biber.pm:133> INFO - WARNINGS: 1

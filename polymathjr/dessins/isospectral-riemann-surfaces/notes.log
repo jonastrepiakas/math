@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  15 JAN 2025 15:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  13 JAN 2025 21:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**exercises.tex
-(./exercises.tex
+**notes.tex
+(./notes.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
 (/usr/share/texlive/texmf-dist/tex/latex/amscls/amsart.cls
@@ -488,32 +488,32 @@ File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count310
 \l__pdf_internal_box=\box65
-) (./exercises.aux)
-\openout1 = `exercises.aux'.
+) (./notes.aux)
+\openout1 = `notes.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 137.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 139.
+LaTeX Font Info:    ... okay on input line 139.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 139.
+LaTeX Font Info:    ... okay on input line 139.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 139.
+LaTeX Font Info:    ... okay on input line 139.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 139.
+LaTeX Font Info:    ... okay on input line 139.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 139.
+LaTeX Font Info:    ... okay on input line 139.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 139.
+LaTeX Font Info:    ... okay on input line 139.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 139.
+LaTeX Font Info:    ... okay on input line 139.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 139.
+LaTeX Font Info:    ... okay on input line 139.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 139.
+LaTeX Font Info:    ... okay on input line 139.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 139.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 137.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 139.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -535,55 +535,55 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring ON on input line 137.
- (./exercises.out) (./exercises.out)
+Package hyperref Info: Link coloring ON on input line 139.
+ (./notes.out) (./notes.out)
 \@outlinefile=\write4
-\openout4 = `exercises.out'.
+\openout4 = `notes.out'.
 
 
-Overfull \hbox (7.17278pt too wide) in paragraph at lines 142--145
-[][]\T1/cmr/bx/n/10 Exercise 1.1. []\T1/cmr/m/n/10 Show that an $\OML/cmm/m/it/10 R$\T1/cmr/m/n/10 -module homomorphism $\OML/cmm/m/it/10 f [] [] M \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 N$ \T1/cmr/m/n/10 is an isomorphism
+
+LaTeX Warning: Reference `octagon-gluing-png' on page 1 undefined on input line 149.
+
+<octagon-gluing.png, id=19, 658.46pt x 756.8275pt>
+File: octagon-gluing.png Graphic file (type png)
+<use octagon-gluing.png>
+Package pdftex.def Info: octagon-gluing.png  used on input line 153.
+(pdftex.def)             Requested size: 216.0022pt x 248.26411pt.
+<hyperbolic-octagon.png, id=23, 397.485pt x 222.8325pt>
+File: hyperbolic-octagon.png Graphic file (type png)
+<use hyperbolic-octagon.png>
+Package pdftex.def Info: hyperbolic-octagon.png  used on input line 178.
+(pdftex.def)             Requested size: 180.0pt x 100.91292pt.
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc} <./octagon-gluing.png>]
+Overfull \hbox (1.52211pt too wide) in paragraph at lines 205--207
+[][]\T1/cmr/bx/n/10 Proposition 1.2. []\T1/cmr/m/it/10 Under the hypothesis of Lemma [][]1.1[][], $\OML/cmm/m/it/10 S[]$ \T1/cmr/m/it/10 and $\OML/cmm/m/it/10 S[]$ \T1/cmr/m/it/10 are non isometric. 
  []
 
-LaTeX Font Info:    Trying to load font information for U+bbm on input line 151.
-(/usr/share/texlive/texmf-dist/tex/latex/bbm-macros/ubbm.fd
-File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
-) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}] [2] [3]
-Underfull \hbox (badness 10000) in paragraph at lines 615--637
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 638--664
-
- []
-
-
-Overfull \hbox (17.15868pt too wide) in paragraph at lines 667--669
-[][]\T1/cmr/bx/n/10 Exercise 1.12. []\T1/cmr/m/n/10 Find a free non commutative ring $\OML/cmm/m/it/10 R$ \T1/cmr/m/n/10 with bases of different cardinalities. 
- []
-
-[4] [5] [6] (./exercises.aux)
+[2 <./hyperbolic-octagon.png>] (./notes.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
-Package rerunfilecheck Info: File `exercises.out' has not changed.
-(rerunfilecheck)             Checksum: B74B8C28C26B99E9369CEC9CA70DF339;1397.
+
+
+LaTeX Warning: There were undefined references.
+
+Package rerunfilecheck Info: File `notes.out' has not changed.
+(rerunfilecheck)             Checksum: 391292B2ED6E1CD381D6E6255BF9E4F2;420.
  ) 
 Here is how much of TeX's memory you used:
- 23260 strings out of 474222
- 436293 string characters out of 5748733
- 1961975 words of memory out of 5000000
- 44956 multiletter control sequences out of 15000+600000
- 567693 words of font info for 65 fonts, out of 8000000 for 9000
+ 22797 strings out of 474222
+ 425086 string characters out of 5748733
+ 1931975 words of memory out of 5000000
+ 44516 multiletter control sequences out of 15000+600000
+ 567298 words of font info for 62 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 98i,15n,107p,598b,1110s stack positions out of 10000i,1000n,20000p,200000b,200000s
- </home/jonas-trepiakas/.texlive2023/texmf-var/fonts/pk/ljfour/public/bbm/bbm7.600pk> </home/jonas-trepiakas/.texlive2023/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on exercises.pdf (6 pages, 234039 bytes).
+ 98i,8n,107p,594b,626s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb>
+Output written on notes.pdf (2 pages, 277187 bytes).
 PDF statistics:
- 181 PDF objects out of 1000 (max. 8388607)
- 137 compressed objects within 2 object streams
- 31 named destinations out of 1000 (max. 500000)
- 69 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 125 PDF objects out of 1000 (max. 8388607)
+ 88 compressed objects within 1 object stream
+ 14 named destinations out of 1000 (max. 500000)
+ 47 words of extra memory for PDF output out of 10000 (max. 10000000)
 
