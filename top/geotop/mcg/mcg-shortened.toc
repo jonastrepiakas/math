@@ -1,0 +1,12 @@
+\contentsline {section}{\tocsection {}{1}{For the University of Bonn}}{1}{section.1}%
+\contentsline {section}{\tocsection {}{2}{Introduction}}{1}{section.2}%
+\contentsline {subsection}{\tocsubsection {}{2.1}{Thesis Summary}}{2}{subsection.2.1}%
+\contentsline {section}{\tocsection {}{3}{Braided monoidal categories}}{2}{section.3}%
+\contentsline {subsection}{\tocsubsection {}{3.1}{Yang-Baxter operators}}{2}{subsection.3.1}%
+\contentsline {subsection}{\tocsubsection {}{3.2}{Braided monoidal category of decorated and bidecorated surfaces}}{3}{subsection.3.2}%
+\contentsline {section}{\tocsection {}{4}{Geometric Representations of the Braid Group on non-orientable surfaces}}{9}{section.4}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.0.1}{The standard twist representation}}{11}{subsubsection.4.0.1}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.0.2}{The crosscap transposition representation}}{14}{subsubsection.4.0.2}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.0.3}{Transvection}}{15}{subsubsection.4.0.3}%
+\contentsline {subsection}{\tocsubsection {}{4.1}{The main theorems}}{15}{subsection.4.1}%
+\contentsline {section}{\tocsection {}{}{References}}{16}{section*.19}%

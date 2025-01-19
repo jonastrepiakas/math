@@ -82,6 +82,7 @@
 \DeclareMathOperator{\Sin}{Sin}
 \DeclareMathOperator{\Supp}{Supp}
 \DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\GL}{GL}
 
 
 %Row operations
@@ -133,7 +134,45 @@
 
 
 
+
 \begin{document}
+
+\section{Glossary for exam}
+
+\begin{itemize}
+    \item All subspaces have a complement (thm 2.14)
+    \item $A,\tilde{A}\in \Hom (U,V)$ are equivalent if there
+        exist $S \in \GL (U)$ and $T \in \GL (V)$ such that
+         \begin{equation*}
+        \begin{tikzcd}
+            U  \ar[r, "A"] \ar[d, "S"] & V \ar[d, "T"] \\
+            U \ar[r, "\tilde{A}"] & V
+        \end{tikzcd}
+        \end{equation*}
+    \item $A,\tilde{A} \in \End(V)$ are called similar if
+        there exists $T \in \GL (V)$ such that
+        $TA = \tilde{A}T$.
+    \item \textbf{Theorem 2.22:} Assume $U,V$ fin.dim., then
+        $A, \tilde{A}$ are equivalent iff they have the same rank.
+    \item For $y \in V'$, the null-space of $y$ has codimension
+        one in $V$ and only the non-zero scalar multiples
+        of $y$ have the same null-space as $y$. (lemma 3.15 + see 
+        thm 3.14)
+    \item The dual map is the pullback: if $A \in \Hom (U,V)$, then
+        $A' \in \Hom(V',U')$ is defined by
+        $A'(y) = y \circ A$.
+       \begin{equation*}
+        \begin{tikzcd}
+            U \ar[r, "A"] \ar[dr, "A'(y)"']& V \ar[d, "y"] \\
+              & k
+        \end{tikzcd}
+        \end{equation*}
+        
+\end{itemize}
+
+
+\section*{Chapter 1}
+
     
 
 \begin{exercise}[12.2]
