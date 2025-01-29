@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  26 JAN 2025 13:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  24 JAN 2025 10:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -541,60 +541,36 @@ Package hyperref Info: Link coloring ON on input line 139.
 \openout4 = `notes.out'.
 
 
-Overfull \hbox (13.42032pt too wide) in paragraph at lines 171--178
-[]$[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 V\OT1/cmr/m/n/10 ) [] \OML/cmm/m/it/10 M[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 F\OT1/cmr/m/n/10 )$ \T1/cmr/m/n/10 when $[] \OML/cmm/m/it/10 V \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 n$ \T1/cmr/m/n/10 through the isomorphism $\OML/cmm/m/it/10 B [] []$\T1/cmr/m/n/10 .
+Underfull \hbox (badness 10000) in paragraph at lines 162--175
+
  []
 
 
-Overfull \hbox (9.98492pt too wide) in paragraph at lines 183--187
-[]\T1/cmr/m/n/10 Polynomials $\OML/cmm/m/it/10 p\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 F\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ]$ \T1/cmr/m/n/10 are uniquely determined by their associated functions
+Underfull \hbox (badness 10000) in paragraph at lines 176--181
+
  []
 
-
-Overfull \hbox (7.97182pt too wide) in paragraph at lines 196--202
-[]\T1/cmr/m/n/10 Fitting's decomposition shows that all endomorphisms act on $\OML/cmm/m/it/10 V$ \T1/cmr/m/n/10 by a nilpotent
- []
-
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
-Overfull \hbox (17.84814pt too wide) detected at line 263
-[]
- []
-
-
-Overfull \hbox (8.5057pt too wide) in paragraph at lines 311--319
-[][]\T1/cmr/bx/n/10 Exercise 1.3 \T1/cmr/m/n/10 (5.4)\T1/cmr/bx/n/10 . []$\OML/cmm/m/it/10 X; Y \OMS/cmsy/m/n/10 ^^Z \OML/cmm/m/it/10 V$ \T1/cmr/m/n/10 subspaces, $\OML/cmm/m/it/10 A [] [] V \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 V=X \OMS/cmsy/m/n/10 ^^H \OML/cmm/m/it/10 V=Y$ \T1/cmr/m/n/10 by $\OML/cmm/m/it/10 v \OMS/cmsy/m/n/10 7! []$
- []
-
-[2]
-<chapter-6-exercises.jpg, id=62, 1045.9075pt x 1686.3pt>
-File: chapter-6-exercises.jpg Graphic file (type jpg)
-<use chapter-6-exercises.jpg>
-Package pdftex.def Info: chapter-6-exercises.jpg  used on input line 351.
-(pdftex.def)             Requested size: 288.0011pt x 464.33861pt.
- [3]
-Underfull \vbox (badness 4429) has occurred while \output is active []
-
- [4 <./chapter-6-exercises.jpg>] [5] [6] (./notes.aux)
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}] [2] (./notes.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `notes.out' has not changed.
-(rerunfilecheck)             Checksum: 668E9920446BABD34C1CE338608FF844;709.
+(rerunfilecheck)             Checksum: 51B66FE0BC91449A5C77C17D8E11F9BD;92.
  ) 
 Here is how much of TeX's memory you used:
- 22953 strings out of 474222
- 428612 string characters out of 5748733
- 1954975 words of memory out of 5000000
- 44657 multiletter control sequences out of 15000+600000
- 568064 words of font info for 63 fonts, out of 8000000 for 9000
+ 22761 strings out of 474222
+ 424164 string characters out of 5748733
+ 1946975 words of memory out of 5000000
+ 44486 multiletter control sequences out of 15000+600000
+ 567298 words of font info for 62 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 98i,15n,107p,594b,1044s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on notes.pdf (6 pages, 402419 bytes).
+ 98i,8n,107p,594b,593s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb>
+Output written on notes.pdf (2 pages, 174269 bytes).
 PDF statistics:
- 172 PDF objects out of 1000 (max. 8388607)
- 127 compressed objects within 2 object streams
- 28 named destinations out of 1000 (max. 500000)
- 74 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 112 PDF objects out of 1000 (max. 8388607)
+ 75 compressed objects within 1 object stream
+ 8 named destinations out of 1000 (max. 500000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

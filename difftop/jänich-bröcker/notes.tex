@@ -1,0 +1,280 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\SHomeo}{SHomeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Teich}{Teich}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\tr}{tr}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\Mod}{{\mathrm{Mod}}}
+\newcommand{\PMod}{{\mathrm{PMod}}}
+\newcommand{\SMod}{{\mathrm{SMod}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+
+
+
+
+\begin{document}
+\section*{Chapter 1}
+
+\begin{exercise}[4]
+    Let $M$ be a differentiable manifold and
+    $\tau \colon M \to M$ be a fixed point free involution, i.e.,
+    a diffeomorphism with $\tau \circ \tau = \id_M$ and
+    $\tau(x) \neq x$ for all $x$.
+    Show that the quotient space $M / \tau$ is 
+    a topological manifold possessing a unique differentiable
+    structure making the projection
+    $M \to M/\tau $ locally diffeomorphic.
+\end{exercise}
+
+\begin{proof}
+    \textit{Hausdorff:} let $x,y \in M / \tau$ be distinct.
+    The preimage contains points $x_1,x_2$ and
+    $y_1,y_2$. Choose open disjoint subsets $U_1, U_2$ containing
+    $x_1$ and $x_2$ respectively which is disjoint from
+    $y_1,y_2$. We can modify 
+    $U_1$ to be $U_1 \cap \tau (U_2)$, and
+    then let $U_2 = \tau (U_1)$. 
+
+    Let $V_1, V_2$ be disjoint open neighborhoods of
+    $y_1,y_2$ respectively, disjoint from $U_1,U_2$.
+    Replace $V_1$ by $V_1 \cap \tau (V_2)$ and
+    let $V_2 = \tau(V_1)$. Then
+    $U :=U_1 \cup U_2$ is saturated with respect to
+    $\tau$ and $V := V_1 \cup  V_2$ is also, hence
+    they descend to open sets
+    in $M / \tau$ which are again disjoint. 
+    Indeed, suppose $\pi \colon M \to M/\tau$ is the quotient map
+    and $\overline{z} \in \pi U \cap \pi V$. Then
+    there exist  $z_1 \in U$ and $z_2 \in V$ such that
+    $\tau \left( z_1 \right) = z_2$. But this contradicts
+    $U \cap V = \varnothing$.\\
+
+    \textit{Second-countable:} Take a countable
+    open cover $\mathcal{B}$ of $M$. Now take the countable
+    cover $\mathcal{B}' :=
+    \left\{ U \cup  \tau (U) \colon U \in \mathcal{B} \right\} $.
+    This descends to a countable cover on $M / \tau$.\\
+
+    \textit{Locally-homeomorphic to $\mathbb{R}^{n}$ :}
+
+    Let $\overline{x} \in M / \tau$. Choose
+    a chart $\left( \varphi_x, U_x \right) $ around
+    $x \in M$. If necessary, intersect
+    $U_x$ with $U_1$ constructed from before. This
+    then implies that $\tau(U_x) \cap U_x = \varnothing$.
+    Then $U_x \cup \tau \left( U_x \right) $ is a 
+    saturated open neighborhood descending to an
+    open neighborhood $\overline{U_x}$ of $\overline{x}$.
+    Now $\pi|_{U_x} \colon U_x \to \overline{U_x}$ is a
+    homeomorphism, so we can define a chart for $\overline{x}$ 
+    as $\left( \varphi_x \circ \left( \pi|_{U_x} \right)^{-1},
+    \overline{U_x} \right) $. This constitutes an
+    atlas for $M / \tau$.
+
+    For good measure, we prove the lemma
+
+    \begin{lemma}[]
+        $\pi|_{U_x} \colon U_x \to \overline{U_x}$ is a
+        homeomorphism.
+    \end{lemma}
+    \begin{proof}
+        Suppose $\pi(y) = \pi(z)$ for $y,z \in U_x$ distinct.
+        That forces $y = \tau(z)$. However, then
+        $\tau(U_x) \cap U_x \neq \varnothing$, which
+        is a contradiction by construction. Thus $\pi$ is
+        injective on $U_x$.
+        
+        Now, an injective quotient map
+        is a homeomorphism, giving the desired result.
+    \end{proof}
+
+    Lastly, we must prove that
+    \textit{there exists a structure making the quotient
+    $\pi \colon M \to  M / \tau$ a local diffeomorphism and it
+    is the unique such structure:} 
+    by construction of the charts on
+    $M / \tau$, we can choose transition maps
+    giving the identity as a coordinate representation.
+    Hence the structure we constructed indeed gives
+    a local diffeomorphism $M \cong M / \tau$.
+
+    Any other structure making it a local diffeomorphism
+    would necessarily give a local diffeomorphism
+    of $M / \tau$ in the two structures, thus
+    forcing all charts to be compatible in the two structures,
+    and by maximality, it forces the structures
+    to be the same.
+\end{proof}
+
+\begin{exercise}[5]
+    Show that $\mathbb{R}\mathbb{P}^{1} \cong S^{1}$.
+\end{exercise}
+\begin{proof}
+    This now follows by applying the
+    previous exercise to $S^{1}$ with
+    $\tau \colon S^{1} \to S^{1}$ being
+    the antipodal map
+    $\tau(x) = -x$. Indeed $S^{1} / \tau \cong \mathbb{R}\mathbb{P}^{1}
+    $ is the usual quotient construction for $\mathbb{R}\mathbb{P}^{1}$.
+\end{proof}
+
+
+
+\begin{exercise}[9]
+    Prove that if $M$ is a non-empty, $n$-dimensional 
+    smooth manifold
+    and $k\le n$, then there is an embedding
+    $\mathbb{R}^{k} \to M$.
+\end{exercise}
+
+\begin{proof}
+    Let $x \in M$ and $\left( U, \varphi  \right) $ be
+    a chart centered around $x$. Take some
+    open ball $B\left( 0,r \right) \subset 
+    \varphi (U)$. Then we define
+    $f \colon \left( -r,r \right)^{k} 
+    \to M$ as $\varphi^{-1}$. Since
+    $\left( -r,r \right)^{k} $ is diffeomorphic to
+    $\mathbb{R}^{k}$, we get a diffeomorphism
+    $\mathbb{R}^{k} \to f\left( (-r,r)^{k} \right) $ if and
+    only if $f$ is a diffeomorphism onto its image which
+    it trivially is as the restriction of a diffeomorphism
+    to a submanifold. Indeed, it is a $k$-submanifold
+    as, if we let 
+    $U' = \varphi^{-1} \left( B(0,r) \right) $, we
+    get $\left( \varphi|_{U'}, U' \right) $ as a chart in
+    the atlas, and letting
+     $N = \im f$, we have
+     $\varphi \left( N \cap U' \right) 
+     = \varphi (N) = \left( -r,r \right)^{k}
+     = B\left( 0,r \right) \cap \mathbb{R}^{k}$.
+\end{proof}
+
+
+
+    %\bibliography{../refs.bib}
+\end{document}

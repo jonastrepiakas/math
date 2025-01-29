@@ -83,6 +83,7 @@
 \DeclareMathOperator{\Supp}{Supp}
 \DeclareMathOperator{\Char}{char}
 \DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\codim}{codim}
 
 
 %Row operations
@@ -167,13 +168,194 @@
               & k
         \end{tikzcd}
         \end{equation*}
-        
+    \item $\Bil (V) \cong M_{n,n}(F)$ when $\dim V = n$ through
+        the isomorphism
+        $B \stackrel{\cong}{\mapsto} \left( B(x_i,x_j) \right) $.
+        $\Bil (V)$ has basis $w_{i,j} = y_i y_j$ where
+        $\left( y_i \right) $ is a dual basis to a basis
+        $\left( x_i \right) $ for $V$ and
+        $\left( y_iy_j \right) (x,z) = y_i(x) y_j(z)$.
+    \item $L^{k}(V) :=
+        \left\{ \text{multilinear forms }
+        V^{\times k} \to  F \right\} $.
+    \item Review chapter 4 again - bilinear, symmetric,
+    skew-symmetric, alternating, quadratic forms.
+\item Polynomials $p(x) \in F[x]$ are uniquely determined
+    by their associated functions
+    $\lambda \mapsto p(\lambda)$ if and only if
+    $F$ is infinite.
+\item When $A$ is diagonable, the projections
+    $E_{\lambda} \colon V \to V_{\lambda}$ are called
+    the spectral projections of $A$ and the
+    expansion of $A$ as
+    $A = \sum_{\lambda \in \sigma(A)}
+    \lambda E_{\lambda}$ is called the spectral resolution of
+    $A$.
+\item Using Gram-Schmidt, we find that every finite-dimensional
+    inner product space has an orthonormal basis.
+\item Fitting's decomposition shows that
+    all endomorphisms act on $V$ by a nilpotent map on
+    one subspace $N$ and an invertible map on another subspace $R$,
+    and
+    these subspaces form a unique direct sum reduction
+    $V = N \oplus R$.
+\item All transpositions are conjugate in $S_n$ and every
+    permutation is a product of transpositions. 
+\item Bruhat decomposition shows that
+    every isomorphism is the product
+    $S T U$ of invertible upper triangular matrices
+    $S$ and $U$ and a permutation matrix $T$.
+\item $LU$-decomposition is just a different form of Bruhat
+    decomposition: for $A \in \GL(n,F)$, there
+    exist matrices $L,P,U$ such that
+    $A = LPU$ with $L$ lower triangular, $U$ upper triangular,
+    and $P$ a permutation matrix.
+\item By the Jordan additive decomposition, for
+    $A \in \End(V)$, it splits uniquely as
+    $A = A_d + A_n$ where $A_d$ is diagonable and
+    $A_n$ is nilpotent. 
+    Moreover, $\sigma(A_d) = \sigma(A)$ and there
+    exist $p_d,p_n \in F[x]$ such that
+    $p_d(A) = A_d$ and $p_n (A) = A_n$.
 \end{itemize}
 
 
 \section*{Chapter 1}
 
+\section*{Chapter 4}
     
+\begin{exercise}[1]
+    How does the matrix $\left[ B \right] $ representing a bilinear
+    form transform if the basis is changed by a 
+    transition matrix $\left[ P \right] $?
+\end{exercise}
+
+\begin{solution}
+    Suppose $\mathcal{B}=
+    \left\{ x_1, \ldots, x_n \right\} $ is the
+    basis for $V$ giving $\left[ B \right] $ the representation.
+    Write $\left[ B \right]_{\mathcal{B}}
+    = \left( B(x_i, x_j) \right) $ for this representation.
+    We can write
+    \[
+    B = \sum B(x_i,x_j) w_{ij}.
+    \] 
+    Let $P$ be a change of basis sending 
+     $x_j \mapsto \sum_{i} P_{ij} v_i$ and
+     let $\mathcal{B}' = \left\{ v_1, \ldots, v_n \right\} $.
+     Suppose $\left( z_i \right) $ is the dual
+     basis to $\mathcal{B}'$ and
+     $\tilde{w}_{ij}= z_i z_j$.
+     Then
+     \[
+     B = \sum B \left( v_i, v_j \right) \tilde{w}_{ij}.
+     \] 
+     So $\left[ B \right]_{\mathcal{B}'}=
+     \left( B\left( v_i,v_j \right)  \right) $.
+     Now
+     \begin{align*}
+     B\left( x_i , x_j \right) = 
+     \sum B \left( v_s, v_t \right) \tilde{w}_{s,t}
+     \left( P(x_i), P(x_j) \right) 
+     &= \sum B\left( v_s, v_t \right) \tilde{w}_{s,t}
+     \left( \sum P_{ki}v_k, \sum P_{rj} v_r \right)\\
+     \sum_{s,t} B (v_i, v_j) P_{si } P_{tj}
+     \end{align*}
+\end{solution}
+
+\begin{exercise}[4.7]
+    Determine the symmetric bilinear form on
+    $\mathbb{R}^2$ corresponding
+    to the quadratic form
+    $q(x) = 2x_1^2 + 6x_1x_2 - 3x_2^2$. Find a basis for
+    which $q$ has the form
+    \[
+    ax_1^2 + bx_2^2.
+    \] 
+\end{exercise}
+
+\begin{solution}
+    The symmetric bilinear form
+    $B(\left( x_1,x_2 \right), \left( y_1,y_2 \right) )
+    = 2x_1 y_1 + 3x_1 y_2 + 3 x_2 y_1 - 3 x_2 y_2$ works.
+    The bilinear form is given the matrix
+    $\left[ B \right] =
+    \begin{pmatrix} 2 & 3 \\ 3 & -3 \end{pmatrix} $ where
+    $B(x,y) = x^{t} \left[ B \right] y$.
+
+    Now setting up
+    \[
+        \begin{pmatrix} 2 & 3 & x_1\\
+        3 & -3 & x_2 \end{pmatrix} 
+    \] 
+    this is equivalent to the matrix
+    \[
+        \begin{pmatrix}    1 & 0 & \frac{x_2}{5}+x_1\\
+        0 & 1 & \frac{3x_1 - 2x_2}{15}
+\end{pmatrix}
+    \] 
+    So choosing a basis as
+    $\mathcal{B}' = \left\{ y_1,y_2 \right\} $ with
+    $y_1 = \frac{x_2}{5}+x_1$ and
+    $y_2 = \frac{3x_1-2x_2}{15}$, we get
+    \[
+    q(y) = y^{t} \left[ B \right]_{\mathcal{B}'}
+    y = y_1^2 + y_2^2.
+    \] 
+\end{solution}
+
+
+\section*{Chapter 5}
+
+\begin{exercise}[5.4]
+    $X,Y \subset V$ subspaces,
+    $A \colon V \to V /X \oplus V / Y$ by
+    $v \mapsto \left( v+X,v+Y \right) $ and
+    $B \colon V / X \oplus V /Y \to 
+    V / X+Y$ given by
+    $\left( v_1+X,v_2+Y \right) \mapsto 
+    v_1-v_2 + \left( X+Y \right) $.
+    Give a codimension version of the Grassmann formula.
+\end{exercise}
+
+\begin{solution}
+    Firstly, $N(A) = X \cap Y$, and
+    $R(B) = V / \left( X+Y \right) $ since
+    for $v + \left( X+Y \right)$, we have
+    $B \left( v+X, 0+Y \right) =
+    v+\left( X+Y \right) $. Now
+    if $B\left( v_1+X,v_2+Y \right) =
+    v_1-v_2 + \left( X+Y \right) = 0 + \left( X+Y \right) $ then
+    $v_1- v_2 \in X+Y$ so
+    $v_1-v_2 = x+y$ and hence
+    $v := v_1-x = y+v_2$, so
+    $A(v) = \left( v+X, v+Y \right) 
+    = \left( v_1+ X, v_2 + Y \right) $, hence
+    $N(B) \subset R(A)$, but also,
+    $R(A) \subset N(B)$ clearly. Hence
+    $N(B) = R(A)$. Now by rank-nullity, we get
+    \begin{align*}
+    \codim X + \codim Y 
+    &=
+    \codim \left( X+Y \right) + N(B)\\
+    &= \codim (X+Y) + \dim V - \dim \left( X \cap Y \right)\\
+    &= \codim (X+Y) + \codim \left( X \cap Y \right) 
+    \end{align*}
+    \qed
+\end{solution}
+
+\section*{Chapter 6}
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{chapter-6-exercises.jpg}
+\end{figure}
+
+\section*{Chapter 7}
+
+
+
+\section*{Chapter 12}
 
 \begin{exercise}[12.2]
     Let $U$ and $V$ be normed spaces, and assume that $V$ is complete.
