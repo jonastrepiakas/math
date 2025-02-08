@@ -1,0 +1,628 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\SHomeo}{SHomeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Teich}{Teich}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\codim}{codim}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\MCG}{{\mathrm{MCG}}}
+\newcommand{\PMCG}{{\mathrm{PMCG}}}
+\newcommand{\SMCG}{{\mathrm{SMCG}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+
+
+
+
+\begin{document}
+    
+
+\begin{problem}[2]
+    Show that the following spaces are topological manifolds
+    \begin{enumerate}
+        \item $\mathbb{R}\mathbb{P}^{n}, n \in \mathbb{N} $,
+        \item $\mathbb{C}\mathbb{P}^{n}, n \in \mathbb{N} $,
+        \item Stiefel manifolds $V_d \left( \mathbb{R}^{n} \right) $:
+            for $d \le n$, let
+            $V_d \left( \mathbb{R}^{n} \right) $ be the
+            set of $d$-frames in $\mathbb{R}^{n}$, i.e.,
+            the collection of linearly independent
+            vectors $v_1, \ldots, v_d \in \mathbb{R}^{n}$.
+            This inherits a topology as a subspace
+            of $\mathbb{R}^{nd}$.
+        \item Stiefel manifolds: for $d\le n$, let
+            $\tilde{V_d}\left( \mathbb{R}^{n} \right) $ 
+            be the collection of orthonormal frames in
+            $\mathbb{R}^{n}$ (with respect to the standard
+            inner product on $\mathbb{R}^{n}$ ). Again,
+            this inherits a topology as a subspace of
+            $\mathbb{R}^{nd}$.
+        \item $\GL_n \left( \mathbb{R} \right) /
+            B_n\left( \mathbb{R} \right) $, where
+            $B_n(\mathbb{R})$ consists of invertible
+            upper triangular matrices.
+    \end{enumerate}
+\end{problem}
+
+
+\begin{proof}
+    (1) \textit{Hausdorff:} let $\overline{x},\overline{y}
+    \in \mathbb{R}\mathbb{P}^{n}$ be distinct. We have
+    $\mathbb{R}\mathbb{P}^{n} := S^{n} / \sim$ where
+    $a,b \in S^{n}$ are identified if and only if
+    $a = \pm b$. Hence
+    $x \neq \pm y$. Take some
+    neighborhood $U_x$ of $x$ which is disjoint from
+    $-x,y,-y$ by Hausdorffness. Now
+    let $U = U_y \cup -U_y$ where
+    $-U_y = \left\{ -u  \mid u \in U_y \right\} $ which
+    is homeomorphic to $U$ since the antipodal map is
+    a homeomorphism. Since
+    $ \mathbb{R}^{n+1}$ is a regular space,
+    $S^{n}$ is also regular, so there exist 
+    disjoint open sets $V_y,W_y$ such that
+    $\overline{U}\subset W_y$ and $y \in V_y$.
+    Similarly, there exist open sets
+    $V_{-y}, W_{-y}$ such that
+    $\overline{U} \subset W_{-y}$ and
+    $-y \in V_{-y}$. Let
+    $V' = V_y \cap -V_{-y}$, and then
+    $V = V' \cup -V'$. Then
+    $V \cap U \subset  V' \cup -V'
+    \cap \left( W_{y} \cap W_{-y} \right) 
+    = \varnothing$
+    since $V' \subset V_y$ and
+    $-V' \subset V_{-y}$.
+
+    Furthermore, $V$ and $U$ are saturated with respect to
+    the quotient map. I.e.,
+    $V = \pi^{-1}\left( \pi(V) \right) $ and
+    $U = \pi^{-1}\left( \pi(U) \right) $, so
+    $\pi(V),\pi(U)$ are open sets in $\mathbb{R}\mathbb{P}^{n}$,
+    and they form disjoint neighborhoods around
+    $\overline{x}$ and $\overline{y}$.
+
+    \textit{Second-countable:} Suppose
+    we take the collection
+    $\mathcal{B}$ consisting of
+    open sets 
+    \[
+        \pi \left( B(x,\frac{1}{n}) \cup 
+    B\left( -x, \frac{1}{n} \right) \cap S^{n} \right)
+\]
+with
+    $n \in \mathbb{N} $ and $
+    x \in \mathbb{Q}^{n+1} \cap S^{n}$. Then 
+    $\mathcal{B}$ is countable and consists of
+    open sets in $\mathbb{R}\mathbb{P}^{n}$. Now for
+    any open set $U \subset \mathbb{R}\mathbb{P}^{n}$ containing
+    some $\overline{x} \in U$, we can take
+    some
+    $x \in \mathbb{Q}^{n+1} \cap S^{n}$ and some
+    $n \in \mathbb{N} $ such that
+    $ \left( B\left( x,\frac{1}{n} \right) 
+    \cup B\left( -x, \frac{1}{n} \right) \right)
+    \cap S^{n} \subset 
+    \pi^{-1}(U)$, hence
+    $U$ contains some open set $V \in \mathcal{B}$ such that
+    $x \in V \subset U$. So $\mathcal{B}$ is a countable
+    basis for $\mathbb{R}\mathbb{P}^{n}$.
+
+    \textit{Locally-Euclidean:} Take
+    a point $
+    \left[ x \right] =\left[ x_1,\ldots,x_n, x_{n+1} \right]
+    \in \mathbb{R}\mathbb{P}^{n}$. Then
+    some $x_i$ is non-zero. Let
+    $U_i := \left\{ 
+    \left[ z_1, \ldots, z_{n+1} \right] \colon
+z_i \neq 0 \right\} \subset \mathbb{R}\mathbb{P}^{n}$.
+So $\left[ x \right] \in U_i$. Now define the map
+$\varphi_i \colon U_i \to \mathbb{R}^{n}$ by
+$\varphi \left( \left[ z_1, \ldots, z_{n+1} \right]  \right) 
+= \left( \frac{z_1}{z_i}, \ldots,
+    \hat{z_i}, \ldots,
+\frac{z_{n+1}}{z_i}\right) $ where
+$\hat{z_i}$ means that this coordinate is excluded.
+This is well-defined since $\frac{z_j}{z_i}=
+\frac{\lambda z_j}{\lambda z_i}$ for all
+$\lambda \neq 0$. In fact, this is a 
+homeomorphism with inverse
+$\psi_{i} \colon \mathbb{R}^{n}\to U_i$ given by
+$\psi \left( y_1, \ldots, y_n \right) 
+= \left[y_1, \ldots, y_{i-1}, 1, y_{i},\ldots,
+y_n \right] $. Hence we choose
+$\left( U_i, \varphi_i \right) $ to be one
+chart for $\mathbb{R}\mathbb{P}^{n}$. The collection
+$U_1, \ldots, U_{n+1}$ covers $\mathbb{R}\mathbb{P}^{n}$, hence
+the collection of charts
+$\left\{ U_i, \varphi_i \right\} $ for
+$i = 1,\ldots, n+1$, gives an atlas for
+$\mathbb{R}\mathbb{P}^{n}$.\\
+\linebreak
+(2) \textit{Hausdorff:} The Hausdorff condition
+ for $\mathbb{C}\mathbb{P}^{n}$ is checked
+ in the same way as for $\mathbb{R}\mathbb{P}^{n}$, noting
+ that $\mathbb{C}^{n+1}$ is a regular space.
+
+ \textit{Second-countable:} 
+This is also checked similarly as for
+$\mathbb{R}\mathbb{P}^{n}$ where
+the collection $\mathcal{B}$ above is now taken
+for $x \in \mathbb{Q}[i]^{n+1}\cap S^{n}$.
+
+\textit{Locally-Euclidean:} Take the same
+open sets $U_i$ as for $\mathbb{R}\mathbb{P}^{n}$, now
+as subsets of $\mathbb{C}\mathbb{P}^{n}$, and define
+$\varphi_i$ and $\psi_i$ in the same way. It is again
+clear that $\varphi_i$ and $\psi_i$ are inverses of each
+other, hence $\varphi_i \colon U_i \cong \mathbb{C}^{n}
+\cong \mathbb{R}^{2n}$. So composing the charts
+$\varphi_i$ with the isomorphism
+$\mathbb{C}^{n} \cong \mathbb{R}^{2 n}$ gives
+the desired map - denote this also by
+$\varphi_i$. Then
+the collection  $\left( U_i, \varphi_i \right),i
+= 1,\ldots, n+1$ will
+again define an atlas for $\mathbb{C}\mathbb{P}^{n}$.\\
+\linebreak
+(3) \textit{Hausdorff:} Let
+$\left( v_1, \ldots, v_d \right),
+\left( w_1, \ldots, w_d \right) \in V_d\left( \mathbb{R}^{n}
+\right) $ be distinct $d$-frames.
+Then there exists $i$ such that
+$v_i \neq w_i$, hence a coordinate
+$j$ such that $v_{ij} \neq w_{ij}$. Take
+disjoint neighborhoods
+$V,W$ containing $v_{ij}$ and $w_{ij}$, respectively,
+in $\mathbb{R}$. Then
+$\mathbb{R}^{ij-1} \times V \times 
+\mathbb{R}^{nd-ij} \cap
+V_d\left( \mathbb{R}^{n} \right) $ and
+$\mathbb{R}^{ij-1} \times W \times 
+\mathbb{R}^{nd-ij} 
+\cap V_d\left( \mathbb{R}^{n} \right) $ are disjoint neighborhoods
+of $\left( v_1, \ldots, v_d \right) $ and
+$\left( w_1, \ldots, w_d \right) $, respectively.\\
+\linebreak
+\textit{Second-countable:}
+Every subspace of a second-countable space is
+second-countable, and as $\mathbb{R}^{nd}$ is
+second-countable, so is $V_d \left( \mathbb{R}^{n} \right) $.\\
+\linebreak
+\textit{Locally-Euclidean:} 
+Consider some $d$-frame $\left( v_1, \ldots, v_d \right) $ 
+as an $n\times d$ matrix. Since the columns
+are linearly independent, there
+exists some $d\times d$ submatrix
+with non-vanishing determinant. By continuity of
+of the determinant function, this
+$d \times d$ matrix has an open
+neighborhood in $M_{d}\left( \mathbb{R}^{n} \right) $ 
+on which the determinant function is non-vanishing. 
+Extend this neighborhood to one
+on $\mathbb{R}^{nd}$ by choosing
+$\mathbb{R}$ for the other coordinates and then
+taking the product of these sets to get an
+open neighborhood of
+$\left( v_1, \ldots, v_d \right) $.
+On this neighborhood, the corresponding matrices 
+have a $d \times d$ submatrix with non-vanishing determinant
+which means the $d$ columns are linearly independent. Thus this
+open set is in fact contained in
+$V_d \left( \mathbb{R}^{n} \right) $ and hence
+also an open set in $V_d \left( \mathbb{R}^{n} \right) $
+as we use the subspace topology. 
+Naturally, the chart on this
+open set we choose to simply be
+the one sending $\left( w_1, \ldots, w_d \right) $ to
+its coordinates in $\mathbb{R}^{nd}$. This
+is a bijective open map which is
+continuous since on any open set contained
+in the open set on $\mathbb{R}^{nd}$ which is
+the image of the chart, we still have 
+the $d\times d$ submatrix on which the determinant
+function is non-vanishing, hence still linearly independent
+columns. Since a bijective, open continuous map is a homeomorphism,
+this gives a chart for
+$\left( v_1, \ldots, v_d \right) $.\\
+\linebreak
+(d) \textit{Hausdorff:} any orthonormal frame
+is also linearly independent, so we can use the same
+open sets intersecting with
+$\tilde{V_d}\left( \mathbb{R}^{n} \right) $ as for 
+$V_d \left( \mathbb{R}^{n} \right) $ above.\\
+\linebreak
+\textit{Second-countable:} Every subspace of a second-countable
+space is second-countable, and as $\mathbb{R}^{nd}$ is
+second-countable, so is $\tilde{V_d}\left( \mathbb{R}^{n}
+\right) $.\\
+\linebreak
+\textit{Locally-Euclidean:} 
+
+
+
+
+
+
+
+\end{proof}
+
+
+
+
+
+\begin{problem}[3]
+    \begin{enumerate}
+        \item Show that $\mathbb{R}^{m}$ is homeomorphic
+            to $\mathbb{R}^{n}$ if and only if
+            $m = n$.
+        \item Show that the dimension of a connected
+            topological manifold is unique, i.e.,
+            such a manifold $M$ cannot have dimensions
+            $m$ and $n$ with $m \neq n$.
+    \end{enumerate}
+\end{problem}
+
+
+\begin{proof}
+    (1) 
+    If $m = n$, then $\mathbb{R}^{m} \cong \mathbb{R}^{n}$ 
+    by the identity.
+
+    Suppose $m\neq n$ and $\mathbb{R}^{m} \cong
+     \mathbb{R}^{n}$. Then also
+     the one point compactifications are homeomorphic, so
+     $S^{m} \cong S^{n}$.
+     Suppose $m>n\ge 0$. Then
+     $ \mathbb{Z} \cong H_m \left( S^{m} \right) 
+     \cong H_m \left( S^{n} \right) 
+     \cong 0$ which is a contradiction.\\
+     \linebreak
+     (2) Suppose a manifold  $M$ has dimensions
+     $m$ and $n$ with $m\neq n$.
+     Let $p \in M$ and choose
+     two charts $\left( U,\varphi  \right) ,
+     \left( V, \psi  \right) $ centered at
+     $0$ such that
+     $\varphi (U) \subset \mathbb{R}^{n}$ 
+     and $\psi (V) \subset \mathbb{R}^{m}$,
+     and assume $n > m$. We can take some
+     $B\left( 0,\varepsilon \right) 
+     \subset \varphi (U)$ and take its preimage under
+     $\varphi $ to replace $U$ with an open set
+     whose image under $\varphi $ is
+     $B\left( 0,\varepsilon \right) $, so assume without
+     loss of generality that
+     $\varphi (U) = B\left( 0,\varepsilon \right) $.
+     Then $\psi \circ \varphi^{-1} \colon
+     B\left( 0,\varepsilon \right) \to 
+     \psi \left( U \cap V \right) \subset 
+     \mathbb{R}^{m}$ is a homeomorphism.
+     Restricting to 
+     $S^{n-1} \cong
+     \partial \overline{B\left( 0, \frac{\varepsilon}{2}
+     \right) }$, we get an embedding
+     $S^{n-1} \hookrightarrow \mathbb{R}^{m}$.
+     But by the standard inclusion
+     $S^{m} \hookrightarrow S^{n-1}$, we get
+     an injective composite map
+     $S^{m} \hookrightarrow S^{n-1} \hookrightarrow
+     \mathbb{R}^{m}$, which is a contradiction
+     by the Borsuk-Ulam theorem.
+\end{proof}
+
+\begin{problem}[4]
+    \begin{enumerate}
+        \item Let $M$ and $N$ be two topological
+            manifolds. Show that
+            $M \times N$ is again a topological manifold
+            of dimension $\dim M + \dim N$.
+        \item Let $M$ and $N$ be two topological
+            manifolds of the same dimension. Show that
+            $M \sqcup N$  is again a topological
+            manifold.
+        \item Show that the connected components of a
+            manifold are again manifolds; in other
+            words, every manifold is written as a disjoint
+            union of a collection of connected manifolds.
+            Can this collection be uncountable?
+    \end{enumerate}
+\end{problem}
+
+\begin{proof}
+    (1) \textit{Hausdorff:} The product of two Hausdorff spaces
+    is Hausdorff in the product topology, so
+    as $M,N$ are manifolds hence Hausdorff, so is
+    $M \times N$.\\
+    \linebreak
+    \textit{Second-countable:} 
+    Likewise, the finite product of
+    second-countable spaces is countable, so
+    as $M,N$ are manifolds hence second-countable, so
+    is $M \times N$.\\
+    \linebreak
+    
+    \textit{Locally-Euclidean:}
+
+    Let $\left( p,q \right) \in 
+    M \times N$ be arbitrary with
+    $m = \dim M$ and
+     $n = \dim N$. Choose
+    charts $\left( U,\varphi  \right) $ and
+    $\left( V, \psi  \right) $ for
+    $p$ and $q$, respectively.
+    Then define a chart
+    $\varphi  \times \psi \colon
+    U \times V \to \mathbb{R}^{m+n}$ by sending
+    $\varphi \times \psi \left( u,v \right) 
+    = \left( \varphi (u)_1, \ldots,
+    \varphi (u)_m, \psi (v)_1, \ldots,
+\psi (v)_n \right) $ where
+$\varphi (u)_i$ is the $i$ th coordinate of
+$\varphi (u)$ and
+$\psi (v)_j$ is the $j$ th coordinate of
+$\psi (v)$. Taking the
+product topology on $M \times N$, 
+$\varphi \times \psi $ becomes an open embedding
+of the open set
+$U \times V$ into $\mathbb{R}^{m+n}$.\\
+\linebreak
+(2) We can define
+$M \sqcup N := M \times \left\{ 1 \right\} \cup 
+N \times \left\{ 0 \right\} $.
+Suppose $M$ and $N$ are $n$-dimensional manifolds. Let
+$\tilde{p} \in M \sqcup N$, then either
+$\tilde{p} = 
+\left( p,0 \right) $ with
+$p \in N$ or $\tilde{p}= \left( p,1 \right)$ with
+$p \in M$. Suppose without loss of generality that
+$p \in N$. Take some chart $\left( U, \varphi  \right) $ 
+around $p$ in $N$. Then
+$\tilde{U} :=U \times [0,\frac{1}{2}) \cap
+M \sqcup N$ is an open set around
+$\tilde{p}$ in $M \sqcup N$.
+Define a chart $\tilde{\varphi}\colon
+\tilde{U} \to \mathbb{R}^{n}$ by
+$\tilde{\varphi }\left( p,0 \right) 
+= \varphi (p)$.
+For some open set $V \subset \mathbb{R}^{n}$, we then
+have
+$\tilde{\varphi}^{-1}(V) =
+\varphi^{-1}(V) \times \left\{ 0 \right\} 
+= \varphi ^{-1}(V) \times [0, \frac{1}{2}) \cap
+M \sqcup N$ which is clearly open.
+Likewise, take some open subset
+$W \times \left\{ 0 \right\}  \subset \tilde{U}$. Then
+$\tilde{\varphi }\left( W \times \left\{ 0 \right\}  \right) 
+= \varphi (W)$ which is open since
+$\varphi $ is a homeomorphism on
+$U$ onto its open image. As
+$\varphi $ is bijective, so is
+$\tilde{\varphi }$, so
+$\tilde{\varphi }$ is a homeomorphism onto its
+open image, so $\left( \tilde{U},\tilde{\varphi } \right) $ 
+is a chart around $\tilde{p}$ in
+$M \sqcup N$. As $\tilde{p}$ was arbitrary,
+we see that $M \sqcup N$ is a topological
+$n$ manifold.\\
+\linebreak
+\textit{Hausdorff:} The Hausdorff condition is
+clear: if $\tilde{p}, \tilde{q} \in M \sqcup N$ are distinct
+points which are
+both either in  $M$ or $N$, suppose without loss of generality
+both are in $N$, then $\tilde{p} = \left( p,0 \right) ,
+\tilde{q} = \left( q,0 \right) $, so we can take
+disjoint open neighborhoods $U,V$ around
+$p$ and $q$ respectively using that $N$ is a manifold,
+and then create open sets
+$\tilde{U} = U \times [0,\frac{1}{2}) \cap
+M \sqcup N,
+\tilde{V} = V \times [0, \frac{1}{2})
+\cap M \sqcup N$ which are still
+disjoint and open in $M \sqcup N$ containing
+$\tilde{p}$ and $\tilde{q}$, respectively.
+If instead $\tilde{p}$ and $\tilde{q}$ are in, say,
+$N$ and $M$, respectively, then
+$\tilde{p} = \left( p,0 \right) $ and
+$\tilde{q} = \left( q,1 \right) $, so
+take open neighborhoods $U,V$ around $p$ and $q$, respectively.
+Then
+$\tilde{U} = U \times [0, \frac{1}{2}) \cap
+M \sqcup N,
+\tilde{V} = V \times (\frac{1}{2},1] \cap
+M \sqcup N$  are disjoint open neighborhoods
+of $\tilde{p}$ and $\tilde{q}$, respectively.\\
+\linebreak
+\textit{Second-countable:}
+Let $\mathcal{B}, \mathcal{B}'$ be countable bases for
+$N$ and $M$, respectively. Then
+$\mathcal{B} \times \left\{ 0 \right\} \cup 
+\mathcal{B}' \times \left\{ 1 \right\} $ gives
+a countable basis for $M \sqcup N$.\\
+\linebreak
+(3) Suppose $M$ is a manifold and
+$N \subset M$ is a connected component. 
+Let $p \in N$. Since $M$ is a manifold, there
+exists a chart $\left( U, \varphi  \right) $ around
+$p$. Then there exists a ball
+$B\left( \varphi (p), \varepsilon \right) \subset 
+\varphi (U)$ since $\varphi (U)$ is open. Now
+$\varphi^{-1}\left( B \left( \varphi (p),\varepsilon \right) 
+\right) $ is a connected open subset of $U$ containing $p$ 
+since homeomorphisms are in particular hence preserve
+connectivity. Thus we in particular have that
+if we let $\tilde{U}:= \varphi^{-1}\left( 
+B \left( \varphi (p), \varepsilon \right) \right) $, then
+$\left( \tilde{U}, \varphi|_{\tilde{U}} \right) $ 
+is a chart in $M$ hence also
+in $N$ with $N$ inheriting the subspace topology.
+Thus every point $p \in N$ has a chart 
+$U_p$ contained in $N$. Hausdorffness can be checked
+as follows: if $p,q \in N$, then there
+exist disjoint neighborhoods $V,W$ around $p$ and $q$, respectively.
+Now  $V \cap U_p$ and $W \cap U_q$ are open disjoint neighborhoods
+of $p$ and $q$, respectively, in $N$. Alternatively,
+with $N$ inheriting the subspace topology, Hausdorffness
+is inherited from $M$.
+
+For second-countability, $M$ has a countable basis
+$\mathcal{B}$, so since $N$ has the subspace topology,
+$\mathcal{B} \cap N = 
+\left\{ U \cap N  \mid  U \in \mathcal{B} \right\} $ 
+is a countable basis for $N$.
+
+Hence $N$ is a topological manifold of the
+same dimension as $M$.\\
+\linebreak
+To answer whether an uncountable collection of
+connected manifolds can be a manifold, we note that
+given an uncountable collection of connected manifolds, 
+second-countability would imply that
+there exists a countable basis, suppose
+$\mathcal{B}$ is such a basis.
+Now let $\bigsqcup_{i \in I} M_i$ be the uncountable union of
+connected manifolds. For each $i$, choose
+an $x_i \in M_i$, and let
+$\left( U_i, \varphi_i \right) $ be a chart around
+$x_i$ contained in $M_i$ (whose existence
+follows from the previous exercise). By assumption
+of $\mathcal{B}$ being a basis, there
+exists some $B_i \in \mathcal{B}$ such that
+$x_i \in B_i \subset U_i$. But this defines an
+injective map
+$I \to \mathcal{B}$ where $I$ was assumed to be uncountable
+and $\mathcal{B}$ countable - this is a contradiction.
+
+\end{proof}
+
+
+
+
+
+
+
+    %\bibliography{../refs.bib}
+\end{document}

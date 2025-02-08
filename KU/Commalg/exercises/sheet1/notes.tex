@@ -1,0 +1,339 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\SHomeo}{SHomeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Teich}{Teich}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\codim}{codim}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\MCG}{{\mathrm{MCG}}}
+\newcommand{\PMCG}{{\mathrm{PMCG}}}
+\newcommand{\SMCG}{{\mathrm{SMCG}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+
+
+
+
+\begin{document}
+    \begin{exercise}[1]
+        \begin{proof}
+            (i)
+                We claim that 
+                    $\left( x^2+1 \right) $ is a radical,
+                    prime and maximal
+                    ideal in $\mathbb{R}\left[ x \right] $.
+                    This can be seen
+                    by noting that
+                    $\mathbb{R}\left[ x \right] /
+                    \left( x^2 +1 \right) \cong \mathbb{C}$ which
+                    is a field. Hence
+                    $\left( x^2+1 \right) $ is
+                    maximal. Suppose
+                    $f^{n} \in \left( x^2+1 \right) $.
+                    Since $x^2 +1$ is irreducible
+                    and $x^2 +1  \mid f^{n}$, we must
+                    have $x^2 + 1  \mid f$, hence
+                    $f \in \left( x^2 +1 \right) $,
+                    so $\sqrt{\left( x^2+1 \right) } 
+                    =\left( x^2 +1 \right) $.
+                Over $\mathbb{C}\left[ x \right] $,
+                    we claim that
+                    $\left( x^2+1 \right) $ is neither
+                    prime nor maximal, but still radical.
+                    It is not prime as
+                    $x^2+1 = \left( x+i \right) \left( x-i \right) $
+                    and hence also not maximal
+                    since $\left( x^2+1 \right) 
+                    \subset \left( x+i \right) \neq 
+                    \mathbb{C}[x]$, where
+                    inequality follows from 
+                    $\left( x+i \right) $ only
+                    having polynomials of degree $\ge 1$.
+
+                    Now suppose
+                    $f^{n} \in \left( x^2+1 \right) $.
+                    Then $x+i, x-i  \mid f^{n}$, hence
+                    both must divide $f$ as they are
+                    irreducible, so
+                    $x^2 +1  \mid f$. Thus
+                    $f \in \left( x^2+1 \right) $, so
+                    $\sqrt{\left( x^2+1 \right) } 
+                    = \left( x^2+1 \right)  $ over
+                    $\mathbb{C}\left[ x \right] $
+                    as well.\\
+                    \linebreak
+                    (ii) Since $\left( x^2 +1 \right) $  is
+                    a prime ideal in $
+                    \mathbb{R}[x]$ by the previous exercise,
+                    we find by Eisenstein's criterion that
+                    $y^2 + x^2 + 1$ is irreducible
+                    in $\mathbb{R}[x][y] =:
+                    \mathbb{R}[x,y]$.\\
+                    \linebreak
+                    
+
+                    (iii)
+                 
+                    Let $C =
+                    \left\{ f \in 
+                    C\left( \mathbb{R}^2,\mathbb{R} \right)
+                 \mid \forall x \in \mathbb{R}\colon
+             f\left( x,0 \right) =0 \right\}
+             \subset C\left( \mathbb{R}^2,\mathbb{R} \right)$.
+             We claim that $C$ is radical, but neither
+             prime nor maximal.
+
+             To see that it is radical, suppose
+             $g^{n} \in C$, so
+             $g(x,0) \cdot \ldots \cdot 
+             g(x,0) = g^{n}(x,0) = 0$. Since
+             $\mathbb{R}$ is an integral domain,
+             this forces $g(x,0) = 0$, so
+             $g \in C$. Thus $\sqrt{C}  = C$.
+
+             Now let
+             $h(x) = \mathbbm{1}_{\ge 0}(x) x $
+             and
+             $k(x) = \mathbbm{1}_{\le 0}(x) x$. Then
+             $h,k \not\in C$, but
+             $hk \in C$. Therefore,
+             $C$ is not prime.
+             Since $C\left( \mathbb{R}^2,\mathbb{R} \right) $ is
+             a commutative ring and maximal ideals are
+             prime over a commutative ring, we
+             thus also conclude that $C$ is not maximal.\\
+             \linebreak
+             (iv) The ideal $\left( 5 \right) $ in
+             $\mathbb{Z}[i]$ is not prime, hence
+             not maximal as $\mathbb{Z}[i]$ is commutative.
+             It is not prime because $5 = 
+             (2+i) (2-i)$.
+
+             For the radical part, if
+             $a+bi \in \sqrt{(5)} $, then
+             $(2+i)(2-i)  \mid \left( a+bi \right)^{n}$,
+             so $2+i  \mid a+bi$ and
+             $2-i  \mid a+bi$ since
+             each is irreducible, hence
+             $5  \mid a+bi$, so
+             $\sqrt{\left( 5 \right) } =
+             \left( 5 \right) $.\\
+             \linebreak
+             
+             (v) We claim that
+             $\left( n \right) \subset \mathbb{Z}$ 
+             is prime and maximal whenever
+             $n$ is a prime and not otherwise.
+             If $n$ is not prime, then
+             writing $n = ab$ for $a,b >1$, we
+             have $\left( n \right) 
+             = \left( a \right) (b)$, so $\left( n \right) $ is
+             not prime, hence not maximal as
+             $\mathbb{Z}$ is commutative so
+             all maximal ideals are prime ideals.
+             If instead $n$ is a prime, $n=p$, then
+             $\left( p \right) $ is both
+             maximal and prime since
+             $\mathbb{Z} / p$ is a field.
+
+
+             Suppose now
+             $m \in \sqrt{\left( n \right) } $.
+             Then $m^{k} \in \left( n \right) $, so
+             $m^{k} = nq$ for some $q \in \mathbb{Z}$.
+             Suppose $n$ is squarefree. Let
+             $p  \mid n$. Then $p  \mid m^{k}$ and thus
+             $p  \mid m$, so $n  \mid m$, hence
+             $m \in \left( n \right) $. Conversely,
+             if $n$ is not squarefree, then
+             letting $n = p^k q$ for some $k>1$, we have
+             $p^{k-1}q \in \sqrt{\left( n \right) } $ while
+             $p^{k-1} q \not\in \left( n \right) $, so
+             $\left( n \right) $ is not radical.
+        \end{proof}
+    \end{exercise}
+
+
+
+
+
+    \begin{exercise}[3]
+        Suppose
+        $ab \in \left( \mathfrak{p}+\mathfrak{q} \right) =
+        \mathfrak{p} \cup  \mathfrak{q}$. 
+        Write 
+        $a = \sum \alpha_i x_i$ and
+        $b = \sum \beta_i x_i$.
+        Then
+        $ab = \sum_{i,j} \alpha_i \beta_j x_i x_j$ 
+
+        We have
+        \[
+        K\left[ x_1,\ldots,x_{n+m} \right]/ 
+        \left( \mathfrak{p}+ \mathfrak{q} \right) 
+        \cong
+        K\left[ x_1, \ldots, x_n \right] / \left( \mathfrak{p}
+        \right) \oplus K\left[ x_{n+1},\ldots,x_{n+m} \right] 
+        / \left( \mathfrak{q} \right) 
+        \] 
+        as can be seen
+        by defining the map
+        \[
+        \varphi \colon
+        K\left[ x_1,\ldots,x_{n+m} \right] 
+        \to K\left[ x_1,\ldots,x_n \right] 
+        / \left( \mathfrak{p} \right) 
+        \oplus K\left[ x_{n+1},\ldots,x_{n+m} \right] 
+        / \left( \mathfrak{q} \right) 
+    \]
+    by
+    \[
+    \sum \alpha_i x_i \mapsto 
+    \left( \sum_{i=1}^{n} \alpha_i \overline{x}_i,
+    \sum_{i=n+1}^{n+m} \alpha_i \overline{x}_i \right).
+    \] 
+    This is clearly a homomorphism with kernel
+    precisely  $\left( \mathfrak{p} + \mathfrak{q} \right) $
+    since this ideal consists precisely of
+    the sums which have a factor that
+    consists of a part in
+    $\left( \mathfrak{p} \right) $ and
+    another part in $\left( \mathfrak{q} \right) $.
+    As $\left( \mathfrak{p} \right) $ and
+    $\left( \mathfrak{q} \right) $ are prime,
+    the right hand side of the isomorphism
+    is a direct sum of integral domains which is
+    again an integral domain. Hence
+    q
+    \end{exercise}
+
+
+
+
+
+
+    %\bibliography{../refs.bib}
+\end{document}

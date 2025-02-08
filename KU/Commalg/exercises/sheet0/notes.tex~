@@ -1,0 +1,361 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\SHomeo}{SHomeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Teich}{Teich}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\codim}{codim}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\MCG}{{\mathrm{MCG}}}
+\newcommand{\PMCG}{{\mathrm{PMCG}}}
+\newcommand{\SMCG}{{\mathrm{SMCG}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+
+
+
+
+\begin{document}
+\section*{Sheet 0}
+\begin{exercise}[1]
+    \begin{proof}
+        \begin{enumerate}
+            \item 
+        Choose
+        $\varphi  \colon \mathbb{Z}/2 \to \mathbb{Z}/4$ by
+        $1 \mapsto 2$.
+    \item Any map $ \varphi \colon 
+        \mathbb{Z} /m \to \mathbb{Z} /n$ in
+        $\Ring$ must take $1 \mapsto 1$, and
+        is uniquely determined thereby
+        since $\varphi (k) =
+        \varphi \left( 1 + \ldots+ 1 \right) 
+        = \varphi (1) + \ldots + \varphi (1)
+        = k$.
+        Therefore, $0 = \varphi (m) = 
+        m$ in $\mathbb{Z} / n$, so $n  \mid m$.
+        And it is clear that if $n  \mid m$, then
+        $1 \mapsto 1$ is a well-defined ring
+        homomorphism. Thus
+        \[
+        \Hom_{\Ring}\left( \mathbb{Z}/m,
+        \mathbb{Z}/n \right) 
+        = 
+        \begin{cases}
+            1 \mapsto 1,& n  \mid m\\
+            \varnothing,& \text{otherwise}
+        \end{cases}.
+        \] 
+    \item We claim that the correspondence
+        \begin{align*}
+            \Hom_{\Ring}\left( \mathbb{Z}[x], R \right) 
+            &\to R\\
+            \varphi &\mapsto \varphi (x)
+        \end{align*}
+        is bijective.
+        Indeed, $\varphi (1) = 1$ necessarily,
+        so $\varphi (k) = k$ for
+        all $k \in \mathbb{Z}$, so we
+        simply have
+        $\varphi \left( \sum \alpha_i x^{i} \right) 
+        = \sum \varphi \left( \alpha_i \right) 
+        \varphi (x)^{i} 
+        = \sum \alpha_i \varphi (x)^{i}$.
+    \item Suppose $\left( \mathbb{Q}/ \mathbb{Z},
+        +\right) $ admits a ring structure with
+        multiplication $\cdot $. Let
+        $\frac{a}{b} \in \mathbb{Q} / \mathbb{Z}$ be
+        the unit. Then for any $\frac{x}{y} \in 
+        \mathbb{Q} / \mathbb{Z}$
+        \[
+        \frac{x}{y}
+        =\frac{x}{y} \cdot \frac{a}{b}
+        = \frac{x}{y}\cdot \left( \frac{1}{b} + \ldots
+        + \frac{1}{b}\right) 
+        = \frac{x}{y}\cdot \frac{1}{b} + \ldots
+        + \frac{x}{y}\cdot \frac{1}{b}.
+        \] 
+        Therefore, we must have
+        $\frac{x}{y} \cdot  \frac{1}{b} =
+        \frac{x}{ay}$.
+        But then
+        \[
+        \frac{x}{ay} = 
+        \frac{x}{y} \cdot \frac{1}{b}
+        \] 
+        implies
+        \[
+        \frac{bx}{ay} = \frac{x}{y} \cdot \frac{1}{b}+
+        \ldots + \frac{x}{y} \cdot \frac{1}{b}
+        = \frac{bx}{y} \cdot \frac{1}{b}
+        \] 
+        Hence we get
+        \[
+        \frac{x}{y} = \frac{x}{y} \cdot  \frac{a}{b}
+        = \frac{bx}{ay}
+        \] 
+        and so  $\frac{a}{b} = 1$ as
+        $\frac{x}{y}$ was arbitrary. However,
+        $1 = 0$ in $\mathbb{Q} / \mathbb{Z}$, giving
+        $\mathbb{Q} / \mathbb{Z} = \left\{ 0 \right\} $,
+        which is a contradiction.
+    \item By (2), 
+        $\Hom_{\Ring}\left( \mathbb{Z}/m, \mathbb{Z}/n \right) $ 
+        is either a single map or empty, and as
+        the empty set is not a ring, this
+        Hom set in general does not admit a ring
+        structure - when it does, it must be
+        the trivial one.
+        \end{enumerate}
+    \end{proof}
+\end{exercise}
+
+
+\begin{exercise}[2]
+    \begin{enumerate}
+        \item $A$ admits a unique $\mathbb{Z}$-algebra
+            structure since any ring homomorphism
+            $\mathbb{Z} \to A$ is uniquely determined
+            by $1 \mapsto 1$.
+        \item Take $A = \mathbb{Z}[x]$ and
+            $R$ to be any ring with more
+            than one element. By exercise 1.(c),
+            $\Hom_{\Ring}\left( \mathbb{Z}[x],
+            R\right) \cong R$, so
+            $R$ admits more than one
+            $R$-algebra structure.
+
+            However, these structures could be isomorphic
+            in the sense that there
+            exists maps $\varphi , \psi  \colon
+            R \to R$ with $\varphi \psi = \id = \psi  \varphi $ 
+            and composing one algebra structure
+            $\mathbb{Z}[x] \to R$ with $\varphi $ gives
+            $\psi $ and vice versa. 
+
+            So we must find explicit examples which
+            are non-isomorphic. 
+            Define 
+            $f,g \colon \mathbb{Z}[x] \to \mathbb{Z}/6$ by
+            $f(x) = 2$ and
+            $g(x) = 3$. Now, there
+            is no ring homomorphism
+            $\varphi \mathbb{Z} / 6 \to \mathbb{Z}/6$
+            such that $\varphi \circ f = g$ since
+            $0 = \varphi (0) =\varphi \circ f(3x) = g(3x)
+            = 3$ gives a contradiction.
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}[3]
+    This is just the 4th isomorphism theorem
+    for ideals of rings.
+
+    Define a map
+    $\pi \colon \mathcal{A} \to \mathcal{B}$ by
+    sending $A \to \overline{A} = A + I$.
+
+    Suppose $\pi(A) = \pi(B)$. Then
+    for any $a \in A$, there exists $b \in B$ such that
+    $a-b \in I \subset A \cap B$, hence
+    $a,b \in A \cap B$. Thus $A \subset B \subset A$, so
+    $A = B$. 
+
+    Now, suppose $V \in \mathcal{B}$. Let
+    $A = \pi^{-1}(V)$. This is an ideal containing $I$.
+    If $a,b \in A$ then $\pi(a), \pi(b) \in V$ so
+    $\pi(ab) = \pi(a) \pi(b) \in V$, hence
+    $ab \in \pi^{-1}(V)$. Similar closure for the rest.
+    And if $r \in R$ then
+    $\pi\left( ar \right) =\pi(a) \pi(r) \in V$ as
+    $\pi(a) \in V$ and $V$ is an ideal, so
+    $ar \in A$, hence $A$ is an ideal. This gives surjectivity.
+\end{exercise}
+
+\begin{exercise}[4]
+    $\left( 2,x \right) \subset \mathbb{Z}[x]$ is not principle
+    as an ideal generated over $\mathbb{Z}$.
+    If $\left( 2,x \right) = \left( p(x) \right) $, then
+    $p(x)  \mid 2$ implies that that the
+    degree of $p$ is $0$. Now
+    let $q(x)$ be such that
+    $p(x)q(x) = x$ and
+     $h(x)$ such that $p(x) h(x) = 2$. Then
+     the degree of $2$ is $0$ and that of $q$ is $1$.
+     Furthermore, as $p \in \left( 2,x \right) $, we must
+     have $p(x) = 2 k(x)$. But this implies
+     $2 k(x) q(x) = x$, so
+     $2  \mid x$ in $\mathbb{Z}[x]$, which is
+     impossible.
+\end{exercise}
+
+\begin{exercise}[7]
+    \begin{enumerate}
+        \item Surjectivity amounts to finding an
+            $f \in K \left[ x_1, \ldots, x_n \right] $ 
+            such that $f(y) = k$ for some arbitrary $k \in K$.
+            Consider the map
+            $f(x_1,\ldots,x_n) =
+            k + \left( x_1-y_1 \right) \ldots \left( x_n
+            -y_n\right) $. Or the constant polynomial at $k$ works
+            also. Now,
+            $\varphi_y \left( f+g \right) 
+            = \left( f+g \right) (y)
+            = f(y) + g(y) = \varphi_y(f) + 
+            \varphi_y(g)$, and
+            $\varphi_y(fg) = \varphi_y(f)\varphi_y(g)$ is
+            seen likewise. 
+
+            That it is a homomorphism of
+            $K$-algebras (with the
+            standard $K$-algebra structure)
+            amounts to showing that
+            $\varphi_y\left( k  \right) 
+            = k $ which is clear.
+        \item Let $\varphi  \colon K \left[ x_1, \ldots, x_n
+            \right]  \to K$ be a ring homomorphism. 
+            Let $y_i = \varphi (x_i)$. Then
+            $\varphi \left( \sum a_I x_I \right) 
+            = \sum \varphi \left( a_I \right) 
+             y_I = 
+             \varphi_{y_I}\left( \sum a_I x_I \right) $
+             (for this we need
+             $\varphi $ to be a $K$-algebra
+             homomorphism of with
+              $K\left[ x_1, \ldots,x_n \right] $ 
+              in the standard structure.
+              Is there a different way of arguing?)
+    \end{enumerate}
+\end{exercise}
+
+
+
+
+
+
+
+
+    %\bibliography{../refs.bib}
+\end{document}

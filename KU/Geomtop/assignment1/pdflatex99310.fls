@@ -1,0 +1,4 @@
+PWD /home/jonas-trepiakas/LaTeX/math/KU/Geomtop/assignment1
+INPUT /etc/texmf/web2c/texmf.cnf
+INPUT /usr/share/texmf/web2c/texmf.cnf
+INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf

@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1738184866.67499 "notes.tex" "notes.pdf" "notes" 1738184867.57434 0
+["pdflatex"] 1738624208.69449 "notes.tex" "notes.pdf" "notes" 1738624209.50281 0
   "/etc/texmf/web2c/texmf.cnf" 1718688975.81737 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1000.tfm" 1136768653 3584 2d666ecf6d466d8b007246bc2f94d9da ""
@@ -28,10 +28,8 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb" 1248133631 37912 77d683123f92148345f3fc36a38d9ab1 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1248133631 36281 c355509802a035cadc5f15869451dcee ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
-  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb" 1248133631 31809 8670ca339bf94e56da1fc21c80635e2a ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1248133631 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
-  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb" 1248133631 32915 7bf7720c61a5b3a7ff25b0964421c9b6 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1248133631 31764 459c573c03a4949a528c2cc7f557e217 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
@@ -173,10 +171,9 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1719350542.55051 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1719350620 8213228 2bf4bdc60b7e8eadcc399e002a7ccc4d ""
-  "chapter-6-exercises.jpg" 1737745288.03098 168519 e03ac72779d49d21b52bd9e12f092f87 ""
-  "notes.aux" 1738184867.4782 1167 6c21454442741ee7c33972f99c0b8cd8 "pdflatex"
-  "notes.out" 1738184867.4792 709 668e9920446babd34c1ce338608ff844 "pdflatex"
-  "notes.tex" 1738184864.12118 22132 7558a53842a44a73ee8f82d795024344 ""
+  "notes.aux" 1738624209.40638 489 0eb55999e327522f6e7db567f3754291 "pdflatex"
+  "notes.out" 1738624209.40638 82 623681fe06650bb8434d19adffbbfc1c "pdflatex"
+  "notes.tex" 1738624206.99836 11120 70571a4abfaf3448d87d9f55629f4857 ""
   (generated)
   "notes.aux"
   "notes.log"
