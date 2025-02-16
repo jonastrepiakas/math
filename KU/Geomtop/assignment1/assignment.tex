@@ -136,9 +136,104 @@
 
 
 
+\title{Assignment 1}
+\author{Jonas Trepiakas}
+\date{}
 
 \begin{document}
+
+\maketitle
     
+\begin{problem}[1]
+    Classify all topological $1$-manifolds up to homeomorphism.
+\end{problem}
+
+\begin{proof}
+    Let $M$ be a $1$-manifold. Since components of a manifold
+    are themselves manifolds, we may assume $M$ is connected.
+    We also only consider manifolds without boundary.
+    The claim is that $M$ is homeomorphic to
+    $S^{1}$ or $\mathbb{R}$.\\
+    Suppose
+    $\left( U, \varphi  \right) $ is a maximal chart
+    in the sense that it is not contained in any 
+    other chart. If $U$ covers all of $M$, then
+    $M \cong \varphi (U) $ is a connected open subset
+    of $\mathbb{R}$ which is an interval, hence
+    homeomorphic to $\mathbb{R}$. So suppose
+    $U$ does not cover all of $M$. 
+
+    Since $M$ is locally-compact (as it is
+    locally Euclidean) and Hausdorff, $M$ has a 
+    one-point compactification. 
+
+    We must check that the one-point compactification of a
+    $1$-manifold is still a $1$-manifold. This we
+    will not show for now.\\
+    
+
+    Suppose $\left( U, \varphi  \right) $ is a
+    maximal chart for $M$ which is now compact. Compact
+    connected
+    subsets of $\mathbb{R}$ are closed bounded intervals
+    which are $1$-manifolds with boundary, so
+    $U$ cannot cover all of $M$. Since
+    $U$ is open, it cannot be closed also since 
+    closed and open sets would give a contradiction to
+    the connectedness assumption. Hence
+    there exists a point $x \in M -U$ which is a limit
+    point of $U$. Let $\left( V, \psi  \right) $ be a 
+    connected
+    chart about $x$. Then $U \cap V$ has at least one
+    component.
+    Let $W \subset U \cap V$ be the component containing $x$.
+    Then $\varphi (W), \psi (W)$ are open
+    intervals in $\mathbb{R}$, hence homeomorphic.
+    Let $f \colon \mathbb{R} \to \mathbb{R}$ be
+    the homeomorphism sending
+    $\psi (W) $ to $\varphi (W)$. Then
+    $\varphi $ and $f \circ \psi $ agree
+    on $W$, so we can extend $\varphi $ to a chart
+    $\left( \varphi \cup  f \circ \psi ,
+    U \cup B \right) $ where
+    $B = B\left( x, \varepsilon \right) 
+    \subset V$ is some small open ball, defined by
+    \[
+    \varphi \cup f \circ \psi (x)
+    = 
+    \begin{cases}
+        \varphi (x),& x \in U\\
+        f \circ \psi (x),& x \in B
+    \end{cases}.
+    \] 
+    If $U \cup  B$ yields a larger open set,
+    this contradicts maximality of $\left( 
+    \varphi , U \right) $, hence not such
+    ball $B$ can exist. 
+
+    But then the intersection
+    $V \cap U$ must have at least two components.
+    If it have two components, then
+    we can easily define a map
+    $S^{1} \to V \cup  U = M$ such that the
+    bottom hemisphere is send
+    into $U$ and the top is sent into $V$ and
+    some neighborhoods about $\left( 1,0 \right) $ and
+    $\left( -1,0 \right) $ are sent to
+    the two components of $U \cap V$, giving
+    a homeomorphism $M \cong S^{1}$.
+    To see that there cannot be more than two
+    components, we cite the graph argument that Milnor gives
+    on page 56 in his Topology from a differentiable viewpoint.
+
+    Now as the non-compact connected manifolds
+    have a one-point compactification by the above, we
+    can obtain any non-compact one-manifold by
+    deleting a point from $S^{1}$ which indeed
+    gives a space homeomorphic to
+    $S^{1} - \left\{ 1,0 \right\} \cong \mathbb{R}$.
+
+\end{proof}
 
 \begin{problem}[2]
     Show that the following spaces are topological manifolds
@@ -164,6 +259,7 @@
             B_n\left( \mathbb{R} \right) $, where
             $B_n(\mathbb{R})$ consists of invertible
             upper triangular matrices.
+        \item Show whether each of the above examples is compact or not.
     \end{enumerate}
 \end{problem}
 
@@ -230,6 +326,46 @@ with
     $U$ contains some open set $V \in \mathcal{B}$ such that
     $x \in V \subset U$. So $\mathcal{B}$ is a countable
     basis for $\mathbb{R}\mathbb{P}^{n}$.
+
+
+    \textbf{Different way of showing Hausdorff and
+    second-countable if we are using a different
+definition of $\mathbb{R}\mathbb{P}^{n}$:}
+If we are using the definition of
+$\mathbb{R}\mathbb{P}^{n}$ as the space of lines
+in $\mathbb{R}^{n+1}$, we can show Hausdorffness
+in a different way:
+
+    \begin{proof}
+        Let $\left[ x \right] , \left[ y \right]
+        \in \mathbb{R}\mathbb{P}^{n}$ be distinct.
+        Then $\frac{x}{\|x\|} \neq \frac{y}{\|y\|}$. Define
+        $\rho  \colon \mathbb{R}^{n+1} - \left\{ 0 \right\} \to
+        S^{n}$ by $\rho (x) = \frac{x}{\|x\|}$. Since $S^{n}$ is Hausdorff, we can find
+        open sets $U,V$ around $\frac{x}{\|x\|}$ and $\frac{y}{\|y\|}$, respectively.
+        Since $\rho$ is continuous, $\rho^{-1}(U)$ and $\rho^{-1}(V)$ are open and
+        contain $x$ and $y$. We claim that they are saturated with respect to
+        $\pi  \colon \mathbb{R}^{n+1} - \left\{ 0 \right\} \to
+        \mathbb{R}\mathbb{P}^{n}$. Suppose
+        $w \in \pi^{-1}\left( \pi \left( \rho^{-1}(U) \right)  \right) $. Then
+        $\left[ w \right] \in \pi \left( \rho^{-1}(U) \right) $. So there
+        exists $u \in U$ such that $\pi \left( \rho^{-1}\left( u \right)  \right)
+        = \left[ w \right] $. Then clearly, $u = \frac{w}{\|w\|}$, so
+        $w = u \|w\| \in \rho^{-1}(U)$. Hence
+        $\pi \left( \rho^{-1}(U) \right) $ and
+        $\pi\left( \rho^{-1}(V) \right) $ are open sets around
+        $\left[ x \right] $ and $\left[ y \right] $, respectively.
+        Now, define an action on  $S^{n}$ by
+        $\mathbb{Z}_2 \times S^{n} \to S^{n}$ by
+        $\left( 0, x \right) =x$ and
+        $\left( 1,x \right) = -x$. Then
+        the orbit space is second countable since the quotient map is
+        open, so as the orbit space is $\mathbb{R}\mathbb{P}^{n}$, we are done.\\
+        Alternatively, for the Hausdorff condition, we can also say that
+        $\mathbb{Z}_2$ acts properly on $S^{n}$ and since if a group $G$ acts properly
+        on a Hausdorff space $X$ then $X /G$ is Hausdorff, we conclude that
+        $\mathbb{R}\mathbb{P}^{n}$ is Hausdorff.
+        \end{proof}
 
     \textit{Locally-Euclidean:} Take
     a point $
@@ -361,12 +497,91 @@ second-countable, so is $\tilde{V_d}\left( \mathbb{R}^{n}
 \right) $.\\
 \linebreak
 \textit{Locally-Euclidean:} 
+Suppose we are given an orthonormal frame
+$\left( v_1,\ldots, v_d \right) 
+\in \tilde{V_d}\left( \mathbb{R}^{n} \right) $.
+This information can be expressed by saying that
+$A^{T} A = I_{d}$ where
+$A$ is the matrix whose $i$th column is $v_i$. But this
+is equivalent to saying that the entries of $A$ satisfy
+$\sum_{r} \alpha_{ri} \alpha_{rj} = 0$ when
+$i \neq j$ and
+$\sum_{r} \alpha_{ri}^2 = 1$ which is the solution set
+of a map
+$\mathbb{R}^{nd} \to 
+\mathbb{R}^{d} \times 
+\mathbb{R}^{\frac{n \left( n-1 \right) }{2}}$ given by
+$\left( x_1, \ldots,x_{nd} \right) \mapsto 
+\left( \sum_{r} x_{r 1}^2 -1, 
+\sum_{r} x_{r 2}^2 -1 ,\ldots,
+\sum_{r} x_{r d}^2 - 1 ,
+\sum_{r} x_{r 1} x_{r 2}, \ldots,
+\sum_{r} x_{r n-1} x_{r n}\right) $.
 
+\[
+nd - \left( d + \frac{n(n-1)}{2} \right) 
+= 
+\] 
 
+(6) Since  $\mathbb{R}\mathbb{P}^n$ and
+$\mathbb{C}\mathbb{P}^{n}$ are quotients of
+$S^{n}$ which is
+compact in $\mathbb{R}^{n+1}$ and
+$\mathbb{C}^{n+1}$, and quotient maps are continuous maps hence
+preserve compactness, we find that
+$\mathbb{R}\mathbb{P}^{n}$ and $\mathbb{C}\mathbb{P}^{n}$ 
+are compact.
 
+For Stiefel manifolds, note that we showed that
+$V_d \left( \mathbb{R}^{n} \right) $ 
+is an open subset of $\mathbb{R}^{nd}$ which is Hausdorff.
+Compact subsets of a Hausdorff space are closed,
+so $V_d \left( \mathbb{R}^{n} \right) $ would be
+closed and open, implying that  $\mathbb{R}^{nd}$ is
+not connected, which is a contradiction. Thus
+$\mathbb{R}^{nd}$ cannot be compact.
 
+For the Stiefel manifold of
+orthonormal frames, we expressed this as the
+zero set of a continuous map between Euclidean spaces,
+hence it is a closed subset of
+$\mathbb{R}^{nd}$. Furthermore, this set
+is also bounded since each entry
+of the $n \times d$ matrix is bounded
+by $1$ as each column must have norm $1$. 
+Closed bounded subsets of $\mathbb{R}^{nd}$ are compact,
+hence $\tilde{V_d}\left( \mathbb{R}^{n} \right) $ is 
+compact.\\
+\linebreak
+Suppose
+we take the flag
+$1 \subset 
+E_1 := \Span\left( e_1 \right) \subset 
+E_2 := \Span \left( e_1,e_2 \right)\subset \ldots
+\subset 
+\Span E_{n-1} := \left( e_1, \ldots, e_{n-1} \right) 
+\subset \mathbb{R}^{n} := E_n$.
+Then any $A \in \GL_n(\mathbb{R})$ sends this
+flag to some other flag, and
+$B_n(\mathbb{R})$ is precisely the
+stabilizer of the flag under this action.
+Thus 
+$\GL_n(\mathbb{R}) / B_n(\mathbb{R})$ can be
+identified with all possible flags
+of length  $n$ in $\mathbb{R}^{n}$.
 
-
+However, for any flag we can choose
+a basis for each space in the flag
+of orthonormal vectors. Now, putting these
+vectors in the columns of a matrix, we obtain
+a matrix in $O(n)$. Two such matrices represent the
+same flag if there is a matrix sending the
+$i$ th column of one flag to the $i$ th column of another
+flag. Thus $\GL_n \left( \mathbb{R} \right) /
+B_n(\mathbb{R})$ can also be seen as a quotient
+of $O(n)$ which is compact as a
+closed bounded subset of $\mathbb{R}^{n^2}$, and so
+$\GL_n(\mathbb{R})/ B_n(\mathbb{R})$ is also compact.
 
 \end{proof}
 
@@ -456,14 +671,59 @@ second-countable, so is $\tilde{V_d}\left( \mathbb{R}^{n}
     (1) \textit{Hausdorff:} The product of two Hausdorff spaces
     is Hausdorff in the product topology, so
     as $M,N$ are manifolds hence Hausdorff, so is
-    $M \times N$.\\
+    $M \times N$.
+    More explicitly, let $\left( m,n \right) ,
+    \left( m',n' \right) \in M \times N$ be distinct, so
+    assume wlog. that $m \neq m'$. Then
+    take $U, V$ distinct open neighborhoods of
+    $m$ and $m'$ respectively, and let $W, W'$ be any neighborhoods
+    of $n$ and $n'$, respectively. In the product topology,
+    $U \times W$ and $V \times W'$ are neighborhoods of
+    $\left( m,n \right) $ and $\left( m',n' \right) $, respectively,
+    and $U \times W \cap V \times W' =
+    \left( U \cap V \right) \times \left( W \cap W' \right) 
+    = \varnothing$ as $U \cap V$ is empty.\\
     \linebreak
+
     \textit{Second-countable:} 
     Likewise, the finite product of
     second-countable spaces is countable, so
     as $M,N$ are manifolds hence second-countable, so
-    is $M \times N$.\\
+    is $M \times N$.
+
+    We will also show it. Suppose
+    $\mathcal{B}$ and $\mathcal{B}'$ are countable
+    bases for $M$ and $N$, respectively. 
+    We claim that
+    $\mathcal{B} \times \mathcal{B}'
+    = \left\{ U \times V \mid 
+    U \in \mathcal{B}, V \in \mathcal{B}'\right\} $ is
+    a countable basis for
+    $M \times N$. Firstly, it
+    is countable since the product of a finite collection
+    of countable sets is countable. Now,
+    suppose $W$ is an open set in
+    $M \times N$ and let
+    $\left( m,n \right)  \in W$. Because sets of the form
+    $U \times V$ for $U$ open in $M$ and $V$ open in
+    $N$ form a basis for the product topology, we
+    can find such $U$ and $V$ such that
+    $\left( m,n \right) \in U \times V
+    \subset W$. But now we can find
+    $U_{\mathcal{B}} \in \mathcal{B}$ and
+    $V_{\mathcal{B}'} \in \mathcal{B}'$ such that
+    $m \in U_{\mathcal{B}} \subset U$ and
+    $n \in V_{\mathcal{B}'} \subset V$ by assumption of
+    $\mathcal{B}$ and $\mathcal{B}'$ being bases. 
+    Then
+    $\left( m,n \right) \in 
+    U_{\mathcal{B}} \times V_{\mathcal{B}'}
+    \subset W$, showing that
+    $\mathcal{B} \times \mathcal{B}'$ is a countable basis for
+    the product topology on $M \times N$.\\
     \linebreak
+    
+    
     
     \textit{Locally-Euclidean:}
 
@@ -486,9 +746,23 @@ $\varphi (u)$ and
 $\psi (v)_j$ is the $j$ th coordinate of
 $\psi (v)$. Taking the
 product topology on $M \times N$, 
-$\varphi \times \psi $ becomes an open embedding
+$\varphi \times \psi $ becomes a homeomorphism 
 of the open set
-$U \times V$ into $\mathbb{R}^{m+n}$.\\
+$U \times V$ onto its image in $\mathbb{R}^{m+n}$ which
+is an open set. This is
+in particular because we have
+inverse maps $\varphi^{-1} \colon
+\varphi (U) \to U$ and
+$\psi^{-1} \colon \psi (V) \to V$, so by
+definition,
+$\left( \varphi^{-1} \times \psi^{-1} \right) 
+\circ \left( \varphi  \times \psi  \right) 
+= \left( \varphi^{-1} \circ \varphi  \right) \times 
+\left( \psi^{-1} \circ \psi  \right) 
+= \id \times \id$ and
+$\left( \varphi \times \psi  \right) 
+\circ \left( \varphi^{-1} \times \psi^{-1} \right) 
+= \id \times  \id$ likewise.\\
 \linebreak
 (2) We can define
 $M \sqcup N := M \times \left\{ 1 \right\} \cup 
@@ -565,6 +839,62 @@ a countable basis for $M \sqcup N$.\\
 \linebreak
 (3) Suppose $M$ is a manifold and
 $N \subset M$ is a connected component. 
+We will show that $N$ is again a manifold in two ways: one
+will be to show that $N$ is open in $M$, hence an open
+submanifold. Secondly, we will prove it from definitions.\\
+\linebreak
+
+Since $M$ has a basis of coordinate balls,
+$M$ is locally path-connected. Now for a general
+locally path-connected topological space, we have
+that path components are the same as components and
+that the components are
+are open in the topological space. (See Lee proposition
+A.43). 
+Therefore, $N$ is path-connected and open in
+$M$.
+
+\begin{lemma}[]
+    Open subsets $U$ of a topological $m$-manifold
+    $M$ inherit the structure of a topological
+    $m$-manifold.
+\end{lemma}
+
+\begin{proof}
+    For Hausdorffness, let $p,q \in U$ and choose disjoint
+    open sets $V,W$ in $M$ around $p$ and $q$, respectively.
+    Then $V \cap U$ and $W \cap U$ define open sets
+    around $p$ and $q$ in $U$ in the subspace topology.
+
+    For second-countability, let
+    $\mathcal{B}$ be a countable basis for
+    $M$. Then $\mathcal{B} \cap U
+    = \left\{ V \cap U  \mid V \in  \mathcal{B} \right\} $ 
+    is a countable basis for $U$.
+
+    Lastly, define the
+    collection
+    $\mathcal{A} = \left\{ 
+    \left( V \cap U , \varphi|_{U} \right) \colon
+\left( V, \varphi  \right) \text{ is a chart on
+ } M \right\} $. For any
+ $u \in U$, there exists some chart
+ $\left( V, \varphi  \right) $ for $u$ in
+ $M$. Then $\left( V \cap U, \varphi|_{U} \right) $ 
+ is a chart in $\mathcal{A}$. Now
+ since each $\varphi|_{U}$ is a restriction
+ onto an open set, 
+ $\varphi|_{U}$ is still a homeomorphism onto
+ its image which is open in 
+ $\mathbb{R}^{m}$, hence
+ $\mathcal{A}$ defines an atlas for $U$.
+\end{proof}
+
+This shows that $N \subset M$ is a manifold.\\
+\linebreak
+
+
+Now for the alternative direct checking of definitions:\\
 Let $p \in N$. Since $M$ is a manifold, there
 exists a chart $\left( U, \varphi  \right) $ around
 $p$. Then there exists a ball
@@ -572,13 +902,13 @@ $B\left( \varphi (p), \varepsilon \right) \subset
 \varphi (U)$ since $\varphi (U)$ is open. Now
 $\varphi^{-1}\left( B \left( \varphi (p),\varepsilon \right) 
 \right) $ is a connected open subset of $U$ containing $p$ 
-since homeomorphisms are in particular hence preserve
+since homeomorphisms are in particular continuous hence preserve
 connectivity. Thus we in particular have that
 if we let $\tilde{U}:= \varphi^{-1}\left( 
 B \left( \varphi (p), \varepsilon \right) \right) $, then
 $\left( \tilde{U}, \varphi|_{\tilde{U}} \right) $ 
 is a chart in $M$ hence also
-in $N$ with $N$ inheriting the subspace topology.
+in $N$ with $N$ given the subspace topology.
 Thus every point $p \in N$ has a chart 
 $U_p$ contained in $N$. Hausdorffness can be checked
 as follows: if $p,q \in N$, then there

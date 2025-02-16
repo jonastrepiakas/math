@@ -1,0 +1,419 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\SHomeo}{SHomeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Teich}{Teich}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\codim}{codim}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\MCG}{{\mathrm{MCG}}}
+\newcommand{\PMCG}{{\mathrm{PMCG}}}
+\newcommand{\SMCG}{{\mathrm{SMCG}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+
+
+\title{Assignment 2}
+\author{Jonas Trepiakas}
+\date{}
+
+
+\begin{document}
+\maketitle
+    \begin{problem}[1]
+        Given a topological manifold $M$ of dimension
+        $d \in \mathbb{N} $, we define a smooth
+        atlas on $M$ as a collection of charts
+        $\left( U_{\alpha}, \varphi_{\alpha} \right)_{\alpha
+        \in A}$, where $U_{\alpha} \subset M$ is open
+        and $\varphi_{\alpha} \colon U_{\alpha}
+        \stackrel{\cong}{\to }\mathbb{R}^{d}$ is a homeomorphism,
+        such that the transition maps fit into diagrams
+        \begin{equation*}
+        \begin{tikzcd}
+           &  U_{\alpha}\cap U_{\beta} 
+            \ar[dl, "\varphi_{\alpha}"'] \ar[dr, "
+            \varphi_{\beta}"]& \\
+           \varphi_{\alpha}\left( U_{\alpha}\cap U_{\beta} \right) 
+            \ar[rr,"\varphi_{\beta} \varphi_{\alpha}^{-1}"'] &&
+            \varphi_{\beta} \left( U_{\alpha} \cap
+            U_{\beta} \right) 
+        \end{tikzcd}
+        \end{equation*}
+        where the lower map $\varphi_{\beta}\varphi_{\alpha}^{-1}$ 
+        is a smooth map between open subsets
+        of $\mathbb{R}^{d}$.
+        \begin{enumerate}
+            \item (2.5 pts) Show that each smooth manifold (as defined in the
+                lecture) admits a smooth atlas.
+            \item (2.5 pts) Show that any topological manifold equipped
+                with a smooth atlas admits the structure of a
+                smooth manifold (as defined in the
+                lecture)
+        \end{enumerate}
+    \end{problem}
+
+    \begin{proof}
+        We recall the definition given in the lecture:
+
+        \begin{definition}[]
+            For a topological space
+            $X$, we let $C_K^{0}(X)$ denote the
+            continuous functions on $X$ with support
+            contained in $K$. 
+        \end{definition}
+
+        \begin{definition}[Smooth manifold]
+            A smooth $n$-manifold is a topological $n$-manifold
+            $M$ together with an $\mathbb{R}$-sub-algebra
+            $C^{\infty}(M) \subset C^{0}(M)$ such that
+            for every point $p \in M$, there exists
+            a chart
+            $i \colon \mathbb{R}^{n} \hookrightarrow 
+            M$ sending $0 \mapsto p$ which is an open topological
+            embedding, such that for all compact subsets
+            $K \subset \mathbb{R}^{n}$, 
+            $i^{*} \colon C_K^{\infty}(M)
+            \cong C_K^{\infty}\left( \mathbb{R}^{n} \right) $ 
+            and
+            $i^{*} \colon
+            C_K^{0}(M) \to C_K^{0}\left( \mathbb{R}^{n} \right) $
+            are $\mathbb{R}$-algebra isomorphisms
+            where $C_K^{\infty}(M) =
+            C^{\infty}(M) \cap C_K^{0}(M)$ such that
+            \begin{equation*}
+            \begin{tikzcd}
+                C_{K}^{\infty}(M) \ar[r, dashed, "\cong", "i^{*}"'] 
+                \ar[d, hookrightarrow] &
+                C_{K}^{\infty}\left( \mathbb{R}^{n} \right) 
+                \ar[d, hookrightarrow] \\
+                C_K^{0}(M) \ar[r, "\cong"] & C_K^{0}(\mathbb{R}^{n})
+            \end{tikzcd}
+            \end{equation*}
+            commutes and such that
+            $C^{\infty}(M)$ admits countable
+            locally finite sums.
+        \end{definition}
+
+        (1) Suppose we are given a smooth
+        $n$-manifold as defined in the definition
+        above. Thus our data consists 
+        of a topological manifold
+        $M$ and an $R$-sub-algebra $C^{\infty}(M)
+        \subset C^{0}(M)$.\\
+
+        Let $p \in M$ be a point. By assumption, there
+        exists a topological embedding $i_p \colon
+        \mathbb{R}^{n} \hookrightarrow M$ sending
+        $0 \mapsto p$.  For each $p \in M$, let
+        $U_p := i_p \left( \mathbb{R}^{n} \right) $ and
+        $\varphi_p = i_p^{-1}$. Then
+        $\left\{ \left( U_p, \varphi_p \right)  \right\}_{p
+        \in M}$ gives an atlas for
+        $M$. Now take any two charts
+        $\left( U_p, \varphi_p \right) ,
+        \left( U_q, \varphi_q \right) $ such that
+        $U_p \cap U_q \neq \varnothing$.
+        We must show that
+        $\varphi_{q} \circ \varphi_{p}^{-1}
+        \colon
+        \varphi_p \left( U_p \cap U_q \right) 
+        \to \varphi_q \left( U_p \cap U_q \right) $ is
+        smooth as a function
+        between open subsets
+        of  $\mathbb{R}^{n}$. Smoothness is a local property, so
+        it suffices to check it locally at each point
+        $x \in \varphi_p \left( U_p \cap U_q \right) $. Let
+        $x$ be such a point. Then we can find an
+        open ball $B\left( x, \varepsilon \right) 
+        \subset \varphi_p \left( U_p \cap U_q \right) $, hence
+        also the compact ball
+        $\overline{B \left( x, \frac{\varepsilon}{2} \right) }
+        \subset \varphi_p \left( U_p \cap U_q \right) $.
+        Let $K = \overline{B\left( x, \frac{\varepsilon}{2}
+        \right) }$.
+        Let $f \colon
+        \mathbb{R}^{n} \to \mathbb{R}$ be
+        a smooth bump function with
+        support
+        in $B \left( x, \frac{\varepsilon}{2} \right) $ and
+        which has value $1$ on some small open
+        ball around $x$.\\
+        So
+        $f \in C_K^{\infty}\left( \mathbb{R}^{n} \right) $.
+        Then $\left( \varphi_q \right)^*
+        (f) \in C_K^{\infty}(M)$.
+        
+        
+        Since $\varphi_p^{-1} =
+        i$, we know that if
+        $\left( \varphi_q \right)^* \left( f\cdot 
+        \pi_j \right) 
+        =  (f \cdot \pi_j) \circ \varphi_q \in C_K^{\infty}(M)$
+        for all $j$, then
+        $\varphi_q \circ \varphi_p^{-1}$ is smooth around
+        $x$.
+        Now,
+        $\pi_j \cdot f$ is a product of two
+        functions in
+        $C^{\infty}\left( \mathbb{R}^{n} \right) $, and
+        since $f$ has support in $K$, the product is
+        in $C_{K}^{\infty}\left( \mathbb{R}^{n} \right) $.
+        Hence
+        $\left( \varphi_q \right)^* 
+        \left( \pi_j \cdot  f \right) 
+        \in C_{K}^{\infty}(M)$, and thus
+        $i_p^{*} \left( \varphi_q \right)^{*}
+        \left( \pi_j \cdot f \right) \in C_{K}^{\infty}\left(
+        \mathbb{R}^{n} \right) $ and
+        agrees with $\varphi_q \circ \varphi_p^{-1}$ in in
+        a neighborhood of $x$. Therefore,
+        $\varphi_q \circ \varphi_p^{-1}$ is smooth in a
+        neighborhood of $x$.
+        As $x$ was arbitrary, this shows
+        that $\varphi_q \circ \varphi_p^{-1}$ is smooth
+        on all of
+       $\varphi_p \left( U_p \cap U_q \right) $.
+        Thus
+        $\left\{ \left( U_p, \varphi_p \right)  \right\}_{
+        p \in M}$ gives a smooth atlas which induces
+        a smooth structure by taking the maximal atlas.
+
+
+
+    \end{proof}
+
+
+
+
+
+    \begin{problem}[3]
+        \begin{enumerate}
+            \item Let $M$ and $N$ be two smooth
+                manifolds, and let
+                $f \colon M \to N$ be a smooth
+                embedding which is a homeomorphism
+                onto its image. Show that
+                $f$ is actually a diffeomorphism onto
+                its image.
+            \item Let $M$ and $N$ be two smooth,
+                connected compact manifolds of the
+                same dimension. Assume that we
+                have an embedding
+                $f \colon M \to N$. Show that
+                $f$ is a diffeomorphism.
+        \end{enumerate}
+    \end{problem}
+
+    \begin{proof}
+        (1) A smooth embedding is an
+        injective smooth immersion. By the rank theorem,
+        this is the same as an injective smooth map
+        whose differential is injective. 
+
+        Note that a bijective local diffeomorphism
+        is a diffeomorphism, so it suffices
+        to show that $f$ is a local diffeomorphism.
+
+        For this, note that
+        since $f$ is assumed to be a homeomorphism onto
+        its image, its image is also an
+        $m$-submanifold, hence the tangent spaces have the same
+        dimension, so as the differential is injective,
+        it is an isomorphism. But
+        since the differential is an isomorphism, it
+        in particular has non-vanishing determinant, so
+        by the inverse function theorem, there
+        exists some small neighborhood
+        of every point in $M$ which is mapped diffeomorphically
+        into some neighborhood in
+        $f(M)$, and as $f(M)$ is open in $N$, the image
+        of the neighborhood is also open.
+        Thus $f$ is a local diffeomorphism.\\
+        \linebreak
+        (2) 
+
+
+        Compact subsets of a Hausdorff space are
+        closed, so since $M$ is compact,
+        $f(M)\subset N$ is compact, hence closed.
+        However, $f$ is also an embedding, hence
+        a homeomorphism onto its image, so as
+        $M$ is open, $f(M)$ is open. As
+        $N$ is connected and $f(M) \neq \varnothing$, we must
+        have $f(M) = N$. Now part (1) establishes the
+        result.
+    \end{proof}
+
+
+    \begin{problem}[5]
+        \begin{enumerate}
+            \item Show that there is no smooth surjective map
+                $f \colon \mathbb{R}^{n} \to 
+                \mathbb{R}^{m}$ whenever
+                $n < m$.
+            \item Let $M$ be a connected compact manifold
+                of dimension $d$, and fix a smooth
+                map $f \colon M \to \mathbb{R}^{d+1}$.
+                Show that there is a point
+                $p \in \mathbb{R}^{d+1}$ and a
+                line in $\mathbb{R}^{d+1}$ through
+                $p$ that meets $f(M)$ in finitely
+                many points.
+        \end{enumerate}
+    \end{problem}
+
+    \begin{proof}
+        (1) Suppose $f \colon \mathbb{R}^{n} \to 
+        \mathbb{R}^{m}$ is a smooth surjective map.
+        As $n < m$, we have that
+        $Df$ has rank at most $n$ at all points, so
+        all points of  $\mathbb{R}^{n}$ are critical values
+        of $f$. By Sard's theorem then,
+        $f\left( \mathbb{R}^{n} \right) $ has
+        measure zero in $\mathbb{R}^{m}$. This in particular implies,
+        that no open set can be contained in
+        $f\left( \mathbb{R}^{n} \right) $ since any
+        open subset of $\mathbb{R}^{m}$ has Lebesgue measure
+         greater than $0$. But then $f\left( \mathbb{R}^{n} \right) $ 
+         cannot be surjective, giving us a contradiction.\\
+         \linebreak
+         (2) As before, since
+         $f$ is smooth and $M$ is of dimension $d$, all
+         points of $M$ are critical points of
+         $f$, so $f(M)$ has measure zero in 
+         $\mathbb{R}^{d+1}$. But furthermore,
+         $M$ is compact and connected, so
+         $f(M)$ is a compact connected subset of
+         $\mathbb{R}^{d+1}$. That is,
+         there exists $K > 0$ such that
+         $f(M)$ is a closed connected measure zero subset
+         of $\overline{B \left( 0,K \right) }$.
+     \end{proof}
+
+
+
+    %\bibliography{../refs.bib}
+\end{document}

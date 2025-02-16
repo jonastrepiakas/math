@@ -162,5 +162,66 @@
         on $N$ of the form
         $X \times V \stackrel{\pi_2}{\to } V$.
     \end{definition}
+
+
+    \begin{lemma}[]
+        The bundle $\Lambda^{k} E$ of
+        $k$-fold exterior powers
+        is a vector bundle when
+        $\left( E, \pi, X \right) $ is an
+        $n$-dimensional vector bundle with
+        bundle atlas $\mathcal{U}$.
+        We construct this by forming a pre-vector bundle.
+        Define
+        $\Lambda^{k}E :=
+        \bigsqcup_{x \in X} \Lambda^{k} E_x$.
+        Each $\Lambda^{k}E_x$ has dimension
+        $\begin{pmatrix} n \\ k \end{pmatrix} $, hence
+        $\varphi_x \colon
+        \Lambda^{k} E_x \cong \mathbb{R}^{\frac{n!}{k! (n-k)!} }$.
+        Let the projection be the canonical one.
+        Let the atlas be given
+        by
+        $\left\{ \left( f_{\alpha},
+        U_{\alpha} \right)  \right\} $ where
+        $f_{\alpha} \colon \pi^{-1}(U_{\alpha})
+        \to U_{\alpha} \times \mathbb{R}^{\frac{n!}{k! 
+        \left( n-k \right)!}}$ 
+        is given by
+        $\pi(-) \times \varphi_{-}$ 
+        and
+        $\left( f, U_{\alpha} \right) 
+        \in \mathcal{U}$.
+    \end{lemma}
+
+    \begin{lemma}[Orientation cover]
+        Using the exerior power bundle, we can
+        construct the $1$-dimensional bundle
+        $\Lambda^{n}E$ for $\left( E, \pi, X \right) $ an
+        $n$-dimensional vector bundle.
+        Define the equivalence relation
+        in $\Lambda^{n}E - \left\{ \text{zero section } \right\} $ 
+        by $x \sim y \iff y = \lambda x$ for some
+        $\lambda > 0$. Give the equivalence classes
+        $\tilde{X}(E)$ the quotient topology. Then
+        we obtain a two sheeted cover
+        of $X$ by the canonical projection
+        \[
+            \tilde{X}(E) \stackrel{\tilde{\pi}}{\to } X
+        \] 
+        which is called the orientation cover of $E$.
+    \end{lemma}
+
+
+
+
+
+
+
+
+
+
+
+
     %\bibliography{../refs.bib}
 \end{document}
