@@ -1,0 +1,675 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\SHomeo}{SHomeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Teich}{Teich}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\codim}{codim}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\MCG}{{\mathrm{MCG}}}
+\newcommand{\PMCG}{{\mathrm{PMCG}}}
+\newcommand{\SMCG}{{\mathrm{SMCG}}}
+\newcommand{\Diff}{{\mathrm{Diff}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+
+
+
+
+\begin{document}
+    \begin{problem}[1 (Quotient manifolds)]
+        Let $M$ be a smooth manifold, and let 
+        $\tau \colon M \to M$ be a fixed-point free
+        involution on $M$, i.e., a map
+        $\tau \colon M \to M$ such that
+        $\tau \circ \tau = \id$ and $\tau (x) \neq x$ 
+        for all $x \in M$.
+        \begin{enumerate}
+            \item Show that $\tau$ is a diffeomorphism, and
+                that the quotient
+                $M / \tau$ is a topological manifold.
+            \item Show that $M / \tau$ admits a unique smooth
+                structure so that the
+                quotient map $q \colon M \to 
+                M / \tau$ is a local diffeomorphism.
+            \item Give an example of a fixed-point free involution
+                on a smooth manifold, and describe its quotient.
+        \end{enumerate}
+    \end{problem}
+
+    \begin{proof}
+        (1) We assume $\tau$ is meant to be smooth here.
+        Then we immediately find that
+         $\tau$ is a diffeomorphism since
+         $\tau$ has itself as an inverse as
+         $\tau \circ \tau = \id$.
+         To see that $M / \tau$ is a topological manifold,
+         we can simply using Hausdorffness of $M$ find
+         $\tau$-invariant neighborhoods
+         $U$ and $V$ of
+         $\tau^{-1}(\overline{x})$ and
+         $\tau^{-1}\left( \overline{y} \right) $ for
+         arbitrary distinct points $\overline{x},\overline{y}
+         \in M / \tau$. Since these open neighborhoods
+         are saturated with respect to $\tau$,
+         their images form open disjoint neighborhoods
+         of $\overline{x}$ and $\overline{y}$, so
+         $M / \tau$ is Hausdorff.
+         Second countability follows if we can show that
+         $\tau$ is an open map. 
+         But for an open subset $U$ in $M$ and
+         a point $x \in U$, we can find a neighborhood
+         $U_x$ contained in
+         $U$ around $x$ such that $\tau (U_x) \cap U_x = \varnothing$ 
+         simply by taking two disjoint neighborhoods of
+         $x$ and $\tau(x)$ (the one for
+         $x$ contained in $U$ ) and intersecting
+         the image under $\tau$ of the neighborhood of $x$ with
+         the neighborhood of $\tau$ and then transferring it
+         back to $x$ also. Thus the image
+         of the neighborhood of $x$ is open in
+         $M / \tau$. But this shows that an arbitrary open
+         set is the union of sets whose image is
+         open under $\tau$, so
+         $\tau$ is an open map. 
+         Lastly, $M / \tau$ can be seen to be
+         locally Euclidean as follows. 
+         Restricting $\tau$ to an open set
+         on which it is injective gives an embedding,
+         so choosing a point $\overline{x} \in M / \tau$ and
+         a point $x \in \tau^{-1}\left( \overline{x} \right) $ 
+         and a neighborhood as constructed above
+         such that $\tau$ is indeed injective
+         on this neighborhoods, we can intersect this
+         neighborhood with a chart around $x$ and compose
+         $\tau^{-1}$ with the chart to get a chart around
+         $\overline{x}$.\\
+         \linebreak
+         (2) We take the same charts as we constructed above.
+         We need to check smoothness. 
+         Suppose
+         $\left( U, \varphi \circ \tau^{-1} \right) $ 
+         and $\left( V, \psi \circ \tau^{-1} \right) $ 
+         are charts in $M / \tau$ with
+         $U \cap V \neq \varnothing$.
+         Then we get
+         the transition map to be
+          \[
+         \psi \circ \tau^{-1} \circ \left( \varphi \circ
+         \tau^{-1} \right)^{-1}
+         = \psi  \circ \tau^{-1} \circ \tau \circ
+         \varphi^{-1}
+         = \psi \circ \varphi^{-1}
+         \] 
+         on some open subset of $\mathbb{R}^{n}$ which
+         is assumed to be smooth by assumption. Hence
+         this atlas indeed induces a smooth structure. 
+         In this structure, choose a chart
+          $\left( U, \varphi  \right) $ 
+          about $x \in M$ such that
+          $q|_{U}$ is a homeomorphism onto its image
+          where $q \colon M \to M / \tau$ is the quotient map.
+          Then $q$ on this open set has a coordinate
+          representation given by
+          \[
+          \left( \varphi 
+          \circ q^{-1} \right)  \circ q \circ \varphi^{-1}
+          = \id
+          \] 
+          which is a diffeomorphism on any subset of
+          $\mathbb{R}^{n}$, so
+          $q$ is a diffeomorphism on $U$, and as
+          $x$ was arbitrary, $q$ is a local
+          diffeomorphism.\\
+          \linebreak
+          (3) Here is a nice one: let
+          $\iota \colon S_{g,1} \to S_{g,1}$ be the
+          hyperelliptic involution of the surface with
+          genus $g$ and one boundary component. Then
+          $S_{g,1} / \iota \cong
+          D^2$.\\
+          \linebreak
+          But for the sake of the problem, 
+          we could take $S^{n}$ with the
+          antipodal action $\mathbb{Z}/2$ on
+          $S^{n}$ giving $\mathbb{R}\mathbb{P}^{n}$ as
+          the quotient. It is a fixed-point free
+          involution, and we have checked that
+          $S^{n}$ is a smooth manifold and that
+          its quotient $\mathbb{R}\mathbb{P}^{n}$ is
+          also smooth.
+
+     \end{proof}
+
+
+    \begin{problem}[2 (Covering spaces and smooth liftings)]
+        Let $M$ and $N$ be smooth manifolds, and
+        $f, g \colon M \to N$ two smooth maps.
+        We say $f$ and $g$ are smoothly homotopic if there exists
+        a smooth map
+        $H \colon M \times \mathbb{R} \to N$ such that
+        $H(x,t) = f(x)$ for all
+        $t \in (-\infty, 0]$ and
+        $H (x,t) = g(x)$ for all
+        $t \in [1, \infty)$.
+        \begin{enumerate}
+            \item If $M$ is a smooth, compact connected
+                manifold, and $p \colon
+                M' \to M$ is a covering map of
+                topological spaces, show that
+                $M'$ is a topological manifold which
+                admits a unique smooth structure so that
+                $p \colon M' \to M$ is a local
+                diffeomorphism.
+            \item Fix $M$ a smooth, compact connected
+                manifold and $p \colon M' \to M$ a
+                covering. Let $f \colon N \to M$ be
+                a smooth map, where we assume
+                $N$ is a connected smooth manifold. 
+                Suppose we have points
+                $x \in N$ and
+                $y \in p^{-1}\left( f(x) \right) $ such that
+                the induced maps
+                \[
+                f_* \colon \pi_1(N,x) \to \pi_1(M,f(x))
+                \] 
+                and
+                \[
+                p_* \colon \pi_1 (M',y)
+                \to \pi_1(M, f(x))
+                \] 
+                is such that
+                $\im f_* \subset \im p_*$. Show that there
+                exists a unique smooth map
+                $f' \colon N \to M'$ such that
+                $f'(x) = y$ and
+                $p \circ f' = f$.
+            \item Show that any smooth map
+                $S^{2} \to S^{1} \times S^{1}$ admits
+                a smooth nullhomotopy.
+        \end{enumerate}
+    \end{problem}
+
+    \begin{proof}
+        (1) \textbf{I will add the assumption that $M'$ is
+        connected as otherwise second-countability can fail}\\
+
+        Suppose $\dim M = m$. First, we show that
+        $M'$ is a topological manifold.\\
+        \textit{Locally Euclidean:} 
+        Let $x \in M'$. Then there exists a chart
+        $\left( U, \varphi  \right) $ around
+        $p(x)$ in $M$ which we
+        can assume to be connected. Now, since  $p$ is a covering map,
+        $p(x)$ has an evenly covered neighborhood
+        $V$, so in particular, letting
+        $W$ be the component of
+        $p^{-1}(V)$ which contains $p$, 
+        $p|_{W \cap p^{-1}(U)} \colon
+        W \cap p^{-1}(U) \to U \cap V$ is a homeomorphism of
+        open sets. Composing this with the chart homeomorphism,
+        we get a homeomorphism of
+        $W \cap p^{-1}(U)$ to an open subset of
+        $\mathbb{R}^{m}$.\\
+        \linebreak
+        \textit{Hausdorffness:} Let
+        $x,y \in M'$. There are two cases to consider:
+        $p(x) = p(y)$ and $p(x) \neq p(y)$.
+        Suppose first that $p(x) \neq p(y)$.
+        Then take two disjoint neighborhoods of
+        $p(x)$ and $p(y)$.
+        Then taking preimages, we get two disjoint open sets
+        in $M'$ containing $x$ and $y$, respectively.\\
+        \linebreak
+        \textit{Second-countability:} Since
+        $M'$ is connected and locally-Euclidean hence
+        locally path-connected, $M'$ is path-connected.
+        By theorem 2.3.9 in AlgTop1, the monodromy action
+        $\pi_1(M)$ on any fiber is transitive, so
+        the fiber of the covering has cardinality
+        $\le \left| \pi_1(M) \right| $, and since
+        the fundamental group of a manifold is countable, we
+        obtain that the covering space has countably
+        many sheets. Since
+        $M$ is second-countable, it has a countable
+        basis for its topology. Now
+        pulling back each of these open sets and taking components,
+        we obtain a countable union of a countable collection
+        of open sets which is thus countable. Lastly,
+        this collection is a basis for $M'$ since for
+        any point $x \in M'$ and any open neighborhood
+        $U$ of $x$, we can find some
+        local neighborhood $V$ of $x$ homeomorphic to an open
+        neighborhood of $p(x)$ downstairs. 
+        Taking a basis element $W$ contained in
+        $p\left( U \cap V \right) $ containing $p(x)$, 
+        $p^{-1}(W)$ will be an open neighborhood of
+        $x$ contained in $U \cap V \subset U$.\\
+        \linebreak
+        \textit{Smooth structure}
+        Now we must show that $M'$ admits a unique smooth
+        structure such that
+        $p \colon M' \to M$ is a local diffeomorphism.
+        For this, it suffices to show that
+        $p \colon M' \to M$ forces $M'$ to have
+        a smooth atlas compatible with its smooth structure.
+        In particular, suppose
+        $x \in M'$ and choose some local neighborhood
+        $U$ of $x$
+        using that $p$ is a covering map such that
+        $p$ is a homeomorphism of $U$ onto its image
+        $p(U) \subset M$. Now take a smooth chart
+        $\left( V, \varphi  \right) $ in $M$ around
+        $p(x)$. We may assume that $V \subset 
+        \varphi (U)$ as otherwise we can just intersect
+        $V$ with $\varphi (U)$ and take $\varphi $ to
+        be the restriction onto this subspace. Then
+        we let
+        the composite
+        $U \cap p^{-1}(V) \stackrel{p }{\to } V
+        \stackrel{\varphi }{\to } \varphi (V)$ be a smooth chart
+        for $x$ in $M'$. 
+        To see that these are compatible, suppose
+        $\left( V, \varphi  \circ p \right) $ and
+        $\left( W, \psi \circ p \right) $ are
+        two charts with $V \cap W \neq \varnothing$.
+        Then recall that
+        $p \colon V \cap W \to 
+        p\left( V \cap W \right) $ is a homeomorphism, wo
+        $\varphi \circ \psi^{-1} =
+        \varphi \circ p \circ p^{-1} \circ \psi^{-1} 
+        = \left( \varphi  \circ p \right) 
+        \circ \left( \psi  \circ p \right)^{-1} \colon
+        \psi  \circ p \left( V \cap W \right)
+        \to \varphi \circ p \left( V \cap W \right) $
+        is smooth by assumption of
+        $\varphi $ and $\psi $ being smooth chart maps
+        for $M$. Thus
+        this collection gives a smooth atlas for
+        $M'$ hence a unique smooth structure by taking the
+        maximal compatible smooth atlas. Furthermore, smooth
+        charts
+        are diffeomorphisms onto their images, so
+        for a chart
+        $\left( V, \varphi  \circ p \right) $, we have
+        that since $\varphi  \circ p$ is a diffeomorphism on
+        $V$ and $\varphi $ is a diffeomorphism on
+        $p(V)$, the composite
+        $V \stackrel{\varphi \circ p}{\to }
+        \varphi \circ p(V) \stackrel{\varphi^{-1}}{\to }
+        p(V)$ is a diffeomorphism on $V$. Hence
+        $p$ is a diffeomorphism on $V$. As these charts
+        for an atlas, we conclude that $p$ is a local diffeomorphism
+        in this smooth structure on $M'$.\\
+
+
+
+
+        To see that this structure is the unique
+        one making $p$ a local diffeomorphism, suppose
+        $\mathcal{A} = \left\{ 
+        \left( W_{\alpha}, \psi_{\alpha} \right) \right\} 
+        $ is another smooth structure on
+        $M'$ making $p$ a local diffeomorphism.
+        Let $\left( V, \varphi  \circ p \right) $ be
+        a smooth chart from the smooth structure constructed
+        previously. 
+
+        Without loss of generality,
+        let $W_{\alpha} $ be a smooth chart
+        such that $p \colon W_{\alpha} \to 
+        p\left( W_{\alpha} \right)$ is a diffeomorphism.
+        Then $\psi_{\alpha} \circ p^{-1} \colon
+        p\left( W_{\alpha} \right) \to 
+        \mathbb{R}^{m}$ is a diffeomorphism of
+        the open set $p\left( W_{\alpha} \right) 
+        \subset M$ onto an open subset of $\mathbb{R}^{m}$.
+        Suppose $W_{\alpha} \cap V \neq  \varnothing$  where
+        $\left( V, \varphi \circ p \right) $ is a smooth chart
+        from the smooth structure constructed before.
+        Then 
+        $\left( \varphi \circ p \right) \circ
+        p^{-1} \colon p\left( W_{\alpha} \cap V \right) 
+        \to \mathbb{R}^{m}$  is by construction a diffeomorphism
+        as $\varphi $ is a smooth chart map. Hence
+        these two charts on $M$ are compatible, so
+        $\varphi \circ p \circ \psi_{\alpha}^{-1}
+        = \left( \varphi \circ p \right) \circ
+        p^{-1} \circ p \circ \psi_{\alpha}^{-1} \colon
+        \psi_{\alpha} \circ p^{-1} \left( 
+        W_{\alpha} \cap V\right) \to 
+        \left( \varphi \circ p \right) \circ p^{-1}
+        \left( W_{\alpha} \cap V \right) $ is a diffeomorphism,
+        thus making the two charts compatible.
+        Hence the two structures coincide.\\\qed 
+        \linebreak
+        (2) Since $N$ is a connected manifold, it is
+        locally path-connected hence path-connected. 
+        Theorem 2.7.2 now gives that
+        because $\im f_* \subset \im p_*$, a unique
+        topological
+        lift $f' \colon
+        N \to M'$ exists making the following diagram commute
+        \begin{equation*}
+        \begin{tikzcd}
+            & (M', y) \ar[d, "p"] \\
+            (N,x) \ar[r, "f"'] \ar[ru, " \exists ! f'"] & (M,f(x)).
+        \end{tikzcd}
+        \end{equation*}
+        Hence we must show that this map
+        is smooth when we equip $M'$ with
+        the unique smooth structure from
+        the previous exercise making $p$ a local
+        diffeomorphism.\\
+        To see this,
+        take a chart $\left( V, \varphi \circ p \right) $ 
+        such that $p$ is a diffeomorphism
+        of $V$ onto its image. Take
+        also a chart
+        $\left( U, \psi  \right) $ in
+        $N$. Then the coordinate representation of
+        $f'$ becomes
+        $\varphi \circ p \circ f' \circ \psi^{-1}
+        = \varphi \circ f \circ \psi^{-1}$ which is
+        a coordinate representation of
+        $f$. Since $f$ is assumed to be smooth,
+        this coordinate representation is
+        smooth, hence 
+        $p \circ f'$ is smooth since the charts
+        chosen in the atlases were arbitrary.\\
+        \linebreak
+        (3) We have that $S^{1} \times S^{1} 
+        \cong T^2$ is the torus.
+        Now, this is a manifold being the product
+        of two manifolds and it is compact being
+        the finite product of two compact spaces. 
+        Furthermore, it is connected being the
+        product of two connected spaces. We can
+        apply the first two subproblems 
+        to the usual topological covering
+        space
+        $p \colon \mathbb{R}^2 \to T^2$ which
+        obtains $T^2$ as the quotient space
+        $\mathbb{R}^2 / \mathbb{Z}^2$ under the action
+        of $\mathbb{Z}^2$ on the plane by
+        translations. 
+        Since $S^2$ is simply connected, we
+        trivially have that for any map
+        $f \colon S^2 \to S^{1} \times S^{1}$,
+         $\im f_* = \left\{ 0 \right\} \subset 
+         \im p_* \subset \pi_1 \left( M, f(x) \right)$.
+         Thus a smooth lift
+         $f' \colon
+         S^{2} \to S^{1} \times S^{1}$ exists such that
+
+
+        \begin{equation*}
+        \begin{tikzcd}
+            & \mathbb{R}^2 \ar[d, "p"] \\
+            S^{2} \ar[r, "f"'] \ar[ru, "f'"] & S^{1}\times 
+            S^{1}
+        \end{tikzcd}
+        \end{equation*}
+        commutes.
+        But $\mathbb{R}^2$ is contractible, and this
+        contraction can be done smoothly:
+        namely, let $\varphi \colon
+        \mathbb{R}^2 \times I \to \mathbb{R}^2$ be
+        given by
+        $\varphi (x,t) = x(1-t)$. This is clearly smooth
+        and thus a smooth homotopy from
+        $\id$ to $c_{0}$, the constant map at $0$.
+        This, in return, gives us a smooth homotopy
+        $H(x,t) = p \circ \varphi (f'(x),t)$
+        from
+        $p \circ f' = f$ at $t = 0$ to
+        $c_{p(0)}$ at $t = 1$.
+
+    \end{proof}
+
+    \begin{problem}[3 (Mapping class groups of some manifolds)]
+        For $M$ a smooth manifold, we define the 
+        \textit{mapping class group} of $M$ by
+        \[
+        \pi_0 \Diff (M) := \Diff (M) / \sim
+        \] 
+        as the group of self-diffeomorphisms
+        up to isotopy, where an isotopy of two
+        diffeomorphisms $f,g$ is a map
+        $H \colon M \times I \to M$ such that
+        $H(x,0) = f(x)$ and
+        $H(x,1) = g(x)$ and
+        $H(-,t)$ is a self-diffeomorphism of
+        $M$ for all $t \in I$.
+        \begin{enumerate}
+            \item Show that
+                $\pi_0 \Diff (\mathbb{R}) 
+                \cong \mathbb{Z}/2$.
+            \item Compute
+                $\pi_0 \Diff \left( S^{1} \right) $.
+        \end{enumerate}
+    \end{problem}
+
+    \begin{proof}
+        (1) I will start by showing that any
+        two orientation-preserving diffeomorphisms
+        of $\mathbb{R}$ are isotopic.
+        For this, it suffices to show that
+        any orientation-preserving diffeomorphism
+        is isotopic to the identity.
+        Since  $\mathbb{R} \cong (-1,1)$, any 
+        diffeomorphism 
+        $f$ of $\mathbb{R}$ can be considered as
+        a diffeomorphism of $\left( -1,1 \right) $. 
+        Now, we claim that
+        $\lim_{x \to \infty}f(x) = \infty$ and
+        $\lim_{x \to -\infty} f(x) = -\infty$.
+        As $f$ is orientation-preserving, we
+        have  $\frac{df}{dx}(0) > 0$.
+        In particular, there exists a neighborhood 
+        around $0$ in which $\frac{df}{dx}$ is positive. 
+        By the mean value theorem, on this open neighborhood,
+        $f$ is strictly increasing. Since we can successively cover
+        $\mathbb{R} $ by overlapping intervals where
+        the orientations must agree since
+        we choose it to be a continuous section of
+        $\Lambda^{1} T\mathbb{R}$, we must have
+        that $f$ is strictly increasing everywhere. Hence
+        $\lim_{x \to \pm \infty}f(x) = \pm \infty$.
+
+        Now the map
+        $\varphi \colon \mathbb{R} \times I \to \mathbb{R}$ 
+        given by
+        $\varphi (x,t) = x(1-t) + f (x) t$ is in fact
+        a diffeomorphism at
+        each time $t$ since $f$ is strictly increasing.
+
+        Now to see that
+        $\pi_0 \Diff \left( \mathbb{R} \right) 
+        \cong \mathbb{Z}/2$, if $f$ and $g$ are orientation 
+        reversing, then
+        $f^{-1} g$ is orientation-preserving, so
+        $f^{-1} g \simeq \id$ implies
+        $g \simeq f$.\\
+        \linebreak
+        (2) 
+        Suppose $f$ is an 
+        orientation-preserving self 
+        diffeomorphism of $S^{1}$.
+        We want to show that $f$ is isotopic to the
+        identity. This is equivalent to finding
+        a map
+        $ F \colon S^{1} \times I \to 
+        S^{1} \times I$ such that
+        $F (x,0) = x$,
+        $F(x,1) = f(x)$ and
+        $F(-,t)$ is a diffeomorphism
+        $S^{1} \times \left\{ t \right\} 
+        \to S^{1} \times \left\{ t \right\} $ for
+        all $t$.
+        
+
+ 
+    \end{proof}
+
+
+    \begin{problem}[4 (Local properties of homeomorphisms
+        of $\mathbb{R}^{d}$ )]
+        Let $d \in \mathbb{N} $ and
+        denote by $D^{d}$ the unit disc in
+        $\mathbb{R}^{d}$. Show that if
+        $f,g \in \Homeo \left( \mathbb{R}^{d} \right) $ are
+        two homeomorphisms such that there exists
+        an open subset $U \subset \mathbb{R}^{d}$ where
+        $f|_{U} = g|_{U}$, then $f$ and $g$ are isotopic.
+    \end{problem}
+
+    \begin{proof}
+        Since isotopic forms an equivalence relation, it
+        suffices to show the situation for
+        $g = \id$.
+        Now, a homeomorphism  $f$ of $\mathbb{R}^{d}$ extends
+        to a homeomorphism of its one-point compactification
+        $S^{d}$. Now remove an interior disc
+        $D^2 \hookrightarrow 
+        S^{d}$ contained in the open subset $U 
+        \subset S^{d}$ on which $f$ is the identity. The resulting
+        space is a closed disc, and by assumption, $f$ is
+        the identity on the boundary. Using the Alexander trick
+        for the punctured disc (the puncture being the
+        point at infinity),
+        we find an isotopy of $f$ on this disc to the identity.
+        Now glue back the disc we removed. Since the isotopy
+        fixes the boundary pointwise at all times, the isotopy
+        extends to an isotopy of $S^{d}$. Now transfer
+        this isotopy back to $\mathbb{R}^{d}$ using the
+        stereographic projection. This gives an isotopy of
+        $f$ with the identity on $\mathbb{R}^{d}$.
+    \end{proof}
+
+
+
+    %\bibliography{../refs.bib}
+\end{document}

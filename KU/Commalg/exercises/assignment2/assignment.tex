@@ -1,0 +1,270 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\SHomeo}{SHomeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Teich}{Teich}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\codim}{codim}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\MCG}{{\mathrm{MCG}}}
+\newcommand{\PMCG}{{\mathrm{PMCG}}}
+\newcommand{\SMCG}{{\mathrm{SMCG}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+
+
+
+\title{Assignment 2}
+\author{Jonas Trepiakas - hvn548}
+\date{}
+
+\begin{document}
+\maketitle
+    \begin{exercise}[]
+        Given two local rings $\left( R,
+        \mathfrak{m} \right) $ and
+        $\left( S, \mathfrak{n} \right) $ be local rings.
+        A ring homomorphism
+        $f \colon R \to S$ is called a local
+        homomorphism if the image of
+        $\mathfrak{m}$ under $f$ is contained in
+        $\mathfrak{n}$.
+        \begin{enumerate}
+            \item Let $g \colon A \to B$ be a ring
+                homomorphism between two arbitrary
+                rings and let 
+                $\mathfrak{p} \subset B$ and
+                $\mathfrak{q} = g^{-1}(\mathfrak{p}) \subset A$ be
+                prime ideals. Show that
+                $g$ localizes to a ring homomorphism
+                $A_{\mathfrak{q}} \to 
+                B_{\mathfrak{p}}$ to be more precise, let
+                $\pi_{A} \colon A \to A_{\mathfrak{q}}$ 
+                and $\pi_{B} \colon B \to 
+                B_{\mathfrak{p}}$ be the natural ring
+                homomorphisms from the
+                rings to their localizations. You need
+                to construct a ring homomorphism
+                $g' \colon
+                A_{\mathfrak{q}} \to 
+                B_{\mathfrak{p}}$ such that
+                $\pi_{B} \circ g = g' \circ \pi_A$. Show that
+                the map $g'$ you construct is a local
+                homomorphism.
+            \item Find a ring homomorphims between
+                local rings which is not a local
+                homomorphism.
+        \end{enumerate}
+    \end{exercise}
+
+\begin{proof}
+    (1) Consider the diagram
+
+    \begin{equation*}
+    \begin{tikzcd}
+        A \ar[d, "\pi_A"'] \ar[r, "g"] & B \ar[d, "\pi_B"] \\
+        A_{\mathfrak{q}} \ar[r, "g'"', dashed] & B_{\mathfrak{p}}
+    \end{tikzcd}
+    \end{equation*}
+    Note that
+    by the universal property of localizations, 
+    the map $g'$ exists if and only if
+    $\pi_B \circ g \left( \left( A- \mathfrak{q} \right) 
+    \right) \subset 
+    B_{\mathfrak{p}}^{\times }
+    = \left( R - \mathfrak{p} \right)_{\mathfrak{p}}$.
+    Let 
+    $a \in A - \mathfrak{q}$. By assumption, 
+    $g (a) \not\in \mathfrak{p}$, so
+    $\pi_B \left( g (a) \right) = \frac{g(a)}{1}
+    \in \left( R - \mathfrak{p} \right)_{\mathfrak{p}} $.
+    This gives the existence of $g'$.\\
+    Next we show that
+    $g'$ is a local homomorphism. 
+    Note that $A_{\mathfrak{q}}$ and
+    $B_{\mathfrak{p}}$ are local rings
+    with unique maximal ideals
+    $\mathfrak{q}_{\mathfrak{q}}$ and
+    $\mathfrak{p}_{\mathfrak{p}}$, respectively. Thus, to
+    show that $g'$ is a local homomorphism, we must show
+    that $g' \left( \mathfrak{q}_{\mathfrak{q}} \right) 
+    \subset \mathfrak{p}_{\mathfrak{p}}$.
+    Explicitly, 
+    \begin{align*}
+        \mathfrak{q}_{\mathfrak{q}} &=
+        \left\{ \frac{a}{b} \in A_{\mathfrak{q}} \colon
+        a \in \mathfrak{q} \right\} \\
+        \mathfrak{p}_{\mathfrak{p} } &=
+        \left\{ \frac{a}{b} \in B_{\mathfrak{p}} \colon
+        a \in \mathfrak{q} \right\} .
+    \end{align*}
+    Let $x \in 
+    \mathfrak{q}_{\mathfrak{q}}$, so
+    there exist $a \in \mathfrak{q}$ and
+    $b \in A - \mathfrak{q}$ such that
+    $x = \frac{a}{b}$.
+    Then
+    $\frac{a}{b} = \pi_A (a) \pi_A(b)^{-1}$, so
+    $g' \left( \frac{a}{b} \right) 
+    = g' \circ \pi_A (a) 
+    \left( g' \circ \pi_A (b) \right)^{-1}
+    = \pi_B \circ g(a) \left( \pi_B \circ g(b) \right)^{-1}
+    = \frac{g(a)}{g(b)}$ where
+    we can invert by $g(b)$ since
+    $g(b) \in B - \mathfrak{p}$ as
+    $b \in A - \mathfrak{q}$ and
+    $\mathfrak{q} = g^{-1}\left( \mathfrak{p} \right) $.
+    Since $g(b) \in B - \mathfrak{p}$ and
+    $g\left( \mathfrak{q} \right) 
+    \subset \mathfrak{p}$, 
+    so $g(a) \in \mathfrak{p}$, we have
+    $\frac{g(a)}{g(b)} \in 
+    \mathfrak{p}_{\mathfrak{p}}$, so
+    $g'(x) \in \mathfrak{p}_{\mathfrak{p}}$, hence
+    $g\left( \mathfrak{q}_{\mathfrak{q}} \right) 
+    \subset \mathfrak{p}_{\mathfrak{p}}$.
+    \\
+    \linebreak
+    (2) 
+The ring $\mathbb{Z}_{(p)}$ is local and 
+$\mathbb{Q}$ being a field is also local. However,
+the inclusion  $\mathbb{Z}_{(p)} \hookrightarrow
+\mathbb{Q}$ is not a local homomorphism since
+$\frac{p}{1}$ is not mapped to $0$, for example.
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+    %\bibliography{../refs.bib}
+\end{document}
