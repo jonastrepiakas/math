@@ -1,0 +1,297 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\SHomeo}{SHomeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Teich}{Teich}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Bun}{Bun}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\MCG}{{\mathrm{MCG}}}
+\newcommand{\PMCG}{{\mathrm{PMCG}}}
+\newcommand{\SMCG}{{\mathrm{SMCG}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+
+
+
+\title{Assignment 4}
+\author{Jonas Trepiakas - hvn548}
+\date{}
+
+\begin{document}
+\maketitle
+    \begin{exercise}[2]
+        Which of the following modules are flat over the
+        corresponding rings?
+        Justify your answer
+        \begin{enumerate}
+            \item $R = \mathbb{C}\left[ x,y \right] $ and
+                the module is
+                $I = \left( x,y \right) \subset R$.
+            \item $R = \mathbb{C}\left[ x \right] /
+                (x^2)$ and the module is
+                $I = (x) \subset R$.
+            \item $R = \mathbb{C}\left[ x \right] $ and
+                the module is the ring
+                $\mathbb{C} \left[ y \right] $ considered
+                as an $R$-module by ring
+                homomorphism $\mathbb{C} \left[ x \right] 
+                \to \mathbb{C} \left[ y \right] \colon
+                x \mapsto y^2$.
+            \item $R = \mathbb{C}\left[ x \right] $ and the
+                module is the ring
+                $\mathbb{C} \left[ x,y \right] 
+                /(xy)$ considered as an
+                $R$-module by ring
+                homomorphism
+                $\mathbb{C} \left[ x \right] \to 
+                \mathbb{C} \left[ x,y \right] / (xy) \colon
+                x \mapsto x$.
+        \end{enumerate}
+    \end{exercise}
+
+    \begin{solution}
+        (1) We claim that
+        $I = \left( x,y \right) $ is not
+        a flat $R = \mathbb{C}\left[ x,y \right] $ module.
+        Firstly,
+        $\mathbb{C} \left[ x,y \right] $ is Noetherian by
+        Hilbert's basis theorem since
+        $\mathbb{C}$ is, and
+        it is also local: we claim that
+        $\left( x,y \right) = I$ is precisely the
+        maximal ideal. Firstly,
+        it is maximal because
+        $\mathbb{C} \left[ x,y \right] / \left( x,y \right) 
+        \cong \mathbb{C}$ is a field. Now if 
+        $M \subset \mathbb{C} \left[ x,y \right] $ is a
+        maximal ideal, then $1 \not\in M$, so
+        for any $f \in M$, we have that
+        $f(x,y) = 
+        \sum_{i+j\ge 1} \alpha_{ij} x^{i} y^{j}
+        \in \left( x,y \right) $.
+        Thus $M \subset (x,y)$, so 
+        $M$ is not maximal unless $M = (x,y)$.
+        Therefore $(x,y)$ is the only maximal ideal.
+        Now, $I$ is finitely generated as
+        a $\mathbb{C}\left[ x,y \right] $-module
+        with generators
+        $x$ and  $y$, hence
+        proposition 9.15 applies. Since
+        $(x,y)$ is not free since it in particular is a
+        proper submodule of $R$, we have that
+        it is not flat.\\
+        \linebreak
+        (2) We claim that
+         $I = \left( x \right) \subset 
+         \mathbb{C} \left[ x \right] / (x^2)$ is indeed
+         flat. This can be seen since
+         $\mathbb{C} \left[ x \right] / (x^2) = 
+         \mathbb{C} \oplus (x) \cong
+         \mathbb{C} \oplus \mathbb{C}$, so
+         since $(x)$ is a direct summand of
+         $R = \mathbb{C} \left[ x \right] /(x^2)$,
+         it is flat by proposition 9.13 and the fact that
+         $R$ is itself flat by example 9.2.\\
+         \linebreak
+         (3) 
+         \textbf{I will give two solutions since I'm
+         not sure whether I may use that over a PID,
+     a module is flat iff it is torsion-free}
+     Suppose there
+     is a relation
+     $\sum a_i y^{i} = 0$ in $\mathbb{C}[y]$ where
+     $a_i \in \mathbb{C}[x]$. However,
+     then taking the maximal degree of $x^{j}$ in
+     $a_j$ for $y^{j}$ the maximal degree
+     of $y $ in the relation, we find that
+     $a_j = 0$. But this contradicts $y^{j}$ being the
+     maximal degree. Hence
+     $a_i = 0$ for all $i$. But this
+     shows that the relation is trivial. Now
+     remark 9.21 tells us that
+     $\mathbb{C}[y]$ is flat cosidered as a
+     $\mathbb{C}[x]$ module by the homomorphism
+     $\mathbb{C}[x] \to \mathbb{C}[y]$ by
+     $x \mapsto y^2$.\\
+     \linebreak
+     The other solution is the following:
+         Since $R = \mathbb{C} \left[ x \right] $ is a 
+         PID, we immediately find that
+         $\mathbb{C} \left[ y \right] $ is
+         flat if and only if it is torsion-free considered
+         as a  $\mathbb{C}\left[ x \right] $-module by
+         restriction of scalars along
+         $x \mapsto y^2$. Suppose
+         $f(y) \in \mathbb{C}[y]$ is such that
+         for  $g(x) \in R$,
+         $g(x) f(y) = 0$, i.e.,
+         $g(y^2) f(y) = 0$ in $\mathbb{C}[y]$. However, this
+         forces $f$ or $g$ to be $0$, so
+         we find that
+         $\mathbb{C} [y]$ is torsion-free as a
+         $\mathbb{C} [x]$ module under the ring-homomorphism
+         $x \mapsto y^2$. Thus
+         $\mathbb{C}[y]$ is a flat
+         $\mathbb{C}[x]$-module by the ring homomorphism
+         $\mathbb{C}[x] \to \mathbb{C}[y]$ sending
+         $x \mapsto y^2$.\\
+         \linebreak
+         (4) 
+         We note that if a module has torsion, this
+         gives an non-trivial relation since
+         $am = 0$ with $a \neq 0$  and
+         $m \neq 0$
+         admitting a genuinely trivial reparametrization
+         implies $a = 0$, contradiction. Hence
+         proposition 9.20 gives that if a module
+         has torsion, then it cannot be flat.
+         $\mathbb{C} \left[ x,y \right] /(xy)$ is clearly
+         not a flat
+         $\mathbb{C} \left[ x \right] $-module under the
+         homomorphism
+         $\mathbb{C} \left[ x \right] \to 
+         \mathbb{C} \left[ x,y \right] /(xy)$ sending
+         $x\mapsto x$ since
+         $y $ is nonzero in
+         $\mathbb{C} \left[ x,y \right] /(xy)$ however,
+         $x \cdot y := xy = 0$, hence
+         $\mathbb{C} \left[ x,y \right] /(xy)$ is not
+         torsion-free over $\mathbb{C}\left[ x \right] $.
+    \end{solution}
+
+
+
+
+
+
+
+
+
+
+    %\bibliography{../refs.bib}
+\end{document}

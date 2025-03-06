@@ -1,0 +1,708 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\SHomeo}{SHomeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Teich}{Teich}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Bun}{Bun}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\MCG}{{\mathrm{MCG}}}
+\newcommand{\PMCG}{{\mathrm{PMCG}}}
+\newcommand{\SMCG}{{\mathrm{SMCG}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+
+
+
+\title{Assignment 1}
+\author{Jonas Trepiakas - hvn548}
+\date{}
+
+\begin{document}
+\maketitle
+    \begin{problem}[1]
+        Let $\pi \colon \mathbb{R} \to 
+        \GL \left( \mathbb{R}^2 \right) $ by
+        $\pi(t) = 
+        \begin{pmatrix} \cos t & \sin t\\
+        - \sin t & \cos t \end{pmatrix} $ with respect to the
+        standard basis $\left\{ e_1,e_2 \right\} $ of
+        $\mathbb{R}^2$. Consider the tensor product
+        \[
+        \pi \otimes \pi \colon
+        \mathbb{R} \to \GL \left( \mathbb{R}^2 
+        \otimes \mathbb{R}^2\right) .
+        \] 
+        Identify $\mathbb{R}^2 \otimes \mathbb{R}^2\to 
+        M_{2\times 2}(\mathbb{R})$ via
+        $e_i \otimes e_j \mapsto E_{ij}$.
+        \begin{enumerate}
+            \item Fix the following basis
+                $\mathcal{B} = \left\{ A_1,A_2,A_3,A_4 \right\} $ 
+                of $M_{2\times 2}\left( \mathbb{R} \right) 
+                \cong \mathbb{R}^2 \otimes \mathbb{R}^2$ :
+                \[
+                A_1 =I_2, \quad
+                A_2 =
+                \begin{pmatrix} 1 & 0 \\ 0
+                & -1 \end{pmatrix} , \quad
+                    A_3 = \begin{pmatrix} 0 & 1\\
+                    1 & 0\end{pmatrix} , \quad
+                        A_4 = \begin{pmatrix} 0 & 1\\
+                        -1 & 0 \end{pmatrix} .
+                \] 
+                Compute 
+                $\left( \pi \otimes \pi \right)_{\mathcal{B}}
+                \colon \mathbb{R} \to \GL_{4}\left( \mathbb{R}
+                \right) $.
+            \item Compute the decomposition of $M_{2\times 2}
+                (\mathbb{R})$ into minimal invariant subspaces
+                (with respect to the representation
+                $\pi \otimes \pi$ ) and prove that
+                the stated subspaces are indeed minimal.
+        \end{enumerate}
+    \end{problem}
+
+    \begin{proof}
+        (1) 
+        Let $\varphi_{\mathcal{B}}
+        \colon \mathbb{R}^4 \to \mathbb{R}^{4}$ be the
+        change of basis given by
+        $\varphi_{\mathcal{B}}
+        (A_i) = e_i$.\\
+        By definition,
+        \[
+            \left( \pi \otimes \pi \right)_{\mathcal{B}}
+            (t) e_j =
+            \varphi_{\mathcal{B}}
+            \left( \pi \otimes \pi(t)  A_j \right) 
+        \] 
+        Now,
+        \begin{align*}
+            A_1 &= e_1 \otimes e_1 + e_2 \otimes e_2\\
+            A_2 &= e_1 \otimes e_1 - e_2 \otimes e_2\\
+            A_3 &= e_2 \otimes e_1 + e_1 \otimes e_2\\
+            A_4 &= e_1 \otimes e_2 - e_2 \otimes e_1
+        \end{align*}
+        so
+        \begin{align*}
+            \pi \otimes \pi(t) A_1
+            &= \pi(t) e_1 \otimes \pi(t) e_1 +
+            \pi(t) e_2 \otimes \pi(t) e_2\\
+            &= 
+            \left( \cos t e_1 - \sin
+            t e_2 \right) \otimes
+            \left( \cos t e_1- \sin t e_2 \right)
+            + \left( \sin t e_1 + \cos t e_2 \right) 
+            \otimes \left( \sin t e_1 + \cos t e_2 \right) \\
+            &= \cos^2 t e_1 \otimes e_1 + \sin^2 t e_2 \otimes
+            e_2 - \sin t \cos t
+            \left( e_1 \otimes e_2 + e_2 \otimes e_1 \right) \\
+            &+ \sin^2 t e_1 \otimes e_1
+            + \cos^2 t e_2 \otimes e_2
+            + \cos t \sin t 
+            \left( e_1 \otimes e_2 + e_2 \otimes e_1 \right) \\
+            &= e_1 \otimes e_1
+            + e_2 \otimes e_2\\
+            &= A_1\\
+            \pi \otimes \pi(t) A_2
+            &= \pi(t) e_1 \otimes \pi(t) e_1
+            - \pi(t) e_2 \otimes \pi(t) e_2\\
+            &= \left( 
+            \cos t e_1 - \sin t e_2\right) 
+            \otimes \left( \cos t e_1 - \sin t e_2 \right) 
+            - \left( \sin t e_1 + \cos t e_2 \right) 
+            \otimes \left( \sin t e_1 + \cos t e_2 \right) \\
+            &= \cos^2 t e_1 \otimes e_1
+            + \sin^2 t e_2 \otimes e_2
+            - \cos t \sin t \left( e_1 \otimes e_2 +
+            e_2 \otimes e_1 \right) \\
+            &- \sin^2 t e_1 \otimes e_1
+            - \cos^2 t e_2 \otimes e_2
+            - \sin t \cos t \left( e_1 \otimes e_2
+            + e_2 \otimes e_1 \right) \\
+            &=\cos(2t) e_1 \otimes e_1
+            - \cos(2t) e_2 \otimes e_2
+            - \sin (2t) \left( e_1 \otimes e_2
+            + e_2 \otimes e_1 \right) \\
+            &= \cos(2t) A_2 - \sin (2t) A_3 \\
+            \pi \otimes \pi (t) A_3
+            &= \left( \sin t e_1 + \cos t e_2 \right) 
+            \otimes \left( \cos t e_1 - \sin t e_2 \right) 
+            + \left( \cos t e_1 - \sin t e_2 \right) 
+            \otimes \left( \sin t e_1 + \cos t e_2 \right) \\
+            &= \cos t \sin t e_1 \otimes e_1 -
+            \cos t \sin t e_2 \otimes e_2
+            + \cos^2 t e_2 \otimes e_1
+            - \sin^2 t e_1 \otimes e_2\\
+            &+ \cos t \sin t e_1 \otimes e_1
+            - \sin t \cos t e_2 \otimes e_2
+            + \cos^2 t e_1 \otimes e_2
+            - \sin^2 t e_2 \otimes e_1\\
+            &=  \sin(2t) e_1 \otimes e_1
+            -  \sin(2t) e_2 \otimes e_2
+            + \cos(2t) (e_2 \otimes e_1 + e_1 \otimes e_2)\\
+            &=  \sin(2t) A_2
+            + \cos(2t) A_3\\
+            \pi \otimes \pi(t) A_4
+            &= 
+            \left( \cos t e_1 - \sin t e_2 \right) 
+            \otimes \left( \sin t e_1 + \cos t e_2 \right) 
+            - \left( \sin t e_1 + \cos t e_2 \right) 
+            \otimes \left( \cos t e_1 - \sin t e_2 \right) \\
+            &= \cos t \sin t e_1 \otimes e_1
+            - \cos t \sin t e_2 \otimes e_2
+            + \cos^2 t e_1 \otimes e_2
+            - \sin^2 t e_2 \otimes e_1\\
+            &- \sin t \cos t e_1 \otimes e_1
+            + \cos t \sin t e_2 \otimes e_2
+            + \sin^2 t e_1 \otimes e_2 
+            - \cos^2 t e_2 \otimes e_1\\
+            &= e_1 \otimes e_2 - e_2 \otimes e_1\\
+            &= A_4
+        \end{align*}
+
+        Thus the matrix for $\left( \pi \otimes \pi \right)_{\mathcal{B}}$
+        with respect to the standard basis
+        becomes
+        \[
+        \begin{pmatrix} 
+            1 & 0 & 0 & 0\\
+            0 & \cos (2t) & \sin(2t) & 0\\
+            0 & - \sin(2t) & \cos(2t) & 0\\
+            0 & 0 & 0 & 1
+        \end{pmatrix} 
+        \] 
+
+
+        (2) 
+        It suffices to decompose
+        $\left( \pi \otimes \pi \right)_{\mathcal{B}}$ into
+        irreducible subspaces. Now
+        since  $\left( \pi \otimes \pi \right)_{\mathcal{B}}
+        (e_i) = e_i$ for $i = 1,4$, we have that
+        $\Span (e_1)$ and $\Span (e_4)$ are
+        $\left( \pi \otimes \pi \right)_{\mathcal{B}}$ 
+        invariant subspaces. Furthermore, since
+        they are $1$-dimensional, they are irreducible.
+        Let $W =
+        \Span (e_2, e_3)$. On
+        $W$, $\left( \pi \otimes \pi \right)_{\mathcal{B}}$ 
+        restricts to the representation
+        \[
+            \begin{pmatrix} \cos (2t) & \sin (2t)\\
+            - \sin (2t) & \cos (2t) \end{pmatrix} 
+        \] 
+        which is a rotation matrix. By example 1.20,
+        this representation is irreducible since it is
+        irreducible for all $s$ when
+        we insert $s = \frac{1}{2}t$, hence also for all $t$.
+        Hence
+        $\Span (e_1), 
+        \Span (e_2, e_3)$ and
+        $\Span(e_4)$ are the minimal invariant
+        subspaces of 
+        $\mathbb{R}^{4}$ with respect to
+        $\left( \pi \otimes \pi \right)_{\mathcal{B}}$.
+        By changing back in bases,
+        we find that
+        $\Span(A_1), \Span(A_2,A_3)$ and
+        $\Span(A_4)$ are the minimal invariant
+        subspaces of $\pi \otimes \pi$.
+    \end{proof}
+
+
+    \begin{problem}[2]
+        Let $\pi \colon \mathbb{R} \to \GL_2 (\mathbb{R})$ be
+        given by
+        $\pi(t) = \begin{pmatrix} 1 & t \\ 0 & 1 \end{pmatrix} $ and
+        let $\pi_0 \colon \mathbb{R} \to 
+        \GL_1 (\mathbb{R}) = \mathbb{R}^{\times }$ be
+        given by $\pi_0(t) = 1$ be the one-dimensional
+        trivial representation of $\mathbb{R}$. Find non-zero
+        intertwining operators from
+        $\pi_0$ to $\pi$ and from $\pi$ to $\pi_0$.
+    \end{problem}
+
+    \begin{solution}
+        An intertwining operator from
+        $\pi_0$ to $\pi$ is a linear map
+        $\varphi \colon
+        \mathbb{R} \to \mathbb{R}^2$ such that
+        $\pi (g) \circ \varphi = \varphi \circ \pi_0 (g)$ for all
+        $g$.
+        Thus we want to find $\varphi $ such that for
+        all $t$
+        \[
+            \begin{pmatrix} 1 & t \\
+            0 & 1\end{pmatrix}  \circ \varphi 
+            = \varphi \circ I
+        \] 
+        For this, we can
+        simply choose
+        $\varphi (e_1) = e_1$, giving
+        $\left[ \varphi  \right] 
+        = \begin{pmatrix} 1 \\ 0 \end{pmatrix} $.\\
+        Now, an intertwining operator
+        from $\pi$ to $\pi_0$ is a linear map
+        $\psi \colon \mathbb{R}^2 \to \mathbb{R}$ such that
+        \[
+        \pi_0(t) \circ \psi = \psi \circ \pi(t)
+        = \psi \circ \begin{pmatrix} 1 & t\\
+        0 & 1\end{pmatrix} 
+        \] 
+        If we define $\psi (e_1) = 0$ and $\psi (e_2) = e_1$ so
+        $\left[ \psi  \right] =
+        \begin{pmatrix} 0 & 1 \end{pmatrix} $, we get
+        $\pi_0(t) \circ \psi (e_1) = 0 = 
+        \psi \circ \pi(t) (e_1)$, while
+        $\pi_0(t) \circ \psi (e_2) = e_1 = 
+        \psi \circ \pi(t) e_2$.
+        So $\psi $ is an intertwining
+        operator from
+        $\pi$ to $\pi_0$.\qed
+    \end{solution}
+
+    \begin{problem}[3]
+        Suppose that $\pi, \sigma_1, \sigma_2$ are finite
+        dimensional completely reducible representations
+        of a group $G$. Show that if
+        $\pi \oplus \sigma_1$ is equivalent to
+        $\pi \oplus \sigma_2$, then
+        $\sigma_1$ is equivalent to $\sigma_2$.
+    \end{problem}
+
+    \begin{solution}
+
+        Suppose
+        $\pi \colon G \to 
+        \GL(V)$,
+        $\sigma_1 \colon G \to \GL(U_1)$ and
+        $\sigma_2 \colon G \to \GL(U_2)$ are
+        the representations.
+    
+        Now, by assumption, there exists
+        an isomorphism
+        $\varphi \colon
+        V \oplus U_1 \to 
+        V \oplus U_2$ such that
+        $\pi \oplus \sigma_2 =
+        \varphi \circ (\pi \oplus \sigma_1) \circ
+        \varphi^{-1}$.
+        Note that
+        since $\pi, \sigma_1, \sigma_2$ are completely
+        reducible, we can write
+        $\pi \simeq \pi_1 \oplus \ldots \oplus \pi_n,
+        \sigma_1 \simeq \sigma_{1,1} \oplus \ldots
+        \oplus \sigma_{1,m}$ and
+        $\sigma_2 \simeq \sigma_{2,1} \oplus \ldots
+        \oplus \sigma_{2,k}$. Then
+         \[
+        \pi \oplus \sigma_1
+        \simeq \bigoplus_{i=1}^{n} \pi_i
+        \oplus \bigoplus_{j=1}^{m} \sigma_{1,j}
+        \] 
+        and
+         \[
+        \pi \oplus \sigma_2
+        \simeq \bigoplus_{i=1}^{n} \pi_i
+        \oplus \bigoplus_{j=1}^{k} \sigma_{2,j}
+        \] 
+        are also completely reducible by theorem 3.7 (as
+        well as the direct sum of two irreducible representations
+        again being irreducible). Furthermore, by
+        corollary 3.10, $m = k$.\\
+
+        Now, $\varphi $ must take an irreducible
+        subspace of
+        $V \oplus U_1$ to an irreducible subspace of
+        $V \oplus U_2$.
+        So $\varphi $ induces a bijection 
+        using Corollary 3.10:
+
+        $\tilde{\varphi } \colon 
+        \left\{ V_1, \ldots, V_n, U_{1,1}, \ldots,
+        U_{1,m} \right\} \to 
+        \left\{ V_1, \ldots, V_n, 
+        U_{2,1}, \ldots, U_{2,m}\right\} $ where
+        $V_i$ is the irreducible subspace of
+        $\pi_i$, $U_{1,i}$ of $\sigma_{1,i}$ and
+        $U_{2,i}$ of $\sigma_{2,i}$.
+        Thus, for each $i$,
+        $\varphi \circ \sigma_{1,i} \circ \varphi^{-1}$ must
+        be one of the 
+        $\pi_j$ or $\sigma_{2,j}$. Now, note that
+        if it is  $\pi_j$, then in the decomposition of
+        $\pi \oplus \sigma_1$, we have
+        $2$ irreducible representations equivalent to
+        $\sigma_{1,i}$. Hence in the decomposition of
+        $\pi \oplus \sigma_2$, we must also have two, so
+        there must be another irreducible factor also
+        equivalent to $\sigma_{1,i}$. The same argument applies as
+        above, and after a finite number of steps, we find
+        that there must be some
+        $\sigma_{2,j}$ equivalent to
+        $\sigma_{1,i}$, since otherwise we would obtain
+        at least $n+1$ irreducible factors equivalent to
+        $\sigma_{1,i}$ in $\pi \oplus \sigma_{1}$, but only
+        $n$ in $\pi \oplus \sigma_2$, giving a contradiction.
+        Let $\varphi_{i,j_{i}}$ be the isomorphism
+        $U_{1,i} \to U_{2,j_{i}}$ such that
+        $\varphi_{i,j_{i}} \circ \sigma_{1,i} \circ
+        \varphi_{i,j_{i}}^{-1} = \sigma_{2,j_{i}}$.
+        Applying this argument to each
+        $\sigma_{1,i}$, we obtain isomorphisms
+        $ \varphi_{1,j_{1}},
+        \ldots, \varphi_{m,j_{m}}$. But then
+        pasting these together
+        by letting 
+        $ \varphi (x) = \varphi_{i,j_{i}}(x)$ when
+        $x \in U_{1,i}$, we get an isomorphism
+        $\varphi \colon U_1 \to U_2$ such that
+        $\varphi \circ \sigma_{1,i} \circ \varphi^{-1}
+        = \sigma_{2, j_{i}}$ for all $i$, so
+        $\varphi \circ \sigma_1 \circ \varphi^{-1}
+        = \sigma_2$. Thus
+        $\sigma_1 \simeq \sigma_2$.\qed
+
+
+
+        
+
+
+
+
+
+    \end{solution}
+
+
+    \begin{problem}[4]
+        Let $G$ be a finite group and $\pi_1, \pi_2$ two
+        one-dimensional representations of $G$. Let
+        $\pi = \pi_1 \oplus \pi_2$. Compute
+        $\pi \otimes \pi$ and $\Sym^2 \pi$, that is,
+        find a decomposition of those representations
+        into irreducible ones.
+    \end{problem}
+
+    \begin{solution}
+        Suppose
+        $\pi_1,\pi_2 \colon G
+        \to \GL (V)$ where
+        $V$ is a one-dimensional vector space
+        over a field $k$.
+        Fix an isomorphism $V \cong k$, so that we
+        can from now assume $V = k$.
+        Then since
+        $\GL (k) \cong k^{\times }
+        = k - \left\{ 0 \right\} $,
+        we have that
+        $\pi_1(g) = c_g$ and
+        $\pi_2(g) = d_g$ where
+        $c_g$ and $d_g$ are non-zero constants.
+        Since $\pi_1,\pi_2$ are one-dimensional,
+        $\pi$ is two-dimensional, hence
+        $\pi \otimes \pi$ is four-dimensional.
+
+        \[
+            \pi \otimes \pi(g) 
+            = \pi(g) \otimes \pi(g)
+            = \left( \pi_1(g), \pi_2(g) \right) 
+            \otimes \left( \pi_1 (g) , \pi_2(g) \right) 
+            = \left( c_g, d_g \right) 
+            \otimes \left( c_g, d_g \right) 
+        \] 
+        Thus
+        \begin{align*}
+            \pi \otimes \pi(g) \left( (x,y) \otimes
+            (v,w) \right) 
+            = \pi(g) (x,y) \otimes
+            \pi(g) (v,w)
+            = \left( c_g x, d_g y \right) 
+            \otimes \left( c_g v, d_g w \right) 
+        \end{align*}
+        Hence, if we let
+        $v_1 = e_1 \otimes e_1,
+        v_2 = e_1 \otimes e_2,
+        e_3 = e_2 \otimes e_1$ and
+        $e_4 = e_2 \otimes e_2$, a matrix representation for
+        $\pi \otimes \pi(g)$ in the basis
+        $\mathcal{B} = \left\{ v_1,v_2,v_3,v_4 \right\} $ becomes
+        \[
+            \begin{pmatrix} c_g^2 & 0 & 0 & 0\\
+            0 & c_g d_g & 0 & 0\\
+        0 & 0 & c_g d_g & 0\\
+     0 & 0 & 0 & d_g^2 \end{pmatrix} 
+        \] 
+
+        Another way to see this is as follows: By example 3.13, 
+        $\pi \otimes \pi$ is equivalent to
+        $\prod \colon G \to 
+        \GL_{2 \times 2}(V)$ given by
+        $\prod (g) A = 
+        \left( \pi \right)_{\mathcal{B}}(g)
+        A \left( \pi \right)_{\mathcal{B}}(g)^{t}.
+        $ 
+        Choosing any basis $\mathcal{B}$, we find that
+        $\pi(g) = \left( \pi_1(g), \pi_2(g) \right) $ and
+        each $\pi_i(g)$ is constant nonzero, so its matrix 
+        representation becomes
+        \[
+        \pi(g) = 
+        \begin{pmatrix} c & 0\\
+        0 & d \end{pmatrix} 
+        \] 
+        Hence if
+        $A = \begin{pmatrix} \alpha_{11} & \alpha_{12}\\
+        \alpha_{21} & \alpha_{22}\end{pmatrix} $, we get
+
+        \[
+        \pi(g) A \pi(g)^{t}
+        = 
+        \begin{pmatrix} c & 0 \\
+        0 & d \end{pmatrix} 
+            \begin{pmatrix} \alpha_{11} & 
+            \alpha_{12} \\
+        \alpha_{21} & \alpha_{22} \end{pmatrix} 
+                \begin{pmatrix} c & 0 \\
+                0 & d \end{pmatrix} 
+                =
+                \begin{pmatrix}
+                    c & 0\\0 & d
+                \end{pmatrix} 
+                    \begin{pmatrix} \alpha_{11} c &
+                        \alpha_{12} d\\
+                        \alpha_{21} c & 
+                        \alpha_{22} d
+                    \end{pmatrix} 
+                    = \begin{pmatrix} 
+                        \alpha_{11} c^2 & \alpha_{12} cd\\
+                        \alpha_{21} cd & \alpha_{22} d^2
+                    \end{pmatrix} 
+        \] 
+        Hence each subspace
+        $V_i \subset 
+        M_{2\times 2}(F)$ where
+        $V_i$ is spanned by the matrix
+        which has entry $1$ in the $i$ th entry and $0$ elsewhere,
+        where we just enumerate the entries using a lexicographic
+        ordering, for example.
+        So
+        \begin{align*}
+            V_1 
+            &= \Span  \begin{pmatrix} 1 & 0\\
+            0 & 0\end{pmatrix} \\
+            V_2 
+            &= \Span \begin{pmatrix} 0 & 1 \\0 & 0 \end{pmatrix} \\
+            V_3 &= \Span \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix} \\
+            V_4 &= \Span \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix} 
+        \end{align*}
+            These are all $1$-dimensional hence
+            irreducible. As shown above,
+            they are also invariant under $\prod$.
+            So
+            \[
+            \pi \otimes \pi
+            = 
+            (\pi \otimes \pi)_{V_1} \oplus
+            \ldots \oplus
+            (\pi \otimes \pi)_{V_4}
+            \] 
+            is a decomposition of
+            $\pi \otimes \pi$ into irreducible components.\\
+            \linebreak
+            Now we wish to find
+            $\Sym^2 \pi$.
+            Recall that
+            \[
+            \Sym^2 k^2
+            = k^2 \otimes k^2 / I
+            \] 
+            where $I$ is generated by
+            elements of the form
+            \[
+            v \otimes w - w \otimes v.
+            \] 
+            Thus we get the following identification in
+            $\Sym^2 k^2$:
+            \begin{align*}
+                (0,1) \otimes (1,0) 
+                &= \left( 1,0 \right) \otimes (0,1)\\
+            \end{align*}
+            So in fact,
+            \[
+            \Sym^2 k^2
+            \cong
+            \Span \left( \left( 1,0 \right) \otimes 
+            (1,0) \right) \oplus
+            \Span \left( \left( 0,1 \right) \otimes
+            (1,0)\right) 
+            \oplus
+            \Span\left( (0,1) \otimes (0,1) \right) 
+            \] 
+            Now, since
+            $\Sym^2 \pi$ is simply the descent of
+            $\pi \otimes \pi$ to the quotient
+            $k^2 \times k^2 / I$, 
+            $V_1$ and $V_4$ remain invariant. Furthermore,
+            $\Sym^2 \pi 
+            \left( \left( 1,0 \right) \otimes
+            \left( 0,1) \right) \right) 
+            = \left( 1,0 \right) \otimes
+            (0,1)$, so
+            $W_2:= \Span
+            \left( \left( 0,1 \right) \otimes
+            (1,0)\right) $ is also invariant.
+            Let $W_1 := V_1$ and
+            $W_3 := V_4$. Then
+            we have shown that
+            $W_1,W_2$ and $W_3$ are invariant under
+            $\Sym^2 \pi$.
+            Furthermore, each is $1$-dimensional, and 
+            $\Sym^2 k^2$ decomposes to a
+            direct sum
+            $\Sym^2 k^2 \cong
+            W_1 \oplus W_2 \oplus W_3$.
+            Since each
+            $\Sym^2 \pi|_{W_i}$ is invariant, this gives
+            a decomposition of
+            $\Sym^2 \pi$ into three irreducible representations.
+
+
+
+
+
+
+
+    \end{solution}
+
+    
+
+
+
+    %\bibliography{../refs.bib}
+\end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  25 FEB 2025 11:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  26 FEB 2025 14:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -491,29 +491,29 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 ) (./assignment.aux)
 \openout1 = `assignment.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 145.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 143.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 145.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 143.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -535,95 +535,60 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring ON on input line 145.
+Package hyperref Info: Link coloring ON on input line 143.
  (./assignment.out) (./assignment.out)
 \@outlinefile=\write4
 \openout4 = `assignment.out'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 168--224
+Underfull \hbox (badness 10000) in paragraph at lines 160--192
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 245--268
-
+Overfull \hbox (10.28964pt too wide) in paragraph at lines 160--192
+\T1/cmr/m/n/10 (2) Let $\OML/cmm/m/it/10 I$ \T1/cmr/m/n/10 be a radical ideal of $\OML/cmm/m/it/10 R$\T1/cmr/m/n/10 , so $[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 I$\T1/cmr/m/n/10 . By theorem 7.19 (Primary decomposition),
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 245--268
+LaTeX Font Info:    Trying to load font information for U+euf on input line 193.
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+)
+Underfull \hbox (badness 10000) in paragraph at lines 233--244
 
  []
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
-Underfull \hbox (badness 10000) in paragraph at lines 321--323
+Underfull \hbox (badness 10000) in paragraph at lines 274--325
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 324--431
+Underfull \hbox (badness 10000) in paragraph at lines 274--325
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 324--431
+Underfull \hbox (badness 10000) in paragraph at lines 327--335
 
  []
 
 
-Overfull \hbox (6.33516pt too wide) in paragraph at lines 324--431
-\T1/cmr/m/n/10 path-connected, $\OML/cmm/m/it/10 M[]$ \T1/cmr/m/n/10 is path-connected. By theorem 2.3.9 in AlgTop1, the monodromy
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 324--431
+Underfull \hbox (badness 10000) in paragraph at lines 327--335
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 324--431
-
- []
-
-[2]
-Overfull \hbox (16.42577pt too wide) in paragraph at lines 435--444
-\T1/cmr/m/n/10 diffeomorphism. Let $[]$ be a smooth chart from the smooth structure constructed
- []
-
-
-Overfull \hbox (2.92662pt too wide) in paragraph at lines 445--480
-\T1/cmr/m/n/10 connected. Theorem 2.7.2 now gives that because $[] \OML/cmm/m/it/10 f[] \OMS/cmsy/m/n/10 ^^Z [] \OML/cmm/m/it/10 p[]$\T1/cmr/m/n/10 , a unique topological
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [3]
-Underfull \hbox (badness 10000) in paragraph at lines 485--531
+Underfull \hbox (badness 10000) in paragraph at lines 379--401
 
  []
 
 
-Overfull \hbox (28.4607pt too wide) in paragraph at lines 562--571
-\T1/cmr/m/n/10 as the group of self-diffeomorphisms up to isotopy, where an isotopy of two diffeomorphisms
- []
-
-
-Overfull \hbox (7.49367pt too wide) in paragraph at lines 581--606
-[]\T1/cmr/m/n/10 (1) I will start by showing that any two orientation-preserving diffeomorphisms
- []
-
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 614--623
+Underfull \hbox (badness 10000) in paragraph at lines 404--432
 
  []
 
-
-Overfull \hbox (9.92969pt too wide) in paragraph at lines 641--672
-\T1/cmr/m/n/10 commutes. But since $\OML/cmm/m/it/10 f$ \T1/cmr/m/n/10 is a diffeomorphism, it induces an isomorphism on fundamental
- []
-
-[5] [6] (./assignment.aux)
+[2] [3] (./assignment.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -632,18 +597,18 @@ Package rerunfilecheck Info: File `assignment.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 22962 strings out of 474222
- 429038 string characters out of 5748733
- 1944975 words of memory out of 5000000
- 44677 multiletter control sequences out of 15000+600000
- 566625 words of font info for 61 fonts, out of 8000000 for 9000
+ 22783 strings out of 474222
+ 424694 string characters out of 5748733
+ 1946975 words of memory out of 5000000
+ 44497 multiletter control sequences out of 15000+600000
+ 567333 words of font info for 64 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 98i,15n,107p,599b,1045s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on assignment.pdf (6 pages, 231877 bytes).
+ 98i,7n,107p,599b,669s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb>
+Output written on assignment.pdf (3 pages, 198644 bytes).
 PDF statistics:
- 138 PDF objects out of 1000 (max. 8388607)
- 95 compressed objects within 1 object stream
- 19 named destinations out of 1000 (max. 500000)
+ 123 PDF objects out of 1000 (max. 8388607)
+ 83 compressed objects within 1 object stream
+ 14 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

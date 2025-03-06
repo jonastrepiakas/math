@@ -136,9 +136,14 @@
 \newcommand{\Forget}{{\mathcal{F}}orget}
 
 
+\title{Assignment 3}
+\author{Jonas Trepiakas}
+\date{}
+
 
 
 \begin{document}
+\maketitle
     \begin{problem}[1 (Quotient manifolds)]
         Let $M$ be a smooth manifold, and let 
         $\tau \colon M \to M$ be a fixed-point free
@@ -615,21 +620,101 @@
         $g \simeq f$.\\
         \linebreak
         (2) 
-        Suppose $f$ is an 
-        orientation-preserving self 
-        diffeomorphism of $S^{1}$.
-        We want to show that $f$ is isotopic to the
-        identity. This is equivalent to finding
-        a map
-        $ F \colon S^{1} \times I \to 
-        S^{1} \times I$ such that
-        $F (x,0) = x$,
-        $F(x,1) = f(x)$ and
-        $F(-,t)$ is a diffeomorphism
-        $S^{1} \times \left\{ t \right\} 
-        \to S^{1} \times \left\{ t \right\} $ for
-        all $t$.
         
+        Let $p \colon \mathbb{R}
+        \to S^{1}$ be the usual parametrization
+        $t \mapsto e^{2 \pi i t}$. Let
+        $f \colon S^{1} \to S^{1}$ be a diffeomorphism.
+        By composing $f$ with the isotopy
+        $H(x,t) = x e^{- i \arg f((1,0)) t}$, we
+        may assume that $f$ fixes $(1,0)$.
+        Then by problem 2.2 above, there
+        exists a unique smooth path
+        $\tilde{f} \colon I \to \mathbb{R}$
+        sending $0$ to $0$ such that
+        \begin{equation*}
+        \begin{tikzcd}
+            & & \mathbb{R} \ar[d, "p"]\\
+            I \ar[r, "p|_{I}"'] 
+            \ar[rru, "\tilde{f}"] & S^{1} \ar[r, "f"'] & S^{1}
+        \end{tikzcd}
+        \end{equation*}
+        commutes.
+        But
+        since $f$ is a diffeomorphism, it 
+        induces an isomorphism on
+        fundamental groups,
+        so $f$ sends the generating circle
+        $1 \in \mathbb{Z} \cong \pi_1(S^{1})$ to
+        either $1$ or $-1$ (the two generators for
+        $\mathbb{Z}$ ).
+        But then by uniqueness of endpoints of lifts,
+        $\tilde{f}(1) \in \left\{ 1,-1 \right\} $.
+        Now suppose firstly that
+        $\tilde{f}(1) = 1$.
+        Since $\tilde{f}$ is smooth and
+        $f = p \circ \tilde{f}$ on $I$ is a diffeomorphism
+        on the interior of $I$, it must be
+        a strictly increasing function, and
+        since $f$ is smooth, 
+        its limits in  $S^{1}$ about $(1,0)$ agree
+        from both sides, so we conclude that
+        $\lim_{t \to 0+} \frac{d^{n}}{dt^{n}} \tilde{f}(t)
+        = \lim_{t \to 1-} \frac{d^{n}}{dt^n}
+        \tilde{f}(t)$ for all $n$.
+        Now let
+        $\varphi \colon
+        \mathbb{R} \times I \to \mathbb{R}$ 
+        be the isotopy
+        which is the identity on
+        $\mathbb{R} - (0,1)$ and
+        on $\left( 0,1 \right) $, it is given by
+        \[
+        \varphi (x,t) =
+        x t + f(x) (1-t)
+        \] 
+        Then
+        clearly
+        $\varphi $ is smooth and
+        $\varphi (x,1) = x$ and
+        $\varphi (x,0) = f(x)$.
+        Furthermore,
+        $\varphi $
+        is a diffeomorphism of  $\left( 0,1 \right) $ 
+        at each time $t$ and of 
+        $\mathbb{R} - \left( 0,1 \right) $.
+        We must check that the limits of
+         the derivatives of $\varphi $ coincide for
+         the two endpoints of the interval at each
+         time $t$.
+         Indeed,
+         \[
+         \lim_{x \to 0+} \frac{d}{dx}
+         \varphi (x,t)
+         = \lim_{x \to 0+} t + (1-t) f'(x)
+         = \lim_{x \to 1-} t + (1-t) f'(x)
+         = \lim_{x \to 1-} \frac{d}{dx}\varphi (x,t)
+         \] 
+         since the limits for
+         $f'(x)$ agree.
+         Higher limits can be checked likewise. 
+         Hence $\varphi (-,t)$ is a diffeomorphism
+         for all $t$. The composite
+         $p \circ \varphi (\tilde{f}(x),t) $ gives
+         an isotopy from
+         $f$ to the identity.
+         For the case where
+         $\tilde{f}(1) = -1$, simply note that the
+         reflection map also induces this isomorphism,
+         so if $g$ is the reflection map,
+         then $\tilde{f \circ g^{-1}}(1) = 1$, so
+         $f \circ g^{-1} $ is isotopic to the identity,
+         hence $f$ is isotopic to $g$.
+         
+         
+
+        
+
 
  
     \end{proof}

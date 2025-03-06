@@ -1,0 +1,495 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+
+\setlength\parindent{0pt}
+\setcounter{section}{1}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\SHomeo}{SHomeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Teich}{Teich}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\Bun}{Bun}
+\DeclareMathOperator{\Diff}{Diff}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\MCG}{{\mathrm{MCG}}}
+\newcommand{\PMCG}{{\mathrm{PMCG}}}
+\newcommand{\SMCG}{{\mathrm{SMCG}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+
+
+
+
+\begin{document}
+\begin{definition}[Fiber Bundle]
+    Let $K$ be a topological group acting on a
+    Hausdorff space $F$ as a group of homeomorphisms.
+    Let $X$ and $B$ be Hausdorff spaces. By a 
+    \textit{fiber bundle} over a base space
+    $B$ with total space $X$, fiber $F$ and structure
+    group $K$, we mean a bundle map
+    $p \colon X \to B$ together with a maximal
+    chart atlas
+    $\Phi$ over $B$. Explicitly, $\Phi$ is a collection
+    of trivializations
+    $\varphi  \colon U
+    \times F \to p^{-1}(U)$ such that
+    \begin{enumerate}
+        \item each point of $B$ has a neighborhood
+            over which there is a chart in
+            $\Phi$
+        \item if $ \varphi \colon U \times F
+            \to p^{-1} (U) $ is in
+            $\Phi$ and  $V \subset U$, then the
+            restriction
+            $\varphi |_{V \times F}$ is also in
+            $\Phi$.
+        \item If $\varphi , \psi  \in \Phi$ are
+            charts over $U$ then there exists a map
+            $\theta \colon U \to K$ such that
+            $\psi \left( u, y \right) 
+            = \varphi \left( u, \theta(u) (y) \right) $ 
+        \item the set $\Phi$ is maximal among the collections
+            satisfying the (1),(2) and (3)
+    \end{enumerate}
+    The fiber bundle is called smooth if all the spaces
+    are smooth manifolds and all maps involved are smooth.
+\end{definition}
+
+\begin{definition}[Manifold bundle]
+    Let $M$ be a smooth manifold. A
+    manifold bundle over $M$ with structure group
+    $G$ is a fiber
+    bundle
+    $W \to E \to M$ with
+    structure group $G$ such that
+    $E$ is a manifold and $E \to M$ is continuous.\\
+    We say a manifold bundle over $M$ is a smooth
+    manifold bundle if it is 
+    a smooth fiber bundle as well as
+    a manifold bundle and $G$ acts by diffeomorphisms
+    on $M$.
+\end{definition}
+
+\begin{problem}[Manifold bundles over $S^{1}$]
+    We fix a smooth manifold $M$. The aim of this exercise
+    is to study smooth manifold bundles over $S^{1}$ with
+    fiber $M$.
+    \begin{enumerate}
+        \item Let $f \in \Diff (M)$, and consider the
+            mapping torus
+            \[
+            T(f) := \left( M \times \left[ 0,1 \right]  \right) 
+            / \sim
+            \] 
+            where $\sim$ identifies 
+            $\left( x,0 \right) $ with
+            $\left( f(x),1 \right) $ for all $x \in M$.
+            Show that the projection map to the
+            second factor yields a 
+            smooth manifold bundle
+            \[
+            M \to T(f) \to S^{1}.
+            \] 
+        \item Show that if $f$ and $g$ are isotopic diffeomorphisms,
+            the bundles $T(f) \to S^{1}$ and
+            $T(g) \to S^{1}$ are isomorphic bundles.
+        \item Show that the map
+            \[
+            \pi_0 \Diff(M) \to \Bun_M\left( S^{1} \right)
+            \] 
+            by
+            \[
+            \left[ f \right] \mapsto \left[ T(f) \right] 
+            \] 
+            from the mapping class group of $M$ to the
+            set of isomorphism classes of
+            $M$-manifold bundles over $S^{1}$ is bijective.
+    \end{enumerate}
+\end{problem}
+
+
+\begin{problem}[2]
+    Show that the following spaces admit the structure of
+    smooth manifolds.
+    \begin{enumerate}
+        \item $O(n)$, the set of orthogonal matrices
+            of degree $n\times  n$, topologized as
+            a subspace of $\mathbb{R}^{n^2}$.
+        \item $SO(n)$, the set of orthogonal matrices of
+            degree $n \times n$ with determinant $1$.
+        \item $\SL_n(\mathbb{R})$, the set
+            of $\left( n\times n \right) $-matrices with
+            determinant $1$.
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    (1) The orthogonal group is the zero set
+    $\mathbb{V} (I)$ of the ideal
+    $I = \left( \left\{ f_{ij} \right\}  \right) $ where
+    \[
+    f_{i,j} = \sum_{k=1}^{n} x_{ki} x_{kj}
+    \quad \text{for }i \neq j \quad \text{and} \quad
+    f_{ii} = \sum_{k=1}^{n} x_{ki}^2 -1
+    \] 
+    So defining a function
+    $\varphi \colon 
+    \mathbb{R}^{n^2} \to 
+    \mathbb{R}^{n^2}$ by
+    $\varphi \left( \left( x_{ij} \right)  \right) 
+    = \left( \left( f_{ij} \right)  \right) $, then
+    since $ \left( f_{ij} \right) $ is symmetric,
+    we may modify this map so that
+    $\varphi \left( x_{ij} \right) 
+    = \left( \left( f_{ij} \right)_{i\ge j} \right) $ so
+    $\varphi  \colon \mathbb{R}^{n^2} \to 
+    \mathbb{R}^{\frac{n (n+1)}{2}}$.
+
+    We can also write this map as
+    $\varphi (A) = A^{t}A - I$.
+    Then we find that
+     \[
+    \varphi '(A) = 
+    \frac{d}{dt}|_{t=0} \varphi (A+ tX)
+    = \frac{d}{dt}|_{t=0}
+    \left( A+tX \right) \left( A+tX \right)^{t} - I
+    =\frac{d}{dt}|_{t=0} A X^{t} t + A^{t}Xt
+    = AX^{t} + XA^{t}
+    \] 
+    Now if
+    $A \in \varphi^{-1}(0)$ and
+    $B \in \mathbb{R}^{\frac{n(n+1)}{2}}$ represents a symmetric
+    matrix, then
+     \[
+    \varphi '(\frac{1}{2}BA) = 
+    \frac{1}{2} \left( A A^{t}B^{t} +
+    BA A^{t} \right) 
+    = \frac{1}{2} (B+B) = B
+    \] 
+    so $\varphi '$ is surjective, hence has full rank.
+    Therefore, by the rank lemma (Lemma 5.9 in JB)
+    $O(n) = \varphi^{-1}(0)$ is a smooth submanifold of
+    $\mathbb{R}^{n^2}$ of dimension
+    $n^2 - \frac{n(n+1)}{2}
+    = \frac{n(n-1)}{2}$.
+\end{solution}
+
+\begin{problem}[3]
+    Fix a manifold $M$ and consider the
+    set $\Vect (M)$ of all isomorphism classes
+    of finite dimensional real vector bundles over
+     $M$.
+     \begin{enumerate}
+         \item For $E,E' \in \Vect(M)$, construct a 
+             vector bundle $E \oplus E'$ over
+             $M$ which fiberwise is obtained
+             by applying the direct sum
+             $V \oplus V'$. Formulate a
+             universal property of $E \oplus E'$.
+         \item For $E,E' \in \Vect(M)$, construct a
+             vector bundle $E \otimes E'$ over
+             $M$ which fiberwise is obtained
+             by applying the tensor product
+             $V \otimes V'$.
+         \item Let $E \in \Vect(M)$ and fix
+             $E' \subset E$ a subbundle of
+             $E$, that is a vector bundle together with a
+             map of bundles
+             \begin{equation*}
+             \begin{tikzcd}
+                 V' \ar[rr, hookrightarrow]
+                 \ar[d] & & V\ar[d] \\
+                 E \ar[rr] \ar[dr] && E' \ar[dl]\\
+                           & M &
+             \end{tikzcd}
+             \end{equation*}
+             that induces linear injective maps
+             on fibres. Construct a vector
+             bundle $E / E'$ which fiberwise is given by
+             taking the quotient vector space
+             $V / V'$.
+             
+     \end{enumerate}
+\end{problem}
+
+
+\begin{solution}
+    We will use
+    the approach of Bröcker and Jänich by
+    constructing pre-vector bundles with the desired properties.\\
+    (1) (3pts) 
+    We define
+    $E \oplus E' = \bigcup_{p \in M} E_{p} \oplus E_{p}'$ 
+    where $E_p$ and  $E_p'$ are the fibers at $p$.
+    Now take $\pi \colon E \oplus E' \to M$ to be
+    the projection $(e_p, e_p') \mapsto 
+    p$.
+    The vector space structure on
+    $\left( E \oplus E' \right)_p =
+    \pi^{-1}(p) = E_{p} \oplus E_{p}'$ is the
+    precisely the direct sum of the vector space structures
+    of $E_p$ and $E_p'$.
+
+    For the pre-bundle atlas $\mathcal{B}$,
+    let $ \mathcal{B}_E, \mathcal{B}_{E'}$ be
+    bundle atlases for
+     $E$ and $E'$, respectively.
+     Then
+     for  $\left( f_{\alpha}, U_{\alpha} \right) 
+     \in \mathcal{B}_E$ and
+     $\left( g_{\beta}, V_{\beta}
+     \right) \in \mathcal{B}_{E'}$, let
+     $\left( f_{\alpha} \oplus g_{\beta},
+     U_{\alpha} \cap V_{\beta} \right) 
+     \in \mathcal{B}$ where
+     \[
+     f_{\alpha} \oplus g_{\beta}
+     \colon \pi^{-1} \left( U_{\alpha} \cap V_{\beta} \right) 
+     \to U_{\alpha} \cap V_{\beta} \times \mathbb{R}^{n}
+     \times \mathbb{R}^{m}
+     \] 
+     sending
+     $\left( e_p, e_{p}' \right)  \mapsto
+     \left( p, f_{\alpha}(e_p),
+     g_{\beta}(e_p') \right) $
+     is a bijective map
+     which sends each fiber 
+     $\left( E \oplus E' \right)_p$
+     linearly and isomorphically
+     onto
+     $\left\{ p \right\} \times 
+     \mathbb{R}^{n} \oplus \mathbb{R}^{m} 
+     \cong \mathbb{R}^{n} \oplus \mathbb{R}^{m}$.
+     Furthermore, the transition functions
+     are of the form
+     \[
+     f_{\alpha}\oplus g_{\beta}
+     \circ (f_{\alpha'} \oplus g_{\beta'})^{-1}
+     (p, f_{\alpha'}(e_p),g_{\beta'}(e_p')) = 
+     \left( p, f_\alpha(e_p), g_{\beta}(e_p') \right) 
+     \] 
+     which is continuous since each coordinate function
+     is of the form
+     $\id, f_{\alpha} \circ f_{\alpha'}^{-1}$ or
+     $g_{\beta}\circ g_{\beta'}^{-1}$ which are
+     assumed to be
+     continuous.
+     As for the universal property, 
+     $E \oplus E'$ is the product of
+     $E$ and $E'$ in
+     $\Vect (M)$, so the usual universal property of
+     products applies.\\
+     \linebreak
+     (2)(3pts) 
+     Define
+     $E \otimes E' :=
+     \bigcup_{p \in M }
+     E_p \otimes E_{p}'
+     $ and
+     $\pi$ the standard projection.
+     Let $\mathcal{B}_E, \mathcal{B}_{E'}$ be
+     bundle atlases for
+     $E$ and  $E'$ respectively.
+     Then, recalling that
+     $\mathbb{R}^{n} \otimes \mathbb{R}^{m} 
+     \cong \mathbb{R}^{nm}$ and using this identification,
+     we get 
+     for $\left( f_{\alpha},U_{\alpha} \right) 
+     \in \mathcal{B}_E$ and
+     $\left( g_{\beta}, V_{\beta} \right) \in 
+     \mathcal{B}_{E'}$, the map
+     $f_{\alpha} \otimes
+     g_{\beta} \colon
+     \pi^{-1}\left( 
+     U_{\alpha} \cap V_{\beta}\right)  \to 
+     U_{\alpha} \cap V_{\beta}
+     \times \mathbb{R}^{nm}$ given by
+     \[
+     f_{\alpha}\otimes g_{\beta}
+     \left( e_p \otimes e_{p}' \right) 
+     = \left( p, f_{\alpha}(e_p) \otimes
+     g_{\beta}\left( e_p' \right) \right) 
+     \] 
+     on simple tensors, and we extend this
+     linearly over the fiber.\\
+     The linearity then becomes automatic. 
+     To see that this is an isomorphism,
+     suppose
+     \[
+         (p,0) = 
+     f_{\alpha} \otimes g_{\beta}
+     \left( e_p \otimes e_p' \right) 
+     = (p, f_{\alpha}(e_p) \otimes g_{\beta}(e_p'))
+     \] 
+     so either
+     $f_{\alpha}(e_p) = 0$ or
+     $g_{\beta}(e_p') = 0$. But then since
+     $f_{\alpha}$ and $g_{\beta}$ are
+     isomorphisms on $\pi^{-1}(U_{\alpha})$ and
+     $\pi^{-1}(V_{\beta})$, respectively, this
+     implies that either
+     $e_p = 0$ or $e_{p}' = 0$, so
+     $e_p \otimes e_p' = 0$.\\
+
+     The transition maps then take on the form
+     $\id$ and
+     $f_{\alpha '} \circ f_{\alpha}^{-1} 
+     \otimes g_{\beta' } \circ g_{\beta}^{-1}$
+     which are continuous.\\
+     \linebreak
+     (3) (3pts) 
+     Let
+     $E / E' =
+     \bigcup_{p \in M} E_p / E_p'$ and
+     $\pi$ the standard projection. Here
+     $E_p / E_p'$ is well-defined since
+     $E_p'$ is a subspace of $E_p$ for all $p$ by
+     assumption.
+     Suppose
+     $ \mathcal{B}_{E}, \mathcal{B}_{E'}$ are
+     bundle atlases for
+     $E$ and $E'$, respectively.
+     Define for $\left( f_{\alpha},U_{\alpha} \right) 
+     \in \mathcal{B}_E$ and
+     $\left( g_{\beta}, V_{\beta} \right) 
+     \in \mathcal{B}_{E'}$, 
+     $\overline{f_{\alpha, \beta}} \colon
+     \pi^{-1}(U_{\alpha} \cap V_{\beta})
+     \to U_{\alpha} \cap V_{\beta}
+     \times \frac{\mathbb{R}^{n}}{\mathbb{R}^{m}}
+     \cong U_{\alpha} \cap V_{\beta}
+     \times \mathbb{R}^{n-m}$ 
+     by
+     $x + E_{p}' \mapsto 
+     \left( p, \overline{f_{\alpha}(x)} \right) =
+     \left( p, f_{\alpha}(x) + g_{\beta}(V_{\beta}) \right) $.
+     The transition maps are continuous as either the
+     projection or the quotient of a continuous transition map.
+\end{solution}
+
+
+
+
+    %\bibliography{../refs.bib}
+\end{document}

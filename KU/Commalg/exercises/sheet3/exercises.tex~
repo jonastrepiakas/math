@@ -1,0 +1,346 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\SHomeo}{SHomeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Teich}{Teich}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\codim}{codim}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\MCG}{{\mathrm{MCG}}}
+\newcommand{\PMCG}{{\mathrm{PMCG}}}
+\newcommand{\SMCG}{{\mathrm{SMCG}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+
+
+
+
+\begin{document}
+\begin{exercise}[2]
+    Let $R$ be a Noetherian ring. Show that every ideal of
+    $R$ is a finite intersection of
+    irreducible ideals.
+\end{exercise}
+
+\begin{proof}
+    Let
+    $\mathcal{A}$ be the set of ideals
+    of $R$ which are not a finite intersection of
+    irreducible ideals. 
+    Suppose
+    $\left\{ X_i \right\} 
+    = \mathcal{X} \subset \mathcal{A}$ is a chain with
+    respect to inclusion.
+    Then since $R$ is Noetherian, this chain stabilizes, hence
+    it has an upper bound. Thus
+    $\mathcal{A}$ has a maximal element, call it 
+    $M$. Now, $M$ is not a finite intersection
+    of irreducible ideals, so in particular,
+    $M$ is not irreducible, so write
+    $M = I \cap J$ where
+    $I$ and $J$ contain $M$ properly. But then
+    $I,J \not\in \mathcal{A}$, so
+    they are finite intersections of irreducible ideals.
+    However, then
+    their intersection is also a finite intersection of
+    irreducible ideals.
+\end{proof}
+
+\begin{exercise}[3]
+    Let $R$ be a ring. Show that an ideal
+    $\mathfrak{B}$ of $R$ is a prime ideal if and only
+    if for all ideals $I$ and $J$ of $R$,
+    $IJ \subset \mathfrak{B}$ implies
+    $I \subset \mathfrak{B}$ or
+    $J \subset \mathfrak{B}$.
+\end{exercise}
+
+\begin{proof}
+    If $\mathcal{B}$ is a prime ideal, then
+    suppose $IJ \subset \mathcal{B}$, and suppose
+    $I \not \subset  \mathcal{B}$.
+    Then there exists some $i \in I$ such that 
+    $i \not\in \mathcal{B}$ but
+    $i J \subset \mathcal{B}$.
+    Since $\mathcal{B}$ is prime,
+    we must have that
+    $J \subset \mathcal{B}$.\\
+    Conversely, suppose that for all $I,J$,
+    $IJ \subset \mathcal{B}$ implies $I \subset \mathcal{B}$ 
+    or $J \subset \mathcal{B}$. Let
+    $a,b \in R$ such that
+    $ab \in \mathcal{B}$. Then
+
+    $\left( a \right)  \left( b \right) 
+    \subset \mathcal{B}$, so either
+    $\left( a \right)  \subset \mathcal{B}$ or
+    $\left( b \right)  \subset \mathcal{B}$, so
+    either $a \in \mathcal{B}$ or $b \in \mathcal{B}$.
+    So $\mathcal{B}$ is prime.
+\end{proof}
+
+
+
+\begin{exercise}[4]
+    Let $R_S$ be the localization of the integral domain
+    $R$ by a multiplicative subset
+    $S$ which does not contain $0$. Let
+    $\mathfrak{U}$ be a primary ideal of
+    $R$. Show that the extension
+    $\mathfrak{U}R_S$ is a primary ideal of
+    $R_S$ and that $R \cap \mathfrak{U}R_S = 
+    \mathfrak{U}$.
+\end{exercise}
+
+\begin{proof}
+    Let $\tau \colon R \to R_S = \left( R-S \right)^{-1}R$.
+    Recall that
+    $\mathfrak{U}R_S = \left( \tau \left( 
+    \mathfrak{U}\right)  \right) $.
+    Suppose
+    $ab \in \mathfrak{U}R_S$. Then
+    there exists $\sum \alpha_i u_i
+    \in \mathfrak{U}$ such that
+    $ab = \sum \alpha_i \tau(u_i)
+    = \sum \alpha_i \frac{u_i}{1}$.
+    We can write
+    $a = \frac{x}{y}$ and
+    $b = \frac{v}{w}$.
+    Then
+    $xv \in \mathfrak{U}$, so
+    either $x \in \mathfrak{U}$, in which case
+    $\frac{x}{y} \in \mathfrak{U}R_S$, or
+    $v^{n} \in \mathfrak{U}$, in which case
+    $\left( \frac{v}{w} \right)^{n} \in 
+    \mathfrak{U}R_S$ since $S$ is multiplicative, so
+    $w^{n} \in S$. Thus
+    $a \in \mathfrak{U}R_S$ or
+    $b^{n} \in \mathfrak{U}R_S$. Hence
+    $\mathfrak{U}R_S$ is primary in $R_S$.\\
+    Now recall that
+    $R \cap \mathfrak{U}R_S$ denote the contraction
+    of $\mathfrak{U}R_S$ along $\tau$, i.e.,
+    $R \cap \mathfrak{U}R_S = 
+    \tau^{-1} \left( \mathfrak{U}R_S \right) $. 
+    Clearly,
+    $\mathfrak{U} \subset 
+    R \cap \mathfrak{U}R_S$.
+    Conversely, suppose
+    $a \in \tau^{-1}\left( \mathfrak{U}R_S \right) $.
+    Then
+    $\frac{a}{1} \in \mathfrak{U}R_S$, so
+    $\frac{a}{1} = 
+    \sum \alpha_i \frac{u_i}{1}$. So
+    there exists some
+    $r \in R-S$ such that
+    $ra = r \sum \alpha_i u_i$. So
+    since $r \neq 0$ as $0 \not\in S$, we have
+    $a = \sum \alpha_i u_i$ since $R$ is an integral domain.
+    Thus $a \in \mathfrak{U}$.
+\end{proof}
+
+
+
+
+\begin{exercise}[5]
+    Let $R$ be a ring and $\mathfrak{U}$ a 
+    $\mathfrak{B}$-primary ideal. Show the following.
+    \begin{enumerate}
+        \item For all $x \in \mathfrak{U}$, we have
+            $\left( \mathfrak{U} \colon x
+            \right) = R$.
+        \item For all $x \in R - \mathfrak{U}$,
+            we have that 
+            $\left( \mathfrak{U} \colon x \right) $ is
+            $\mathfrak{B}$-primary.
+        \item For all $x \in 
+            R - \mathfrak{B}$, we have
+            that $\left( \mathfrak{U}\colon x \right) 
+            = \mathfrak{U}$.
+        \item If $R$ is Noetherian, then there is some
+            $x \in R - \mathfrak{U}$ such that
+            $\left( \mathfrak{U} \colon x \right) 
+            = \mathfrak{B}$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    So $\sqrt{\mathfrak{U}} = \mathfrak{B}$ by assumption.\\
+    \linebreak
+    (1) Since $\mathfrak{U}$ is an ideal,
+    $x \mathfrak{U} \subset  \mathfrak{U}$ for
+    all $x \in R$, so
+     for all $x \in \mathfrak{U}$,
+     $\left( \mathfrak{U} \colon x \right) = R$.\\
+     (2) Suppose $a \in \sqrt{\left( \mathfrak{U}\colon
+     x\right) } $, so
+     $a^{n} x \in \mathfrak{U}$. Since $\mathfrak{U}$ is primary,
+     either $x \in \mathfrak{U}$, which we have assumed it is
+     not, or $a^{nm} \in \mathfrak{U}$ for some $m$. Hence
+     the latter must be true. So
+     $a \in \sqrt{\mathfrak{U}} = \mathfrak{B}$.\\
+     Hence
+     $ \sqrt{\left( \mathfrak{U} : x \right) } \subset 
+     \mathfrak{B}$.
+     Conversely, suppose
+     $a \in \mathfrak{B}$, so
+     $a^{n} \in \mathfrak{U}$. So for
+     any $x \in R - \mathfrak{U}$, we have
+     $a^{n} x \in \mathfrak{U}$, so
+     $a \in \sqrt{\left( \mathfrak{U} : x \right) } $.\\
+     (3) Suppose
+     $x \in R - \mathfrak{B}$.
+     Now if $y \in \mathfrak{U}$ then
+     $xy \in \mathfrak{U}$, so
+     $y \in \left( \mathfrak{U} : x \right) $.
+     Conversely, suppose
+     $y \in \left( \mathfrak{U} : x \right) $.
+     So $xy \in \mathfrak{U}$, so
+     since  $x \not\in \mathfrak{B} = 
+     \sqrt{\mathfrak{U}} $, we must have that
+     $y \in \mathfrak{U}$.\\
+     (4) Let $n$ be minimal such that
+     $\mathfrak{B}^{n} \subset \mathfrak{U}$.
+     Let 
+     $x \in \mathfrak{B}^{n-1} - \mathfrak{U}$.
+     We claim
+     $\left( \mathfrak{U} : x \right) = \mathfrak{B}$.
+     For $b \in \mathfrak{B}$, we have
+     $bx \in \mathfrak{B}^{n} \subset 
+     \mathfrak{U}$, so
+     $b \in \left( \mathfrak{U} : x \right) $.
+     Conversely, if
+     $bx \in \mathfrak{U}$, then
+     since  $x \not\in U$, we have
+     $b^{m} \in \mathfrak{U}$, so
+     $b \in \sqrt{U} = \mathfrak{B}$.
+\end{proof}
+
+
+
+
+
+    %\bibliography{../refs.bib}
+\end{document}

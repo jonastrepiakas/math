@@ -1,0 +1,476 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\SHomeo}{SHomeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Teich}{Teich}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\codim}{codim}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\MCG}{{\mathrm{MCG}}}
+\newcommand{\PMCG}{{\mathrm{PMCG}}}
+\newcommand{\SMCG}{{\mathrm{SMCG}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+
+
+
+\title{Assignment 3}
+\author{Jonas Trepiakas}
+\date{}
+
+\begin{document}
+\maketitle
+    \begin{exercise}[]
+        Let $R$ be a Noetherian ring. Show the following
+        \begin{enumerate}
+            \item For every ideal
+                $I \subset R$, there exists $n \in \mathbb{N} $ 
+                such that $\left( \sqrt{I}  \right)^{n}
+                \subset I$.
+            \item Every radical ideal of $R$ is a finite
+                intersection of prime ideals.
+            \item If a radical ideal of $R$ is irreducible,
+                then it is a prime ideal.
+        \end{enumerate}
+    \end{exercise}
+
+    \begin{proof}
+        (1) Since $I \subset \sqrt{I} $ are
+        sub-$R$-modules of $R$ considered as a module
+        over itself, we find that
+        $\sqrt{I} $ must be finitely generated, so let
+        $\sqrt{I}  = \left< x_1, \ldots, x_n \right>$, and
+        by assumption,
+        there exist $\alpha_1, \ldots, \alpha_n$ such that
+        $x_i^{\alpha_i} \in I$.
+        Let $\alpha = \alpha_1 + \ldots
+        + \alpha_n$.
+        Now let
+        $x \in \sqrt{I} $ and write
+        $x = \sum_{i} c_i x_i$. Then
+        any term in
+        $x^{\alpha}$ will contain some
+        $x_i$ to the power of at
+        least $\alpha_i$ by
+        the pigeonhole principle. Since
+        $I$ is an ideal, the whole term is in $I$, so
+        again, ideals are closed under sums, so
+         $x^{\alpha} \in I$.
+         Since $x$ was arbitrary, we find
+         that
+         $\left( \sqrt{I}  \right)^{\alpha}
+         \subset I$.\\
+         \linebreak
+         (2) Let
+         $I$ be a radical ideal of $R$, so
+         $\sqrt{I}  = I$.
+         By theorem 7.19 (Primary decomposition),
+         $I$ is the finite intersection
+         of primary ideals, so
+         \[
+         I = \mathfrak{p}_1 \cap \ldots
+         \cap \mathfrak{p_n}
+         \] 
+         where each $\mathfrak{p}_i$ is primary.
+
+         \begin{lemma}[]
+             For an ideal $J =
+             J_1 \cap \ldots \cap J_n$, we have
+             \[
+             \sqrt{J}  = \sqrt{J_1}  \cap
+             \ldots \cap \sqrt{J_n} 
+             \] 
+         \end{lemma}
+         \begin{proof}
+             Suppose
+             $x \in \sqrt{J} $ so
+             $x^{i} \in J = 
+             J_1 \cap \ldots \cap J_n$, then
+             $x^{i} \in J_j$ for all $j$ so
+             $x \in \sqrt{J_j} $ for all $J$, so
+             $x \in \sqrt{J_1}  \cap \ldots
+             \cap \sqrt{J_n} $.
+             Conversely, if
+             $x \in \sqrt{J_1} \cap \ldots
+             \cap \sqrt{J_n} $ then
+             there exist  $\alpha_1, \ldots, \alpha_n$ 
+             such that
+             $x^{\alpha_i} \in J_i$.
+             Let $\alpha = \max_{i} \left\{ \alpha_i \right\} $.
+             Then
+             $x^{\alpha} \in 
+             J_1 \cap \ldots \cap J_n = J$, so
+             $x \in \sqrt{J} $.
+         \end{proof}
+         Hence we obtain
+         \[
+         I = \sqrt{I}  =
+         \sqrt{\mathfrak{p}_1}  \cap
+         \ldots \cap
+         \sqrt{\mathfrak{p}_n} .
+         \] 
+         To finish it off, we note that
+         by Lemma 7.11,
+         each $\sqrt{\mathfrak{p}_i} $ is prime.\\
+         \linebreak
+         (3) Suppose
+         $I \subset R$ is a radical ideal which is
+         irreducible.
+         By Lemma 7.16, $I$ is primary, and now by
+         Lemma 7.11, 
+         $I = \sqrt{I} $ is prime.
+    \end{proof}
+
+
+    \begin{exercise}[]
+        Let $V \subset K^{n}$ be an affine
+        algebraic set. Show the following.
+        \begin{enumerate}
+            \item $V$ is irreducible if and only if
+                $\mathbb{I}(V)$ is a prime ideal.
+            \item $V$ can be written as a finite
+                union of irreducible affine algebraic
+                sets.
+            \item There is a minimal decomposition
+                $V = V_1 \cup \ldots \cup 
+                V_m$ of $V$ into irreducible affine
+                algebraic sets $V_i$, where
+                $m \in \mathbb{N}_0$. This is meant in the
+                sense that no $V_i$ is contained in
+                $\bigcup_{j \neq i} V_j$.
+            \item The minimal decomposition $V = 
+                V_1 \cup \ldots \cup V_m$ is unique,
+                up to reordering of 
+                $V_1,\ldots, V_m$. We
+                call $V_1, \ldots, V_m$ the irreducible
+                components of $V$.
+        \end{enumerate}
+    \end{exercise}
+
+
+    \begin{proof}
+        (1) Since $V \subset K^{n}$ is an affine
+        algebraic set, there exists
+        some ideal $I \subset k\left[ x_1, \ldots,
+        x_n\right] $ such that
+        $V = \mathbb{V}(I)$.
+        Suppose
+        $V = V_1 \cap V_2$ with
+        both $V_1$ and $V_2$ being affine
+        algebraic sets properly containing
+        $V$.
+        Then
+        $\mathbb{I}(V) \subset 
+        \mathbb{I}(V_1) \cap \mathbb{I}(V_2)$ since
+        any polynomial vanishing on $V$ must vanish on
+        both $V_1$ and on $V_2$. But now any
+        prime ideal is irreducible, so
+        $\mathbb{I}(V_1) = \mathbb{I}(V)$  or
+        $\mathbb{I}(V_2) = \mathbb{I}(V)$.
+        Suppose without loss
+        of generality that
+        $\mathbb{I}(V_2) = \mathbb{I}(V)$. Then
+        $V_2 = \mathbb{V} (\mathbb{I}(V_2)) = 
+        \mathbb{V} (\mathbb{I}(V)) = V$.
+        For this, we need to show that
+        $\mathbb{V} \left( \mathbb{I} (W) \right) 
+        = W$ when $W$ is an affine algebraic set.
+        But $\mathbb{I} \left( \mathbb{V}(U) \right) 
+        \subset U$ always, so since
+        $\mathbb{V}$ is containment-reversing, we get
+        $W = \mathbb{V}(U) \subset 
+        \mathbb{V} \left( \mathbb{I} (W) \right) $.
+        For the opposite direction, we simply have
+        that if
+        $x \in \mathbb{V} \left( \mathbb{I}(W) \right) $, then
+        any $f \in \mathbb{I}(W)
+        = \mathbb{I}\left( \mathbb{V}(U) \right)
+        \subset U$ vanishes on
+        $x$. Suppose
+        $x \not\in W = \mathbb{V}(U)$.
+        Then there exists some $g \in U$ such that
+        $g(x) \neq 0$. But 
+        $g \in \mathbb{I} \left( \mathbb{V}
+        (U) \right) = \mathbb{I}(W)$ by definition
+        which gives a contradiction.
+        Hence
+        $\mathbb{V}\left( \mathbb{I}(W) \right) 
+        \subset W$.
+        Having concluded that
+        $V = V_1$ or $V = V_2$, this shows that
+        $V$ is irreducible.\\
+        \linebreak
+
+        \textbf{A faster way to see this, I suppose
+        would be the following:}
+        If $V = V_1 \cup  V_2$, then
+        $\mathbb{I}(V_1) \cap
+        \mathbb{I}(V_2) \subset 
+        \mathbb{I}(V)$, showing that 
+        $\mathbb{I}(V)$ is not irreducible, contradicting
+        lemma 7.3.\\
+        \linebreak
+        
+        Conversely, if
+        $\mathbb{I}(V)$ is not prime, let
+        $fg \in \mathbb{I}(V)$ such that
+        $f,g \not\in \mathbb{I}(V)$.
+        Then
+        $V = 
+        \mathbb{V} \left( \mathbb{I}(V) \right) 
+        \subset \mathbb{V}
+        \left( (f) (g) \right) 
+        \subset \mathbb{V}(f) \cap
+        \mathbb{V}(g)$ using that
+        $\mathbb{V}$ is inclusion-reversing. 
+        Now by assumption,
+        if $V = \mathbb{V}(f)$, then
+        $f$ would vanish on all of $V$, contradicting
+        $f \not\in \mathbb{I}(V)$. Similarly for
+        $g$. Hence
+        $V$ is shown to not be irreducible.
+
+
+
+
+
+        (2) Since $V$ is an affine algebraic set,
+        there exists an ideal $I$ such that
+        $V = \mathbb{V}(I)$. Now,
+        $I \subset k\left[ x_1, \ldots, x_n \right] $ which
+        is Noetherian by applying
+        Hilbert's basis theorem
+        iteratively since a field is Noetherian (having
+        only $\left( 0 \right) $ and itself as ideals) considered
+        as $k$-modules. This in particular
+        gives us a decomposition
+        \[
+        I = \mathfrak{p}_1 \cap \ldots \cap
+        \mathfrak{p}_n
+        \] 
+        where each $\mathfrak{p}_i$ is primary. Hence
+        \[
+        \mathbb{V}(I)
+        = \mathbb{V}(\mathfrak{p}_1) \cup 
+        \ldots \cup 
+        \mathbb{V}\left( \mathfrak{p}_n \right) .
+        \] 
+        To show that
+        $\mathbb{V}\left( \mathfrak{p}_i \right) $ 
+        is irreducible, we can
+        show that
+        $\mathbb{I} \left( \mathbb{V}
+        \left( \mathfrak{p}_i \right) \right) $ is a
+        prime ideal.
+        This can be easily achieved if we may use
+        Nullstellensatz since then
+        $\mathbb{I} \left( \mathbb{V}\left( 
+        \mathfrak{p}_i\right)  \right) 
+        = \sqrt{\mathfrak{p}_i} 
+        $ which is prime by Lemma 7.11.\\
+        \linebreak
+        (3) By part (2), 
+        $V$ can be decomposed as
+        $V = V_1 \cup \ldots \cup  V_n$ where
+        each $V_i$ is an irreducible affine
+        algebraic set. Suppose now that
+        $V_1 \subset \bigcup_{i=2}^{n}V_i $.
+        But then
+        \[
+        V_1 = \bigcup_{i=2}^{n} \left( V_1 \cap
+        V_i \right).
+        \] 
+        Now, the intersection of affine algebraic sets
+        is still an affine algebraic set since
+        $\mathbb{V}(I_1) \cap
+        \mathbb{V}(I_2) = 
+        \mathbb{V}\left( I_1 \cup I_2 \right) $.
+       Similarly, a union of finitely many affine
+       algebraic sets is also an affine algebraic set since
+       $\mathbb{V}(I_1 \cdots I_n)
+       = \mathbb{V}(I_1) \cap \ldots \cap
+       \mathbb{V}(I_n)$.
+       So by irreducibility of $V_1$, either
+       $V_1 = V_1 \cap V_2$ or
+       $V_1 = \bigcup_{i=3}^{n} V_1 \cap V_i$.
+       Inductively, we obtain that for some
+       $i\ge 2$, 
+       $V_1 = V_1 \cap V_2$, i.e., 
+       $V_1 \subset  V_2$. Hence we may
+       discard $ V_1$ from the collection, so
+       $V = V_2 \cup  \ldots \cup  V_n$.
+       Thus if we have a collection 
+       $V = V_1 \cup \ldots \cup  V_n$ such that
+       $V_i \subset \bigcup_{j\neq i} V_j$, then we
+       can simply discard $V_i$. We can continue to do so and
+       after at most $n-1$ steps, we will obtain a minimal
+       decomposition.\\
+       \linebreak
+       (4) Suppose
+       \[
+       V = V_1 \cup \ldots \cup  V_m = 
+       W_1 \cup  \ldots \cup W_n
+       \] 
+       are two minimal decompositions.
+       Then
+       $W_i \subset 
+       V_1 \cup  \ldots \cup V_m$, so
+       \[
+       W_i = \bigcup_{j=1}^{m} V_j \cap W_i
+       \] 
+       By part (3), this is a union of affine algebraic sets,
+       so we completely equivalently obtain that
+       $W_i = V_j \cap W_i$ for some $j$.
+       Hence $W_i \subset V_j$.
+       For each  $i$, let
+       $j_i$ be such that
+       $W_i \subset V_{j_i}$.
+       Repeating this the other way around, we obtain
+       $i_k$ such that
+       $V_k \subset W_{i_k}$.
+       Now
+       $V_k \subset W_{i_k} \subset 
+       V_{j_{i_k}}$. So since the decomposition is minimal,
+       we must have
+       $k = j_{i_{k}}$, so
+       $V_k = W_{i_k}$ for all $k$.
+       This in particular gives an injective map
+       $\left\{ 1, \ldots,m \right\} \to 
+       \left\{ 1, \ldots, n \right\} $, so
+       $m\le n$.
+       And similarly, $W_i = V_{j_i}$ for all
+       $i$, so we similarly get $n\le n$.
+       This implies that
+       $m = n$ and that indeed the decompositions
+       are the same up to reordering, namely by the reordering
+       $\sigma \colon k \mapsto i_k$ giving
+       $V_{k} = 
+       W_{\sigma (k)}$.
+    \end{proof}
+
+
+
+    %\bibliography{../refs.bib}
+\end{document}
