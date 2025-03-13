@@ -87,6 +87,7 @@
 \DeclareMathOperator{\GL}{GL}
 \DeclareMathOperator{\tr}{tr}
 \DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\coker}{coker}
 \DeclareMathOperator{\Bun}{Bun}
 \DeclareMathOperator{\Diff}{Diff}
 
@@ -138,9 +139,12 @@
 \newcommand{\Forget}{{\mathcal{F}}orget}
 
 
-
+\title{Assignment 4}
+\author{Jonas Trepiakas}
+\date{}
 
 \begin{document}
+\maketitle
 \begin{definition}[Fiber Bundle]
     Let $K$ be a topological group acting on a
     Hausdorff space $F$ as a group of homeomorphisms.
@@ -245,7 +249,7 @@
 \end{problem}
 
 \begin{solution}
-    (1) The orthogonal group is the zero set
+    (1) (2pts) The orthogonal group is the zero set
     $\mathbb{V} (I)$ of the ideal
     $I = \left( \left\{ f_{ij} \right\}  \right) $ where
     \[
@@ -292,7 +296,36 @@
     $O(n) = \varphi^{-1}(0)$ is a smooth submanifold of
     $\mathbb{R}^{n^2}$ of dimension
     $n^2 - \frac{n(n+1)}{2}
-    = \frac{n(n-1)}{2}$.
+    = \frac{n(n-1)}{2}$.\\
+    \linebreak
+    (2) (1pt)
+    The determinant function defines a continuous
+    function on $M_n(\mathbb{R})$, hence also
+    on $O(n)$. On $O(n)$, it takes values in
+    $\left\{ 1,-1 \right\} $, so in particular,
+    $O(n) =
+    \det|_{O(n)}^{-1}(-\infty, 0) 
+    \sqcup \det|_{O(n)}^{-1}\left( 0,\infty \right) $ 
+    has two components, each of which is a manifold by
+    a previous problem sheet's problem. But
+    $\det|_{O(n)}^{-1}(0, \infty) = 
+    SO(n)$, so $SO(n)$ is also a smooth manifold, and in
+    particular also of the same dimension as
+    $O(n)$.\\
+    \linebreak
+    (3) (2pts) The determinant function is smooth and
+    for example $I$ has determinant $1$. Now let
+    $I_t$ be $I$ plus the matrix with a $t$ in the
+    $1,1$ entry and $0$ elsewhere. Then
+    $\det(I+tI) = (1+t)^{n} $, so
+    $ \frac{d}{dt}|_{t=0}  \det
+    \left( I + tI \right) 
+    = n(1+t)^{n-1}|_{t=0}
+    = n \neq 0$, hence
+     $\det$ has full rank at $I$, so
+     $1$ is a regular value, so
+     $\det^{-1}(1)$ is a smooth
+     submanifold of $M_n(\mathbb{R})$ by lemma 5.9 in BJ.
 \end{solution}
 
 \begin{problem}[3]
@@ -329,7 +362,14 @@
              bundle $E / E'$ which fiberwise is given by
              taking the quotient vector space
              $V / V'$.
-             
+         \item Let $E$ and $E'$ be vector bundles over
+             $M$, and assume we are given a bundle morphism
+             $f \colon E \to E'$ such that the map on
+             the fibres $V_p \to V_p'$ has constant
+             rank for all $p \in M$. Construct a vector
+             bundle $\ker f$ over $M$ which fiberwise
+             is obtained by taking $\ker \left( V_p
+             \to V_p'\right) $.
      \end{enumerate}
 \end{problem}
 
@@ -371,8 +411,10 @@
      \] 
      sending
      $\left( e_p, e_{p}' \right)  \mapsto
-     \left( p, f_{\alpha}(e_p),
-     g_{\beta}(e_p') \right) $
+     \left( p, 
+         \pi_{\mathbb{R}^{n}}
+         \circ f_{\alpha}(e_p),
+     \pi_{\mathbb{R}^{m}} \circ g_{\beta}(e_p') \right) $
      is a bijective map
      which sends each fiber 
      $\left( E \oplus E' \right)_p$
@@ -383,18 +425,35 @@
      \cong \mathbb{R}^{n} \oplus \mathbb{R}^{m}$.
      Furthermore, the transition functions
      are of the form
-     \[
+     \begin{align*}
      f_{\alpha}\oplus g_{\beta}
      \circ (f_{\alpha'} \oplus g_{\beta'})^{-1}
-     (p, f_{\alpha'}(e_p),g_{\beta'}(e_p')) = 
-     \left( p, f_\alpha(e_p), g_{\beta}(e_p') \right) 
-     \] 
-     which is continuous since each coordinate function
-     is of the form
-     $\id, f_{\alpha} \circ f_{\alpha'}^{-1}$ or
-     $g_{\beta}\circ g_{\beta'}^{-1}$ which are
-     assumed to be
-     continuous.
+     (p, \pi_{\mathbb{R}^{n}} \circ 
+     f_{\alpha'}(e_p), \pi_{\mathbb{R}^{m}} \circ
+     g_{\beta'}(e_p')) 
+     &= 
+     \left( p, \pi_{\mathbb{R}^{n}}\circ
+     f_\alpha(e_p), \pi_{\mathbb{R}^{m}} \circ 
+ g_{\beta}(e_p') \right) \\
+     &= \left( p, \tau 
+     \left( \pi_{\mathbb{R}^{n}} \circ
+ f_{\alpha'}(e_p), \pi_{\mathbb{R}^{m}}\circ
+g_{\beta'}(e_p') \right) \right) 
+     \end{align*}
+     where
+     $\tau = \tau_1 \oplus \tau_2$ where
+     $\tau_1 \colon
+     U_{\alpha} \cap U_{\alpha'} \to 
+     \GL_n (\mathbb{R})$ and
+     $\tau_2 \colon V_{\beta} \cap
+     V_{\beta'} \to \GL_m(\mathbb{R})$ are the
+     transition functions for
+     the trivializations $\left( f_{\alpha},
+     f_{\alpha'}\right) $ and
+     $\left( g_{\beta}, g_{\beta'} \right) $, respecitively.
+     
+     Since each $\tau_1$ and $\tau_2$ is assumed to be continuous,
+     $\tau$ is also. Hence $E \oplus E'$ is a vector bundle.\\
      As for the universal property, 
      $E \oplus E'$ is the product of
      $E$ and $E'$ in
@@ -450,16 +509,41 @@
      $\pi^{-1}(V_{\beta})$, respectively, this
      implies that either
      $e_p = 0$ or $e_{p}' = 0$, so
-     $e_p \otimes e_p' = 0$.
+     $e_p \otimes e_p' = 0$. Surjectivity is inherited from
+     that of $f_{\alpha}$ and $g_{\beta}$.
 
      The transition maps then take on the form
      $\id$ and
-     $f_{\alpha '} \circ f_{\alpha}^{-1} 
-     \otimes g_{\beta' } \circ g_{\beta}^{-1}$
-     which are continuous.\\
+     $\tau_1 \otimes \tau_2 $
+     which is continuous.\\
      \linebreak
      (3) (3pts) 
-     Let
+     \begin{definition}[Subbundle]
+         A bundle 
+         $\left( E',p',B' \right) $ is a subbundle of
+         $\left( E,p,B \right) $ provided
+         $E'$ is a subspace of $E$, $B'$ is a subspace
+         of $B$ and $p' = p|_{E'} \colon E' \to B'$.
+     \end{definition}
+
+     \begin{definition}[Vector subbundles]
+         A vector subbundle
+         $\left( E',p',B' \right) $ of
+         $\left( E,p,B \right) $ is
+         a subbundle together with a map
+         $E' \to E$ which also
+         induces linear injective maps on fibres
+         $V' \hookrightarrow V$:
+         \begin{equation*}
+         \begin{tikzcd}
+             V' \ar[d] \ar[rr, hookrightarrow] & & V \ar[d]\\
+             E' \ar[rr] \ar[dr] && E \ar[dl]\\
+                        & M &
+         \end{tikzcd}
+         \end{equation*}
+         
+     \end{definition}
+     With this in mind, we let
      $E / E' =
      \bigcup_{p \in M} E_p / E_p'$ and
      $\pi$ the standard projection. Here
@@ -470,25 +554,237 @@
      $ \mathcal{B}_{E}, \mathcal{B}_{E'}$ are
      bundle atlases for
      $E$ and $E'$, respectively.
-     Define for $\left( f_{\alpha},U_{\alpha} \right) 
+     Let $\left( f_{\alpha}, U_{\alpha} \right) 
      \in \mathcal{B}_E$ and
      $\left( g_{\beta}, V_{\beta} \right) 
-     \in \mathcal{B}_{E'}$, 
-     $\overline{f_{\alpha, \beta}} \colon
-     \pi^{-1}(U_{\alpha} \cap V_{\beta})
-     \to U_{\alpha} \cap V_{\beta}
-     \times \frac{\mathbb{R}^{n}}{\mathbb{R}^{m}}
-     \cong U_{\alpha} \cap V_{\beta}
-     \times \mathbb{R}^{n-m}$ 
-     by
-     $x + E_{p}' \mapsto 
-     \left( p, \overline{f_{\alpha}(x)} \right) =
-     \left( p, f_{\alpha}(x) + g_{\beta}(V_{\beta}) \right) $.
-     The transition maps are continuous as either the
-     projection or the quotient of a continuous transition map.
+     \in \mathcal{B}_{E'}$.
+     Let $\varphi  \colon E' \to E$ be the
+     map in the definition of a sub-vector bundle.
+     Then $\varphi $ induces an injective linear map
+     $\id \times \tilde{\varphi }$. Following through fiberwise, we
+     find that we get an induced isomorphism $\psi_{\alpha \beta
+     }$ such that
+     the following diagram commutes
+     \begin{equation*}
+     \begin{tikzcd}
+         p'^{-1}\left( U_{\alpha}\cap
+         V_{\beta} \right) \ar[rr, "\varphi "] \ar[d,
+         "f_{\alpha}"', "\cong"] && 
+         p^{-1}\left( U_{\alpha}\cap
+     V_{\beta} \right) \ar[d, "g_{\beta}", "\cong"']
+         \ar[r, "\coker"]& 
+     \pi^{-1}\left( U_{\alpha} \cap V_{\beta} \right)
+     \ar[ddl, "\psi_{\alpha \beta} ", "\cong"', bend left]\\
+         U_{\alpha} \cap V_{\beta} \times \mathbb{R}^{n}
+         \ar[rr, hookrightarrow, dashed, "
+         \id \times \tilde{\varphi }"']
+         \ar[drr, "\id \times 0"']&&
+         U_{\alpha} \cap V_{\beta} \times \mathbb{R}^{m}
+         \ar[d, "\id \times \coker \tilde{\varphi }"] & \\
+                                       & &
+                                       U_{\alpha}\cap
+                                       V_{\beta} \times 
+                                       \mathbb{R}^{m-n}
+                                       &
+     \end{tikzcd}
+     \end{equation*}
+     In particular, since $\tilde{\varphi }$ is
+     linear, we get a global frame on
+     $\mathbb{R}^{m-n}$ which transfers back to a local
+     frame on $\pi^{-1}\left( U_{\alpha}\cap V_{\beta} \right) $.
+     The transition functions then become linear isomorphisms
+     at each point of
+     $U_{\alpha} \cap V_{\beta}$, which are
+     smooth.
+     The collection
+     $\left\{ \left( U_{\alpha} \cap
+     V_{\beta} , \psi_{\alpha \beta} \right)  \right\} $ 
+     then gives a pre-bundle atlas for
+     $E / E'$. So we have a pre-vector bundle.\\
+     \linebreak
+     (4) (3 pts) (I will write the proof here, but
+     I am not sure whether I should receive credit for it
+     since I only understood how to solve it after reading
+     the proof in Lee's book, and I am not sure I can
+     find a much more different approach.
+     The approach that Lee uses 
+     is given in Theorem 10.34 in his book. In any case,
+     here it is:)\\
+     Suppose $f$ has constant rank $r$.\\
+     Let $\ker f = \bigcup_{p \in M} \ker \left( 
+     V_p \to V_p' \right) $ and
+     $\pi$ the natural projection onto $M$.
+     Let $\mathcal{B}_E$ and
+     $\mathcal{B}_{E'}$ be bundle atlases for
+     $E$ and $E'$, respectively. 
+     Let $p \in M$ and choose some smooth
+     local frame $\left( \sigma_i \right) $ for
+     $E$ over some open neighborhood  $U$ of $p$.
+      Then since $f$ has constant rank $r$, by rearranging, we
+      may assume that
+       $f \circ \sigma_1 (p), \ldots,
+       f \circ \sigma_r (p)$ form a basis
+       for $\left( \im f \right)|_{E_p}$.
+       By continuity of the determinant, they
+       remain linearly independent in some
+       neighborhood $V$ of $p$. Hence
+       $f \circ \sigma_1, \ldots, f \circ \sigma_r$ 
+       form a local frame over $V$.
+       By the local frame condition, this implies that
+       $\im f$ is a smooth vector bundle. 
+       Let now $V' = \Span \left( \sigma_1, \ldots,
+       \sigma_r\right) $.
+       Since $f|_{V'}$ is bijective,
+       it is a smooth vector bundle isomorphism
+       (prop 10.26 in Lee). So let
+       $f|_V'^{-1} \colon \im f|_{V'} \to V'$ be the inverse.
+       Let
+       $\psi \colon V \to V$ be the map
+       $\psi (v) = v - f_{V'}^{-1} \circ f_V (v)$.
+       This is a smooth bundle morphism, and
+       we claim that
+       $\ker \psi  = V'$.
+       If $v \in V$ then
+       $\psi (v) = v$, and if
+       $\psi (v) = 0$ then
+       $f|_V'^{-1} \circ f(v) = 0$, so
+       $v \in V'$.
+
+       Now
+       $\ker f|_V$ and $V'$ span
+       $E_V$, so since
+       $\ker f|_{V} \subset \im \psi $, and
+       $V' \subset \ker \psi $, we must have
+       $\im \psi = \ker f|_{V}$, and
+       $\psi|_{ker f|_{V}} = \id $, hence
+       $\ker f|_{V}$ is a smooth vector bundle over
+       $V$. Since we have smooth local frames at each point, these
+       glue together using the local frame criterion for
+       subbundles to give a vector bundle
+       $\ker f$.
+
+    
+       
+
+
+
+
+
+
+
+
 \end{solution}
 
 
+\begin{problem}[4]
+    Let $\left( M, \cdot  \right) $ be a commutative
+    monoid. The \textit{group completion} of
+    $M$ is defined as
+    \[
+    M^{grp} := F(M) / \left( xy - (x+y) \right) 
+    \] 
+    where $\left( F(M), + \right) $ is the free
+    abelian group on the underlying set
+    of $M$.
+    \begin{enumerate}
+        \item Show that
+            $\left( - \right)^{grp}$ defines a functor
+            from the category of
+            commutative monoids to the category of
+            abelian groups, such that for any
+            abelian group $A$, any monoid morphism
+            $M \to A$ factors through
+            $M^{grp}$.
+        \item Let $\Vect_d \left( S^{n} \right) $ denote the
+            set of isomorphism classes of vector
+            bundles of rank $d$ over $S^{n}$. Show that the
+            clutching map defines a bijection
+            \[
+            \left[ S^{n-1},
+            \GL_d \left( \mathbb{R} \right) \right] 
+            \to \Vect_{d}\left( S^{n} \right) 
+            \] 
+            where $\left[ S^{n-1}, \GL_d\left( \mathbb{R}
+            \right) \right] $ denotes the set of homotopy classes
+            of continuous maps.
+    \end{enumerate}
+
+    \begin{proof}
+        (1) (2 pts)
+
+        Firstly, we must show that
+     $M^{grp}$ is abelian.
+     It suffices to show that the generating elements
+     of $F(M)$ commute in $M^{grp}$. Let
+     $x,y \in M$ be such generators. Then
+     $x+y = xy$ since this is the relation being modded
+     out by. Now $M$ was assumed to be a \textit{commutative} monoid,
+     so $xy = yx$ in $M$. Hence
+     since also $yx = y+x$, we have
+     $x+y = xy = yx = y+x$, so
+     $M^{grp}$ has commuting generating elements, hence
+     it is abelian.
+     Now if $f \colon M \to N$ is a monoid morphism,
+     then $f^{grp} \colon M^{grp} \to 
+     N^{grp}$ is defined on
+     generators by $x\mapsto f(x)$, and then
+     we extend it linearly on
+     $F(M)$ and lastly take the quotient.
+     We must check that this is a group homomorphism.
+     By the definition of $f^{grp}$, we have that
+     it distributes over sums
+     of generating elements, so
+     $f^{grp} (\sum x_i) = 
+     \overline{\sum f(x_i)} = 
+     \sum \overline{f(x_i)}
+     = \sum f^{grp}(x_i)$. Hence since any
+     $x,y \in M^{grp}$ can be written as such, we have
+     $f^{grp}\left( \sum_i x_i +\sum_j y_j \right) 
+     = \sum_i f^{grp}(x_i) + \sum_j f^{grp}(y_j)
+     = f^{grp}\left( \sum_i x_i \right) 
+     + f^{grp}\left( \sum_j y_j \right) $.
+     Furthermore, if
+     $\id \colon M \to M$ is the identity, then
+     $f^{grp}$ simply takes the form
+     $f^{grp}(x) = x$ on all generating elements and
+     extends linearly, hence $f^{grp}$ is also the
+     identity on $M^{grp}$. 
+     Now if $f \colon M \to N$ and $g \colon N \to S$, then
+     $\left( g \circ f \right)^{grp}$ sends a generating
+     element
+     $x$ to $g\circ f(x)$ which uniquely determines it.
+     Conversely,
+     $g^{grp} \circ f^{grp}$ sends
+     $x$ to $g^{grp}\left( f^{grp}(x) \right) 
+     = g^{grp}\left( f(x) \right) 
+     = g\circ f(x)$ and extends linearly onto all of
+     $M^{grp}$. Hence
+     the functions agree.
+     So $\left( - \right)^{grp}$ is indeed a functor.
+
+     Let now $\varphi  \colon M \to A$ be a monoid
+     morphism with $A$ an abelian group.
+     Then since
+     $\varphi (xy) = \varphi (x) \varphi (y)
+     = \varphi (y) \varphi (x) = \varphi (yx)$, we define a map
+     $\tilde{\varphi }\colon
+     M^{grp} \to A$ by
+     $\tilde{\varphi }(x) = \varphi (x)$ and extend linearly.
+     This is well-defined on generators since
+     $\tilde{\varphi }(x+y)
+     = \varphi (x) \varphi (y) = 
+     \varphi (y) \varphi (x)
+     = \tilde{\varphi }(y+x)$. 
+     Now we have
+     $\varphi (xy) = 
+     \varphi (x) \varphi (y)
+     = \tilde{\varphi }(x+y)
+     =\tilde{\varphi }\left( \pi(x) + \pi(y) \right)
+     = \tilde{\varphi }\left( \pi(xy) \right) $ 
+     for $\pi \colon M \to M^{grp}$ the quotient map.
+     Thus $\varphi = \tilde{\varphi }\circ \pi$.
+    \end{proof}
+\end{problem}
 
 
     %\bibliography{../refs.bib}

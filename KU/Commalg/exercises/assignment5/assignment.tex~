@@ -1,0 +1,332 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\SHomeo}{SHomeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Teich}{Teich}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Bun}{Bun}
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\MCG}{{\mathrm{MCG}}}
+\newcommand{\PMCG}{{\mathrm{PMCG}}}
+\newcommand{\SMCG}{{\mathrm{SMCG}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+
+
+
+\title{Assignment 5}
+\author{Jonas Trepiakas}
+\date{}
+
+\begin{document}
+\maketitle
+    \begin{exercise}[1]
+        (2) 
+        
+    We claim that
+    $\mathbb{Z} \left[ x_1, x_2, x_3 \right] $ is a
+    finite extension. 
+    Now, clearly, we can express
+    $1, x_1, x_1^{2}, x_1^3$ as linear combinations over
+    $1, x_1, x_1^{2}, x_1^3$.
+    Suppose we can express $x_1^{n}$ as
+    a linear combination of
+    $1, x_1, x_1^2, x_1^{3}$ for 
+    $n = 1, \ldots, N-1$ for
+    some $N \ge 4$. Since
+    \begin{align*}
+        x^{n} 
+        &= x_1^{n-1} \left( x_1+ x_2 + x_3  \right) 
+        - x_1^{n-1} x_2 - x_1^{n-1} x_3\\
+        &= x_1^{n-1} \sigma_1 -
+        x_1^{n-2} \sigma_2 + x_1^{n-2} x_2 x_3\\
+        &= x_1^{n-1} \sigma_1 - x_1^{n-2} \sigma_2
+        + x_1^{n-3} \sigma_3
+    \end{align*}
+    we find that for
+    $N \ge 4$, 
+    $x_1^{N}$ can be written as a linear combination
+    over 
+    $x_1^{N-1}, x_1^{N-2}$ and
+    $x_1^{N-3}$ which by the inductive assumption
+    can be written as linear combinations
+    of $1, x_1, x_1^2, x_1^3$.
+    Hence
+    $\mathbb{Z}\left[ x_1, x_2, x_3 \right] $ is
+    a finite extension over
+    $\mathbb{Z}\left[ \sigma_1, \sigma_2, \sigma_3 \right] $ with
+    \[
+    \left\{ 1, x_1, x_1^2, x_1^3, x_2,x_2^2,
+    x_2^3, x_3, x_3^2, x_3^3 \right\} 
+    \] 
+    as a finite generating set.
+    By proposition 10.11, this also implies that
+    the extension is integral.\\
+    \linebreak
+    (3) We claim that
+    $\mathbb{Z}\left[ x,y \right] $ is
+    not a finite extension of
+    $\mathbb{Z}\left[ x,xy \right] $. 
+     Suppose
+     $\left\{ g_1, \ldots, g_n \right\} 
+     \in \mathbb{Z}\left[ x,y \right] $ is a
+     generating set as a module.
+     Let $N$ be the maximal degree of $y$ over
+     $g_1, \ldots, g_n$.
+     Then
+     $y^{N+1} \in 
+     \Span \left( g_1, \ldots, g_n \right) $, so
+     let
+     $y^{N+1} = f_1(x,xy) g_1(x,y) + \ldots +
+     f_n (x,xy) g_n(x,y)$.
+
+     Writing each 
+     $f_i (x,xy) = 
+     \sum \alpha_{i, k,l}
+     x^{k} \left( xy \right)^{l}$, we see that
+     \begin{align*}
+         y^{N+1} &
+         = 
+     \sum \alpha_{1,k,l} x^{k} (xy)^{l} g_1(x,y)
+     + \ldots +
+     \sum \alpha_{n,k,l} x^{k}(xy)^{l} g_n(x,y)\\
+     &= \sum \left( \alpha_{1,k,l}g_1(x,y) +
+     \ldots + \alpha_{n,k,l}g_n(x,y) \right) 
+     x^{k} (xy)^{l}.
+     \end{align*}
+     So in particular, we must have
+     that
+     for $\left( k,l \right) \neq (0,0)$,
+     \[
+     \alpha_{1,k,l}g_1(x,y) + \ldots+
+     \alpha_{n,k,l}g_n(x,y) = 0.
+     \] 
+     But then we get
+     \[
+     y^{N+1} = 
+     \alpha_{1,0,0} g_1(x,y) +\ldots
+     + \alpha_{n,0,0}g_n(x,y)
+     \] 
+     which has  maximal $y$ degree $N$, giving a contradiction. 
+     Thus the extension is not finite. 
+     However,
+     clearly, it is a finite-type extension, since
+     $y$ together with
+     $\mathbb{Z}\left[ x,xy \right] $ precisely generate all
+     of $\mathbb{Z}\left[ x,y \right] $.
+     By proposition 10.11, we then
+     find that $\mathbb{Z}\left[ x,y \right] $ is not an
+     integral extension.\\
+     \linebreak
+     (7) If the map
+     $\mathbb{C}\left[ x \right] 
+     \hookrightarrow 
+     \mathbb{C}\left[ x,y,z \right] / \left( z^2
+     -xy\right) $ were integral, proposition 10.6 gives that
+     $\mathbb{C}\left[ x,y \right]
+     \subset \mathbb{C}\left[ x,y,z \right] 
+     / \left( z^2 - xy \right)$ would be
+     finitely generated as a
+      $\mathbb{C}\left[ x \right] $-module. 
+      Suppose
+      $f_1, \ldots, f_n$ generated
+      $\mathbb{C}\left[ x,y \right] $ as
+      a $\mathbb{C}\left[ x \right] $ module in
+      $\mathbb{C}\left[ x,y,z \right] /
+      \left( z^2 - xy \right) $.
+      If $y^{N}$ is the maximal degree of $y$ among
+      $f_1, \ldots, f_n$, then
+      $y^{N+1} = \sum g_i f_i$ for
+      $g_i \in \mathbb{C}\left[ x \right] $.
+      However, there is clearly no way to obtain
+      $y^{N+1}$ in such a way. So
+      the extension is not integral. Since it is
+      clearly finite type, it is also not finite by proposition
+      10.11.\\
+      \linebreak
+      (9) If
+      $\mathbb{C}[x]
+      \hookrightarrow
+      \mathbb{C}\left[ x,y,z \right] / 
+      \left( z^2 - xy, x^3 - yz \right) $ were
+      integral, $z$ would be integral over
+      $\mathbb{C}\left[ x \right] $, so there
+      would be some
+      linear combination
+      \[
+      f_n(x) z^{n} + \ldots + f_0 (x) = 0
+      \] 
+      However, there is not relation
+      converting $xz$ to something different, so if
+      $x^{k_n}$ is the highest term of $x$ in
+      $f_n(x)$, then
+      $x^{k_n} z^{n}$ is a term that cannot
+      cancel in the above linear combination. 
+      So the extension cannot be integral. Hence it
+       can also not be finite.\\
+       \linebreak
+       (10) The extension
+       $\mathbb{C} \hookrightarrow
+       \mathbb{C}\left[ x_1, x_2, x_3, \ldots \right] 
+       / \left( x_1^2, x_2^2, x_3^2, \ldots \right) $ 
+       is not finite: suppose
+       it were generated by
+       $f_1, \ldots, f_n \in 
+       \mathbb{C}\left[ x_1, x_2, \ldots \right] 
+       / \left( x_1^2, x_2^2, \ldots \right) $, and let
+        $m$ be maximal such that
+        one of the $f_i$ has a term with
+        $x_m$. Then
+        $x_{m+1} = c_1 f_1 + \ldots+ c_n f_n$ with
+        $c_i \in \mathbb{C}$. However, then multiplying 
+        both sides by $x_{m+1}$, we see that
+        each non-zero term in
+        $c_1 f_1+ \ldots + c_n f_n$ must have a $x_{m+1}$, 
+        contradicting maximality of $m$.\\
+        \linebreak
+        The extension is integral, however, since
+        for any $b \in 
+        \mathbb{C}\left[ x_1, x_2, \ldots \right] 
+        / \left( x_1^2, x_2^2, \ldots \right) $, 
+        let $x_{i_1}, \ldots, x_{i_k}$ be the
+        $x_i$ which appear in $b$. Then
+        $b \left( x_{i_1} \cdots x_{i_k} \right) 
+        = 0 \subset 
+        \left( x_{i_1} \cdots x_{i_k} \right) $, and
+        $\left( x_{i_1} \cdots
+        x_{i_k} \right) $ is clearly finitely generated,
+        so by proposition 10.6, 
+        $b$ is integral over $\mathbb{C}$.
+      
+
+
+
+    \end{exercise}
+
+    %\bibliography{../refs.bib}
+\end{document}
