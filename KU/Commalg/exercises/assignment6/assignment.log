@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  19 MAR 2025 19:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  19 MAR 2025 13:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**notes.tex
-(./notes.tex
+**assignment.tex
+(./assignment.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
 (/usr/share/texlive/texmf-dist/tex/latex/amscls/amsart.cls
@@ -482,283 +482,52 @@ File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfarrowlength=\dimen270
 \pgfarrowwidth=\dimen271
 \pgfarrowlinewidth=\dimen272
-))) (/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.sty
-Package: biblatex 2023/03/05 v3.19 programmable bibliographies (PK/MW)
- (/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.sty
-Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count309
- (/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.def
-File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
-)) (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
-Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
-)
-\c@tabx@nest=\count310
-\c@listtotal=\count311
-\c@listcount=\count312
-\c@liststart=\count313
-\c@liststop=\count314
-\c@citecount=\count315
-\c@citetotal=\count316
-\c@multicitecount=\count317
-\c@multicitetotal=\count318
-\c@instcount=\count319
-\c@maxnames=\count320
-\c@minnames=\count321
-\c@maxitems=\count322
-\c@minitems=\count323
-\c@citecounter=\count324
-\c@maxcitecounter=\count325
-\c@savedcitecounter=\count326
-\c@uniquelist=\count327
-\c@uniquename=\count328
-\c@refsection=\count329
-\c@refsegment=\count330
-\c@maxextratitle=\count331
-\c@maxextratitleyear=\count332
-\c@maxextraname=\count333
-\c@maxextradate=\count334
-\c@maxextraalpha=\count335
-\c@abbrvpenalty=\count336
-\c@highnamepenalty=\count337
-\c@lownamepenalty=\count338
-\c@maxparens=\count339
-\c@parenlevel=\count340
-\blx@tempcnta=\count341
-\blx@tempcntb=\count342
-\blx@tempcntc=\count343
-\c@blx@maxsection=\count344
-\blx@maxsegment@0=\count345
-\blx@notetype=\count346
-\blx@parenlevel@text=\count347
-\blx@parenlevel@foot=\count348
-\blx@sectionciteorder@0=\count349
-\blx@sectionciteorderinternal@0=\count350
-\blx@entrysetcounter=\count351
-\blx@biblioinstance=\count352
-\labelnumberwidth=\skip59
-\labelalphawidth=\skip60
-\biblabelsep=\skip61
-\bibitemsep=\skip62
-\bibnamesep=\skip63
-\bibinitsep=\skip64
-\bibparsep=\skip65
-\bibhang=\skip66
-\blx@bcfin=\read4
-\blx@bcfout=\write4
-\blx@langwohyphens=\language91
-\c@mincomprange=\count353
-\c@maxcomprange=\count354
-\c@mincompwidth=\count355
-Package biblatex Info: Trying to load biblatex default data model...
-Package biblatex Info: ... file 'blx-dm.def' found.
- (/usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-dm.def
-File: blx-dm.def 2023/03/05 v3.19 biblatex localization (PK/MW)
-)
-Package biblatex Info: Trying to load biblatex custom data model...
-Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count356
-\c@savedafterword=\count357
-\c@annotator=\count358
-\c@savedannotator=\count359
-\c@author=\count360
-\c@savedauthor=\count361
-\c@bookauthor=\count362
-\c@savedbookauthor=\count363
-\c@commentator=\count364
-\c@savedcommentator=\count365
-\c@editor=\count366
-\c@savededitor=\count367
-\c@editora=\count368
-\c@savededitora=\count369
-\c@editorb=\count370
-\c@savededitorb=\count371
-\c@editorc=\count372
-\c@savededitorc=\count373
-\c@foreword=\count374
-\c@savedforeword=\count375
-\c@holder=\count376
-\c@savedholder=\count377
-\c@introduction=\count378
-\c@savedintroduction=\count379
-\c@namea=\count380
-\c@savednamea=\count381
-\c@nameb=\count382
-\c@savednameb=\count383
-\c@namec=\count384
-\c@savednamec=\count385
-\c@translator=\count386
-\c@savedtranslator=\count387
-\c@shortauthor=\count388
-\c@savedshortauthor=\count389
-\c@shorteditor=\count390
-\c@savedshorteditor=\count391
-\c@labelname=\count392
-\c@savedlabelname=\count393
-\c@institution=\count394
-\c@savedinstitution=\count395
-\c@lista=\count396
-\c@savedlista=\count397
-\c@listb=\count398
-\c@savedlistb=\count399
-\c@listc=\count400
-\c@savedlistc=\count401
-\c@listd=\count402
-\c@savedlistd=\count403
-\c@liste=\count404
-\c@savedliste=\count405
-\c@listf=\count406
-\c@savedlistf=\count407
-\c@location=\count408
-\c@savedlocation=\count409
-\c@organization=\count410
-\c@savedorganization=\count411
-\c@origlocation=\count412
-\c@savedoriglocation=\count413
-\c@origpublisher=\count414
-\c@savedorigpublisher=\count415
-\c@publisher=\count416
-\c@savedpublisher=\count417
-\c@language=\count418
-\c@savedlanguage=\count419
-\c@origlanguage=\count420
-\c@savedoriglanguage=\count421
-\c@pageref=\count422
-\c@savedpageref=\count423
-\shorthandwidth=\skip67
-\shortjournalwidth=\skip68
-\shortserieswidth=\skip69
-\shorttitlewidth=\skip70
-\shortauthorwidth=\skip71
-\shorteditorwidth=\skip72
-\locallabelnumberwidth=\skip73
-\locallabelalphawidth=\skip74
-\localshorthandwidth=\skip75
-\localshortjournalwidth=\skip76
-\localshortserieswidth=\skip77
-\localshorttitlewidth=\skip78
-\localshortauthorwidth=\skip79
-\localshorteditorwidth=\skip80
-Package biblatex Info: Trying to load compatibility code...
-Package biblatex Info: ... file 'blx-compat.def' found.
- (/usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-compat.def
-File: blx-compat.def 2023/03/05 v3.19 biblatex compatibility (PK/MW)
-)
-Package biblatex Info: Trying to load generic definitions...
-Package biblatex Info: ... file 'biblatex.def' found.
- (/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.def
-File: biblatex.def 2023/03/05 v3.19 biblatex compatibility (PK/MW)
-\c@textcitecount=\count424
-\c@textcitetotal=\count425
-\c@textcitemaxnames=\count426
-\c@biburlbigbreakpenalty=\count427
-\c@biburlbreakpenalty=\count428
-\c@biburlnumpenalty=\count429
-\c@biburlucpenalty=\count430
-\c@biburllcpenalty=\count431
-\biburlbigskip=\muskip18
-\biburlnumskip=\muskip19
-\biburlucskip=\muskip20
-\biburllcskip=\muskip21
-\c@smartand=\count432
-)
-Package biblatex Info: Trying to load bibliography style 'numeric'...
-Package biblatex Info: ... file 'numeric.bbx' found.
- (/usr/share/texlive/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx
-File: numeric.bbx 2023/03/05 v3.19 biblatex bibliography style (PK/MW)
-Package biblatex Info: Trying to load bibliography style 'standard'...
-Package biblatex Info: ... file 'standard.bbx' found.
- (/usr/share/texlive/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
-File: standard.bbx 2023/03/05 v3.19 biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count433
-\c@bbx:relatedtotal=\count434
-))
-Package biblatex Info: Trying to load citation style 'numeric'...
-Package biblatex Info: ... file 'numeric.cbx' found.
- (/usr/share/texlive/texmf-dist/tex/latex/biblatex/cbx/numeric.cbx
-File: numeric.cbx 2023/03/05 v3.19 biblatex citation style (PK/MW)
-Package biblatex Info: Redefining '\cite'.
-Package biblatex Info: Redefining '\parencite'.
-Package biblatex Info: Redefining '\footcite'.
-Package biblatex Info: Redefining '\footcitetext'.
-Package biblatex Info: Redefining '\smartcite'.
-Package biblatex Info: Redefining '\supercite'.
-Package biblatex Info: Redefining '\textcite'.
-Package biblatex Info: Redefining '\textcites'.
-Package biblatex Info: Redefining '\cites'.
-Package biblatex Info: Redefining '\parencites'.
-Package biblatex Info: Redefining '\smartcites'.
-)
-Package biblatex Info: Trying to load configuration file...
-Package biblatex Info: ... file 'biblatex.cfg' found.
- (/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.cfg
-File: biblatex.cfg 
-)
-Package biblatex Info: Input encoding 'utf8' detected.
-Package biblatex Info: Document encoding is UTF8 ....
- (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2024-01-22 L3 programming layer (loader) 
+)))
+\c@theorem=\count309
  (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count435
+\l__color_backend_stack_int=\count310
 \l__pdf_internal_box=\box65
-))
-Package biblatex Info: ... and expl3
-(biblatex)             2024-01-22 L3 programming layer (loader) 
-(biblatex)             is new enough (at least 2020/04/06),
-(biblatex)             setting 'casechanger=expl3'.
- (/usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty (/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-Package: xparse 2023-10-10 L3 Experimental document command parser
-)
-Package: blx-case-expl3 2023/03/05 v3.19 expl3 case changing code for biblatex
-))
-\c@theorem=\count436
+) (./assignment.aux)
+\openout1 = `assignment.aux'.
 
-
-Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
-(biblatex)                Loading 'csquotes' recommended.
-
-\@quotelevel=\count437
-\@quotereset=\count438
-(./notes.aux)
-\openout1 = `notes.aux'.
-
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 158.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 148.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 158.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 148.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count439
+\scratchcounter=\count311
 \scratchdimen=\dimen273
 \scratchbox=\box66
-\nofMPsegments=\count440
-\nofMParguments=\count441
+\nofMPsegments=\count312
+\nofMParguments=\count313
 \everyMPshowfont=\toks44
-\MPscratchCnt=\count442
+\MPscratchCnt=\count314
 \MPscratchDim=\dimen274
-\MPnumerator=\count443
-\makeMPintoPDFobject=\count444
+\MPnumerator=\count315
+\makeMPintoPDFobject=\count316
 \everyMPtoPDFconversion=\toks45
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -766,321 +535,60 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring ON on input line 158.
- (./notes.out) (./notes.out)
-\@outlinefile=\write5
-\openout5 = `notes.out'.
-
-Package biblatex Info: Trying to load language 'nil'...
-Package biblatex Info: ... file 'nil.lbx' not found.
+Package hyperref Info: Link coloring ON on input line 148.
+ (./assignment.out) (./assignment.out)
+\@outlinefile=\write4
+\openout4 = `assignment.out'.
 
 
-Package biblatex Warning: Language 'nil' not supported.
-(biblatex)                Using dummy definitions on input line 158.
-
-Package biblatex Info: Input encoding 'utf8' detected.
-Package biblatex Info: Automatic encoding selection.
-(biblatex)             Assuming data encoding 'utf8'.
-\openout4 = `notes.bcf'.
-
-Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'notes.bbl' found.
-(./notes.bbl)
-Package biblatex Info: Reference section=0 on input line 158.
-Package biblatex Info: Reference segment=0 on input line 158.
- (./notes.toc)
-\tf@toc=\write6
-\openout6 = `notes.toc'.
-
-
-Overfull \hbox (13.44223pt too wide) in paragraph at lines 178--182
-[]$\OML/cmm/m/it/10 f$ \T1/cmr/m/n/10 is an embedding if it is an immersion, injective and induces a homeomorphism
- []
-
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}] [2]
-Overfull \hbox (3.02466pt too wide) in paragraph at lines 335--342
-\T1/cmr/m/n/10 any $\OML/cmm/m/it/10 X \OMS/cmsy/m/n/10 2 []$\T1/cmr/m/n/10 . So the product $\OML/cmm/m/it/10 E \OMS/cmsy/m/n/10 ^^B[] \OML/cmm/m/it/10 E[]$ \T1/cmr/m/n/10 exists in $[] \OML/cmm/m/it/10 =X$ \T1/cmr/m/n/10 for any $[] \OML/cmm/m/it/10 ; [] \OMS/cmsy/m/n/10 2
- []
-
-
-Overfull \hbox (11.49678pt too wide) in paragraph at lines 355--367
-\OML/cmm/m/it/10 K$ \T1/cmr/m/n/10 be a topological group acting on a Hausdorff space $\OML/cmm/m/it/10 F$ \T1/cmr/m/n/10 as a group of homeomorphisms.
- []
-
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 430--436
+Underfull \hbox (badness 10000) in paragraph at lines 161--163
 
  []
 
-[4] [5]
-Overfull \hbox (12.49068pt too wide) in paragraph at lines 584--591
-[]\T1/cmr/m/n/10 In particular, since $[][]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )$ \T1/cmr/m/n/10 acts by some $\OML/cmm/m/it/10 g \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 G$ \T1/cmr/m/n/10 on $\OML/cmm/m/it/10 Y$ \T1/cmr/m/n/10 which is through homeomorphisms,
+
+Overfull \hbox (12.47757pt too wide) detected at line 197
+\OML/cmm/m/it/10 uv \OT1/cmr/m/n/10 = [] \OML/cmm/m/it/10 []b[]a[]^^L[]b[]a[] \OT1/cmr/m/n/10 = [] [] [] [] \OML/cmm/m/it/10 b[]a[] \OT1/cmr/m/n/10 = [] [] [] \OML/cmm/m/it/10 a[]:
  []
 
 
-Overfull \hbox (7.33643pt too wide) in paragraph at lines 584--591
-\T1/cmr/m/n/10 we obtain that since $\OML/cmm/m/it/10 '[]$ \T1/cmr/m/n/10 and $\OML/cmm/m/it/10 '[]$ \T1/cmr/m/n/10 are also homeomorphisms, $\OML/cmm/m/it/10 h[]$ \T1/cmr/m/n/10 is a homeomorphism
+Overfull \hbox (60.88242pt too wide) in paragraph at lines 197--216
+\T1/cmr/m/n/10 This shows that $\OML/cmm/m/it/10 A$ \T1/cmr/m/n/10 is generated by $\OML/cmm/m/it/10 a[]; [] ; a[]$ \T1/cmr/m/n/10 as an $\OML/cmm/m/it/10 D \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 R []$
  []
 
-
-Overfull \hbox (18.27602pt too wide) in paragraph at lines 660--667
-\T1/cmr/m/it/10 group and coordinate neighborhoods. Let $\OML/cmm/m/it/10 g[]; g[]$ \T1/cmr/m/it/10 denote their coordinate transformations.
- []
-
-[6]
-Overfull \hbox (1.22652pt too wide) in paragraph at lines 717--726
-\T1/cmr/m/it/10 exists a bundle $\OMS/cmsy/m/n/10 B$ \T1/cmr/m/it/10 with base space $\OML/cmm/m/it/10 X$\T1/cmr/m/it/10 , fibre $\OML/cmm/m/it/10 Y$\T1/cmr/m/it/10 , group $\OML/cmm/m/it/10 G$ \T1/cmr/m/it/10 and coordinate transformations
- []
-
-
-Overfull \hbox (1.79977pt too wide) in paragraph at lines 744--752
- \T1/cmr/m/n/10 2.1.4.\T1/cmr/m/it/10 Enlarging the group of a bundle.[] \T1/cmr/m/n/10 Let $\OML/cmm/m/it/10 H$ \T1/cmr/m/n/10 be a closed subgroup of the topological
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 744--752
-
- []
-
-[7] [8]
-Overfull \hbox (5.06801pt too wide) in paragraph at lines 883--908
-\T1/cmr/m/n/10 equivalent to its associated principal bundle $[] \OT1/cmr/m/n/10 = []$\T1/cmr/m/n/10 . But by assumption,
- []
-
-
-Overfull \hbox (29.21922pt too wide) in paragraph at lines 883--908
-\OML/cmm/m/it/10 G$ \T1/cmr/m/n/10 embeds into $[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 W[]\OT1/cmr/m/n/10 )$\T1/cmr/m/n/10 , so by Theorem [][]2.26[][], also $[]$ is equivalent to $[] \OT1/cmr/m/n/10 =:
- []
-
-[9]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1024.
- (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+LaTeX Font Info:    Trying to load font information for U+euf on input line 225.
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
-Overfull \hbox (24.10065pt too wide) in paragraph at lines 1023--1025
-[]\T1/cmr/m/n/10 Tomorrow, check out the link [][]$\T1/cmtt/m/n/10 https : / / math . stackexchange . com / questions / 2015174 /
- []
-
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 1120--1123
+Underfull \hbox (badness 10000) in paragraph at lines 232--241
 
  []
 
 
-Overfull \hbox (18.6715pt too wide) in paragraph at lines 1172--1187
-\OML/cmm/m/it/10 B[]$ \T1/cmr/m/n/10 be the natural projections. Define $\OML/cmm/m/it/10 B \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 X \OMS/cmsy/m/n/10 ^^B[] \OML/cmm/m/it/10 B[] \OT1/cmr/m/n/10 := []$
- []
-
-[11]
-Overfull \hbox (1.50336pt too wide) in paragraph at lines 1190--1230
-\OML/cmm/m/it/10 B$ \T1/cmr/m/n/10 if and only if $\OML/cmm/m/it/10 ^^Q\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 p[] []$\T1/cmr/m/n/10 , but this is true by assumption. Furthermore,
- []
-
-LaTeX Font Info:    Trying to load font information for U+bbm on input line 1307.
-(/usr/share/texlive/texmf-dist/tex/latex/bbm-macros/ubbm.fd
-File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
-)
-Underfull \vbox (badness 1137) has occurred while \output is active []
-
- [12]
-Overfull \hbox (2.14061pt too wide) in paragraph at lines 1320--1328
-[][]\T1/cmr/bx/n/10 Definition 2.49 \T1/cmr/m/n/10 (Bundle Theory)\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 A bundle theory is a functor from some arbitrary
- []
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1372.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1372.
-
-[13]
-Underfull \hbox (badness 10000) in paragraph at lines 1440--1463
+Underfull \hbox (badness 10000) in paragraph at lines 232--241
 
  []
 
-
-Underfull \vbox (badness 2012) has occurred while \output is active []
-
- [14]
-Underfull \hbox (badness 10000) in paragraph at lines 1528--1531
-
- []
-
-
-Overfull \hbox (7.03262pt too wide) detected at line 1561
-\OML/cmm/m/it/10 h [] \OT1/cmr/m/n/10 = [] = [] = \OML/cmm/m/it/10 g \OMS/cmsy/m/n/10 ^^A [] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 g \OMS/cmsy/m/n/10 ^^A \OML/cmm/m/it/10 h\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ;
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1561--1578
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1598--1651
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1598--1651
-
- []
-
-[15] [16]
-Overfull \hbox (12.31697pt too wide) in paragraph at lines 1717--1721
-[][]\T1/cmr/bx/n/10 Definition 2.53 \T1/cmr/m/n/10 ($[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 )$\T1/cmr/m/n/10 )\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 Topological vector bundles over $\OML/cmm/m/it/10 X$ \T1/cmr/m/n/10 and bundle morphisms
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1733--1740
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1741--1753
-
- []
-
-[17]
-Overfull \hbox (12.5007pt too wide) in paragraph at lines 1807--1814
-[][]\T1/cmr/bx/n/10 Proposition 2.56 \T1/cmr/m/n/10 (Topological vector bundles reconstructed from transition functions
- []
-
-
-Overfull \hbox (1.23907pt too wide) in paragraph at lines 1868--1879
-[][]\T1/cmr/bx/n/10 Lemma 2.58 \T1/cmr/m/n/10 (Orientation cover)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 Using the exerior power bundle, we can construct
- []
-
-[18]
-Overfull \hbox (3.795pt too wide) in paragraph at lines 1915--1923
-[][]\T1/cmr/bx/n/10 Theorem 3.3. []\T1/cmr/m/it/10 There exists a smooth structure which is unique up to diffeomorphism
- []
-
-
-Overfull \hbox (27.41504pt too wide) in paragraph at lines 1940--1948
-[][]\T1/cmr/bx/n/10 Definition 3.5 \T1/cmr/m/n/10 (Equivalence)\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 Two cobordisms $[]$ and $[]$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1959--1980
-
- []
-
-<cobordism-example-1.png, id=279, 632.3625pt x 165.61874pt>
-File: cobordism-example-1.png Graphic file (type png)
-<use cobordism-example-1.png>
-Package pdftex.def Info: cobordism-example-1.png  used on input line 2008.
-(pdftex.def)             Requested size: 288.0011pt x 75.42992pt.
-[19 <./cobordism-example-1.png>]
-Overfull \hbox (26.09476pt too wide) in paragraph at lines 2122--2137
-\T1/cmr/m/n/10 Two diffeomorphisms $\OML/cmm/m/it/10 h[]; h[] [] [] M \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 M[]$ \T1/cmr/m/n/10 are \T1/cmr/m/it/10 pseudo-isotopic \T1/cmr/m/n/10 if there exists a diffeomorphism
- []
-
-
-Overfull \hbox (38.07237pt too wide) in paragraph at lines 2157--2185
-[] \OMS/cmsy/m/n/10 ^^N \OML/cmm/m/it/10 g$ \T1/cmr/m/n/10 is indeed a map $\OML/cmm/m/it/10 M \OMS/cmsy/m/n/10 ^^B \OML/cmm/m/it/10 I \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 M \OMS/cmsy/m/n/10 ^^B \OML/cmm/m/it/10 I$\T1/cmr/m/n/10 . If we write $\OML/cmm/m/it/10 c[] \OT1/cmr/m/n/10 = []$
- []
-
-
-Overfull \hbox (48.60718pt too wide) in paragraph at lines 2157--2185
-\OML/cmm/m/it/10 k[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; \OT1/cmr/m/n/10 1) = \OML/cmm/m/it/10 h[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )$ \T1/cmr/m/n/10 and $\OML/cmm/m/it/10 k[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; \OT1/cmr/m/n/10 1) = \OML/cmm/m/it/10 h[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )$\T1/cmr/m/n/10 , then firstly, $[] \OMS/cmsy/m/n/10 ^^N \OML/cmm/m/it/10 g\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; \OT1/cmr/m/n/10 0) = [] [] =
- []
-
-[20]
-Overfull \hbox (10.44795pt too wide) in paragraph at lines 2212--2224
-[][]\T1/cmr/bx/n/10 Definition 3.15. []\T1/cmr/m/n/10 A smooth compact $\OML/cmm/m/it/10 n$\T1/cmr/m/n/10 -dimensional manifold is said to be a cobordism
- []
-
-
-Overfull \hbox (6.19627pt too wide) in paragraph at lines 2228--2232
-[][]\T1/cmr/bx/n/10 Definition 3.16 \T1/cmr/m/n/10 (Gluing cobordisms/composition of cobordisms)\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 Given cobordisms
- []
-
-[21]
-Overfull \hbox (45.00595pt too wide) in paragraph at lines 2302--2315
-[]\T1/cmr/m/n/10 Given any critical point $\OML/cmm/m/it/10 p$ \T1/cmr/m/n/10 of $\OML/cmm/m/it/10 f$\T1/cmr/m/n/10 , there are coordinates $[] \OT1/cmr/m/n/10 = []$
- []
-
-
-Overfull \hbox (22.90059pt too wide) in paragraph at lines 2342--2347
-\T1/cmr/m/it/10 manifold with boundary. There exists a neighborhood of $\OML/cmm/m/it/10 @W$ \T1/cmr/m/it/10 (called a collar neighborhood)
- []
-
-
-Overfull \hbox (2.91713pt too wide) in paragraph at lines 2360--2368
-\T1/cmr/m/it/10 smooth submanifold $\OML/cmm/m/it/10 M$ \T1/cmr/m/it/10 of $\OML/cmm/m/it/10 W$ \T1/cmr/m/it/10 is compact and two-sided. Then there exists a "bicollar"
- []
-
-[22] [23]
-Overfull \hbox (8.21147pt too wide) in paragraph at lines 2513--2515
- \T1/cmr/m/n/10 3.3.\T1/cmr/bx/n/10 Morse Functions.[][] \T1/cmr/m/n/10 The goal is to be able to factor cobordisms into compositions
- []
-
-
-Overfull \hbox (9.67142pt too wide) in paragraph at lines 2526--2531
-\T1/cmr/m/n/10 Such a point is called a non-degenerate critical point if $[] [] \OT1/cmr/m/n/10 = [] [] \OMS/cmsy/m/n/10 6\OT1/cmr/m/n/10 =
- []
-
-
-Overfull \hbox (19.0557pt too wide) in paragraph at lines 2546--2548
-[][]\T1/cmr/bx/n/10 Definition 3.29 \T1/cmr/m/n/10 (Index of a critical point)\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 The $\OML/cmm/m/it/10 ^^U$ \T1/cmr/m/n/10 from the Morse Lemma (Lemma [][]3.28[][])
- []
-
-
-Overfull \hbox (20.48082pt too wide) in paragraph at lines 2607--2610
-[][]\T1/cmr/bx/n/10 Theorem 3.33 \T1/cmr/m/n/10 (Existence of Morse functions)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 Every smooth manifold triad $[]$
- []
-
-[24]
-
-Package biblatex Warning: Using fallback definition for \mkbibdatelong.
-(biblatex)                The command should be defined in the .lbx file.
-(biblatex)                If you see this message, the .lbx file could not be
-(biblatex)                loaded, is faulty or does not contain a definition
-(biblatex)                for \mkbibdatelong.
-
-
-Package biblatex Warning: Using fallback definition for \mkbibdatelong.
-(biblatex)                The command should be defined in the .lbx file.
-(biblatex)                If you see this message, the .lbx file could not be
-(biblatex)                loaded, is faulty or does not contain a definition
-(biblatex)                for \mkbibdatelong.
-
-
-Package biblatex Warning: Bibliography string 'pages' untranslated
-(biblatex)                at entry 'Steenrod' on input line 2654.
-
-
-Overfull \hbox (33.09175pt too wide) in paragraph at lines 2655--2655
-[]\T1/cmr/m/n/10 Norman Steenrod. \T1/cmr/m/it/10 The topology of fibre bundles\T1/cmr/m/n/10 . Princeton Landmarks in Mathematics.
- []
-
-[25] (./notes.aux)
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}] (./assignment.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
-Package rerunfilecheck Info: File `notes.out' has not changed.
-(rerunfilecheck)             Checksum: 53B5DE933562156D19FCCDDAA3781453;2127.
-Package logreq Info: Writing requests to 'notes.run.xml'.
-\openout1 = `notes.run.xml'.
-
+Package rerunfilecheck Info: File `assignment.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 30851 strings out of 474222
- 593329 string characters out of 5748733
- 1952975 words of memory out of 5000000
- 52338 multiletter control sequences out of 15000+600000
- 569380 words of font info for 68 fonts, out of 8000000 for 9000
+ 22776 strings out of 474222
+ 424500 string characters out of 5748733
+ 1939975 words of memory out of 5000000
+ 44500 multiletter control sequences out of 15000+600000
+ 567333 words of font info for 64 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 98i,20n,107p,678b,1431s stack positions out of 10000i,1000n,20000p,200000b,200000s
- </home/jonas-trepiakas/.texlive2023/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on notes.pdf (25 pages, 422721 bytes).
+ 98i,5n,107p,599b,469s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb>
+Output written on assignment.pdf (1 page, 124586 bytes).
 PDF statistics:
- 487 PDF objects out of 1000 (max. 8388607)
- 412 compressed objects within 5 object streams
- 181 named destinations out of 1000 (max. 500000)
- 122 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 79 PDF objects out of 1000 (max. 8388607)
+ 51 compressed objects within 1 object stream
+ 4 named destinations out of 1000 (max. 500000)
+ 13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

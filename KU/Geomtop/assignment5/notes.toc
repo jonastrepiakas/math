@@ -1,0 +1,13 @@
+\babel@toc {nil}{}\relax 
+\contentsline {section}{\tocsection {}{1}{Results and Theory}}{1}{section.1}%
+\contentsline {subsubsection}{\tocsubsubsection {}{1.0.1}{Coordinate bundles and fibre bundles}}{1}{subsubsection.1.0.1}%
+\contentsline {subsubsection}{\tocsubsubsection {}{1.0.2}{Construction of a bundle from coordinate transformations}}{1}{subsubsection.1.0.2}%
+\contentsline {subsubsection}{\tocsubsubsection {}{1.0.3}{The Principal Bundle and the Principal Map}}{2}{subsubsection.1.0.3}%
+\contentsline {subsubsection}{\tocsubsubsection {}{1.0.4}{Associated frame bundles and structure group reductions}}{2}{subsubsection.1.0.4}%
+\contentsline {subsubsection}{\tocsubsubsection {}{1.0.5}{The Induced Bundle}}{3}{subsubsection.1.0.5}%
+\contentsline {section}{\tocsection {}{2}{Problems}}{4}{section.2}%
+\contentsline {subsection}{\tocsubsection {}{2.1}{Principal $G$-bundles}}{4}{subsection.2.1}%
+\contentsline {subsection}{\tocsubsection {}{2.2}{Change of fibres of bundles}}{7}{subsection.2.2}%
+\contentsline {subsection}{\tocsubsection {}{2.3}{Associated frame bundles and structure group reductions}}{7}{subsection.2.3}%
+\contentsline {subsection}{\tocsubsection {}{2.4}{Invertible Cobordisms and Boundaries of Compact Manifolds}}{7}{subsection.2.4}%
+\contentsline {section}{\tocsection {}{}{References}}{8}{section*.2}%

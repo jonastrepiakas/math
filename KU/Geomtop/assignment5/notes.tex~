@@ -1,0 +1,973 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+\usepackage[backend=biber]{biblatex}
+\addbibresource{notes.bib}
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+\newtheorem*{slogan}{Slogan}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\SHomeo}{SHomeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Teich}{Teich}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Bun}{Bun}
+\DeclareMathOperator{\Sm}{Sm}
+\DeclareMathOperator{\Fr}{Fr}
+\DeclareMathOperator{\Cob}{Cob}
+
+
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\MCG}{{\mathrm{MCG}}}
+\newcommand{\PMCG}{{\mathrm{PMCG}}}
+\newcommand{\SMCG}{{\mathrm{SMCG}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+
+
+\title{Assignment 5}
+\author{Jonas Trepiakas}
+\date{}
+
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+
+I will start the assignment by definitions, lemmas and theorems
+that we will use. I have put the problems at the back of the
+assignment.
+
+\section{Results and Theory}
+\subsubsection{Coordinate bundles and fibre bundles}
+
+
+
+\begin{lemma}[]\label{bundle-equiv-in-terms-of-maps}
+    \cite[Lemma 2.8]{Steenrod}
+    Let $\mathcal{B},\mathcal{B}'$ be coordinate bundles
+    having the space base space, fibre and group. Then
+    they are equivalent if and only if
+    there exist continuous maps
+    \[
+    \overline{g}_{kj} \colon V_j \cap V_{k}' \to G
+    \] 
+    such that
+    \begin{align*}
+        \overline{g}_{ki}(x) 
+        &= \overline{g}_{kj}(x) g_{ji}(x)\\
+        \overline{g}_{lj}(x) 
+        &= g_{lk}'(x) \overline{g}_{kj}(x)
+    \end{align*}.
+\end{lemma}
+
+
+\subsubsection{Construction of a bundle from coordinate
+transformations}
+\begin{definition}[]
+    Let $G$ be a topological group and $X$ a space.
+    By a \textit{system of coordinate transformations in
+    $X$ with values in $G$} is meant an indexed covering
+    $\left\{ V_j \right\} $ of $X$ by open sets and
+    a collection of continuous maps
+    \[
+    g_{ji} \colon V_{i} \cap V_j \to G
+    \] 
+    such that
+     \[
+    g_{kj}(x) g_{ji}(x) = g_{ki}(x).
+    \] 
+\end{definition}
+
+\begin{remark}[]
+    We have so far seen that any bundle over
+    $X$ with group $G$ determines such a set of
+    coordinate transformations. We now state a converse.
+\end{remark}
+
+\begin{theorem}[Existence]\label{Existence-theorem}
+    \cite[Thm 3.2]{Steenrod}
+    If $G$ is a topological transformation group of
+    $Y$, and $\left\{ V_j \right\} , 
+    \left\{ g_{ij} \right\} $ is a system
+    of coordinate transformations in the space
+    $X$, then there exists a bundle $\mathcal{B}$ with
+    base space $X$, fibre $Y$, group $G$ and
+    coordinate transformations
+    $\left\{ g_{ij} \right\} $. Furthermore,
+    any such bundles are equivalent.
+\end{theorem}
+
+\subsubsection{The Principal Bundle and the Principal Map}
+
+\begin{definition}[Principal $G$-bundle]
+    A bundle
+    $\mathcal{B} = 
+    \left\{ B,p,X,Y,G \right\} $ is called
+    a principal bundle if $Y = G$ and
+    $G$ operates on $Y $ by left translations.
+\end{definition}
+
+\begin{definition}[Associated prinicipal bundle]
+    Let $\mathcal{B} = \left\{ B,p,X,Y,G \right\} $ be
+    an arbitrary bundle. The
+    \textit{associated principal bundle}
+    $\tilde{B}$ of $\mathcal{B}$ is the bundle given
+    by the construction/existence theorem using the
+    same base space, the same $\left\{ V_j \right\} $,
+    the same $\left\{ g_{ji} \right\} $ and
+    the same group $G$ as for $\mathcal{B}$, but
+    replacing $Y$ by $G$ and allowing $G$ to operate
+    on itself by left translations.
+\end{definition}
+
+\begin{theorem}[Equivalence theorem]\label{Equivalence-theorem}
+    \cite[Thm 10.3]{Steenrod}
+    Two bundles having the same base space, fibre
+    and group are equivalent if and only if their
+    associated principal bundles are equivalent.
+\end{theorem}
+
+\begin{proof}
+    By Lemma \ref{bundle-equiv-in-terms-of-maps}, 
+    equivalence of bundles is purely a property
+    of the coordinate transformations.
+\end{proof}
+
+
+
+
+\begin{definition}[Manifold bundle]
+    Let $M$ be a smooth manifold. A
+    manifold bundle over $M$ with structure group
+    $G$ is a fiber
+    bundle
+    $W \to E \to M$ with
+    structure group $G$ such that
+    $E$ is a manifold and $E \to M$ is continuous.\\
+    We say a manifold bundle over $M$ is a smooth
+    manifold bundle if it is
+    a smooth fiber bundle as well as
+    a manifold bundle and $G$ acts by diffeomorphisms
+    on $M$.
+\end{definition}
+
+
+    \begin{definition}[Associated bundles]
+        Let $M$ be a smooth manifold, and
+        fix a manifold bundle
+        $E \stackrel{\xi}{\to } M$ with fibre a smooth
+        manifold $W$ and structure group
+        $G \le \Homeo (W)$. Given another smooth manifold
+        $W'$ such that there exists an injective group
+        homomorphism $\iota \colon G \hookrightarrow
+        \Homeo\left( W' \right) $, the associated
+        $W'$-manifold bundle of $\xi$ is defined
+        as follows. Let
+        $\left\{ U_{\alpha}, \varphi_{\alpha} \right\}_{\alpha}$ 
+        be a cover of $M$ by open neighborhoods together with
+        trivializations
+        $\varphi_{\alpha}$ of $\xi$. Transition maps
+        $\varphi_{\alpha} \varphi_{\beta}^{-1}$ give rise
+        to transition function
+        $g_{\alpha \beta} \colon U_{\alpha} \cap
+        U_{\beta} \to G \le \Homeo(W)$ satisfying the
+        cocycle condition. We define the associated
+        $W'$-manifold by gluing trivializations
+        $U_{\alpha} \times W'$ along transition maps
+        \[
+        \iota \circ g_{\alpha\beta} \colon U_{\alpha}
+        \cap U_{\beta} \to G 
+        \stackrel{\iota}{\to } \Homeo\left( W' \right) .
+        \] 
+    \end{definition}
+
+    \begin{definition}[Structure group reduction]
+        Fix a manifold bundle
+        $\xi \colon E \to M$ over a smooth manifold
+        $M$, with fibre a smooth manifold $W$ and structure
+        group $G$. Given a subgroup $H \le G$, $\xi$ 
+        is said to admit a structure group reduction to
+        $H$ if it is isomorphic to a bundle so that all transition
+        maps $g_{\alpha \beta} \colon U_{\alpha} \cap
+        U_{\beta} \to G$ take values in $H$.
+    \end{definition}
+
+
+    \subsubsection{The Induced Bundle}
+
+
+
+
+    \begin{definition}[Induced Bundle]
+        Suppose $\mathcal{B}', X$ and $\eta$ are
+        as before. Form the product space
+        $X \times B'$ and let
+        $p \colon X \times B' \to X, h\colon
+        X \times B' \to B'$ be the natural projections.
+        Define $B = X \times_{X'} B' :=
+        \left\{ (x,b') \in X \times B'  \mid 
+        \eta (x) = p'(b') \right\} $ to be the
+        fibered product.\\
+        We want to give
+        $\left[ p \colon B \to X \right] $ a fibre
+        bundle structure (by giving it a coordinate bundle structure).
+        Define
+        $V_j = \eta^{-1} (V_j')$ and
+        set
+         \[
+        \varphi_j(x,y) = \left( x, 
+        \varphi_j'\left( \eta(x),y \right) \right).
+        \] 
+        Let's give these maps some motivation.
+        For these to be trivializations,
+        we want
+        $\varphi_j$ to be homeomorphisms
+        $p^{-1}(V_j) \cap B = p|_B^{-1}\left( V_j \right) 
+        \cong V_j \times Y$.
+        Now,  $\varphi_j$ simply maps
+        $x$ to $x$ in the first coordinate, but
+        $\varphi_j'$ by assumption maps
+        $V_j' \times Y$ homeomorphically onto
+        $p'^{-1}(V_j')$. Hence in particular,
+        $\varphi_j'\left( \eta(x), y \right) 
+        \in p'^{-1}(V_j') \subset B'$. So
+        $\left( x, \varphi_j' \left( \eta(x), y \right)  \right) 
+        \in B$ if and only if
+        $\eta (x) = p' \left( 
+        \varphi_j' \left( \eta(x), y \right) \right) $, but
+        this is true by assumption.
+        Furthermore,
+        $\left( x, \varphi_j' \left( \eta(x),y \right)  \right) 
+        \in X \times B'$, so applying $p$, we get
+        $p \left( x, \varphi_j' \left( \eta(x),y \right)  \right) 
+        = x$ which is in
+        $V_j$ when $x \in V_j$.
+        Hence putting things together,
+        $\varphi_j$ maps
+        $V_j \times Y$ to
+        $p^{-1}\left( V_j \right) \cap B$.
+        We, in fact, want to show that 
+        $\varphi_j$ is a homeomorphism
+        of these spaces. For this, simply note that
+        the map
+        $\left( u,v \right) \mapsto 
+         \left( u, \pi_2 \circ \varphi_j'^{-1}(v) \right) $ 
+         is an inverse.\\
+         Lastly, let for
+         $x \in V_i \cap V_j$,
+         $g_{ij}(x) = \varphi_{i,x}^{-1} \varphi_{j,x}
+         = p_i \varphi_{j,x}$
+
+
+         Note then that
+         \begin{align*}
+             g_{ij}(x) y
+             &= p_i \varphi_{j,x}(y)\\
+             &= p_i \left( x, \varphi_j' \left( 
+             \eta (x), y\right)  \right) \\
+             &= p_i' \varphi_j' \left( \eta(x), y \right) \\
+             &= g_{ij}' \left( \eta(x) \right) y
+         \end{align*}
+ 
+         So the clutching functions
+         are simply
+         $g_{ij}' \circ \eta$ which are indeed
+         continuous.
+
+    \end{definition}
+
+    \begin{theorem}[Equivalence
+        Theorem/pullbacks of fibre bundles with the same
+        fibre and group exist
+        ]\label{Equivalence-Theorem-Induced-Bundles}
+        Let $\mathcal{B},\mathcal{B}'$ be two bundles having
+        the same fibre and group and
+        $h \colon \mathcal{B} \to \mathcal{B}'$ a bundle
+        map. Let
+        $\eta \colon X \to X'$  be the induced map of
+        base spaces. Then the induced
+        bundle $\eta^{*}\mathcal{B}'$ is equivalent to
+        $\mathcal{B}$, and there
+        is an equivalence
+        $h_0 \colon \mathcal{B} \to \eta^{*}\mathcal{B}'$ such
+        that $h$ is the composite
+        $h = h^{*} \circ h_0$ where
+        $h^{*} \colon \eta^{*}\mathcal{B}' \to 
+        \mathcal{B}'$ is the induced map:
+
+        \begin{equation*}
+        \begin{tikzcd}
+            B \ar[dr, "\exists", dashed]
+            \ar[drr, bend left] \ar[ddr, bend right] & & \\
+              & X \times_{X'}B'
+            \cong \eta^{*}B' \ar[r] \ar[d]
+            \ar[dr, phantom, "\lrcorner", very near start]
+              & B' \ar[d] \\
+              & X \ar[r, "\eta"] & X'
+        \end{tikzcd}
+        \end{equation*}
+    \end{theorem}
+
+
+
+
+
+    \begin{note}
+        A "Bundle Theory" is also called a 
+        Cartesian Fibration over
+        $\Sm$.
+    \end{note}
+
+
+
+    \begin{definition}[Bundle Theory]
+    A bundle theory is a functor from some
+    arbitrary category $\mathcal{B}$ to $\Sm$ subject to the
+    following conditions.\\
+    Given a map $f \colon M \to N$ between smooth manifolds in
+    $\Sm$, there exists a map
+    $f^{*} \colon \mathcal{B}(N) \to \mathcal{B}(M)$.\\
+    The solid arrows in the diagram below, the
+    dashed lifts are in bijection and the diagram commutes.
+    \begin{equation*}
+    \begin{tikzcd}
+        B' \ar[rr, bend left]
+        \ar[d] \ar[r, dashed, "\psi "] & f^{*}B \ar[r]
+        \ar[dr, phantom, "\exists", very near start]
+        \ar[d]& B \ar[d]\\
+        N \ar[r, dashed, "\varphi "] \ar[rr, bend right]
+                         & P \ar[r, "f"] & M
+    \end{tikzcd}
+    \end{equation*}
+    In the sense that given
+    $\varphi $, there exists
+    a $\psi $, everything commutes and
+    composite map above is mapped under the functor
+    to the composite map below. 
+
+    Furthermore, it is required to satisfy gluing (the cocycle condition).
+    I describe this in the solution of the problem below.\\
+    
+
+    A bundle $B \to M$ is called locally trivial if
+    for each point $x \in M$, there exists
+    a neighborhood $x \in U \stackrel{i}{\hookrightarrow} M$
+    and there exists a bundle $B' \to *$ 
+    and a pullback along $\pi \colon
+    U \to *$ for $B'$ such that
+    there exists an isomorphism
+    $i^{*}B \cong \pi^{*}B'$.
+    \end{definition}
+    
+    \section{Problems}
+
+    \subsection{Principal $G$-bundles}
+
+    Let $G$ be a discrete group. Consider the category
+    $\Sm^{G}$ where objects are smooth manifolds equipped with a
+    free, fixed point free action by $G$ which is
+    properly discontinuous: the exists a cover
+    $\left\{ U_\alpha \right\}_{\alpha \in A}$ of $M$ so that
+    $\left\{ g \cdot U_{\alpha} \right\} $ are pairwise
+    disjoint for all $\alpha \in A$ and $g \in G$.
+    Furthermore, morphisms are smooth maps
+    which are $G$-equivariant: 
+    $f \colon M \to N$ is such that
+    $f \left( g \cdot  x \right) = g\cdot f(x)$ for all
+    $g \in G$ and $x \in M$.
+
+    \begin{problem}[]
+        \begin{enumerate}
+            \item Show that for $M \in \Sm^{G}$, the quotient
+                $M / G$ admits a structure of a smooth
+                manifold so that the map
+                $M \to M /G$ is a local diffeomorphism.
+            \item Check that the association 
+                $M \mapsto M / G$ defines a functor
+                $\Sm^{G} \to \Sm$, and show that this defines
+                a locally trivial bundle theory on smooth
+                manifolds.
+        \end{enumerate}
+    \end{problem}
+
+    \begin{proof}
+        (1) (I will assume
+        that $G$ acts by homeomorphisms on
+        $M$ ) Using the covering space quotient theorem 
+        (theorem 12.14 in Lee's book on Topological Manifolds), 
+        we find that $M \to M /G$ is a covering space.
+        To construct a smooth structure on
+        $M /G$, let $p \in M /G$ and
+        $U$ an evenly covered open neighborhood of
+        $p$. Then
+        $U$ splits into homeomorphic copies
+        $\sqcup U_{\alpha}$ in $M$ with
+        $\pi|_{U_{\alpha}} \colon U_{\alpha} \cong U$ homeomorphisms.
+        For $\tilde{p} \in 
+        U_{\alpha}$, choose a smooth chart
+        $\left( V_{\tilde{p}}, \varphi_{\tilde{p}}  \right) $
+        contained in $U_{\alpha}$.
+        Since $\tilde{p} = g \cdot  p$ for some
+        $g$, we may as well denote these charts as
+        $\left( V_{g,p}, \psi_{g,p} \right) $. Now consider
+        the charts
+        $\left( \pi|_{g} (V_{g,p}),
+        \psi_{g,p} \circ \left( \pi|_{g} \right)^{-1} \right) $.
+        On an overlap
+        the transition functions have the form
+         \[
+        \psi_{g,p} \circ \left( \pi|_g \right)^{-1}
+        \left( \psi_{g',p'} \circ \left( \pi|_{g'} \right)^{-1}
+        \right)^{-1}
+        = \psi_{g,p} \circ \left( \pi|_{g} \right)^{-1}
+        \pi|_{g'} \circ \psi_{g',p'}^{-1}
+        = \psi_{g,p} \circ \psi_{g',p'}^{-1}
+        \] 
+        on the overlap, which is smooth by assumption.
+        Hence we indeed obtain a smooth structure on
+        $M /G$. In particular, the map
+        $\pi \colon M \to M /G$ has coordinate form
+        \[
+            \left( \psi_{g,p} \circ
+            \pi|_{g}^{-1} \right)  \pi \circ \psi_{g,p}^{-1}
+            = \id
+        \] 
+        which is a diffeomorphism. So $\pi$ is a local
+        diffeomorphism when we equip 
+        $M /G$ with this smooth structure.\\
+        \linebreak
+        (2) Define the functor
+        $F \colon \Sm^{G} \to \Sm$ 
+        sending $M \mapsto M /G$ with the
+        smooth structure defined in the first part of the
+        exercise. Here,
+        since
+        maps $f \colon M \to N$ in $\Sm^{G}$ are
+        $G$-equivariant, they, in particular,
+        descend to smooth maps
+        $\overline{f} \colon M / G \to N /G$, and we
+        let $F(f) = \overline{f}$.
+        Then indeed $F(\id_M) = \overline{\id_M} =
+        \id_{M /G}$ and
+        if $f \colon M \to N$ and
+        $g \colon N \to P$, then
+        $F \left( g \circ f \right) 
+        = \overline{g \circ f}$.
+        But by pasting the two squares
+        \begin{equation*}
+        \begin{tikzcd}
+            M \ar[r, "f"] \ar[d] & N \ar[r, "g"]\ar[d] & P \ar[d]\\
+            M /G \ar[r, "\overline{f}"] & N /G \ar[r, "\overline{g}"]
+                                        & P /G
+        \end{tikzcd}
+        \end{equation*}
+        we find that
+        $\overline{g \circ f} = \overline{g} \circ \overline{f}$.
+        So
+        $F\left( g \circ f \right) 
+        = F(g) \circ F(f)$.\\
+        This shows that $F$ is indeed a functor.\\
+        We want to show that this defines
+        a bundle theory on $\Sm$.
+        So suppose we have some
+        $N \in \Sm^{G}$ and
+        $f \colon M \to N /G$ in
+        $\Sm$. Now, the quotient map
+        $N \to N /G$ is a submersion (show this), so
+        the pullback 
+        along $f$ exists in $\Sm$, giving
+        \begin{equation*}
+        \begin{tikzcd}
+            f^{*} N \ar[r] \ar[d]
+            \ar[dr, phantom, "\lrcorner", very near start] 
+            & N \ar[d] \\
+            M \ar[r] & N /G
+        \end{tikzcd}
+        \end{equation*}
+        Lastly, we must then show that
+        $f^{*}N$ is in $\Sm^{G}$.
+        For this, note that
+        the induced bundle
+        $f^{*}N$ is precisely the pullback
+        which is equivalent as a fibre bundle to
+        $M \times_{N /G} N$.
+        But this inherits a natural action of $G$ given by
+        $g \cdot 
+        \left( m,n \right) = \left( m, g\cdot n \right) $.
+        Choosing the same cover
+        $\left\{ U_{\alpha} \right\} $ for
+        $N$ as given in the condition of it being in
+        $\Sm^{G}$, i.e., $\left\{ g \cdot U_{\alpha} \right\} $ 
+        being disjoint for all $g$ and $\alpha$,
+        the neighborhoods 
+        $M \times U_{\alpha} \cap f^{*}N$ then satisfy the
+        same conditions under this action of $G$. Lastly,
+        the map
+        $f^{*}N \cong M \times_{N /G} N \to 
+        N$ given by the projection to the $N$ component which
+        is the top map in the pullback diagram is
+        naturally $G$-equivariant.
+        This shows that the above diagram indeed can be made.
+
+        Now suppose we have some 
+        $P \in \Sm^{G}$ and a bundle map
+        $P \to N$ giving the solid part of the diagram
+        \begin{equation*}
+        \begin{tikzcd}
+            P \ar[rr, bend left] \ar[d] 
+            \ar[r, dashed]& M \times_{N /G} N
+            \ar[r] \ar[d] & N \ar[d]\\
+            P /G \ar[r] & M \ar[r] & N /G
+        \end{tikzcd}
+        \end{equation*}
+        where the map $P \to N$ descends to the composite map
+        $P /G \to M \to N /G$ on the bottom.\\
+        
+        We then want to show that the dashed map
+        exists. Let
+        $p \colon P \to P /G$ and
+        $q \colon f^{*}N \cong M \times_{N /G} N
+        \to M$ be the projection. Let
+        $k \colon P \to N$ be the map
+        on the top. Let
+        $f \colon P /G \to M$ be the map on the bottom.
+        Define a map
+        $h \colon P \to 
+        M \times_{N /G}N$ by
+        $h(x) =
+        \left( f (p(x)), k(p) \right) $.
+        Then if
+        $l \colon M \to N /G$ denotes the map on the bottom,
+        $l \circ f\left( p(x) \right) 
+        = \pi \left( k(p) \right) $ where
+        $\pi \colon N \to N /G$. By definition then
+        $h(x) \in M \times_{N /G} N$.
+        Furthermore,
+        \[
+        h \left( g \cdot x \right) 
+        = \left( f\left( p \left( g\cdot x \right)  \right) ,
+        k\left( g\cdot x \right) \right) 
+        = \left( f \left( p \left( x \right)  \right) ,
+        g \cdot k(x)\right) 
+        = g\cdot \left( f \left( p(x) \right) ,
+        k(x)\right) =
+        g\cdot h(x),
+        \] 
+        so $h$ is $G$-equivariant.\\
+        \linebreak
+        Next we must check that the bundle theory
+        is locally trivial. That is, we
+        must check that
+        for any $M \in \Sm^{G}$ and
+        any point $x \in M /G$, there
+        exists an open neighborhood
+        $U$ about $x$ such that if we let
+        $\pi \colon U \to *$ be the unique map and
+        $i \colon U \to M /G$ the
+        open embedding, there
+        exists a manifold $N \in \Sm^{G}$ such that
+        $N /G \cong *$, and such that
+        the pullbacks are isomorphic:
+        $i^{*}M \cong \pi^{*} N$.
+
+        Note that these pullbacks are really
+        \begin{equation*}
+        \begin{tikzcd}
+            U \times_{M /G}M
+            \cong i^{*}M \ar[r] \ar[d] & M \ar[d,"p"] \\
+            U \ar[r] & M /G
+        \end{tikzcd}
+        \end{equation*}
+        But clearly if
+        $\left( u,m \right) \in 
+        U \times_{M /G} M$, then
+        essentially $\overline{m} = u$, so
+        $U \times_{M /G }M \cong p^{-1}(U)$, and
+        \begin{equation*}
+        \begin{tikzcd}
+            U \times N
+            \cong U \times_{*} N \ar[r] \ar[d] & N \ar[d] \\
+            U \ar[r] & *
+        \end{tikzcd}
+        \end{equation*}
+        So we find that the condition is indeed equivalent
+        to the usual one: the existence of
+        a neighborhood $U$ about $x$ and a homeomorphism
+        $p^{-1}(U) \cong U \times N$.
+        In this case, suppose
+        $x \in M /G$ and simply choose one of the
+        $U_{\alpha}$ such that 
+        $x \in p\left( U_{\alpha} \right) $. Note that
+        this is open in $M /G$ since
+        the $g \cdot  U_{\alpha}$ are pairwise disjoint
+        and $g$ acts by homeomorphisms ($G$ is discrete and
+        each $g$ has $g^{-1}$ as inverse).
+        Choosing  $U = p\left( U_{\alpha} \right) $, we get
+        $p^{-1}(U) = \sqcup_{g \in G}U_{\alpha}
+        \cong U_{\alpha} \times G
+        \cong U \times G$  where
+        $G \in \Sm^{G}$ is precisely $G$ considered as
+        a smooth manifold with the trivial charts 
+        $g \mapsto *$, at
+        each $g \in G$. Indeed then
+        $G /G \cong *$, so
+        this satisfies the condition above.
+        I.e., the functor
+        $\Sm^{G} \to \Sm$ is locally trivial.\\
+        \linebreak
+        Lastly, we must check gluing. Namely that
+        for $M \in \Sm^{G}$ and
+        some open coordinate neighborhoods
+        $U_i,U_j,U_k \subset M /G$, with coordinate
+        maps
+        $g_{ij} \colon U_i \cap U_j \to G,
+        g_{jk} \colon U_{j} \cap U_k \to G$ and
+        $g_{ki} \colon U_{k} \cap U_i \to G$, the
+        maps satisfy
+        $g_{ik} (x) = g_{ij}(x) g_{jk}(x)$ for
+        $x \in U_i \cap U_j \cap U_k$.
+        As we saw above,
+        $p^{-1}\left( U_i \right) 
+        = U_i \times G $, and we shall call this
+        coordinate function $\varphi_i \colon
+        U_i \times G \to p^{-1}(U_i)$.
+        Let $g_{ij} (x) = 
+        \varphi_{i,x}^{-1} \varphi_{j,x}$ where
+        $\varphi_{i,x}(y) = \varphi_{i}(x,y)$ is the function
+        considered only as a function of $y$. But then
+        the condition
+        $g_{ij}(x)  g_{jk}(x) = g_{ik}(x)$ follows
+        trivially.\\
+        \linebreak
+        This completes the proof that the functor
+        we constructed $\Sm^{G}\to \Sm$ is indeed
+        a bundle theory over $\Sm$. 
+    \end{proof}
+        
+
+    \subsection{Change of fibres of bundles}
+
+    \begin{problem}[Change of fibres of bundles]
+        Let $W_0$ and $W_1$ be two smooth manifolds, and
+        let $G$ be a group which we assume as a simultaneous
+        subgroup of both $\Homeo (W_0)$ and
+        $\Homeo(W_1)$, i.e., we have injective group homomorphisms
+        $\iota_0 \colon G \hookrightarrow
+        \Homeo(W_0)$ and
+        $\iota_1 \colon G \hookrightarrow (W_1)$. Given a
+        fixed smooth manifold $M$, construct a bijection
+        $\Bun_G^{W_0}(M) \to \Bun_G^{W_1}(M)$, where
+        $\Bun_G^{W_i}(M)$ denotes the set of
+        isomorphism classes of manifold bundles with fibre
+        $W_i$ and structure group $G$ over the base
+        space $M$.
+    \end{problem}
+
+    \begin{proof}
+        Let
+        $\mathcal{B} = \left\{ B,p,M,W_0,G \right\} 
+        \in \Bun_G^{W_0}$.
+        By Theorem \ref{Equivalence-theorem}, the
+        bundle $\mathcal{B}$ is equivalent
+        to its associated principal bundle
+        $\tilde{\mathcal{B}} = 
+        \left\{ B,p,M,G,G \right\} $ which thus
+        represents the same isomorphism class.
+        But by
+        assumption, $G$ embeds into
+        $\Homeo(W_1)$, so by Theorem 
+        \ref{Existence-theorem}, also
+        $\tilde{B}$ is equivalent to
+        $\left\{ B,p,M,W_1,G \right\} =:
+        \mathcal{B}'$ which has the
+        same coordinate transformations. Thus
+        $\tilde{\mathcal{B}}$ and $\tilde{\mathcal{B}'}$
+        are equivalent.
+        Now, seeing as equivalence of bundles is purely determined
+        by their base space, fibre, structure group and
+        coordinate transformations by Lemma
+        \ref{bundle-equiv-in-terms-of-maps},
+        this gives an injective map
+        $\Bun_G^{W_0} \to \Bun_G^{W_1}$.
+        We can
+        simply use the existence theorem directly. Seeing
+        as we can do the exact same thing to obtain an
+        injective map
+        $\Bun_{G}^{W_1} \to \Bun_G^{W_0}$, we obtain
+        a bijection by Schröder-Bernstein.
+    \end{proof}
+
+    \subsection{Associated frame bundles and structure group
+    reductions}
+    I couldn't figure this one out in time.
+    \begin{problem}[Associated frame bundles and structure
+        group reductions]
+        For a rank $d$ vector bundle $\xi \colon E
+        \to M$ over a smooth manifold, we define the
+        associated frame bundle $\Fr \left( \xi \right) $ as
+        the associated $\GL_d \left( \mathbb{R} \right) $-bundle.
+        \begin{enumerate}
+            \item For $M$ a smooth $d$-dimensional manifold,
+                we define its frame bundle $\Fr(M)$ as the
+                associated frame bundle of its tangent
+                bundle $TM$. Show that $\Fr (M) \to M$ is
+                a principal $\GL_d (\mathbb{R})$-bundle.
+        \end{enumerate}
+    \end{problem}
+    
+
+
+    \subsection{Invertible Cobordisms and Boundaries of Compact
+    Manifolds}
+    \begin{problem}[Invertible cobordisms and boundaries of
+        compact manifolds]
+        Let
+        $W_0 \colon M_0 \rightsquigarrow \varnothing $ and
+        $W_1 \colon M_1 \rightsquigarrow \varnothing$ be
+        two compact $d$-dimensional smooth cobordisms
+        from compact $\left( d-1 \right) $-dimensional
+        smooth manifolds $M_0$ and $M_1$ to the
+        empty manifold, viewed as a
+        $\left( d-1 \right) $-manifold. In other words,
+        we have a smooth embedding
+        $M_i \times \mathbb{R} \hookrightarrow W_i$ satisfying
+        that $M_i \times (-\infty, 0]$ is
+        closed, and such that
+        their complement
+        $W_i - \left( M_i \times \mathbb{R} \right) $
+        is compact. We define
+        $\Int \left( W_i \right) $ to
+        be the complement of the image of
+        $M_i \times (- \infty, t]$ for some $t \in \mathbb{R}$
+        (and hence any $t \in \mathbb{R}$), and observe
+        that $\Int \left( W_i \right) $ is again a
+        smooth manifold, being an open subset of $W_i$.
+        \begin{enumerate}
+            \item Assume that in the situation of the
+                above, $\Int (W_0)$ is diffeomorphic
+                to $\Int \left( W_1 \right) $. Show that
+                $M_0$ and $M_1$ are invertibly cobordant,
+                i.e., there exists a cobordism
+                $M_0 \rightsquigarrow M_1$ which is invertible
+                in the category $\Cob_d$.
+            \item Let $W$ be a smooth, open
+                (i.e., non-compact) $d$-manifold. We define
+                a compact closure of $W$ to be a compact
+                cobordism $W' \colon
+                M \rightsquigarrow \varnothing$ such that
+                $W$ is diffeomorphic to
+                $\Int (W')$. Assume that $W$ admits
+                a compact closure $W' \colon M \rightsquigarrow
+                \varnothing$. Show that the set of
+                compact closures of $W$ up to isomorphism
+                of their interiors is in bijection with the
+                set of invertible cobordisms over $M$.
+        \end{enumerate}
+    \end{problem}
+
+    \begin{proof}
+        (1)
+
+         Saying that
+        $M_0 \rightsquigarrow M_1$ is invertible
+        in $\Cob_d$ is precisely saying that
+        there exists a cobordism
+        $M_1 \rightsquigarrow M_0$ such that the
+        composite cobordism
+        $M_0 \rightsquigarrow M_1\rightsquigarrow M_0$
+        is equivalent to the trivial cobordism
+        $M_0 \rightsquigarrow M_0$. We
+        will do this using the usual definition
+        of cobordisms with boundaries. Then
+        the problem is equivalently to show that
+        we can find coborisms
+        $M_0 \rightsquigarrow M_1\rightsquigarrow M_0$
+        such that
+        the composite
+        is a product cobordism - i.e., has Morse number
+        $0$.
+        In this case, we are dealing with closed
+        compact manifolds
+        $W_0, W_1$ such that
+        $\partial W_0 \cong M_0$ and
+        $\partial W_1 \cong M_1$. Furthermore,
+        the boundaries have closed collar
+        neighborhoods
+        $\partial W_i \times I$, and removing some open/usual collar
+        neighborhoods of these boundaries $\partial W_i \times
+        [0,1)$
+        leaves us with compact spaces which are, by
+        assumption, diffeomorphic.
+        Now, take
+        the cobordism $W_0$ and choose
+        a collar neighborhood of $\partial W_0 $:
+        $M_0 \times [0,1]$, where
+        $M_0$ is identified with $M_0 \times 0$ in $W_0$.
+        By assumption, there is a diffeomorphism
+        $W_0 - \left( M_0 \times [0,1] \right)
+        \cong W_1 - \left( M_1 \times [0,1] \right) $.
+        Now, the diffeomorphism
+        extends to the closure of the interiors
+        which is also $M_i$ since the collar is a cylinder, so
+        we obtain a diffeomorphism
+        $h \colon M_0 \times 1 \cong M_1 \times 1$. Without
+        loss of generality, we can reparametrize, to get the
+        diffeomorphism
+        $h \colon M_0 \times 1 \to M_1 \times 0$ since
+        the boundaries of the interiors must map to each other.
+        Now we can glue the collars by gluing the cobordisms
+        they represent using theorem 1.4 in Milnor's book
+        on h-cobordisms to get a cobordism
+        $c_h $ which is the manifold
+        $M_0 \times [0,1] \cup_h M_1 \times [0,1]$.
+        This indeed now gives a cobordism
+        $M_0 \rightsquigarrow M_1$. We can likewise
+        obtain the cobordism
+        $M_1  \rightsquigarrow M_0 $ which is also obtained
+        by gluing
+        $M_1 \times [0,1]$ with $M_0\times  [0,1]$ along
+        $M_1 \times 1$ and $M_0 \times 0$. Denote this
+        cobordism by $c_{h'}$.
+        We claim that $c_{h} c_{h'} = \id_{M_0}$. That is, that
+        $c_{h} c_{h'}$ is a product cobordism/trivial cobordism
+        of $M_0$. One way to see this is
+        by using theorem 1.6 in Milnor's book on $h$-cobordisms
+        which says that
+        $c_{h} c_{h'} = c_{h' h} = c_{\id_{M_0}}$ which indeed
+        is the trivial cobordism.
+        Alternatively, each collar neighborhood has no
+        critical values, so
+        $c_h$ and $c_{h'}$ both have Morse number $0$, and
+        then corollary 3.8 in Milnor's book on
+        $h$-cobordisms gives that
+        $c_h c_{h'}$ also has Morse number $0$, hence
+        is trivial by theorem 3.4 in the same book.
+    \end{proof}
+
+
+\printbibliography
+\end{document}

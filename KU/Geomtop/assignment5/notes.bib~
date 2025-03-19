@@ -1,0 +1,18 @@
+@book {Riehl,
+    AUTHOR = {Riehl, Emily},
+     TITLE = {Category theory in context},
+ PUBLISHER = {Dover Publications, Inc., Mineola, NY},
+      YEAR = {2016},
+}
+
+@book {Steenrod,
+    AUTHOR = {Steenrod, Norman},
+     TITLE = {The topology of fibre bundles},
+    SERIES = {Princeton Landmarks in Mathematics},
+      NOTE = {Reprint of the 1957 edition,
+              Princeton Paperbacks},
+ PUBLISHER = {Princeton University Press, Princeton, NJ},
+      YEAR = {1999},
+     PAGES = {viii+229},
+      ISBN = {0-691-00548-6},
+}

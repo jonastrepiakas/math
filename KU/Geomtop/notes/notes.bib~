@@ -1,0 +1,43 @@
+@book {Riehl,
+    AUTHOR = {Riehl, Emily},
+     TITLE = {Category theory in context},
+ PUBLISHER = {Dover Publications, Inc., Mineola, NY},
+      YEAR = {2016},
+}
+
+@book {Steenrod,
+    AUTHOR = {Steenrod, Norman},
+     TITLE = {The topology of fibre bundles},
+    SERIES = {Princeton Landmarks in Mathematics},
+      NOTE = {Reprint of the 1957 edition,
+              Princeton Paperbacks},
+ PUBLISHER = {Princeton University Press, Princeton, NJ},
+      YEAR = {1999},
+     PAGES = {viii+229},
+      ISBN = {0-691-00548-6},
+}
+
+@book {Milnor-Morse,
+    AUTHOR = {Milnor, J.},
+     TITLE = {Morse theory},
+    SERIES = {Annals of Mathematics Studies, No. 51},
+      NOTE = {Based on lecture notes by M. Spivak and R. Wells},
+ PUBLISHER = {Princeton University Press, Princeton, NJ},
+      YEAR = {1963},
+     PAGES = {vi+153},
+   MRCLASS = {57.50 (53.72)},
+  MRNUMBER = {163331},
+MRREVIEWER = {H. I. Levine},
+}
+
+@book {Milnor-h-cobordism,
+    AUTHOR = {Milnor, John},
+     TITLE = {Lectures on the {$h$}-cobordism theorem},
+      NOTE = {Notes by L. Siebenmann and J. Sondow},
+ PUBLISHER = {Princeton University Press, Princeton, NJ},
+      YEAR = {1965},
+     PAGES = {v+116},
+   MRCLASS = {57.10},
+  MRNUMBER = {190942},
+MRREVIEWER = {P. E. Conner},
+}
