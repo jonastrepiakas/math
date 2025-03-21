@@ -1,15 +1,15 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
 [0] Config.pm:310> INFO - Logfile is 'notes.blg'
-[88] biber:340> INFO - === Wed Mar 19, 2025, 19:11:31
-[103] Biber.pm:419> INFO - Reading 'notes.bcf'
-[156] Biber.pm:979> INFO - Found 2 citekeys in bib section 0
-[165] Biber.pm:4419> INFO - Processing section 0
-[174] Biber.pm:4610> INFO - Looking for bibtex file 'notes.bib' for section 0
-[175] bibtex.pm:1713> INFO - LaTeX decoding ...
-[180] bibtex.pm:1519> INFO - Found BibTeX data source 'notes.bib'
-[223] UCollate.pm:68> INFO - Overriding locale 'nil' defaults 'variable = shifted' with 'variable = non-ignorable'
-[224] UCollate.pm:68> INFO - Overriding locale 'nil' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[224] Biber.pm:4239> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'nil'
-[224] Biber.pm:4245> INFO - No sort tailoring available for locale 'nil'
-[226] bbl.pm:660> INFO - Writing 'notes.bbl' with encoding 'UTF-8'
-[226] bbl.pm:763> INFO - Output to notes.bbl
+[125] biber:340> INFO - === Fri Mar 21, 2025, 00:24:54
+[144] Biber.pm:419> INFO - Reading 'notes.bcf'
+[229] Biber.pm:979> INFO - Found 6 citekeys in bib section 0
+[245] Biber.pm:4419> INFO - Processing section 0
+[259] Biber.pm:4610> INFO - Looking for bibtex file 'notes.bib' for section 0
+[260] bibtex.pm:1713> INFO - LaTeX decoding ...
+[273] bibtex.pm:1519> INFO - Found BibTeX data source 'notes.bib'
+[360] UCollate.pm:68> INFO - Overriding locale 'nil' defaults 'variable = shifted' with 'variable = non-ignorable'
+[360] UCollate.pm:68> INFO - Overriding locale 'nil' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[360] Biber.pm:4239> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'nil'
+[361] Biber.pm:4245> INFO - No sort tailoring available for locale 'nil'
+[367] bbl.pm:660> INFO - Writing 'notes.bbl' with encoding 'UTF-8'
+[370] bbl.pm:763> INFO - Output to notes.bbl

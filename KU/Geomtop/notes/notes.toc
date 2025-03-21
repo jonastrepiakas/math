@@ -1,27 +1,33 @@
 \babel@toc {nil}{}\relax 
-\contentsline {section}{\tocsection {}{1}{Continuous maps}}{1}{section.1}%
-\contentsline {section}{\tocsection {}{2}{Bundles}}{1}{section.2}%
-\contentsline {subsection}{\tocsubsection {}{2.1}{Fibre Bundle Theory}}{1}{subsection.2.1}%
-\contentsline {subsubsection}{\tocsubsubsection {}{2.1.1}{Coordinate bundles and fibre bundles}}{4}{subsubsection.2.1.1}%
-\contentsline {subsubsection}{\tocsubsubsection {}{2.1.2}{Construction of a bundle from coordinate transformations}}{7}{subsubsection.2.1.2}%
-\contentsline {subsubsection}{\tocsubsubsection {}{2.1.3}{Factor/Quotient/Coset Spaces of Groups}}{7}{subsubsection.2.1.3}%
-\contentsline {subsubsection}{\tocsubsubsection {}{2.1.4}{Enlarging the group of a bundle}}{7}{subsubsection.2.1.4}%
-\contentsline {subsubsection}{\tocsubsubsection {}{2.1.5}{The Principal Bundle and the Principal Map}}{8}{subsubsection.2.1.5}%
-\contentsline {subsubsection}{\tocsubsubsection {}{2.1.6}{Associated bundles and relative bundles}}{9}{subsubsection.2.1.6}%
-\contentsline {subsubsection}{\tocsubsubsection {}{2.1.7}{The canonical section of a relative bundle}}{10}{subsubsection.2.1.7}%
-\contentsline {subsubsection}{\tocsubsubsection {}{2.1.8}{Structure Group Reduction}}{10}{subsubsection.2.1.8}%
-\contentsline {subsubsection}{\tocsubsubsection {}{2.1.9}{Associated frame bundles and structure group reductions}}{10}{subsubsection.2.1.9}%
-\contentsline {subsubsection}{\tocsubsubsection {}{2.1.10}{The Induced Bundle}}{11}{subsubsection.2.1.10}%
-\contentsline {subsection}{\tocsubsection {}{2.2}{A Bundle Theory}}{12}{subsection.2.2}%
-\contentsline {subsection}{\tocsubsection {}{2.3}{Principal $G$-bundles}}{13}{subsection.2.3}%
-\contentsline {subsection}{\tocsubsection {}{2.4}{Vector Bundles}}{17}{subsection.2.4}%
-\contentsline {subsection}{\tocsubsection {}{2.5}{Gluing vector bundles}}{18}{subsection.2.5}%
-\contentsline {subsection}{\tocsubsection {}{2.6}{Examples of Vector Bundles}}{18}{subsection.2.6}%
-\contentsline {section}{\tocsection {}{3}{Morse Theory}}{18}{section.3}%
-\contentsline {subsection}{\tocsubsection {}{3.1}{The Cobordism Category}}{18}{subsection.3.1}%
-\contentsline {subsubsection}{\tocsubsubsection {}{3.1.1}{Isotopies and Pseudo-Isotopies}}{20}{subsubsection.3.1.1}%
-\contentsline {subsubsection}{\tocsubsubsection {}{3.1.2}{Interlude}}{21}{subsubsection.3.1.2}%
-\contentsline {subsection}{\tocsubsection {}{3.2}{Elementary Cobordisms}}{22}{subsection.3.2}%
-\contentsline {subsubsection}{\tocsubsubsection {}{3.2.1}{Problems}}{23}{subsubsection.3.2.1}%
-\contentsline {subsection}{\tocsubsection {}{3.3}{Morse Functions}}{24}{subsection.3.3}%
-\contentsline {section}{\tocsection {}{}{References}}{25}{section*.4}%
+\contentsline {section}{\tocsection {}{1}{Introduction}}{1}{section.1}%
+\contentsline {section}{\tocsection {}{2}{Continuous maps}}{1}{section.2}%
+\contentsline {section}{\tocsection {}{3}{Smooth Maps}}{2}{section.3}%
+\contentsline {section}{\tocsection {}{4}{Bundles}}{3}{section.4}%
+\contentsline {subsection}{\tocsubsection {}{4.1}{Fibre Bundle Theory}}{3}{subsection.4.1}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.1.1}{Coordinate bundles and fibre bundles}}{5}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.1.2}{Construction of a bundle from coordinate transformations}}{8}{subsubsection.4.1.2}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.1.3}{Factor/Quotient/Coset Spaces of Groups}}{8}{subsubsection.4.1.3}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.1.4}{Enlarging the group of a bundle}}{8}{subsubsection.4.1.4}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.1.5}{The Principal Bundle and the Principal Map}}{9}{subsubsection.4.1.5}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.1.6}{Associated bundles and relative bundles}}{10}{subsubsection.4.1.6}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.1.7}{The canonical section of a relative bundle}}{11}{subsubsection.4.1.7}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.1.8}{Structure Group Reduction}}{11}{subsubsection.4.1.8}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.1.9}{Associated frame bundles and structure group reductions}}{11}{subsubsection.4.1.9}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.1.10}{The Induced Bundle}}{12}{subsubsection.4.1.10}%
+\contentsline {subsection}{\tocsubsection {}{4.2}{A Bundle Theory}}{13}{subsection.4.2}%
+\contentsline {subsection}{\tocsubsection {}{4.3}{Principal $G$-bundles}}{14}{subsection.4.3}%
+\contentsline {subsection}{\tocsubsection {}{4.4}{Vector Bundles}}{18}{subsection.4.4}%
+\contentsline {subsection}{\tocsubsection {}{4.5}{Frames}}{19}{subsection.4.5}%
+\contentsline {subsection}{\tocsubsection {}{4.6}{Gluing vector bundles}}{20}{subsection.4.6}%
+\contentsline {subsection}{\tocsubsection {}{4.7}{Riemannian metrics}}{21}{subsection.4.7}%
+\contentsline {subsection}{\tocsubsection {}{4.8}{Examples of Vector Bundles}}{21}{subsection.4.8}%
+\contentsline {section}{\tocsection {}{5}{Morse Theory}}{22}{section.5}%
+\contentsline {subsection}{\tocsubsection {}{5.1}{Definitions and Lemmas}}{22}{subsection.5.1}%
+\contentsline {subsection}{\tocsubsection {}{5.2}{Homotopy Type in Terms of Critical Values}}{23}{subsection.5.2}%
+\contentsline {subsection}{\tocsubsection {}{5.3}{The Cobordism Category}}{23}{subsection.5.3}%
+\contentsline {subsubsection}{\tocsubsubsection {}{5.3.1}{Isotopies and Pseudo-Isotopies}}{25}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\tocsubsubsection {}{5.3.2}{Interlude}}{26}{subsubsection.5.3.2}%
+\contentsline {subsection}{\tocsubsection {}{5.4}{Elementary Cobordisms}}{26}{subsection.5.4}%
+\contentsline {subsubsection}{\tocsubsubsection {}{5.4.1}{Problems}}{28}{subsubsection.5.4.1}%
+\contentsline {subsection}{\tocsubsection {}{5.5}{Morse Functions}}{29}{subsection.5.5}%
+\contentsline {section}{\tocsection {}{}{References}}{31}{section*.4}%

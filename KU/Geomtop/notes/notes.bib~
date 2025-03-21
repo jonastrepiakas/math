@@ -41,3 +41,41 @@ MRREVIEWER = {H. I. Levine},
   MRNUMBER = {190942},
 MRREVIEWER = {P. E. Conner},
 }
+
+@book {Hirsch,
+    AUTHOR = {Hirsch, Morris W.},
+     TITLE = {Differential topology},
+    SERIES = {Graduate Texts in Mathematics},
+    VOLUME = {33},
+      NOTE = {Corrected reprint of the 1976 original},
+ PUBLISHER = {Springer-Verlag, New York},
+      YEAR = {1994},
+     PAGES = {x+222},
+      ISBN = {0-387-90148-5},
+   MRCLASS = {57-01 (58-01)},
+  MRNUMBER = {1336822},
+}
+
+
+@book {LeeSM,
+    AUTHOR = {Lee, John M.},
+     TITLE = {Introduction to smooth manifolds},
+    SERIES = {Graduate Texts in Mathematics},
+    VOLUME = {218},
+   EDITION = {Second},
+ PUBLISHER = {Springer, New York},
+      YEAR = {2013},
+     PAGES = {xvi+708},
+      ISBN = {978-1-4419-9981-8},
+   MRCLASS = {58-01 (53-01 57-01)},
+  MRNUMBER = {2954043},
+}
+
+@book {KMS,
+    AUTHOR = {Kol\'{a}\v{r}, Ivan and Michor, Peter W. and Slov\'{a}k, Jan},
+     TITLE = {Natural operations in differential geometry},
+ PUBLISHER = {Springer-Verlag, Berlin},
+      YEAR = {1993},
+     PAGES = {vi+434},
+      ISBN = {3-540-56235-4},
+}

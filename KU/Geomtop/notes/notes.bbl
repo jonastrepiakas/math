@@ -19,6 +19,130 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{Hirsch}{book}{}
+      \name{author}{1}{}{%
+        {{hash=697b9e10d72a5f4aec2034a99cf01a9b}{%
+           family={Hirsch},
+           familyi={H\bibinitperiod},
+           given={Morris\bibnamedelima W.},
+           giveni={M\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag, New York}%
+      }
+      \strng{namehash}{697b9e10d72a5f4aec2034a99cf01a9b}
+      \strng{fullhash}{697b9e10d72a5f4aec2034a99cf01a9b}
+      \strng{bibnamehash}{697b9e10d72a5f4aec2034a99cf01a9b}
+      \strng{authorbibnamehash}{697b9e10d72a5f4aec2034a99cf01a9b}
+      \strng{authornamehash}{697b9e10d72a5f4aec2034a99cf01a9b}
+      \strng{authorfullhash}{697b9e10d72a5f4aec2034a99cf01a9b}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0-387-90148-5}
+      \field{note}{Corrected reprint of the 1976 original}
+      \field{series}{Graduate Texts in Mathematics}
+      \field{title}{Differential topology}
+      \field{volume}{33}
+      \field{year}{1994}
+      \field{pages}{x+222}
+      \range{pages}{-1}
+    \endentry
+    \entry{KMS}{book}{}
+      \name{author}{3}{}{%
+        {{hash=23b5fe7687b89f61df17ff556492f68b}{%
+           family={Kolář},
+           familyi={K\bibinitperiod},
+           given={Ivan},
+           giveni={I\bibinitperiod}}}%
+        {{hash=3bae7b7b7e040a1bb6da07c1fd1b7be0}{%
+           family={Michor},
+           familyi={M\bibinitperiod},
+           given={Peter\bibnamedelima W.},
+           giveni={P\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=1de565ba45b2d6d14f4d8856f104184b}{%
+           family={Slovák},
+           familyi={S\bibinitperiod},
+           given={Jan},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag, Berlin}%
+      }
+      \strng{namehash}{70ee3ee999abcaccdced35d5e0b1c5b6}
+      \strng{fullhash}{70ee3ee999abcaccdced35d5e0b1c5b6}
+      \strng{bibnamehash}{70ee3ee999abcaccdced35d5e0b1c5b6}
+      \strng{authorbibnamehash}{70ee3ee999abcaccdced35d5e0b1c5b6}
+      \strng{authornamehash}{70ee3ee999abcaccdced35d5e0b1c5b6}
+      \strng{authorfullhash}{70ee3ee999abcaccdced35d5e0b1c5b6}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{3-540-56235-4}
+      \field{title}{Natural operations in differential geometry}
+      \field{year}{1993}
+      \field{pages}{vi+434}
+      \range{pages}{-1}
+    \endentry
+    \entry{LeeSM}{book}{}
+      \name{author}{1}{}{%
+        {{hash=36896354ee3aedc1a13d683ea773634e}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={John\bibnamedelima M.},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer, New York}%
+      }
+      \strng{namehash}{36896354ee3aedc1a13d683ea773634e}
+      \strng{fullhash}{36896354ee3aedc1a13d683ea773634e}
+      \strng{bibnamehash}{36896354ee3aedc1a13d683ea773634e}
+      \strng{authorbibnamehash}{36896354ee3aedc1a13d683ea773634e}
+      \strng{authornamehash}{36896354ee3aedc1a13d683ea773634e}
+      \strng{authorfullhash}{36896354ee3aedc1a13d683ea773634e}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{Second}
+      \field{isbn}{978-1-4419-9981-8}
+      \field{series}{Graduate Texts in Mathematics}
+      \field{title}{Introduction to smooth manifolds}
+      \field{volume}{218}
+      \field{year}{2013}
+      \field{pages}{xvi+708}
+      \range{pages}{-1}
+    \endentry
+    \entry{Milnor-h-cobordism}{book}{}
+      \name{author}{1}{}{%
+        {{hash=6ed546ba346b01635423d8131e45906b}{%
+           family={Milnor},
+           familyi={M\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Princeton University Press, Princeton, NJ}%
+      }
+      \strng{namehash}{6ed546ba346b01635423d8131e45906b}
+      \strng{fullhash}{6ed546ba346b01635423d8131e45906b}
+      \strng{bibnamehash}{6ed546ba346b01635423d8131e45906b}
+      \strng{authorbibnamehash}{6ed546ba346b01635423d8131e45906b}
+      \strng{authornamehash}{6ed546ba346b01635423d8131e45906b}
+      \strng{authorfullhash}{6ed546ba346b01635423d8131e45906b}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Notes by L. Siebenmann and J. Sondow}
+      \field{title}{Lectures on the {$h$}-cobordism theorem}
+      \field{year}{1965}
+      \field{pages}{v+116}
+      \range{pages}{-1}
+    \endentry
     \entry{Riehl}{book}{}
       \name{author}{1}{}{%
         {{hash=45a94503b2898b54c4e429a46414d3ad}{%

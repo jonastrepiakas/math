@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  19 MAR 2025 19:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  21 MAR 2025 12:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -793,247 +793,338 @@ Package biblatex Info: Reference segment=0 on input line 158.
 \openout6 = `notes.toc'.
 
 
-Overfull \hbox (13.44223pt too wide) in paragraph at lines 178--182
+Overfull \hbox (13.44223pt too wide) in paragraph at lines 183--187
 []$\OML/cmm/m/it/10 f$ \T1/cmr/m/n/10 is an embedding if it is an immersion, injective and induces a homeomorphism
  []
 
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}] [2]
-Overfull \hbox (3.02466pt too wide) in paragraph at lines 335--342
+
+Underfull \hbox (badness 10000) in paragraph at lines 210--213
+
+ []
+
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
+Overfull \hbox (1.30066pt too wide) in paragraph at lines 285--300
+\T1/cmr/m/n/10 patches together on the different parts of the manifold to give arbitrarily complicated
+ []
+
+[2] [3]
+Overfull \hbox (3.02466pt too wide) in paragraph at lines 444--451
 \T1/cmr/m/n/10 any $\OML/cmm/m/it/10 X \OMS/cmsy/m/n/10 2 []$\T1/cmr/m/n/10 . So the product $\OML/cmm/m/it/10 E \OMS/cmsy/m/n/10 ^^B[] \OML/cmm/m/it/10 E[]$ \T1/cmr/m/n/10 exists in $[] \OML/cmm/m/it/10 =X$ \T1/cmr/m/n/10 for any $[] \OML/cmm/m/it/10 ; [] \OMS/cmsy/m/n/10 2
  []
 
 
-Overfull \hbox (11.49678pt too wide) in paragraph at lines 355--367
+Overfull \hbox (11.49678pt too wide) in paragraph at lines 464--476
 \OML/cmm/m/it/10 K$ \T1/cmr/m/n/10 be a topological group acting on a Hausdorff space $\OML/cmm/m/it/10 F$ \T1/cmr/m/n/10 as a group of homeomorphisms.
  []
 
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 430--436
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 539--545
 
  []
 
-[4] [5]
-Overfull \hbox (12.49068pt too wide) in paragraph at lines 584--591
+[5] [6]
+Overfull \hbox (12.49068pt too wide) in paragraph at lines 693--700
 []\T1/cmr/m/n/10 In particular, since $[][]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )$ \T1/cmr/m/n/10 acts by some $\OML/cmm/m/it/10 g \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 G$ \T1/cmr/m/n/10 on $\OML/cmm/m/it/10 Y$ \T1/cmr/m/n/10 which is through homeomorphisms,
  []
 
 
-Overfull \hbox (7.33643pt too wide) in paragraph at lines 584--591
+Overfull \hbox (7.33643pt too wide) in paragraph at lines 693--700
 \T1/cmr/m/n/10 we obtain that since $\OML/cmm/m/it/10 '[]$ \T1/cmr/m/n/10 and $\OML/cmm/m/it/10 '[]$ \T1/cmr/m/n/10 are also homeomorphisms, $\OML/cmm/m/it/10 h[]$ \T1/cmr/m/n/10 is a homeomorphism
  []
 
 
-Overfull \hbox (18.27602pt too wide) in paragraph at lines 660--667
+Overfull \hbox (18.27602pt too wide) in paragraph at lines 769--776
 \T1/cmr/m/it/10 group and coordinate neighborhoods. Let $\OML/cmm/m/it/10 g[]; g[]$ \T1/cmr/m/it/10 denote their coordinate transformations.
  []
 
-[6]
-Overfull \hbox (1.22652pt too wide) in paragraph at lines 717--726
+[7]
+Overfull \hbox (1.22652pt too wide) in paragraph at lines 826--835
 \T1/cmr/m/it/10 exists a bundle $\OMS/cmsy/m/n/10 B$ \T1/cmr/m/it/10 with base space $\OML/cmm/m/it/10 X$\T1/cmr/m/it/10 , fibre $\OML/cmm/m/it/10 Y$\T1/cmr/m/it/10 , group $\OML/cmm/m/it/10 G$ \T1/cmr/m/it/10 and coordinate transformations
  []
 
 
-Overfull \hbox (1.79977pt too wide) in paragraph at lines 744--752
- \T1/cmr/m/n/10 2.1.4.\T1/cmr/m/it/10 Enlarging the group of a bundle.[] \T1/cmr/m/n/10 Let $\OML/cmm/m/it/10 H$ \T1/cmr/m/n/10 be a closed subgroup of the topological
+Overfull \hbox (1.79977pt too wide) in paragraph at lines 853--861
+ \T1/cmr/m/n/10 4.1.4.\T1/cmr/m/it/10 Enlarging the group of a bundle.[] \T1/cmr/m/n/10 Let $\OML/cmm/m/it/10 H$ \T1/cmr/m/n/10 be a closed subgroup of the topological
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 744--752
+Underfull \hbox (badness 10000) in paragraph at lines 853--861
 
  []
 
-[7] [8]
-Overfull \hbox (5.06801pt too wide) in paragraph at lines 883--908
+[8] [9]
+Overfull \hbox (5.06801pt too wide) in paragraph at lines 992--1017
 \T1/cmr/m/n/10 equivalent to its associated principal bundle $[] \OT1/cmr/m/n/10 = []$\T1/cmr/m/n/10 . But by assumption,
  []
 
 
-Overfull \hbox (29.21922pt too wide) in paragraph at lines 883--908
-\OML/cmm/m/it/10 G$ \T1/cmr/m/n/10 embeds into $[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 W[]\OT1/cmr/m/n/10 )$\T1/cmr/m/n/10 , so by Theorem [][]2.26[][], also $[]$ is equivalent to $[] \OT1/cmr/m/n/10 =:
- []
-
-[9]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1024.
- (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-)
-Overfull \hbox (24.10065pt too wide) in paragraph at lines 1023--1025
-[]\T1/cmr/m/n/10 Tomorrow, check out the link [][]$\T1/cmtt/m/n/10 https : / / math . stackexchange . com / questions / 2015174 /
+Overfull \hbox (29.21922pt too wide) in paragraph at lines 992--1017
+\OML/cmm/m/it/10 G$ \T1/cmr/m/n/10 embeds into $[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 W[]\OT1/cmr/m/n/10 )$\T1/cmr/m/n/10 , so by Theorem [][]4.26[][], also $[]$ is equivalent to $[] \OT1/cmr/m/n/10 =:
  []
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 1120--1123
-
- []
-
-
-Overfull \hbox (18.6715pt too wide) in paragraph at lines 1172--1187
-\OML/cmm/m/it/10 B[]$ \T1/cmr/m/n/10 be the natural projections. Define $\OML/cmm/m/it/10 B \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 X \OMS/cmsy/m/n/10 ^^B[] \OML/cmm/m/it/10 B[] \OT1/cmr/m/n/10 := []$
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1133.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
+Overfull \hbox (24.10065pt too wide) in paragraph at lines 1132--1134
+[]\T1/cmr/m/n/10 Tomorrow, check out the link [][]$\T1/cmtt/m/n/10 https : / / math . stackexchange . com / questions / 2015174 /
  []
 
 [11]
-Overfull \hbox (1.50336pt too wide) in paragraph at lines 1190--1230
+Underfull \hbox (badness 10000) in paragraph at lines 1229--1232
+
+ []
+
+
+Overfull \hbox (18.6715pt too wide) in paragraph at lines 1281--1296
+\OML/cmm/m/it/10 B[]$ \T1/cmr/m/n/10 be the natural projections. Define $\OML/cmm/m/it/10 B \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 X \OMS/cmsy/m/n/10 ^^B[] \OML/cmm/m/it/10 B[] \OT1/cmr/m/n/10 := []$
+ []
+
+[12]
+Overfull \hbox (1.50336pt too wide) in paragraph at lines 1299--1339
 \OML/cmm/m/it/10 B$ \T1/cmr/m/n/10 if and only if $\OML/cmm/m/it/10 ^^Q\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 p[] []$\T1/cmr/m/n/10 , but this is true by assumption. Furthermore,
  []
 
-LaTeX Font Info:    Trying to load font information for U+bbm on input line 1307.
+LaTeX Font Info:    Trying to load font information for U+bbm on input line 1416.
 (/usr/share/texlive/texmf-dist/tex/latex/bbm-macros/ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 )
 Underfull \vbox (badness 1137) has occurred while \output is active []
 
- [12]
-Overfull \hbox (2.14061pt too wide) in paragraph at lines 1320--1328
-[][]\T1/cmr/bx/n/10 Definition 2.49 \T1/cmr/m/n/10 (Bundle Theory)\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 A bundle theory is a functor from some arbitrary
+ [13]
+Overfull \hbox (2.14061pt too wide) in paragraph at lines 1429--1437
+[][]\T1/cmr/bx/n/10 Definition 4.49 \T1/cmr/m/n/10 (Bundle Theory)\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 A bundle theory is a functor from some arbitrary
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1372.
+(hyperref)                removing `math shift' on input line 1481.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1372.
+(hyperref)                removing `math shift' on input line 1481.
 
-[13]
-Underfull \hbox (badness 10000) in paragraph at lines 1440--1463
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 1549--1572
 
  []
 
 
 Underfull \vbox (badness 2012) has occurred while \output is active []
 
- [14]
-Underfull \hbox (badness 10000) in paragraph at lines 1528--1531
+ [15]
+Underfull \hbox (badness 10000) in paragraph at lines 1637--1640
 
  []
 
 
-Overfull \hbox (7.03262pt too wide) detected at line 1561
+Overfull \hbox (7.03262pt too wide) detected at line 1670
 \OML/cmm/m/it/10 h [] \OT1/cmr/m/n/10 = [] = [] = \OML/cmm/m/it/10 g \OMS/cmsy/m/n/10 ^^A [] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 g \OMS/cmsy/m/n/10 ^^A \OML/cmm/m/it/10 h\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ;
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1561--1578
+Underfull \hbox (badness 10000) in paragraph at lines 1670--1687
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1598--1651
+Underfull \hbox (badness 10000) in paragraph at lines 1707--1760
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1598--1651
+Underfull \hbox (badness 10000) in paragraph at lines 1707--1760
 
  []
 
-[15] [16]
-Overfull \hbox (12.31697pt too wide) in paragraph at lines 1717--1721
-[][]\T1/cmr/bx/n/10 Definition 2.53 \T1/cmr/m/n/10 ($[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 )$\T1/cmr/m/n/10 )\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 Topological vector bundles over $\OML/cmm/m/it/10 X$ \T1/cmr/m/n/10 and bundle morphisms
+[16] [17]
+Overfull \hbox (12.31697pt too wide) in paragraph at lines 1826--1830
+[][]\T1/cmr/bx/n/10 Definition 4.53 \T1/cmr/m/n/10 ($[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 )$\T1/cmr/m/n/10 )\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 Topological vector bundles over $\OML/cmm/m/it/10 X$ \T1/cmr/m/n/10 and bundle morphisms
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1733--1740
+Underfull \hbox (badness 10000) in paragraph at lines 1842--1849
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1741--1753
+Underfull \hbox (badness 10000) in paragraph at lines 1850--1862
 
  []
 
-[17]
-Overfull \hbox (12.5007pt too wide) in paragraph at lines 1807--1814
-[][]\T1/cmr/bx/n/10 Proposition 2.56 \T1/cmr/m/n/10 (Topological vector bundles reconstructed from transition functions
+[18] [19]
+Overfull \hbox (5.60846pt too wide) in paragraph at lines 2034--2037
+[][]\T1/cmr/bx/n/10 Proposition 4.61. []\T1/cmr/m/it/10 Every smooth local frame for a smooth vector bundle is associated
  []
 
 
-Overfull \hbox (1.23907pt too wide) in paragraph at lines 1868--1879
-[][]\T1/cmr/bx/n/10 Lemma 2.58 \T1/cmr/m/n/10 (Orientation cover)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 Using the exerior power bundle, we can construct
+Overfull \hbox (12.5007pt too wide) in paragraph at lines 2067--2074
+[][]\T1/cmr/bx/n/10 Proposition 4.63 \T1/cmr/m/n/10 (Topological vector bundles reconstructed from transition functions
  []
 
-[18]
-Overfull \hbox (3.795pt too wide) in paragraph at lines 1915--1923
-[][]\T1/cmr/bx/n/10 Theorem 3.3. []\T1/cmr/m/it/10 There exists a smooth structure which is unique up to diffeomorphism
+[20] [21]
+Overfull \hbox (1.23907pt too wide) in paragraph at lines 2281--2292
+[][]\T1/cmr/bx/n/10 Lemma 4.72 \T1/cmr/m/n/10 (Orientation cover)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 Using the exerior power bundle, we can construct
+ []
+
+[22]
+Overfull \hbox (7.29585pt too wide) in paragraph at lines 2428--2434
+[][]\T1/cmr/bx/n/10 Problem 5.9 \T1/cmr/m/n/10 (Reeb's Theorem)\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 Let $\OML/cmm/m/it/10 M$ \T1/cmr/m/n/10 be a smooth, compact manifold of dimension
  []
 
 
-Overfull \hbox (27.41504pt too wide) in paragraph at lines 1940--1948
-[][]\T1/cmr/bx/n/10 Definition 3.5 \T1/cmr/m/n/10 (Equivalence)\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 Two cobordisms $[]$ and $[]$
+Overfull \hbox (6.7737pt too wide) in paragraph at lines 2447--2457
+\T1/cmr/m/n/10 and $\OML/cmm/m/it/10 h [] [] V[] \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 V[]$ \T1/cmr/m/n/10 is a diffeomorphism, then we can form a third triad $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1959--1980
+Overfull \hbox (9.5436pt too wide) in paragraph at lines 2460--2468
+[][]\T1/cmr/bx/n/10 Theorem 5.12. []\T1/cmr/m/it/10 There exists a smooth structure which is unique up to diffeomorphism
+ []
+
+
+Overfull \hbox (33.16364pt too wide) in paragraph at lines 2485--2493
+[][]\T1/cmr/bx/n/10 Definition 5.14 \T1/cmr/m/n/10 (Equivalence)\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 Two cobordisms $[]$ and $[]$
+ []
+
+[23]
+Underfull \hbox (badness 10000) in paragraph at lines 2504--2525
 
  []
 
-<cobordism-example-1.png, id=279, 632.3625pt x 165.61874pt>
+<cobordism-example-1.png, id=384, 632.3625pt x 165.61874pt>
 File: cobordism-example-1.png Graphic file (type png)
 <use cobordism-example-1.png>
-Package pdftex.def Info: cobordism-example-1.png  used on input line 2008.
+Package pdftex.def Info: cobordism-example-1.png  used on input line 2553.
 (pdftex.def)             Requested size: 288.0011pt x 75.42992pt.
-[19 <./cobordism-example-1.png>]
-Overfull \hbox (26.09476pt too wide) in paragraph at lines 2122--2137
+[24 <./cobordism-example-1.png>]
+Overfull \hbox (26.09476pt too wide) in paragraph at lines 2667--2682
 \T1/cmr/m/n/10 Two diffeomorphisms $\OML/cmm/m/it/10 h[]; h[] [] [] M \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 M[]$ \T1/cmr/m/n/10 are \T1/cmr/m/it/10 pseudo-isotopic \T1/cmr/m/n/10 if there exists a diffeomorphism
  []
 
 
-Overfull \hbox (38.07237pt too wide) in paragraph at lines 2157--2185
+Overfull \hbox (38.07237pt too wide) in paragraph at lines 2702--2730
 [] \OMS/cmsy/m/n/10 ^^N \OML/cmm/m/it/10 g$ \T1/cmr/m/n/10 is indeed a map $\OML/cmm/m/it/10 M \OMS/cmsy/m/n/10 ^^B \OML/cmm/m/it/10 I \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 M \OMS/cmsy/m/n/10 ^^B \OML/cmm/m/it/10 I$\T1/cmr/m/n/10 . If we write $\OML/cmm/m/it/10 c[] \OT1/cmr/m/n/10 = []$
  []
 
 
-Overfull \hbox (48.60718pt too wide) in paragraph at lines 2157--2185
+Overfull \hbox (48.60718pt too wide) in paragraph at lines 2702--2730
 \OML/cmm/m/it/10 k[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; \OT1/cmr/m/n/10 1) = \OML/cmm/m/it/10 h[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )$ \T1/cmr/m/n/10 and $\OML/cmm/m/it/10 k[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; \OT1/cmr/m/n/10 1) = \OML/cmm/m/it/10 h[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )$\T1/cmr/m/n/10 , then firstly, $[] \OMS/cmsy/m/n/10 ^^N \OML/cmm/m/it/10 g\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; \OT1/cmr/m/n/10 0) = [] [] =
  []
 
-[20]
-Overfull \hbox (10.44795pt too wide) in paragraph at lines 2212--2224
-[][]\T1/cmr/bx/n/10 Definition 3.15. []\T1/cmr/m/n/10 A smooth compact $\OML/cmm/m/it/10 n$\T1/cmr/m/n/10 -dimensional manifold is said to be a cobordism
+
+Overfull \hbox (10.44795pt too wide) in paragraph at lines 2757--2769
+[][]\T1/cmr/bx/n/10 Definition 5.24. []\T1/cmr/m/n/10 A smooth compact $\OML/cmm/m/it/10 n$\T1/cmr/m/n/10 -dimensional manifold is said to be a cobordism
+ []
+
+[25]
+Overfull \hbox (6.19627pt too wide) in paragraph at lines 2773--2777
+[][]\T1/cmr/bx/n/10 Definition 5.25 \T1/cmr/m/n/10 (Gluing cobordisms/composition of cobordisms)\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 Given cobordisms
  []
 
 
-Overfull \hbox (6.19627pt too wide) in paragraph at lines 2228--2232
-[][]\T1/cmr/bx/n/10 Definition 3.16 \T1/cmr/m/n/10 (Gluing cobordisms/composition of cobordisms)\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 Given cobordisms
- []
-
-[21]
-Overfull \hbox (45.00595pt too wide) in paragraph at lines 2302--2315
+Overfull \hbox (45.00595pt too wide) in paragraph at lines 2847--2860
 []\T1/cmr/m/n/10 Given any critical point $\OML/cmm/m/it/10 p$ \T1/cmr/m/n/10 of $\OML/cmm/m/it/10 f$\T1/cmr/m/n/10 , there are coordinates $[] \OT1/cmr/m/n/10 = []$
  []
 
 
-Overfull \hbox (22.90059pt too wide) in paragraph at lines 2342--2347
+Overfull \hbox (22.90059pt too wide) in paragraph at lines 2887--2892
 \T1/cmr/m/it/10 manifold with boundary. There exists a neighborhood of $\OML/cmm/m/it/10 @W$ \T1/cmr/m/it/10 (called a collar neighborhood)
  []
 
-
-Overfull \hbox (2.91713pt too wide) in paragraph at lines 2360--2368
+[26]
+Overfull \hbox (2.91713pt too wide) in paragraph at lines 2905--2913
 \T1/cmr/m/it/10 smooth submanifold $\OML/cmm/m/it/10 M$ \T1/cmr/m/it/10 of $\OML/cmm/m/it/10 W$ \T1/cmr/m/it/10 is compact and two-sided. Then there exists a "bicollar"
  []
 
-[22] [23]
-Overfull \hbox (8.21147pt too wide) in paragraph at lines 2513--2515
- \T1/cmr/m/n/10 3.3.\T1/cmr/bx/n/10 Morse Functions.[][] \T1/cmr/m/n/10 The goal is to be able to factor cobordisms into compositions
+[27] [28]
+Overfull \hbox (8.21147pt too wide) in paragraph at lines 3058--3060
+ \T1/cmr/m/n/10 5.5.\T1/cmr/bx/n/10 Morse Functions.[][] \T1/cmr/m/n/10 The goal is to be able to factor cobordisms into compositions
  []
 
 
-Overfull \hbox (9.67142pt too wide) in paragraph at lines 2526--2531
+Overfull \hbox (9.67142pt too wide) in paragraph at lines 3071--3076
 \T1/cmr/m/n/10 Such a point is called a non-degenerate critical point if $[] [] \OT1/cmr/m/n/10 = [] [] \OMS/cmsy/m/n/10 6\OT1/cmr/m/n/10 =
  []
 
 
-Overfull \hbox (19.0557pt too wide) in paragraph at lines 2546--2548
-[][]\T1/cmr/bx/n/10 Definition 3.29 \T1/cmr/m/n/10 (Index of a critical point)\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 The $\OML/cmm/m/it/10 ^^U$ \T1/cmr/m/n/10 from the Morse Lemma (Lemma [][]3.28[][])
+Overfull \hbox (19.0557pt too wide) in paragraph at lines 3091--3093
+[][]\T1/cmr/bx/n/10 Definition 5.38 \T1/cmr/m/n/10 (Index of a critical point)\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 The $\OML/cmm/m/it/10 ^^U$ \T1/cmr/m/n/10 from the Morse Lemma (Lemma [][]5.37[][])
  []
 
 
-Overfull \hbox (20.48082pt too wide) in paragraph at lines 2607--2610
-[][]\T1/cmr/bx/n/10 Theorem 3.33 \T1/cmr/m/n/10 (Existence of Morse functions)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 Every smooth manifold triad $[]$
+Overfull \hbox (20.48082pt too wide) in paragraph at lines 3152--3155
+[][]\T1/cmr/bx/n/10 Theorem 5.42 \T1/cmr/m/n/10 (Existence of Morse functions)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 Every smooth manifold triad $[]$
  []
 
-[24]
+[29] [30]
+
+Package biblatex Warning: Bibliography string 'volume' untranslated
+(biblatex)                at entry 'Hirsch' on input line 3376.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'pages' untranslated
+(biblatex)                at entry 'Hirsch' on input line 3376.
+
+
+Overfull \hbox (23.74881pt too wide) in paragraph at lines 3377--3377
+[]\T1/cmr/m/n/10 Morris W. Hirsch. \T1/cmr/m/it/10 Differential topology\T1/cmr/m/n/10 . [] 33. Graduate Texts in Mathematics.
+ []
+
+
+Overfull \hbox (29.65446pt too wide) in paragraph at lines 3377--3377
+\T1/cmr/m/n/10 Corrected reprint of the 1976 original. Springer-Verlag, New York, 1994, [] x+222.
+ []
+
+
+Package biblatex Warning: Bibliography string 'and' untranslated
+(biblatex)                at entry 'KMS' on input line 3376.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'pages' untranslated
+(biblatex)                at entry 'KMS' on input line 3376.
+
+
+Package biblatex Warning: Bibliography string 'volume' untranslated
+(biblatex)                at entry 'LeeSM' on input line 3376.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'pages' untranslated
+(biblatex)                at entry 'LeeSM' on input line 3376.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'pages' untranslated
+(biblatex)                at entry 'Milnor-h-cobordism' on input line 3376.
+
 
 Package biblatex Warning: Using fallback definition for \mkbibdatelong.
 (biblatex)                The command should be defined in the .lbx file.
@@ -1050,37 +1141,37 @@ Package biblatex Warning: Using fallback definition for \mkbibdatelong.
 
 
 Package biblatex Warning: Bibliography string 'pages' untranslated
-(biblatex)                at entry 'Steenrod' on input line 2654.
+(biblatex)                at entry 'Steenrod' on input line 3376.
 
 
-Overfull \hbox (33.09175pt too wide) in paragraph at lines 2655--2655
+Overfull \hbox (33.09175pt too wide) in paragraph at lines 3377--3377
 []\T1/cmr/m/n/10 Norman Steenrod. \T1/cmr/m/it/10 The topology of fibre bundles\T1/cmr/m/n/10 . Princeton Landmarks in Mathematics.
  []
 
-[25] (./notes.aux)
+[31] (./notes.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `notes.out' has not changed.
-(rerunfilecheck)             Checksum: 53B5DE933562156D19FCCDDAA3781453;2127.
+(rerunfilecheck)             Checksum: C5C40513460B408DAAC878530C345B30;3175.
 Package logreq Info: Writing requests to 'notes.run.xml'.
 \openout1 = `notes.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 30851 strings out of 474222
- 593329 string characters out of 5748733
+ 30982 strings out of 474222
+ 595769 string characters out of 5748733
  1952975 words of memory out of 5000000
- 52338 multiletter control sequences out of 15000+600000
+ 52405 multiletter control sequences out of 15000+600000
  569380 words of font info for 68 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  98i,20n,107p,678b,1431s stack positions out of 10000i,1000n,20000p,200000b,200000s
- </home/jonas-trepiakas/.texlive2023/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on notes.pdf (25 pages, 422721 bytes).
+ </home/jonas-trepiakas/.texlive2023/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
+Output written on notes.pdf (31 pages, 464201 bytes).
 PDF statistics:
- 487 PDF objects out of 1000 (max. 8388607)
- 412 compressed objects within 5 object streams
- 181 named destinations out of 1000 (max. 500000)
- 122 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 622 PDF objects out of 1000 (max. 8388607)
+ 538 compressed objects within 6 object streams
+ 245 named destinations out of 1000 (max. 500000)
+ 170 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -317,6 +317,42 @@ transformations}
     \end{definition}
 
 
+    \subsubsection{Associated frame bundles and structure
+    group reductions}
+
+
+    \begin{problem}[]
+    For a rank $d$ vector bundle
+    $\xi \colon E \to M$ over a smooth manifold, we 
+    define the associated frame bundle $\Fr \left( \xi \right) $ 
+    as the associated $\GL_d \left( \mathbb{R} \right) $-bundle.
+        \begin{enumerate}
+            \item For $M$ a smooth $d$-dimensional
+                manifold, we define its frame
+                bundle $\Fr (M)$ as the associated
+                frame bundle of its tangent bundle
+                $TM$. Show that
+                $\Fr(M) \to M$ is a principal 
+                $\GL_d \left( \mathbb{R} \right) $-bundle.
+            \item Show that a manifold is
+                orientable if and only if its
+                frame bundle $\Fr (M)$ admits a
+                $\GL_d^{+} (\mathbb{R})$ reduction of
+                its structure group, where
+                $\GL_d^{+}(\mathbb{R})$ is the subgroup
+                of the general linear group consisting
+                of invertible matrices with positive determinant.
+            \item Show that a structure bundle reduction of
+                the frame bundle
+                $\Fr(M)$ to the orthogonal group
+                $O(n) \le \GL_d(\mathbb{R})$ corresponds
+                to a choice of a bundle metric on the tangent
+                bundle  $TM$ of $M$.
+        \end{enumerate}
+    \end{problem}
+
+
+
     \subsubsection{The Induced Bundle}
 
 

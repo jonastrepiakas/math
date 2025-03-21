@@ -1,0 +1,348 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+%\usepackage[backend=biber]{biblatex}
+%\addbibresource{.bib}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\SHomeo}{SHomeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Teich}{Teich}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Bun}{Bun}
+\DeclareMathOperator{\Sm}{Sm}
+
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\MCG}{{\mathrm{MCG}}}
+\newcommand{\PMCG}{{\mathrm{PMCG}}}
+\newcommand{\SMCG}{{\mathrm{SMCG}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+
+
+
+
+\begin{document}
+
+\section{Problems}
+
+\begin{definition}[]
+    Let $M$ be a smooth manifold. A Morse function
+    $f \colon M \to \mathbb{R}$ is a smooth map such that
+    all its critical points are non-degenerate, with
+    pairwise distinct critical values in $\mathbb{R}$.
+\end{definition}
+
+
+\begin{problem}[Reeb's Theorem]\label{Reeb's-Theorem}
+        (6 pts) Let $M$ be a smooth, compact manifold of
+        dimension $d$. Show that if $M$ admits a Morse
+        function with only two critical points, then
+        $M$ is homeomorphic to the sphere $S^{d}$. Indicate
+        why the above proof fails in showing that $M$ is
+        diffeomorphic to the sphere $S^{d}$.
+    \end{problem}
+
+    For the proof, we state a theorem that we will need:
+    \begin{definition}[]
+        For a smooth map $f \colon M \to \mathbb{R}$ on a 
+        smooth manifold $M$, let
+        $M^{a} = f^{-1} (-\infty, a]$.
+    \end{definition}
+
+    \begin{theorem}[]\label{Thm1}
+        Let $f \in C^{\infty}(M)$ on a manifold $M$.
+        Let $a < b$ and suppose that the set
+        $f^{-1}\left[ a,b \right] $ is compact and
+        contains no critical points of $f$. Then
+        $M^{a}$ is diffeomorphic to $M^{b}$. Furthermore,
+        $M^{a}$ is a deformation retract of
+        $M^{b}$, so the inclusion $M^{a} \hookrightarrow 
+        M^{b}$ is a homotopy equivalence.
+    \end{theorem}
+
+
+    \begin{proof}[Proof of Problem \ref{Reeb's-Theorem}]
+        Since $M$ is compact,
+        we have that
+        $f(M) = \left[ a,b \right] \subset \mathbb{R}$.
+        Without loss of generality, assume that
+        $f(M) = \left[ 0,1 \right] $.\\
+
+        We shall need the following lemma from
+        analysis:
+        \begin{lemma}[Fermat's Theorem]
+            Let $f \colon \left( a,b \right) \to \mathbb{R}$ 
+            be a function on an open interval
+            $\left( a,b \right) \subset \mathbb{R}$.
+            Suppose $f$ has a local extremum at
+            $x_0 \in (a,b)$. If
+            $f$ is differentiable at $x_0$, then
+            $f'(x_0) = 0$.
+        \end{lemma}
+
+        Now, we claim that
+        the two critical points are precisely the preimages
+        of $0$ and $1$.
+        For suppose
+        $x \in f^{-1}(0)$.
+        Then $x$ is a global minimum for $f$.
+        Taking some chart centered around $x$, we have a local
+        representation
+        of $f$ as a function $\mathbb{R}^{d} \to 
+        \left[ 0,1 \right] $ 
+        with a global minimum at $0$.
+        Taking the partial derivatives of
+        $f$ and applying Fermat's theorem to each of them,
+        we find that each partial derivative evaluated at $0$ 
+        is $0$: $\frac{\partial f}{\partial x^{i}}(0) = 0$.
+        Hence we find that
+        $Df(0) = 0$, so transfering back to the manifold,
+        $Df(x) = 0$, so $x \in M$ is a critical point.
+        The same argument applies to show that
+        any $y \in f^{-1}(1)$ is a critical point.
+        Since there are only two critical points, this
+        immediately forces
+        $f^{-1}(0)$ and $f^{-1}(1)$ to be singletons
+        and thus global maximum and minimum of $M$.
+        Suppose without loss of generality that
+        $p \in M$ is the minimum and
+        $q \in M$ is the maximum.
+
+        By Morse's Lemma, in some coordinate system about
+         $p$, let's say in a neighborhood $U$,
+         $f$ takes the form
+         \[
+         f\left( x_1,\ldots,x_n \right) = 
+         - x_1^2 - \ldots - x_{\lambda}^2 +
+         x_{\lambda+1}^2 +\ldots + x_n^2.
+         \] 
+         Now $p$ is a global minimum, so in fact, we
+         must have that $\lambda = 0$. That is
+         \[
+         f\left( x_1,\ldots,x_n \right) =
+         x_{1}^2 + \ldots + x_n^2
+         \] 
+         in this neighborhood.
+         Since also
+         $f(U)$ is open in the subspace topology
+         and contains $0$,
+         we can find an open disk $\tilde{D}_1$ centered
+         at $0$ of radius $\varepsilon_1$ such that
+         $ \tilde{D}_1 \cap \left[ 0,1 \right] \subset 
+         f(U)$, and
+         let $D_1$ be the inverse of $\tilde{D}_1$ under this
+         local diffeomorphism.\\
+         Similarly, in a neighborhood $V$ of
+         $q$, $f$ takes the form
+         \[
+         f\left( x_1,\ldots,x_n \right)  = 
+         1- x_1^2 - x_2^2 - \ldots - x_n^2.
+         \] 
+         Again take some open disk $\tilde{D}_2$
+         centered at $1$ of radius $\varepsilon_2$ 
+         such that $ \tilde{D}_2 \cap
+         \left[ 0,1 \right] \subset f(V)$.
+         Let $D_2$ be the inverse image under $f$ of
+         $\tilde{D}_2$.\\
+         We wish to show that there
+         exists some $\varepsilon > 0$ such that
+         $f^{-1}\left[ 0,\varepsilon \right] $ 
+         and $f^{-1}\left[ 1-\varepsilon,1 \right] $ are
+         homeomorphic to the closed $n$-disk $D^{n}$.
+         There
+         exist
+         $\alpha, \beta \in \left( 0,1 \right) $ such that
+         $f\left( M - D_1 \cup D_2 \right) 
+         = \left[ \alpha, \beta \right] $ since
+         $M - D_1 \cup  D_2$ is still compact.
+         Now simply let
+         $0 < \varepsilon < \min 
+         \left\{ \alpha, 1 - \beta, \varepsilon_1,
+         1-\varepsilon_2, 1-\varepsilon_1, \frac{1}{4}\right\} $.
+         To see that this works, simply note that
+         $f^{-1}\left[ 0, \varepsilon \right] 
+         \subset D_1 \cup  D_2$.
+         On $D_1$, $f$ takes values in
+         $\left[ 0, \varepsilon_1 \right] $ and
+         on $D_2$, $f$ takes values in
+         $\left[ 1- \varepsilon_2 , 1 \right] $.
+         But $\varepsilon < \varepsilon_1$, so
+         $\left[ 0, \varepsilon_1 \right] \subset 
+         \left[ 0, \varepsilon \right] $, so
+         $D_1 \subset f^{-1}\left[ 0,\varepsilon \right] $,
+         while
+         $\varepsilon < 1- \varepsilon_2$, so
+         $\left[ 1-\varepsilon_2,1 \right] \not \subset 
+         f^{-1}\left[ 0,\varepsilon \right] $.
+         Similarly,
+         $1- \varepsilon > \varepsilon_1$, so
+         $D_1 \subset \left[ 0,\varepsilon_1 \right] 
+         \not \subset f^{-1}\left[ 1-\varepsilon,1 \right] $
+         while $1-\varepsilon_2 > 1- \varepsilon$, so
+         $D_2 \subset \left[ 1-\varepsilon_2, 1 \right] 
+         \subset f^{-1}\left[ 1-\varepsilon,1 \right] $.\\
+         \linebreak
+         Therefore,
+         since $f^{-1}\left[ 0,\varepsilon \right] \subset D_1
+         \subset U$ and
+         we know that on
+         $U$, $f$ takes the form
+         \[
+         f\left( x_1,\ldots,x_n \right) 
+         = x_1^2 + \ldots + x_n^2,
+         \] 
+         we know that
+         $f^{-1}\left[ 0,\varepsilon \right] $ is
+         precisely a closed disk about
+         $p$. Likewise,
+         $f^{-1}\left[ 1-\varepsilon,1 \right] $ can
+         be seen to be a closed disk about $q$.\\
+
+         But now by Theorem \ref{Thm1}, since
+         there are no critical points in
+         $f^{-1}\left[ \varepsilon, 1- \varepsilon \right] $ 
+         by assumption,
+         $M^{\varepsilon}$ is diffeomorphic to
+         $M^{1- \varepsilon}$.
+         Hence we find that
+         $M^{1-\varepsilon}$ and
+         $f^{-1}\left[ 1-\varepsilon,1 \right] $ 
+         are both diffeomorphic to closed $d$-disks, and
+         furthermore,
+         $M$ is obtained by gluing these  $d$-disks along their
+         boundary. We claim that this is sufficient
+         to conclude that $M$ is \textit{homeomorphic} to
+         $S^{d}$.
+
+
+    \end{proof}
+
+
+
+
+    %\printbibliography
+\end{document}

@@ -161,6 +161,11 @@
 \tableofcontents
 
 
+\section{Introduction}
+
+Two wonderful reference books for differential geometry
+are \cite{KMS} and \cite{LeeSM}
+
 
 \section{Continuous maps}
 
@@ -200,8 +205,112 @@
 
 
 
+\section{Smooth Maps}
 
-    \section{Bundles}
+There are very few strong things that we can at this point
+say about general smooth maps. This section will cover
+the big tools.\\
+
+The most important construction on manifolds is
+that they posses partitions of unity.
+
+\begin{definition}[Partition of unity]
+    Suppose $M$ is a topological space and let
+    $\mathcal{X} = \left( X_{\alpha} \right)_{\alpha \in A}$ 
+    be an arbitrary open cover
+    of $M$. A \textit{partition of unity
+    subordinate to $\mathcal{X}$} is
+    an indexed family
+    $\left( \psi_{\alpha} \right)_{\alpha \in A}$ of 
+    continuous functions
+    $\psi_{\alpha} \colon M \to \mathbb{R}$ with the
+    following properties:
+    \begin{enumerate}
+        \item $0 \le \psi_{\alpha}(x) \le 1$ for all
+            $\alpha \in A$ and $x \in M$ 
+        \item $\supp \psi_{\alpha} \subset X_{\alpha}$
+            for all $\alpha \in A$ 
+        \item The family of supports
+            $\left( \supp \psi_{\alpha} \right)_{\alpha
+            \in A}$ is locally finite (or we say
+            that the partition of unity or the space
+            is locally finite), meaning that
+            every point has a neighborhood that intersects
+            $\supp \psi_{\alpha}$ for only finitely many
+            values of $\alpha$.
+        \item $\sum_{\alpha \in A}\psi_{\alpha}(x) = 1$
+            for all $x \in M$.
+    \end{enumerate}
+    When $M$ is a smooth manifold, a
+    \textit{smooth partition of unity} is one for which
+    each $\psi_{\alpha}$ is smooth.
+\end{definition}
+
+\begin{theorem}[Existence of Partitions of Unity]
+    Suppose $M$ is a smooth manifold with
+    or without boundary, and
+    $\mathcal{X} = \left( X_{\alpha} \right)_{\alpha \in A}$ 
+    is a cover of $M$. Then there
+    exists a smooth partition of unity subordinate
+    to $\mathcal{X}$.
+\end{theorem}
+
+\begin{theorem}[Existence of Partitions of Unity for
+    Paracompact Spaces]
+    If $X$ is a paracompact space, then for every
+    open cover, there exists a partition of
+    unity subordinate to the covering.
+\end{theorem}
+
+
+\begin{definition}[Bump functions]
+    If $M$ is a topological space, $A \subset M$ 
+    a closed subset, and
+    $U \subset M$ an open subset containing $A$, a
+    continuous function
+    $\psi \colon M \to \mathbb{R}$ is called a
+    \textit{bump function for $A$ supported
+    in $U$} if $0 \le \psi  \le 1$ on
+    $M$, $\psi \equiv 1$ on $A$, and $\supp \psi \subset U$.
+\end{definition}
+
+\begin{proposition}[Existence of Smooth Bump Functions]
+    Let $M$ be a smooth manifold. For any closed
+    subset $A \subset M$ and any open subset
+    $U$ containing $A$, there exists a smooth bump function
+    for $A$ supported in $U$.
+\end{proposition}
+
+\begin{note}
+    The existence of bump functions give us a
+    direct insight into just how different
+    geometry is from complex analysis. 
+    In complex analysis, knowing a function in a
+    small region determines it uniquely, while
+    the very existence of smooth bump functions
+    for smooth manifolds tells us
+    that functions cannot be determined from local
+    behavior.
+    In fact, smooth partitions of unity give
+    us a way to glue function patches together
+    on the different parts of the manifold to give
+    arbitrarily complicated functions.
+    This makes the study of geometry very broad and flexible compared
+    to complex analysis, for example.
+\end{note}
+
+
+Another strong property of general smooth maps is
+encapsulated in Sard's theorem:
+
+\begin{theorem}[Sard's theorem]
+    The set of critical values of a smooth
+    map between manifolds has Lebesgue measure zero.
+\end{theorem}
+
+
+
+\section{Bundles}
 
     \subsection{Fibre Bundle Theory}
     I will define things slightly differently.
@@ -1752,7 +1861,7 @@ a new bundle called the
         what is $+ \colon E \times_X E \to E$ supposed to be?
     \end{remark}
 
-    \begin{lemma}[]
+    \begin{lemma}[Pullbacks along submersions exist]
         If $f \colon M \to N$ and $g \colon P \to N$ are
         morphisms in $\Sm$ and $f$ is a submersion, then
         the pullback exists:
@@ -1799,6 +1908,157 @@ a new bundle called the
     commutes.
     \end{definition}
 
+    \begin{definition}[Subvector bundle]
+        If $E$ is an $n$-dimensional vector bundle over
+        $X$ and $E' \subset E$ is a subset, so that around every
+        point in $X$, there is a bundle chart
+        $\left( f, U \right) $ with
+        \[
+        f\left( \pi^{-1}(U) \cap E' \right) 
+        = U \times \mathbb{R}^{k} \subset U \times \mathbb{R}^{n}
+        \] 
+        then $\left( E', \pi|_{E'},X \right) $ 
+        is in a natural manner a vector bundle over
+        $X$ and is called a $k$-dimensional
+        subvector bundle of $E$.
+    \end{definition}
+
+    \subsection{Frames}
+
+    \begin{definition}[]
+        Let $E \to M$ be a vector bundle.
+        If $U \subset M$ is an open subset, a 
+        $k$-tuple of local sections
+        $\left( \sigma_1, \ldots, \sigma_k \right) $ of $E$ 
+        over $U$ is said to be \textit{linearly independent} if
+        $\left( \sigma_1 (p), \ldots, \sigma_k(p) \right) $ 
+        is linearly independent in $E_p$ for each
+        $p \in U$. Similarly, they are said to
+        \textit{span $E$ } if their values span
+        $E_p$ for each $p \in U$. 
+        A \textit{local frame for $E$ over $U$ } is an ordered
+        $k$-tuple $\left( \sigma_1, \ldots, \sigma_k \right) $ 
+        of linearly independent local sections over $U$ which
+        span $E$. It is called a \textit{global frame} if
+        $U = M$.
+        If $E \to M$ is a smooth vector bundle, a frame
+        is called \textit{smooth} if each section
+        $\sigma_i$ is a smooth section.
+    \end{definition}
+
+    \begin{proposition}[Completion of Local Frames for
+        Vector Bundles]
+        Suppose $\pi \colon E \to M$ is a smooth
+        vector bundle of rank $k$.
+        \begin{enumerate}
+            \item If $\left( \sigma_1, \ldots,
+                \sigma_m \right) $ is a linearly independent
+                smooth local section of $E$ over an open
+                subset $U \subset M$ with
+                $1 \le m <k$, then for each $p \in U$,
+                there exist smooth sections
+                $\sigma_{m+1}, \ldots, \sigma_k$ defined
+                on some neighborhood $V$ of $p$ such that
+                $\left( \sigma_1, \ldots, \sigma_k \right) $ 
+                is a smooth local frame for $E$ over
+                $U \cap V$.
+            \item If $\left( v_1, \ldots, v_m \right) $ is
+                a linearly independent
+                $m$-tuple of elements of
+                $E_p$ for some $p \in M$ with
+                $1 \le m \le k$, then there exists
+                a smooth local frame
+                $\left( \sigma_i \right) $ for
+                $E$ over some neighborhood of $p$ such that
+                $\sigma_i (p) = v_i$ for $i = 1,\ldots,m$.
+            \item If $A \subset M$ is a closed subset
+                and $\left( \tau_1, \ldots, \tau_k \right) $ 
+                is a linearly independent $k$-tuple
+                of sections of $E|_A$ that are smooth, then
+                there exists a smooth local frame
+                $\left( \sigma_1, \ldots, \sigma_k \right) $ 
+                for $E$ over some neighborhood
+                of $A$ such that
+                $\sigma_i|_A = \tau_i$ for
+                 $i = 1,\ldots,k$.
+        \end{enumerate}
+    \end{proposition}
+
+    \begin{example}[Global frame for a product bundle]
+        If $E = M \times \mathbb{R}^{k} \to M$ is a product
+        bundle, the standard basis
+        $\left( e_1, \ldots, e_k \right) $ for $\mathbb{R}^{k}$
+        yields a global frame $\left( \tilde{e}_i \right) $ 
+        for $E$ defined by
+        $\tilde{e}_i (p) = \left( p, e_i \right) $.
+        If $M$ is a smooth manifold with or without
+        boundary, then this global frame is smooth.
+    \end{example}
+
+    \begin{example}[The Local Frames Associated with Local
+        Trivializations]\label{Local-Frames-Local-Trivializations}
+        Suppose $\pi \colon E \to M$ is a smooth
+        vector bundle. If
+        $\Phi \colon \pi^{-1}(U) \to U \times \mathbb{R}^{k}$ 
+        is a smooth local trivialization of $E$, we use
+        the same idea as in the preceding example to
+        construct a local frame for $E$ over $U$. Define
+        maps $\sigma_1, \ldots, \sigma_k \colon
+        U \to E$ by
+        $\sigma_i (p) = \Phi^{-1} (p, e_i) = 
+        \Phi^{-1} \circ \tilde{e}_i(p)$ :
+        \begin{equation*}
+        \begin{tikzcd}
+            \pi^{-1}(U) \ar[dr, "\pi"] \ar[rr, "\Phi"]
+            && U \times \mathbb{R}^{k} \ar[dl, "\pi_1"] \\
+            & U \ar[lu, "\sigma_i", bend left] 
+            \ar[ru, "\tilde{e}_i"', bend right] &
+        \end{tikzcd}
+        \end{equation*}
+        The $\sigma_i$ are smooth since they
+        have coordinate representation
+        $\pi \circ \sigma_i (p) = \pi_1 \circ \Phi \circ \sigma_i
+        (p) = \pi_1 \left( p,e_i \right) = p$ on
+        $U$. To see that
+        the $\sigma_i$ form a basis, simply note that
+        $\sigma_1(p), \ldots, \sigma_k(p)$
+        are the images of the standard basis under
+        $\Phi^{-1}(p,-)$ which is assumed to be a linear
+        isomorphism. Hence they form a basis.
+        We say that this local frame
+        $\left( \sigma_i \right) $ is \textit{associated
+        with $\Phi$}.
+    \end{example}
+
+    \begin{proposition}[]
+        Every smooth local frame for a smooth vector bundle
+        is associated with a smooth local trivialization as
+        in Example \ref{Local-Frames-Local-Trivializations}.
+    \end{proposition}
+
+    This proposition is what makes it possible for us
+    to go back and forth between trivializations and
+    frames when working with vector bundles.
+
+    \begin{corollary}
+        Let $\pi \colon E \to M$ be a smooth
+        vector bundle of rank $k$, let
+        $\left( V, \varphi  \right) $ be a smooth chart
+        on $M$ with coordinate functions
+        $\left( x^{i} \right) $, and suppose
+        there exists a smooth local frame
+        $\left( \sigma_i \right) $ for $E$ over $V$.
+        Define $\tilde{\varphi } \colon
+        \pi^{-1}(V) \to \varphi (V) \times \mathbb{R}^{k}$ 
+        by
+        \[
+        \tilde{\varphi }\left( v^{i}\sigma_i(p) \right) 
+        = \left( x^{1}(p), \ldots, x^{m}(p),
+        v^{1}, \ldots, v^{k} \right) .
+        \]
+        Then $\left( \pi^{-1}(V), \tilde{\varphi } \right) $ 
+        is a smooth coordinate chart for $E$.
+    \end{corollary}
 
     \subsection{Gluing vector bundles}
     
@@ -1831,8 +2091,161 @@ a new bundle called the
         functions to the original bundle $E$.
     \end{proposition}
 
+    \begin{definition}[Pre-vector bundles]
+        An \textit{$n$-dimensional pre-vector bundle}
+        is a quadruple $\left( E, \pi, X,
+        \mathcal{B}\right) $ consisting of
+        \begin{enumerate}
+            \item A set $E$ 
+            \item A topological space $X$ 
+            \item A surjective map $\pi \colon E \to X$ 
+            \item A vector space structure on
+                every fibre $E_x := \pi^{-1}(x)$.
+            \item A \textit{pre-bundle atlas}
+                $\mathcal{B}$ which is a set
+                $\left\{ \left( f_{\alpha},U_{\alpha}
+                \right) \right\}_{\alpha \in A}$ where
+                $\left\{ U_{\alpha} \right\}_{\alpha \in A}$ 
+                is an open covering of $X$ and
+                \[
+                f_{\alpha} \colon \pi^{-1}(U_\alpha) \to 
+                U_{\alpha} \times \mathbb{R}^{n}
+                \] 
+                is a bijective map which maps the
+                fibre $E_x$ linearly and isomorphically into
+                $\left\{ x \right\} \times \mathbb{R}^{n}$ 
+                for every $x \in U_\alpha$ in such a
+                way that all transition function
+                $U_{\alpha} \cap U_{\beta} \to 
+                \GL \left( n, \mathbb{R} \right) $ of
+                $\mathcal{B}$ are continuous.
+        \end{enumerate}
+    \end{definition}
+
+    \begin{note}
+        Given a pre-vector bundle as above, the Existence theorem
+        for fibre bundles (Theorem \ref{Existence-theorem})
+        gives us a fibre bundle
+        $\left[ \pi \colon E \to X \right] $ with
+        structure group
+        $\GL \left( n, \mathbb{R} \right) $ such that
+        every fibre has the structure of a vector space
+        and the trivializations restrict to
+        vector space isomorphisms
+        $f_x := f|_{E_x} \colon
+        E_x \to \left\{ x \right\} \times \mathbb{R}^{n}$ 
+        for each $x \in 
+        \pi^{-1}\left( U_{\alpha} \right) $.
+    \end{note}
+
+    \subsection{Riemannian metrics}
+
+    If $\left[ E \to X \right] $ is a vector bundle, then
+    there exists a vector bundle
+    $\left( E \otimes E \right)^{*}$. Given this, we have
+    the following definition:
+    \begin{definition}[Riemannian metric, scalar product]
+        If $\left[ \pi \colon E \to X \right] $ is
+        a vector bundle then, by a \textit{scalar product} or
+        a \textit{Riemannian metric} for $E$, we 
+        mean a continuous section
+        $s \colon X \to \left( E \otimes E \right)^{*}$ 
+        such that for every $x \in X$, the
+        bilinear form determined by
+        this is symmetric and positive definite. That is,
+        such that for every $x \in X$, the bilinear form
+        \begin{align*}
+            E_x \times E_x &\to \mathbb{R}\\
+            \left( v,w \right) &\mapsto 
+            s \left( v \otimes w \right) 
+            =: \left<v,w \right>_x
+        \end{align*}
+        is symmetric and positive definite.\\
+        The metric is said to be smooth if
+        $X$ is a smooth manifold and
+        E and $s$ are smooth.
+    \end{definition}
+
+    \begin{lemma}[]
+        If $E$ is a vector bundle over a smooth manifold
+        $X$, then
+        we can equip $E$ with a smooth Riemannian metric.
+    \end{lemma}
+
+    \begin{proof}
+        For any bundle chart
+        $\left( \varphi ,U \right) $ such that
+        $\varphi \colon \pi^{-1}(U) \cong
+        U \times \mathbb{R}^{n}$, choose
+        the standard inner product on $\mathbb{R}^{n}$.
+        Let
+        $s \colon U \to \left( E|_U \otimes
+        E|_U \right)^{*}$ given by
+        $s(u) = \left<-, - \right>_u$ be this
+        Riemannian metric. We want to patch
+        these local Riemannian metrics together
+        to give a global smooth Riemannian metric on
+        
+    \end{proof}
 
     \subsection{Examples of Vector Bundles}
+
+    \begin{lemma}[Orthogonal vector bundle]
+        Given a vector bundle $\pi \colon E \to X$ equipped
+        with a Riemannian metric and $F \subset 
+        E$ a subvector bundle, then
+        \[
+        F^{\perp} := \bigcup_{x \in X} F_x^{\perp}
+        \] 
+        is also a subvector bundle.
+    \end{lemma}
+
+    \begin{proof}
+        Let $\left( \varphi , U \right) $ be a bundle
+        chart of $E$ such that
+        \[
+        \varphi \left( \pi^{-1}(U) \cap F \right) 
+        = U \times \mathbb{R}^{k} \subset U \times \mathbb{R}^{n}
+        \] 
+        Let $\sigma_1, \ldots, \sigma_n$ be the
+        associated frame, so by construction,
+        $\sigma_i = \Phi^{-1} \circ \tilde{e_i}$ where
+        $\tilde{e}_i \colon U \to U \times \mathbb{R}^{n}$ 
+        is the map
+        $\tilde{e}_i (p) = 
+        \left( p, e_i \right) $.
+        Hence in particular,
+        $\sigma_1, \ldots, \sigma_k$ is
+        a smooth local frame for $F$ over $U$, and
+        $\sigma_{k+1},\ldots, \sigma_n$ is
+        a smooth local frame for $F^{\perp}$ over $U$.
+    \end{proof}
+
+    \begin{lemma}[]
+        If $E$ is equipped with a Riemannian metric and
+        $F \subset E$ is a subbundle, then the composition
+        \[
+            F^{\perp} \hookrightarrow E \stackrel{\text{proj}}{\to }
+            E / F
+        \] 
+        is a bundle isomorphism.
+    \end{lemma}
+
+    \begin{definition}[Normal bundle]
+        If $M$ is a smooth manifold and
+        $X \subset M$ is a submanifold, then
+        the normal bundle of $X$ in $M$ is defined to be
+        \[
+        \perp X :=
+        \left( TM|_X \right) / TX.
+        \] 
+    \end{definition}
+
+    \begin{definition}[Riemannian manifold]
+        A manifold $M$, whose tangent bundle has
+        a smooth Riemannian metric, is called
+        a \textit{Riemannian manifold}.
+    \end{definition}
 
     \begin{lemma}[]
         The bundle $\Lambda^{k} E$ of
@@ -1887,6 +2300,138 @@ a new bundle called the
 
 
     \section{Morse Theory}
+
+    \subsection{Definitions and Lemmas}
+
+    If $f \in C^{\infty}(M)$, let
+    $M^{a}$ denote the set of points
+    $x \in M$ such that $f(x) \le a$.
+
+    \begin{lemma}[]
+        If $a$ is not a critical value of $f$ then
+        $M^{a}$ is a smooth codimension $0$ 
+        manifold with boundary.
+    \end{lemma}
+
+    \begin{proof}
+        \cite[Prop. 5.47]{LeeSM}
+    \end{proof}
+
+    \begin{definition}[Index and nullity of
+        $f_{* *} = H(f)$]
+        The \textit{index} of a bilinear function
+        $H$ on a vector space $V$ is defined to
+        be the maximal dimension of a subspace of
+        $V$ on which $H$ is negative definite;
+        The nullity is the dimension of the 
+        null-space, i.e., the subspace of
+        all $v \in V$ such that
+        $H(v,w) = 0$ for all
+        $w \in V$.\\
+        The index of $f_{* *}$ on $TM_p$ will be referred
+        to as the index of $f$ at $p$.
+    \end{definition}
+
+    \begin{remark}[]
+        A critical point
+        $p$ of $f$ is non-degenerate
+        if and only if
+        $f_{* *}$ on $TM_p$ has nullity equal to
+        $0$.
+    \end{remark}
+
+
+
+
+
+
+
+    \begin{lemma}[]
+        Let $f$ be a smooth function in a neighborhood
+        $V$ of $0$ in $\mathbb{R}^{n}$ with
+        $f(0) = 0$. Then
+        \[
+        f(x_1, \ldots, x_n) = 
+        \sum_{i=1}^{n} x_i g_i\left( x_1, \ldots, x_n \right) 
+        \] 
+        for some suitable smooth function
+        $g_i$ defined in $V$, with
+        $g_i(0) = \frac{\partial f}{\partial x_i}(0)$.
+    \end{lemma}
+
+    \begin{lemma}[Morse Lemma]
+        Let $p$ be a non-degenerate critical point
+        for $f$. Then there is a local coordinate
+        system $\left( y^{1}, \ldots, y^{n} \right) $ in
+        a neighborhood $U$ of $p$ with
+        $y^{i}(p) = 0$ for all $i$ and such that the identity
+        \[
+        f = f(p) - \left( y^{1} \right)^2 - \ldots
+        - \left( y^{\lambda} \right)^2 + 
+        \left( y^{\lambda+1} \right)^2 + \ldots
+        + \left( y^{n} \right)^2
+        \] 
+        holds throughout $U$, where
+        $\lambda$ is the index of $f$ at $p$.
+    \end{lemma}
+
+    \begin{definition}[$1$-parameter group of diffeomorphisms]
+        A \textit{$1$-parameter group of diffeomorphisms}
+        of a manifold $M$ is a smooth map
+        $\varphi \colon \mathbb{R} \times M \to M$ such that
+        $\varphi_t = \varphi (t,-) \colon M \to M$ is a 
+        self-diffeomorphisms of $M$ for each $t \in \mathbb{R}$,
+        and for all $t,s \in \mathbb{R}$, we have
+        $\varphi_{t+s} = \varphi_t \circ \varphi_s$.
+    \end{definition}
+
+    \begin{definition}[Vector field generating a $1$-parameter
+        group of diffeomorphisms]
+        Given a $1$-parameter group $\varphi $ of diffeomorphisms
+        of $M$, we define a vector field $X$ on $M$ as
+        follows: for every smooth real valued
+        function $f$, let
+        \[
+        X_q (f) = 
+        \lim_{h \to 0} \frac{f\left( \varphi_h(q) \right) -
+        f(q)}{h}.
+        \] 
+        This vector field $X$ is said to \textit{generate} the
+        group $\varphi $.
+    \end{definition}
+
+    \begin{lemma}[]
+        A smooth vector field on $M$ which vanishes
+        outside of a compact set $K \subset M$ 
+        generates a unique $1$-parameter group of diffeomorphisms
+        of $M$.
+    \end{lemma}
+
+    \subsection{Homotopy Type in Terms of Critical Values}
+
+    \begin{theorem}[]
+        Let $f$ be a smooth real-valued function on a manifold
+        $M$. Let $a < b$ and suppose that the set
+        $f^{-1}\left[ a,b \right] $ is compact and contains
+        no critical points of $f$. Then $M^{a}$ is diffeomorphic
+        to $M^{b}$. Furthermore, $M^{a}$ is a deformation
+        retract of $M^{b}$, so that the inclusion map
+        $M^{a} \hookrightarrow M^{b}$ is a homotopy equivalence.
+    \end{theorem}
+
+    \begin{proof}
+        The proof relies on a bunch of differential geometry.
+        I will leave it for later.
+    \end{proof}
+
+    \begin{problem}[Reeb's Theorem]
+        Let $M$ be a smooth, compact manifold
+        of dimension $d$. Show that if $M$ admits
+        a Morse function with only two critical points, then
+        $M$ is homeomorphic to the sphere $S^{d}$. Indicate
+        why the above proof fails in showing that $M$ is
+        diffeomorphic to the sphere $S^{d}$.
+    \end{problem}
 
     \subsection{The Cobordism Category}
 
@@ -2638,9 +3183,195 @@ a new bundle called the
        \left\{ \left( x,L \right)  \mid 
        d\left( f(x) + L(x) \right) = 0\right\} $.
        Then $x\mapsto \left( x,-df(x) \right) $ is
-       a diffeomorphism $U \cong M$.
+       a diffeomorphism $U \cong M$. Composing with
+       a projection $\pi \colon M \to \Hom\left( \mathbb{R}^{n},
+       \mathbb{R}\right) $ sending
+       $\left( x,L \right) \mapsto L$, which,
+       under the identification, corresponds to
+       $x \mapsto -df(x)$; one sees that
+       $\pi$ is critical at $x \approx \left( x,L \right) \in M
+       \cong U$ 
+       if and only if
+       $d\pi = - \frac{\partial^2 f}{\partial x_i 
+       \partial x_j}$ is singular.
+       So $x$ is a degenerate critical point of $f + L$ 
+       if and only if it is a critical point of
+       $\pi$. By Sard's theorem, the set of critical
+       values of $\pi$ has measure zero. So
+       if we can show that the
+       image of $\pi$ does not have measure zero, the result follows.
+       For this, notice that
+       $\pi$ maps $x \mapsto -df(x)$ and we have
+       a diffeomorphism
+       $U \cong M$ by
+       $x \mapsto \left( x, -df(x) \right) $, so
+       $\pi$ is an open map from
+       $U$ into $\mathbb{R}^{n}$, hence
+       in particular, the image is open and thus
+       not measure zero.
+   \end{proof}
+
+   \begin{lemma}[Lemma B]
+       Let $K$ be a compact subset of an
+       open set $U \subset \mathbb{R}^{n}$. If
+       $f \colon U \to \mathbb{R}$ is  $C^2$ and
+       has only nondegenerate critical points in
+       $K$, then there is a number $\delta >0$ such that
+       if $g \colon U \to \mathbb{R}$ is $C^2$ and at
+       all points of $K$, we have
+        \[
+       \left| \frac{\partial f}{\partial x_i} -
+       \frac{\partial g}{\partial x_i} \right| < \delta,
+       \quad
+       \left| \frac{\partial^2 f}{\partial x_i \partial x_j}
+       - \frac{\partial^2 g}{\partial x_i \partial x_j}\right| <
+       \delta 
+       \] 
+       for $i,j = 1,\ldots, n$, then
+       $g$ likewise has only nondegenerate critical points
+       in $K$.
+   \end{lemma}
+
+   \begin{proof}
+       Just an extra note on the proof: 
+       \[
+       \left| \left| df \right| -
+       \left| dg \right| \right|^2
+       \le \left| df - dg \right|^2
+       = \left| d(f-g) \right|^2
+       = \sum_i \left|   \frac{\partial f}{\partial x_i}
+       - \frac{\partial g}{\partial x_i}\right|^2
+       \] 
+       giving the possibility of bounding
+       this by $\frac{\mu}{2}$.
+       The other bound is done similarly.
    \end{proof}
         
+   \begin{lemma}[Lemma C]
+       Suppose $h \colon U \to U'$ is a diffeomorphism
+       of one open subset of $\mathbb{R}^{n}$ onto
+       another and carries the compact set
+       $K \subset U$ onto $K' \subset U'$. Given
+       a number $\varepsilon > 0$, there is a number
+       $\delta > 0$ such that if a smooth map
+       $f \colon U' \to \mathbb{R}$ satisfies
+       \[
+       \left| f \right| < \delta, \quad
+       \left| \frac{\partial f}{\partial x_i} \right| <
+       \delta,
+       \quad
+       \left| \frac{\partial^2 f}{\partial x_i \partial
+       x_j} \right| < \delta,
+       \quad i, j = 1,\ldots,n
+       \] 
+       at all points of $K' \subset U'$, then
+       $f \circ h$ satisfies
+       \[
+       \left| f \circ h \right| <
+       \varepsilon, \quad
+       \left| \frac{\partial f \circ h}{\partial x_i} \right| 
+       < \varepsilon,
+       \quad
+       \left| \frac{\partial^2 f \circ h}{\partial x_i
+       \partial x_j} \right| < \varepsilon,
+       \quad
+       i , j = 1,\ldots, n
+       \] 
+       at all points of $K$.
+   \end{lemma}
+
+   \begin{definition}[The compact-open $C^2$ topology]
+       \cite[p. 34]{Hirsch}
+       What Milnor calls the $C^2$ topology
+       on $F \left( M, \mathbb{R} \right) $ of smooth
+       real-valued functions on a compact manifold,
+       $M$ with boundary is, I believe,
+       simply the compact-open $C^2$ topology on
+       $F \left( M, \mathbb{R} \right)=
+       C^{\infty}(M)$.
+
+       The compact open topology on
+       $F \left( M, \mathbb{R} \right) $ is generated
+       by sets defined as follows. Let
+       $f \in F \left( M, \mathbb{R} \right) $ and
+       $\left( \varphi ,U \right) $ a chart on
+       $M$. Let $K \subset U$ be compact. Define a weak
+       subbasic neighborhood
+       \[
+       \mathcal{N}^2 \left( f; \left( \varphi ,U \right) ,
+       K, \varepsilon\right) 
+       \] 
+       to be the set of all
+       smooth maps $g \colon M \to \mathbb{R}$ such that
+        \[
+       \| D^{k}\left( f \varphi^{-1} \right) (x)
+       - D^{k}\left( g \varphi^{-1} \right) (x)\|< \varepsilon
+       \] 
+       for all $x \in \varphi (K)$, $k = 0, 1,2$.
+       The $C^2$ topology on
+       $F \left( M, \mathbb{R} \right) $ is generated
+       by these sets.
+   \end{definition}
+
+
+   \begin{theorem}[]
+       If $M$ is a compact manifold without boundary,
+       the Morse functions form an open
+       dense subset of
+       $F \left( M, \mathbb{R} \right) $ in the
+       $C^2$ topology.
+   \end{theorem}
+
+   \begin{proof}
+       Super neat proof. Check it out in \cite{Milnor-h-cobordism}.
+   \end{proof}
+
+
+   \begin{proof}[Proof of Theorem \ref{Existence-of-Morse-functions}]
+       The proof follows neatly
+       from the previous theorem and lemmas. Again,
+       check \cite{Milnor-h-cobordism}.
+   \end{proof}
+
+   \begin{remark}[]
+       In the $C^2$ topology, the Morse functions also
+       form an open dense subset of smooth
+       maps
+       $f \colon \left( W; V_0, V_1 \right) \to 
+       \left( \left[ 0,1 \right] , 0, 1 \right) $.
+   \end{remark}
+
+   \begin{lemma}[]
+       Let $f \colon W \to \left[ 0,1 \right] $ be a Morse
+       function for the triad $\left( W;
+       V_0,V_1\right) $ with critical points $p_1,\ldots,p_k$.
+       Then $f$ can be approximated by a Morse function $g$ 
+       with the same critical points such that
+       $g\left( p_i \right)  \neq g\left( p_j \right) $ whenever
+       $i \neq j$.
+   \end{lemma}
+
+
+
+   Now, the goal is to decompose cobordisms into
+   simple cobordisms using Morse functions.
+
+   \begin{lemma}[]
+       Let $f \colon \left( W; V_0, V_1 \right) 
+       \to \left( \left[ 0,1 \right] , 0, 1 \right) $ be
+       a Morse function, and suppose that
+       $0 < c < 1$ where $c $ is not a critical value of
+       $f$. Then both
+       $f^{-1}\left[ 0,c \right] $ and
+       $f^{-1}\left[ c,1 \right] $ are smooth
+       manifolds with boundary.
+   \end{lemma}
+
+   \begin{corollary}
+       Any cobordism can be expressed as a composition
+       of cobordisms with Morse number $1$.
+   \end{corollary}
+   
 
 \printbibliography
 \end{document}
