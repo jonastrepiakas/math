@@ -742,6 +742,7 @@ Lemma \ref{Jets-Taylor-Series}.
     \end{enumerate}
 \end{exercise}
 
+
 \subsection{The Whitney $C^{\infty}$ topology (compact-open topology)}
 
 \begin{definition}[Residual, Baire space]
@@ -777,7 +778,7 @@ Lemma \ref{Jets-Taylor-Series}.
     \left( df \right)_x \left( T_x X \right) $.
 \end{definition}
 
-\begin{proposition}[]
+\begin{proposition}[]\label{Transversality-Dimensions}
     Let $X$ and $Y$ be smooth manifolds,
     $W \subset Y$ a submanifold. 
     Suppose $\dim W + \dim X < \dim Y$ (i.e.,
@@ -853,6 +854,66 @@ Lemma \ref{Jets-Taylor-Series}.
     $C^{\infty}(X,Y)$ in the $C^{\infty}$ topology.
 \end{theorem}
 
+
+
+\subsubsection{Multijet Spaces}
+
+\begin{definition}[]
+Let $X$ and $Y$ be smooth manifolds.
+Define
+\begin{align*}
+    X^{s} &= X \times \ldots \times X\\
+    X^{(s)}
+    &= \left\{ \left( x_1,\ldots,x_s \right) 
+    \in X^{s}  \mid x_i \neq x_j, \quad 1 \le i <j \le s\right\} .
+\end{align*}
+Let
+$\alpha \colon J^{k}(X,Y) \to X$ be the source map.
+Define
+$\alpha^s \colon J^{k}(X,Y)^{s} \to X^{s}$ 
+by $\left( \sigma_1,\ldots, \sigma_s \right) 
+\mapsto \left( \alpha \sigma_1, \ldots,
+\alpha \sigma_s \right) $.
+Then
+define
+$J_s^{k}(X,Y) = \left( \alpha^s \right)^{-1}
+\left( X^{(s)} \right) $, called the
+$s$-fold $k$-jet bundle. \\
+A multijet bundle is some
+$s$-fold $k$-jet bundle,
+$X^{(s)}$ is a manifold since it is an open
+subset of $X^{s}$, so
+$J_s^{k}(X,Y)$ is an open subset
+of
+$J^{k}(X,Y)^{s}$, hence also a smooth manifold.\\
+Let
+$f \colon X \to Y$ be smooth.
+Define
+$j_s^{k} f \colon X^{(s)}\to 
+J_{s}^{k}(X,Y)$ by
+\[
+j_s^{k}f\left( x_1,\ldots, x_s \right) 
+= \left( j^{k}f(x_1), \ldots,
+j^{k}f(x_s) \right).
+\] 
+\end{definition}
+
+
+\begin{theorem}[Multijet Transversality Theorem]\label{Multijet-Transversality}
+    Let $X$ and $Y$ be smooth manifolds with
+    $W$ a submanifold of $J_s^{k}(X,Y)$. Let
+    \[
+    T_W = 
+    \left\{ f \in C^{\infty}(X,Y) \mid 
+    j_s^{k}f \pitchfork W \right\} .
+    \] 
+    Then
+    $T_W$ is a residual subset of
+    $C^{\infty}(X,Y)$ in the
+    $C^{\infty}$ topology.
+    Moreover, if $W$ is compact, then
+    $T_W$ is open.
+\end{theorem}
 
 \subsection{The Whitney Embedding Theorem}
 
@@ -966,16 +1027,28 @@ $\corank j^{1}f = 1$. Therefore
      Show that any smooth manifold admits a Morse function.
  \end{problem}
 
+ The proof of this problem will
+ consist of first showing that
+ the set of Morse functions is an open dense
+ subset of $C^{\infty}(M,\mathbb{R})$. We will
+ thereafter intersect this set with another residual
+ set in $C^{\infty}(M,\mathbb{R})$ which will force
+ critical values to be distinct. Then
+ we will finish the problem by making use of
+ $C^{\infty}(M,\mathbb{R})$ being a Baire space in
+ the Whitney $C^{\infty}$ topology when
+ $M$ is a manifold.
 
-     To solve this problem, we will prove the following
-     stronger theorem:
-     \begin{theorem}[]
+
+
+ \begin{theorem}[]\label{Morse-Functions-Open-Dense}
          Let $M$ be a manifold. The set of Morse
          functions is an open dense subset of
          $C^{\infty}(M,\mathbb{R})$.
      \end{theorem}
 
  \begin{proof}
+
 
      Recall that $S_1 $ is a submanifold of
      $J^{1}(M, \mathbb{R})$.
@@ -1012,12 +1085,149 @@ $\corank j^{1}f = 1$. Therefore
      $X$ and $Y$ are manifolds, so by
      definition, every residual set is dense. Hence
      $T_{S_1}$ is dense in
-     $C^{\infty}(M,\mathbb{R})$.
+     $C^{\infty}(M,\mathbb{R})$. Since 
+     $0$ is an element, it is in particular nonempty.
+
+ \end{proof}
+
+ \begin{theorem}[]
+     Let $M$ be a smooth manifold.
+     The set of Morse functions all of whose
+     crtiical values are distinct form a residual set
+     in $C^{\infty}(M, \mathbb{R})$
+ \end{theorem}
+
+ \begin{proof}
+     Let
+     $S = \left( S_1 \times S_1 \right) \cap
+     J_2^{1}(M,\mathbb{R}) \cap
+     \left( \beta^2 \right)^{-1}
+     \left( \Delta \mathbb{R} \right) $.
+     We claim that $S$ is a submanifold of the
+     multijet bundle
+     $J_2^{1}(M,\mathbb{R})$.
+     It suffices to check that it is locally
+     a submanifold.
+     Let $U$ be an open coordinate
+     neighborhood in $M$ diffeomorphic to
+     $\mathbb{R}^{n}$. Recall that
+     $J^{1}(U,\mathbb{R}) \cong
+     U \times \mathbb{R} \times B_{n,1}^{1}
+     \cong \mathbb{R} \times \mathbb{R} \times 
+     \Hom \left( \mathbb{R}^{n},1 \right) $, so
+     seeing as the coordinates on
+     $J_1^2 (X,Y)$ are inherited from the product smooth
+     structure and that of an open subset of a smooth
+     manifold, we find
+     $J_1^2(U, \mathbb{R}) \cong
+     \left( \mathbb{R}^{n} \times \mathbb{R}^{n}
+     - \Delta\mathbb{R}^{n} \right) \times 
+     \left( \mathbb{R} \times \mathbb{R} \right) 
+     \times \Hom\left(\mathbb{R}^{n},\mathbb{R}  \right)^2 $.
+     Inserting this in the expression for
+     $S$ and noting that
+     $\left( \beta^2 \right)^{-1}
+     \left( \Delta \mathbb{R} \right) $ means
+     that the codomain coordinates must be the same,
+     so $\left( \mathbb{R} \times \mathbb{R} \right) $ is
+     replaced by $\Delta \mathbb{R}$, and
+     intersecting with $\left( S_1 \times S_1 \right) $ means
+     that the coordinates for the
+     partial derivatives all vanish, so
+     $\Hom \left( \mathbb{R}^{n},\mathbb{R} \right)^2$ reduces
+     to $\left( 0,0 \right) $. So we get
+     \[
+     S \cong \left( \mathbb{R}^{n} \times \mathbb{R}^{n}
+     - \Delta \mathbb{R}^{n} \right) \times 
+     \Delta \mathbb{R} \times \left( 0,0 \right) 
+     \] 
+     which indeed is a submanifold of
+     \[
+         J_1^2 \left( U, \mathbb{R} \right) 
+         \cong 
+         \left( \mathbb{R}^{n} \times \mathbb{R}^{n}
+         - \Delta \mathbb{R}^{n} \right) \times 
+         \left( \mathbb{R} \times \mathbb{R} \right) 
+         \times \Hom \left( \mathbb{R}^{n},\mathbb{R} \right)^2.
+     \] 
+     Since $S$ is locally a submanifold of
+     $J_2^{1}(M,\mathbb{R})$ at each point, it is a submanifold.
+     Moreover, 
+     $\codim S = 2n+1$ where $n = \dim M$: since indeed
+     $\dim J_1^2 \left( U,\mathbb{R} \right) 
+     = 2n - 1 + 2 + 2n$ and
+     $\dim S = 2n-1 + 1$.\\
+     Now applying the Multijet Transversality Theorem
+ (Theorem \ref{Multijet-Transversality}), we obtain that
+  $T_{S} = 
+  \left\{ f \in C^{\infty}(M, \mathbb{R}) \mid 
+  j_2^{1} f \pitchfork S \right\} $ is
+  residual in
+  $C^{\infty}(M, \mathbb{R})$ equipped with the
+  $C^{\infty}$ topology.\\
+
+
+     But by Proposition \ref{Sm-Maps-Mfds-Baire},
+     $C^{\infty}(X,Y)$ is a Baire space in the
+     Whitney $C^{\infty}$ topology when
+     $X$ and $Y$ are manifolds, so by
+     definition, every residual set is dense. Hence
+     $T_{S}$ is dense in
+     $C^{\infty}(M,\mathbb{R})$. Since 
+     $0$ is an element, it is in particular nonempty.
+
+  Now, if $f \colon M \to \mathbb{R}$ is a smooth map.
+  Then $j_2^{1}f \colon
+  M^{(s)} \to J_2^{1}(M, \mathbb{R})$.
+  In particular,
+  suppose that $j_2^{1}f \pitchfork S$, then since 
+  $\codim S = 2n+1$, while
+  $\dim M^{(2)} = 
+  \dim M \times M - \Delta M= 2n-1 $, we obtain immediately from
+  Proposition \ref{Transversality-Dimensions} that
+  $j_2^{1}f( M \times M - \Delta M) \cap S = \varnothing$.
+
+  So if $p,q$ are critical points of
+  $f$, the fact that
+  $j_2^{1}f(p,q) \not\in  S$ means that
+  since $\left( j^{1}f(p), j^{1}f(q) \right) 
+  \in S_1 \times S_1 \cap J_2^{1}(M, \mathbb{R})$, it
+  must be the failure of being in
+  $\left( \beta^2 \right)^{-1}\left( \Delta \mathbb{R} \right) $ 
+  that prevents $j_2^{1}f
+  \left( M \times M- \Delta M \right) $  from intersecting
+  $S$. I.e., the targets are not equal:
+  $f(p) \neq f(q)$. Since $p,q$ were arbitrary
+  critical values,
+  the critical values of any
+  $f \in T_S$ are thus pairwise distinct.\\
+
+  Now taking the set
+  $T_S$ and $T_{S_1}$ from Theorem \ref{Morse-Functions-Open-Dense},
+  since $T_{S_1}$ was shown to be an open dense
+  subset of $C^{\infty}(M,\mathbb{R})$, and
+   $T_S$ was just shown to be
+   residual in $C^{\infty}(M,\mathbb{R})$, i.e.,
+   the countable intersection of open dense subsets
+   of $C^{\infty}(M,\mathbb{R})$, we find that
+   $T_S \cap T_{S_1}$ is the countable intersection of
+   open dense subsets of $C^{\infty}(M,\mathbb{R})$ also,
+   hence residual in $C^{\infty}(M,\mathbb{R})$.
+   From Proposition \ref{Sm-Maps-Mfds-Baire}, we now obtain
+   that $T_S \cap T_{S_1}$ is dense in
+   $C^{\infty}(M,\mathbb{R})$, giving us
+   the collection we wanted.
+
+
 
 
 
 
  \end{proof}
+
+
+
+
 
 
 
