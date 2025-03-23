@@ -19,6 +19,38 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{GG}{book}{}
+      \name{author}{2}{}{%
+        {{hash=04c1bb50a693abd13f903c4d491ef394}{%
+           family={Golubitsky},
+           familyi={G\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=c72a98e80ca8c5eb7715404eda453cd4}{%
+           family={Guillemin},
+           familyi={G\bibinitperiod},
+           given={V.},
+           giveni={V\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag, New York-Heidelberg}%
+      }
+      \strng{namehash}{c9179393270b25b243f41895c9ef3fea}
+      \strng{fullhash}{c9179393270b25b243f41895c9ef3fea}
+      \strng{bibnamehash}{c9179393270b25b243f41895c9ef3fea}
+      \strng{authorbibnamehash}{c9179393270b25b243f41895c9ef3fea}
+      \strng{authornamehash}{c9179393270b25b243f41895c9ef3fea}
+      \strng{authorfullhash}{c9179393270b25b243f41895c9ef3fea}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{series}{Graduate Texts in Mathematics, Vol. 14}
+      \field{title}{Stable mappings and their singularities}
+      \field{year}{1973}
+      \field{pages}{x+209}
+      \range{pages}{-1}
+    \endentry
     \entry{Hirsch}{book}{}
       \name{author}{1}{}{%
         {{hash=697b9e10d72a5f4aec2034a99cf01a9b}{%

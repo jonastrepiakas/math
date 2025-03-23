@@ -11,8 +11,8 @@
 %%For category theory diagrams:
 \usepackage{tikz-cd}
 
-%\usepackage[backend=biber]{biblatex}
-%\addbibresource{.bib}
+\usepackage[backend=biber]{biblatex}
+\addbibresource{assignment.bib}
 
 
 \setlength\parindent{0pt}
@@ -156,6 +156,7 @@
     pairwise distinct critical values in $\mathbb{R}$.
 \end{definition}
 
+\subsection{Reeb's Theorem}
 
 \begin{problem}[Reeb's Theorem]\label{Reeb's-Theorem}
         (6 pts) Let $M$ be a smooth, compact manifold of
@@ -334,15 +335,202 @@
          are both diffeomorphic to closed $d$-disks, and
          furthermore,
          $M$ is obtained by gluing these  $d$-disks along their
-         boundary. We claim that this is sufficient
+         boundary which
+         is homeomorphic to
+         $S^{d-1}$. We claim that this is sufficient
          to conclude that $M$ is \textit{homeomorphic} to
          $S^{d}$.
+         The problem is that while
+         we have individual diffeomorphisms
+         $M^{1-\varepsilon} \cong
+         D^{n}$ and
+         $f^{-1}\left[ 1-\varepsilon,1 \right] 
+         \cong D^{n}$, the identifications of the boundaries
+         might not be preserved under these diffeomorphisms,
+         so we might not be able to reglue after.
+         Let
+         $\varphi_1 \colon M^{1- \varepsilon}
+         \cong D^{d}$ and
+         $\varphi_2 \colon
+         f^{-1}\left[ 1-\varepsilon,1 \right] 
+         \cong D^{d}$ be the diffeomorphisms.
+         Then 
+         $\varphi_1 \circ \varphi_2^{-1}$ is a diffeomorphism
+         of $S^{d-1}$, and
+         \[
+         M \cong D^{d} \sqcup_{\varphi_1 \circ \varphi_2^{-1}}
+         D^{d}.
+         \] 
+         We construct a homeomorphism
+         $\psi \colon D_1 \sqcup_{\id} D_2 \to 
+         D^{d} \sqcup_{\varphi_1 \circ \varphi_2^{-1}}
+         D^{d}$ by
+         \[
+         \psi (x)
+         =
+         \begin{cases}
+             x&, x \in D_1\\
+             0&, x \in D_2 \text{ and } x = 0\\
+             \|x\| \varphi_1 \circ
+             \varphi_2^{-1} \left( \frac{x}{\|x\|} \right) ,&
+             x \in D_2 - \left\{ 0 \right\} 
+         \end{cases}
+         \] 
+         As the sphere is compact and
+          the twisted sphere Hausdorff, this
+          map is a homeomorphism.\\
+          The reason it might fail to be a diffeomorphism, is
+          that on $D_2 - \left\{ 0 \right\} $, as
+          we  let $x$ approach $0$, we might have
+          non-agreeing derivatives from different directions.\\
+          \linebreak
+          A different way of obtaining a homeomorphism
+          is as follows: since
+          $\varphi_1$ and $\varphi_2$ can be
+          chosen to both be orientation-preserving, for example
+          by precomposing with an orientation reversing
+          self-homeomorphism of the disk, we find that
+          $\varphi_1 \circ \varphi_2^{-1}$ is isotopic through
+          topological embeddings to the identity. Now
+          applying an isotopy extension theorem,
+          \cite[Thm 1.3, p. 180]{Hirsch}, this isotopy
+          extends to an ambient isotopy of
+          $S^{d}$ with compact support.
 
 
     \end{proof}
 
 
+    \subsection{Existence of Morse functions}
+
+    \begin{problem}[Existence of Morse functions]
+        (6pts) Show that any smooth manifold $M$ admits
+        a Morse function.
+    \end{problem}
+
+    \begin{proof}
+        Suppose $M$ is of dimension $k$. By the Whitney embedding
+        theorem, we can smoothly
+        embed $M$ in $\mathbb{R}^{n}$ for some
+        $n\ge k$.
+        Let $N \subset M \times \mathbb{R}^{n}$ be
+        defined by
+        \[
+        N = \left\{ \left( q,v \right) \colon
+        q \in M, v \in  M_q^{\perp} \right\} 
+        \] 
+        \begin{lemma}[]
+            $N$ is an $n$-dimensional manifold smoothly
+            embedded in $\mathbb{R}^{2n}$.
+        \end{lemma}
+
+        Define
+        $E \colon N \to \mathbb{R}^{n}$ by
+        $E(q,v) = q+v$.
+
+        \begin{definition}[]
+            A point $e \in \mathbb{R}^{n}$ is called
+            a \textit{focal point of $(M,q)$ with
+            multiplicity $\mu$ } if
+        $e = q+v$ where
+    $(q,v) \in N$ and the Jacobian of $E$ at
+    $\left( q,v \right) $ has nullity
+    $\mu > 0$. The point $e$ will be called a \textit{focal point}
+    of $M$ if $e$ is a focal point of $\left( M,q \right) $ 
+    for some $q \in M$.
+        \end{definition}
+
+        \begin{definition}[Critical point]
+            For our purposes, we will define
+            a critical point of a smooth map
+            $f$ to be a point where the Jacobian is
+            singular, i.e., $\det df = 0$.
+            In particular, critical points in the usual definition
+            where $df$ vanishes at the point are included in this
+            definition since if $df$ vanishes at $p$, then
+            $\det df(p) = 0$.
+        \end{definition}
 
 
-    %\printbibliography
+        Now, since $N$ is an $n$-manifold, note that
+        $E \colon N \to \mathbb{R}^{n}$ is a map
+        between two $n$-dimensional manifolds. In particular,
+        $dE$ is a map between two $n$-dimensional tangent spaces
+        at each point. Therefore,
+        by definition, a point
+        $e \in \mathbb{R}^{n}$ is a focal point
+        $e = q+v$ with
+        $\left( q,v \in N \right) $ 
+        if and only if $dE$ is not injective at
+        $(q,v)$ if and only if
+        $\det dE_{(q,v)} = 0$ if and only if
+        $(q,v)$ is a critical point of $E$.
+        But $E$ is clearly smooth, so by
+        Sard's theorem, the set of critical \textit{values}
+        of $E$ which corresponds to the set of focal points
+        has Lebesgue measure $0$.\\
+        \linebreak
+        Let now $\left( U, \left( u^{i} \right) = \varphi  \right) $ 
+        be a chart on $M$ with $i = 1,\ldots,k$, and
+        consider the inclusion
+        $M \hookrightarrow \mathbb{R}^{n}$.
+        Then we obtain natural coordinates
+        in $\mathbb{R}^{n}$ given by
+        $\mathbb{R}^{k} \stackrel{\varphi^{-1}}{\hookrightarrow} M \hookrightarrow 
+        \mathbb{R}^{n}$.
+        We let
+        $x_1\left( u_1,\ldots,u_k \right) ,\ldots,
+        x_n \left( u_1,\ldots,u_k \right) $ be these
+        maps and
+        $x = \left( x_1,\ldots, x_n \right) \colon
+        \mathbb{R}^{k} \to \mathbb{R}^{n}$.
+        
+        \begin{definition}[First and second fundamental forms]
+            Given the above setup, we call
+            the following matrix the first fundamental form:
+            \[
+            g_{ij} = 
+            \begin{pmatrix} \frac{\partial x}{\partial u^i}
+            \cdot \frac{\partial x}{\partial u^{j}} \end{pmatrix} ,
+            \] 
+            the dot signaling the usual dot product.
+
+            Similarly, we define a matrix
+            $\left( l_{ij} \right) $ called the
+            second fundamental form where
+            $l_{ij}$ is the summand of the vector
+            $\frac{\partial^2 x}{\partial u^{i} \partial
+            u^{j}}$ which is normal to $M$.
+
+
+
+        \end{definition}
+
+
+    \end{proof}
+
+
+    \subsection{On the Transversality Theorem}
+
+    \begin{problem}[On the transversality theorem]
+        Let $M$ be a smooth manifold.
+        \begin{enumerate}
+            \item Let $X \subset M$ be a smooth
+                submanifold, and let $f \colon Y \to M$ 
+                be a smooth map, where
+                $Y$ is a smooth manifold. Show that
+                $f$ is smoothly homotopic to a map that
+                intersects $X$ transversally at every
+                point.
+            \item Show that in the above setting, if
+                $f \colon Y \to M$ intersects $X$ transversally,
+                then $f^{-1}(X)$ is a smooth submanifold
+                of $Y$ such that $\dim Y + \dim
+                f^{-1}(X) = \dim X$.
+        \end{enumerate}
+    \end{problem}
+
+
+
+\printbibliography
 \end{document}

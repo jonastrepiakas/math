@@ -90,6 +90,8 @@
 \DeclareMathOperator{\tr}{tr}
 \DeclareMathOperator{\codim}{codim}
 \DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\corank}{corank}
+\DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\Diff}{Diff}
 \DeclareMathOperator{\Bun}{Bun}
 \DeclareMathOperator{\Sm}{Sm}
@@ -207,6 +209,35 @@ are \cite{KMS} and \cite{LeeSM}
 
 \section{Smooth Maps}
 
+
+\subsection{A couple of nice formula}
+
+\begin{lemma}[Change of coordinates on tangent basis]
+    Suppose
+    $\left( U, \varphi  \right) ,
+    \left( V,\psi  \right) $ are smooth charts
+    on a smooth manifold $M$ and $p \in U \cap V$.
+    Let $\left( x^{i} \right) , \left( \tilde{x}^{i} \right) $ 
+    be the coordinate functions for $\varphi $ and $\psi $,
+    respectively. 
+    We can write
+    \[
+    \psi \circ \varphi^{-1} (x) =
+    \left( \tilde{x}^{1}(x),\ldots,
+    \tilde{x}^{n}(x) \right) .
+    \] 
+    Now
+    \[
+    \frac{\partial}{\partial x^{i}}|_{p}
+    = \frac{\partial \tilde{x}^{j}}{\partial x^{i}}(p)
+    \frac{\partial}{\partial \tilde{x}^{j}}|_p
+    \] 
+    where $\tilde{p} = \varphi (p)$ and we are using
+    Einstein summation.
+\end{lemma}
+
+
+
 There are very few strong things that we can at this point
 say about general smooth maps. This section will cover
 the big tools.\\
@@ -308,9 +339,704 @@ encapsulated in Sard's theorem:
     map between manifolds has Lebesgue measure zero.
 \end{theorem}
 
+\newpage
+
+\section{Transversality and Function Spaces}
+
+For this section, we will closely be following
+\cite{GG}.
 
 
+\begin{definition}[]
+    Given maps
+    \begin{equation*}
+    \begin{tikzcd}
+        & Y \ar[d,"g"] \\
+        X \ar[r, "f"] & Z
+    \end{tikzcd}
+    \end{equation*}
+    we say that $f$ is transverse to $g$, denoted
+    $f \pitchfork g$ if for every
+    $p \in X$ and every $q \in Y$ such that
+    $f(p) = g(y)$, we have
+    \[
+        \left( TX \right)_p \oplus \left( TY \right)_{q}
+        \twoheadrightarrow \left( TZ \right)_{f(p)}
+    \] 
+\end{definition}
+
+
+\subsection{Jet Bundles}
+
+\begin{definition}[]
+   Let $X,Y$ be smooth manifolds and $p \in X$. 
+   Suppose $f,g \colon X \to Y$ are smooth
+   with $f(p) = g(p) = q$.
+   \begin{enumerate}
+       \item We that $f$ has \textit{first order contact
+           with $g$ at $p$ } if $\left( df \right)_p
+           = \left( dg \right)_p \colon
+           T_p X \to T_q Y$ .
+       \item We say that \textit{$f$ has $k$ th order
+           contact with $g$ at $p$} if
+           $\left( df \right) \colon
+           TX \to TY$ has $\left( k-1 \right) $ st
+           order contact with $\left( dg \right) $ at
+           every point in $T_p X$. This is written
+           as $f \sim_k g$ at $p$.
+       \item Let $J^{k}(X,Y)_{p,q}$ denote the
+           set of equivalence classes under
+           " $\sim_k$ at $p$ " of smooth maps
+           $f \colon X \to Y$ where
+           $f(p) = q$.
+       \item Define $J^{k}(X,Y) :=
+           \bigcup_{\left( p,q \right) \in X \times Y} 
+           J^{k}(X,Y)_{p,q}$. An element
+           $\sigma \in J^{k}(X,Y)$ is called a 
+           \textit{$k$-jet of mappings (or just a $k$-jet)
+           from $X$ to $Y$}.
+       \item Let $\sigma$ be a $k$-jet. Then
+           for some $\left( p,q \right) \in X \times Y$,
+           $\sigma \in J^{k}(X,Y)_{p,q}$. Then
+           $p$ is called the source of $\sigma$ and
+           $q$ is called the target of $\sigma$. The
+           mapping $\alpha \colon J^{k}(X,Y) \to X$ 
+           given by $\sigma \mapsto \text{source of } \sigma$ 
+           is called the source map and the mapping
+           $\beta \colon J^{k}(X,Y) \to Y$ given by
+           $\sigma \mapsto \text{target of }\sigma$ is called
+           the target map.
+   \end{enumerate}
+\end{definition}
+
+\begin{definition}[$k$-jet or the $k$-prolongation of a map]
+    For a smooth map
+    $f \colon X \to Y$, there is a canonically defined map
+    $j^{k}f \colon X \to J^{k}(X,Y)$ called the
+    $k$-jet of $f$ defined by
+    $j^{k}f(p) = \left[ f, p \right] $, the
+    equivalence class of $f$ in
+    $J^{k}(X,Y)_{p, f(p)}$, for every
+    $p \in X$.
+\end{definition}
+
+\begin{lemma}[]\label{Jets-Taylor-Series}
+    Let $U \subset \mathbb{R}^{n}$ be open and
+    $p \in U$. Let $f,g \colon U \to \mathbb{R}^{m}$ be
+    smooth. Then
+    $f \sim_k g$ at $p$ if and only if
+    \[
+    \frac{\partial^{\left| \alpha \right| } f_i}{\partial
+    x^{\alpha}}(p) = \frac{\partial^{\left| \alpha \right| }
+g_i}{\partial x^{\alpha}}(p)
+    \] 
+    for every multi-index $\alpha$ with
+    $\left| \alpha \right| \le k$ and
+    $1\le y \le m$ where $f_i$ and $g_i$ are the
+    coordinate functions determined by
+    $f$ and $g$, respectively, and $x_1, \ldots, x_n$ 
+    are coordinates on $U$.
+\end{lemma}
+
+
+
+\begin{lemma}[]
+    Let $U \subset \mathbb{R}^{n}$ and
+    $V \subset \mathbb{R}^{m}$ be open. 
+    Let $f_1,f_2 \colon U \to V$ and
+    $g_1,g_2 \colon V \to \mathbb{R}^{l}$ be smooth.
+    Let $p \in U$.
+    If $f_1 \sim_k f_2$ at $p$ and
+    $g_1 \sim_k g_2$ at $q = f_1(p) = f_2(p)$, then
+    $g_1 \circ f_1 \sim_k g_2 \circ f_2$ at $p$.
+\end{lemma}
+
+\begin{proof}
+    We proceed by induction. First, we show the case
+    when $k = 1$. In this case, the statement is precisely that
+    \[
+    d \left( g_1 \circ f_1 \right)_p = d\left( g_2
+    \circ f_2\right)_p
+    \] 
+    for all $p \in U$.
+    But this is true by the chain rule (Lemma
+    \ref{Chain-Rule}):
+    \[
+    d\left( g_1 \circ f_1 \right)_p =
+    \left( dg_1 \right)_q \left( df_1 \right)_p
+    = \left( dg_2 \right)_q \left( df_2 \right)_p
+    = d\left( g_2 \circ f_2 \right)_p.
+    \] 
+    Suppose now the statement is
+    true for $k-1$.
+    Then since
+    $(df_1) \sim_{k-1} \left( df_2 \right) $ at
+    $p$ and $\left( dg_1 \right) \sim_{k-1} \left( dg_2 \right) $ 
+    at $q = f_1(p) = f_2(p)$, we have by
+    induction that
+    \[
+        \left( dg_1  \right) \circ \left( df_1 \right) 
+        \sim_{k-1} \left( dg_2 \right) \circ
+        \left( df_2 \right) \quad
+        \forall \left( p,v \right) \in \left\{ p \right\} \times 
+        \mathbb{R}^{n}
+    \] 
+    which by the chain rule is precisely saying that
+    \[
+    d\left( g_1 \circ f_1 \right) \sim_{k-1}
+    d\left( g_2 \circ f_2 \right) 
+    \] 
+    for all $(p,v) \in \left\{ p \right\} \times \mathbb{R}^{n}$.
+    But this is precisely the definition of
+    $g_1 \circ f_1 \sim_k g_2 \circ f_2$ at
+    $p$.
+
+\end{proof}
+
+\begin{definition}[]
+    Let $X,Y,Z,W$ be smooth manifolds.
+    \begin{enumerate}
+        \item Let $h \colon Y \to Z$ be smooth.a
+            Then $h$ induces a map
+            $h_* \colon J^{k}(X,Y) \to 
+            J^{k}(X,Z)$ as follows:
+            if $\left[ f,p \right]  \in J^{k}(X,Y)_{p,q}$, then
+            $h_* \left[ f,p \right] =
+            \left[ h \circ f, p \right] 
+            \in J^{k}\left( X,Z \right)_{p,h(q)}$.
+        \item If $a \colon Z \to W$ is smooth, then
+            $\left( a \circ h \right)_{*}
+            = a_* \circ h_*$ and
+            $\left( \id_Y \right)_* = 
+            \id_{J^{k}(X,Y)}$. So if
+            $h$ is a diffeomorphism, then
+            $h_*$ is a bijection.
+        \item Let $g \colon Z \to X$ be a smooth
+            diffeomorphism. Then
+            $g$ induces a map
+            $g^{*} \colon J^{k}(X,Y) \to 
+            J^{k}(Z,Y)$ by
+            $g^{*}\left[ f,p \right] =
+            \left[ f \circ g, g^{-1}(p) \right] 
+            \in J^k (Z,Y)$.
+            \item Let $a \colon W \to Z$ be a smooth diffeomorphism.
+            Then $\left( g \circ a \right)^{*}=
+            a^{*} g^{*}$ and
+            $\left( \id_X \right)^{*} = 
+            \id_{J^{k}(X,Y)}$.
+    \end{enumerate}
+\end{definition}
+
+
+
+Next, let
+$A_n^{k}$ be the vector space of polynomials in $n$ variables
+of degree $\le k$ which have constant term equal to $0$.
+As coordinates for $A_n^{k}$, we can choose the
+coefficients of the polynomials.
+Let $B_{n,m}^{k} = \oplus_{i=1}^{m} A_n^{k}$.
+Both $A_{n}^{k}$ and
+$B_{n,m}^{k}$ are smooth manifolds.\\
+
+Let now $U \subset \mathbb{R}^{n}$ be open and
+$f \colon U \to \mathbb{R}$ smooth. Define
+$T_kf \colon U \to A_n^{k}$ as
+$T_kf(x_0)$ being 
+the $k$th order Taylor polynomial of $f$ at $x_0$ without the
+constant term.
+
+Let $V \subset \mathbb{R}^{m}$ be open. There is a canonical
+bijection
+$T_{U,V} \colon
+J^{k}(U,V) \to U \times V \times B_{n,m}^{k}$ given by
+\[
+T_{U,V} \left( \left[ f,x_0 \right]  \right) 
+= \left( x_0, f(x_0), T_{k}f_1 (x_0),
+\ldots, T_kf_m (x_0) \right) .
+\] 
+
+This map is well-defined and injective by 
+Lemma \ref{Jets-Taylor-Series}.
+
+\begin{lemma}[]
+    Let $U, U' \subset \mathbb{R}^{n}$ be open and
+    $V,V' \subset \mathbb{R}^{m}$ open.
+    Suppose $h \colon V \to V'$ is smooth and
+    $g \colon U \to U'$ a diffeomorphism. Then
+    \[
+    T_{U',V'}\left( g^{-1} \right)^{*} h_* T_{U,V}^{-1}\colon
+    U \times V \times B_{n,m}^{k} \to 
+    U' \times V' \times B_{n,m}^{k}
+    \] 
+    is smooth.
+\end{lemma}
+
+
+\begin{definition}[Smooth structure on
+    $J^{k}(X,Y)$]
+    Let $X,Y$ be smooth manifolds of dimension
+    $n$ and $m$, respectively.
+    Let $\left( U, \varphi  \right) $ and 
+    $\left( V,\psi  \right) $ be smooth charts
+    in $X$ and $Y$, respectively. Let
+    $U' = \varphi (U), V' = \psi (V)$. Then
+    let
+    $\tau_{U,V} :=
+    T_{U', V'} \circ \left( \varphi^{-1} \right)^{*}
+    \psi_* \colon
+    J^{k}(U,V) \to U' \times V' \times B_{n,m}^{k}$.
+    We declare
+    $\left( J^{k}(U,V), \tau_{U,V} \right) $ to
+    be a chart for
+    $J^{k}(X,Y)$. We equip
+    $J^{k}(X,Y)$ with the smooth structure induced by
+    these smooth charts.\\
+    We thus see that
+            \[
+            \dim J^{k}(X,Y) = m+n+ \dim \left( B_{n,m}^{k} \right) 
+            \] 
+\end{definition}
+
+
+\begin{theorem}[]
+    Let $X$ and $Y$ be smooth manifolds with
+    $n = \dim X$ and $m = \dim Y$. Then
+    \begin{enumerate}
+        \item $\alpha \colon J^{k}(X,Y) \to X,
+            \beta \colon J^{k}(X,Y) \to Y$ and
+            $\alpha \times \beta \colon
+            J^{k}(X,Y) \to X \times Y$ are
+            submersions.
+        \item If $h \colon Y \to Z$ is smooth,
+            then $h_* \colon J^{k}(X,Y) \to 
+            J^{k}(X,Z)$ is smooth.
+            If $g \colon X \to Y$ is a diffeomorphism,
+            then $g^{*} \colon J^{k}(Y,Z)
+            \to J^{k}(X,Z)$ is a diffeomorphism.
+        \item If $g \colon X \to Y$ is smooth, then
+            $j^{k}g \colon X \to 
+            J^{k}(X,Y)$ is smooth.
+    \end{enumerate}
+\end{theorem}
+
+
+\begin{proof}
+    (3) Let $\left( U, \varphi  \right) ,
+    \left( V, \psi  \right) $ be charts about
+    $x_0$ and $g(x_0)$, respectively. 
+    Then
+    in local coordinates,
+    \begin{align*}
+    \tau_{U,V} \circ j^{k}g \circ \varphi^{-1}(x)
+    &= \tau_{U,V} \left[ g, \varphi^{-1}(x) \right] 
+    T_{U',V'} \left[ \psi \circ g \circ \varphi^{-1}, x \right] \\
+    &=
+    \left( x, \psi \circ g \circ \varphi^{-1}(x),
+    T_k\left( \psi_1 \circ g \circ \varphi^{-1} \right) (x),
+\ldots, T_k \left( \psi_m \circ g \circ \varphi^{-1} \right) (x)
+\right)
+    \end{align*}
+    Now, each
+    $T_k \left( \psi_i \circ g \circ \varphi^{-1} \right) $ 
+    is smooth being a sum of partial derivatives of the
+    $\psi_i \circ g \circ \varphi^{-1}$ 
+    which are smooth functions between Euclidean spaces.
+    Since $j^{k}g$ is locally smooth everywhere, we find
+    that it is smooth.
+\end{proof}
+
+
+
+
+
+\begin{remark}[]
+    $J^{1}(X,Y)$ is canonically isomorphic to
+    $\Hom \left( TX, TY \right) $ where
+    the isomorphism
+    $\psi \colon J^{1}(X,Y) \to 
+    \Hom(TX,TY)$ is given as follows:
+    let $\sigma = \left[ f,p \right] \in 
+    J^{1}(X,Y)_{p,q}$. Then
+    $ \psi (\sigma) = (df)_p \in 
+    \Hom \left( T_p, X, T_qY \right) 
+    $.
+    To see that this is well-defined and a
+    diffeomorphism, note that
+    if $\left[ f,p \right] =
+    \left[ g,q \right] $, then
+    $p = q$ firstly, and
+    $(df)_p = (dg)_p$ by assumption. Hence
+    $\psi \left( \left[ f,p \right]  \right) 
+    = \left( df \right)_p = 
+    \left( dg \right)_p = 
+    \psi \left( \left[ g,q \right]  \right) $.\\
+    For the diffeomorphism part, we check that it is a
+    local diffeomorphism and bijective. 
+    For bijectivity, 
+    if
+    $\psi \left( \left[ f,p \right]  \right) 
+    = \psi \left( \left[ g,q \right]  \right) $, then
+    $p= q$ and
+    $\left( df \right)_p = \left( dg \right)_q$ by
+    assumption, so indeed
+    $\left[ f,p \right] = \left[ g,q \right] $.
+    Fur surjectivity, suppose
+    $f \in \Hom \left( TX,TY \right)
+    = \bigcup_{p \in X, q \in Y} 
+    \Hom \left( T_pX, T_{q}Y \right) $, so
+    there exists 
+    $p \in X$ such that
+    $f \colon T_pX \to T_{q} Y$.
+    Then take a chart
+    $\left( U, \varphi  \right) $ about
+    $p \in X$ and $\left( V, \eta \right) $ around
+    $q$ in $Y$ with
+    $\varphi (U) = \mathbb{R}^{n}$ and
+    $\eta(V) = \mathbb{R}^{m}$, and identifying
+    $T_p X \cong \varphi (U)$ and
+    $T_qY \cong \mathbb{R}^{m}$. Now drawing $f$ back on
+    some closed set $A$ to a map
+    $A \subset U$ to
+    $V$, we can use the extension lemma for smooth maps to
+    get a global map
+    $X \to Y$ which agrees with
+    $f$ on $A$. But the derivative of
+    $f$ is $f$ itself as it is linear, so
+    if  $\tilde{f} \colon X \to Y$ is the global map, we
+    get
+    $\psi \left[ \tilde{f},p \right] 
+    = \left( df \right)_p$.\\
+    In local coordiantes, $\psi $ sends
+    \[
+        \left( p, f(p), T_1f_1(p),\ldots,
+        T_1 f_m(p)\right) \mapsto 
+        \begin{pmatrix} T_1 f_1(p)\\ \ldots \\ T_1f_m(p)
+        \end{pmatrix} 
+    \] 
+    when we identify
+    $A_n^{1} \cong
+    \mathbb{R}^{n}$, which is smooth.
+\end{remark}
+
+
+\begin{exercise}[]
+    There is an obvious canonical projection
+    $\pi_{k,l} \colon J^{k}(X,Y) \to 
+    J^{l}(X,Y)$ for $k > l$ defined by forgetting the
+    jet information of order $>l$. Show that
+    $J^{k}(X,Y)$ is a fiber bundle over
+    $J^{l}(X,Y)$ with projection $\pi_{k,l}$ and identify
+    the fiber.
+\end{exercise}
+
+\begin{exercise}[]
+    Let $J^{1}\left( X,\mathbb{R} \right)_{X,0}$ be
+    the set of all $1$-jets whose target is $0$.
+    \begin{enumerate}
+        \item Show that $J^{1}(X,\mathbb{R})_{X,0}$ is a vector
+            bundle over $X$ whose projection is
+            the source mapping.
+        \item Show that $J^{1}(X,\mathbb{R})_{X,0}$ is canonically
+            isomorphic (as vector bundles) with
+            $T^{*}X$.
+    \end{enumerate}
+\end{exercise}
+
+\subsection{The Whitney $C^{\infty}$ topology (compact-open topology)}
+
+\begin{definition}[Residual, Baire space]
+    Let $F$ be a topological space.
+    Then
+    \begin{enumerate}
+        \item A subset $G$ of $F$ is called
+            \textit{residual} if it is the countable
+            intersection of open dense subsets of $F$.
+        \item $F$ is called a \textit{Baire space} if
+            every residual set is dense.
+    \end{enumerate}
+\end{definition}
+
+\begin{proposition}[]\label{Sm-Maps-Mfds-Baire}
+    Let $X$ and $Y$ be smooth manifolds. Then
+    $C^{\infty}(X,Y)$ is a Baire space in the
+    Whitney $C^{\infty}$ topology.
+\end{proposition}
+
+\subsection{Transversality}
+
+\begin{definition}[Transversality]
+    Let $X$ and $Y$ be smooth manifolds and
+    $f \colon X \to Y$ a smooth map. Let
+    $W$ be a submanifold of $Y$ and
+    $x \in X$. Then $f$ intersects $W$ transversally
+    at $x$, denoted by
+    $f \pitchfork W $ at $x$, if either
+    $f(x) \not\in W$ or
+    $f(x) \in W$ and
+    $T_{f(x)}Y = T_{f(x)} W \oplus
+    \left( df \right)_x \left( T_x X \right) $.
+\end{definition}
+
+\begin{proposition}[]
+    Let $X$ and $Y$ be smooth manifolds,
+    $W \subset Y$ a submanifold. 
+    Suppose $\dim W + \dim X < \dim Y$ (i.e.,
+    $\dim X < \codim W$ ). Let
+    $f \colon X \to Y$ be smooth and suppose 
+    $f \pitchfork W$. Then
+    $f(X) \cap W = \varnothing$.
+\end{proposition}
+
+\begin{proof}
+    Simple exercise.
+\end{proof}
+
+\begin{lemma}[]\label{Transversality-Submersion}
+    Let $X,Y$ be smooth manifolds and
+    $W \subset Y$ a submanifold, and
+    $f \colon X \to Y$ smooth. Let
+    $p \in X$ and $f(p) \in W$. Suppose there
+    exists a neighborhood $U$ of $f(p)$ in
+    $Y$ and a submersion $\varphi \colon
+    U \to \mathbb{R}^{k}$, where
+    $k = \codim W$, such that
+    $W \cap U = \varphi^{-1}(0)$. Then
+    $f \pitchfork W$ at $p$ if and only if
+    $\varphi \circ f$ is a submersion at $p$.
+\end{lemma}
+
+\begin{proof}
+    We have that since
+    $f(p) \in W$,
+    $f \pitchfork W$ at $p$ if and only if
+    $T_{f(p)} Y = T_{f(p)} W \oplus
+    (df)_p \left( T_p X \right) $.
+    Since
+    $\varphi \left( W \cap U \right) 
+    = 0$,
+    $(d \varphi)_p T_pW = 0$, we have
+    $\ker \left( d \varphi  \right)_p
+    = T_p W$ for all $ p$.
+    Hence $f \pitchfork W$ at $p$ if and only if
+    \[
+        T_{f(p)} Y =
+        \ker \left( d \varphi  \right)_p 
+        \oplus \left( df \right)_p \left( T_pX \right) 
+    \] 
+    but
+    $\dim \ker \left( d \varphi  \right)_p 
+    = \dim T_{f(p)} U - \dim
+    \im \left( d \varphi  \right)_p
+    = \dim T_{f(p)} Y - k$, so
+    $f \pitchfork W$ at $p$ if and only if
+    $\dim \left( df \right)_p \left( T_p X \right) 
+    = k$, so in particular,
+    since $\left( d \varphi  \right)_{f(p)}$ is surjective,
+    this happens if and only if
+    $\dim \left( d \varphi \circ f \right)_p 
+    \left( T_p X \right) = k$, i.e., 
+    $\varphi \circ f$ is a submersion at $p$.
+
+
+
+
+\end{proof}
+
+\begin{theorem}[Thom Transversality Theorem]
+    Let $X$ and $Y$ be smooth manifolds and
+    $W$ a submanifold of $J^{k}(X,Y)$. Let
+    \[
+    T_W = \left\{ f \in 
+    C^{\infty}(X,Y)  \mid j^{k}f \pitchfork W \right\} .
+    \] 
+    Then $T_W$ is a residual subset of 
+    $C^{\infty}(X,Y)$ in the $C^{\infty}$ topology.
+\end{theorem}
+
+
+\subsection{The Whitney Embedding Theorem}
+
+\begin{definition}[]
+    Given smooth manifolds $X,Y$, let
+    $\sigma = \left[ f,p \right] 
+    \in J^{1}(X,Y)$. Then define
+    $\rank \sigma = \rank \left( df \right)_p$ and
+    $\corank \sigma = q - \rank \sigma$ where
+    $q = \min \left\{ \dim X, \dim Y \right\} $.\\
+    Define
+    \[
+    S_r = \left\{ \sigma \in J^{1}(X,Y)  \mid 
+    \corank \sigma = r \right\} 
+    \] 
+\end{definition}
+
+Let's use these definitions to
+reformulate the definitions of critical points and
+degenerate critical points.\\
+
+Firstly, for a map $f \colon X \to \mathbb{R}$, a
+point $p \in X$ is a critical point if
+$(df)_p = 0$. Thus
+$\rank j^{1} f = \rank (df)_p = 0$, so
+$\corank j^{1}f = 1$. Therefore
+ if $p$ is a critical point for  $f$, then
+ $\left[ f,p \right] \in S_1$.
+
+ Conversely, if
+ $\left[ f,p \right] \in S_1$, then
+ $\corank \left[ f,p \right] = 1$, so
+ $\rank \left( df \right)_p = 0$, but
+ $\left( df \right)_p \colon T_p X \to \mathbb{R}$, so
+ having rank $0$ means that it must be the $0$ map, so
+ $(df)_p = 0$. Hence $p$ is a critical point. So we find that
+ $p \in X$ is a critical point for $f$ if and only if
+ $\left[ f,p \right] \in S_1$.\\
+ \linebreak
+ Now we make use of the following proposition:
+ \begin{proposition}[]\label{Nondegenerate-Equiv-Jets}
+     Let $U \subset \mathbb{R}^{n}$ be open
+     and $f \colon U \to \mathbb{R}$ smooth. Then
+     a point $p \in U$ is a nondegenerate critical point
+     for $f$ if and only if 
+     $p$ is a critical point and
+     $j^{1}f \pitchfork S_1$ at $p$.
+ \end{proposition}
+
+ \begin{proof}
+     First recall that
+     $J^{1}(U,\mathbb{R}) \cong
+     U \times \mathbb{R} \times B_{n,1}^{1}$ by
+     definition/construction. Now,
+     $B_{n,1}^{1} \cong
+     \Hom \left( \mathbb{R}^{n},\mathbb{R} \right) $.
+     Since
+     $T_p J^{1}(U,\mathbb{R}) \cong
+     T_{p} \left( U \times \mathbb{R} \times 
+     \Hom \left( \mathbb{R}^{n},\mathbb{R} \right) \right) 
+     \cong T_{p_1}U \oplus
+     T_{p_2} \mathbb{R} \oplus
+     T_{p_3} \Hom\left( \mathbb{R}^{n},\mathbb{R} \right) $,
+     we find that the projection
+     $\pi \colon J^{1}\left( U,\mathbb{R} \right) 
+     \to \Hom \left( \mathbb{R}^{n},\mathbb{R} \right) $ 
+     under this identification on tangent spaces
+     simply becomes the projection on the
+     $T_{p_3}\Hom \left( \mathbb{R}^{n},\mathbb{R} \right) $ 
+     factor, hence $\pi$ is a submersion.
+     Furthermore,
+     if $\pi (\sigma) = 0$, that means then
+     in local coordinates, the first degree
+     Taylor expansions without constant term
+     of a smooth representative  $f$ for $\pi$ at
+     $p$ vanish, so since these determine
+     the equivalence class of $\left[ f,p \right] = 
+     \sigma$, we
+     have  $(df)_p = 0$, that is, $\sigma
+     \in S_1$.
+     Hence $S_1 = \pi^{-1}(0)$. In particular,
+     $S_1$ is a submanifold as the preimage of a
+     regular value.
+     Applying Lemma \ref{Transversality-Submersion},
+     $j^{1}f \pitchfork S_1$ at $p$ if and only if
+     $\pi \circ j^{1} f$ is a submersion at $p$.
+     Now \[
+     \pi \circ j^{1} f(x) = 
+     \left( df \right)_x 
+     =
+     \left( \frac{\partial f}{\partial x_1}(x),
+     \ldots, \frac{\partial f}{\partial x_n}(x)\right)
+     \] 
+     so $\pi \circ j^{1}f$ is a submersion at $p$ if
+     and only if
+     the map
+     $\mathbb{R}^{n} \to \mathbb{R}^{n}$ 
+     given by
+     \[
+     x\mapsto \left( \frac{\partial f}{\partial x_1}(x),
+     \ldots, \frac{\partial f}{\partial x_n}(x)\right) 
+     \] is a submersion at $p$ if and only if
+     \[
+     \det H (f)_p = \det \left( \frac{\partial^2 f}{
+     \partial x_i \partial x_j} (p) \right) \neq 0.
+     \] 
+ \end{proof}
+
+
+ \begin{problem}[Existence of Morse functions]
+     Show that any smooth manifold admits a Morse function.
+ \end{problem}
+
+
+     To solve this problem, we will prove the following
+     stronger theorem:
+     \begin{theorem}[]
+         Let $M$ be a manifold. The set of Morse
+         functions is an open dense subset of
+         $C^{\infty}(M,\mathbb{R})$.
+     \end{theorem}
+
+ \begin{proof}
+
+     Recall that $S_1 $ is a submanifold of
+     $J^{1}(M, \mathbb{R})$.
+     Hence
+     \[
+     T_{S_1} = 
+     \left\{ f \in C^{\infty}(M,\mathbb{R})
+      \mid j^{1}f \pitchfork S_1 \right\} 
+     \] 
+     is a residual subset of
+     $C^{\infty}(X,Y)$ in the $C^{\infty}$ topology.
+
+     By Theorem \ref{Nondegenerate-Equiv-Jets},
+     $j^{1}f \pitchfork S_1$ if and only if
+     for all points
+     $x \in X$, either
+     $j_1f (x) \not\in S_1$ or
+     $j_1f(x) \in S_1$ and
+     $j_1f \pitchfork S_1$ at $x$.
+     If $j_1f(x) \not\in S_1$, then
+     $x$ is not a critical value of $f$.
+     If $j_1f(x) \in S_1$, then
+     $x$ is a critical value. Then
+     $j_1f \pitchfork S_1$ at $x$ precisely means
+     that $x$ is a nondegenerate critical point.
+     Hence
+     $T_{S_1}$ precisely consists of all
+     smooth maps $M \to \mathbb{R}$ which are Morse functions
+     (not necessarily distinct critical values).
+
+     But by Proposition \ref{Sm-Maps-Mfds-Baire},
+     $C^{\infty}(X,Y)$ is a Baire space in the
+     Whitney $C^{\infty}$ topology when
+     $X$ and $Y$ are manifolds, so by
+     definition, every residual set is dense. Hence
+     $T_{S_1}$ is dense in
+     $C^{\infty}(M,\mathbb{R})$.
+
+
+
+
+ \end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
 \section{Bundles}
+
+For this section, we will closely be following
+\cite{Steenrod} for the general fibre bundle theory, and
+\cite{LeeSM} for the vector bundle theory. 
 
     \subsection{Fibre Bundle Theory}
     I will define things slightly differently.
@@ -2433,6 +3159,8 @@ a new bundle called the
         diffeomorphic to the sphere $S^{d}$.
     \end{problem}
 
+    
+
     \subsection{The Cobordism Category}
 
     \begin{definition}[Smooth manifold triad]
@@ -3372,6 +4100,87 @@ a new bundle called the
        of cobordisms with Morse number $1$.
    \end{corollary}
    
+   \section{Appendix}
+
+   For an $m$-tuple 
+   $I = \left( i_1, \ldots, i_m \right) $ with
+   $1 \le i_j \le n$, we let
+   $\left| I \right| = m$ denote the number of indices
+   in $I$, and
+   \begin{align*}
+       \partial_I 
+       &= \frac{\partial^{m}}{\partial x^{i_1} \cdots
+       \partial x^{i_m}},\\
+       \left( x-a \right)^{I}
+       &= \left( x^{i_1}-a^{i_1} \right) \cdots
+       \left( x^{i_m} - a^{i_m} \right) 
+   \end{align*}
+
+   \begin{theorem}[Taylor's Theorem]
+       Let $U \subset \mathbb{R}^{n}$ be open and
+       $a \in U$. Suppose
+       $f \in C^{k+1}(U)$ for some $k \ge 0$. If
+       $W$ is any convex subset
+       of $U$ containing $a$, then for all $x \in W$,
+       \[
+       f(x) = T_k(x) + R_k(x)
+       \] 
+       where
+       $T_k$ is the \textit{$k$-th order Taylor
+       polynomial of $f$ at $a$}, defined
+       by
+       \[
+       T_k(x) = f(a) +
+       \sum_{m=1}^{k} \frac{1}{m!} 
+       \sum_{I \colon \left| I \right| =m}
+       \partial_I f(a) (x-a)^{I}
+       \] 
+       and
+       $R_k$ is the \textit{$k$th remainder term}, given
+       by
+       \[
+       R_k(x) = \frac{1}{k!}
+       \sum_{I \colon \left| I \right| =k+1}
+       \left( x-a \right)^{I} \int_{0}^{1}
+       (1-t)^{k} \partial_I f\left( a+ t(x-a) \right) dt.
+       \] 
+   \end{theorem}
+
+   \begin{lemma}[Chain Rule for Total Derivatives]\label{Chain-Rule}
+       Suppose $V,W,X$ are finite-dimensional vector spaces,
+       $U \subset V$ and $\tilde{U}\subset W$ oepn,
+       and $f \colon U \to \tilde{U}$ and
+       $g \colon \tilde{U} \to X$ are maps.
+       If $f$ is differentiable at $a \in U$ and
+       $g$ is differentiable at $f(a) \in 
+       \tilde{U}$, then
+       $g \circ f$ is differentiable at $a$, and
+       \[
+       d \left( g \circ f \right) (a)
+    = dg\left( f(a) \right) df(a).
+       \] 
+   \end{lemma}
+
+   \begin{lemma}[The Chain Rule for Partial
+       Derivatives]\label{chain-rule-partial-derivatives}
+       Suppose $U \subset \mathbb{R}^{n}$ and
+       $\tilde{U}\subset \mathbb{R}^{m}$ are open, and
+       let $\left( x^{1},\ldots,x^{n} \right) $ denote the
+       standard coordinates on $U$ and
+       $\left( y^{1},\ldots, y^{m} \right) $ those
+       on $\tilde{U}$.
+       Then if $F \colon U \to \tilde{U}$ and
+       $G \colon \tilde{U} \to \mathbb{R}^{p}$ are
+       of class $C^{1}$, then
+       $G \circ F$ is $C^{1}$ and
+       \[
+       \frac{\partial \left( G^{i} \circ F \right) }{\partial
+       x^{j}} (x)
+       = \sum_{k=1}^{m}
+       \frac{\partial G^{i}}{\partial y^{k}}(F(x))
+       \frac{\partial F^{k}}{\partial x^{j}}(x).
+       \] 
+   \end{lemma}
 
 \printbibliography
 \end{document}
