@@ -16,40 +16,5 @@
   {}
 \endgroup
 
-
-\refsection{0}
-  \datalist[entry]{nty/global//global/global}
-    \entry{Hirsch}{book}{}
-      \name{author}{1}{}{%
-        {{hash=697b9e10d72a5f4aec2034a99cf01a9b}{%
-           family={Hirsch},
-           familyi={H\bibinitperiod},
-           given={Morris\bibnamedelima W.},
-           giveni={M\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Springer-Verlag, New York}%
-      }
-      \strng{namehash}{697b9e10d72a5f4aec2034a99cf01a9b}
-      \strng{fullhash}{697b9e10d72a5f4aec2034a99cf01a9b}
-      \strng{bibnamehash}{697b9e10d72a5f4aec2034a99cf01a9b}
-      \strng{authorbibnamehash}{697b9e10d72a5f4aec2034a99cf01a9b}
-      \strng{authornamehash}{697b9e10d72a5f4aec2034a99cf01a9b}
-      \strng{authorfullhash}{697b9e10d72a5f4aec2034a99cf01a9b}
-      \field{sortinit}{H}
-      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{isbn}{0-387-90148-5}
-      \field{note}{Corrected reprint of the 1976 original}
-      \field{series}{Graduate Texts in Mathematics}
-      \field{title}{Differential topology}
-      \field{volume}{33}
-      \field{year}{1994}
-      \field{pages}{x+222}
-      \range{pages}{-1}
-    \endentry
-  \enddatalist
-\endrefsection
 \endinput
 

@@ -36,6 +36,7 @@
 \newtheorem*{note}{Note}
 \newtheorem*{solution}{Solution}
 \newtheorem*{slogan}{Slogan}
+\newtheorem*{assertion}{Assertion}
 
 
 
@@ -97,6 +98,7 @@
 \DeclareMathOperator{\Sm}{Sm}
 \DeclareMathOperator{\Fr}{Fr}
 \DeclareMathOperator{\Cob}{Cob}
+\DeclareMathOperator{\Ext}{Ext}
 
 
 
@@ -165,8 +167,8 @@
 
 \section{Introduction}
 
-Two wonderful reference books for differential geometry
-are \cite{KMS} and \cite{LeeSM}
+My primary two reference books for differential geometry
+for these notes will be \cite{KMS} and \cite{LeeSM}.
 
 
 \section{Continuous maps}
@@ -205,6 +207,106 @@ are \cite{KMS} and \cite{LeeSM}
         $f$ takes the form of a projection.
     \end{definition}
 
+\section{Smooth Manifolds}
+
+
+\begin{proposition}[Manifolds are Locally Compact]
+    Every topological manifold is
+    locally compact.
+\end{proposition}
+
+\begin{definition}[]
+    Let $M$ be a topological space. A collection
+    $\mathcal{X}$ of subsets of $M$ is said to be
+    \textit{locally finite} if each point of $M$ has
+    a neighborhood that intersects at most finitely many
+    of the sets in $\mathcal{X}$. Given a cover
+    $\mathcal{U}$ of $M$, we say that another cover
+    $\mathcal{V}$ is a \textit{refinement of $\mathcal{U}$ }
+    if for each $V \in \mathcal{V}$, there exists
+    some $U \in \mathcal{U}$ such that
+    $V \subset U$. 
+\end{definition}
+
+\begin{definition}[Paracompactness]
+    We say that a topological space $M$ is 
+    \textit{paracompact} if every open cover of $M$ admits
+    an open, locally finite refinement.
+\end{definition}
+
+\begin{theorem}[Manifolds are Paracompact]
+    Every topological manifold is paracompact.
+    In fact, given a topological manifold $M$, an
+    open cover $\mathcal{X}$ of $M$ and any basis
+    $\mathcal{B}$ for the topology of $M$, there
+    exists a countable, locally finite open
+    refinement of $\mathcal{X}$ consisting of elements
+    of $\mathcal{B}$.
+\end{theorem}
+
+\begin{theorem}[]
+    The fundamental group of a topological manifold is
+    countable.
+\end{theorem}
+
+
+\begin{definition}[]
+    We say a set $B \subset M$ is a \textit{regular coordinate
+    ball} if there is a smooth coordinate ball
+    $B' \supset \overline{B}$ and a smooth coordinate
+    map $\varphi \colon B' \to \mathbb{R}^{n}$ such that
+    for some positive real numbers $r < r'$,
+    \[
+    \varphi (B) = B_r (0), \quad
+    \varphi \left( \overline{B} \right) 
+    = \overline{B}_r (0), \quad \text{and} \quad
+    \varphi (B') = B_{r'}(0).
+    \] 
+\end{definition}
+
+
+\begin{proposition}[]\label{Mfds-regular-coordinate-balls}
+    Every smooth manifold has a countable basis of
+    regular coordinate balls.
+\end{proposition}
+
+
+\begin{definition}[]
+    A subset of a topological space $X$ is said to
+    be \textit{precompact in $X$} if its closure in
+    $X$ is compact.
+\end{definition}
+
+\begin{exercise}[]
+    For a Hausdorff space $X$, the following are equivalent
+    \begin{enumerate}
+        \item $X$ is locally compact.
+        \item Each point of $X$ has a precompact neighborhood.
+        \item $X$ has a basis of precompact open subsets.
+    \end{enumerate}
+\end{exercise}
+
+
+\begin{definition}[]
+    A sequence 
+    $\left( K_i \right)_{i \in \mathbb{N} }$ of compact subsets
+    of a topological space $X$ is called an
+    \textit{exhaustion of $X$ by compact sets} if
+    $X = \bigcup_{i}  K_i$ and
+    $K_i \subset \int K_{i+1}$ for each $i$.
+\end{definition}
+
+\begin{proposition}[]
+    A second-countable, locally compact
+    Hausdorff space admits an exhaustion by compact
+    sets.
+\end{proposition}
+
+
+\begin{lemma}[]\label{Smooth-Mfds-Metrizable}
+    \cite[Lemma 5.9]{GG}
+    Any smooth manifold is metrizable.
+\end{lemma}
 
 
 \section{Smooth Maps}
@@ -338,6 +440,64 @@ encapsulated in Sard's theorem:
     The set of critical values of a smooth
     map between manifolds has Lebesgue measure zero.
 \end{theorem}
+
+
+\subsubsection{Submersions, Immersions and Embeddings}
+
+\begin{theorem}[]\cite[Thm 2.8]{GG}
+    Let $X$ and $Y$ be $C^{k}$-manifolds of
+    dimensions $n$ and $m$, respectively, with $n > m$. Let
+    $\varphi  \colon X \to Y$ be a $C^{k}$-map. Then
+    \begin{enumerate}
+        \item If $\varphi $ is a submersion, then $\varphi $ is
+            an open map.
+        \item Let $Z$ be a submanifold of $Y$. If
+            $\varphi $ is a submersion at each point
+            in $\varphi^{-1}(Z)$, then
+            $\varphi^{-1}(Z)$ is a $C^{k}$-submanifold of
+            $X$ with $\codim \varphi^{-1}(Z) = 
+            \codim Z$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{corollary}[Regular Value Theorem]\label{Regular-Value-Theorem}
+    If $q$ is a regular value of a smooth map
+    $f \colon M^{n+k} \to N^{n}$, then
+    $f^{-1}(q)$ is a smooth submanifold of $M$ of codimension
+    $n$.
+\end{corollary}
+
+
+
+\begin{definition}[Locally Trivial Fibration/Bundle]
+    A locally trivial fibration (following \cite{JB}) or
+    a Bundle (following Robert), is
+    a map $f \colon E \to M$ between smooth manifolds
+    such that at each point $p \in M$, there exists
+    a neighborhood $U$ of $p$ such that there
+    exists a diffeomorphism
+    $\varphi \colon U \times F \cong f^{-1}(U)$ for
+    $F = f^{-1}(p)$, making the following diagram
+    commute:
+    \begin{equation*}
+    \begin{tikzcd}
+        U \ar[dr, "\pi_1"] \times F \ar[rr, "\varphi "] 
+        & & f^{-1}(U) \ar[dl, "f|_{f^{-1}(U)}"] \\
+        & U &
+    \end{tikzcd}
+    \end{equation*}
+    
+\end{definition}
+
+
+
+\begin{theorem}[Fibration Theorem of Ehresmann]
+    Let $f \colon E \to M$ be a proper
+    submersion of smooth manifolds. Then
+    $f$ is a locally trivial fibration.
+\end{theorem}
+
+
 
 \newpage
 
@@ -598,7 +758,7 @@ Lemma \ref{Jets-Taylor-Series}.
 \end{definition}
 
 
-\begin{theorem}[]
+\begin{theorem}[]\label{Thm20419}
     Let $X$ and $Y$ be smooth manifolds with
     $n = \dim X$ and $m = \dim Y$. Then
     \begin{enumerate}
@@ -745,6 +905,174 @@ Lemma \ref{Jets-Taylor-Series}.
 
 \subsection{The Whitney $C^{\infty}$ topology (compact-open topology)}
 
+\begin{definition}[]
+    For $X,Y$ manifolds, $k \in \mathbb{Z}_{\ge 0}$ and
+    $U \subset J^{k}(X,Y)$ open, let
+    \[
+    M(U) := \left\{ f \in C^{\infty}(X,Y)  \mid 
+    j^{k}f(X) \subset U\right\} .
+    \] 
+    The family of sets
+    $ \left\{ M(U) \right\} $ for
+    $U$ an open subset of
+     $J^{k}(X,Y)$ form a basis
+     for a topology on $C^{\infty}(X,Y)$. This topology
+     is called the \textit{Whitney $C^{k}$ topology}.
+     Let $W_k$ be the set of open subsets
+     of $C^{\infty}(X,Y)$ in the Whitney
+     $C^{k}$ topology.\\
+     The Whitney $C^{\infty}$ topology
+     on $C^{\infty}(X,Y)$ the topology
+     whose basis is
+     $W = \bigcup_{k=0}^{\infty} W_k$.
+\end{definition}
+
+
+
+How should we understand this topology?
+
+We would like to describe a neighborhood
+basis of a function $f \in C^{\infty}(X,Y)$ in the
+Whitney $C^{k}$ topology. It will turn out
+that the we can define $\delta$-balls about
+$f$ to be smooth maps whose first $k$ partial derivatives
+are all $\delta$-close to $f$ in a metric
+on $J^{k}(X,Y)$ compatible with its topology.\\
+
+First, choose a metric $d$ on $J^{k}(X,Y)$ compatible with
+its topology using Lemma \ref{Smooth-Mfds-Metrizable}.
+Now for a continuous map
+$\delta \colon X \to \mathbb{R}_{+}$, define
+\[
+B_{\delta}(f) :=
+\left\{ g \in C^{\infty}(X,Y)  \mid 
+\forall x \in X \colon
+d \left( j^{k}f(x), j^{k}g(x) \right) < \delta(x)  \right\} .
+\] 
+
+We claim now that $B_{\delta}(f)$ is an open
+set in $C^{\infty}(X,Y)$ for any such continuous function
+$\delta$.\\
+To see this, construct the map
+$\Delta \colon J^{k}(X,Y) \to \mathbb{R}$ defined
+by
+\[
+\Delta (\sigma) = 
+\delta\left( \alpha \left( \sigma \right)  \right) -
+d \left( j^{k}f \left( \alpha (\sigma) \right) ,
+\sigma \right) ,
+\] 
+where, recall, $\alpha$ is the source map.
+We claim that this is continuous.
+Indeed, in local coordinates,
+$\alpha$ is simply a projection, and 
+$j^{k}f$ is found to be smooth 
+by Theorem \ref{Thm20419}. Since
+$\delta$ is continuous and $d$ is also,
+$\Delta$ is found to be continuous.
+Hence $U = \Delta^{-1}\left( 0,\infty \right) $ is
+open in $J^{k}(X,Y)$. Furthermore,
+we claim $B_{\delta}(f) = M(U)$.
+
+To see this, we have
+$g \in M(U)$ if and only if
+$j^{k}g(X) \subset U = 
+\Delta^{-1}(0,\infty)$ if and only if
+for all $x \in X$,
+\[
+\delta \left( \alpha \left( j^{k}g(x) \right)  \right) 
+- d \left( j^{k}f\left( \alpha\left( j^{k}g(x) \right) 
+\right) , j^{k}g(x) \right) = 
+\delta(x) - d \left( j^{k}f (x), j^{k}g(x) \right) > 0.
+\] 
+So
+$g \in M(U)$ if and only if
+$g \in B_{\delta}(f)$. Hence
+$B_{\delta}(f)$ is open.
+To see that this collection
+forms a basis, suppose
+$W$ is some open neighborhood of
+$f \in C^{\infty}(X,Y)$. We wish to find a 
+$\delta \colon X \to \mathbb{R}_+$ such that
+$B_{\delta}(f) \subset W$.
+
+For this, let
+\[
+m(x) = \inf \left\{ d\left( \sigma, j^{k}f(x) \right) 
+ \mid \sigma \in \alpha^{-1}(x) \cap
+\left( J^{k}(X,Y) \right) -V \right\},
+\] 
+where we let
+$m(x) = \infty$ if $\alpha^{-1}(x) \subset V$.
+Now, on any compact set $K \subset X$, 
+$m$ is bounded from below by some constant. So
+covering $X$ by a countable collection 
+$\left\{ U_{\alpha} \right\} $ such that
+$K_{\alpha} \subset U_{\alpha}$ for each $\alpha$ is compact
+and the collection of compact
+sets $\left\{ K_{\alpha} \right\} $  still covers
+$X$, and
+choosing a constant
+$c_{\alpha}$ for bounding $m$ below on $K_{\alpha}$, we
+construct a function
+$\delta \colon X \to \mathbb{R}_+$ such that
+$\delta(x) < m(x)$ for every $x \in X$ as follows:
+take a partition of unity $\left( \psi_{\alpha} \right) $
+subordinate to
+$\left\{ U_{\alpha} \right\} $. Then define
+$\delta (x) = 
+\sum_{\alpha} c_{\alpha} \psi_{\alpha}(x)$.\\
+With this, we find that
+if $g \in B_{\delta}(f)$, then
+$d \left( j^{k}f(x), j^{k}g(x) \right) <
+\delta(x) < m(x)$ for all
+$x \in X$, so
+$j^{k}g(x) \in V$. Hence
+$g \in M(V) \subset W$.
+So $B_{\delta}(f) \subset W$. 
+Thus for any
+$f \in C^{\infty}(X,Y)$ 
+and any open set in $C^{\infty}(X,Y)$ containing $f$,
+we can find a basis element
+$B_{\delta}(f) \subset W$ containing $ f$.
+Lastly, we must just check that
+the intersection of two such basis sets is again a basis set.
+Let
+$\gamma, \delta$ be two continuous maps
+$X \to \mathbb{R}_+$. Define
+$\eta (x) = \min \left\{ \gamma(x), \delta(x) \right\} $.
+Then $\eta$ is continuous and
+$B_{\eta}(f) = 
+B_{\delta}(f) \cap B_{\gamma}(f)$.\\
+This finally shows that the collection
+$\left\{ B_{\delta}(f) \right\} $ forms a neighborhood
+basis of $f$ in the Whitney $C^{k}$ topology
+on $C^{\infty}(X,Y)$.\\
+\linebreak
+On a compact manifold, we can define
+$B_n(f) = B_{\delta_n}(f)$ where
+$\delta_n (x) = \frac{1}{n}$ for all $x \in X$.
+Now if $\delta \colon X \to \mathbb{R}_+$ is continuous, then
+since $X$ is compact, it is bounded
+from below by $\frac{1}{n}$ for some $n$. 
+Hence $C^{\infty}(X,Y)$ is first-countable when
+$X$ is compact. \\
+From the above, one can prove that a
+sequence of functions $f_n$ in $C^{\infty}(X,Y)$ converges to
+$f$ in the Whitney $C^{k}$ topology if and only if
+$j^{k}f_n$ converges uniformly to $j^{k}f$.\\
+So we see that on compact manifolds, the $C^{k}$ Whitney
+topology takes on a nice form. Luckily for us, we
+will mostly care about compact manifolds, so 
+we can use this interpretation. 
+For the non-compact case, see the discussion in
+\cite{GG}.
+
+
+
+
+
+
 \begin{definition}[Residual, Baire space]
     Let $F$ be a topological space.
     Then
@@ -806,6 +1134,17 @@ Lemma \ref{Jets-Taylor-Series}.
     $\varphi \circ f$ is a submersion at $p$.
 \end{lemma}
 
+\begin{remark}[]
+    Such a neighborhood $U$ always exists. For there exists
+    a chart neighborhood $U$ of $f(p)$ and
+    a chart $\alpha \colon U \to \mathbb{R}^{m}$ such that
+    $W \cap U = \alpha^{-1} \left( 0\times \mathbb{R}^{m-k} \right) $ 
+    by the definition of $W$ being a submanifold of
+    dimension $m-k$. Letting $\pi \colon
+    \mathbb{R}^{m}\to \mathbb{R}^{k}$ be the projection
+    on the first factor, $\varphi = \pi \circ \alpha$ works.
+\end{remark}
+
 \begin{proof}
     We have that since
     $f(p) \in W$,
@@ -815,33 +1154,94 @@ Lemma \ref{Jets-Taylor-Series}.
     Since
     $\varphi \left( W \cap U \right) 
     = 0$,
-    $(d \varphi)_p T_pW = 0$, we have
-    $\ker \left( d \varphi  \right)_p
-    = T_p W$ for all $ p$.
+    $(d \varphi)_{f(p)} T_{f(p)}W = 0$, we have
+    $\ker \left( d \varphi  \right)_{f(p)}
+    \supset T_{f(p)} W$ for all $ p$.
+    Recall also that
+    $\dim T_{f(p)} U = \dim \ker \left( d \varphi  \right)_{f(p)}
+    + \dim \im \left( d \varphi  \right)_{f(p)}$, so
+    $\dim \ker \left( d\varphi  \right)_{f(p)}= 
+    \dim W = \dim T_{f(p)}W$. Hence
+    $\ker \left( d \varphi  \right)_{f(p)}=
+    T_{f(p)}W$.\\
     Hence $f \pitchfork W$ at $p$ if and only if
     \[
         T_{f(p)} Y =
         \ker \left( d \varphi  \right)_p 
         \oplus \left( df \right)_p \left( T_pX \right) 
     \] 
-    but
-    $\dim \ker \left( d \varphi  \right)_p 
-    = \dim T_{f(p)} U - \dim
-    \im \left( d \varphi  \right)_p
-    = \dim T_{f(p)} Y - k$, so
-    $f \pitchfork W$ at $p$ if and only if
-    $\dim \left( df \right)_p \left( T_p X \right) 
-    = k$, so in particular,
-    since $\left( d \varphi  \right)_{f(p)}$ is surjective,
-    this happens if and only if
-    $\dim \left( d \varphi \circ f \right)_p 
-    \left( T_p X \right) = k$, i.e., 
-    $\varphi \circ f$ is a submersion at $p$.
 
+    Now
+    \[
+    \dim \im \left( d \varphi \circ f \right)_p
+    = \underbrace{\dim \im \left( d \varphi  \right)_{f(p)}}_{=k}
+    - \dim \left( \im (df)_p \cap \ker (d \varphi )_{f(p)} \right) 
+    \] 
+    Furthermore,
 
-
-
+    \[
+        \dim T_{f(p)} Y =
+        \dim \ker \left( d \varphi  \right)_{f(p)}
+        + \dim \left( df \right)_p \left( T_pX \right) -
+        \dim \left( \ker \left( d\varphi  \right)_{f(p)}
+        \cap \im (df)_{p} \right) 
+    \] 
+    So we see that
+    $\dim \im \left( d \varphi \circ f \right)_p
+    = k$ if and only if
+    $\dim \left( \im (df)_p \cap \ker \left( d
+    \varphi \right)_{f(p)} \right) = 0$ if and only
+    if
+    \[
+    T_{f(p)}Y = \ker \left( d \varphi  \right)_p
+    \oplus \im \left( df \right)_p
+    \] 
 \end{proof}
+
+
+
+
+\begin{theorem}[]
+    Let $X$ and $Y$ be smooth manifolds and $W$ a submanifold of
+    $Y$.
+    Let $f \colon X \to Y$ be smooth and assume
+    $f \pitchfork W$. Then
+    $f^{-1}(W)$ is a submanifold of $X$. Also
+    $\codim f^{-1}(W) = \codim W$. In particular,
+    if $\dim X = \codim W$, then
+    $f^{-1}(W)$ consists only of isolated points.
+\end{theorem}
+
+\begin{proof}
+    It is sufficient to show that
+    $f^{-1}(W)$ is locally a submanifold. Choose
+    $U$ and $\varphi $ as in Lemma \ref{Transversality-Submersion}
+    and the remark following it. Now
+    choose a neighborhood $V$ of $p$ such that
+    $f(V) \subset U$. By the lemma,
+    $\varphi \circ f$ is a submersion at  $p$, so
+    by contracting $V$ if necessary, we may assume that
+    $\varphi \circ f$ is a submersion on $V$ (full rank is
+    an open submanifold). Thus
+    $f^{-1}(W) \cap V = \left( \varphi \circ f|_V \right)^{-1}
+    (0)$ is a submanifold by the regular value theorem.
+\end{proof}
+
+
+
+\begin{proposition}[]
+    Let $X$ and $Y$ be smooth manifolds with
+    $W$ a submanifold of $Y$. 
+    Let $T_w = \left\{ f \in C^{\infty}(X,Y)  \mid 
+    f \pitchfork W \right\} $. Then
+    $T_W$ is an open subset of
+    $C^{\infty}(X,Y)$ in the Whitney  $C^{1}$, and hence
+    $C^{\infty}$, topology  if $W$ is a closed submanifold
+    of $Y$.
+\end{proposition}
+
+
+
 
 \begin{theorem}[Thom Transversality Theorem]
     Let $X$ and $Y$ be smooth manifolds and
@@ -1023,9 +1423,13 @@ $\corank j^{1}f = 1$. Therefore
  \end{proof}
 
 
- \begin{problem}[Existence of Morse functions]
+ \begin{problem}[Existence of Morse
+     functions]\label{Problem:Existence-Morse-Functions}
      Show that any smooth manifold admits a Morse function.
  \end{problem}
+
+ \begin{proof}
+     
 
  The proof of this problem will
  consist of first showing that
@@ -1225,7 +1629,9 @@ $\corank j^{1}f = 1$. Therefore
 
  \end{proof}
 
+ This completes the proof of Problem \ref{Problem:Existence-Morse-Functions}.
 
+ \end{proof}
 
 
 
@@ -1570,21 +1976,22 @@ $p_{\alpha}(b) = \varphi_{\alpha,p(b)}^{-1}(b)$.
 
 We obtain the identities
 \begin{align*}
-    p_\alpha \varphi_\alpha (x,y) &= y\\
-    \varphi_\alpha \left( p(b), p_\alpha(b) \right) &= b\\
+    p_\alpha \varphi_\alpha (x,y) &= y \tag{$A_1$}\\
+    \varphi_\alpha \left( p(b), p_\alpha(b) \right) &= b\tag{$A_2$ }\\
     g_{\alpha \beta}\left( p(b) \right) \cdot 
-    p_\beta(b) = p_\alpha(b)
+    p_\beta(b) &= p_\alpha(b)\tag{$A_3$}\label{A-3}
 \end{align*}
 
-\begin{definition}[Fibre bundle in terms of coordinate bundles]
+\begin{definition}[Fibre bundle defined
+    in terms of equivalences of coordinate bundles]
     Two coordinate bundles
     $\mathcal{B}$ and $\mathcal{B}'$ are
-    equivalent in the strict sense i they
+    equivalent in the strict sense if they
     have the same bundle space, base space, projection,
     fibre and structure group and their coordinate functions
     satisfy that
     \[
-    \overline{g}_{kj} = \varphi_{k,x}'^{-1} \varphi_{j,x}
+    \overline{g}_{kj}(x) = \varphi_{k,x}'^{-1} \varphi_{j,x}
     \] 
     coincide with the operation of an element of $G$ and the
     map
@@ -1598,7 +2005,7 @@ We obtain the identities
 \begin{definition}[Mappings of fibre bundles]
     Let $\mathcal{B}$ and $\mathcal{B}'$ be two
     coordinate bundles having the same fibre and structure group.
-    A map $h \colon \mathcal{B} \to \mathcal{B}'$ 
+    A bundle map $h \colon \mathcal{B} \to \mathcal{B}'$ 
     is a tuple 
     $\left( h, \overline{h} \right) $ with
     $h \colon B \to B'$ and $\overline{h} \colon X \to X'$ 
@@ -1617,7 +2024,13 @@ We obtain the identities
     \] 
     coincides with the operation of some $g \in G$ on
     $Y$. Here $h_x \colon Y_x \to Y_{x'}$ is the map
-    $h(x,-)$, where $x' = \overline{h}(x)$.
+    $h$ restricted to the
+    fibre  above $x$, where $x' = \overline{h}(x)$.
+    Note in particular, that this is well defined
+    since by assumption,
+    $p \circ \varphi_{\beta} = \pi_1$, so
+    in particular, $\im \varphi_{\beta, x} \subset 
+    p^{-1}(x)$.\\
     Furthermore, the map
     \[
     \overline{g}_{\alpha \beta}\colon
@@ -1635,28 +2048,126 @@ $\varphi_{\beta, x}$ are also homeomorphisms,
 $h_x$ is a homeomorphism of the fibres.
 
 The mapping transformations $\overline{g}_{\alpha \beta}$ satisfy
-\begin{align*} \label{eq:Omega}\tag{$\Omega$}
+\begin{align*} 
     \overline{g}_{\alpha \beta}(x) g_{\beta \gamma}(x)
-    &= \overline{g}_{\alpha \gamma}(x)\\
+    &= \overline{g}_{\alpha \gamma}(x)\tag{$\Omega_1$}\label{Omega-1}\\
     g_{\alpha \beta}' \left( \overline{h}(x) \right) 
     \overline{g}_{\beta \gamma}(x) &= \overline{g}_{\alpha \gamma}
-    (x).
+    (x)\tag{$\Omega_2$}\label{Omega-2}
 \end{align*}
 
-\begin{lemma}[]
+\begin{note}
+    A quick note on terminology: we call the
+    $\varphi_j \colon V_j \times Y \to p^{-1}(V_j)$ 
+    \textit{coordinate functions}, the maps
+    $g_{ji} \colon V_i \cap V_j \to G$ by
+    $g_{ji}(x) = \varphi_{j,x}^{-1} \varphi_{i,x}$ 
+    \textit{coordinate transformations}, and lastly,
+    the maps $\overline{g}_{kj} \colon
+    V_j \cap \overline{h}^{-1}(V_k') \to G$ 
+    given by
+    $\overline{g}_{kj}(x) =
+    \varphi_{k,x'}'^{-1} h_x \varphi_{j,x}$ 
+    \textit{mapping transformations}.
+\end{note}
+
+
+\begin{lemma}[]\label{Lemma:99328}
     Let $\mathcal{B}, \mathcal{B}'$ be coordinate bundles having
     the same fibre $Y$ and group  $G$, and let
     $\overline{h} \colon X \to X'$ be a map of one
     base space into the other. Let
     $\overline{g}_{kj} \colon
     V_j \cap \overline{h}^{-1}(V_k') \to G$ be a set
-    of continuous maps satisfying \eqref{eq:Omega}. Then
+    of continuous maps satisfying \eqref{Omega-1} and
+    \eqref{Omega-2}. Then
     there exists a unique fibre bundle map
     $h \colon \mathcal{B} \to \mathcal{B}'$ inducing
     $\overline{h}$ and having
     $\left\{ \overline{g}_{jk} \right\} $ as its
     mapping transformations.
 \end{lemma}
+
+
+\begin{proof}
+    \cite[Lemma 2.6]{Steenrod}
+    We will define $h$ on local patches and then glue these
+    to obtain a global bundle map.
+    Suppose we are given a $b \in B$ such that
+    $p(b) = x \in V_j \cap \overline{h}^{-1} (V_k')$.
+
+    We want to end up having that
+    $\overline{g}_{kj}(x) = 
+    \varphi_{k,x'}'^{-1} h_x \varphi_{j,x}$. Define
+    \[
+    h_{kj}(b) = 
+    \varphi_k' \left( \overline{h}(x),
+    \overline{g}_{kj} (x) \cdot 
+p_j(b) \right) 
+    \] 
+    As a composition of continuous maps,
+    $h_{kj}$ is then continuous as a function of
+    $b$ and
+    $p' h_{kj}(b) = 
+    \overline{h}(x) =
+    \overline{h}p(b)$.
+    Now, we must check two things:
+    (1) that $h_{kj}$ and
+    $h _{li}$ agree on
+    $V_i \cap V_j \cap \overline{h}^{-1}
+    \left( V_{k}' \cap V_{l}' \right) $, and
+    (2) that
+    $\varphi_{\alpha,x'}'^{-1} h_x 
+    \varphi_{\beta, x}$ coincides with the operation
+    of some $g \in G$ on $Y$.\\
+    (1) we have
+    \begin{align*}
+        h_{kj}(b) 
+        &= \varphi_k' \left( \overline{h}(x),
+        \overline{g}_{kj} (x) \cdot 
+    p_j(b) \right)\\
+        &\stackrel{\eqref{Omega-1}}{=} \varphi_{k}'\left( \overline{h}(x),
+        \overline{g}_{k i}(x)
+    g_{i j}(x) \cdot p_j(b) \right) \\
+        &\stackrel{\eqref{A-3}}{=} \varphi_{k}'\left( x', 
+        \overline{g}_{ki}(x) \cdot  p_i(b)\right) =
+        h_{ki}(b)\\
+    \end{align*}
+
+    Now, by construction, since
+    $g_{lk}'(x') =
+    \varphi_{l,x'}'^{-1}
+    \varphi_{k,x'}'$, we have
+    $\varphi_l'(x', g_{lk}'(x') \cdot  y)
+    = \varphi_l' \left( x', \varphi_{l,x'}'^{-1}
+        \varphi_{k,x'}' (y)
+    \right) =
+    \varphi_k'(x',y)$. Hence
+    \begin{align*}
+        \varphi_{k}'\left( x', 
+        \overline{g}_{ki}(x) \cdot  p_i(b)\right)
+        &= \varphi_l' \left( x',
+        g_{lk}'(x') \cdot \overline{g}_{ki}(x) \cdot 
+    p_i(b) \right) \\
+        &\stackrel{\eqref{Omega-2}}{=} 
+        \varphi_l' \left( x', \overline{g}_{li}(x)
+        \cdot p_i(b) \right) \\
+        &= h_{li}(b).
+    \end{align*}
+    Thus we can glue $\left\{ h_{kj} \right\} $ together
+    to form a global map on
+    $B$.\\
+    (2) We have
+    \begin{align*}
+        \varphi_{k,x'}'^{-1} h_x \varphi_{j,x}(y)
+        &= p_k' \varphi_k' \left( x', 
+        \overline{g}_{kj}(x) \cdot p_j\left( 
+    \varphi_{j,x}(y)\right) \right) \\
+        &= \overline{g}_{kj}(x) \cdot y
+    \end{align*}
+
+\end{proof}
+
 
 \begin{lemma}[]
     Let $\mathcal{B}, \mathcal{B}'$ be coordinate bundles having
@@ -1670,12 +2181,66 @@ The mapping transformations $\overline{g}_{\alpha \beta}$ satisfy
     $\mathcal{B}' \to \mathcal{B}$.
 \end{lemma}
 
+\begin{proof}
+    If $x_1,x_2 \in X$ lie in different fibers, then
+    $h(x_1) \neq h(x_2)$ since $h$ is fiber preserving.
+    If $x_1,x_2$ lie in the same fiber, then 
+    $h(x_1) \neq h(x_2)$ since $h$ is a linear isomorphism
+    on this fiber.\\
+    Thus $h$ is injective. Furthermore,
+    surjectivity of $\overline{h}$ implies surjectivity
+    of $h$, so $h$ is a bijection.
+    Now, for $x' \in V_k' \cap
+    \overline{h}(V_j)$, let
+    $x = \overline{h}^{-1}(x')$, and define
+    \[
+    \overline{g}_{jk}(x') = 
+    \varphi_{j,x}^{-1} h_x^{-1} \varphi_{k,x'}'
+    \] 
+    Note that these $\overline{g}_{ij}$ satisfy
+    \eqref{Omega-1} and \eqref{Omega-2}, so
+    there exists a unique bundle map with these
+    charts in our setup, given by
+    \[
+    b' \mapsto 
+    \varphi_j \left( \overline{h}^{-1}(x'),
+    \overline{g}_{jk}(x') \cdot p_k'(b') \right) .
+    \] 
+    Since $h^{-1}$ induces $\overline{h}^{-1}$ and
+    has $\overline{g}_{jk}$ as transformation
+    maps, if we can show that $h^{-1}$ is continuous, then
+    it will be the unique bundle map.
+    Firstly,
+    $\overline{g}_{jk}(x') = 
+    \overline{g}_{kj}(x)^{-1}$. Since
+    $g\mapsto g^{-1}$ is continuous in $G$ and
+    $x$ is continuous in $x'$, and
+    $\overline{g}_{kj}(x)$ is continuous in $x$, it follows
+     that $\overline{g}_{jk}(x')$ is continuous in $x'$.
+     Now if $p'(b') = x'$ in 
+     $V_{k}' \cap h(V_j)$, then
+     $h^{-1}(b')$ will lie in the fibre above
+     $\overline{h}^{-1}(x')$ and in the fibre, under the
+     coordinate map $\varphi_j$, it will
+     have coordinate 
+     $\overline{g}_{jk}(x') \cdot p_k'(b')$ by
+     construction, so
+     \[
+     h^{-1}(b') = 
+     \varphi_j \left( \overline{h}^{-1}(x'),
+     \overline{g}_{jk}(x') \cdot 
+ p_k' (b') \right) 
+     \] 
+     which shows that $h^{-1}$ is continuous on
+     $p'^{-1}\left( V_k' \cap \overline{h}(V_j) \right) $.
+    
+\end{proof}
 
 \begin{definition}[]
     Two coordinate bundles 
     $\mathcal{B}$ and $\mathcal{B}'$ with the same
     base space, fibre and group are said to be
-    equivalent if there exists a fibre bundle
+    equivalent (or isomorphic) if there exists a fibre bundle
     map $\mathcal{B}\to \mathcal{B}'$ which induces the
     identity of the common base space.\\
     Two fibre bundles having the same base space,
@@ -1701,6 +2266,52 @@ The mapping transformations $\overline{g}_{\alpha \beta}$ satisfy
     \end{align*}.
 \end{lemma}
 
+\begin{proof}
+    Suppose $\mathcal{B},\mathcal{B'}$ are equivalent through
+    a bundle equivalence $h \colon \mathcal{B}\to 
+    \mathcal{B}'$. Define 
+     \[
+    \overline{g}_{kj} = \varphi_{k,x}'^{-1} h_x \varphi_{j,x}.
+    \] 
+    Then the relations which we know hold,
+    \eqref{Omega-1}, \eqref{Omega-2}, become the
+    desired relations in the lemma.\\
+    Conversely, suppose
+    the  $\overline{g}_{kj}$ are given. 
+    In the case of $\overline{h} = \id$, the
+    relations in the lemma imply
+    what we want, and the existence of such an
+    $h$ is guaranteed by Lemma \ref{Lemma:99328}.
+\end{proof}
+
+
+
+Before presenting the next lemma, we give some motivation
+and explanation of what "the same coordinate neighborhoods" is
+supposed to mean.
+
+If $\mathcal{B}$ is a coordinate bundle with neighborhoods
+$\left\{ V_j \right\} $ and
+$\left\{ V_k' \right\} $ is a covering os $X$ such that
+each  $V_{k}'$ is contained in some $V_j$, then
+we can construct a strictly equivalent coordinate
+bundle $\mathcal{B}'$ with neighborhoods
+$\left\{ V_k' \right\} $ by restricting
+$\varphi_j$ to $V_{k}' \times Y$ where
+$j$ is such that $V_{k}' \subset V_j$. In this case,
+the coordinate functions $\overline{g}_{kj}$ are equal to
+the identity of $G$.\\
+Now, suppose that we are given two
+coordinate bundles $\mathcal{B},\mathcal{B}'$ with the same
+base space, fibre and group. The open sets
+$V_j \cap V_k'$ cover $X$ and form a refinement of both
+$\left\{ V_j \right\} $ and $\left\{ V_k' \right\} $ as above.
+Thus we can form the refined bundles $\mathcal{B}_1$ and
+$\mathcal{B}_1'$ of $\mathcal{B},\mathcal{B}'$ as above and
+by the above, $\mathcal{B}_1$ is strictly equivalent to
+$\mathcal{B}$, and $\mathcal{B}_1'$ is strictly equivalent to
+$\mathcal{B}'$.
+
 \begin{lemma}[]
     Let $\mathcal{B},\mathcal{B}'$ be two coordinate bundles
     with the same base space, fibre, group and coordinate
@@ -1714,6 +2325,52 @@ The mapping transformations $\overline{g}_{\alpha \beta}$ satisfy
     \lambda_i(x).
     \] 
 \end{lemma}
+
+\begin{proof}
+    If $\mathcal{B},\mathcal{B}'$ are equivalent, then
+    the maps $\overline{g}_{kj}$ from Lemma
+    \ref{bundle-equiv-in-terms-of-maps} can be used
+    to define $\lambda_j (x) = \overline{g}_{jj}^{-1}(x)$.
+    Then the relations in \ref{bundle-equiv-in-terms-of-maps}
+    give
+    \[
+    g_{ji}' (x) \lambda_{i}^{-1}(x) = \overline{g}_{ji}(x)
+    = \lambda_{j}^{-1}(x) g_{ji}(x)
+    \] 
+    so
+    \[
+    g_{ji}'(x) = \lambda_j^{-1}(x) g_{ji}(x) \lambda_i(x)
+    \] 
+    Conversely, if we have
+    \[
+    g_{ji}'(x) = \lambda_j(x)^{-1} g_{ji}(x) \lambda_i(x)
+    \] 
+    for some $\lambda_j \colon V_j \to G$, then
+    define
+    \[
+    \overline{g}_{ji}(x) = \lambda_j(x)^{-1} g_{ji}(x)
+    \] 
+    Then we have
+    \begin{align*}
+        \overline{g}_{ki}(x) 
+        &=
+        \lambda_{k}(x)^{-1} g_{ki}(x)\\
+        &= \overline{g}_{kj}(x) g_{kj}(x)^{-1} g_{ki}(x)\\
+        &= \overline{g}_{kj}(x) g_{ji}(x)
+    \end{align*}
+    and
+    \begin{align*}
+        g_{lk}'(x) \overline{g}_{kj}(x) 
+        &= 
+    \lambda_{l}(x)^{-1} g_{lk}(x)
+    \lambda_k(x) \lambda_k(x)^{-1} g_{kj}(x)\\
+        &= \lambda_l(x)^{-1} g_{lj}(x)\\
+        &= \overline{g}_{lj}(x)  
+    \end{align*}
+    Thus we can apply Lemma \ref{bundle-equiv-in-terms-of-maps} 
+    to conclude that $\mathcal{B}$ and $\mathcal{B}'$ are
+    equivalent.
+\end{proof}
 
 \begin{lemma}[]
     Let $\mathcal{B}, \mathcal{B}'$ be coordinate bundles
@@ -2716,6 +3373,11 @@ a new bundle called the
     \subsection{Vector Bundles}
 
 
+    The theory of vector bundles is quite vast, so
+    we will give several different perspectives on
+    parts of the subject, primarily following
+    \cite{LeeSM}, \cite{JB}, \cite{BT}, \cite{MS} and
+    \cite{Dieck}.
 
 
 
@@ -3072,6 +3734,8 @@ a new bundle called the
         E_x \to \left\{ x \right\} \times \mathbb{R}^{n}$ 
         for each $x \in 
         \pi^{-1}\left( U_{\alpha} \right) $.
+        Furthermore, this vector bundle is unique
+        up to equivalence.
     \end{note}
 
     \subsection{Riemannian metrics}
@@ -3237,6 +3901,45 @@ a new bundle called the
 
     \section{Morse Theory}
 
+    \begin{lemma}[]\label{Lemma:10231924}
+        Let $k \colon \partial D_0^{n} \to 
+        \partial D_1^{n}$ be
+        a diffeomorphism between the respective boundaries
+        of two $n$-disks. Then we can extend $k$ to a 
+        diffeomorphism $K \colon D_0 \to D_1$ if
+         $n \le 6$.
+    \end{lemma}
+
+    \begin{exercise}[]
+        We obtain a closed surface from two disks
+        $D_1$ and $D_2$ by pasting them together along their
+        boundaries by a diffeomorphism $h \colon
+        \partial D_1 \to \partial D_2$. This is
+        called a \textit{twisted $2$-sphere}. Show that
+        a twisted $2$-sphere is diffeomorphic to
+        the $2$-sphere $S^2$ using Lemma \ref{Lemma:10231924}.
+    \end{exercise}
+
+    \begin{exercise}[]
+        Show that any homeomorphism
+        $h \colon S^{1} \to S^{1}$ can be extended
+        to a homeomorphism $H \colon D^2 \to D^2$.\\
+        Show the same thing for diffeomorphisms.
+    \end{exercise}
+
+    \begin{theorem}[Gluing manifolds with boundary]
+        Let $M_1$ and $M_2$ be manifolds with boundary,
+        and let $\varphi \colon \partial M_1 \to 
+        \partial M_2$ be a diffeomorphism between
+        the boundaries. Then we can construct a new
+        manifold $W = M_1 \cup_{\varphi } M_2$ by
+        gluing the boundaries of $M$ and $N$ using $\varphi $.
+        The resulting manifold $W$ is unique up to diffeomorphism.
+        (It is allowed to glue only certain
+        components of the boundary instead of the
+        entire boundary).
+    \end{theorem}
+
     \subsection{Definitions and Lemmas}
 
     If $f \in C^{\infty}(M)$, let
@@ -3311,6 +4014,12 @@ a new bundle called the
         $\lambda$ is the index of $f$ at $p$.
     \end{lemma}
 
+    \begin{remark}[]
+        By Sylvester's law of inertia, 
+        $\lambda$ does not depend
+        on the way the Hessian is diagonalized.
+    \end{remark}
+
     \begin{definition}[$1$-parameter group of diffeomorphisms]
         A \textit{$1$-parameter group of diffeomorphisms}
         of a manifold $M$ is a smooth map
@@ -3336,7 +4045,7 @@ a new bundle called the
         group $\varphi $.
     \end{definition}
 
-    \begin{lemma}[]
+    \begin{lemma}[]\label{Lemma:2093128}
         A smooth vector field on $M$ which vanishes
         outside of a compact set $K \subset M$ 
         generates a unique $1$-parameter group of diffeomorphisms
@@ -3345,7 +4054,7 @@ a new bundle called the
 
     \subsection{Homotopy Type in Terms of Critical Values}
 
-    \begin{theorem}[]
+    \begin{theorem}[]\label{Thm:203191}
         Let $f$ be a smooth real-valued function on a manifold
         $M$. Let $a < b$ and suppose that the set
         $f^{-1}\left[ a,b \right] $ is compact and contains
@@ -3356,9 +4065,274 @@ a new bundle called the
     \end{theorem}
 
     \begin{proof}
-        The proof relies on a bunch of differential geometry.
-        I will leave it for later.
+        Choose a Riemannian metric on $M$, and
+        let $\left< X, Y \right>$ denote the inner
+        product of two tangent vectors as determined
+        by this metric.
+
+        The gradient, $\nabla f$, of $f$ on $M$ is characterized
+        by
+        \[
+        \left< \xi, \nabla f \right> = \xi (f)
+        \] 
+        for any vector field $\xi$ on
+        $M$, where $\xi (f)$ is the directional derivative
+        of $f$ along $\xi$.\\
+        Let
+        $\rho \colon M \to \mathbb{R}$ be a smooth
+        function equal to
+        $\frac{1}{\left< \nabla f, \nabla f \right>}$ throughout
+        the compact set $f^{-1}\left[ a,b \right] $ 
+        and which vanishes outside of a compact neighborhood
+        of this set - using bump functions. Then
+         the vector field $\xi$ defined by
+         \[
+         \xi_{q} = \rho(q) \left( \nabla f \right)_{q}
+         \] 
+         satisfies the conditions of Lemma \ref{Lemma:2093128},
+         hence generates a unique $1$-parameter family
+         of diffeomorphisms of $M$, $\varphi  \colon
+         \mathbb{R} \times M \to M$.\\
+
+         Consider now, for a fixed $q \in M$, the function
+         $t \mapsto f\left( \varphi_t(q) \right) $.
+         If $\varphi_t (q) \in f^{-1}\left[ a,b \right] $, then
+         \[
+         \frac{d \left( f \circ \varphi_t (q) \right) }{dt}
+         = \left< (\nabla f)_q , \frac{d \varphi_t(q)}{dt} \right>
+         = \left< \left( \nabla f \right)_q, \xi_q  \right>
+         = 1
+         \] 
+         Hence since the derivative is constant,
+         the map
+         \[
+         t \mapsto f\left( \varphi_t(q) \right) 
+         \] 
+         is linear and with derivative $1$ as
+         long as $f \circ \varphi_t(q) \in \left[ a,b \right] $.
+         Therefore also
+         $x \in M^{a} = f^{-1}(-\infty, a] $ if and only
+         if $f(x) \in  (-\infty, a]$. Now
+         $a = f \left( \varphi_a(q) \right) $, so
+         $f(x) = f \left( \varphi_{c}(q) \right) $ for
+         $c = f(x) \le a$.
+         Thus $\varphi_{b-a}(x)
+         = \varphi_{b-a + c}(q)
+         \in f^{-1}(-\infty, b]$. It
+         is also easy to see that it is
+         bijective.\\
+         Now define a $1$-parameter family of maps
+         \[
+         r_t \colon M^{b} \to M^{b}
+         \] 
+         by
+         \[
+         r_t(q) = 
+         \begin{cases}
+             q,& f(q) \le a\\
+             \varphi_{t (a-f(q))}(q),& a \le f(q) \le b
+         \end{cases}
+         \] 
+         When
+         $f(q) = a$, we have
+         $\varphi_{0}(q)$ which should equal $q$ and indeed,
+         $\varphi_{0} \circ \varphi_0 (q) = 
+         \varphi_{0+0}(q) = 
+         \varphi_{0}(q)$ and since
+         $\varphi_t$ is a diffeomorphism for all $t$, we can
+         take the inverse and find
+         $\varphi_0 (q) = q$.
     \end{proof}
+
+
+    \begin{theorem}[]\label{Thm:3890009}
+        Let $f \colon M \to \mathbb{R}$ be a smooth
+        function, and let $p$ be a non-degenerate critical
+        point with index $\lambda$. Setting
+        $f(p) = c$, suppose that
+        $f^{-1}\left[ c-\varepsilon, c +\varepsilon \right] $ is
+        compact and contains no critical point of $f$ other
+        than $p$ for some $\varepsilon > 0$. Then, for
+        all sufficiently small $\varepsilon$, the
+        set $M^{c+ \varepsilon}$ has the homotopy type
+        of $M^{c-\varepsilon}$ with a $\lambda$-cell attached.
+    \end{theorem}
+
+    \begin{figure}[htpb]
+        \centering
+        \includegraphics[width=0.5\textwidth]{32.png}
+        \caption{32.png}
+        \label{fig:32-png}
+    \end{figure}
+
+    \begin{proof}
+        The idea of the proof of this theorem
+        is indicated in \ref{fig:32-png} in
+        the case of the height function on a torus.\\
+        Here is the idea: we will introduce
+        a new function $F \colon M \to \mathbb{R}$ 
+        which coincides with the height function $f$ except
+        that $F < f$ in a small neighborhood of the critical
+        point $p$. Thus the region
+        $F^{-1}(-\infty, c-\varepsilon]$ will consist
+        of $M^{c-\varepsilon}$ together with a region
+        $H$ near $p$ which we will call a "handle". More
+        on that later.
+        We will choose a suitable cell
+        $e^{\lambda} \subset H$ and then
+        pushing $H$ down onto $e^{\lambda}$ will give
+        a deformation retract
+        from $M^{c-\varepsilon} \cup  H$ to 
+        $M^{c- \varepsilon} \cup  e^{\lambda}$.
+        Then we will apply Theorem \ref{Thm:203191}
+        to $F$ and the region
+        $F^{-1}\left[ c-\varepsilon, c +\varepsilon \right] $
+        giving a deformation retract of
+        $M^{c-\varepsilon} \cup  H$ to $M^{c+\varepsilon}$.\\
+        \linebreak
+        Now, to the proof:\\
+        Choose a coordinate system 
+        $\left( u^{1},\ldots, u^{n} \right) $ 
+        centered at $p$ so that
+        \[
+        f = c- \left( u^{1} \right)^2 - \ldots
+        - \left( u^{\lambda} \right)^2 +
+        \left( u^{\lambda+1} \right)^2 +\ldots +
+        \left( u^{n} \right)^2
+        \] 
+        holds in $U$. \\
+        Next, choose $\varepsilon > 0$ such that
+        \begin{enumerate}
+            \item $f^{-1}\left[ c-\varepsilon,
+                c + \varepsilon\right] $ is compact
+                and contains no critical points other
+                than $p$.
+            \item The image of $U$ under the diffeomorphism
+                \[
+                    \left( u^{1},\ldots,
+                    u^{n}\right) \colon U \to 
+                    \mathbb{R}^{n}
+                \] 
+                contains the closed ball
+                \[
+                \left\{ \left( u^{1},\ldots,
+                u^{n}\right)  \mid 
+            \sum \left( u^{i} \right)^2 \le 2\varepsilon 
+        \right\} .
+                \] 
+        \end{enumerate}
+        Now, we finally define 
+        \[
+        e^{\lambda} =
+        \left\{ \left( u^{1},\ldots,
+        u^{n}\right) \in U \mid 
+    \sum_{i=1}^{\lambda} \left( u^{i} \right)^2 \le \varepsilon
+    \quad \text{and} \quad
+u^{\lambda+1} = \ldots = u^{n} = 0\right\} 
+        \] 
+        See Figure \ref{fig:3214255-png}.
+
+        \begin{figure}[htpb]
+            \centering
+            \includegraphics[width=0.8\textwidth]{3214255.png}
+            \caption{Setup}
+            \label{fig:3214255-png}
+        \end{figure}
+        The coordinate lines represent the planes
+        $u^{\lambda+1} = \ldots = u^{n} = 0$ and
+        $u^{1} = \ldots = u^{\lambda} = 0$, respectively.
+        The circle represents the boundary of the ball of
+        radius $\sqrt{2 \varepsilon} $, the
+        hyperbolas represent the hypersurfaces
+        $f^{-1}\left( c - \varepsilon \right) $ and
+        $f^{-1}\left( c+\varepsilon \right) $. The
+        region $M^{c-\varepsilon}$ is heavily shaded,
+        the region $f^{-1}\left[ c-\varepsilon, c \right] $ 
+        has big dots which are not so densely packed, while
+        the region $f^{-1}\left[ c , c +\varepsilon \right] $ 
+        has small dots which are tightly packed.
+        The horizontal dark line through $p$ represents
+        the cell $e^{\lambda}$.\\
+        Note that $e^{\lambda} \cap
+        M^{c- \varepsilon}$ is precisely the boundary
+        $\partial e^{\lambda}$, so
+        that $e^{\lambda}$ is attached to
+        $M^{c -\varepsilon}$ as required.\\
+        \linebreak
+
+        Now we will construct a new function
+        $F \colon M \to \mathbb{R}$. Let
+        $\mu \colon \mathbb{R} \to \mathbb{R}$ e
+        a smooth function such that
+        $\mu (0) > \varepsilon,
+        \mu (r) = 0$ for $r \ge 2 \varepsilon$ and
+        $-1 < \mu'(r) \le 0$ for all $r$.
+        Now let $F \equiv f$ outside of $U$ and
+        on $U$,
+        \[
+        F = f - \mu \left( \sum_{i=1}^{\lambda}
+        \left( u^{i} \right)^2 +
+    2 \sum_{i=\lambda+1}^{n} \left( u^{i} \right)^2\right).
+        \] 
+        $F$ is clearly smooth.\\
+        For convenience, let
+        \[
+        \xi, \eta \colon U \to [0,\infty)
+        \] 
+        be given by
+        \begin{align*}
+            \xi &= \sum_{i=1}^{\lambda}\left( u^{i} \right)^2\\
+            \eta &= \sum_{i=\lambda+1}^{n} \left( u^{i} \right)^2
+        \end{align*}
+
+    so that
+    $f = c - \xi + \eta$ and
+    \[
+    F(q) = c - \xi (q) + \eta(q) -
+    \mu \left( \xi(q) + 2 \eta(q) \right) 
+    \] 
+    for all $q \in U$.
+    
+    \begin{assertion}
+        The region $F^{-1}(-\infty, c+\varepsilon]$ coincides
+        with the region $M^{c+\varepsilon} = 
+        f^{-1}(-\infty, c+\varepsilon]$.
+    \end{assertion}
+
+    \begin{proof}
+        Smth smth smth
+
+    \underline{Verify the continuity in Case 2 later}
+
+    \end{proof}
+
+    \end{proof}
+
+    \begin{remark}[]
+        A modification of the proof of
+        Theorem \ref{Thm:3890009} shows that
+        the set $M^{c}$ is also a deformation retract
+        of $M^{c+\varepsilon}$. In fact,
+        $M^{c}$ is a deformation retract of
+        $F^{-1}(-\infty, c]$ which is a deformation
+        retract of $M^{c+\varepsilon}$.
+        Combining this with Theorem \ref{Thm:3890009},
+        we see that
+        $M^{c- \varepsilon} \cup  e^{\lambda}$ 
+        is a deformation retract of
+        $M^{c}$.
+    \end{remark}
+
+    \begin{theorem}[]
+        If $f$ is a smooth function on a manifold
+        $M$ with no degenerate critical points, and
+        if each $M^{a}$ is compact, then
+        $M$ has the homotopy type of a CW-complex,
+        with one cell of dimension $\lambda$ for each
+        critical point of index $\lambda$.
+    \end{theorem}
+
+\newpage
 
     \begin{problem}[Reeb's Theorem]
         Let $M$ be a smooth, compact manifold
@@ -3799,6 +4773,51 @@ a new bundle called the
         \end{definition}
 
         \begin{remark}[]
+            The first condition essentially says
+            that outside the critical points of
+            $f$, $\xi$ points in the direction into
+            which $f$ is increasing. If
+            we think of $f$ as a height function for
+            the manifold, then $\xi$ points "upward" along
+            the manifold. 
+        \end{remark}
+
+        \begin{figure}[htpb]
+            \centering
+            \includegraphics[width=0.4\textwidth]{gradient-like-vector-field.png}
+            \caption{A gradient-like vector field}
+            \label{fig:gradient-like-vector-field-png}
+        \end{figure}
+
+        \begin{theorem}[]
+            Let $f \colon M \to \mathbb{R}$ be a Morse
+            function on a compact manifold $M$. Then
+            there exists a gradient-like vector field
+            $\xi$ for $f$.
+        \end{theorem}
+
+        \begin{definition}[]
+            If $\xi$ is a vector field on $M$, an
+            \textit{integral curve of $\xi$} is a smooth
+            curve $\gamma \colon J \to M$ 
+            such that
+            \[
+            \gamma'(t) = \xi_{\gamma(t)}, \forall t \in J
+            \] 
+        \end{definition}
+
+        \begin{proposition}[]
+            \cite[Prop 9.2]{LeeSM}
+            Let $\xi$ be a smooth vector field on a smooth
+            manifold $M$. For each point $p \in M$, there
+            exists $\varepsilon > 0$ and a smooth curve
+            $\gamma \colon (-\varepsilon, \varepsilon) \to M$ that
+            is an integral curve of $V$ starting at $p$.
+        \end{proposition}
+
+
+
+        \begin{remark}[]
             We identify the triad
             $\left( W; V_0, V_1 \right) $ with the
             cobordism
@@ -3820,6 +4839,42 @@ a new bundle called the
             $\left( W; V_0, V_1 \right) $ is zero, then
             $\left( W; V_0,V_1 \right) $ is a product cobordism.
         \end{theorem}
+
+        \begin{proof}
+            Let $f \colon W \to \mathbb{R}$ be a Morse function
+            with no critical points. 
+            Since $W$ is compact, we have
+            $f(W) = \left[ a,b \right] $.
+            Choose a gradient-like vector field
+            $\xi$ for $f$. As $\xi (f) > 0$ on all
+            of $W$, we can define a new
+            vector field $\zeta$ on $W$ by
+            \[
+            \zeta = \frac{1}{\xi (f)} \xi.
+            \] 
+            Consider the integral curve
+            $c_p(t)$ of $\zeta$ starting at a 
+            point $p$ of $f^{-1}(a)$. Then
+            \begin{align*}
+                \frac{d}{dt} f\left( c_p(t) \right) 
+                = c'(t) f
+                = \zeta_{c(t)} (f)
+                = \frac{1}{\xi (f)} \xi (f)
+                = 1
+            \end{align*}
+        Since it starts at the level set
+        $f = a$ at time $t = 0$, it will reach the
+        level set $f = b$ at time
+        $t = b-a$. Define a map
+        $h \colon f^{-1}(a) \times \left[ 0, b-a \right] 
+        \to W = W_{[a,b]}$ by
+        \[
+        h(p,t) = c_{p(t)}.
+        \] 
+        The proof follows from $h$ being a diffeomorphism
+        as it depends smoothly on $p $ and $t$ and that
+    two distinct integral curves do not meet.
+        \end{proof}
 
         \begin{theorem}[Collar Neighborhood Theorem]
             Let $W$ be a compact smooth manifold with
@@ -3851,9 +4906,276 @@ a new bundle called the
         \end{theorem}
 
 
+\subsubsection{Handlebody decomposition/surgery}
+
+
+First, the setup.\\
+Suppose $\left( W; V,V' \right) $ is a triad with
+Morse function $f \colon W \to \mathbb{R}$ and
+gradient-like vector field $\xi$ for $f$.
+Suppose $p \in W$ is a critical point, and
+$V_0 = f^{-1}(c_0)$ and
+$V_1 = f^{-1}(c_1)$ are level sets such that
+$c_0 < f(p) < c_1$ and that
+$c = f(p)$ is the only critical value in the interval
+$\left[ c_0,c_1 \right] $.
+
+Now, since $\xi$ is a gradient-like vector field for
+$f$, there exists a neighborhood $U$ of $p$ in $W$
+and a coordinate diffeomorphism
+$ g \colon B(0, 2 \varepsilon) \to U$ such that
+$f \circ g  (x,y) = 
+c - \|x\|^2 + \|y\|^2 $ and
+so that $\xi$ has coordinates
+$\left( -x_1, \ldots, -x_{\lambda},
+x_{\lambda+1}, \ldots, x_n\right) $ throughout $U$, for
+some $-1 \le \lambda \le n$ and some
+$\varepsilon > 0$.\\
+Now let $V_{-\varepsilon} =
+f^{-1}\left( c- \varepsilon^2 \right) $ and
+$V_{\varepsilon} = f^{-1}\left( c+ \varepsilon^2 \right) $.
+We may assume that
+$4 \varepsilon^2 < \min \left\{ \left| c-c_0 \right| ,
+\left| c-c_1 \right| \right\} $ so that
+$V_{-\varepsilon}$ lies between
+$V_0$ and $f^{-1}(c)$ and
+$V_{\varepsilon}$ lies between $f^{-1}(c) $ and
+$V_1$.
+
+\begin{definition}[Characteristic embedding]
+    The characteristic embedding
+    $\varphi_{L} \colon S^{\lambda-1} \times 
+    B^{n - \lambda} \to V_0$ is obtained as follows.\\
+    First, define an embedding
+    $\varphi \colon S^{\lambda-1} \times 
+    B^{n-\lambda} \to V_{-\varepsilon}$ by
+    $\varphi \left( u, \theta v \right) =
+    g \left( \varepsilon u \cosh \theta,
+    \varepsilon v \sinh \theta \right) $ for
+    $u \in S^{\lambda-1}, v \in S^{n-\lambda-1}$ and
+    $0 \le \theta < 1$.
+    Then
+    $f \circ \varphi \left( u , \theta v \right) 
+    = c - \|\varepsilon u \cosh \theta\|^2
+    + \| \varepsilon v \sinh \theta \|^2
+    = c - \varepsilon^2 $, so indeed,
+    $\varphi \left( u, \theta v \right) \in 
+    V_{-\varepsilon}$.
+    Since $\varphi $ is also an injective
+    continuous map from a compact space to a Hausdorff space,
+    it is an embedding.\\
+    Starting now at the point
+    $\varphi \left( u, \theta v \right) \in V_{- \varepsilon}$,
+    the integral curve of $\xi$ (which, recall, goes
+    "upward") is a non-singular (non-vanishing
+    Jacobian) curve which leads
+    from $\varphi \left( u, \theta v \right) $ back to
+    some well-defined point $\varphi_L \left( u,
+    \theta v\right)  \in V_0$.\\
+    Define the \textit{left-hand sphere} $S_L$ of
+    $p$ in $V_0$ to be the image
+    $\varphi_L \left( S^{\lambda-1} \times 0 \right) $.
+\end{definition}
+
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{fig3-2.png}
+    \label{fig:fig3-2-png}
+\end{figure}
 
 
 
+\begin{definition}[Surgery]
+    Given a manifold $V$ of dimension $n-1$ and
+    an embedding $\varphi  \colon S^{\lambda - 1}\times 
+    B^{n-\lambda} \to V$, let
+    $\chi (V, \varphi )$ denote the quotient manifold obtained
+    from the disjoint union
+    \[
+        \left( V - \varphi \left( S^{\lambda-1}\times 0 \right) 
+        \right) \sqcup \left( B^{\lambda} \times 
+        S^{n-\lambda-1} \right) 
+    \] 
+    by identifying $\varphi (u, \theta v)$ with
+    $\left( \theta u, v \right) $ for
+    each $u \in S^{\lambda-1}, v \in S^{n-\lambda-1}$ and
+    $0 < \theta < 1$. If
+    $V'$ denotes any manifold diffeomorphic to
+    $\chi (V, \varphi )$ then we will say that
+    $V'$ can be obtained from $V$ by \textit{surgery} of
+    type $\left( \lambda, n-\lambda \right) $.
+\end{definition}
+
+
+So surgery on an $(n-1)$-manifold has the effect
+of removing an embedded sphere of dimension $\lambda-1$ 
+and replacing it by an embedded sphere of dimension
+$n - \lambda - 1$.
+
+   \begin{definition}[]
+       An \textit{elementary cobordism} is a triad
+       $\left( W; V, V' \right) $ possessing a Morse
+       function $f$ with exactly one critical point
+       $p$.
+   \end{definition}
+
+
+\begin{theorem}[]
+    If $V' = \chi (V, \varphi )$ can be obtained from
+    $V$ by surgery of type $\left( \lambda, n-\lambda
+    \right) $, then there exists an elementary cobordism
+    $\left( W; V,V' \right) $ and a Morse function
+    $f \colon M \to \mathbb{R}$ with
+    exactly one critical point of index $\lambda$.
+\end{theorem}
+
+\begin{proof}
+    Let
+    \[
+    L_{\lambda} = 
+    \left\{ \left( x,y \right) 
+    \in \mathbb{R}^{\lambda} \times 
+\mathbb{R}^{n-\lambda}  \mid 
+-1 \le - \|x\|^2 + \|y\|^2 \le 1,
+\|x\|\|y\| < \sinh 1 \cosh 1\right\},
+    \] 
+    which is a manifold with two boundaries:
+    the "left" boundary
+    $\left\{ -\|x\|^2+ \|y\|^2 = -1 \right\} $ is
+    diffeomorphic to
+    $S^{\lambda-1} \times B^{n-\lambda}$.
+    Indeed, recall that
+    \[
+    \cosh^2 x - \sinh^2 x = 1,
+    \] 
+    and consider the
+    map
+    \[
+        \left( u, \theta v \right) 
+        \mapsto \left( u \cosh \theta, v
+        \sinh \theta \right) 
+    \] 
+    Show that it is a diffeomorphism. Similarly for
+    the "right" boundary.
+
+    \begin{figure}[htpb]
+        \centering
+        \includegraphics[width=0.3\textwidth]{xy-graph.png}
+        \caption{$\left| xy \right| < \sinh 1 \cosh 1$}
+        \label{fig:xy-graph-png}
+    \end{figure}
+
+    \begin{figure}[htpb]
+        \centering
+        \includegraphics[width=0.3\textwidth]{y^2-x^2-graph.png}
+        \caption{$-1 \le -\|x\|^2 + \|y\|^2 \le 1$}
+        \label{fig:y-2-x-2-graph-png}
+    \end{figure}
+
+
+    Consider the orthogonal trajectories of
+    the surfaces $-\|x\|^2 + \|y\|^2 = \text{constant}$.
+
+    The trajectories of the surface
+    $- \|x\|^2 + \|y\|^2 = c$ can be parametrized
+    by
+    $t \mapsto \left( t x, t^{-1} y \right) $. 
+    To see this, pick a point
+    $(x,y) $ such that
+    $-\|x\|^2 + \|y\|^2 = c$, that is
+
+    $(x,y) = \left( c u \sinh \theta, c v \cosh \theta \right) $.
+    Then the derivative with respect to $\theta$ is
+    \[
+        \left( c u \cosh \theta,
+        c v \sinh \theta \right) 
+    \] 
+    and since
+    \[
+        \left( c u \cosh \theta,
+        c v \sinh \theta\right) \cdot 
+        \left( cu \sinh \theta, - cv \cosh \theta \right) 
+        = c^2 \left( \|u\|^2 \cosh \theta \sinh \theta
+        - \|v\|^2 \cosh \theta \sinh \theta \right) 
+        = 0
+    \] 
+    since $\|u\|=\|v\| = 1$.
+
+
+    \begin{figure}[htpb]
+        \centering
+        \includegraphics[width=0.5\textwidth]{level-sets.jpeg}
+        \caption{level-sets.jpeg}
+        \label{fig:level-sets-jpeg}
+    \end{figure}
+
+    We now construct a manifold
+    $W = \omega \left( V, \varphi  \right) $ as follows.
+    Start with the disjoint union
+    \[
+        \left( V - \varphi 
+        \left( S^{\lambda-1} \times 0 \right) \right) \times 
+        D^{1} \sqcup L_{\lambda}.
+    \] 
+    Now for each $u \in S^{\lambda-1}, v\in 
+    S^{n-\lambda-1}, 0 < \theta < 1$ and
+    $c \in D^{1}$, identify the point
+    $\left( \varphi (u,\theta v), c \right) $ in the
+    first summand with the point
+    $\left( x,y  \right) \in L_{\lambda}$ such that
+    \begin{enumerate}
+        \item $- \|x\|^2 + \|y\|^2 = c$ 
+        \item $\left( x,y \right) $ lies on the orthogonal
+            trajectory which passes through the point
+            $\left( u \cosh \theta, v \sinh \theta \right) $.
+    \end{enumerate}
+    This defines a diffeomorphism
+    \[
+    \varphi \left( S^{\lambda-1} \times 
+    \left( B^{n-\lambda} - 0 \right) \right) \times D^{1}
+    \cong L_{\lambda} \cap
+    \left( \mathbb{R}^{\lambda}-0 \right) \times
+    \left( \mathbb{R}^{n-\lambda}
+    -0\right) 
+    \] 
+
+    (Finish the proof)
+
+\end{proof}
+
+
+\begin{theorem}[]
+    Let $\left( W; V, V' \right) $ be an elementary cobordism
+    with characteristic embedding
+    $\varphi_L \colon S^{\lambda-1} \times 
+    B^{n-\lambda} \to V$. Then
+    $\left( W; V, V' \right) $ is diffeomorphic to
+    the triad $\left( \omega (V, \varphi_L); V,
+    \chi \left( V, \varphi_L \right) \right) $.
+\end{theorem}
+
+\begin{theorem}[]
+    Let $\left( W; V,V' \right) $ be an elementary
+    cobordism possessing a Morse function with one
+    critical point, of index $\lambda$. Let
+    $D_L$ be the left-hand disk associated to a fixed
+    gradient-like vector field. Then
+    $V \cup  D_L$ is a deformation retract of $W$.
+\end{theorem}
+
+\begin{corollary}
+    \[
+    H_n (W,V)
+    \cong
+    \begin{cases}
+        \mathbb{Z},& n= \lambda\\
+        0,& n\neq \lambda
+    \end{cases}.
+    \] 
+    A generator for $H_{\lambda}(W,V)$ is represented
+    by $D_L$.
+\end{corollary}
 
 
 
@@ -4092,6 +5414,12 @@ a new bundle called the
        a Morse function.
    \end{theorem}
 
+   \begin{remark}[]
+       We proved a stronger version of this theorem
+       in Problem \ref{Problem:Existence-Morse-Functions}.
+       We will also outline the proof idea from Milnor's book.
+   \end{remark}
+
    To prove the existence theorem of Morse functions, 
    we need the following lemmas:
 
@@ -4261,7 +5589,7 @@ a new bundle called the
    \end{theorem}
 
    \begin{proof}
-       Super neat proof. Check it out in \cite{Milnor-h-cobordism}.
+       Neat proof. Check it out in \cite{Milnor-h-cobordism}.
    \end{proof}
 
 
@@ -4305,12 +5633,297 @@ a new bundle called the
        manifolds with boundary.
    \end{lemma}
 
+
    \begin{corollary}
        Any cobordism can be expressed as a composition
        of cobordisms with Morse number $1$.
    \end{corollary}
+
+
+
+
+   \subsection{h-cobordism}
    
-   \section{Appendix}
+   \begin{definition}[$h$-cobordism]
+       A compact cobordism $W \colon
+       M_0 \rightsquigarrow M_1 $ between closed
+       manifolds $M_0$ and $M_1$ is called an
+       h-cobordism if the inclusion
+       $M_i \hookrightarrow W$ is a homotopy
+       equivalence for $i \in \left\{ 0,1 \right\} $.
+   \end{definition}
+
+
+   \begin{theorem}[h-cobordism theorem]
+       Let $W \colon
+       M_0 \rightsquigarrow M_1$ be a smooth,
+       compact h-cobordism between closed, simply
+       connected smooth manifolds  $M_0$ and
+       $M_1$, where we assume
+       $\dim M_i \ge 5$. Then, there
+       exists a diffeomorphism
+       $W \cong M_0 \times I$ that restricts to the
+       identity on the $M_0$ component
+       of $W$.
+   \end{theorem}
+
+   \begin{theorem}[Cerf's pseudo-isotopy theorem]
+       Let $M$ be a simply connected smooth
+       manifold of dimension at least $5$, and
+       let $f,g \in \Diff (M)$ be two pseudo-isotopic
+       diffeomorphisms of $M$. Then
+       $f$ and $g$ are isotopic diffeomorphisms.
+   \end{theorem}
+
+
+   \begin{problem}[Connected sums and homology]
+       Let $M, N$ be two connected smooth
+       $d$-dimensional manifolds with empty
+       boundary, and fix two embeddings
+       of the $d$-disc into each; namely, fix
+       an embedding $S^{0} \times D^{d} \hookrightarrow
+       M \sqcup N$ which is a bijection on path
+       components. We define
+       $M \# N$ to be the handle attachment of $D^{1}\times 
+       D^{d-1}$ on $M \sqcup N$ via 
+       $S^{0} \times D^{d}$ ; namely, $M \# N$ is the upper
+       component of the boundary of the following manifold
+       with boundary
+       \[
+           \left( \left( \left( M \sqcup N \right) \times I
+           \right) - \left( S^{0} \times D^{d} \right) \right) 
+           \cup_{\partial } D^{1} \times D^{d}.
+       \] 
+       You may assume that connected sums are well-defined,
+       i.e., independent of the choice of the embeddings
+       $D^{d} \hookrightarrow M$ and
+       $D^{d} \hookrightarrow N$.
+
+       \begin{enumerate}
+           \item Given two Morse functions $f_M$ and
+               $f_N$ on $M$ and $N$, respectively, construct a
+               Morse function on $M \# N$.
+           \item Compute the homology of
+               $M \# N$ in terms of the homology
+               of $M$ and $N$.
+           \item Let $W_g^{n} :=
+               \#_g \left( S^{n} \times S^{n} \right) $,
+               for $n \in \mathbb{N} $. Compute the
+               homology of $W_g^{n}$.
+       \end{enumerate}
+
+\begin{problem}[Poincaré conjecture]
+           Let $M$ be a closed manifold of dimension at
+           least $6$. Assume that
+           $M \simeq S^{d}$, where
+           $\simeq$ denotes the equivalence relation
+           of homotopy equivalence. Show that
+           $M$ is homeomorphic to the sphere, and indicate
+           why the argument fails for showing that
+           $M$ is diffeomorphic to the sphere.
+\end{problem}
+
+       \begin{proof}
+           Firstly, we claim that if
+           $M \simeq S^{d}$, then
+           $M - D_1 \simeq S^{d} - D^{d}$ where
+           $D_1$ is some disc in $M$.
+           If $F \colon M \to S^{d}$
+           and $G \colon S^{d}\to M$ give a homotopy equivalence,
+           then $G \circ F \simeq \id_M$ implies that
+           $D_1 \simeq G \left( F(D_1) \right) $ \\
+
+           Removing two disks open discs
+           $D_1,D_2$ from $M$, we get a compact
+           cobordism from $S^{d-1}$ to
+           $S^{d-1}$. Now, since $d \ge 6$,
+           $\pi_1 S^{d-1} = 1$. Furthermore,
+           since $M \simeq S^{d}$, we have
+           $M - \left( D_1 \cup D_2 \right)  \simeq
+           S^{d} - \left( D^{d} \sqcup D^{d} \right) 
+           \simeq S^{d-1}$. Hence the
+           inclusion becomes the inclusion into the equator
+           for both  $D_1$ and $D_2$. In particular,
+           we get isomorphisms on both $\pi_1$ and 
+           $H_* (-;\mathbb{Z})$ since the spaces
+           are homotopy equivalent.
+           By Lemma \ref{Lemma:994821},
+           the inclusions of the boundaries are
+           thus homotopy equivalences. Therefore,
+           $M - \left( D_1 \cup D_2 \right) $ is
+           an h-cobordism. Since
+           $S^{d-1}$ is a closed, simply connected smooth
+           manifold for $d\ge 6$, the
+           h-cobordism theorem tells us that there
+           exists a diffeomorphism
+           $M - \left( D_1 \cup  D_2 \right) 
+           \cong S^{d-1} \times I$ that restricts to the
+           identity on the $M_0$ component of $W$. In particular,
+           the restriction of the identity on
+           one component, $D_1$ say, gives that regluing by
+           the identity preserves the diffeomorphism, so
+           we have
+           $M - D_2 \cong D^{d}$.
+           The other gluing might is completed under a
+           diffeomorphism, so we find that
+           $M$ is diffeomorphic to a twisted sphere.
+           From the last week's problem sheet, we
+           know that twisted spheres are homeomorphic to
+           normal spheres, but not necessarily diffeomorphic.
+           This is where the diffeomorphism part fails.
+       \end{proof}
+
+
+
+
+
+
+
+
+\begin{problem}[Contractible manifolds with simply
+           connected boundaries]
+           Let $M$ be a compact manifold with non-empty
+           boundary, of dimension $d$ at least
+           $6$. Assume that  $\partial M$ is simply
+           connected. Show that the following four
+           statements are equivalent
+           \begin{enumerate}
+               \item $M$ is diffeomorphic to
+                   $D^{d}$.
+               \item $M$ is homeomorphic to $D^{d}$.
+               \item $M$ is contractible.
+           \end{enumerate}
+\end{problem}
+
+       \begin{proof}
+           If $M$ is diffeomorphic to $D^{d}$, then
+           it is naturally also homeomorphic to $D^{d}$ and
+           indeed also contractible since we can
+           just pull back the contraction.
+
+           Remove a disc
+           $D^{d} \subset \Int M$. We wish to apply the
+            h-cobordism theorem to obtain
+            a diffeomorphism $M - D^{d} \cong S^{d-1} \times I$,
+            restricting to the identity on $S^{d-1}$ in
+            $M$, so that we can reglue $D^{d}$ along the
+            identity, thus obtaining a diffeomorphism
+            $M \cong D^{d}$.\\
+            Note that we have a smooth, compact
+            cobordism between closed, simply connected
+            smooth manifolds $\partial M$ and
+            $S^{d-1} = \partial D^{d}$. It remains to show
+            that this is an h-cobordism, i.e.,
+            that the inclusions are homotopy equivalences.
+            Since both spaces are simply connected, it suffices
+            to show that the inclusions induce isomorphisms
+            on  $\pi_1$ and $H_{*}(-;\mathbb{Z})$.
+            Consider
+            $S ^{d-1} \hookrightarrow
+            M - D^{d}$.
+            Let $D_1$ denote the disc in question and
+            choose a disc $D_2$ containing $D_1$. 
+            Since $M-D_1 \cap D_2 \cong S^{d-1}$, 
+            Meier-Vietoris gives us a LES
+            \[
+            0 \to H_p (S^{d-1}) 
+            \to H_p \left( M-D_1 \right) \oplus
+            \underbrace{H_p (D_2)}_{=0} \to 
+            \underbrace{H_p (M)}_{=0} \to \ldots
+            \] 
+            Furthermore, recall that in the proof
+            of Meier-Vietoris, we find that the
+            map
+            $H_p \left( S^{d-1} \right) 
+            \to H_p \left( M-D_1 \right) $ in question
+            is precisely the inclusion map. Hence
+            the inclusion map
+            $S^{d-1} \hookrightarrow M-D^{d}$ is an
+            isomorphism which was what we wanted to show.
+            Also, $M$ is contractible, so
+            $\pi_1 (M) = 1$, so the inclusion also induces
+            an isomorphism on fundamental groups.
+            We therefore obtain using Lemma \ref{Lemma:994821}
+            that the inclusion $S^{d-1} \hookrightarrow
+            M - D^{d}$ is a homotopy equivalence.
+            Next, we must show that 
+            the inclusion $\partial M \hookrightarrow
+            M- D^{d}$ is also a homotopy equivalence.
+            Firstly, we again have an isomorphism on fundamental
+            groups for the same reason. 
+            Next, by Theorem \ref{Thm:293009}, we have
+            that 
+            \[
+            H_* \left( M - D, \partial M \right) 
+            \cong H^{*} \left( M-D, \partial D \right) 
+            \] 
+            Now $H_* \left( M- D,
+            \partial D\right) \cong 0$, and we
+            claim that this implies that
+            $H^{*}\left( M-D, \partial D \right) 
+            \cong 0$.\\
+            To see this, note that
+            the universal coefficient theorem for 
+            cohomology gives
+            that
+            \[
+            0 \to \Ext_{R}^{1}
+            \left( H_{n-1}(M-D, \partial D), \mathbb{Z} \right) 
+            \to \underbrace{H^{n}(M-D, \partial D
+            ; \mathbb{Z})}_{\cong0}
+            \to \Hom_{R}\left( H_n (M-D, \partial D),
+            \mathbb{Z} \right) \to 0
+            \] 
+            is exact, hence
+           $
+\Ext_{R}^{1} \left( H_{n-1}(M-D,\partial D), \mathbb{Z} \right) 
+\cong 0 \cong \Hom_{R}\left( H_n (M-D,\partial D), \mathbb{Z}
+\right) $.
+Now, since $M-D$ and $\partial D$ are manifolds, they
+are in particular homotopy equivalent to finite $CW$-complexes and
+hence to finite $\Delta$-complexes, hence
+so is $M-D / \partial D$. Now, we know from
+corollary 8.4.4 in the AlgTop1 notes that then
+$H_p \left( M-D, \partial D \right) 
+\cong \tilde{H}_p \left( M -D / \partial D \right) $
+is a finitely generated abelian
+group.
+But then vanishing of $\Ext^1 (-,\mathbb{Z})$ means that the
+torsion part is trivial and
+the vanishing of
+$\Hom_{\mathbb{Z}}(-,\mathbb{Z})$ means that the
+torsionfree part is trivial. Hence
+$H_{n}\left( M-D, \partial D \right) \cong 0$ for all
+$n$.
+
+
+
+
+            By the LES associated to the
+            pair $\left( M-D, \partial M \right) $, we
+            thus obtain that the inclusion
+            $\partial M \hookrightarrow M-D$ induces
+            an isomorphism on integral homology.\\
+            This completes the proof.
+       \end{proof}
+
+
+
+
+   \end{problem}
+
+
+   \begin{problem}[]
+       Show that any diffeomorphism
+       $S^{1} \to S^{1}$ can be extended to a diffeomorphism
+       $D^2 \to D^2$.
+   \end{problem}
+
+\newpage
+
+\appendix
+   
+\section{Analysis}
 
    For an $m$-tuple 
    $I = \left( i_1, \ldots, i_m \right) $ with
@@ -4391,6 +6004,57 @@ a new bundle called the
        \frac{\partial F^{k}}{\partial x^{j}}(x).
        \] 
    \end{lemma}
+
+   \section{Homotopy Theory}
+
+   \begin{lemma}[]\label{Lemma:994821}
+       Let $f \colon X \to Y$ and
+       $\pi_1 X = 1$. If
+       $f$ induces isomorphisms on
+       $\pi_1$ and $H_{*}(-; \mathbb{Z})$, then
+       $f$ is a homotopy equivalence.
+   \end{lemma}
+
+   \begin{theorem}[]\label{Thm:293009}
+       Suppose $M$ is a compact $R$-orientable $n$-manifold
+       whose boundary $\partial M$ is decomposed as the
+       union of two compact $\left( n-1 \right) $-dimensional
+       manifolds $A$ and $B$ with common boundary
+       $\partial A = \partial B = A \cap B$. Then
+       cap product with a fundamental class
+       $\left[ M \right] \in 
+       H_n \left( M, \partial M ; R \right) $ gives isomorphisms
+       $D_M \colon H^{k}\left( M,A;R \right) 
+       \to H_{n-k}\left( M,B;R \right) $ for all
+       $k$. The possibility that $A,B$ or $A \cap B$ is
+       empty is not excluded.
+   \end{theorem}
+
+   \section{Random Stuff}
+
+   1.
+
+   \begin{itemize}
+       \item Pinch map. $M \# N \to M \vee N$.
+       \item Morse inequalities.
+       \item $\#_g \left( S^{n}\times S^{n} \right) $
+   \end{itemize}
+
+
+   \begin{exercise}[?]
+       $M$ smooth, closed, $2n$-dim. If
+           $M \simeq W_g^{n}$, then
+           $M \cong W_g^{n} \# \Sigma$,
+           $\Sigma$ homotopy sphere.
+   \end{exercise}
+
+
+
+   Spherical modification.
+
+
+
+
 
 \printbibliography
 \end{document}

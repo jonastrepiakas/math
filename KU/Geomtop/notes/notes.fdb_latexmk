@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber notes"] 1742662280.58462 "notes.bcf" "notes.bbl" "notes" 1742700344.99982 0
-  "notes.bcf" 1742700344.85548 108446 0b273f15ea721db9ec28d0ca4e294129 "pdflatex"
-  "notes.bib" 1742662198.2061 2527 77625dfbc37e82435b508a0eed1a3437 ""
+["biber notes"] 1743191115.44599 "notes.bcf" "notes.bbl" "notes" 1743245477.38793 0
+  "notes.bcf" 1743245477.17473 109099 23f7f4e641a09152e3f64b061ef6344a "pdflatex"
+  "notes.bib" 1743187039.9013 3761 d05c7347b5c8c88a4b53df8b79b144e4 ""
   (generated)
   "notes.bbl"
   "notes.blg"
   (rewritten before read)
-["pdflatex"] 1742700342.33337 "notes.tex" "notes.pdf" "notes" 1742700345.00035 0
+["pdflatex"] 1743245474.02436 "notes.tex" "notes.pdf" "notes" 1743245477.38842 0
   "/etc/texmf/web2c/texmf.cnf" 1718688975.81737 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/jonas-trepiakas/.texlive2023/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk" 1727527665.45445 6964 86acb68f026bd4eb7255bbd50e22f730 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -207,13 +207,20 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1719350542.55051 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1719350620 8213228 2bf4bdc60b7e8eadcc399e002a7ccc4d ""
+  "32.png" 1743019717.94284 74213 37b56237a561f6b9996c5606c90a4d67 ""
+  "3214255.png" 1743024194.80381 240520 fe775d3d70e60fbf9786af09fd704f6d ""
   "cobordism-example-1.png" 1742030452.52929 31416 61e63017883f8dd7bb05e5391951ae19 ""
-  "notes.aux" 1742700344.85348 8824 ccafae99049ac2bf86874813a54a917d "pdflatex"
-  "notes.bbl" 1742662282.17367 8810 6eaf41b8957cd2aa9efc2c12ebfd2d1f "biber notes"
-  "notes.out" 1742700344.85448 4613 035605cf96dec25b60829af1e9ad12de "pdflatex"
-  "notes.run.xml" 1742700344.85648 2276 cfbec4827927b5e3688c896d693f9468 "pdflatex"
-  "notes.tex" 1742700341.87546 149128 16dca7f35344b54b6e536f3b88dc4057 ""
-  "notes.toc" 1742700344.85648 4006 0fbb00bae8b6254880f0f0986c51cf06 "pdflatex"
+  "fig3-2.png" 1742900064.19003 46575 41d0c3b28207a10aadfdab73a0b4bd66 ""
+  "gradient-like-vector-field.png" 1742827751.0611 32130 c9d41000b6cb21700cd27e2063b09ec5 ""
+  "level-sets.jpeg" 1742990675.81169 6383 fd25486f3e352f21061231130afdcb25 ""
+  "notes.aux" 1743245477.17173 12671 9ef0d21a46c663becd4820195c753b09 "pdflatex"
+  "notes.bbl" 1743191117.05876 13972 9491766f6a61e72451a0dc71a374c4b7 "biber notes"
+  "notes.out" 1743245477.17373 5312 7af901f9493b935f70f9460126531cef "pdflatex"
+  "notes.run.xml" 1743245477.17573 2276 cfbec4827927b5e3688c896d693f9468 "pdflatex"
+  "notes.tex" 1743245469.66067 205103 41e325288aa711b30ecdc7566a672a31 ""
+  "notes.toc" 1743245477.17573 4597 2788c31c41590d94605a80b6c1f352de "pdflatex"
+  "xy-graph.png" 1742922229.68716 17573 42a8f5cd88abb4cdd1099d9210ffea4a ""
+  "y^2-x^2-graph.png" 1742922052.07087 24894 aa7da78a9bc03f843932bc69d79270a8 ""
   (generated)
   "notes.aux"
   "notes.bcf"

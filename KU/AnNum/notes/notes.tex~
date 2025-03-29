@@ -1,0 +1,479 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+%\usepackage[backend=biber]{biblatex}
+%\addbibresource{.bib}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\SHomeo}{SHomeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Teich}{Teich}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Bun}{Bun}
+\DeclareMathOperator{\Sm}{Sm}
+
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\MCG}{{\mathrm{MCG}}}
+\newcommand{\PMCG}{{\mathrm{PMCG}}}
+\newcommand{\SMCG}{{\mathrm{SMCG}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+
+
+
+
+\begin{document}
+
+\section{Week 1}
+
+\begin{exercise}[E1.1. Abel summation]
+    Let $\left\{ a_n \right\}_{n \in \mathbb{N} }\subset \mathbb{C}$ 
+    and $f \colon \left[ 1,x \right] \to \mathbb{C}$ be
+    $C^{1}$. Define $A(t) = \sum_{n \le t} a_n$. Then for
+    $x>1$, we have
+    \[
+    \sum_{n\le x} a_n f(n) = A(x) f(x) -
+    \int_{1}^{x} A(t) f'(t) dt. 
+    \] 
+\end{exercise}
+
+
+
+\section{Week 2}
+
+Let $\psi (x) :=
+\sum_{n \le x} \Lambda (n)$.
+
+\begin{exercise}[E2.6]
+    Show that
+    \[
+    \theta(x) := 
+    \sum_{p \le x} \log p = \psi (x) + O\left( x^{\frac{1}{2}}
+    \log^2 x \right) 
+    \] 
+\end{exercise}
+
+\begin{exercise}[E2.7]
+    Show that
+    \[
+    \pi(x) = \frac{\psi (x)}{\log x}+ 
+    \int_{2}^{x} \frac{\psi (t)}{t \log^2t}dt +
+    O\left( x^{\frac{1}{2}} \log x \right) .
+    \] 
+\end{exercise}
+
+\begin{proof}
+    By Abel summation, we first find that
+    \[
+    \theta(x) :=
+    \sum_{p \le x} \log p = 
+    \pi(x) \log x - \int_{2}^{x} \frac{\pi(t)}{t}dt
+    \] 
+    and from the previous exercise, we now find
+    that
+    \[
+    \pi(x) = \frac{\psi (x)}{\log x} +
+    \frac{1}{\log x} \int_{2}^{x}\frac{\pi(t)}{t}dt 
+    + O \left( x^{\frac{1}{2}} \log x \right) 
+    \] 
+    The result follows if we
+    can show that
+    \[
+    \frac{1}{\log x} \int_{2}^{x} \frac{\pi(t)}{t}dt
+    = \int_{2}^{x} \frac{\psi (t)}{t \log^2 t}dt 
+    + O\left( x^{\frac{1}{2}} \log x \right).
+    \] 
+    Now $\psi (t) \le \pi(t) \log t$, so
+    \begin{align*}
+        \left| \int_{2}^{x} 
+        \frac{\psi (t)}{t \log^2 t} - 
+        \frac{\pi(t)}{t \log x}dt \right| 
+        &\le 
+        \left| \int_{2}^{x} \frac{\pi(t)}{t \log t} -
+        \frac{\pi(t)}{t \log x} dt\right| \\
+        &= \left| 
+        \int_{2}^{x} \frac{\pi(t)}{t} 
+        \frac{\log \left( \frac{x}{t} \right) }{\log x 
+        \log t} dt\right| \\
+    \end{align*}
+\end{proof}
+
+\section{Week 3}
+
+\begin{exercise}[E3.1]
+    Let $m \ge 0$. Show that
+    \[
+    \sum_{n \le x} \log^{m} n = 
+    x \log^{m} x + O \left( x \log^{m-1} x \right) .
+    \] 
+\end{exercise}
+
+\begin{proof}
+    Let $a_n = 1$ for all $n$. Then
+    $A(x) = \left\lfloor x \right\rfloor$, so
+    \begin{align*}
+    \sum_{n \le x} \log^{m}n 
+    &= 
+    \left\lfloor x \right\rfloor \log^{m} x
+    - \int_{1}^{x} m \left\lfloor t \right\rfloor \frac{1}{t}
+    \log^{m-1} t dt\\
+    &= x \log^{m}x
+    - \left( x - \left\lfloor x \right\rfloor  \right) \log^{m} x
+    -m \int_{1}^{x} \frac{\left\lfloor  t \right\rfloor }{t}
+    \log^{m-1}(t) dt
+    \end{align*}
+    Thus we must show that
+    \begin{align*}
+    \left| \left( x - \left\lfloor x \right\rfloor  \right) \log^{m} x
+    +m \int_{1}^{x} \frac{\left\lfloor  t \right\rfloor }{t}
+    \log^{m-1}(t) dt  \right| \le 
+    C x \log^{m-1}x
+    \end{align*}
+    But $\frac{\left\lfloor  t \right\rfloor }{t}
+    \log^{m-1} (t) \le \log^{m-1}(x)$ giving that
+    the right hand term is $O\left( x \log^{m-1} x \right) $.
+    For the left hand term,
+    it suffices to show that
+    $\left( x - \left\lfloor x  \right\rfloor  \right) 
+    \log x \le x$, but this is clear
+    since $x - \left\lfloor x \right\rfloor \le 1$ and
+    $ \log x  \le x$.
+\end{proof}
+
+\begin{exercise}[E3.2]
+    Let $d(n) = \sum_{d  \mid n} 1$. Show
+    $d(n) \le 2 \sqrt{n} $.
+    If we consider the set $D \subset \mathbb{N} $ of positive
+    divisors of $n$, then we can define a bijection
+    $D \to D$ by
+    $k \mapsto \frac{n}{k}$. Suppose
+    now that $d(n) > 2 \sqrt{n} $. 
+    Suppose $d  \mid n$ and
+    $d \ge  \sqrt{n} $. Then
+    since $\frac{d}{n} \cdot d = n$, we must have
+    $\frac{d}{n} \le  \sqrt{n} $. This implies that
+    under this bijection, either the source or
+    target lies in
+    $\left\{ 1,\ldots, \left\lfloor \sqrt{n}  \right\rfloor \right\} $.
+    Hence $d(n) = \left| D \right| \le 
+    2 \left| \left\{ 1, \ldots,
+    \left\lfloor \sqrt{n}  \right\rfloor \right\}  \right| 
+    \le 2 \sqrt{n} $.
+\end{exercise}
+
+\begin{exercise}[E3.3]
+    Prove that for every $\varepsilon > 0$, there
+    exists a constant $C_{\varepsilon}$ such that
+    $d(n) \le C_{\varepsilon} n^{\varepsilon}$.\\
+    Hint:
+    \begin{enumerate}
+        \item Show that $d(n_1n_2) = d(n_1)d(n_2)$ if
+            $\left( n_1,n_2 \right) =1$.
+        \item Show that
+            \[
+            \frac{d(n)}{n^{\varepsilon}}
+            = \prod_{p^{\alpha} \mid  \mid   n} \frac{\alpha+1}{
+            p^{\alpha \varepsilon}}
+            \] 
+            where $p^{\alpha} \mid  \mid n$ means that
+            $\alpha$ is a positive integer,
+            $p^{\alpha} \mid n$ and
+            $p^{\alpha+1}\not| n$.
+        \item Split the product in $2$. Into the product
+            over those primes $p < 2^{\frac{1}{\varepsilon}}$ and
+            the product over the rest. Show that the
+            second product is bounded by $1$.
+        \item Show that the factors in the first product
+            are less than $1 + \left( \varepsilon \log 2 \right)^{-1}$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    We follow the hint:\\
+    (1) Suppose $\left( n_1,n_2 \right) =1$. 
+    Let $D$ be the set of divisors of $n_1n_2$, 
+    $D_1 $ the set of divisors of $n_1$ and
+    $D_2$ the set of divisors of $n_2$.
+    Suppose $d_1 \in D_1, d_2 \in D_2$.
+    Then $d_1 a = n_1, d_2 b = n_2$, so
+    $d_1d_2 ab = n_1n_2$, hence
+    $d_1d_2 \in D$. We thus obtain a map
+    $D_1 \times D_2 \to D$ sending
+    $\left( d_1,d_2 \right) \mapsto d_1d_2$. We claim this is
+    a bijection. Suppose
+    $d_1d_2 = d_1' d_2'$.
+    If $d_1  \mid d_2'$, then
+    $d_1 = 1$, in which case,
+    $d_1' = 1$, and thus $d_2 = d_2'$.
+    Suppose thus that $d_1 \neq 1$, so
+    $d_1 \not| d_2'$.
+    Then since $\left( d_1', d_2' \right) =1$, we have
+    $d_1  \mid d_1'$. Similarly,
+    $d_1'  \mid d_1$. So 
+    $d_1 = d_1'$. And again $d_2 = d_2'$. This gives injectivity.
+    For surjectivity, if
+    $d  \mid n_1n_2$, then consider
+    $d_1 := \frac{d}{\left( n_2,d \right) }$ and
+    $d_2 := \frac{d}{\left( n_1,d \right) }$.
+    Then $d_1 d_2 = d$ and $d_1 \in D_1, d_2 \in D_2$.\\
+    (2) Clearly,
+    $n^{\varepsilon} = \prod_{p^{\alpha} \mid  \mid 
+    n} p^{\alpha \varepsilon}$. It thus suffices to show that
+    $\prod_{p^{\alpha} \mid  \mid n} \left( \alpha+1 \right) 
+    = d(n)$. But if we factorize $n$ as
+    $n = p_1^{\alpha_1} \cdots p_m^{\alpha_m}$, then
+    it is clear that the divisors corresponds precisely to
+    tuples
+    $\left( a_1, \ldots, a_m \right) $ with
+    $0 \le a_i \le \alpha_i$. There
+    are precisely $\alpha_1 + 1$ choices for each
+    $a_i$, giving
+    $\left( \alpha_1 +1 \right) \cdots
+    \left( \alpha_m +1 \right) = d(n)$ which indeed
+    is what we wanted to show.\\
+    (3) We can split the product as
+    \[
+    \frac{d(n)}{n^{\varepsilon}} = 
+    \underbrace{\prod_{\substack{p^{\alpha} \mid  \mid n \\ p <
+    2^{\frac{1}{\varepsilon}}}}
+\frac{\alpha+1}{p^{\alpha \varepsilon}}}_{A}
+    \cdot 
+    \underbrace{\prod_{\substack{p^{\alpha} \mid  \mid n \\ p \ge 
+    2^{\frac{1}{\varepsilon}}}}
+\frac{\alpha+1}{p^{\alpha \varepsilon}}}_{B}
+    \] 
+    We claim that $B \le 1$. Indeed
+
+    \[
+    \prod_{\substack{p^{\alpha} \mid  \mid n \\ p \ge 
+    2^{\frac{1}{\varepsilon}}}}
+    \frac{\alpha+1}{p^{\alpha \varepsilon}}
+    \le 
+    \prod_{\substack{p^{\alpha} \mid  \mid n \\ p \ge 
+    2^{\frac{1}{\varepsilon}}}}
+    \underbrace{\frac{\alpha+1}{2^{\alpha}}}_{\le 1}
+    \le 1
+    \] 
+
+    (4) For the factors in the first product, we have
+    $\alpha = \left\lfloor \frac{\log n}{\log p}
+    \right\rfloor$ and
+    $\log p < \frac{1}{\varepsilon} \log 2$, and
+    $\alpha \le \frac{\log n}{\log p}$, so
+    $\frac{\log p}{\log n} \le \frac{1}{\alpha}$
+    \[
+    \varepsilon^2 \log p < \varepsilon \log 2
+    \] 
+
+
+    \[
+        \frac{\alpha+1}{p^{\alpha \varepsilon}}
+        \le \frac{\log n +\log p}{p^{\alpha \varepsilon} \log p}
+        \le 1 + \frac{1}{\varepsilon \log 2} = 
+        \frac{\varepsilon \log 2 + 1}{\varepsilon \log 2}
+    \] 
+
+    What we want to bound is
+    \[
+\prod_{\substack{p^{\alpha} \mid  \mid n \\ p <
+    2^{\frac{1}{\varepsilon}}}}
+\frac{\alpha+1}{p^{\alpha \varepsilon}}
+\] 
+Note here that $p$ is bounded and
+as $\alpha$ increases, we should expect the denominator to
+take over. However, while $\alpha$ is small,
+we might have some large terms since $p^{\varepsilon}$ might
+be large. All our terms are however bounded by
+$p^{\varepsilon}$ by the looks of it? Then we
+would get that the product is
+the product is bounded by
+$\prod_{p < 2^{\frac{1}{\varepsilon}}} 
+\frac{\log n}{\log p} \frac{1}{p^{\varepsilon}}$
+
+
+\end{proof}
+
+\begin{exercise}[E3.4]
+    Show that
+    \[
+    \sum_{n=1}^{\infty} \frac{d(n)}{n^{s}}
+    \] 
+    is absolutely convergent in
+    $\Re (s) > 1$.
+\end{exercise}
+
+\begin{proof}
+    Fix some $s = \sigma + it \in \mathbb{C}$ with
+    $\sigma > 1$. Then choosing an $\varepsilon > 0$ with
+    $1 + \varepsilon < \sigma$, we have that
+    $d(n) \le C_{\varepsilon} n^{\varepsilon}$, so
+    \[
+    \sum \left| \frac{d(n)}{n^{s}} \right| 
+    \le \sum C_{\varepsilon} \frac{n^{\varepsilon}}{n^{\sigma}}
+    \le C_{\varepsilon} \sum \frac{1}{n^{\sigma - \varepsilon}} < 
+    \infty.
+    \] 
+\end{proof}
+
+\begin{exercise}[E3.5]
+    Show that the average order of
+    $d(n)$ is $\log n$, i.e., that
+    \[
+    \frac{1}{x} \sum_{n \le x} d(n) = \log x +
+    o\left( \log x \right) .
+    \] 
+    Hint: Show that
+    \[
+    \sum_{n \le x} d(n) = \sum_{a \le x}
+    \left[ \frac{x}{a} \right] 
+    \] 
+    where $\left[ b \right] $ is the integer
+    part of $b$.
+\end{exercise}
+
+
+\begin{proof}
+    We follow the hint.
+    For each $n \in \mathbb{N} $, let
+    $D_n$ denote the set of positive divisors of
+    $n$. Then we want to find
+    $\left| D_1 \cup \ldots \cup D_{\left[ x \right] } \right|  $.
+    Now, $\left[ \frac{x}{a} \right] $ is precisely
+    the amount of multiples of $a$ smaller than or equal to
+    $x$, i.e., the amount of numbers in between $1$ and
+    $x$ which have $a$ as a divisor.
+    Hence the right hand side indeed counts the
+    number of divisors of the numbers less than or equal to
+     $x$ which is precisely the left hand side.
+     Then we find that
+     \[
+     \left| \frac{1}{x}\sum_{n\le x} d(n) - \log x \right| 
+     \le \sum_{a \le x} \frac{1}{a} - \log x
+     \] 
+\end{proof}
+
+    %\printbibliography
+\end{document}

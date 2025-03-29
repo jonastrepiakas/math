@@ -19,6 +19,103 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{BT}{book}{}
+      \name{author}{2}{}{%
+        {{hash=c957d7c7683ecc087a423939393b4c34}{%
+           family={Bott},
+           familyi={B\bibinitperiod},
+           given={Raoul},
+           giveni={R\bibinitperiod}}}%
+        {{hash=bd797f5054139f44f22b71934a7e9d84}{%
+           family={Tu},
+           familyi={T\bibinitperiod},
+           given={Loring\bibnamedelima W.},
+           giveni={L\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag, New York-Berlin}%
+      }
+      \strng{namehash}{d77abf90f5fd5d3f3a92fcfebb57cc19}
+      \strng{fullhash}{d77abf90f5fd5d3f3a92fcfebb57cc19}
+      \strng{bibnamehash}{d77abf90f5fd5d3f3a92fcfebb57cc19}
+      \strng{authorbibnamehash}{d77abf90f5fd5d3f3a92fcfebb57cc19}
+      \strng{authornamehash}{d77abf90f5fd5d3f3a92fcfebb57cc19}
+      \strng{authorfullhash}{d77abf90f5fd5d3f3a92fcfebb57cc19}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0-387-90613-4}
+      \field{series}{Graduate Texts in Mathematics}
+      \field{title}{Differential forms in algebraic topology}
+      \field{volume}{82}
+      \field{year}{1982}
+      \field{pages}{xiv+331}
+      \range{pages}{-1}
+    \endentry
+    \entry{JB}{book}{}
+      \name{author}{2}{}{%
+        {{hash=64db8208e6f9830ade1218094a4aecfa}{%
+           family={Bröcker},
+           familyi={B\bibinitperiod},
+           given={Theodor},
+           giveni={T\bibinitperiod}}}%
+        {{hash=67cd682ff85980dd2d7d0f718fafaf12}{%
+           family={Jänich},
+           familyi={J\bibinitperiod},
+           given={Klaus},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press, Cambridge-New York}%
+      }
+      \strng{namehash}{fbffc0a1d18b2b224327dd9cf287b569}
+      \strng{fullhash}{fbffc0a1d18b2b224327dd9cf287b569}
+      \strng{bibnamehash}{fbffc0a1d18b2b224327dd9cf287b569}
+      \strng{authorbibnamehash}{fbffc0a1d18b2b224327dd9cf287b569}
+      \strng{authornamehash}{fbffc0a1d18b2b224327dd9cf287b569}
+      \strng{authorfullhash}{fbffc0a1d18b2b224327dd9cf287b569}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0-521-24135-9}
+      \field{note}{Translated from the German by C. B. Thomas and M. J. Thomas}
+      \field{title}{Introduction to differential topology}
+      \field{year}{1982}
+      \field{pages}{vii+160}
+      \range{pages}{-1}
+    \endentry
+    \entry{Dieck}{book}{}
+      \name{author}{1}{}{%
+        {{hash=59fef886b8d7f42e2240d7894d1dc427}{%
+           family={Dieck},
+           familyi={D\bibinitperiod},
+           given={Tammo},
+           giveni={T\bibinitperiod},
+           prefix={tom},
+           prefixi={t\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {European Mathematical Society (EMS), Zürich}%
+      }
+      \strng{namehash}{59fef886b8d7f42e2240d7894d1dc427}
+      \strng{fullhash}{59fef886b8d7f42e2240d7894d1dc427}
+      \strng{bibnamehash}{59fef886b8d7f42e2240d7894d1dc427}
+      \strng{authorbibnamehash}{59fef886b8d7f42e2240d7894d1dc427}
+      \strng{authornamehash}{59fef886b8d7f42e2240d7894d1dc427}
+      \strng{authorfullhash}{59fef886b8d7f42e2240d7894d1dc427}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-3-03719-048-7}
+      \field{series}{EMS Textbooks in Mathematics}
+      \field{title}{Algebraic topology}
+      \field{year}{2008}
+      \field{pages}{xii+567}
+      \range{pages}{-1}
+    \endentry
     \entry{GG}{book}{}
       \name{author}{2}{}{%
         {{hash=04c1bb50a693abd13f903c4d491ef394}{%
@@ -173,6 +270,38 @@
       \field{title}{Lectures on the {$h$}-cobordism theorem}
       \field{year}{1965}
       \field{pages}{v+116}
+      \range{pages}{-1}
+    \endentry
+    \entry{MS}{book}{}
+      \name{author}{2}{}{%
+        {{hash=674d9591b8067fc9c5c7fbb2062e88d5}{%
+           family={Milnor},
+           familyi={M\bibinitperiod},
+           given={John\bibnamedelima W.},
+           giveni={J\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=62ed7ab13c5d19eacd6c908501c779f9}{%
+           family={Stasheff},
+           familyi={S\bibinitperiod},
+           given={James\bibnamedelima D.},
+           giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Princeton University Press, Princeton, NJ; University of Tokyo Press, Tokyo}%
+      }
+      \strng{namehash}{68afa66fda6b900c59d0512f92605419}
+      \strng{fullhash}{68afa66fda6b900c59d0512f92605419}
+      \strng{bibnamehash}{68afa66fda6b900c59d0512f92605419}
+      \strng{authorbibnamehash}{68afa66fda6b900c59d0512f92605419}
+      \strng{authornamehash}{68afa66fda6b900c59d0512f92605419}
+      \strng{authorfullhash}{68afa66fda6b900c59d0512f92605419}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{series}{Annals of Mathematics Studies, No. 76}
+      \field{title}{Characteristic classes}
+      \field{year}{1974}
+      \field{pages}{vii+331}
       \range{pages}{-1}
     \endentry
     \entry{Riehl}{book}{}
