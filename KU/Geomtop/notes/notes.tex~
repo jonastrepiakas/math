@@ -293,7 +293,7 @@ for these notes will be \cite{KMS} and \cite{LeeSM}.
     of a topological space $X$ is called an
     \textit{exhaustion of $X$ by compact sets} if
     $X = \bigcup_{i}  K_i$ and
-    $K_i \subset \int K_{i+1}$ for each $i$.
+    $K_i \subset \Int K_{i+1}$ for each $i$.
 \end{definition}
 
 \begin{proposition}[]
@@ -1875,6 +1875,13 @@ For this section, we will closely be following
     $I$ as the fibre but $S^{1}$ as the base space and then
     quotienting the ends of $S^{1} \times I$. Again, see
     \cite[p. 4]{Steenrod}.
+    See also Figure \ref{fig:Klein-bottle-construction-png}.
+    \begin{figure}[htpb]
+        \centering
+        \includegraphics[width=0.8\textwidth]{Klein-bottle-construction.png}
+        \caption{Construction of the Klein bottle.}
+        \label{fig:Klein-bottle-construction-png}
+    \end{figure}
 \end{example}
 
 \begin{example}[Covering Spaces]
@@ -2300,9 +2307,23 @@ $\left\{ V_k' \right\} $ by restricting
 $\varphi_j$ to $V_{k}' \times Y$ where
 $j$ is such that $V_{k}' \subset V_j$. In this case,
 the coordinate functions $\overline{g}_{kj}$ are equal to
-the identity of $G$.
+the identity of $G$.\\
+Now, suppose that we are given two
+coordinate bundles $\mathcal{B},\mathcal{B}'$ with the same
+base space, fibre and group. The open sets
+$V_j \cap V_k'$ cover $X$ and form a refinement of both
+$\left\{ V_j \right\} $ and $\left\{ V_k' \right\} $ as above.
+Thus we can form the refined bundles $\mathcal{B}_1$ and
+$\mathcal{B}_1'$ of $\mathcal{B},\mathcal{B}'$ as above and
+by the above, $\mathcal{B}_1$ is strictly equivalent to
+$\mathcal{B}$, and $\mathcal{B}_1'$ is strictly equivalent to
+$\mathcal{B}'$. Now we can analyse
+$\mathcal{B}_1$ and $\mathcal{B}_1'$ through the following
+Lemma to conclude whether $\mathcal{B}$ and
+$\mathcal{B}'$ are equivalent.
 
-\begin{lemma}[]
+
+\begin{lemma}[]\label{Lemma-lambda-002}
     Let $\mathcal{B},\mathcal{B}'$ be two coordinate bundles
     with the same base space, fibre, group and coordinate
     neighborhoods. Let
@@ -2315,6 +2336,7 @@ the identity of $G$.
     \lambda_i(x).
     \] 
 \end{lemma}
+
 
 \begin{proof}
     If $\mathcal{B},\mathcal{B}'$ are equivalent, then
@@ -2382,6 +2404,33 @@ the identity of $G$.
     $h^{*}f'$.
 \end{lemma}
 
+\begin{proof}
+    Given $x \in X$, let $x' = \overline{h}(x)$.
+    Since $f(x) \in Y_{x}$ and
+    $h_x \colon Y_x \to Y_{x'}$ is supposed
+    to be a linear isomorphism, it forces $f$ to have the
+    form
+    $f(x) = h_x^{-1} f'(x')$, hence giving uniqueness.
+    It remains to prove continuity. 
+    It suffices to show that $f$ is continuous on local patches
+    of the form $V_j \cap \overline{h}^{-1} (V_k')$.
+    Since $p f(x) = x$ is continuous, it remains to
+    show that $p_j f(x) $ is continuous.
+    Now, $\overline{g}_{kj}(x)$ is continuous and
+    \begin{align*}
+        \overline{g}_{kj}(x) \cdot p_jf(x)
+        &= \varphi_{k,x'}'^{-1} h_x \varphi_{j,x}\cdot  p_jf(x)\\
+        &= \varphi_{k,x'}'^{-1} h_x f(x)\\
+        &= \varphi_{k,x'}'^{-1} f' \overline{h}(x)\\
+        &= p_k' f' \overline{h}(x)
+    \end{align*}
+    so
+    \[
+    p_jf(x) = \overline{g}_{kj}(x)^{-1} p_k' f' \overline{h}(x)
+    \] 
+    which is continuous.
+\end{proof}
+
 \subsubsection{Construction of a bundle from coordinate
 transformations}
 \begin{definition}[]
@@ -2393,7 +2442,8 @@ transformations}
     \[
     g_{ji} \colon V_{i} \cap V_j \to G
     \] 
-    such that
+satisfying the following condition 
+(called the \textit{cocycle condition})
      \[
     g_{kj}(x) g_{ji}(x) = g_{ki}(x).
     \] 
@@ -2417,22 +2467,191 @@ transformations}
     any such bundles are equivalent.
 \end{theorem}
 
-\subsubsection{Factor/Quotient/Coset Spaces of Groups}
+\begin{proof}
+    Let us regard the indexing set
+    $J$ for the covering $\left\{ V_j \right\} $ as a topological
+    space with the discrete topology. Let
+    $T \subset X \times Y \times J$ be the set
+    of those triples $\left( x,y,j \right) $ such that
+    $x \in V_j$.\\
+    Define an equivalence relation on $T$ :
+    \[
+        \left( x,y,j \right) \sim \left( x',y',k \right) 
+        \quad \text{iff} \quad
+        x = x', \, \text{and} \;
+        g_{kj}(x) \cdot  y = y'
+    \] 
+    Let $B$ be the set of equivalence classes of this
+    relation in $T$.
+    Define $q \colon T \to B$ by
+    $\left( x,y,j \right) \mapsto \left[ \left( x,y,j \right) 
+    \right] $ where
+    $\left[ - \right] $ denotes taking the equivalence class.
+    We give $B$ the quotient topology with respect
+    to this map $q$.\\
+    Define $p  \colon B \to X$ by
+    \[
+    p\left( \left[ (x,y,j) \right]  \right) 
+    = x
+    \] 
+    Now, if $W \subset X$ is open, then
+    pulling it back along $pq \colon T \to X$, we have
+    $\left( pq \right)^{-1} (W) = 
+    q^{-1} \left( p^{-1}(W) \right) 
+    T \cap \left( W \times Y \times J \right) $ which
+    is open. Hence
+    $p^{-1}(W)$ is open in $B$ by definition of the
+    quotient topology. Hence $p$ is continuous. 
+    Now, define
+    $\varphi_j \colon V_j \times Y \times j
+    \to  p^{-1}(V_j)$ by
+    \[
+    \varphi_j \left( x,y \right) 
+    = q\left( x,y,j \right) = \left[ (x,y,j) \right] 
+    \] 
 
+    Then $\varphi_j$ is continuous since
+    $q$ is continuous and furthermore,
+    $pq \left( x,y,j \right) = x$, so
+    $p \varphi_j (x,y) = x$. Therefore
+    $\varphi_j$ indeed maps
+    $V_j \times Y$ into $p^{-1}(V_j)$.\\
+    We need to show that $\varphi_j$ is also onto.
+    Suppose
+    $b = \left[ (x,y,k) \right] \in 
+    p^{-1}(V_j)$, so $x \in V_j \cap V_k$. Then by
+    the equivalence relation,
+    $\left[ (x,y,k) \right] =
+    \left[ \left( x, g_{jk}\cdot y, j \right)  \right] $, so
+    $b = \varphi_j \left( x, g_{jk}(x) \cdot  y \right) $.
+    Thus $\varphi_j$ maps
+    $V_j \times Y$ onto $p^{-1}(V_j)$.\\
+    We also need to show injectivity.
+    Suppose
+    $\varphi_j \left( x,y \right) 
+    = \varphi_j \left( x',y' \right) 
+    $. Then
+    $\left[ x,y,j \right] =
+    \left[ x',y',j \right] $, so
+    $x = x'$ and $g_{jj}(x) \cdot  y = y'$.
+    But $g_{jj}(x) = e$, so
+    $y = y'$. Thus $\varphi_j$ is injective.\\
+    \linebreak
+    Lastly, we must show that
+    $\varphi_j^{-1} \colon
+    p^{-1}(V_j) \to 
+    V_j \times Y$ is continuous. But a set
+    in $p^{-1}(V_j) \subset B$ is open if and only if
+    its preimage under $q$ is open in $T$ by definition
+    of the quotient topology on $B$. So
+    suppose $W$ is open in $V_j \times Y$.
+    Then since $T$ can be covered by the
+    open sets $V_k \times Y \times k$, it is enough to
+    show that $q^{-1} \varphi_j (W)$ intersects
+    each $V_k \times Y \times k$ in an open set.
+    Now
+    \[
+    q^{-1} \varphi_j (W)
+    \cap \left( V_k \times Y \times k \right) 
+    \subset \left( V_j \cap V_k \right) \times Y \times k
+    \] 
+    which is open in $T$. Restricting $q$ to
+    the set on the right can be factored as the
+    composition
+    \[
+        \left( V_j \cap V_k  \right) \times Y \times k
+        \stackrel{r}{\to } V_j \times Y
+        \stackrel{\varphi_j}{\to } B
+    \] 
+    where
+    $r\left( x,y,k \right) = \left( x,
+    g_{jk}(x) \cdot  y\right) $. Now
+    $r$ is continuous, so
+    $r^{-1}(W)
+    = q^{-1}\varphi_j(W) \cap
+    \left( V_k \times Y \times k \right) $ is open.
+    Hence
+    $q^{-1} \varphi_j(W)$ is open, so
+    $\varphi_j(W)$ is open.\\
+    \linebreak
+    Lastly, we must show that
+    the coordinate transformations
+    $\varphi_{j,x}^{-1} \varphi_{i,x}$ coincide
+    with $g_{j,i}(x)$.\\
+    If $y' = \varphi_{j,x}^{-1}\varphi_{i,x} (y)$ then
+    $\varphi_{j}(x,y') = \varphi_{i}(x,y)$ so
+    $q\left( x,y',j \right) =
+    q\left( x,y,i \right) $. Therefore,
+    $y = g_{ji}(x) \cdot y$. Hence
+    for each $y \in Y$,
+    \[
+         \varphi_{j,x}^{-1} \varphi_{i,x}(y) = 
+         g_{ji}(x) \cdot y.
+    \] 
+    Hence we obtain a fibre bundle as
+    desired.
+    
+\end{proof}
 
-\begin{definition}[Local section of $G$]
-     Let $G$ be a closed subgroup of $B$. Then
-     $G$ is a point
-     $x_0 \in B / G$. A \textit{local section}
-     of $G$ in $B$ is a function $f $ mapping a neighborhood
-     $V$ of $x_0$ continuously into $B$ and such that
-     $p f (x) = x$ for each $x \in V$.
+\begin{theorem}[]\label{Thm:939285}
+    The operation of assigning to each
+    bundle with base space  $X$, fibre
+    $Y$ and group $G$, the system of its coordinate
+    transformations sets
+    up a bijective correspondence between
+    equivalence classes of bundles and
+    equivalence classes of systems of coordinate
+    transformations.
+\end{theorem}
+
+Thus the classification of bundles reduces
+to the classification of coordinate transformation. In
+particular, in the latter problem, the fibre space
+$Y$ plays no role.
+
+\subsubsection{The Trivial/Product Bundle}
+
+\begin{definition}[The Trivial/Product Bundle]
+    A coordinate bundle is called
+    a \textit{product bundle} (or a \textit{trivial bundle})
+    if there is
+    one coordinate neighborhood $V = X$ and
+    the group $G$ consists of the
+    identity element $e$ along.
 \end{definition}
+
+\begin{theorem}[]
+    If the group of a bundle consists of the identity
+    element alone, then the bundle is equivalent to
+    the product bundle.
+\end{theorem}
+
+\begin{proof}
+    If $\mathcal{B}$ is a bundle with
+    coordinate transformations
+    $g_{ji} \colon V_j \cap V_i \to G = \left\{ e \right\} $,
+    then all the $g_{ji}$ have the same value.
+    So define
+    $\mathcal{B}'$ as the bundle with the same
+    base space, fibre and group and a singular coordinate
+    transformation
+    $g \colon X \to G = \left\{ e \right\} $.
+    This is continuous since $X$ is open.
+    Then define
+    $\overline{g}_{ji} = e$. Then
+    the conditions in Lemma \ref{bundle-equiv-in-terms-of-maps}
+    are satisfied. So
+    $\mathcal{B}$ and
+    $\mathcal{B}'$ are equivalent, and
+    $\mathcal{B}'$ is a product bundle.
+\end{proof}
+
 
 
 
 \subsubsection{Enlarging the group of a bundle}
 
+\begin{definition}[$G$-image of a bundle]
 Let $H$ be a closed subgroup of the
 topological group $G$.
 If $\mathcal{B}$ is a bundle with group $H$, the
@@ -2440,11 +2659,25 @@ same coordinate neighborhoods, and the same
 coordinate transformations, altered
 only by regarding their values as belong to $G$, define
 a new bundle called the
-\textit{$G$-image of $\mathcal{B}$}.\\
+\textit{$G$-image of $\mathcal{B}$}.
+\end{definition}
+
 \begin{note}
     If $H$ operates on the fibre $Y$, it may or may not
     occur that $G$ operates on $Y$ or even 
     that such operations can be defined.
+    We instead view this bundle in the sense of 
+    its system of coordinate transformations as
+    described by Theorem \ref{Thm:939285}.\\
+
+    Now regarding equivalence of bundles
+    only in terms of their
+    base space, group and coordinate transformations
+    as in Lemma \ref{bundle-equiv-in-terms-of-maps}, we
+    find that if
+    $\mathcal{B}$ and $\mathcal{B}'$ are
+    equivalent in $H$, then their
+    $G$-images are also equivalent.
 \end{note}
 
 \begin{definition}[$G$-equivalence]
@@ -2459,7 +2692,335 @@ a new bundle called the
 \end{definition}
 
 
+\begin{theorem}[Equivalence Theorem]\label{Equivalence-Theorem-G-equivalence}
+    Let $\mathcal{B}$ be a bundle with group
+    $H$ and coordinate transformations
+    $\left\{ g_{ji} \right\} $. Let
+    $H \le G$. Then
+    $\mathcal{B}$ is $G$-equivalent to the
+    product bundle if and only if there
+    exist maps
+    $\lambda_j \colon V_j \to G$ such that
+    \[
+    g_{ji}(x) = \lambda_j(x) \lambda_i(x)^{-1},\quad
+    \text{for } x \in V_i \cap V_j.
+    \] 
+\end{theorem}
+
+\begin{proof}
+    Let $\mathcal{B}'$ be the bundle having the
+    same coordinate neighborhoods as
+    $\mathcal{B}$ but with the group consisting
+    of the identity element. Then
+    the result follows from
+    Lemma \ref{Lemma-lambda-002}.
+\end{proof}
+
+\begin{definition}[Second definition of trivial/product bundle]
+    We shall allow ourselves to say that
+    a bundle with group $G$ is equivalent to the
+    product bundle if it is $G$-equivalent to a
+    product bundle.
+\end{definition}
+
+\begin{remark}[]
+    This is also called a "simple bundle" in the literature.
+\end{remark}
+
+\begin{example}[Twisted Torus]
+    The twisted torus is obtained
+    the same as for the Klein bottle except that
+    reflection in the diameter $de$ in
+    Figure \ref{fig:Klein-bottle-construction-png} is
+    replaced by
+    reflection in the center of the circle (rotation
+    through $\pi$ radians). Again, the group
+    $G$ is $\mathbb{Z} / 2$ acting
+    on $Y = S^{1}$ by the antipodal action.
+    The base space $X$ is also $S^{1}$.
+    We define a coordinate system as follows:
+    cover $X$ by two open arcs $V_1, V_2$. Then
+    $V_1 \cap V_2$ is the union of two disjoint open
+    arcs. If we define
+    $g_{12} \colon V_1 \cap V_2 \to \mathbb{Z}/2$ by 
+    $g_{12}(x) = \overline{1}$ if
+    $x$ is in one component, call it $U$, and
+    $g_{12}(x) = e$ if $x$ is in the other component,
+    call it $W$.
+    Then the existence theorem,
+    Theorem \ref{Existence-theorem}, gives
+    a vector bundle $B \to X$.
+    Now, if this were $\mathbb{Z}/2$-equivalent to a product
+    bundle, then by Theorem \ref{Equivalence-Theorem-G-equivalence},
+    there would exist 
+    continuous maps $\lambda_j \colon
+    V_j \to \mathbb{Z} /2$, $j = 1,2$, such that
+    \[
+    g_{12}(x) = \lambda_1(x) \lambda_2(x)^{-1}
+    \] 
+    on $U \cup W$.
+    Now, $V_1, V_2$ are connected, so
+    $\lambda_1,\lambda_2$ take constant values
+    on $V_1$ and $V_2$, respectively.
+    But then, in particular, both
+    $\lambda_1$ and $\lambda_2^{-1}$ take the
+    same value on $U$ as they do on $W$, so
+    $g_{12}$ must be the same on
+    $U$ and $W$ which is a contradiction to
+    the construction. This shows that
+    the twisted torus defined as above is not a
+    product bundle.\\
+    \linebreak
+    Now consider this same situation but
+    with $G$ the full group of rotations of the circle,
+    $SO(2)$, and
+    $\mathbb{Z} / 2 \le G$.
+    We can consider the $G$-image of the bundle. In this case,
+    we again ask whether there exist continuous maps
+    $\lambda_j \colon V_j \to SO(2)$ such that
+    \[
+    g_{12}(x) = \lambda_1(x) \lambda_2(x)^{-1}
+    \] 
+    equals $\overline{1} = 
+    \begin{pmatrix} -1 & 0 \\0 & -1 \end{pmatrix} $ on $U$ and
+    $e = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} $ on $W$. 
+    This is indeed possible. Simply choose a path
+    from $-I$ to $I$ in $SO(2)$ parametrized by
+    some interval in  $S^{1} - V_2$. Then extend this to all
+    of $V_1$ by the constant functions on the ends. 
+    We can define $\lambda_2$ to be constantly
+    $e$. This gives the desired conclusion.\\
+    Thus, the twisted torus is not a product bundle
+    as a $\mathbb{Z} / 2$-bundle, but it is equivalent
+    to the product bundle in $SO(2)$.
+\end{example}
+
+
+
+\subsection{Quotient/factor spaces of groups}
+
+\subsubsection{Transitive groups}\label{Sec:Transitive-groups}
+
+Suppose $B$ is a topological group
+and $G$ is a closed subgroup of $B$.
+
+We define a left translation action of
+$B$ on $B / G$ by
+\[
+b \cdot x = p\left( b\cdot p^{-1}(x) \right) , \quad
+\text{for } b  \in B, x \in B / G.
+\] 
+Under this action, $B$ becomes a group of
+homeomorphisms of $B / G$.\\
+Define $G_0$ to be the intersection
+\[
+G_0 := \bigcap_{b \in B} b G b^{-1}.
+\] 
+Arbitrary intersections of closed sets are closed,
+so $G_0$ is a closed invariant subgroup of
+$B$. One can check that
+$B / G_0$ is a topological transformation group of
+$B / G$.\\
+\linebreak
+Conversely, suppose
+$B$ is a transitive topological transformation group of
+$X$ and choose a basepoint $x_0 \in X$. Define
+$p' \colon B \to X$ by
+$p'(b) = b \cdot x_0$.
+Then $p'$ is clearly continuous. Let
+$G$ be the subgroup of $B$ which stabilizes $x_0$.
+Then $G$ is closed. This defines
+a bijective map $q \colon B / G \to X$ such that
+$q p(b) = p'(b)$ for all $b$. If
+$U \subset X$ is open, then
+$p'^{-1}(U)$ is open which equals
+$p^{-1}q^{-1}(U)$, so
+by construction of the quotient topology,
+$q^{-1}(U)$ is open. Hence $q$ is continuous.\\
+In general, $q^{-1}$ is not continuous.\\
+Suppose $q^{-1}$ is continuous. Then for
+$U$ open in $B$, $p'(U) = q p(U)$ is open in $X$, so
+$p'$ is an open map. Conversely, if
+$p'$ is open and $V \subset B / G$ is open, then
+$q(V) = p' p^{-1}(V)$ is open in $X$, so
+$q^{-1}$ is continuous.
+
+\begin{theorem}[]
+    If $B$ is compact, or if $p' \colon B \to X$ is
+    open, then the natural map
+    $q \colon B / G \to X$ is a homeomorphism, and
+    the maps $p'$ and  $p \colon B \to B / G$ satisfy that
+    \begin{equation*}
+    \begin{tikzcd}
+        B \ar[d, "p"] \ar[dr, "p'"] & \\
+        B / G \ar[r, "q"] & X
+    \end{tikzcd}
+    \end{equation*}
+    commutes.
+\end{theorem}
+
+\subsubsection{The bundle structure theorem}
+
+We want to show that $B$ is a bundle over
+$B / G$ with respect to the projection $p$. Or, more
+generally, if $H \le G$ is closed and
+$p \colon B / H \to B /G$ is the quotient, then
+$B / H$ is a bundle over $B / G$ with projection
+$p$.\\
+It is an unsolved problem \cite[p. 30]{Steenrod} whether
+this is always the case.\\
+
+
+\begin{definition}[Local section of $G$]
+     Let $G$ be a closed subgroup of $B$. Then
+     $G$ is a point
+     $x_0 \in B / G$. A \textit{local section}
+     of $G$ in $B$ is a function $f $ mapping a neighborhood
+     $V$ of $x_0$ continuously into $B$ and such that
+     $p f (x) = x$ for each $x \in V$.
+\end{definition}
+
+
+\begin{theorem}[Bundle Structure Theorem]\label{Bundle-structure-theorem}
+    If the closed subgroup $G$ of $B$ admits a local
+    section $f$, and if $H$ is a closed subgroup
+    of $G$ and $p \colon B / H \to B / G$ is the map
+    induced by the inclusion of cosets, then
+    we can assign a bundle structure to
+    $B /H$ relative to $p$. The fibre of the bundle
+    is $G /H$ and the group is
+    $G / H_0$ acting in $G /H$ as left translations where
+    $H_0$ is the largest subgroup of $H$ invariant
+    in $G$. Furthermore, any two sections lead to
+    strictly equivalent bundles. Finally, the left translations
+    of $B / H$ by elements of $B$ are bundle maps of this
+    bundle onto itself.
+\end{theorem}
+
+
+\subsubsection{Lie Groups}
+
+\begin{definition}[Lie Group]
+    A \textit{Lie group} $B$ is a topological group
+    and $C^{1}$ manifold where the
+    multiplication and inversion operations are
+    also $C^{1}$. It is a standard theorem of
+    Lie theory that $B$ is smoothly equivalent to an
+    analytic manifold in which the two
+    operations are analytic.
+\end{definition}
+
+
+\begin{remark}[]
+    \cite[p.32-33]{Steenrod} A Lie group may have
+    more than one connected component, but each
+    component is open. Any closed subgroup
+    $G$ of $B$ is itself a Lie group and the inclusion
+    $G \hookrightarrow B$ is analytic and
+    non-singular. Furthermore, an analytic structure
+    is defined in the quotient space $B /G$ in such a 
+    way that the projection $p \colon B \to B / G$ is
+    analytic and of maximum rank at each point of
+    $B$. A central step in this process is the construction
+    of a local section of $G$ in $B$.
+    Hence the bundle structure theorem \ref{Bundle-structure-theorem}
+    applies to give
+    \begin{corollary}
+        For any closed subgroup $G$ of a Lie group
+        $B$, the bundle structure theorem applies
+        so $B$ is a fibre bundle over $B / G$ relative
+        to the projection $p$ with fibre 
+        $G$.
+    \end{corollary}
+\end{remark}
+
+\subsubsection{Orthogonal group}
+
+Let $O(n)$ be the real orthogonal group of 
+transformations in $\mathbb{R}^{n}$. It is
+a transitive group on $S^{n-1}$. 
+If $x_0 \in S^{n-1}$, the subgroup leaving $x_0$ fixed
+is isomorphic to $O(n-1)$. Thus by
+the conclusions in Section \ref{Sec:Transitive-groups}, 
+$S^{n-1} \cong O(n) / O(n-1)$, and
+$O(n)$ is a bundle over $S^{n-1}$ with fibre and
+group $O(n-1)$.
+
+\subsubsection{Stiefel Manifolds}
+
+A $k$-frame,
+$v^{k}$, in $\mathbb{R}^{n}$ is an ordered
+set of $k$ independent vectors in $\mathbb{R}^{n}$.
+Any fixed $k$-frame $v_0^{k}$ can be transformed into
+any other $v^{k}$ by an element
+of $\GL_n (\mathbb{R})$.
+Let $V_{n,k}'$ denote the set of all
+$k$-frames, and let
+$\GL_{v_0^{k}}\left( n,\mathbb{R} \right) $ be the
+subgroup of $\GL(n,\mathbb{R})$ leaving fixed each
+vector of $v_0^{k}$. Then we may identity
+$V_{n,k} \cong \GL\left( n,\mathbb{R} \right) 
+/ \GL_{v_0^{k}}\left( n,\mathbb{R} \right) $.
+The quotient space is a manifold with a smooth structure.
+We assign this structure to $V_{n,k}$. With this structure,
+$V_{n,k}$ is called the \textit{Stiefel manifold of
+$k$-frames in $n$-space}.
+
+If we restrict attention to $k$-frames in which the
+vectors are orthonormal, the
+set of these, $\tilde{V}_{n,k}$, is a subspace of
+$V_{n,k}$. It is also a manifold. 
+The group $O(n)$ maps $\tilde{V}_{n,k}$ onto itself
+and is transitive. The subgroup leaving fixed
+a $v_{0}^{k}$ is the orthogonal group
+$O\left( n-k \right) $ operating in the space
+orthonormal to all the vectors of $v_0^{k}$. Thus
+\[
+V_{n,k} \cong O(n) / O(n-k).
+\] 
+If we translate any $v^{k}$ along its first vector
+to its end point on $S^{n-1}$, we obtain a 
+$\left( k-1 \right) $ frame of vectors tangent
+at a point of $S^{n-1}$. The process is clearly reversible.
+Thus we may interpret $V_{n,k}$ as the
+manifold of orthonormal $\left( k-1 \right) $-frames
+tangent to $S^{n-1}$. In particular,
+$V_{n,2}$ is the manifold of unit tangent vectors on
+$S^{n-1}$. 
+
+Now let $v_0^{n}$ be a fixed orthonormal
+$n$-frame in $\mathbb{R}^{n}$ and let
+$v_0^{k}$ denote the first $k$ vectors of
+$v_0^{n}$. Let
+$O(n-k)$ be the subgroup leaving
+$v_0^{k}$ fixed. Then
+$O\left( n-k \right) \supset O(n-k-1)$. Passing to the
+coset space by these subgroups and introducing the natural
+projections (inclusion of cosets), we obtain
+a chain of Stiefel manifolds and projections
+\[
+O(n) = V_{n,n} \to V_{n,n-1} \to \ldots
+\to V_{n,2} \to V_{n,1} \cong S^{n-1}
+\] 
+Each projection or any composition of them
+is a bundle map. By Theorem
+\ref{Bundle-structure-theorem}, the fibre
+of $V_{n,n-k+1} \to V_{n,n-k}$ is the coset
+space $O(k) / O(k-1) \cong S^{k-1}$, and the
+group of the bundle is $O(k)$.
+
+\begin{definition}[]
+    A bundle in which the fibre is a 
+    $k$-sphere and the gorup is the orthogonal group
+    is called a \textit{$k$-sphere bundle}.
+\end{definition}
+Thus the Stiefel manifolds provide a chain of
+sphere bundles connecting
+$O(n)$ and $S^{n-1}$.
+
+
 \subsubsection{The Principal Bundle and the Principal Map}
+
 
 \begin{definition}[Principal $G$-bundle]
     A bundle
@@ -2482,7 +3043,8 @@ a new bundle called the
     on itself by left translations.
 \end{definition}
 
-\begin{theorem}[Equivalence theorem]\label{Equivalence-theorem}
+\begin{theorem}[Equivalence theorem for
+    Associated Principal Bundles]\label{Equivalence-theorem}
     Two bundles having the same base space, fibre
     and group are equivalent if and only if their
     associated principal bundles are equivalent.
@@ -2494,6 +3056,61 @@ a new bundle called the
     of the coordinate transformations.
 \end{proof}
 
+\begin{theorem}[Section Theorem]\label{Section-theorem}
+    A principal bundle with group $G$ is equivalent
+    in $G$ to the product bundle if and only if
+    it admits a section.
+\end{theorem}
+
+\begin{proof}
+    Suppose a section $f \colon X \to B$ is given. Define
+    $\lambda_i(x) = p_i( f(x))$ for $x \in V_i$.
+    Recall from \eqref{A-3} that
+    \[
+    g_{ji}\left( p(b) \right) \cdot p_i(b) = 
+    p_j(b)
+    \] 
+    for $p(b) \in V_i \cap V_j$.
+    Hence we obtain
+    \[
+    g_{ji}(x) \cdot \lambda_i(x) = \lambda_j(x).
+    \] 
+    Now by Lemma \ref{Lemma-lambda-002}, we see
+    that the bundle is equivalent to a product bundle.\\
+    Conversely, suppose
+    $\mathcal{B}$ is equivalent to a product bundle.
+    By \ref{Lemma-lambda-002}, there exist
+    $\lambda_i \colon
+    V_j \to G$ such that
+    \[
+    g_{ji}(x) \cdot \lambda_i(x) = \lambda_j(x)
+    \] 
+    for $x \in V_i \cap V_j$.
+    Now define
+    \[
+    f_i(x) \varphi_i \left( x, \lambda_i(x) \right) .
+    \] 
+    Note that $\lambda_i(x) \in G = Y$ since
+    $\mathcal{B}$ is a \underline{principal} bundle.
+    Then $f$ is continuous, and 
+    for  $x \in V_i \cap V_j$, we
+    have
+    \[
+    f_i(x) = 
+    \varphi_i\left( x, \lambda_i(x) \right) 
+    = \varphi_i \left( x, g_{ij}(x) \lambda_j(x) \right) 
+    = \varphi_j (x, \lambda_j(x) )
+    = f_j(x).
+    \] 
+    It follows that the  $f_i$ glue together to give a global
+    section $f$ which agrees with $f_i$ on $V_i$ for each $i$.
+\end{proof}
+
+\begin{corollary}
+    A bundle with group $G$ is equivalent in $G$ to
+    a product bundle if and only if the associated
+    principal bundle admits a section.
+\end{corollary}
 
 
 
@@ -3358,6 +3975,108 @@ a new bundle called the
             fiber of $\mathbb{R}$ under the functor)
         \end{lemma}
 
+
+        \begin{example}[Examples of pullback bundles]
+            \begin{enumerate}
+                \item The restriction of a vector
+                    bundle $p \colon B \to X$ over
+                    a subspace $Y \hookrightarrow X$ can
+                    be viewed as a pullback with respect
+                    to this inclusion map since
+                    the inclusion $p^{-1}(Y) \hookrightarrow E$ 
+                    is certainly an isomorphism on each
+                    fiber.
+                \item When
+                    $f \colon Y \to X$ has image a point,
+                    the pullback $f^{*}B$ is the
+                    product $Y \times p^{-1}(b)$ where
+                    $f(Y) = b$.
+                \item If $B$ is trivial over some
+                    $U \subset X$, then the pullback
+                     along a map $f \colon Y \to X$,
+                     $f^{*}B$ over $f^{-1}(U)$ is trivial
+                     since if we take
+                     a global frame over $U$,
+                     $s \colon U \to B$, then we can
+                     pull these back to give a frame
+                     over $f^{-1}(U)$ :
+                     $s^{*} \colon f^{-1}(U) \to 
+                     f^{*}B|_U$ by
+                     $s^{*}(x) = \left( x, s\circ f(x) \right) $.
+            \end{enumerate}
+        \end{example}
+
+        \begin{note}
+            Some key properties of pullbacks are:
+            \begin{enumerate}
+                \item $(fg)^{*}B \cong g^{*} \left( f^{*}
+                    B\right) $.
+                \item $\id^{*}B \cong B$.
+                \item $f^{*}\left( B_1 \oplus B_2 \right) 
+                    \cong f^{*} B_1 \oplus f^{*}B_2$.
+                \item $f^{*}\left( B_1 \otimes B_2 \right) 
+                    \cong f^{*}B_1 \otimes f^{*}B_2$.
+            \end{enumerate}
+        \end{note}
+
+        \begin{theorem}[]
+            Given a vector bundle $p \colon
+            E \to B$ and homotopic maps
+            $f_0, f_1 \colon A \to B$, then the
+            induced bundles $f_0^{*}E$ and
+            $f_1^{*}E$ are isomorphic if $A$ is compact
+            Hausdorff or, more generally, paracompact.
+        \end{theorem}
+
+        \begin{remark}[]
+            This theorem holds for fiber bundles
+            as well (with the same proof).
+        \end{remark}
+
+        \begin{corollary}
+            A homotopy equivalence $f \colon A \to B$ 
+            of paracompact spaces induced a bijection
+            $f^{*} \colon
+            \Vect^n (B) \to \Vect^n(A)$. In particular,
+            every vector bundle over a contractible
+            paracompact base is trivial.
+        \end{corollary}
+
+
+    \subsubsection{Clutching functions and sphere bundles}
+
+    Write $S^{k}$ as the union of its upper and lower
+    hemispheres $D_+^{k}$ and $D_{-}^{k}$ with
+    $D_+^{k} \cap D_{-}^{k} = S^{k-1}$.
+    Given a map $f \colon S^{k-1} \to \GL (n,\mathbb{R})$, let
+    $E_f$ be the quotient of the disjoint union
+    $D_+^{k} \times \mathbb{R}^{n} \sqcup 
+    D_{-}^{k} \times \mathbb{R}^{n}$ obtained by
+    identifying $(x,v) \in \partial D_{-}^{k} \times \mathbb{R}^{n}$
+    with $\left( x, f(x) v \right) \in 
+    \partial D_+^{k} \times \mathbb{R}^{n}$.
+    There is then a natural projection $E_f \to S^{k}$
+    and this is an $n$-dimensional vector bundle, as
+    one can most easily see by taking an equivalent definition
+    in which the two hemispheres of $S^{k}$ are enlarged
+    slightly to open balls and the identification occurs
+    over their intersection, a product
+    $S^{k-1} \times \left( -\varepsilon, \varepsilon \right) $,
+    with the map $f$ used in each slice
+    $S^{k-1} \times \left\{ t \right\} $. From this
+    viewpoint, the construction of $E_f$ follows
+    from the existence theorem (Theorem \ref{Existence-theorem}).
+    In particular, in this case, there are only two
+    coordinate neighborhoods and thus only one
+    clutching function on their intersection, so the
+    cocycle condition is satisfied trivially.
+
+    \begin{note}
+        The map $f$ is called the \textit{clutching function} for
+        $E_f$.
+    \end{note}
+
+
     \newpage
 
     \subsection{Vector Bundles}
@@ -3369,6 +4088,138 @@ a new bundle called the
     \cite{LeeSM}, \cite{JB}, \cite{BT}, \cite{MS} and
     \cite{Dieck}.
 
+
+    \subsubsection{Carrying things over}
+
+    \begin{definition}[Vector Bundle]
+        A \textit{vector bundle} is a fiber bundle in which
+        the fiber is $\mathbb{R}^{n}$ and the structure
+        group is $\GL(n,\mathbb{R})$ or a subgroup thereof.
+    \end{definition}
+
+        If $\mathcal{B},\mathcal{B}'$ are
+        two vector bundles over the
+        same base space $X$, then 
+        locally, the map between total spaces
+        looks like $g_{ji}(x)$ which is
+        in $\GL (n,\mathbb{R})$, hence a smooth
+        diffeomorphism, or homeomorphism if the vector bundles
+        are not smooth. 
+        Since also a bundle map $\mathcal{B} \to \mathcal{B}'$ 
+        must be a bijection, we find that it is
+        a bijective local diffeomorphism/homeomorphism, hence
+        a diffeomorphism/homeomorphism.
+        So we obtain:
+    
+    \begin{lemma}[]
+        If $\mathcal{B},\mathcal{B}'$ are vector bundles
+        over the same base space, then
+        $\mathcal{B}$ is isomorphic to $\mathcal{B}'$ if
+        and only if there exists a bundle map
+         $\mathcal{B}\to \mathcal{B}'$ which induces a homeomorphism
+         on total spaces.
+    \end{lemma}
+
+
+    \begin{definition}[]
+        We can define $\mathbb{R}\mathbb{P}^{n}$ as the
+        set of all unordered $\left\{ x,-x \right\} $ 
+        as $x$ ranges over $S^{n} \subset \mathbb{R}^{n+1}$,
+        topologized as a quotient space of $S^{n}$.
+        Let $\gamma_{n}^{1} = 
+        \left[ \pi \colon B \to X \right] $ be the
+        vector bundle where
+        $B \subset \mathbb{R}\mathbb{P}^{n} \times \mathbb{R}^{n+1}$
+        is the set consisting of all
+        $\left( \left\{ \pm x \right\} ,v \right) $ such that
+        $\exists \lambda \in \mathbb{R} \colon
+        v = \lambda x$. Define
+        $\pi \colon B \to \mathbb{R}\mathbb{P}^{n}$ by
+        $\pi \left( \left\{ \pm x \right\} ,v \right) 
+        = \left\{ \pm x \right\} $. Thus each fiber
+        $\pi^{-1}\left( \left\{ \pm x \right\}  \right) $ 
+        can be identified with
+        the line through $x$ and $-x$ in $\mathbb{R}^{n+1}$.
+        Each such line is given its usual vector space
+        structure. The resulting bundle
+        $\gamma_{n}^{1}$ will be called the
+        \textit{canonical line bundle over
+        $\mathbb{R}\mathbb{P}^{n}$}.
+    \end{definition}
+
+    \begin{lemma}[]
+        The canonical line bundle over $\mathbb{R}\mathbb{P}^{n}$,
+        $\gamma_{n}^{1}$, is no isomorphic to a 
+        trivial bundle.
+    \end{lemma}
+
+    \begin{proof}
+        It suffices to show that no global
+        frame exists - i.e., that a nowhere vanishing
+        section does not exists.\\
+        Suppose there exists a section
+        $s \colon \mathbb{R}\mathbb{P}^{n}\to 
+        B = \left\{ 
+        \left( \left\{ \pm x \right\} ,v \right) 
+    \in \mathbb{R}\mathbb{P}^{n} \times \mathbb{R}^{n+1} 
+ \mid \exists \lambda \in \mathbb{R} \colon
+v = \lambda x \right\} $.
+Consider the composition
+$S^{n} \to \mathbb{R}\mathbb{P}^{n} \to B$,
+$x \mapsto s \left( \left\{\pm x \right\}  \right) $.
+Since $\pi \circ s \left( \left\{ \pm x \right\}  \right) 
+= \left\{ \pm x \right\} $, we have
+$s\left( \left\{ \pm x \right\}  \right) 
+= \left( \left\{ \pm x \right\} ,
+t(x) x \right)  $ for some
+continuous map $t \colon
+S^{n} \to \mathbb{R}$.
+Then
+$x$ and $-x$ are mapped to the same
+point under the composition
+$S^{n} \to \mathbb{R}\mathbb{P}^{n} \to B$, so
+$t(x) x = t(-x) (-x)$, so
+$t(-x) = -t(x)$. Hence by the intermediate value
+theorem, there exists an $x \in S^{n}$ such that
+$t(x) = 0$. Then
+$s\left( \left\{ \pm x \right\}  \right) 
+= \left( \left\{ \pm x \right\} ,0 \right) $.
+
+\end{proof}
+
+
+\begin{theorem}[]
+    A vector bundle is trivial if and only if
+    it admits a global frame.
+\end{theorem}
+
+\begin{definition}[Parallelizable]
+    If the tangent bundle of a manifold is
+    trivial, then the manifold is said to be
+    \textit{parallelizable}.
+\end{definition}
+
+\begin{exercise}[]
+    Open subsets of $\mathbb{R}^{n}$ are parallelizable.\\
+    $S^{1}$ is also parallizable as its tangent
+    bundle admits a global frame as depicted in
+    Figure \ref{fig:S1-parallelizable-png}.
+
+    \begin{figure}[htpb]
+        \centering
+        \includegraphics[width=0.4\textwidth]{S1-parallelizable.png}
+        \caption{S1-parallelizable.png}
+        \label{fig:S1-parallelizable-png}
+    \end{figure}
+\end{exercise}
+
+
+
+
+
+
+
+    \subsubsection{Random stuff}
 
 
     \begin{definition}[Vector Bundle]
@@ -3728,13 +4579,95 @@ a new bundle called the
         up to equivalence.
     \end{note}
 
-    \subsection{Riemannian metrics}
+    \subsection{Riemannian metrics and Euclidean vector bundles}
+
+    Recall that a real valued function
+    $\mu \colon V \to \mathbb{R}$ on a finite dimensional
+    vector space $V$ is called \textit{quadratic} if
+    there exist linear maps
+     $l_i, l_i' \colon V \to \mathbb{R}$ such that
+     \[
+     \mu (v) = \sum l_i(v) l_i'(v).
+     \] 
+     One can then show that
+     the map
+     $V \times V \to \mathbb{R}$ sending
+     \[\left( v,w \right) \mapsto 
+     v\cdot w = \frac{1}{2} 
+     \left( \mu (v+w) - \mu(v) - \mu(w) \right) 
+ \]
+    is a bilinear form.\\
+    Note that $v \cdot  v = \mu(v)$. The quadratic function
+    $\mu$ is called positive definite if
+    $\mu(v) > 0$ whenever $v \neq 0$.\\
+
+    \begin{definition}[Euclidean vector space]
+        A Euclidean vector space is a real
+        vector space $V$ together with a positive
+        definite quadratic function
+        \[
+        \mu \colon V \to \mathbb{R}.
+        \] 
+        The real number
+        $v \cdot  w$ is then called the inner product
+        of $v$ and $w$, and
+        $v \cdot  v = \mu(v) =: \|v\|^2$, where
+        $\|v\|$ is called the norm of $v$.
+    \end{definition}
+
+    \begin{definition}[Euclidean vector bundle]
+        A \textit{Euclidean vector bundle} is
+        a real vector bundle $\mathcal{B}$ together with
+        a continuous function
+        \[
+        \mu \colon B \to \mathbb{R}
+        \] 
+        such that the restriction of $\mu$ to each
+        fiber of $\mathcal{B}$ is positive definite
+        and quadratic. The
+        function $\mu$ itself will be called
+        a \textit{Euclidean metric} on the vector
+        bundle $\mathcal{B}$.
+    \end{definition}
+
+    \begin{definition}[First definition of
+        Riemannian metric and Riemannian manifold]
+        In the case of the tangent bundle
+        $TM$ of a smooth manifold, a Euclidean metric
+        $\mu \colon TM \to \mathbb{R}$ is called
+        a \textit{Riemannian metric}, and
+        $M$ together with $\mu$ is called a \textit{Riemannian
+        manifold}. (One usually requires $\mu$ to be
+        a smooth function also).
+    \end{definition}
+
+    \begin{note}
+        The notation $\mu = ds^2$ is often used
+        for a Riemannian metric.
+    \end{note}
+
+
+    \begin{lemma}[]
+        Let $\xi$  be a trivial vector bundle of dimension
+        $n$ over $X$ and let
+        $\mu$ be any Euclidean metric on $\xi$. Then
+        there exist $n$ sections $s_1, \ldots, s_n$ of
+        $\xi$ which are normal and orthogonal in the
+        sense that
+        \[
+        s_i(b) \cdot  s_j(b) = \delta_{ij}
+        \] 
+        for each $b \in B$ (where $\cdot $ here denotes the
+        inner product associated to $\mu$ ).
+    \end{lemma}
+
 
     If $\left[ E \to X \right] $ is a vector bundle, then
     there exists a vector bundle
     $\left( E \otimes E \right)^{*}$. Given this, we have
     the following definition:
-    \begin{definition}[Riemannian metric, scalar product]
+    \begin{definition}[Riemannian metric, scalar product, second
+        definition]
         If $\left[ \pi \colon E \to X \right] $ is
         a vector bundle then, by a \textit{scalar product} or
         a \textit{Riemannian metric} for $E$, we 
@@ -5657,6 +6590,19 @@ $n - \lambda - 1$.
        of $W$.
    \end{theorem}
 
+   \begin{corollary}
+       Two simply connected closed smooth manifolds
+       of dimension $\ge 5$ that are h-cobordant are
+       diffeomorphic.
+   \end{corollary}
+
+   \begin{proof}
+       The diffeomorphism of $W$ to $V \times \left[ 0,1 \right] $ 
+       sends the boundary
+       $V \times \left\{ 1 \right\} $ which is
+       diffeomorphic to both $V$ to $\partial_1 W$.
+   \end{proof}
+
    \begin{theorem}[Cerf's pseudo-isotopy theorem]
        Let $M$ be a simply connected smooth
        manifold of dimension at least $5$, and
@@ -5814,7 +6760,7 @@ $n - \lambda - 1$.
             Let $D_1$ denote the disc in question and
             choose a disc $D_2$ containing $D_1$. 
             Since $M-D_1 \cap D_2 \cong S^{d-1}$, 
-            Meier-Vietoris gives us a LES
+            Mayer-Vietoris gives us a LES
             \[
             0 \to H_p (S^{d-1}) 
             \to H_p \left( M-D_1 \right) \oplus
@@ -5822,7 +6768,7 @@ $n - \lambda - 1$.
             \underbrace{H_p (M)}_{=0} \to \ldots
             \] 
             Furthermore, recall that in the proof
-            of Meier-Vietoris, we find that the
+            of Mayer-Vietoris, we find that the
             map
             $H_p \left( S^{d-1} \right) 
             \to H_p \left( M-D_1 \right) $ in question
@@ -5898,8 +6844,6 @@ $n$.
        \end{proof}
 
 
-
-
    \end{problem}
 
 
@@ -5908,6 +6852,364 @@ $n$.
        $S^{1} \to S^{1}$ can be extended to a diffeomorphism
        $D^2 \to D^2$.
    \end{problem}
+
+   \begin{proposition}[Characterization of the $5$-disk]
+       Suppose $W^{5}$ is a compact simply connected
+       smooth manifold that has integral homology of a point.
+       Let $V = \partial W$.
+       \begin{enumerate}
+           \item If $V$ is diffeomorphic to $S^{4}$, then
+               $W$ is diffeomorphic to $D^{5}$.
+           \item If $V$ is homeomorphic to $S^{4}$, then
+               $W$ is homeomorphic to $D^{5}$.
+       \end{enumerate}
+   \end{proposition}
+
+   \begin{proof}
+       Form a $5$-manifold $M = W \sqcup_{h} D^{5}$ where
+       $h$ is the diffeomorphism
+       $V \to S^{4} = \partial D^{5}$.
+       Then by Mayer-Vietoris, we find that
+       \[
+       H_p\left( S^{4} \right) \to 
+       \underbrace{H_p(D^{5}) \oplus H_p(W)}_{0} \to 
+       H_p(M) \to H_{p-1}(S^{4}) \to 0
+       \] 
+       is exact for all $p$.
+       Thus $M$ is a simply connected manifold with
+       the integral homology of $S^{5}$. By
+       the above, $M$ is diffeomorphic to
+       $S^{5}$.
+       Now we use the following theorem:
+       \begin{theorem}[]
+           Any two smooth orientation-preserving imbeddings
+           of an $n$-disk into a connected oriented $n$-manifold
+           are ambient isotopic.        
+       \end{theorem}
+        Thus there is a diffeomorphism
+        $g \colon M \to M$ that maps
+        $D^{5} \subset M$ into a disc $D_1^{5}$ 
+        such that $D_2^{5} = M - \Int D_1^{5}$ is also a
+        disc. Then $g$ maps $W \subset M$ diffeomorphically
+        onto $D_2^{5}$.\\
+        \linebreak
+        For the homeomorphism part,
+        consider the double $D(W)$ of $W$,
+        $D(W) = W \sqcup_{\id} W$. The submanifold
+        $V \subset D(W)$ has a bicollar neighborhood in
+        $D(W)$, and $D(W)$ is homeomorphic to
+        $S^{5}$. Now we use the following theorem:
+        \begin{theorem}[]
+            If an $(n-1)$-sphere $\Sigma$, topologically
+            embedded in $S^{n}$, has a bicollar neighborhood, then
+            there exists a homeomorphisms $h\colon
+            S^{n} \to S^{n}$ that maps $\Sigma$  to
+            $S^{n-1} \subset S^{n}$. Thus
+            $S^{n}-\Sigma$ has two components and the
+            closure of each is an $n$-disc with boundary
+            $\Sigma$.
+        \end{theorem}
+        It follows that $W$ is homeomorphic to
+        $D^{5}$. This completes the proof.
+   \end{proof}
+
+   \begin{proposition}[The smooth Schoenfliess theorem
+       in dimension $\ge 5$.]
+       Suppose $\Sigma$ is a smoothly embedded
+       $(n-1)$-sphere in $S^{n}$. If $n\ge 5$, there
+       is a smooth ambient isotopy that carries
+       $\Sigma$ into the equator $S^{n-1} \subset S^{n}$.
+   \end{proposition}
+
+   
+
+
+
+
+\newpage
+
+
+
+\subsection{Handles}
+
+\begin{definition}[]
+        An \textit{$n$-dimensional $k$-handle} is a contractible
+        smooth manifold $D^{k} \times D^{n-k}$.
+\end{definition}
+
+    \begin{definition}[]
+        Let $X,Y$ be topological spaces, and let
+        $K \subset X$ and $L \subset Y$ be subspaces such that
+        there exists a homeomorphism
+        $\varphi \colon K \to L$. We obtain a new space,
+        which call $X$ glued to $Y$ along
+        $\varphi $ by taking
+    $X \sqcup Y / x \sim \varphi (x)$. We call
+    $\varphi $ the attaching map.
+    \end{definition}
+
+    \begin{definition}[]
+        There are five subsets of a $k$-handle which will
+        be of interest to us. They are:
+        \begin{itemize}
+            \item the \textit{attaching region} defined
+                to be $\partial D^{k} \times 
+                D^{n-k}$.
+                Note that the attaching map of a $k$-handle
+                is a homeomorphism of
+                the attaching region onto a subset of the
+                space being glued to.
+            \item The \textit{attaching sphere},
+                also called the \textit{boundary of the core}, denoted
+                $A^{k} = \partial D^{k} \times \left\{ 0 \right\} $.
+            \item The \textit{core}, denoted
+                $C^{k} = D^{k} \times \left\{ 0 \right\} $.
+            \item The \textit{belt sphere}, also
+                called the \textit{transverse sphere}, denoted
+                $B^{k} = \left\{ 0 \right\} \times 
+                \partial D^{n-k}$.
+            \item The \textit{co-core}, denoted
+                $K^{k} = \left\{ 0 \right\} \times 
+                D^{n-k}$.
+        \end{itemize}
+    \end{definition}
+
+    Envisioning $D^{k}$ and $D^{n-k}$ as products
+    of the unit interval, we can
+    envision the different parts of a handle as
+    in Figure \ref{fig:handle-png} below.
+
+    \begin{figure}[htpb]
+        \centering
+        \includegraphics[width=0.4\textwidth]{handle.png}
+        \caption{An $n$-dimensional $k$-handle}
+        \label{fig:handle-png}
+    \end{figure}
+
+    Convince yourself that Figure \ref{32.png} is, in fact,
+    a $2$-dimensional $1$-handle.
+
+    \begin{exercise}[]
+        Construct a handle decomposition of the $2$-torus, $T^2$.
+    \end{exercise}
+
+    \begin{exercise}[]
+        Construct a handle decomposition of the $2$-sphere, $S^2$.
+    \end{exercise}
+
+\begin{definition}[Handle attachment]
+    Consider an $n$-dimensional manifold $M$ with
+    boundary $\partial M$. Given an embedding
+    $\varphi^{q} \colon S^{q-1} \times D^{n-q} 
+    \hookrightarrow \partial M$, we say that
+    the manifold $M + \left( \varphi^{q} \right) $ defined
+    by $M \sqcup_{\varphi^{q}} D^{q} \times D^{n-q}$ is obtained
+    from $M$ by attaching a handle of index $q$ by
+    $\varphi^{q}$.
+\end{definition}
+
+
+
+\begin{definition}[Handle decomposition and handlebody]
+        A \textit{handle decomposition} of a compact
+        manifold is a finite sequence
+        of cobordisms
+        $W_0  \rightsquigarrow W_1 \rightsquigarrow \ldots
+        \rightsquigarrow W_l$ such that
+        \begin{enumerate}
+            \item $W_0 = \varnothing$ 
+            \item $W_l$ is diffeomorphic to $M$.
+            \item $W_i$ is obtained from
+                $W_{i-1}$ by attaching a handle.
+        \end{enumerate}
+        A \textit{handlebody} is a compact manifold expressed
+        as the union of handles.
+\end{definition}
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{handlebody.png}
+    \caption{Different handlebodies.}
+    \label{fig:handlebody-png}
+\end{figure}
+
+
+In this way, $M + \left( \varphi^{q} \right) $ obviously carries
+the structure of a topological manifold. To get a smooth
+structure, one has to use the technique of straightening the
+angle to get rid of corners at the place where the handle is
+glued to $M$.\\
+Let us now consider the boundary
+$\partial \left( M+ \left( \varphi^{q} \right)  \right) $.\\
+To describe this, delete from
+$\partial M$ the interior of the image of
+$\varphi^{q}$. So we obtain
+a manifold with boundary together with a diffeomorphism
+from $S^{q-1} \times S^{n-q-1}$ to its boundary
+induced by $\varphi^{q}|_{S^{q-1} \times S^{n-q-1}}$.
+If we use this diffeomorphism to glue
+$D^{q} \times S^{n-q-1}$ to it, we obtain a closed manifold,
+namely, $\partial \left( M+ \left( \varphi^{q} \right)  \right) $.\\
+\linebreak
+Now, let $W$ be a cobordism
+$\partial_0 W \rightsquigarrow \partial_1 W$.
+Then we want to construct $W$ from
+$\partial_0 W \times \left[ 0,1 \right] $ by attaching
+handles as follows.\\
+Note that the following construction will not change
+$\partial_0 W = \partial_0 W \times \left\{ 0 \right\} $.\\
+If $\varphi^{q} \colon S^{q-1} \times 
+D^{n-q} \hookrightarrow \partial_0 W \times \left\{ 1 \right\} $ 
+is an embedding, we get by attaching a handle the
+compact manifold $W_1 = \partial_0 W \times \left[ 0,1 \right] 
++ \left( \varphi^{q} \right) $ that is given by
+$\partial_0 W \left[ 0,1 \right] \sqcup_{\varphi^{q}}
+D^{q} \times D^{n-q}$.  In particular, its boundary
+is $\partial_0 W_1 \sqcup \partial 1 W_1$, where
+$\partial_0 W_1$ is the same as $\partial_0 W$.\\
+Now, we can iterate this process where we attach a handle
+to $W_1$ at $\partial_1 W_1$. Thus we obtain a compact
+manifold with boundary
+\[
+W = \partial_0 W \times \left[ 0,1 \right] 
++ \left( \varphi_1^{q_1} \right) + \left( \varphi_2^{q_2} \right) 
++\ldots+ \left( \varphi_r^{q_r} \right) 
+\] 
+whose boundary is the disjoint union
+$\partial_0 W \sqcup \partial_1 W$ where
+$\partial_0 W$ is $\partial_0 W \times \left\{ 0 \right\} $.
+We cal a description of $W$ as above a
+\textit{handlebody decomposition} of $W$ relative
+$\partial_0 W$.
+
+
+
+\begin{lemma}[]
+    Let $W$ be a compact manifold whose boundary $\partial W$ 
+    is the disjoint sum $\partial_0 W \sqcup 
+    \partial_1 W$. Then $W$ possesses a handlebody decomposition
+    relative $\partial_0 W$, i.e., $W$ is, up to diffeomorphism
+    relative
+    $\partial_0 W = \partial_0 W \times \left\{ 0 \right\} $, of
+    the form
+    \[
+    W = \partial_0 W \times  \left[ 0,1 \right] 
+    + \left( \varphi_1^{q_1} \right) +
+    \left( \varphi_2^{q_2} \right) +
+    \ldots +
+    \left( \varphi_r^{q_r} \right) .
+    \] 
+\end{lemma}
+
+\subsection{Dynamical Systems/Flows}
+
+\begin{definition}[]
+    Let $M$ be a smooth manifold. A smooth map
+    \[
+    \Phi \colon \mathbb{R} \times M \to M
+    \] 
+    is called a \textit{flow} or \textit{dynamical system} if,
+    for all $x \in M$ and $t,s \in \mathbb{R}$,
+    we have
+    \begin{itemize}
+        \item $\Phi (0,x) = x$ 
+        \item $\Phi(t, \Phi(s,x)) = \Phi(t+s,x)$.
+    \end{itemize}
+    If we write $\Phi_t \colon M \to M$ for the map
+    $x \mapsto \Phi(t,x)$, this reads,
+    $\Phi_0 = \id_m$ and $\Phi_t \circ \Phi_s = 
+    \Phi_{t+s}$, so, in particular,
+    $\Phi_{-t} = \Phi_t^{-1}$.
+\end{definition}
+
+\begin{definition}[Integral curve/flow line]
+    If $\Phi \colon \mathbb{R} \times M \to M$ is a flow, and
+    $x \in M$, the curve
+    \[
+    \alpha_x \colon \mathbb{R} \to M, \quad
+    t \mapsto \Phi_t (x)
+    \] 
+    is called the \textit{integral curve} or \textit{flow line}
+    of $x$. The image
+    $\alpha_x (\mathbb{R})$ is called the
+    orbit of $x$.
+\end{definition}
+
+\begin{remark}[]
+    If a flow is given on a manifold, then exactly one
+    orbit passes through each point $p \in M$.
+\end{remark}
+
+\begin{lemma}[]
+    There are three types of orbits.
+    A flow line $\alpha_x \colon \mathbb{R} \to M$ of
+    a flow i either an injective immersion, a
+    periodic immersion or it is constant.\\
+    We say $\alpha_x$ is a periodic immersion, if
+    it is an immersion and there exists some
+    $p > 0$ with $\alpha_x(t+p) = \alpha_x(t)$ for
+    all $t$.\\
+    If $\alpha_x$ is constant, we call
+    $x$ a \textit{fixed point} of the flow.
+\end{lemma}
+
+\begin{proof}
+    \cite[Remark 8.5]{JB}
+\end{proof}
+
+\begin{definition}[]
+    Let $M$ be a smooth manifold. By a 
+    \textit{local flow} $\Phi$ on $M$, we understand a smooth
+    map
+    \[
+    \Phi \colon A \to M
+    \] 
+    from an open subset $A \subset \mathbb{R} \times M$ 
+    containing $0 \times M$, such that
+    for each $x \in M$, the intersection
+    $A \cap \left( \mathbb{R} \times \left\{ x \right\}  \right) $ 
+    is connected, and such that
+    \begin{itemize}
+        \item $\Phi_0 = \id_A$ 
+        \item $\Phi_t \circ \Phi_s = \Phi_{t+s}$.
+    \end{itemize}
+    for all $t,s,x$ for which both sides are defined.
+\end{definition}
+
+\begin{definition}[Velocity field]
+    If $\Phi$ is a local or global flow on
+    $M$, then the vector field
+    \[
+    \Phi \colon M \to TM, \quad x \mapsto \alpha_x'(0)
+    \] 
+    is called the \textit{velocity field} of the flow.
+\end{definition}
+
+\begin{remark}[]
+    For all flow lines and all
+    $t \in  \left( a_x, b_x \right) $, 
+    $\alpha_x'(t) = \Phi'\left( \alpha_x(t) \right) $, where
+    $\left( a_x, b_x \right) $ is the domain of definition
+    of the flow line $\alpha_x$.
+\end{remark}
+
+\begin{proof}
+    For $z = a_x(t)$, we have
+    $\alpha_z (s) = \Phi_s (z) = 
+    \Phi_s \left( \Phi_t (x) \right) 
+    = \Phi_{s+t}(x) = 
+    \alpha_x \left( s+t \right) $ by definition.
+    Hence $ \Phi'\left( \alpha_x(t) \right) 
+    =\alpha_z'(0) = \alpha_x'(t)$.
+\end{proof}
+
+\begin{theorem}[Integrability theorem for vector fields]
+    Every vector field is the velocity field of a unique
+    maximal local flow; on a compact manifold even of
+    a global one.
+\end{theorem}
+
+
 
 \newpage
 
@@ -6041,7 +7343,6 @@ $n$.
 
 
    Spherical modification.
-
 
 
 

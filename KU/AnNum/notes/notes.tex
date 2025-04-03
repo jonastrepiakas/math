@@ -147,6 +147,67 @@
 
 \begin{document}
 
+
+
+\section{Theory}
+
+
+    Recall that
+    \begin{definition}[Dirichlet Series]
+        Let $f$ be an arithmetic function. Then the corresponding
+        Dirichlet series is defined, for
+        $s \in \mathbb{C}$, by
+        \[
+        D_f (s) = \sum_{n=1}^{\infty} \frac{f(n)}{n^{s}}.
+        \] 
+    \end{definition}
+
+
+    \begin{lemma}[]\label{Lemma:02329}
+        \[
+        0 \le 3 + 4 \cos \theta + \cos 2\theta = 
+        2 \left( 1+ \cos \theta \right)^2
+        \] 
+    \end{lemma}
+
+    \begin{lemma}[]
+        Let $\sigma > 1$. Then
+        \[
+        \Re \left( -3 \frac{\zeta '}{\zeta} (\sigma)-
+        4 \frac{\zeta'}{\zeta}(\sigma + it)-
+    \frac{\zeta'}{\zeta}(\sigma + 2 i t)\right) \ge 0
+        \] 
+    \end{lemma}
+
+    For the proof of the lemma, one shows that
+    \[
+    \Re \left( \frac{1}{n^{s}} \right) =
+    \frac{1}{n^{\sigma}} \cos \left( t \log n \right) , \quad
+    s = \sigma + it \tag{$A_1$} \label{A-1}
+    \] 
+
+    \begin{proof}
+        \[
+        \Re \left( - \frac{\zeta'}{\zeta}(s) \right) 
+        = \Re \sum_{n=1}^{\infty} \frac{\Lambda (n)}{n^{s}}
+        = \sum_{n=1}^{\infty} \frac{\Lambda(n)}{n^{\sigma}}
+        \cos \left( t \log n \right) .
+        \] 
+        Hence
+        \begin{align*}
+        \Re \left( -3 \frac{\zeta '}{\zeta} (\sigma)-
+        4 \frac{\zeta'}{\zeta}(\sigma + it)-
+    \frac{\zeta'}{\zeta}(\sigma + 2 i t)\right) 
+    &= \sum_{n=1}^{\infty} \frac{\Lambda(n)}{n^{\sigma}}
+    \left[ 3 + 4 \cos \left( t \log n \right) +
+    \cos \left( 2t \log n \right) \right] 
+    \stackrel{\eqref{Lemma:02329}}{\ge} 0
+        \end{align*}
+    \end{proof}
+
+
+\newpage
+
 \section{Week 1}
 
 \begin{exercise}[E1.1. Abel summation]
@@ -468,12 +529,686 @@ $\prod_{p < 2^{\frac{1}{\varepsilon}}}
     Hence the right hand side indeed counts the
     number of divisors of the numbers less than or equal to
      $x$ which is precisely the left hand side.
-     Then we find that
+     Now, recall also the bound
      \[
-     \left| \frac{1}{x}\sum_{n\le x} d(n) - \log x \right| 
-     \le  \left|  \sum_{a \le x} \frac{1}{a} - \log x \right|
+     \log x + \frac{1}{x} \le \sum_{a \le x}\frac{1}{a}
+     \le \log x + 1
      \] 
+     so \[
+     1 + \frac{1}{x \log x} \le \frac{1}{\log x}
+     \sum_{a \le x} \frac{1}{a} \le 1 + \frac{1}{\log x}.
+     \] 
+     In particular, taking the limit as
+     $x \mapsto \infty$, the outer
+     functions tend to $1$, so
+     \[
+     \lim_{x \to \infty} \frac{1}{\log x} \sum_{a \le x}\frac{1}{x}
+     = 1.
+     \] 
+     In particular,
+     \[
+     \frac{1}{x \log x}\sum_{n\le x} d(n)
+     \le \frac{1}{\log x} \sum_{a \le x} \frac{1}{a}
+     \to 1, \quad x \to \infty.
+     \] 
+     For a lower bound, we have
+     \[
+     \frac{1}{\log x}  
+     \sum_{a\le x} \frac{1}{a} -
+     \frac{1}{x\log x} \sum_{a\le x}\frac{1}{a}
+     = \frac{1}{\log x} \sum_{a \le x} \frac{x-1}{ax}
+     \le \frac{1}{\log x} \sum_{a\le x} \left[ \frac{x}{a} \right] 
+     \] 
+     But
+     \[
+     \frac{1}{x} + \frac{1}{x^2 \log x}
+     \le \frac{1}{x \log x} \sum_{a\le x} \frac{1}{a}
+     \le \frac{1}{x} + \frac{1}{x \log x}
+     \] 
+     so letting $x \to \infty$, 
+     \[
+     \lim_{x \to \infty} \frac{1}{x \log x} \sum_{a \le x}
+     \frac{1}{a} = 0
+     \] 
+     Hence also
+     \[
+     1 \le \lim_{x \to \infty} \frac{1}{x \log x}
+     \sum_{n \le x} d(n) \le 1
+     \] 
+     giving the desired result.
 \end{proof}
+
+\begin{exercise}[E3.6]
+    Let  \[
+    \chi_4 (n) = 
+    \begin{cases}
+        (-1)^{\frac{n-1}{2}},& n \text{ odd}\\
+        0,& n \text{ even}
+    \end{cases}.
+    \] 
+    Show that $\chi_4$ is a Dirichlet character
+    modulo $4$ and find
+    $L\left( 1, \chi_4 \right) $. Use the value
+    to give (yet another) proof- based on the
+    irrationality of $\pi$ - that there
+    are infinitely many primes.
+    Hint: Remember (or prove by playing around with
+    $\arctan (1)$ ) that
+    \[
+    \pi = 4 \sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{2n-1}.
+    \] 
+\end{exercise}
+
+\begin{proof}
+    We must check $3$ criteria for
+    $\chi_4$ to be a Dirichlet character mod $4$.\\
+    (i) It must be $4$-periodic. Now
+    if $n$ is even, then
+    $n+4$ is even, so then
+    $\chi_4(n+4) = 0 = \chi_4 (n)$.\\
+    If $n$ is odd, then so is $n+4$, so
+    \[
+    \chi_4(n+4) = 
+    \left( -1 \right)^{\frac{n+4-1}{2}}
+    = \left( -1 \right)^{\frac{n-1}{2} + 2}
+    = \left( -1 \right)^{\frac{n-1}{2}}
+    = \chi_4 (n).
+    \] 
+    So $\chi_4$ is $4$-periodic.\\
+    (ii) We must check that
+    $\chi_4(n) = 0$ if and only if
+    $\left( n,4 \right) \neq 1$.
+    Now, $\chi_4(n) = 0$ if and only if $n$ is even
+    if and only if $\left( n,4 \right) \in 
+    \left\{ 2,4 \right\} $ if and only if
+    $\left( n,4 \right) \neq 1$.\\
+    (iii) We must check that
+    $\chi_4$ is multiplicative.
+    Indeed, if either
+    $n$ or $m$ is even, then
+    \[
+    \chi_4 (nm) = 0 = \chi(n) \chi(m).
+    \] 
+    If both $n,m$ are odd, then
+    \[
+    \chi_4 \left( nm \right) 
+    = \left( -1 \right)^{\frac{nm-1}{2}}
+    = 
+    \begin{cases}
+        -1,& nm \equiv 3 \pmod{4}\\
+        1,& nm \equiv 1 \pmod{4}
+    \end{cases}
+    \] 
+    Now, if $n$ and $m$ are both
+    equivalent to $3$ mod $4$, then
+    their product is equivalent to
+    $1$ mod 4, which works out.
+    If only one is equivalent to $3$ mod $4$, then
+    $nm$ is also, so it checks out, and
+    similarly, if both are equivalent to $1$ mod $4$, then
+    so is their product.
+    Now, by definition,
+    \[
+    L(1,\chi_4) :=
+    \sum_{n=1}^{\infty} \frac{\chi_4(n)}{n}
+    = \sum_{n=0}^{\infty} \frac{\left( -1 \right)^{n}}{2n+1}
+    = \arctan(1)
+    = \frac{\pi}{4}
+    \] 
+    Now,
+    since  $\chi_4 \neq \chi_0^{4}$, 
+    we know that
+    $L\left( s, \chi_4 \right) $ is convergent and
+    analytic for $\Re (s) > 0$. In particular, it is
+    continuous at $s = 1$. But for
+    $\Re(s) > 1$, we know that
+    $L(s, \chi_4) = 
+    \prod_p \left( 1 - \chi_4(p)p^{-s} \right)^{-1}$, so
+    by continuity,
+    \[
+    \frac{\pi}{4} = L\left( 1,\chi_4 \right) 
+    = \prod_p \left( 1- \chi_4(p) p^{-1} \right)^{-1}
+    \] 
+    Now, all the terms in the product are
+    rational, so by irrationality of $\pi$, this
+    forces there to be infinitely
+    many primes.
+\end{proof}
+
+
+\begin{exercise}[E3.7]
+    Let $\left\{ a_n \right\} $ be a sequence of complex numbers
+    satisfying that $\sum_{n \le x} a_n = O\left( x^{\delta}
+    \right) $ for some $\delta > 0$. Prove that
+    \[
+    \sum_{n=1}^{\infty} \frac{a_n}{n^{s}} = s
+    \int_{1}^{\infty} \sum_{n\le t} a_n \frac{1}{t^{s+1}} dt 
+    \] 
+    for $\Re(s) > \delta$, and that the sum converges
+    to an analytic function in this region.
+\end{exercise}
+
+\begin{proof}
+    Let $f(x) = x^{s}$. Then
+    \[
+    \sum_{n\le x} \frac{a_n}{n^{s}}
+    = \sum_{n\le x}a_n \frac{1}{x^{s}} + s
+    \int_{1}^{x} \sum_{n\le t} a_n \frac{1}{t^{s-1}} dt
+    \] 
+    when $s \neq 1$. But
+    $\left| \sum_{n \le x}a_n \right| 
+    \le C x^{\delta} $, so
+    \[
+    \left| \sum_{n\le x} a_n \frac{1}{x^{s}} \right|
+    \le C x^{\delta - \sigma} \to 0, \quad x \to \infty
+    \] 
+    as $\delta - \sigma < 0$.
+    Thus
+    \[
+    \sum_{n=1}^{\infty} \frac{a_n}{n^{s}} = 
+    s \int_{1}^{\infty} \sum_{n\le t} a_n \frac{1}{t^{s+1} }dt . 
+    \] 
+\end{proof}
+
+
+\section{Week 4}
+
+\begin{exercise}[E4.1]
+    Let $K \ge 0$. Prove that
+    \[
+    \log \left( K \left| t \right| +4 \right) =
+    O\left( \log \left( \left| t \right| +4 \right)  \right) 
+    \] 
+    for $t \in \mathbb{R}$. Let
+    $c_1, c_2, c_3 > 0$. Prove that there exists a constant
+    $c_4$ such that for all $t \in \mathbb{R}$,
+    \[
+    c_1 + c_2 \log\left( \left| t \right| +4 \right) +
+    c_3 \log\left( \left| 2t \right| +4 \right) 
+    \le c_4 \log \left( \left| t \right| +4 \right) .
+    \] 
+\end{exercise}
+
+\begin{proof}
+    If $0 \le K \le 1$, then
+    $\log \left( K \left| t \right| +4 \right) \le 
+    \log \left( \left| t \right| +4 \right) $ by
+    monotonicity of $\log$.
+    So assume  $K > 1$. Then
+    $\log \left( K \left| t \right| +4 \right) 
+    = \log K + \log \left( \left| t \right|  + \frac{4}{K} \right) 
+    \le \log K + \log \left( \left| t \right| +4 \right) $.
+    Now $\log \left( \left| t \right| +4 \right) > 1$, so
+    there exists some $C$ such that
+    $C \log \left( \left| t \right| +4 \right) \ge \log K$.
+    Hence
+    $\log \left( K \left| t \right| +4 \right) =
+    O \left( \log \left( \left| t \right| +4 \right)  \right) $.
+    Since
+    $c_1 + c_2 \log\left( \left| t \right| +4 \right) +
+    c_3 \log \left( \left| 2t \right| +4 \right) $ is a
+    sum of terms that are all
+    $O\left( \log \left( \left| t \right| +4 \right)  \right) $, so
+    is their sum, so the conclusion holds.
+\end{proof}
+
+
+\begin{exercise}[E4.2]
+    Let $f(s)$ be a complex polynomial of degree $n$ with
+    complex zeroes $z_1, z_2, \ldots, z_n$. Show that
+    \[
+    \frac{f'}{f}(z) = \sum_{i=1}^{n} \frac{1}{z- z_i}.
+    \] 
+    Consider how Lemma 6.3 is a generalization of this.
+\end{exercise}
+
+\begin{proof}
+    Firstly, $f'$ is entire, so
+    $\frac{f'}{f}$ is holomorphic on 
+    $\mathbb{C} - \left\{ z_1, \ldots, z_n \right\} $.
+    Now, by Theorem 6.1 in KomAn, there
+    exist unique functions
+    $g_i$ holomorphic on
+    $\mathbb{C} - \left\{ z_1,\ldots,z_n \right\} $ such that
+    $g_i(z_i) \neq 0$ and
+     \[
+     f(z) = \left( z-z_i \right)^{n_i} g_i(z)
+     \] 
+     where $n_i$ is the multiplicity of $z_i$.
+     In particular,
+     $f'(z) = 
+     n_i (z-z_i)^{n_i-1}g_i(z) + (z-z_i)^{n_i} g_i'(z)$ which
+     has $z_i$ a zero of order
+     $n_i -1$. Hence
+     $\frac{f'}{f}$ has $z_i$ as a simple pole.
+     Applying the partial fraction decomposition
+     to $\frac{f'}{f}$ (theorem 6.12 in KomAn), we get
+     that
+     \[
+     \frac{f'}{f}(z) = 
+     \sum_{i=1}^{n} \frac{c_i}{z- z_i}
+     \] 
+     for certain constants $c_i$.
+     Now $\lim_{z \to z_i}  (z-z_i) \frac{f'}{f}(z)
+     = n_i$. 
+     Now, $f$ is of degree $n$ with $n$ distinct zeroes, so
+     $n_i$ must be $1$ for each $i$.\\
+     
+     Now let us recall Lemma 6.3:
+     \begin{lemma}[6.3]
+         Let $f \colon B \to \mathbb{C}$ be analytic,
+         $B \subset \mathbb{C}$ open, and assume
+         \begin{enumerate}
+             \item $\left\{ z  \mid \left| z \right| \le 1
+                 \right\} \subset B$ 
+             \item $\left| f(z) \right| \le M$ when 
+                 $\left| z \right| \le 1$ 
+             \item $f(0) \neq 0$.
+         \end{enumerate}
+         Let $0 < r < R < 1$. Then for
+         $\left| z \right| < r$,
+         \[
+         \frac{f'}{f}(z) = 
+         \sum_{\substack{f(z_k) = 0 \\ \left| z_k \right| \le R}} 
+         \frac{1}{z-z_k} + 
+         O \left( \log \frac{M}{\left| f(0) \right| } \right) 
+         \] 
+     \end{lemma}
+
+         Note here that $f$ is not required to be
+         a polynomial. However, since $f$ is holomorphic
+         in $B$, it has an analytic representation on $B$, so
+         essentially, Lemma 6.3 generalizes the
+         representation to analytic functions. 
+\end{proof}
+
+
+\begin{exercise}[E4.3]
+    Show that the Riemann zeta function $\zeta (s)$ has no
+    zeroes for $\frac{1}{2} \le s < 1$.
+\end{exercise}
+
+\begin{proof}
+    Recall that for $\sigma > 0$ and $s\neq 1$, we have
+    \[
+    \zeta (s) = \frac{s}{s-1} - s \int_{1}^{\infty} 
+    \left( u - \left[ u \right]  \right) u^{-s-1}du.
+    \] 
+    For $s \in [\frac{1}{2},1)$, 
+    $\frac{s}{s-1} \le  -1$. So we
+    wish to show that
+    \[
+    s \int_{1}^{\infty} \left( u - \left[ u \right]  \right) 
+    u^{-s-1} du > -1
+    \] 
+    But
+    \[
+        s \int_{1}^{\infty} 
+        \left( u - \left[ u \right]  \right) u^{-s-1}du
+    \] 
+    is positive since the inner function and $s$ are
+    both positive on $[1, \infty)$.
+
+\end{proof}
+
+\begin{exercise}[E4.4]
+    Let $\chi$ be a Dirichlet character modulo $q$. Find the
+    Dirichlet series representation for
+    $L'(s, \chi) / L(s,\chi)$. Let $\chi_0$ be the trivial
+    Dirichlet character modulo $q$. Prove that for
+    $\sigma > 1, t \in \mathbb{R}$,
+    \[
+    R := \Re \left( -3 \frac{L'(\sigma, \chi_0)}{L(\sigma, \chi_0)}-
+    4 \frac{L' (\sigma + it , \chi)}{L(\sigma + it, \chi)}-
+\frac{L' (\sigma + i 2t, \chi^2) }{L(\sigma + i 2 t, \chi^2)}\right) 
+\ge 0.
+    \] 
+\end{exercise}
+
+
+\begin{proof}
+    We want to represent
+    $\frac{L' (s, \chi)}{L (s, \chi)}$ as a Dirichlet series.
+    We imitate the idea for $\frac{\zeta'}{\zeta}$.
+
+    \begin{align*}
+        \frac{L'(s, \chi)}{L (s, \chi)}
+        &= \frac{d}{ds} \log \left( L (s, \chi) \right) \\
+        &=  - \sum_p \frac{d}{ds}
+        \log \left( 1- \frac{\chi(p)}{p^{s}} \right) \\
+        &= - \sum_p \frac{d}{ds} 
+        \sum_{k=1}^{\infty} (-1)^{k+1} \left( - \frac{\chi(p)}{p^{s}}
+        \right)^{k}\\
+        &= \sum_p \sum_{k=1}^{\infty} \frac{d}{ds} 
+        \left( \frac{\chi (p)}{p^{s}} \right)^{k}\\
+        &= \sum_p \sum_{k=1}^{\infty} \chi(p)^{k} (-k \log p)
+        p^{-sk}\\
+        &= - \sum_p \sum_{k=1}^{\infty} k \log p \left( 
+        \frac{\chi(p)}{p^{s}} \right)^{k}
+    \end{align*}
+    Thus
+    We want to find 
+    $\Re \left( \left( \frac{\chi(p)}{p^{s}} \right)^{k} \right) $.
+    We have
+    \begin{align*}
+      \Re \left( \left( \frac{\chi(p)}{p^{s}} \right)^{k} \right) 
+      &= \frac{1}{2} \left[ \left( \frac{\chi(p)}{p^{s}} \right)^{k} 
+      + \left( \frac{\overline{\chi(p)}}{\overline{p^{s}}} \right)^{k}
+  \right] \\
+      &= 
+    \end{align*}
+    
+    \[
+    \Re \left( - \frac{L'(s,\chi)}{L(s,\chi)} \right) 
+    = \sum_p \sum_{k=1}^{\infty} k \log p 
+    \cos \left( tk \log p \right) .
+    \] 
+    So
+
+\end{proof}
+
+
+\begin{exercise}[E4.5]
+    Let $\zeta(s)$ be the Riemann zeta function. Let
+    $K$ be a compact subset of 
+    $\left\{ s \in \mathbb{C}  \mid  
+    \Re (s) > 0 \right\} $. Assume that
+    $1 \in K$ and that $K$ does not contain any zeroes
+    of $\zeta$. Show that
+    \[
+    - \frac{\zeta'}{\zeta}(s) = \frac{1}{s-1} + O(1)
+    \] 
+    for $s \in K - \left\{ 1 \right\} $. Show that there
+    exists a constant $c >0$ such that for
+    $0 < \delta < 1$,
+    \[
+    - \frac{\zeta'}{\zeta}(1+\delta) < \frac{1}{\delta} + c.
+    \] 
+\end{exercise}
+
+\begin{proof}
+    Since $1$ is a simple pole of
+    $\frac{\zeta'}{\zeta}$ and 
+    $K$ has no other zeroes of $\zeta$ and hence
+    neither of $\zeta'$, we have that
+    \[
+    - (s-1) \frac{\zeta'}{\zeta}(s)
+    \] 
+    is holomorphic on $K$, hence bounded as $K$ is compact.
+    Thus
+    \[
+    - \frac{\zeta'}{\zeta}(s) = \frac{1}{s-1} + O(1)
+    \] 
+    for $s \in K -\left\{ 1 \right\} $. Thus for small
+    $0 < \delta < 1$ such that
+    $1 + \delta \in K - \left\{ 1 \right\} $,
+    \[
+    - \frac{\zeta'}{\zeta}\left( 1+ \delta \right) 
+    < \frac{1}{\delta} + c
+    \] 
+    for some $c > 0$.
+\end{proof}
+
+
+\begin{exercise}[E4.6]
+    Use partial summation (Abel summation)
+    to show that for $\sigma > 1$,
+    \[
+    - \frac{\zeta'}{\zeta}(s) = 
+    s \int_{1}^{\infty} \frac{\psi (x)}{x^{s+1}} dx 
+    \] 
+    where $\psi (x) = \sum_{n\le x}
+    \Lambda (n)$, and $\Lambda$ is the von Mangoldt function.
+\end{exercise}
+
+\begin{proof}
+    Recall that
+    \[
+    - \frac{\zeta'}{\zeta}(s) = 
+    \sum_{n=1}^{\infty} \frac{\Lambda (n)}{n^{s}}
+    \] 
+    for $ \sigma = \Re (s) > 1$.
+
+    Let $f(x) = \frac{1}{x^{s}}$ and
+    $a_n = \Lambda (n)$.
+    Partial summation gives
+    \[
+    \sum_{n\le x} \frac{\Lambda (n)}{n^{s}}
+    = \underbrace{\sum_{n\le x} \Lambda(n)}_{\psi (x)}
+    \frac{1}{x^{s}}
+    +s \int_{1}^{x}  \underbrace{\sum_{n\le t} \Lambda (n)}_{\psi (t)} \frac{1}{t^{s+1}} dt
+    \] 
+    By the prime number theorem,
+    \[
+    \psi (x) = x + O
+    \left( \frac{x}{e^{c' \sqrt{\log x} }} \right) 
+    \] 
+    so
+    \[
+    \frac{\psi (x)}{x^{s}} \to 0, \quad x \to \infty
+    \] 
+    Thus
+    \[
+    - \frac{\zeta'}{\zeta} (s)
+    = s \int_{1}^{\infty} \frac{\psi (t)}{t^{s+1}}dt 
+    \] 
+    for $\sigma > 1$.
+\end{proof}
+
+
+
+\section{Week 5}
+
+\begin{exercise}[E5.1]
+    Show that
+    \[
+    x \exp \left( -c \sqrt{\log x}  \right) 
+    = O_m \left( \frac{x}{\log^{m} x} \right) 
+    \] 
+    for every $m$, and that
+    \[
+    x^{1-\varepsilon} = O_{\varepsilon}
+    \left( x \exp \left( -c \sqrt{\log x}  \right)  \right) 
+    \] 
+    for every $\varepsilon > 0$. Discuss what this
+    means for the quality of the error-term in the
+    prime number theorem.
+\end{exercise}
+
+
+\begin{proof}
+    \[
+    \frac{\log^{m} x}{e^{c \sqrt{\log x} }}
+    = \frac{ \sqrt{\log x}^{2m}}{e^{c \sqrt{\log x} }}
+    \] 
+    Now
+    \begin{lemma}[]
+        For any $a > 0$ and any  $b > 1$,
+        \[
+        \frac{x^{a}}{b^{x}} \to 0, \quad x \to \infty.
+        \] 
+    \end{lemma}
+        Let $v = \sqrt{\log x} $. Then
+        the above reads
+        $\frac{v^{2m}}{e^{cv}}$.
+        Assuming $c > 0$, we find that for
+        $v \to \infty$,
+        $\frac{v^{2m}}{e^{cv}} \to 0$.
+        So in fact,
+        \[
+        x \exp \left( -c \sqrt{\log x}  \right) 
+        = o \left( \frac{x}{\log^{m} x} \right) 
+        \] 
+        Now
+        \[
+        x^{1-\varepsilon} = x
+        x^{-\varepsilon} = 
+        x e^{- \log (x) \varepsilon}
+        \le x e^{- c \sqrt{\log x} }.
+        \] 
+        Recall that we proved the following version of
+        the prime number theorem:
+        \begin{theorem}[Prime number theorem]
+            There exists a $c' > 0$ such that
+            \[
+            \psi (x) =
+            x + O \left( x
+            \exp \left( -c' \sqrt{\log x}  \right) \right) 
+            \] 
+        \end{theorem}
+        So by the above,
+        \[
+        \psi (x) = x +
+        O_m \left( \frac{x}{\log^{m}(x)} \right) 
+        \] 
+        So essentially, the error
+        term is smaller than
+        $\frac{x}{\log^{m}(x)}$ for any $x$ but still
+        larger than $x^{1-\varepsilon}$ for any
+        $\varepsilon > 0$.
+\end{proof}
+
+\begin{exercise}[E5.2]
+    Prove that the following two statements are equivalent:
+    \begin{enumerate}
+        \item There exists a $c >0$ such that
+            \[
+            \psi (x) = x + O\left( x \exp
+            \left( -c \sqrt{\log x}  \right) \right) 
+            \] 
+        \item There exists a $c > 0$ such that
+            \[
+            \pi(x) = li(x) + O \left( x \exp
+            \left( - c \sqrt{\log x}  \right) \right) 
+            \] 
+            where $li (x) = \int_{2}^{x} \frac{1}{\log t} dt $.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    Suppose $(1)$ is true. Then
+    \begin{align*}
+        \pi(x) 
+        &=
+    \frac{\psi (x)}{\log x} + \int_{2}^{x} 
+    \frac{\psi (t)}{t \log^2 t} dt + O \left( x^{\frac{1}{2}}
+    \log x\right)\\
+        &= \frac{x}{\log x} + O\left( \frac{x}{\log x}
+        \exp\left( -c \sqrt{\log x}  \right) \right) 
+        + \int_{2}^{x} \frac{1}{\log^2 t} 
+        + O\left( \frac{1}{\log^2 t \exp\left( c \sqrt{\log t} 
+        \right) } \right) dt
+        + O\left( x^{\frac{1}{2}} \log x \right) 
+    \end{align*}
+    Now
+    \[
+    \int_{2}^{x} \frac{1}{\log^2 t} dt
+    = - \frac{t}{\log t} \bigg|_{2}^{x} 
+    + li(x) 
+    \] 
+    giving
+    \[
+    \pi(x) = li(x) + \frac{2}{\log 2}
+    + O\left( \frac{x}{\log x} e^{-c \sqrt{\log x} } \right) 
+    + \int_{2}^{x} 
+    O\left( \frac{e^{- c \sqrt{\log t} }}{\log^2 t } \right) dt
+    + O \left( x^{\frac{1}{2}} \log x \right) 
+    \] 
+    All the middle terms apart from the
+    last two are clearly
+    $O \left( x e^{-c \sqrt{\log x} } \right) $.
+    To take care of the last term, we use the lemma:
+    \begin{lemma}[]
+        For any $a > 0$,
+        \[
+        \frac{\log x}{x^{a}} \to 0, \quad x \to \infty
+        \] 
+    \end{lemma}
+    Hence
+    $x^{\frac{1}{2}} \log x 
+    = O\left( x^{\frac{3}{4}} \right) 
+    = O\left( x e^{-c' \sqrt{\log x} } \right) $.\\
+
+    For the last part
+    \begin{align*}
+        \int_{2}^{x} O \left( \frac{e^{-c \sqrt{\log t} }}{\log^2 t}
+        \right)dt
+        &\le 
+    \end{align*}
+
+
+Note that the derivative of
+$x e^{-c \sqrt{\log x} }$ is 
+\[
+e^{-c \sqrt{\log x} } - c \frac{d}{dx} \left[ \sqrt{\log x} 
+\right] e^{-c \sqrt{\log x} }
+= e^{-c \sqrt{\log x} }
+-c \frac{1}{2} \frac{1}{x} \frac{1}{\sqrt{\log x} }
+e^{-c \sqrt{\log x } }
+\] 
+But as
+$x \to \infty$, this grows
+faster than
+$\frac{e^{-c} \sqrt{\log x} }{\log^2 x}$, which
+is what we wanted.\\
+\linebreak
+Now we want to show that
+$(2)$ implies $(1)$. So assume
+there exists a $c> 0$ such that
+\[
+\pi(x) = li(x) + O\left( x \exp\left( -c \sqrt{\log x} 
+\right) \right) .
+\] 
+Then recall that
+\[
+\psi (x) = 
+\pi(x) \log x - \int_{2}^{x} \frac{\pi(t)}{t} dt
+- O\left( x^{\frac{1}{2}} \log^2 x \right) 
+\] 
+So
+\begin{align*}
+    \psi (x)
+    &= li(x) \log x + \log x O\left( xe^{-c \sqrt{\log x} } \right) 
+    - \int_{2}^{x} \frac{li (t)}{t} dt
+    - \int_{2}^{x} O\left( e^{-c \sqrt{\log t} } \right)dt
+    - O\left( x^{\frac{1}{2}} \log^2 x \right) \\
+\end{align*}
+Now, by repeated integration by parts, we get
+\begin{align*}
+    li(x) 
+    &= \frac{t}{\log t} \bigg|_{2}^{x}
+    + \int_{2}^{x} \frac{1}{\log^2 t} dt\\
+    &= \frac{t}{\log t}\bigg|_{2}^{x}
+    + \left[ \frac{t}{\log^2 t} \bigg|_{2}^{x}
+    + 2 \int_{2}^{x} \frac{1}{\log^3 t}dt \right] \\
+    &= \frac{t}{\log t} + \frac{t}{\log^2 t}\bigg|_{2}^{x}
+    + 2 \left[ \frac{t}{\log^3 t} \bigg|_{2}^{x}
+    +  3 \int_{2}^{x} \frac{1}{\log^{4} t} dt  \right] \\
+    &= x \sum_{r=1}^{k-1} \frac{(r-1)!}{\log^{r} x}
+    + (k-1)! \int_{2}^{x}  \frac{1}{\log^{k} t} dt 
+\end{align*}
+
+\end{proof}
+
+
+
+
+\begin{exercise}[E5.3]
+    Let $f$ be a Schwartz function on the real line, and
+    let $\hat{f}$ be its Fourier transform. Show that
+    \[
+        \sum_{n \in \mathbb{Z}} f \left( \frac{v+n}{t} \right) 
+    = \sum_{n \in \mathbb{Z}} \left| t \right| 
+    \hat{f}\left( nt \right) e^{2 \pi i n v}.
+\]
+\end{exercise}
+
+\begin{proof}
+    a
+\end{proof}
+
+
+
 
     %\printbibliography
 \end{document}

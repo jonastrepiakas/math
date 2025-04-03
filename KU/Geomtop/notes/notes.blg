@@ -1,15 +1,5 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
 [0] Config.pm:310> INFO - Logfile is 'notes.blg'
-[145] biber:340> INFO - === Fri Mar 28, 2025, 20:45:16
-[173] Biber.pm:419> INFO - Reading 'notes.bcf'
-[259] Biber.pm:979> INFO - Found 11 citekeys in bib section 0
-[275] Biber.pm:4419> INFO - Processing section 0
-[296] Biber.pm:4610> INFO - Looking for bibtex file 'notes.bib' for section 0
-[297] bibtex.pm:1713> INFO - LaTeX decoding ...
-[317] bibtex.pm:1519> INFO - Found BibTeX data source 'notes.bib'
-[444] UCollate.pm:68> INFO - Overriding locale 'nil' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[444] UCollate.pm:68> INFO - Overriding locale 'nil' defaults 'variable = shifted' with 'variable = non-ignorable'
-[444] Biber.pm:4239> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'nil'
-[444] Biber.pm:4245> INFO - No sort tailoring available for locale 'nil'
-[458] bbl.pm:660> INFO - Writing 'notes.bbl' with encoding 'UTF-8'
-[463] bbl.pm:763> INFO - Output to notes.bbl
+[80] biber:340> INFO - === Sun Mar 30, 2025, 21:36:51
+[95] Utils.pm:399> ERROR - notes.bcf is malformed, last biblatex run probably failed. Deleted notes.bbl
+[95] Biber.pm:136> INFO - ERRORS: 1

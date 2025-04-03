@@ -1,12 +1,11 @@
 # Fdb version 4
-["biber notes"] 1743191115.44599 "notes.bcf" "notes.bbl" "notes" 1743245477.38793 0
-  "notes.bcf" 1743245477.17473 109099 23f7f4e641a09152e3f64b061ef6344a "pdflatex"
-  "notes.bib" 1743187039.9013 3761 d05c7347b5c8c88a4b53df8b79b144e4 ""
+["biber notes"] 1743363410.92456 "notes.bcf" "notes.bbl" "notes" 1743376601.30631 2
+  "notes.bcf" 1743376601.15472 109285 90ea5c56400377fb3c7721f72553c588 "pdflatex"
   (generated)
   "notes.bbl"
   "notes.blg"
   (rewritten before read)
-["pdflatex"] 1743245474.02436 "notes.tex" "notes.pdf" "notes" 1743245477.38842 0
+["pdflatex"] 1743376597.90517 "notes.tex" "notes.pdf" "notes" 1743376601.30661 0
   "/etc/texmf/web2c/texmf.cnf" 1718688975.81737 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/jonas-trepiakas/.texlive2023/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk" 1727527665.45445 6964 86acb68f026bd4eb7255bbd50e22f730 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -209,16 +208,20 @@
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1719350620 8213228 2bf4bdc60b7e8eadcc399e002a7ccc4d ""
   "32.png" 1743019717.94284 74213 37b56237a561f6b9996c5606c90a4d67 ""
   "3214255.png" 1743024194.80381 240520 fe775d3d70e60fbf9786af09fd704f6d ""
+  "Klein-bottle-construction.png" 1743257775.07449 21242 044f997614b2177d97092fef72ad9b13 ""
+  "S1-parallelizable.png" 1743338005.90838 23177 ee77ee4addcef95fabeea092d1918f97 ""
   "cobordism-example-1.png" 1742030452.52929 31416 61e63017883f8dd7bb05e5391951ae19 ""
   "fig3-2.png" 1742900064.19003 46575 41d0c3b28207a10aadfdab73a0b4bd66 ""
   "gradient-like-vector-field.png" 1742827751.0611 32130 c9d41000b6cb21700cd27e2063b09ec5 ""
+  "handle.png" 1743345948.90616 12170 0a2cee8054405207ed6b1420213e29bd ""
+  "handlebody.png" 1743347321.42059 29155 e71765612f5ac55d2a685c0a958f1d1c ""
   "level-sets.jpeg" 1742990675.81169 6383 fd25486f3e352f21061231130afdcb25 ""
-  "notes.aux" 1743245477.17173 12671 9ef0d21a46c663becd4820195c753b09 "pdflatex"
-  "notes.bbl" 1743191117.05876 13972 9491766f6a61e72451a0dc71a374c4b7 "biber notes"
-  "notes.out" 1743245477.17373 5312 7af901f9493b935f70f9460126531cef "pdflatex"
-  "notes.run.xml" 1743245477.17573 2276 cfbec4827927b5e3688c896d693f9468 "pdflatex"
-  "notes.tex" 1743245469.66067 205103 41e325288aa711b30ecdc7566a672a31 ""
-  "notes.toc" 1743245477.17573 4597 2788c31c41590d94605a80b6c1f352de "pdflatex"
+  "notes.aux" 1743376601.15172 14983 7f7bb3eefaf1fc66ef9ffb992392ca1b "pdflatex"
+  "notes.bbl" 0 -1 0 "biber notes"
+  "notes.out" 1743376601.15372 5953 07be9853daf804154092bc9902479ff8 "pdflatex"
+  "notes.run.xml" 1743376601.15472 2276 2183b05dfeec19f30197a21daa95250f "pdflatex"
+  "notes.tex" 1743376597.58669 249528 c0b965ef455024713b683901649d3686 ""
+  "notes.toc" 1743376601.15472 5674 81d3bd4bcfc1b21cfda422c6818686ae "pdflatex"
   "xy-graph.png" 1742922229.68716 17573 42a8f5cd88abb4cdd1099d9210ffea4a ""
   "y^2-x^2-graph.png" 1742922052.07087 24894 aa7da78a9bc03f843932bc69d79270a8 ""
   (generated)
