@@ -1204,6 +1204,104 @@ Now, by repeated integration by parts, we get
 \end{exercise}
 
 \begin{proof}
+    For a Schwartz function $f$, we know from the
+    Poisson summation formula that
+    \[
+    \sum_{n \in \mathbb{Z}} f(n)
+    = \sum_{n \in \mathbb{Z}} \hat{f}(n),
+    \] 
+    where
+    \[
+    \hat{f}(y) = \int_{-\infty}^{\infty} 
+    e^{-2 \pi i xy} f(x) dx
+    \] 
+    Define
+    $g(x) = f\left( \frac{v+x}{t} \right) $. Then
+    $g$ is also a Schwartz function, so
+    \[
+    \sum_{n\in \mathbb{Z}} g(n) = 
+    \sum_{n \in \mathbb{Z}}
+    \int_{-\infty}^{\infty} e^{-2 \pi i n x}
+    f\left( \frac{v+x}{t} \right) dx
+    \] 
+    Let
+    $z = \frac{v+x}{t}$. Then
+    $dz = \frac{1}{\left| t \right|} dx$, so
+    
+    \[
+    \sum_{n \in \mathbb{Z}}
+    f\left( \frac{v+n}{t} \right) 
+    = \sum_{n \in \mathbb{Z}}g(n)
+    = \sum_{n \in \mathbb{Z}}
+    \left| t \right|  e^{-2 \pi i n \left( tz-v \right) }
+    f(z) dz
+    = \sum_{n \in \mathbb{Z}}
+    \left| t \right| \hat{f}(nt) e^{2\pi i n v}
+    \] 
+\end{proof}
+
+
+\begin{exercise}[E5.4]
+    Let $\theta > \frac{1}{2}$. Prove that if
+    for every $\varepsilon > 0$, 
+    $\psi (x) = x + O\left( x^{\theta + \varepsilon} \right) $,
+    then the Riemann zeta function has
+    no zeroes in $\Re (s) > \theta$. 
+    (It turns out that this is in fact
+    an 'if and only if statement'). Think about
+    what this implies for the Riemann hypothesis. Compare
+    with the zerofree region provided by
+    Theorem 6.6.
+\end{exercise}
+
+\begin{proof}
+    By the explicit formula, if we simply let
+    $x$ range among $\mathbb{R} - \mathbb{Z}$, then
+    we have
+    \[
+    O\left( x^{\theta + \varepsilon} \right) 
+    = \lim_{T \to \infty} 
+    \sum_{\substack{\zeta(\rho) = 0\\ \left| \im \rho \right| 
+    \le T}} \frac{x^{\rho}}{\rho }
+    + \frac{\zeta'}{\zeta}(0) + \frac{1}{2} 
+    \log \left( 1 - \frac{1}{x^2} \right) ,
+    \] 
+    however, if there is a  $\rho $ with
+    $\Re (\rho) > \theta$, then choosing
+    $\varepsilon$ such that
+    $\theta < \varepsilon < \Re (\rho)$, we get
+    that the right hand side grows faster, giving
+    a contradiction.\\
+    \linebreak
+    Hence the Riemann hypothesis can be
+    reformulated as saying that
+    for any $\varepsilon > 0$,
+    \[
+    \psi (x) = x + O\left( x^{\frac{1}{2}+ \varepsilon} \right) .
+    \] 
+    Now, any $\theta$ would, of course, be a very strong improvement
+    combined with the zero-free region. This is because
+    the zero-free region tapers off as the imaginary
+    part grows in size, while
+    finding a $\theta$ such that the
+    above holds would imply, as shown, that
+    we can shrink the critical strip to
+    a narrower strip.
+\end{proof}
+
+\begin{exercise}[E5.5]
+    Let $p_n$ be the $n$ th prime. Show that
+    \[
+    \frac{1}{N} \sum_{n=1}^{N} \frac{p_{n+1}- p_n}{\log p_n}
+    \to 1
+    \] 
+    as $N \to \infty$, and discuss how to interpret
+    this as a statement about the average
+    spacing between adjacent primes.
+\end{exercise}
+
+
+\begin{proof}
     a
 \end{proof}
 
