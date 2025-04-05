@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1743693262.15373 "notes.tex" "notes.pdf" "notes" 1743693263.09803 0
+["pdflatex"] 1743806284.63474 "notes.tex" "notes.pdf" "notes" 1743806285.47565 0
   "/etc/texmf/web2c/texmf.cnf" 1718688975.81737 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1000.tfm" 1136768653 3584 2d666ecf6d466d8b007246bc2f94d9da ""
@@ -174,9 +174,9 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1719350542.55051 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1719350620 8213228 2bf4bdc60b7e8eadcc399e002a7ccc4d ""
-  "notes.aux" 1743693263.00063 1121 714bff1eadcd826ae20d0eed8b5ed317 "pdflatex"
-  "notes.out" 1743693263.00163 561 e1a2b4699edbf0b041255c1d80b2f535 "pdflatex"
-  "notes.tex" 1743693261.28963 38251 a180ab9eb3d9bedfdd7c46d5aa74b3db ""
+  "notes.aux" 1743806285.38283 1349 2228f37825f4007eb5fddbde0cc037be "pdflatex"
+  "notes.out" 1743806285.38383 809 3f829bb2142b347ea398be20f0939f8f "pdflatex"
+  "notes.tex" 1743806283.33983 49922 9c5e3d8114e81730fbc4d3ac24c7f7a3 ""
   (generated)
   "notes.aux"
   "notes.log"
