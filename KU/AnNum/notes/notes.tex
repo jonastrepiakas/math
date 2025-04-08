@@ -170,7 +170,7 @@
         \] 
     \end{lemma}
 
-    \begin{lemma}[]
+    \begin{lemma}[]\label{Lemma:39292}
         Let $\sigma > 1$. Then
         \[
         \Re \left( -3 \frac{\zeta '}{\zeta} (\sigma)-
@@ -1303,6 +1303,16 @@ Now, by repeated integration by parts, we get
 
 \begin{proof}
     By Abel summation, we have
+
+    \[
+    \sum_{n\le x}
+    \frac{p_{n+1}- p_n}{\log p_n}
+    = 
+    \frac{p_{\left[ x \right] +1}-2}{\log x}
+    - \int_{1}^{x} \frac{p_{\left[ t \right] +1}-2}{\log t}dt 
+    \] 
+
+
     \[
     \sum_{n\le x} \frac{p_n}{\log p_n}
     = \sum_{n\le x} p_n \frac{1}{\log x}
@@ -1349,6 +1359,613 @@ Now, by repeated integration by parts, we get
     = 
     \] 
 \end{proof}
+
+
+\section{Week 6}
+
+\begin{exercise}[E6.1]
+    Show, using Corollary 10.3, that
+    $\zeta(s)$ admits meromorphic continuation
+    to $s \in \mathbb{C}$. Show that
+    $\zeta\left( -2n \right) =0$ for
+    $n \in \mathbb{N} $ (we call these
+    zeroes \textit{trivial}), and that
+    all the non-trivial zeroes of
+    $\zeta(s)$ lie in
+    $0 < \Re(s) < 1$.
+\end{exercise}
+
+\begin{proof}
+    Here is Corollary 10.3:
+    \begin{corollary}[10.3]
+        The function
+        \[
+        \xi(s) = \frac{1}{2} s(s-1) \zeta(s)
+        \Gamma \left( \frac{s}{2} \right) 
+        \pi^{-\frac{s}{2}}
+        \] 
+        is entire, and
+        $\xi(s) = \xi (1-s)$ for all $s$.
+    \end{corollary}
+    Hence we can define $\zeta$ as
+    \[
+    \zeta(s) = \frac{ 2 \pi^{\frac{s}{2}} \xi(s)}{s (s-1)
+    \Gamma (\frac{s}{2})}
+    \] 
+    But using this, we see that
+    as a product and quotient of meromorphic functions, 
+    $\zeta$ is also meromorphic. In particular,
+    we know that $\Gamma (s)$ has poles
+    at $0, -1,-2,-3,\ldots$, which implies that
+    $\zeta$ has zeroes at
+    $-2, -4, -6, \ldots$ (to see this formally, use
+    Theorem 6.1 in KomAn). These are the
+    trivial zeroes. Now, by the Euler product
+    of $\zeta$, it has no zeroes 
+    in $\Re(s) > 1$. We also claim that
+    $\zeta$ has no other zeroes apart from the
+    nontrivial zeroes on $\Re(s) < 0$.
+    Indeed, the poles from $\Gamma$ has already been
+    accounted for, and
+    note that $\xi$ has no zeroes in
+    $\Re(s) < 0$ since then it would, by
+    its functional equation, have zeroes in
+    $\Re(s) > 0$, thus giving a zero
+    in $\Re(s) > 0$ to $\zeta$ also. 
+    Furthermore, it has no
+    zeroes on $\Re(s) = 1$ by the zero-free region, and
+    by symmetry of the functional equation stemming
+    from the symmetry of $\xi$, it also has no
+    zeroes on $\Re(s) = 0$.
+\end{proof}
+
+\begin{exercise}[E6.2]
+    Find all poles of $\zeta(s)$, and show that if
+    $\rho$ is a non-trivial zero
+    of $\zeta (s)$ then
+    $1- \rho $ and $\overline{\rho }$ are zeros
+    of $\zeta(s)$.
+\end{exercise}
+
+\begin{proof}
+    Since $\xi$ is analytic, all poles must
+    stem from zeroes of
+    $s(s-1) \Gamma (\frac{s}{2})$. Now,
+    $\Gamma$ has no zeroes by a theorem, hence
+    it does not give rise to any poles, so the only
+    possible poles are
+    $0$ and $1$. We know that it has
+    a pole at $1$ by its series representation/Landau's lemma, and
+    thus by the functional equation of
+    $\xi$, since
+    $\xi(1) = \xi(0)$ and
+    $\xi(1) \neq 0$ since $(s-1)$ cancels with the
+    pole from $\xi$, then also
+    $\xi(0)\neq 0$, so
+    $s$ must cancel. Now, $\Gamma$ has a simple pole at $0$, hence
+    this cancels with  $s$.
+    Since $\xi$ has no zeroes, $\zeta$ can therefore not
+    have a pole at $0$.\\
+    Concluding, $\zeta$ only has a single pole at $1$ which
+    is simple.\\
+    \linebreak
+    Now, if $\rho$ is a non-trivial zero,
+    then it lies in
+    $0 < \Re (s) < 1$, so also
+    $1 - \rho \in 0 < \Re (s) < 1$. 
+    In particular, since $\rho$ lies in the critical
+    strip, it does not arise from a pole
+    of $\Gamma$, hence it must arise from a zero
+    of $\xi (s)$, and thus also
+    $\xi \left( 1- \rho  \right) = \xi(\rho) = 0$ by the
+    functional equation. This shows that
+    $1- \rho $ is then also a zero. 
+    Now, note that
+    on $\zeta$ is at least real valued
+    on $\left( 0,1 \right) $ since
+    on here, $\zeta$ has the representation
+    \[
+    \zeta(s) = \frac{s}{s-1} + 
+    s \int_{1}^{\infty} \left( \left[ t \right] - t \right) 
+    t^{-s-1} dt
+    \] 
+    which in particular, is real valued on
+    $(0,1)$.
+    Thus $\zeta$ is reflection invariant everywhere by
+    exercise 6.3 in KomAn. I.e.,
+    $\overline{\zeta(s)}
+    = \zeta\left( \overline{s} \right) $. 
+    So if $\rho $ is a zero, then
+    so is $\overline{\rho }$.
+\end{proof}
+
+Recall that
+$\theta (u) = 
+\sum_{n \in \mathbb{Z}}
+e^{-\pi n^2 u}$ for $\Re (u) > 0$.
+
+\begin{exercise}[E6.3]
+    Show that $\theta (u) = 1 + O \left( e^{-\pi u} \right) $ 
+    for $u \in (1, \infty)$.
+\end{exercise}
+
+\begin{proof}
+    We have
+    $\theta (u) - 1 = 2 \sum_{n =1}^{\infty}
+    e^{- \pi n^2 u}
+    \le 2 \sum_{n=1}^{\infty}\frac{1}{2^{n-1}} e^{-\pi u}
+    = 4 e^{- \pi u}$ since
+    $\frac{1}{e^{\pi u (n^2 -1)}}
+    \le \frac{1}{2^{n-1}}$ for $u>1$ and
+    $n>1$.
+\end{proof}
+
+\begin{exercise}[E6.4]
+    Show that for $u$ real,
+    $\theta (u) \sim 
+    \sqrt{u}^{-1} $ when $u \to 0$.
+\end{exercise}
+
+\begin{proof}
+    Saying that $\theta(u) \sim 
+    \sqrt{u}^{-1} $ as $u \to 0$ is the statement that
+    $\sqrt{u} \theta (u) \to 1$ as $u \to 0$. But
+    recall that
+    $\theta (\frac{1}{u}) = 
+    \sqrt{u} \theta (u)$. So the statement is
+    precisely that
+    $\theta \left( \frac{1}{u} \right) \to 1$ as
+    $u \to 0$. Now
+    \[
+    \theta \left( \frac{1}{u} \right) 
+    =1+ 2 \sum_{n=1}^{\infty} e^{-\pi n^2 \frac{1}{u}}
+    \] 
+    and
+    \[
+    \lim_{u \to 0} \theta \left( \frac{1}{u} \right) 
+    = 1+ 2 \sum_{n=1}^{\infty} \lim_{u \to 0}
+    e^{- \pi n^2 \frac{1}{u}}
+    = 1.
+    \] 
+    Interchange of limit with sum here
+    is possible because of the dominated convergence theorem
+    (note that sums are just integrals with respect to the
+    counting measure on $\mathbb{N} $ ).
+\end{proof}
+
+
+\begin{exercise}[E6.5]
+    Show that if $\Re(s) > 1$, then
+    $\int_{0}^{\infty} \left( \theta(u)-1 \right) 
+    u^{\frac{s}{2}-1} du$ is convergent.
+\end{exercise}
+
+\begin{proof}
+    As a function of $s$,
+    $\left( \theta (u)-1 \right) 
+    u^{\frac{s}{2}-1}$ is holomorphic for
+    $\Re (s) > 1$, so by theorem 4.20 in KomAn,
+    \[
+    \int_{a}^{b} \left( \theta (u)-1 \right) u^{\frac{s}{2}-1}du
+    \] 
+    is convergent and holomorphic for
+    $a,b \ge  1$. Now, since
+    $\theta (\frac{1}{u}) = \sqrt{u} \theta(u)$, it
+    follows that $\theta$ is also convergent
+    on $(0,1]$.
+    It remains to show that the integral is convergent when we take
+    $a\to 0+$ and $b \to \infty$.
+    Let $a > 1$. Then
+    \[
+    \int_{a}^{b} \left( \theta (u)-1 \right) 
+    u^{\frac{s}{2}-1} du
+    =\int_{a}^{b} O \left( e^{-\pi u} u^{\frac{s}{2}-1} \right) du 
+    \] 
+    But
+    $O \left( e^{-\pi u}u^{\frac{s}{2}-1} \right) 
+    = O \left( \frac{1}{u^2} \right) $, so
+    \[
+    \int_{a}^{b} O \left( e^{-\pi u}u^{\frac{s}{2}-1} \right) du
+    \le - \frac{1}{u} \bigg|_{a}^{b}
+    = \frac{1}{a}- \frac{1}{b}
+    \to \frac{1}{a}, \quad \text{as } b\to \infty
+    \] 
+    Since the integral is also a monotone function, it converges.
+    Secondly, we must show that
+    \[
+    \lim_{a \to 0+} \int_{a}^{\infty}  
+    \left( \theta (u)-1 \right) u^{\frac{s}{2}-1} du
+    \] 
+    exists.
+
+    But $\theta (u) \sim \sqrt{u}^{-1} $ as $u \to 0$, so
+    for some $\delta > 0$, we have
+    \[
+    \left| \int_{0}^{\delta} \left( \theta(u)-1 \right) 
+    u^{\frac{s}{2}-1} du \right| 
+    \le \left| \int_{0}^{\delta} 
+    \left( \frac{1}{\sqrt{u} } - 1 \right) 
+    u^{\frac{s}{2}-1} du\right| + \varepsilon
+    < \infty
+    \] 
+    because $\Re (s) > 1$.
+    Hence the integral converges.
+\end{proof}
+
+\begin{exercise}[E6.6]
+    Find the value $\zeta (0)$.
+\end{exercise}
+
+\begin{solution}
+    We have
+    \[
+    \zeta(0) = 
+    \frac{\xi (s)}{-\frac{1}{2} s(1-s) \pi^{-\frac{s}{2}}
+    \Gamma(\frac{s}{2})} \bigg|_{s=0}
+    \] 
+    Now, the pole at $0$ for $\Gamma$ cancels with $s$, so
+    since $s \Gamma(s) = \Gamma(s+1)$, we have
+    $\Gamma\left( \frac{s}{2} \right) 
+    = \Gamma \left( \frac{s}{2}+1 \right) \frac{2}{s}$, so
+    we find
+    \[
+    \zeta(0) = 
+    \frac{\xi (0)}{-\frac{1}{2} \Gamma(1) 2}
+    = - \frac{\xi(0)}{\Gamma(1)} = -\xi(0)
+    = - \xi (1)
+    = \frac{1}{2} s (1-s) \pi^{-\frac{s}{2}}\Gamma(\frac{s}{2})
+    \zeta(s) \bigg|_{s=1}
+    \] 
+    Now
+    in this case, $(1-s)$ cancels with the pole of
+    $\zeta$ at $1$. 
+    Now, around $1$, we have
+    \[
+        (1-s)\zeta(s) = 
+        -s + s (1-s) 
+        \int_{1}^{\infty} \left( \left[ t \right] -t \right) 
+        t^{-s-1} dt
+    \] 
+    so $(1-s)\zeta(s) \bigg|_{s=1} = -1$.
+    Hence
+    \[
+    \zeta(0) = -\frac{1}{2} \pi^{-\frac{1}{2}}
+    \Gamma(\frac{1}{2})
+    \] 
+    But $\Gamma(\frac{1}{2}) = \pi^{\frac{1}{2}}$, so
+    \[
+    \zeta(0) = - \frac{1}{2}.
+    \] 
+    \qed
+\end{solution}
+
+\begin{exercise}[E6.7]
+    The table
+    \begin{table}[htpb]
+        \centering
+        \caption{caption}
+        \label{tab:label}
+        \begin{tabular}{c | c c c c c c c c c c c c c c}
+            n & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12
+              & 13 & 14 \\
+              \hline
+            $\chi(n)$ & 1 & 0 & -1 & 0 & -1 & 0 & 0 & 0 & 1 & 0 & 1
+            & 0 & -1 & 0
+        \end{tabular}
+    \end{table}
+    defines a Dirichlet character 
+    $\chi$ mod $14$. Find the
+    conductor $d$ of $\chi$ and find a primitive
+    $\chi_1$ mod $d$ such that
+    $\chi = \chi_1 \chi_0^{14}$.
+
+\end{exercise}
+
+\begin{solution}
+    The conductor is the smallest pseudo-period.
+    Recall that the conductor must divide the period, so
+    $d  \mid 14$. Hence there are $4$ possibilities for
+    the value of $d$: $1, 2, 7, 14$.
+    However, since  $\chi$ takes both the values
+    $1$ and $-1$, it cannot be $1$.
+    Now, also $1 \equiv 3 \pmod{2}$ and
+    $(3,14) = 1$, however,
+    $\chi(1) = 1 \neq -1 = \chi(3)$, so also
+    $2$ is not a pseudo-period. Now, for any
+    two numbers equivalent modulo $7$ in the list, one
+    is even while the other is odd, hence
+    the product cannot be relatively prime to $14$.
+    This implies that the condition for being
+    a pseudo-prime is trivially satisfied, so
+    $7$ is the conductor.
+    Next, we must find a primitive
+    $\chi_1$ mod $7$ such that
+    $\chi = \chi_1 \chi_0^{14}$.
+    Recall that the definition of $\chi_1$ is essentially
+    forced to be
+    $\chi_1 (n) = \chi(n)$ whenever
+    $(n,14) = 1$ which is for
+    $1,3$ and $5$ modulo $7$.
+    For $0,2,4,6$ modulo  $7$, we let
+    $\chi_1 (n) = \chi(n+7k)$ such that
+    $(n+7k, 14) = 1$, so either
+    $k = 0$ or $k= 1$.
+    Hence $\chi_1 (0) = 0,
+    \chi_1 (2) = \chi(9) = 1,
+    \chi_1(4) = \chi (11) = 1,
+    \chi_1(6) = \chi(13) = -1$, and then
+    extend this $7$-periodically. 
+    Then $\chi = \chi_1 \chi_0^{14}$.
+    \qed
+\end{solution}
+
+\begin{exercise}[E6.9]
+    Show that a character $\chi$ mod $q$ is real,
+    i.e., has real values, if and only if
+    $\chi^2 = \chi_0^{q}$. We call a character
+    \textit{quadratic} if
+    $\chi^2 = \chi_0^{q}$, but
+    $\chi \neq \chi_0^{q}$. Show that if
+    $\chi$ mod $q$ is real and $\chi(-1) = 1$, then the
+    Gauss symbol $\tau (\chi)$ is also real.
+    What happens if $\chi(-1) = -1$?
+\end{exercise}
+
+\begin{solution}
+    We have
+    $\chi \overline{\chi} = \chi_0^{q}$ since
+    $\overline{\chi}$ forms the inverse of
+    $\chi$ in the group of Dirichlet characters modulo
+    $q$. If $\chi$ is real, then
+    clearly $\chi^2 = \chi \overline{\chi} = 
+    \chi_0^{q}$. Conversely, if
+    $\chi^2 = \chi_0^{q} = \chi \overline{\chi}$, then
+    since these form a group, taking the inverse on both sides,
+    we get $\chi = \overline{\chi}$, hence
+    $\chi$ is real-valued.\\
+    Now, recall that
+    \[
+    \overline{\tau (\chi)} = \chi(-1)
+    \tau\left( \overline{\chi} \right) ,
+    \] 
+    so if
+    $\chi$ is real and $\chi(-1) = 1$, then
+    we simply get
+    $\overline{\tau(\chi)} = 
+    \tau(\chi)$, so
+    $\tau(\chi)$ is real. If
+    $\chi(-1) = -1$, we get
+    $\overline{\tau(\chi)} = 
+    - \tau(\chi)$ which means that
+    $\tau(\chi)$ is purely imaginary.
+\end{solution}
+
+
+\section{Week 7}
+
+\begin{exercise}[E7.1]
+    Let $\chi \mod q$ be the Legende symbol. I.e.,
+     \[
+    \chi(m) =
+    \begin{cases}
+        0, & \text{if } 5  \mid m\\
+        1, & \text{if } m \equiv a^2 \mod 5 \\
+        -1,& \text{if } m \not \equiv a^2 
+        \mod 5
+    \end{cases}
+    \] 
+    Show that $\chi$ is primitive and calculate
+    the Gauss sum $\tau(\chi)$.
+\end{exercise}
+
+\begin{solution}
+    A character is primitive if and only if
+    its conductor is its period. Here the
+    period of $\chi$ is $5$.
+    Since the conductor is a divisor of the period, the
+    conductor is either $1$ or $5$. Since
+    $\chi$ takes both values $1$ and $-1$, its
+    conductor must be $5$, hence $\chi$ is primitive.\\
+    To calculate the Gauss sum, we have
+    \begin{align*}
+    \tau(\chi) =
+    \sum_{a=1}^{5} \chi(a) e\left( \frac{a}{5} \right) 
+    &= e(\frac{1}{5}) - e(\frac{2}{5}) -
+    e\left( \frac{3}{5} \right) +
+    e\left( \frac{4}{5} \right) \\
+    &= -1 - 2 \left[ e^{2 \pi i \frac{2}{5}}
+    + e^{2\pi i \frac{3}{5}}\right] \\
+    &= -1 - 4 \cos \left( \frac{4 \pi }{5} \right)\\
+    &=\sqrt{5} 
+    \end{align*}
+\end{solution}
+
+\begin{exercise}[E7.2]
+    Let $\chi$ be a primitive Dirichlet character
+    modulo $q > 1$. Show that
+    \[
+    L \left( \frac{1}{2}, \chi \right) =
+    O \left( q^{\frac{1}{4}} \sqrt{\log q}  \right) .
+    \] 
+\end{exercise}
+
+\begin{proof}
+    We have
+    \begin{align*}
+        L \left( \frac{1}{2},\chi \right) 
+        &= \sum_{n =1}^{\infty} \frac{\chi(n)}{\sqrt{n} }\\
+        &= \sum_{n\le x} \frac{\chi(n)}{\sqrt{n} }
+        + \sum_{n>x} \frac{\chi(n)}{\sqrt{n} }
+    \end{align*}
+
+    Firstly, we have
+    \[
+    \sum_{n\le x} \frac{\chi(n)}{\sqrt{n} }
+    = \sum_{n\le x}\chi(n) \frac{1}{\sqrt{x} } + \frac{1}{2} 
+    \int_{1}^{x} \sum_{n\le t}\chi(n) t^{-\frac{3}{2}}  dt
+    \] 
+    Now, using Polya-Vinogradov, we have
+    \[
+    \sum_{n\le x} \chi(n) = O\left( \sqrt{q} 
+    \log q \right) 
+    \] 
+    so for $x$ sufficiently large, we have
+    $\sum_{n\le x} \chi(n) \frac{1}{\sqrt{x} }
+    \le q^{\frac{1}{4}} \sqrt{\log q} $.
+    Now
+    \[
+    - \sqrt{q}  \log q
+    \frac{1}{\sqrt{t} } \bigg|_{1}^{x}
+    =
+    \sqrt{q} \log q - \sqrt{q}  \log q \frac{1}{\sqrt{x} }
+    \] 
+
+
+    Alternatively,
+    \begin{align*}
+        \sum_{n>x} \frac{\chi(n)}{\sqrt{n} }
+        &= \sum_{n\le x} \chi(n) \frac{1}{\sqrt{x} }
+        \bigg|_{x}^{\infty} + \frac{1}{2}
+        \int_{x}^{\infty} \sum_{n\le t} \chi(n) t^{-\frac{3}{2}} dt\\
+        &=  - \sum_{n\le x}\chi(n) \frac{1}{\sqrt{x} }
+        -  O\left( \sqrt{q} \log q \right)
+        \left[ \frac{1}{\sqrt{t} } \right]_{x}^{\infty}\\
+        &= O \left( \sqrt{q}  \log q \frac{1}{\sqrt{x} } \right)  
+    \end{align*}
+
+    \[
+    \sum_{n\le x} \frac{\chi(n)}{\sqrt{n} }
+    \le 
+    \int_{1}^{x} \frac{\chi \left( \left[ t \right]  \right) }{
+    \sqrt{t-1} } dt 
+\] 
+
+
+
+
+\end{proof}
+
+\begin{exercise}[E7.3]
+    Let $f$ be a sufficiently nice real function on
+    $\mathbb{R}$, e.g., a Schwartz function. Show that
+    the Fourier transform of $f'$ is
+    $2\pi i y  \hat{f}(y)$. Let
+    $u > 0$. Show that the Fourier transform of
+    $xe^{- \pi u \left( qx \right)^2}$ is 
+    \[
+    - \frac{iy}{\left( u^{\frac{1}{2}}q \right)^3 } 
+    e^{-\pi u^{-1} \left( \frac{y}{q} \right)^2}.
+    \] 
+\end{exercise}
+
+\begin{proof}
+    \begin{align*}
+        \hat{f'}(y) 
+        &= \int_{-\infty}^{\infty} 
+        e^{-2 \pi i x y} f'(x) dx \\
+        &= \underbrace{e^{- 2 \pi i xy}}_{
+        \text{modulus }1}f(x)  \bigg|_{-\infty}^{\infty}
+        + \left( 2\pi i y \right) 
+        \underbrace{\int_{-\infty}^{\infty}  
+        e^{-2 \pi i xy}f(x) dx}_{= \hat{f}(y)}.
+    \end{align*}
+
+    Now,
+    let 
+    $f(x) = - \frac{1}{2\pi u q^2} e^{-\pi u \left( qx \right)^2}$.
+    Then $f'(x) = x e^{-\pi u \left( qx \right)^2}$.
+    So by the above
+    $\hat{f'}(y) = 
+    2 \pi i y \hat{f}(y)$.
+    Now
+    \begin{align*}
+    \hat{f'}(y) 
+    &=-\frac{2 \pi i y}{2\pi u q^2} \int_{-\infty}^{\infty}  
+    e^{- 2 \pi i x y} e^{-\pi u \left( qx \right)^2} dx\\
+    &= - \frac{iy}{u q^2}
+    e^{-\pi \left( \frac{y}{q \sqrt{u}  } \right)^2}
+    \int_{-\infty}^{\infty} 
+    e^{- \pi \left[ u \left( qx \right)^2 + 2i xy -
+    \left(  \frac{y}{q \sqrt{u}  } \right)^2  \right] } dx
+    \end{align*}
+    Let
+    $w = \left( \sqrt{u} qx + \frac{iy}{q \sqrt{u} } \right) $.
+    Then $dw = \sqrt{u} q dx$, so
+
+    \begin{align*}
+     - \frac{iy}{u q^2}
+    e^{-\pi \left( \frac{y}{q \sqrt{u}  } \right)^2}
+    \int_{-\infty}^{\infty} 
+    e^{- \pi \left[ u \left( qx \right)^2 + 2i xy -
+    \left(  \frac{y}{q \sqrt{u}  } \right)^2  \right] } dx
+    &=
+     - \frac{iy}{u^{\frac{3}{2}} q^3}
+    e^{-\pi \left( \frac{y}{q \sqrt{u}  } \right)^2}
+    \underbrace{\int_{-\infty}^{\infty} 
+    e^{- \pi w^2} dw}_{=1}\\
+    &= \frac{- iy}{\left( u^{\frac{1}{2}}q \right)^3}
+    e^{- \pi u^{-1} \left( \frac{y}{q} \right)^2}
+    \end{align*}
+
+\end{proof}
+
+\begin{exercise}[E7.4]
+    Let $\chi$ be an odd primitive character
+    (meaning $\chi(-1) = -1$ ). Define
+    \[
+    \vartheta_{\chi}(u)
+    := \sum_{n \in \mathbb{Z}} n \chi(n)
+    e^{-\pi n^2 u}.
+    \] 
+    Show that
+    \[
+    \vartheta_{\chi}(u)
+    = \frac{\tau(\chi)}{iq^2 u ^{\frac{3}{2}}}
+    \vartheta_{\overline{\chi}} 
+    \left( \frac{1}{q^2 u} \right) 
+    \] 
+\end{exercise}
+
+\begin{proof}
+    Recall from Theorem \ref{Poisson-summation-character} that
+    \[
+    \sum_{n \in \mathbb{Z}}\chi(n) f\left( \frac{n}{q} \right) 
+    = \tau(\chi) \sum_{n \in \mathbb{Z}}
+    \overline{\chi(n)} \hat{f}(n).
+    \] 
+    Letting $f(x) = 
+    qx e^{- \pi (qx)^2 u}$, we find that
+    \begin{align*}
+    \vartheta_{\chi}(u)
+    = \sum_{n \in \mathbb{Z}} \chi(n)
+    f \left( \frac{n}{q} \right) 
+    &= \tau(\chi) \sum_{n \in \mathbb{Z}}
+    \overline{\chi(n)}
+    \left( - \frac{in q}{\left( u^{\frac{1}{2}}q \right)^3}
+    e^{- \pi u^{-1} \left( \frac{n}{q} \right)^2 }\right) \\
+    &= \frac{\tau(\chi)}{i q^2 u^{\frac{3}{2}}}
+    \sum_{n \in \mathbb{Z}} \overline{\chi(n)}
+    n e^{- \pi u^{-1} \left( \frac{n}{q} \right)^2}\\
+    &=  \frac{\tau(\chi)}{i q^2 u^{\frac{3}{2}}}
+    \vartheta_{\overline{\chi}}\left( \frac{1}{q^2 u} \right) 
+    \end{align*}
+\end{proof}
+
+\begin{exercise}[E7.5]
+    Show that for
+    $\Re (s) > 1$, we have
+    \[
+    2 \pi^{\frac{-(s+1)}{2}} \Gamma\left( \frac{s+1}{2} \right) 
+    L \left( s, \chi \right) 
+    = \int_{0}^{\infty} 
+    \vartheta_{\chi}(u) u^{\frac{s+1}{2}} \frac{du}{u}.
+    \] 
+\end{exercise}
+
+\begin{proof}
+    a
+\end{proof}
+
 
 
 \section{Assignment 1}
@@ -1660,7 +2277,7 @@ Now, by repeated integration by parts, we get
         \item Prove that for
             $\sigma > 1, t \in \mathbb{R}$,
             \[
-            \Re \left( 3 \log \zeta (\sigma)
+            \Re := \Re \left( 3 \log \zeta (\sigma)
             + 4 \log \zeta \left( \sigma + it)
         + \log \zeta \left( \sigma+ 2it \right) \right) \right) 
         \ge 0.
@@ -1681,7 +2298,656 @@ Now, by repeated integration by parts, we get
 \end{exercise}
 
 \begin{proof}
-    i) 
+    (1) We want to make use of
+    Lemma \ref{Lemma:02329} or Lemma
+    \ref{Lemma:39292}.
+
+    We have
+    \[
+    \log \zeta \left( s \right) 
+    = \sum_{n=1}^{\infty} \frac{\Lambda (n)}{\log n}n^{-s}
+    \] 
+    for $\sigma = \Re (s) > 1$.
+    Thus
+    $\Re \left( \log \zeta (s) \right) 
+    = \sum_{n=1}^{\infty} \frac{\Lambda (n)}{\log n}
+    \frac{1}{n^{\sigma}} \cos \left( t \log n \right) $ by
+    \eqref{A-1}.
+    Hence
+    \begin{align*}
+        \Re 
+        &= \sum_{n=1}^{\infty} 
+        \frac{\Lambda (n)}{n^{\sigma} \log n}
+        \left[ 3 + 4 \cos (t \log n) +
+        \cos (2t \log n )\right]
+        \ge 0
+    \end{align*}
+    since all the terms are positive.\\
+    \linebreak
+    (2)
+    Let
+    \[
+    X :=  \zeta (\sigma)^3 
+    \zeta\left( \sigma + it  \right)^{4} 
+    \zeta \left( \sigma + 2 it  \right) 
+    \] 
+    Then
+    $\Re \log X \ge 0$, hence
+    $\left| X \right|  = \left| e^{\log X} \right|  =
+    \left| e^{\Re \log X} \right| 
+      \ge 1$.\\
+      \linebreak
+      (3) Suppose
+      $\zeta \left( 1+ it_0  \right) =0$.
+      Since
+      $X$ is continuous as a function of
+      $\sigma$ with fixed $t_0$
+      for $\sigma > 1$, we find that
+      if
+      \[
+      X_{t_0} (\sigma) = \zeta(\sigma)^3
+      \zeta\left( \sigma + it_0  \right)^{4}
+      \zeta \left( \sigma + 2 it_0  \right) 
+      \] 
+      then the claim is
+      $\lim_{\sigma \to 1+}X_{t_0}(\sigma) = 0$.
+      Recall that $\zeta$ is meromorphic
+      on $\mathbb{C}$ and has only one
+      pole which is at $1$ and is simply.
+      So in particular,
+      $(s-1) \zeta(s)$ is holomorphic around
+      $1$, so let
+      $g(s) = (s-1) \zeta(s)$.
+      In particular then, if
+      $t_0 \neq 0$, we then
+      $1+ it_0 $ is not a pole, so
+      if we write
+      $\zeta \left( s \right) 
+      = (s- \left( 1+it_0  \right))
+      h(s)$ near $1+it_0 $, then we get
+      that for $\sigma$ close to $1$, we have
+      \begin{align*}
+      X_{t_0}(\sigma) 
+      &= 
+      \frac{g(\sigma)^3}{(\sigma-1)^3}
+      \left( \left( \sigma + it_0  \right) 
+      - \left( 1+it_0  \right)  \right)^{4}
+      h(\sigma + it_0) 
+      \zeta \left( \sigma + 2 it_0 \right) \\
+      &= \left( \sigma-1 \right) g(\sigma)^3
+      h\left( \sigma+it_0 \right) 
+      \zeta\left( \sigma+ 2it_0 \right) \to
+      0, \quad \sigma \to 1+
+      \end{align*}
+
+      (4) Since $X 
+      \left( \sigma + it \right) \ge 1$ for
+      all $\sigma > 1$, we thus cannot
+      have that
+      $X\left( 1+it \right) = 0$
+      since continuity would break.
+
+\end{proof}
+
+\section{Assignment 3}
+
+\begin{definition}[$k$-almost prime]
+    For a number
+    $n = p_1^{a_1} \cdots
+    p_m^{a_m}$, let
+    $\Omega (n) = \sum_{i=1}^{m} a_i$.
+    Then $n$ is called a
+    $k$-almost prime if
+    $\Omega (n) = k$.
+    Let $P_k$ denote the
+    set of $k$-almost primes.
+    Then define
+    $\pi_k(x) = 
+    \# \left( \left\{ 1, \ldots, \left[ x \right]  \right\} 
+    \cap P_k \right)$, i.e., the
+    number of $k$-almost primes
+    less than or equal to $x$.
+\end{definition}
+
+\begin{exercise}[H3.1]
+    \begin{enumerate}
+        \item Show that
+            \[
+            \pi_2(x) = 
+            \sum_{p \le \sqrt{x} }
+            \pi\left( \frac{x}{p} \right) +
+            O\left( \frac{x}{\log^2 x} \right) 
+            \] 
+        \item Show that the sum in (1) is
+            \[
+            \sum_{p\le \sqrt{x} }
+            \frac{x}{p \log \left( \frac{x}{p} \right) }
+            + O \left( \frac{x \log \log x}{\log^2 x} \right) 
+            \] 
+        \item Use PNT and summation by parts to show
+            that the above sum is
+            \[
+            x \int_{2}^{\sqrt{x} } 
+            \frac{1}{u \log \left( \frac{x}{u} \right) 
+            \log u} du +
+            O \left( \frac{x}{\log x} \right) .
+            \] 
+        \item Show that
+             \[
+            \pi_2 (x) =
+            x \frac{\log \log x}{\log x}
+            + O \left( \frac{x}{\log x} \right) .
+            \] 
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    (1) Suppose
+    $n \in \left\{ 1, \ldots, \left[ x \right]  \right\} 
+    \cap P_2$, so
+    $n = p_1 p_2$ where we don't necessarily have
+    that $p_1 \neq p_2$. Suppose without loss of generaliy
+    that $p_2 \ge p_1$. Then, in particular,
+    $\frac{n}{p_2} = p_1 \le \sqrt{x} $.
+    For suppose for the contrary that
+    $p_1 > \sqrt{x} $. Then
+    $p_2 > \sqrt{x} $, so
+    $x < p_1p_2 = n \le x$, contradiction. 
+
+    Using this, we see that
+    \[
+    \pi_2 (x) = 
+    \sum_{p_1 \le \sqrt{x}}
+    \sum_{p_1 < p_2 \le \frac{x}{p_1}} 1
+    =
+    \sum_{p \le \sqrt{x} }
+    \pi \left(\frac{x}{p} \right) - \pi(p)
+    \le  \sum_{p \le \sqrt{x} }
+    \pi\left( \frac{x}{p} \right) 
+    + O \left( \sum_{p \le \sqrt{x} }
+    \pi(p) \right) 
+    \] 
+    And
+    \[
+    \sum_{p \le \sqrt{x} }\pi(p)
+    \le \pi\left( \sqrt{x}  \right)^2
+    = O \left( \frac{x}{\log^2 \left( \sqrt{x}  \right) } \right) 
+    = O \left( \frac{x}{\log^2 x} \right) 
+    \] 
+    since $\log^2 \left( x^{\frac{1}{2}} \right) 
+    = \frac{1}{4} \log^2 x$, where
+    we also used $\pi(x) = O \left( \frac{x}{\log x} \right) $.\\
+    \linebreak
+    (2) 
+    By the PNT, 
+    $\pi(x) = \frac{x}{\log x} + O\left( \frac{x}{\log^2 x} \right) $,
+    so
+    \[
+    \sum_{p \le \sqrt{x} } \pi \left( \frac{x}{p} \right) 
+    = \sum_{p \le \sqrt{x} } 
+    \frac{\frac{x}{p}}{\log \left( \frac{x}{p} \right) }
+    + O \left( \frac{\frac{x}{p}}{\log^2 \left( \frac{x}{p}
+    \right) } \right) 
+    \] 
+    Now
+    \[
+    \sum_{p\le \sqrt{x} }
+    \frac{x}{p \log^2 \left( \frac{x}{p} \right) }
+    \le 
+    \sum_{p\le \sqrt{x} }
+    \frac{x}{p \log^2 \left( \sqrt{x}  \right) }
+    \le \frac{x}{4 \log^2 x} O \left( \log \log \sqrt{x}  \right) 
+    = O \left( \frac{x \log \log x}{\log^2 x} \right),
+    \] 
+    giving
+    \[
+    \sum_{p \le \sqrt{x} }\pi\left(\frac{x}{p}\right)
+    =
+    \sum_{p\le \sqrt{x} } \frac{x}{p \log\left( \frac{x}{p} \right) }
+    + O \left( \frac{x \log \log x}{\log^2 x} \right).
+    \] 
+    (3) 
+    Let
+    $f(y) = \frac{1}{y \log(\frac{x}{y})}$ and
+    $a_n = \delta_{n, \text{ prime}}$.
+    Then
+    \[
+    f'(y) = - \frac{1}{y^2 \log\left( \frac{x}{y} \right) }
+    - \frac{y}{xy \log^2 \left( \frac{x}{y} \right) }
+    =- \frac{1 }{y^2 \log \left( \frac{x}{y} \right) }
+    - \frac{1}{x \log^2 \left( \frac{x}{y} \right) }.
+    \] 
+    \begin{align*}
+        \sum_{p\le \sqrt{x} } \frac{x}{p
+        \log \left( \frac{x}{p} \right) }
+        &= \frac{\pi\left( \sqrt{x}  \right) x}{\sqrt{x} 
+        \log \left( \sqrt{x}  \right) }
+        - x \int_{1}^{\sqrt{x} } 
+        \pi(t) 
+        \left[ \frac{- 1 }{t^2 \log\left( \frac{x}{t} \right) }
+        - \frac{1}{x \log^2 \left( \frac{x}{t} \right) }\right] dt
+    \end{align*}
+    Firstly,
+    \[
+    \frac{\pi\left( \sqrt{x}  \right) x}{\sqrt{x} 
+    \log \left( \sqrt{x}  \right) }
+    = \frac{x}{4 \log^2 x}
+    + O\left( \frac{x}{\log^3 x} \right) 
+    = O \left( \frac{x}{\log x} \right) .
+    \] 
+    Secondly,
+    \[
+    x \int_{1}^{\sqrt{x} } 
+    \frac{\pi(t)}{t^2 \log\left( \frac{x}{t} \right) } dt
+    = x
+\int_{1}^{\sqrt{x} } \frac{1}{
+    t \log t \log \left( \frac{x}{t} \right) } dt
+    \] 
+    which is precisely the term we want. 
+    It only remains to show that
+    \[
+    x \int_{1}^{\sqrt{x} } \frac{\pi(t)}{x
+    \log^2 \left( \frac{x}{t} \right) } dt
+    = O\left( \frac{x}{\log x} \right) .
+    \] 
+    I.e.
+    
+    \[
+     \int_{1}^{\sqrt{x} } \frac{\pi(t)}{x
+    \log^2 \left( \frac{x}{t} \right) } dt
+    = O\left( \frac{1}{\log x} \right) .
+    \] 
+    Now
+    \[
+    \int_{2}^{\sqrt{x} } 
+    \frac{\pi(t)}{x \log^2 \left( \frac{x}{t} \right) }
+    dt = 
+    \int_{2}^{\sqrt{x} } \frac{t}{x \log t
+    \log^2 \left( \frac{x}{t} \right) } dt
+    + \int_{2}^{\sqrt{x} } 
+    O\left( \frac{t}{x \log^2 (t) \log^2
+    \left( \frac{x}{t} \right) } \right) dt
+    \] 
+    The derivative of
+    $\frac{1}{\log x}$ is
+    $- \frac{1}{x \log^2 x}$.
+    Now
+    \[
+    \left| \int_{2}^{\sqrt{x} } \frac{t}{x
+    \log t \log^2 \left( \frac{x}{t} \right) }
+    dt \right|
+    \le 
+    \left| \int_{2}^{\sqrt{x} } 
+    \frac{1}{t \log^3 t}dt \right|
+    \le 
+    \left| \int_{2}^{\sqrt{x} } 
+    \frac{1}{t \log^2 t} dt\right| 
+    \le \left| \frac{1}{\log t} \bigg|_{2}^{\sqrt{x} }  \right| 
+    = O \left( \frac{1}{\log x} \right) 
+    \] 
+    Furthermore, the
+    second term is even
+    smaller in size, hence
+    also $O \left( \frac{1}{\log x} \right) $.\\
+    \linebreak
+    (4) Putting the above together, we find that
+    \begin{align*}
+        \pi_2(x) 
+        &= \sum_{p \le \sqrt{x} } \pi\left( \frac{x}{p} \right) 
+        + O \left( \frac{x}{\log^2 x} \right) \\
+        &=
+        \sum_{p\le \sqrt{x} } \frac{x}{p \log\left( 
+        \frac{x}{p} \right) } +
+        O\left( \frac{x \log \log x}{\log^2 x} \right) 
+        + O \left( \frac{x}{\log^2 x} \right) \\
+        &= x \int_{2}^{\sqrt{x} } 
+        \frac{1}{t \log \left( \frac{x}{t} \right) \log t}dt
+        + O \left( \frac{x}{\log x} \right) 
+        + O \left( \frac{x \log \log x}{\log^2 x} \right) 
+        + O \left( \frac{x}{\log^2 x} \right)\\
+        &= x \int_{2}^{\sqrt{x} } \frac{1}{t \log \left( \frac{x}{t}
+        \right) \log t} dt + O \left( \frac{x}{\log x} \right) . 
+    \end{align*}
+
+    Now, setting
+    $\log t = v$, we get
+    $dv = \frac{1}{t} dt$, so
+    \begin{align*}
+        x \int_{2}^{\sqrt{x} } 
+        \frac{1}{t \log \left( \frac{x}{t} \right) \log t} dt
+        &= x 
+        \int_{\log 2}^{\log \sqrt{x} } 
+        \frac{1}{v \left( \log x
+        -v\right) } dv\\
+        &= \frac{x}{\log x}
+        \int_{\log 2}^{\log \sqrt{x} } 
+        \frac{1}{v} + \frac{1}{\log x - v} dv\\
+        &= \frac{x}{\log x} \left[ \log \log \sqrt{x} 
+        - \log \log 2 \right] 
+        - \frac{x}{\log x}
+        \left[ \log \left( \log x - \log \sqrt{x}  \right) -
+        \log \left( \log x - \log 2 \right) \right] \\
+        &= \frac{x}{\log x} \left[ 
+        \log \log \frac{x}{2} - \log \log 2 \right] 
+        = x \frac{\log \log x}{\log x} + 
+        O \left( \frac{x}{\log x} \right) .
+    \end{align*}
+    This completes the proof.
+\end{proof}
+
+\begin{exercise}[H3.2]
+    Show that for $x$ sufficiently large, there
+    are more primes in the interval
+    $(1, x]$ than in the interval
+    $(x, 2x]$.
+\end{exercise}
+
+\begin{proof}
+    What this is saying is essentially that
+    for $x$ sufficiently large,
+    $\pi(x) > \pi(2x) - \pi(x)$, i.e.,
+    $2 \pi(x) > \pi(2x)$. By the prime number theorem, we
+    have
+    \[
+    \pi(x) = li(x) + O\left( \frac{x}{e^{c \sqrt{\log x} }} \right) 
+    \] 
+    So
+    \[
+    2\pi(x) - \pi(2x)
+    = 2 li(x) - li(2x)
+    + O \left( \frac{x}{e^{c' \sqrt{\log x} }} \right) 
+    \] 
+    Now
+    \[
+    2 li(x) - li(2x)
+    = 2 \int_{2}^{x} \frac{1}{\log t}dt
+    - \int_{2}^{2x} \frac{1}{\log t}dt
+    = \int_{2}^{x} \frac{1}{\log t}dt
+    - \int_{x}^{2x} \frac{1}{\log t} dt 
+    \] 
+
+    Now,
+    $\log t \le t$, so
+    $\int_{2}^{x} \frac{1}{\log t} dt
+    \ge \int_{2}^{x} \frac{1}{t}dt
+    = \log x - \log 2$.
+
+    In a weaker form, the prime number theorem says that
+    \[
+    \pi(x) = \frac{x}{\log x} + O\left( \frac{x}{\log^2 x} \right) .
+    \] 
+    Using this, we obtain
+    \begin{align*}
+    2 \pi(x) - \pi(2x)
+    &= 2x \left[ \frac{1}{\log x} - \frac{1}{\log 2x} \right] 
+    + 2x\left[ O \left( \frac{1}{\log^2 x} \right) 
+    - O \left( \frac{1}{\log^2 2x} \right)  \right]\\
+    &= 2 \log 2 \frac{x}{\log 2x \log x} + \ldots
+    \end{align*}
+
+    Now
+    \[
+    \frac{1}{\log x} - \frac{1}{\log 2x}
+    = \frac{\log 2}{\log x \log 2x}
+    \] 
+    So
+    $\frac{1}{\log 2x} = \frac{1}{\log x} + 
+    O \left( \frac{1}{\log^2 x} \right) $.
+    Thus
+    \[
+    2 \log 2 \frac{x}{\log 2x \log x}
+    = 2 \log 2 \frac{x}{\log^2 x}
+    + O \left( \frac{x}{\log^3 x} \right) .
+    \] 
+    Now
+    \[
+    \left| \left| \frac{1}{\log^2 2x} \right| -
+    \left| \frac{1}{\log^2 x} \right| \right| 
+    \le \left| \frac{1}{\log^2 x}- \frac{1}{\log^2 2x} \right| 
+    =
+    \left| \frac{2 \log 2 \log x + \log^2 2}{\log^2 x \log^2 2x}
+    \right| 
+    \le \left| \frac{2 \log 2 \log x + \log^2 2}{
+    \log^{4} x} \right| 
+    \] 
+    Hence
+    also the last term is
+    $O \left( \frac{x}{\log^3 x} \right) $, so
+    we get
+    \[
+    2 \pi(x) - 2 \pi(x) = 
+    2 \log 2 \frac{x}{\log^2 x} + 
+    O \left( \frac{x}{\log^3 x} \right) .
+    \] 
+    Now, both
+    $\frac{x}{\log^2 x}$ and
+    $\frac{x}{\log^3 x}$ go to
+    $\infty$ as $x \to \infty$, however,
+    $\frac{x}{\log^2 x}$ grows faster, so
+    we can find a $N \in \mathbb{N} $ such that
+    $2 \log 2 \frac{N}{\log^2 N}
+    > \frac{N}{\log^3 N} + 1$. In particular,
+    this implies that
+    there is at least one more
+    prime in
+    $(x,2x]$ than in $(1,x]$.
+\end{proof}
+
+\section{Assignment 4}
+
+\begin{exercise}[H4.1]
+    Let $f \in \mathcal{S}(\mathbb{R})$ be a 
+    Schwartz-function on the real axis and
+    let $\hat{f}(y)  =
+    \int_{\mathbb{R}} f(t) e^{-2\pi i t y}dt$ be its
+    Fourier transform. Let
+    $F(x) = \sum_{m \in \mathbb{Z}}
+    f(x+m)$.
+    \begin{enumerate}
+        \item Show that the sum defining $F(x)$ is convergent
+            and that
+            \[
+            F(x) = \sum_{m \in \mathbb{Z}}
+            \hat{f}(m) e^{2\pi i mx}.
+            \] 
+            Let now $\chi$ be a primitive Dirichlet character
+            modulo $q$.
+        \item Show that
+            \[
+            \sum_{m \in \mathbb{Z}}
+            \chi(m) f\left( \frac{m}{q} \right) 
+            = \sum_{a=1}^{q}\chi(a)
+            F\left( \frac{a}{q} \right) .
+            \] 
+        \item Show that
+            \[
+            \sum_{a=1}^{q} \chi(a) F(\frac{a}{q})
+            = \tau(\chi) \sum_{m \in \mathbb{Z}}
+            \overline{\chi(m)} \hat{f}(m).
+            \] 
+        \item Wrap up 2) and 3) by stating in full a theorem
+            that can be considered a character version
+            of the Poisson summation formula.\\
+            Let $\theta_{\chi}(u) = 
+            \sum_{n \in \mathbb{Z}} \chi(n)
+            e^{- \pi n^2 u}$.
+        \item Show that
+            \[
+            \theta_{\chi}(u) = 
+            \frac{\tau (\chi)}{q u^{\frac{1}{2}}}
+            \theta_{\overline{\chi}} \left( \frac{1}{q^2 u} \right) .
+            \] 
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    (1) If $f \in \mathcal{S}(\mathbb{R})$, then also
+    $f\left( x+m \right) \in \mathcal{S}(\mathbb{R})$,
+    so letting $g (m) := f(x+m)$, we get
+    by Poisson's summation formula that
+    \[
+    \sum_{m \in \mathbb{Z}} g(x)
+    = \sum_{m \in \mathbb{Z}} \hat{g}(x)
+    \] 
+    where $
+    \hat{g}(y) = \int_{-\infty}^{\infty} 
+    e^{-2 \pi i x y }g(x) dx$. Thus
+    \[
+    F(x) = \sum_{m \in \mathbb{Z}}f(x+m)
+    = \sum_{m \in \mathbb{Z}}g(m)
+    = \sum_{m \in \mathbb{Z}}
+    \hat{g}(m) 
+    = \sum_{m \in \mathbb{Z}}
+    \int_{-\infty}^{\infty} e^{-2 \pi i t m}
+    f(x+t) dt
+    \] 
+    Let now
+    $w = x+t$. Then
+    $dw = dt$, so
+    \[
+    \sum_{m \in \mathbb{Z}}
+    \int_{-\infty}^{\infty} e^{-2\pi i t m}
+    f(x+t) dt
+    = \sum_{m \in \mathbb{Z}}
+    \int_{-\infty}^{\infty} 
+    e^{-2 \pi i (w-x) m} f(w) dw
+    = \sum_{m \in \mathbb{Z}} \hat{f}(m) e^{2 \pi i m x}.
+    \] 
+    (2) Since $
+    \chi$ is $q$-periodic, we have
+    \begin{align*}
+        \sum_{m \in \mathbb{Z}}\chi(m) f\left( \frac{m}{q} \right) 
+        &= \sum_{a=1}^{q}
+        \chi (a) \sum_{k \in \mathbb{Z}}
+        f \left( \frac{a}{q} + k \right) \\
+        &= \sum_{a=1}^{q}
+        \chi(a) F \left( \frac{a}{q} \right) .
+    \end{align*}
+
+    (3) Since $\chi$ is primitive, we know that
+    \[
+    \chi(n) \tau (\overline{\chi}) =
+    c_{\overline{\chi}}(n) \tag{$\mathcal{A}_1$} \label{mcalA-1}
+    \] 
+
+    \begin{align*}
+        \sum_{a=1}^{q}\chi(a) F\left( \frac{a}{q} \right) 
+        &= \sum_{a=1}^{q} \chi (a)
+        \sum_{m \in \mathbb{Z}} \hat{f}(m) e^{2\pi i m \frac{a}{q}}\\
+        &= \sum_{m \in \mathbb{Z}}
+        \hat{f}(m) \sum_{a=1}^{q}
+        \chi(a)  e^{2 \pi i m \frac{a}{q}}\\
+        &= \sum_{m \in \mathbb{Z}} \hat{f}(m)
+        c_{\chi}(m)\\
+        &\stackrel{\eqref{mcalA-1}}{=} 
+        \tau (\chi) \sum_{m \in \mathbb{Z}}
+         \overline{\chi}(m) \hat{f}(m)
+    \end{align*}
+
+    (4) 
+
+    \begin{theorem}[Poisson summation formula, character
+        version]\label{Poisson-summation-character}
+    If $f \in \mathcal{S}(\mathbb{R})$, then
+    \[
+    \sum_{m \in \mathbb{Z}} 
+    \chi(m) f \left( \frac{m}{q} \right) =
+    \tau(\chi) \sum_{m \in \mathbb{Z}}
+    \overline{\chi(m)} \hat{f}(m).
+    \] 
+    \end{theorem}
+
+    (5) Let
+    $\theta_{\chi}(u) = 
+    \sum_{m \in \mathbb{Z}}\chi(m) e^{-\pi m^2 u}$.
+    Let $f_u(x) = e^{- \pi u (qx)^2}$, so
+    $\theta_{\chi}(u) = 
+    \sum_{m \in \mathbb{Z}} \chi(m)
+    f_u (\frac{m}{q})$.\\
+    \linebreak
+    Then
+    \begin{align*}
+        \theta_{\chi}(u)
+        &= \tau (\chi) 
+        \sum_{m \in \mathbb{Z}}
+        \overline{\chi}(m)
+        \int_{-\infty}^{\infty} 
+        e^{- \pi u (qt)^2}
+        e^{-2 \pi i t m} dt\\
+        &= \tau (\chi) 
+        \int_{-\infty}^{\infty} 
+        e^{- \pi u (qt)^2}
+        \sum_{m \in \mathbb{Z}}\overline{\chi}(m)
+        e^{- 2 \pi i t m } dt\\
+        &= 
+        \tau(\chi) 
+        \int_{-\infty}^{\infty} e^{-\pi u (qt)^2}
+        \sum_{a=1}^{q}
+        \overline{\chi}(a)
+        \sum_{m \in \mathbb{Z}}
+        e^{-2 \pi i t q \left( \frac{a}{q} + m \right) } dt
+    \end{align*}
+    Let
+    $z = qt$, so
+    $dz = q dt$, then
+    \begin{align*}
+        \tau(\chi) 
+        \int_{-\infty}^{\infty} e^{-\pi u (qt)^2}
+        \sum_{a=1}^{q}
+        \overline{\chi}(a)
+        \sum_{m \in \mathbb{Z}}
+        e^{-2 \pi i t q \left( \frac{a}{q} + m \right) } dt
+        &= \tau(\chi) \frac{1}{q}
+        \int_{-\infty}^{\infty} e^{- \pi u z^2}
+        \sum_{a=1}^{q} \overline{\chi}(a)
+        \sum_{m \in \mathbb{Z}}
+        e^{- 2 \pi i z \left( \frac{a}{q}+m \right) } dz\\
+        &= \frac{\tau(\chi)}{q}
+        \int_{-\infty}^{\infty} 
+        e^{- \pi u z^2} \sum_{m \in \mathbb{Z}}
+        \overline{\chi}(m) e^{- 2 \pi i z \frac{m}{q}}dz
+    \end{align*}
+    Now let
+    $w = \sqrt{u} z $, so
+    $dw = \sqrt{u}  dz$. Then
+    \begin{align*}
+        \frac{\tau(\chi)}{q}
+        \int_{-\infty}^{\infty} 
+        e^{- \pi u z^2} \sum_{m \in \mathbb{Z}}
+        \overline{\chi}(m) e^{- 2 \pi i z \frac{m}{q}}dz
+        &= 
+        \frac{\tau(\chi)}{\sqrt{u} q}
+        \int_{-\infty}^{\infty} 
+        e^{- \pi w^2} \sum_{m \in \mathbb{Z}}
+        \overline{\chi}(m) e^{-2 \pi i \frac{wm}{\sqrt{u} q }} 
+        dw
+    \end{align*}
+
+    
+    Let
+    $v = \frac{t}{\sqrt{u} }$. Then
+    $dv = \frac{1}{\sqrt{u} } dt$, so
+    \begin{align*}
+        \frac{1}{\sqrt{u} }
+        \sum_{m \in \mathbb{Z}}\chi(m)
+        \int_{-\infty}^{\infty} 
+        e^{- \frac{\pi}{u} t^2 - 2 \pi i t m}dt
+        &= \sum_{m \in \mathbb{Z}}
+        \chi(m) \int_{-\infty}^{\infty} 
+        e^{-\pi v^2 - 2 \pi i v \sqrt{u} m} dv\\
+        &= \int_{-\infty}^{\infty} 
+        e^{- \pi v^2} \sum_{m \in \mathbb{Z}}
+        \chi(m) e^{-2 \pi i v \sqrt{u}  m} dv\\
+        &= \int_{-\infty}^{\infty} e^{- \pi v^2}
+    \end{align*}
+
+
+
+
+
+
+
+
 \end{proof}
 
 
