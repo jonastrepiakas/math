@@ -237,6 +237,39 @@ Let $\psi (x) :=
     \] 
 \end{exercise}
 
+\begin{proof}
+    \begin{align*}
+        \psi (x) - \sum_{p\le x} \log p
+        &= \sum_{\substack{n\le x\\ n=p^{k}}}  \log p
+        -\sum_{p\le x} \log p\\
+        &= \sum_{\substack{p^{k}\le x \\ k\ge 2}}
+        \log p
+    \end{align*}
+
+For each prime $p$, we have some maximal $N$ such that
+$p^{N}\le x$ and
+$N = \left[ \frac{\log x}{\log p} \right] $. 
+If $p^{k} \le x$ for $k\ge 2$ then
+$p \le \sqrt{x} $ and if
+$p\le \sqrt{x} $ then $p^2 \le x$. So
+\begin{align*}
+    \sum_{\substack{p^{k} \le x\\ k\ge 2}} \log p
+    &= \sum_{p\le \sqrt{x} } \log p\left( 
+    \sum_{2 \le n \le \frac{\log x}{\log p}} 1 \right) \\
+    &\le \sum_{p \le \sqrt{x} } \log p \frac{\log x}{\log p}\\
+    &\le \sqrt{x}  \log x.
+\end{align*}
+
+
+We have
+\[
+\psi (x) = 
+\sum_{n=1}^{\infty}
+\theta\left( x^{\frac{1}{n}} \right) 
+\] 
+
+
+\end{proof}
 \begin{exercise}[E2.7]
     Show that
     \[
@@ -1798,49 +1831,48 @@ e^{-\pi n^2 u}$ for $\Re (u) > 0$.
         + \sum_{n>x} \frac{\chi(n)}{\sqrt{n} }
     \end{align*}
 
-    Firstly, we have
-    \[
-    \sum_{n\le x} \frac{\chi(n)}{\sqrt{n} }
-    = \sum_{n\le x}\chi(n) \frac{1}{\sqrt{x} } + \frac{1}{2} 
-    \int_{1}^{x} \sum_{n\le t}\chi(n) t^{-\frac{3}{2}}  dt
-    \] 
-    Now, using Polya-Vinogradov, we have
-    \[
-    \sum_{n\le x} \chi(n) = O\left( \sqrt{q} 
-    \log q \right) 
-    \] 
-    so for $x$ sufficiently large, we have
-    $\sum_{n\le x} \chi(n) \frac{1}{\sqrt{x} }
-    \le q^{\frac{1}{4}} \sqrt{\log q} $.
-    Now
-    \[
-    - \sqrt{q}  \log q
-    \frac{1}{\sqrt{t} } \bigg|_{1}^{x}
-    =
-    \sqrt{q} \log q - \sqrt{q}  \log q \frac{1}{\sqrt{x} }
-    \] 
-
-
-    Alternatively,
+    Using partial summation,
     \begin{align*}
         \sum_{n>x} \frac{\chi(n)}{\sqrt{n} }
-        &= \sum_{n\le x} \chi(n) \frac{1}{\sqrt{x} }
-        \bigg|_{x}^{\infty} + \frac{1}{2}
-        \int_{x}^{\infty} \sum_{n\le t} \chi(n) t^{-\frac{3}{2}} dt\\
-        &=  - \sum_{n\le x}\chi(n) \frac{1}{\sqrt{x} }
-        -  O\left( \sqrt{q} \log q \right)
-        \left[ \frac{1}{\sqrt{t} } \right]_{x}^{\infty}\\
-        &= O \left( \sqrt{q}  \log q \frac{1}{\sqrt{x} } \right)  
+        &= \sum_{n\le z}\chi(n) \frac{1}{\sqrt{z} }
+        \bigg|_{z=x}^{z=\infty} + \frac{1}{2}
+        \int_{x}^{\infty} 
+        \sum_{n\le t}\chi(n) t^{-\frac{3}{2}} dt\\
+        &= - \frac{1}{\sqrt{x} } O\left( \sqrt{q} \log q \right) + 
+        \frac{1}{2} \int_{x}^{\infty} 
+        O\left( \sqrt{q} \log q \right) t^{-\frac{3}{2}} dt
     \end{align*}
-
+    Thus by the triangle inequality, we have
+    \begin{align*}
+        \left| \sum_{n>x} \frac{\chi(n)}{\sqrt{n} } \right| 
+        \le C_1 \frac{\sqrt{q} \log q}{\sqrt{x} }
+        + C_2 \frac{\sqrt{q}  \log q}{2}
+        \frac{1}{\sqrt{x} }
+    \end{align*}
+    Letting $x = \sqrt{q}  \log q$, we get
+    \[
+    \sum_{n>x} \frac{\chi(n)}{\sqrt{n} }
+    = O\left( q^{\frac{1}{4}} \sqrt{\log q}  \right) 
+    \] 
+    Now, for the first sum, we have
+    \begin{align*}
+        \sum_{n\le x}\frac{\chi(n)}{\sqrt{n} }
+        &= \underbrace{\underbrace{\sum_{n\le x}\chi(n)}_{O(x)}
+        \frac{1}{\sqrt{x} }}_{O(\sqrt{x}) }
+        + \frac{1}{2} \int_{1}^{x} 
+        \underbrace{\sum_{n\le t}\chi(n) 
+        t^{-\frac{3}{2}}}_{O (t^{-\frac{1}{2}})} dt\\
+    \end{align*}
+    Hence
+    \begin{align*}
+        \left| \sum_{n\le x}\frac{\chi(n)}{\sqrt{n} } \right|
+        &\le \sqrt{x} + \left[ \sqrt{x} - 1 \right] 
+    \end{align*}
+    so with our choice of $x$, we find that also
     \[
     \sum_{n\le x} \frac{\chi(n)}{\sqrt{n} }
-    \le 
-    \int_{1}^{x} \frac{\chi \left( \left[ t \right]  \right) }{
-    \sqrt{t-1} } dt 
-\] 
-
-
+    = O\left( q^{\frac{1}{4}} \sqrt{\log q}  \right) .
+    \] 
 
 
 \end{proof}
@@ -1961,6 +1993,166 @@ e^{-\pi n^2 u}$ for $\Re (u) > 0$.
     \vartheta_{\chi}(u) u^{\frac{s+1}{2}} \frac{du}{u}.
     \] 
 \end{exercise}
+
+\begin{proof}
+    Recall that
+     \[
+    \Gamma \left( \frac{s+1}{2} \right) 
+    = \int_{0}^{\infty} e^{-u} u^{\frac{s+1}{2}} \frac{du}{u}
+    \] 
+    and
+    \[
+    L\left( s, \chi \right) =
+    \sum_{n=1}^{\infty} \frac{\chi(n)}{n^{s}}.
+    \] 
+    Now
+    \begin{align*}
+        \int_{0}^{\infty} \theta_{\chi}(u) u^{\frac{s+1}{2}} 
+        \frac{du}{u} 
+        &= \int_{0}^{\infty} \sum_{n \in \mathbb{Z}} n
+        \chi(n) e^{-\pi n^2 u} u^{\frac{s+1}{2}} \frac{du}{u}\\
+        &= \sum_{n \in \mathbb{Z}}n \chi(n)
+        \int_{0}^{\infty} e^{- \pi n^2 u} u^{\frac{s+1}{2}} 
+        \frac{du}{u}\\
+        &= 2 \sum_{n=1}^{\infty} n \chi(n)
+        \int_{0}^{\infty} e^{- \pi n^2 u} u^{\frac{s+1}{2}} 
+        \frac{du}{u}\\
+    \end{align*}
+    Where we can change the summation to be over
+    $\mathbb{N} $ instead since
+    $\chi(-1) = -1$ forces
+    $\chi(-n) = - \chi(n)$, hence
+    since the integrand is symmetric (i.e., invariant under
+     $n \mapsto -n$), and
+     $n \chi(n)$ is also invariant, it follows
+     that the sum is the same as $2$ times the sum over
+     $\mathbb{N} $. Here $0$ does not matter
+     since $n$ and $\chi(n)$ are both $0$ then.\\
+
+    Let $w = \pi n^2 u$. Then
+    $dw = \pi n^2 du$, so
+
+    \begin{align*}
+        2 \sum_{n = 1}^{\infty}n \chi(n)
+        \int_{0}^{\infty} e^{- \pi n^2 u} u^{\frac{s+1}{2}} 
+        \frac{du}{u}
+        &=2 \sum_{n=1}^{\infty}
+        \frac{1}{n \pi} \chi(n) \int_{0}^{\infty}
+        e^{-w} \left( \frac{w}{\pi n^2} \right)^{\frac{s-1}{2}}
+        dw\\
+        &= 2 \sum_{n=1}^{\infty} \frac{\chi(n)}{n^{s}}
+        \pi^{\frac{-(s+1)}{2}} \Gamma\left( \frac{s+1}{2} \right) 
+    \end{align*}
+\end{proof}
+
+\begin{exercise}[E7.6]
+    Show that the integral on the right in
+    E7.5 defines an analytic function for
+    all  $s \in \mathbb{C}$.
+\end{exercise}
+
+\begin{proof}
+    The integrand is holomorphic with respect to
+    $s$ and
+    continuous with respect to
+    $u$, so by theorem 4.20 in KomAn, 
+    $\int_{0}^{a} \vartheta_{\chi}(u)
+    u^{\frac{s+1}{2}} \frac{du}{u}$ is holomorphic
+    for all $a >0$.
+    Now, we have
+    \begin{align*}
+    \left|    
+    \int_{0}^{\infty} 
+    \vartheta_{\chi} (u) u^{\frac{s+1}{2}} \frac{du}{u} \right| 
+    &\le 2 \int_{0}^{\infty}  
+    \sum_{n=1}^{\infty} n e^{-\pi n^2 u} u^{\frac{\sigma-1}{2}} du\\
+    &\le 2\sum_{n=1}^{\infty} n \int_{0}^{\infty} 
+    e^{-\pi n^2 u} u^{\frac{\sigma-1}{2}} du
+    \end{align*}
+    uniformly for 
+    $\Re (s) > 1$ on compact sets.
+    Hence it follows as the uniformly compact limit of
+    a sequence of holomorphic functions is holomorphic.
+\end{proof}
+
+\begin{exercise}[E7.7]
+    Let for $\Re (s) > 1, \xi (s,\chi) = 
+    \left( \frac{q}{\pi} \right)^{\frac{s+1}{2}}
+    \Gamma \left( \frac{s+1}{2} \right) 
+    L \left( s, \chi \right) $. Show that
+    $\xi (s, \chi)$ admits analytic continuation to 
+    $s \in \mathbb{C}$ and show that
+    \[
+    \xi \left( s, \chi \right) =
+    \frac{\tau(\chi)}{i \sqrt{q} }
+    \xi \left( 1- s, \overline{\chi} \right) .
+    \] 
+\end{exercise}
+
+\begin{proof}
+    Notice that by definition and
+    E7.5, we have
+    \[
+    \xi(s,\chi) = \frac{q^{\frac{s+1}{2}}}{2}
+    \int_{0}^{\infty} \vartheta_{\chi}(u) u^{\frac{s+1}{2}}
+    \frac{du}{u},
+    \] 
+    which in particular shows that
+    it admits an analytic continuation to all of $\mathbb{C}$.
+
+    Next we have
+
+    \begin{align*}
+        \xi(s, \chi) 
+        &= \frac{\tau(\chi) q^{\frac{s+1}{2}} }{i 2 q^2 }
+        \int_{0}^{\infty}  u^{-\frac{3}{2}}
+        \vartheta_{\overline{\chi}}\left( \frac{1}{q^2 u} \right) 
+        u^{\frac{-(1-s)}{2}} du\\
+        &= \frac{\tau(\chi) q^{\frac{s+1}{2}} }{i 2 q^2 }
+        \int_{0}^{\infty} 
+        \vartheta_{\overline{\chi}}\left( \frac{1}{q^2 u} \right) 
+        u^{\frac{-(4-s)}{2}} du.\\
+    \end{align*}
+
+    Let  $w = \frac{1}{q^2 u}$. Then
+    $dw= - \frac{1}{(qu)^2} du$, so
+
+    \begin{align*}
+        \xi(s, \chi) 
+        &= \frac{\tau(\chi) q^{\frac{s+1}{2}} }{i 2 q^2 }
+        \int_{0}^{\infty} 
+        \vartheta_{\overline{\chi}}\left( \frac{1}{q^2 u} \right) 
+        u^{\frac{-(4-s)}{2}} du\\
+        &= \frac{\tau(\chi) q^{\frac{s-3}{2}} }{2i}
+        \int_{0}^{\infty} 
+        \vartheta_{\overline{\chi}}
+        (w) (wq^2)^{\frac{4-s}{2}} ( \frac{1}{q w})^2 dw\\
+        &= \frac{\tau(\chi) q^{\frac{s-3}{2}}}{2i}
+         q^{2-s}
+        \int_{0}^{\infty} 
+        w^{\frac{2-s}{2}} \vartheta_{\overline{\chi}}
+        (w) \frac{dw}{w}\\
+        &= \frac{\tau(\chi)}{i} q^{\frac{s-3 +4 - 2s}{2}}
+        \int_{0}^{\infty} w^{\frac{2-s}{2}}
+        \vartheta_{\overline{\chi}}(w) \frac{dw}{w}\\
+        &= \frac{\tau(\chi)}{i \sqrt{q} } 
+        \underbrace{q^{\frac{2-s}{2}} \int_{0}^{\infty} 
+        w^{\frac{2-s}{2}} \vartheta_{\overline{\chi}} (w)
+    \frac{dw}{w}}_{\xi\left( 1-s, \overline{\chi} \right) }\\
+        &= \frac{\tau(\chi)}{i \sqrt{q} }
+        \xi \left( 1-s, \overline{\chi} \right).
+    \end{align*}
+
+
+
+
+
+
+\end{proof}
+
+
+
+
 
 
 
@@ -2853,89 +3045,312 @@ e^{-\pi n^2 u}$ for $\Re (u) > 0$.
     \] 
     \end{theorem}
 
-    (5) Let
-    $\theta_{\chi}(u) = 
-    \sum_{m \in \mathbb{Z}}\chi(m) e^{-\pi m^2 u}$.
-    Let $f_u(x) = e^{- \pi u (qx)^2}$, so
-    $\theta_{\chi}(u) = 
-    \sum_{m \in \mathbb{Z}} \chi(m)
-    f_u (\frac{m}{q})$.\\
+    (5)
+    Let $f_u = e^{-\pi u (qx)^2}$.
+    Then we have
+    \begin{align*}
+        \theta_{\chi}(u) 
+        &=
+        \sum_{n \in \mathbb{Z}} \chi(n)e^{-\pi n^2 u}\\
+        &= \sum_{n \in \mathbb{Z}} \chi(n)
+        f\left( \frac{n}{q} \right) \\
+        &= \tau(\chi) 
+        \sum_{n \in \mathbb{Z}} \overline{\chi(n)}
+        \hat{f}(n)\\
+        &= \tau(\chi) 
+        \sum_{n \in \mathbb{Z}} \overline{\chi(n)}
+        \int_{-\infty}^{\infty} 
+        e^{- 2 \pi i xn} e^{- \pi u (qx)^2} dx\\
+        &= \tau(\chi) \sum_{n \in \mathbb{Z}}
+        \overline{\chi(n)} 
+        e^{- \pi u^{-1} \left( \frac{n}{q} \right)^2 }
+        \int_{-\infty}^{\infty} e^{-\pi 
+        \left[ u \left( qx \right)^2 +
+    2ixn + \left( i \frac{n}{\sqrt{u} q} \right)^2  \right] } dx\\
+        &= \tau(\chi) \sum_{n \in \mathbb{Z}}
+        \overline{\chi(n)} 
+        e^{- \pi u^{-1} \left( \frac{n}{q} \right)^2 }
+        \int_{-\infty}^{\infty} e^{-\pi 
+        \left[ \sqrt{u} qx + \frac{in}{\sqrt{u} q} \right]^2 }dx \\
+    \end{align*}
+    Let $w = \sqrt{u} qx + \frac{in}{\sqrt{u} q}$.
+    Then $dw = \sqrt{u} q dx$. 
+
+    \begin{align*}
+        \tau(\chi) \sum_{n \in \mathbb{Z}}
+        \overline{\chi(n)} 
+        e^{- \pi u^{-1} \left( \frac{n}{q} \right)^2 }
+        \int_{-\infty}^{\infty} e^{-\pi 
+        \left[ \sqrt{u} qx + \frac{in}{\sqrt{u} q} \right]^2 }dx 
+        &= \tau(\chi) u^{-\frac{1}{2}}
+        \sum_{n \in \mathbb{Z}}\overline{\chi(n)}
+        e^{- \pi u^{-1} \left( \frac{n}{q} \right)^2 }
+        \frac{1}{q} 
+        \int_{-\infty}^{\infty} 
+        e^{-\pi w^2} dw\\
+        &= \frac{\tau(\chi)}{q u^{\frac{1}{2}}}
+        \theta_{\overline{\chi}} \left( \frac{1}{q^2 u} \right) 
+    \end{align*}
+\end{proof}
+
+
+
+\begin{exercise}[H4.2]
+    Assume that a sequence of complex numbers
+    $\left\{ a_n \right\}_{n=1}^{\infty}$ satisfies
+    $a_n = O \left( n^{c} \right) $ for some $c>0$. Let
+    $f(y) = 
+    \sum_{n=1}^{\infty} a_n e^{-2 \pi n y}$.\\
     \linebreak
+    \begin{enumerate}
+        \item Show that the sum defining $f(y)$ converges
+            absolutely and uniformly for
+            $y \ge \varepsilon > 0$.\\
+            Assume there are two sequences of
+            complex numbers
+            $\left\{ a_{n}^{i} \right\}_{n=1}^{\infty}$ as
+            above, $i = 1,2$. Form the corresponding functions
+            $f_1,f_2$ as above and assume that for
+            some $r > 0, a>0$, they satisfy
+            \[
+            f_1 \left( \frac{1}{y} \right) 
+            = y^{r} f_2(\frac{y}{a}).
+            \] 
+            Let $L_{f_i}(s) = \sum_{n=1}^{\infty}
+            \frac{a_n^{i}}{n^{s}}$ which is convergent for
+            $\Re(s) > 1+c$.
+        \item Show that 
+            $\left( 2\pi \right)^{-s} \Gamma(s)
+            L_{f_i}(s)$ admits analytic continuation
+            to $s \in \mathbb{C}$ and that it satisfies
+            a functional equation
+            \[
+                \left( 2\pi \right)^{-s}
+                \Gamma(s) L_{f_1}(s) = 
+                a^{r-s} \left( 2\pi \right)^{- (r-s)}
+                \Gamma(r-s) L_{f_2}(r-s).
+            \] 
+        \item Let $\chi$ be a primitive Dirichlet character
+            modulo $q > 1$ which is even (i.e.
+            $\chi(-1) = 1$ ). Show that if
+            $L\left( s, \chi \right) 
+            = \sum_{n=1}^{\infty} \frac{\chi(n)}{n^{s}}$, then
+            $\xi(s, \chi) = 
+            \left( \frac{q}{\pi} \right)^{\frac{s}{2}}
+            \Gamma\left( \frac{s}{2} \right) 
+            L\left( s, \chi \right) $ admits analytic
+            continuation to $s \in \mathbb{C}$ and that
+            it satisfies a functional equation
+            \[
+            \xi \left( s, \chi \right) =
+            \varepsilon (\chi)
+            \xi\left( 1-s, \overline{\chi} \right) 
+            \] 
+            where $\varepsilon(\chi) = \frac{\tau(\chi)}{\sqrt{q} }$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    (1) Fix $\varepsilon > 0$ and assume
+    $y\ge \varepsilon$. Then, in particular,
+    $e^{-2 \pi n y} \le e^{-2 \pi n \varepsilon} < 1$
+    for all $n \in \mathbb{N} $. Now,
+    $a_n = o \left( \left( e^{-2 \pi \varepsilon} \right)^{n}
+    \right) $, so there
+    exists some $N$ such that
+    $\left| a_n \right| e^{- 2 \pi n \varepsilon}
+    < \frac{1}{n^2}$ for all $n\ge N$. But then
+    the sum splits as
+    \[
+    \left| f(y) \right| \le 
+    \sum_{n=1}^{\infty} \left| a_n \right| e^{-2 \pi n y}
+    \le \sum_{n=1}^{\infty} \left| a_n \right|
+    e^{- 2 \pi n \varepsilon}
+    \le  \sum_{n=1}^{N} \left| a_n \right|
+    e^{- 2\pi n \varepsilon}
+    + \frac{\pi^2}{6} < \infty
+    \] 
+    and since this does not depend on
+    $y$, we find that
+    $f$ converges absolutely and uniformly for
+    $y \ge \varepsilon > 0$.\\
+    \linebreak
+    (2) 
+    Define
+    \[
+    \xi_i(s) = 
+    \int_{0}^{\infty} f_i(y) y^{s-1} dy.
+    \] 
     Then
     \begin{align*}
-        \theta_{\chi}(u)
-        &= \tau (\chi) 
-        \sum_{m \in \mathbb{Z}}
-        \overline{\chi}(m)
-        \int_{-\infty}^{\infty} 
-        e^{- \pi u (qt)^2}
-        e^{-2 \pi i t m} dt\\
-        &= \tau (\chi) 
-        \int_{-\infty}^{\infty} 
-        e^{- \pi u (qt)^2}
-        \sum_{m \in \mathbb{Z}}\overline{\chi}(m)
-        e^{- 2 \pi i t m } dt\\
-        &= 
-        \tau(\chi) 
-        \int_{-\infty}^{\infty} e^{-\pi u (qt)^2}
-        \sum_{a=1}^{q}
-        \overline{\chi}(a)
-        \sum_{m \in \mathbb{Z}}
-        e^{-2 \pi i t q \left( \frac{a}{q} + m \right) } dt
+        \xi_i(s) 
+        &= \int_{0}^{\infty} \sum_{n=1}^{\infty} 
+        a_n^{i} e^{-2 \pi n y} y^{s-1} dy\\
+        &= \sum_{n=1}^{\infty} a_n^{i}
+        \int_{0}^{\infty} e^{-2 \pi n y}y^{s-1} dy\\
     \end{align*}
     Let
-    $z = qt$, so
-    $dz = q dt$, then
+    $w = 2 \pi n y$. Then
+    $dw = 2 \pi n dy$, so
     \begin{align*}
-        \tau(\chi) 
-        \int_{-\infty}^{\infty} e^{-\pi u (qt)^2}
-        \sum_{a=1}^{q}
-        \overline{\chi}(a)
-        \sum_{m \in \mathbb{Z}}
-        e^{-2 \pi i t q \left( \frac{a}{q} + m \right) } dt
-        &= \tau(\chi) \frac{1}{q}
-        \int_{-\infty}^{\infty} e^{- \pi u z^2}
-        \sum_{a=1}^{q} \overline{\chi}(a)
-        \sum_{m \in \mathbb{Z}}
-        e^{- 2 \pi i z \left( \frac{a}{q}+m \right) } dz\\
-        &= \frac{\tau(\chi)}{q}
-        \int_{-\infty}^{\infty} 
-        e^{- \pi u z^2} \sum_{m \in \mathbb{Z}}
-        \overline{\chi}(m) e^{- 2 \pi i z \frac{m}{q}}dz
-    \end{align*}
-    Now let
-    $w = \sqrt{u} z $, so
-    $dw = \sqrt{u}  dz$. Then
-    \begin{align*}
-        \frac{\tau(\chi)}{q}
-        \int_{-\infty}^{\infty} 
-        e^{- \pi u z^2} \sum_{m \in \mathbb{Z}}
-        \overline{\chi}(m) e^{- 2 \pi i z \frac{m}{q}}dz
-        &= 
-        \frac{\tau(\chi)}{\sqrt{u} q}
-        \int_{-\infty}^{\infty} 
-        e^{- \pi w^2} \sum_{m \in \mathbb{Z}}
-        \overline{\chi}(m) e^{-2 \pi i \frac{wm}{\sqrt{u} q }} 
-        dw
-    \end{align*}
+        \sum_{n=1}^{\infty} a_n^{i}
+        \int_{0}^{\infty} e^{-2 \pi n y}y^{s-1} dy
+        &= \sum_{n=1}^{\infty}a_n^{i}
+        \frac{1}{2\pi n} 
+        \int_{0}^{\infty} e^{- w} 
+        \left( \frac{w}{2 \pi n} \right)^{s-1} dw\\
+        &= \frac{1}{\left( 2\pi \right)^{s}}
+        \sum_{n=1}^{\infty} \frac{a_n^{i}}{n^{s}}
+        \Gamma(s)\\
+        &= (2\pi)^{-s} \Gamma(s) L_{f_i}(s).
+   \end{align*}
+   Now in the same way as usual, we can
+   argue that
+   $\xi_i(s)$ is analytic, so
+   in particular we get a meromorphic continuation to
+   all of $\mathbb{C}$ for $L_{f_i}$. Now
+   \begin{align*}
+       \left( 2\pi \right)^{-s}\Gamma(s)
+       L_{f_1}(s)
+       = \int_{0}^{\infty} f_1(y) y^{s-1} dy\\
+   \end{align*}
+   Let $w = \frac{1}{y}$, so
+   $dw = -\frac{1}{y^2} dy$. Then
 
-    
-    Let
-    $v = \frac{t}{\sqrt{u} }$. Then
-    $dv = \frac{1}{\sqrt{u} } dt$, so
-    \begin{align*}
-        \frac{1}{\sqrt{u} }
-        \sum_{m \in \mathbb{Z}}\chi(m)
-        \int_{-\infty}^{\infty} 
-        e^{- \frac{\pi}{u} t^2 - 2 \pi i t m}dt
-        &= \sum_{m \in \mathbb{Z}}
-        \chi(m) \int_{-\infty}^{\infty} 
-        e^{-\pi v^2 - 2 \pi i v \sqrt{u} m} dv\\
-        &= \int_{-\infty}^{\infty} 
-        e^{- \pi v^2} \sum_{m \in \mathbb{Z}}
-        \chi(m) e^{-2 \pi i v \sqrt{u}  m} dv\\
-        &= \int_{-\infty}^{\infty} e^{- \pi v^2}
-    \end{align*}
+   \begin{align*}
+       \left( 2\pi \right)^{-s}\Gamma(s)
+       L_{f_1}(s)
+       &= \int_{0}^{\infty} f_1(y) y^{s-1} dy\\
+       &= \int_{0}^{\infty} f_1(\frac{1}{w}) 
+       (\frac{1}{w})^{s+1} dw\\
+       &= \int_{0}^{\infty} w^{r - (s+1)}
+       f_2\left( \frac{w}{a} \right) 
+        dw
+   \end{align*}
+   Now let
+   $z = \frac{w}{a}$, so
+   $dz = \frac{1}{a} dw$. Hence
+   \begin{align*}
+       \int_{0}^{\infty} w^{r-(s+1)}
+       f_2\left( \frac{w}{a} \right) 
+       dw
+       &= a \int_{0}^{\infty} (az)^{r-(s+1)}
+       f_2(z) dz\\
+       &= a^{r-s} \int_{0}^{\infty} z^{r-s-1} f_2(z)dz\\
+       &= a^{r-s} \xi_2\left( r-s \right) 
+   \end{align*}
+   giving the functional equation that we wanted.\\
+   \linebreak
+   (3)
+   Define a sequene
+   $a_{m}^{1}$ by
+   $a_{m}^{1} = \chi(n)$ if 
+   $m = n^2$ and $a_{m}^{1} = 0$ otherwise. 
+   We want to find a sequence
+   $a_n^{2}$ such that for the corresponding functions
+   $f_1,f_2$, we have
+   \[
+   f_1\left( \frac{1}{y} \right) =
+   y^{\frac{1}{2}} f_2\left( \frac{y}{4q^2} \right) .
+   \] 
+   where, recall,
+   \[
+   f_i(y) = \sum_{n=1}^{\infty} a_n^{i} e^{-2 \pi n y}.
+   \] 
+   Now, we have that
+   \[
+   f_i(y) = 
+   \sum_{n=1}^{\infty} a_{n}^{i} e^{- 2 \pi n y}
+   = \sum_{n=1}^{\infty} \chi(n)
+   e^{-2 \pi n^2 y}
+   \] 
+   Since $\chi$ is assumed to
+   be odd, we have $\chi(-n) = \chi(n)$, so
+   \[
+   \sum_{n=1}^{\infty} \chi(n) e^{-2 \pi n^2 y}
+   = \frac{1}{2} \sum_{n \in \mathbb{Z}}
+   \chi(n) e^{-2 \pi n^2 y}
+   = \frac{1}{2} \theta_{\chi}(2y)
+   \] 
+
+
+
+
+   By H4.1.(5), we have
+   \[
+   f_i(\frac{1}{y}) =
+   \frac{1}{2} \theta_{\chi}(\frac{2}{y}) = 
+   \frac{1}{2}
+   \frac{\tau(\chi)}{q (\frac{2}{y})^{\frac{1}{2}}}
+   \theta_{\overline{\chi}} \left( \frac{y}{q^2 2} \right) 
+   = y^{\frac{1}{2}}  \sum_{n \in \mathbb{Z}}
+   \overline{\chi}(n) \frac{1}{2}
+   \frac{\tau(\chi)}{q \sqrt{2} }
+   e^{- \pi n^2 \left( \frac{y}{ q^2} \right) }
+   \] 
+   Again since $\chi$ is odd, so is $\overline{\chi}$,
+   so we similarly, get
+   \[
+   f_i\left( \frac{1}{y} \right) 
+   = y^{\frac{1}{2}} \frac{1}{2} \sum_{n =1}^{\infty}
+   \overline{\chi}(n) 
+   \frac{\tau(\chi)}{q \sqrt{2} }
+   e^{- \pi n^2 \left( \frac{y}{ q^2} \right) }
+   \] 
+   Define
+   $a_m^{2} = 
+   \overline{\chi}(n)
+   \frac{\tau(\chi)}{q \sqrt{2} } $ when
+   $m = n^2$ and $0$ otherwise. Then
+   we precisely get
+   \[
+   f_1\left( \frac{1}{y} \right) 
+   = y^{\frac{1}{2}} f_2\left( \frac{y}{4q^2} \right) .
+   \] 
+   So in particular, $r = \frac{1}{2}$ and
+   $a = 4q^2$. Hence by the functional equation,
+   \[
+       \left( 2\pi \right)^{-s}
+       \Gamma(s) L_{f_1}(s) 
+       = (4q^2)^{\frac{1}{2}-s}
+       (2\pi)^{-\left( \frac{1}{2}-s \right) }
+       \Gamma\left( \frac{1}{2}-s \right) 
+       L_{f_2}\left( \frac{1}{2}-s \right).
+   \] 
+   Now
+   \[
+   L_{f_1}(s)
+   = \sum_{n=1}^{\infty} \frac{a_n^{1}}{n^{s}}
+   = \sum_{n=1}^{\infty}
+   \frac{\chi(n)}{n^{2s}}
+   = L\left( 2s, \chi \right) 
+   \] 
+   So $L \left( s ,\chi \right) = L_{f_1}\left( \frac{s}{2}
+   \right) $. But then
+   \begin{align*}
+       \xi(s, \chi)
+       &= \left( \frac{q}{\pi} \right)^{\frac{s}{2}}
+       \Gamma(\frac{s}{2}) L\left( s,\chi \right) 
+       = q^{\frac{s}{2}} 2^{\frac{s}{2}}
+       \left( 4q^2 \right)^{\frac{1-s}{2}}
+       \left( 2\pi \right)^{-\left( \frac{1-s}{2} \right) }
+       \Gamma \left( \frac{1-s}{2} \right) 
+       L_{f_2}\left( \frac{1-s}{2} \right)\\
+       &=  2^{\frac{s - (1-s) + 2(1-s)}{2}}
+       q^{1 - \frac{s}{2}} \pi^{- \frac{1-s}{2}}
+       \Gamma \left( \frac{1-s}{2} \right) L_{f_2}\left(
+       \frac{1-s}{2}\right) \\
+       &= \sqrt{2}  q^{1-\frac{s}{2}} \pi^{- \frac{1-s}{2}}
+       \Gamma\left( \frac{1-s}{2} \right) 
+       \sum_{n=1}^{\infty} \frac{1}{n^{1-s}} 
+       \overline{\chi(n)} \frac{\tau(\chi)}{q \sqrt{2} }\\
+       &= \varepsilon(\chi) q^{\frac{1-s}{2}}
+       \pi^{- \frac{1-s}{2}}
+       \Gamma\left( \frac{1-s}{2} \right) 
+       \sum_{n=1}^{\infty} \frac{\overline{\chi}(n)}{n^{1-s}}\\
+       &= \varepsilon(\chi) \xi\left( 1-s, \overline{\chi} \right).
+   \end{align*}
+   
 
 
 
@@ -2945,6 +3360,16 @@ e^{-\pi n^2 u}$ for $\Re (u) > 0$.
 
 
 \end{proof}
+
+
+
+
+
+
+
+
+
+
 
 
 
