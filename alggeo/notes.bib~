@@ -1,0 +1,30 @@
+@book {Hartshorne,
+    AUTHOR = {Hartshorne},
+     TITLE = {Algebraic geometry},
+    SERIES = {Graduate Texts in Mathematics, No. 52},
+ PUBLISHER = {Springer-Verlag, New York-Heidelberg},
+      YEAR = {1977},
+}
+
+@book {Fulton,
+    AUTHOR = {Fulton, William},
+     TITLE = {Algebraic curves},
+    SERIES = {Advanced Book Classics},
+      YEAR = {1989},
+}
+
+
+@book {Vakil,
+    AUTHOR = {Vakil, Ravi},
+     TITLE = {The Rising Sea},
+}
+
+@book {MR4225278,
+    AUTHOR = {G\"{o}rtz, Ulrich and Wedhorn, Torsten},
+     TITLE = {Algebraic geometry {I}. {S}chemes---with examples and
+              exercises},
+    SERIES = {Springer Studium Mathematik---Master},
+      NOTE = {Second edition [of  2675155]},
+ PUBLISHER = {Springer Spektrum, Wiesbaden},
+      YEAR = {[2020] \copyright 2020},
+}

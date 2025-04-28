@@ -1,0 +1,109 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{Bredon}{book}{}
+      \name{author}{1}{}{%
+        {{hash=9c4bb39f297b8837de2c1a53b0b3e7db}{%
+           family={Bredon},
+           familyi={B\bibinitperiod},
+           given={Glen\bibnamedelima E.},
+           giveni={G\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag, New York}%
+      }
+      \strng{namehash}{9c4bb39f297b8837de2c1a53b0b3e7db}
+      \strng{fullhash}{9c4bb39f297b8837de2c1a53b0b3e7db}
+      \strng{bibnamehash}{9c4bb39f297b8837de2c1a53b0b3e7db}
+      \strng{authorbibnamehash}{9c4bb39f297b8837de2c1a53b0b3e7db}
+      \strng{authornamehash}{9c4bb39f297b8837de2c1a53b0b3e7db}
+      \strng{authorfullhash}{9c4bb39f297b8837de2c1a53b0b3e7db}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0-387-97926-3}
+      \field{note}{Corrected third printing of the 1993 original}
+      \field{series}{Graduate Texts in Mathematics}
+      \field{title}{Topology and geometry}
+      \field{volume}{139}
+      \field{year}{1997}
+      \field{pages}{xiv+557}
+      \range{pages}{-1}
+    \endentry
+    \entry{Hatcher}{book}{}
+      \name{author}{1}{}{%
+        {{hash=0a94eadf86d8b878d4c37bc5640e53e3}{%
+           family={Hatcher},
+           familyi={H\bibinitperiod},
+           given={Allen},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press, Cambridge}%
+      }
+      \strng{namehash}{0a94eadf86d8b878d4c37bc5640e53e3}
+      \strng{fullhash}{0a94eadf86d8b878d4c37bc5640e53e3}
+      \strng{bibnamehash}{0a94eadf86d8b878d4c37bc5640e53e3}
+      \strng{authorbibnamehash}{0a94eadf86d8b878d4c37bc5640e53e3}
+      \strng{authornamehash}{0a94eadf86d8b878d4c37bc5640e53e3}
+      \strng{authorfullhash}{0a94eadf86d8b878d4c37bc5640e53e3}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0-521-79160-X; 0-521-79540-0}
+      \field{title}{Algebraic topology}
+      \field{year}{2002}
+      \field{pages}{xii+544}
+      \range{pages}{-1}
+    \endentry
+    \entry{ORW}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=53ef82a1efc665566d50076ea26bdfa1}{%
+           family={Randal-Williams},
+           familyi={R\bibinithyphendelim W\bibinitperiod},
+           given={Oscar},
+           giveni={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{53ef82a1efc665566d50076ea26bdfa1}
+      \strng{fullhash}{53ef82a1efc665566d50076ea26bdfa1}
+      \strng{bibnamehash}{53ef82a1efc665566d50076ea26bdfa1}
+      \strng{authorbibnamehash}{53ef82a1efc665566d50076ea26bdfa1}
+      \strng{authornamehash}{53ef82a1efc665566d50076ea26bdfa1}
+      \strng{authorfullhash}{53ef82a1efc665566d50076ea26bdfa1}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Homotopy Theory}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://www.dpmms.cam.ac.uk/~or257/teaching/notes/HomotopyTheory.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.dpmms.cam.ac.uk/~or257/teaching/notes/HomotopyTheory.pdf
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

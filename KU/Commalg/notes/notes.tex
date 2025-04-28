@@ -1,0 +1,1899 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+%\usepackage[backend=biber]{biblatex}
+%\addbibresource{.bib}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\URing}{URing}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\SHomeo}{SHomeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Teich}{Teich}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\corank}{corank}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Bun}{Bun}
+\DeclareMathOperator{\Sm}{Sm}
+\DeclareMathOperator{\Fr}{Fr}
+\DeclareMathOperator{\Cob}{Cob}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\MCG}{{\mathrm{MCG}}}
+\newcommand{\PMCG}{{\mathrm{PMCG}}}
+\newcommand{\SMCG}{{\mathrm{SMCG}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+
+
+
+
+\begin{document}
+\section{Sheet 0}
+\begin{exercise}[1]
+
+    \begin{enumerate}
+        \item Find rings $R$ and $S$ and a nonzero
+            map  $\varphi \colon R \to S$ such that
+            \[
+            \varphi (a+b) = \varphi (a)+\varphi (b)
+            \quad \text{and} \quad
+            \varphi (ab) = \varphi (a) \varphi (b)
+            \] 
+            for all $a,b \in R$, but
+            for which $\varphi \left( 1_R \right) \neq 
+            1_S$.
+        \item Describe the set
+            $\Hom_{\URing}
+            \left( \mathbb{Z} /m, 
+            \mathbb{Z}/n \right) $ for all
+            possible choices of
+            $n,m \in \mathbb{Z}_{\ge 0}$.
+        \item Let $R$ be a ring. Prove that there
+            is a bijective correspondence
+            \[
+            \Hom_{\URing} \left( \mathbb{Z}
+            \left[ x \right] ,R\right) \cong R.
+            \] 
+        \item Prove that the abelian group
+            $\left( \mathbb{Q} /\mathbb{Z}, + \right) $ 
+            does not admit a ring structure.
+            Precisely, this means that for any
+            operation
+            $\circ \colon \mathbb{Q} / \mathbb{Z}
+            \times \mathbb{Q}/\mathbb{Z} \to 
+            \mathbb{Q} / \mathbb{Z}$, the triplet
+            $\left( \mathbb{Q} /\mathbb{Z},
+            +, \circ\right) $ does not satisfy the ring
+            axioms.
+        \item Show that the set $\Hom_{\URing}
+            \left( \mathbb{Z} /m, \mathbb{Z}/n \right) $ 
+            does in general not admit a ring structure.
+    \end{enumerate}
+
+
+\end{exercise}
+
+    \begin{proof}
+        \begin{enumerate}
+            \item 
+        Choose
+        $\varphi  \colon \mathbb{Z}/2 \to \mathbb{Z}/4$ by
+        $1 \mapsto 2$.
+    \item Any map $ \varphi \colon 
+        \mathbb{Z} /m \to \mathbb{Z} /n$ in
+        $\URing$ must take $1 \mapsto 1$, and
+        is uniquely determined thereby
+        since $\varphi (k) =
+        \varphi \left( 1 + \ldots+ 1 \right) 
+        = \varphi (1) + \ldots + \varphi (1)
+        = k$.
+        Therefore, $0 = \varphi (m) = 
+        m$ in $\mathbb{Z} / n$, so $n  \mid m$.
+        And it is clear that if $n  \mid m$, then
+        $1 \mapsto 1$ is a well-defined ring
+        homomorphism. Thus
+        \[
+        \Hom_{\URing}\left( \mathbb{Z}/m,
+        \mathbb{Z}/n \right) 
+        = 
+        \begin{cases}
+            \left\{ 1 \mapsto 1 \right\},& n  \mid m\\
+            \varnothing,& \text{otherwise}
+        \end{cases}.
+        \] 
+    \item We claim that the correspondence
+        \begin{align*}
+            \Hom_{\URing}\left( \mathbb{Z}[x], R \right) 
+            &\to R\\
+            \varphi &\mapsto \varphi (x)
+        \end{align*}
+        is bijective.
+        Indeed, $\varphi (1) = 1$ necessarily,
+        so $\varphi (k) = k$ for
+        all $k \in \mathbb{Z}$, so we
+        simply have
+        $\varphi \left( \sum \alpha_i x^{i} \right) 
+        = \sum \varphi \left( \alpha_i \right) 
+        \varphi (x)^{i} 
+        = \sum \alpha_i \varphi (x)^{i}$, so
+        $\varphi $ is uniquely determined by
+        where it sends $x$. Furthermore,
+        for any $r \in R$, define 
+        $\varphi_r \colon
+        \mathbb{Z}\left[ x \right] \to R$ by
+        $x \mapsto r$. This extends uniquely to a
+        ring homomorphism
+        $\mathbb{Z}\left[ x \right] \to R$.
+        
+
+
+
+
+
+
+
+
+    \item Suppose $\left( \mathbb{Q}/ \mathbb{Z},
+        +\right) $ admits a ring structure with
+        multiplication $\cdot $. Let
+        $\frac{a}{b} \in \mathbb{Q} / \mathbb{Z}$ be
+        the unit. 
+        Then, in particular,
+        $\frac{a}{b} \cdot  \frac{1}{x} = \frac{1}{x}$ for all
+        $x$, so
+        $\left( \frac{a}{b}-1 \right) \frac{1}{x}
+        \in \mathbb{Z}$ for all $x$, meaning that
+        any $x$ divides $\frac{a}{b}-1$. Thus is only
+        possible if $\frac{a}{b} = 1$. But
+        $1 \in \mathbb{Z}$, so
+        the unit is the zero element, so
+        for any $\frac{x}{y} \in \mathbb{Q} /\mathbb{Z}$, we
+        have $\frac{x}{y}= \frac{x}{y}\cdot 1
+        = 0$. Hence
+        $\mathbb{Q} / \mathbb{Z}$ becomes the zero ring,
+        but then $1$ does not act by the identity
+        on any rational element in $\mathbb{Q} / \mathbb{Z}$.
+    \item By (2), 
+        $\Hom_{\URing}\left( \mathbb{Z}/m, \mathbb{Z}/n \right) $ 
+        is either a single map or empty, and as
+        the empty set is not a ring, this
+        Hom set in general does not admit a ring
+        structure - when it does, it must be
+        the trivial one.
+        \end{enumerate}
+    \end{proof}
+
+
+\begin{exercise}[2]
+    \begin{enumerate}
+        \item Let $A$ be a ring. How many
+            $\mathbb{Z}$-algebra structures does $A$ admit?
+        \item Find rings $R$ and $A$, such that
+            $A$ admits more than one $R$-algebra structure.
+    \end{enumerate}
+\end{exercise}
+
+
+    \begin{enumerate}
+        \item $A$ admits a unique $\mathbb{Z}$-algebra
+            structure since any ring homomorphism
+            $\mathbb{Z} \to A$ is uniquely determined
+            by $1 \mapsto 1$.
+        \item Take $A = \mathbb{Z}[x]$ and
+            $R$ to be any ring with more
+            than one element. By exercise 1.(c),
+            $\Hom_{\Ring}\left( \mathbb{Z}[x],
+            R\right) \cong R$, so
+            $R$ admits more than one
+            $R$-algebra structure.
+
+            However, these structures could be isomorphic
+            in the sense that there
+            exists maps $\varphi , \psi  \colon
+            R \to R$ with $\varphi \psi = \id = \psi  \varphi $ 
+            and composing one algebra structure
+            $\mathbb{Z}[x] \to R$ with $\varphi $ gives
+            $\psi $ and vice versa. 
+
+            So we must find explicit examples which
+            are non-isomorphic. 
+            Define 
+            $f,g \colon \mathbb{Z}[x] \to \mathbb{Z}/6$ by
+            $f(x) = 2$ and
+            $g(x) = 3$. Now, there
+            is no ring homomorphism
+            $\varphi \mathbb{Z} / 6 \to \mathbb{Z}/6$
+            such that $\varphi \circ f = g$ since
+            $0 = \varphi (0) =\varphi \circ f(3x) = g(3x)
+            = 3$ gives a contradiction.
+    \end{enumerate}
+
+
+\begin{exercise}[3]
+    This is just the 4th isomorphism theorem
+    for ideals of rings.
+
+    Define a map
+    $\pi \colon \mathcal{A} \to \mathcal{B}$ by
+    sending $A \to \overline{A} = A + I$.
+
+    Suppose $\pi(A) = \pi(B)$. Then
+    for any $a \in A$, there exists $b \in B$ such that
+    $a-b \in I \subset A \cap B$, hence
+    $a,b \in A \cap B$. Thus $A \subset B \subset A$, so
+    $A = B$. 
+
+    Now, suppose $V \in \mathcal{B}$. Let
+    $A = \pi^{-1}(V)$. This is an ideal containing $I$.
+    If $a,b \in A$ then $\pi(a), \pi(b) \in V$ so
+    $\pi(ab) = \pi(a) \pi(b) \in V$, hence
+    $ab \in \pi^{-1}(V)$. Similar closure for the rest.
+    And if $r \in R$ then
+    $\pi\left( ar \right) =\pi(a) \pi(r) \in V$ as
+    $\pi(a) \in V$ and $V$ is an ideal, so
+    $ar \in A$, hence $A$ is an ideal. This gives surjectivity.
+\end{exercise}
+
+\begin{exercise}[4]
+    $\left( 2,x \right) \subset \mathbb{Z}[x]$ is not principle
+    as an ideal generated over $\mathbb{Z}$.
+    If $\left( 2,x \right) = \left( p(x) \right) $, then
+    $p(x)  \mid 2$ implies that that the
+    degree of $p$ is $0$. Now
+    let $q(x)$ be such that
+    $p(x)q(x) = x$ and
+     $h(x)$ such that $p(x) h(x) = 2$. Then
+     the degree of $h$ is $0$ and that of $q$ is $1$.
+     Furthermore, as $p \in \left( 2,x \right) $, we must
+     have either $p(x) = 2 k(x)$ or
+     $p(x) = x l(x)$. But this implies that either
+     $2 k(x) q(x) = x$, so
+     $2  \mid x$ in $\mathbb{Z}[x]$, which is
+     impossible, or
+     $x l(x)h(x) = 2$, so
+     $x  \mid 2$ in $\mathbb{Z}\left[ x \right] $ which is
+     impossible by degree as $\mathbb{Z}$ is an integral
+     domain. Hence
+    we obtain a contradiction.
+\end{exercise}
+
+\begin{exercise}[5]
+    \begin{enumerate}
+        \item Let $I,J$ be ideals in a ring
+            $R$. Show that we always have the inclusion
+            of ideals
+            \[
+                \left( I+ J \right) 
+                \left( I \cap J \right) 
+                \subset IJ \subset I \cap J\subset 
+                I+J.
+            \] 
+        \item For each of the inclusions above, find an example
+            where it is a proper inclusion.
+        \item Show that if $I + J = R$, then all
+            the inclusions above are in fact equalities.
+        \item Prove the following generalization of the
+            Chinese Remainder Theorem. Given a ring
+            $R$ and finitely many ideals
+            $\left\{ I_1, \ldots, I_n \right\} $ in
+            $R$, such that for each pair
+            $1 \le i \neq j \le n$, one has
+            $I_i + I_j = R$.
+            Let
+            \[
+            I = \bigcap_{i} I_i .
+            \] 
+            Construct an isomorphism of rings
+            \[
+            \prod R/ I_i \cong R / I.
+            \] 
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    (1) Recall that
+    $\left( I+J \right) = 
+    \left( I \cup J \right) $ and that
+    for ideals $N,M$, 
+    $NM = \left( nm  \mid n \in N, m \in M \right) $.
+
+    If $x \in \left( I+J \right) \left( I \cap J \right) $, then
+    $x = \sum \alpha_i \beta_i$ where
+    $\alpha_i \in \left( I+J \right) $ and
+    $\beta_i \in \left( I \cap J \right) $.
+    So let $\alpha_i = \sum c_{ij}$ where
+    $c_{ij}$ is in $I$ or in $J$. Writing
+    $\beta_i = \sum e_i$ where
+    $e_i \in I \cap J$, we have
+    $x = \sum c_{ij} e_k$. If
+    $c_{ij}$ is in $I$, then
+    $c_{ij} e_k \in IJ$ since
+    $e_k \in J$, and similarly if  $c_{ij} \in J$.\\
+    \linebreak
+    Next assume $x \in IJ$, so
+    $x = \sum c_i d_i, c_i \in I, d_i \in J$.
+    Since $I$ and $J$ are ideals, 
+    each $c_i d_i \in I \cap J$, hence
+    $IJ \subset I \cap J$.\\
+    \linebreak
+    Lastly, 
+    $x \in I \cap J$ then
+    $x \in I,J$ so also in
+    $I \cup  J$, hence
+    $x \in  I + J$.\\
+    \linebreak
+    (2) Let $R = \mathbb{Z}[x]$. Then
+    Let $I = (2x), J = (3x^2)$. Then
+    $I + J = (2x, 3x^2)$ while
+    $I \cap J = \left( 6x^2 \right) $. 
+    Then 
+    $\left( I+J \right) 
+    \left( I \cap J \right) 
+    = \left( 12 x^3,18x^{4} \right) $ while
+    $IJ = \left( 6x^3 \right) $, so the containment
+    is clearly proper as
+    $6x^3$ is not in
+    $\left( I+J \right) \left( I \cap J \right) $.\\
+    Next, if $I = (x) = J$, then
+    $IJ = (x^2)$ is properly contained in
+    $(x) = I \cap J$.\\
+    Lastly, if $I = (2x)$ and
+    $J = (3x)$, then
+    $I \cap J = (6x)$ while
+    $I + J = (x)$ since
+    $3x - 2x = x \in I + J$.\\
+    \linebreak
+    (3) Suppose $I + J = R$. Since
+    $1 \in I + J$ then, it suffices to show
+    that $I + J \subset I \cap J$.
+    Let
+    $M$ be the set of elements of $I+J$ which
+    are not in $I \cap J$. Suppose
+    $x \in M$
+\end{proof}
+
+
+
+
+\begin{exercise}[7]
+    \begin{enumerate}
+        \item Surjectivity amounts to finding an
+            $f \in K \left[ x_1, \ldots, x_n \right] $ 
+            such that $f(y) = k$ for some arbitrary $k \in K$.
+            Consider the map
+            $f(x_1,\ldots,x_n) =
+            k + \left( x_1-y_1 \right) \ldots \left( x_n
+            -y_n\right) $. Or the constant polynomial at $k$ works
+            also. Now,
+            $\varphi_y \left( f+g \right) 
+            = \left( f+g \right) (y)
+            = f(y) + g(y) = \varphi_y(f) + 
+            \varphi_y(g)$, and
+            $\varphi_y(fg) = \varphi_y(f)\varphi_y(g)$ is
+            seen likewise. 
+
+            That it is a homomorphism of
+            $K$-algebras (with the
+            standard $K$-algebra structure)
+            amounts to showing that
+            $\varphi_y\left( k  \right) 
+            = k $ which is clear.
+        \item Let $\varphi  \colon K \left[ x_1, \ldots, x_n
+            \right]  \to K$ be a ring homomorphism. 
+            Let $y_i = \varphi (x_i)$. Then
+            $\varphi \left( \sum a_I x_I \right) 
+            = \sum \varphi \left( a_I \right) 
+             y_I = 
+             \varphi_{y_I}\left( \sum a_I x_I \right) $
+             (for this we need
+             $\varphi $ to be a $K$-algebra
+             homomorphism of with
+              $K\left[ x_1, \ldots,x_n \right] $ 
+              in the standard structure.
+              Is there a different way of arguing?)
+    \end{enumerate}
+\end{exercise}
+
+\section{Sheet 1}
+
+    \begin{exercise}[1]
+        \begin{proof}
+            (i)
+                We claim that 
+                    $\left( x^2+1 \right) $ is a radical,
+                    prime and maximal
+                    ideal in $\mathbb{R}\left[ x \right] $.
+                    This can be seen
+                    by noting that
+                    $\mathbb{R}\left[ x \right] /
+                    \left( x^2 +1 \right) \cong \mathbb{C}$ which
+                    is a field. Hence
+                    $\left( x^2+1 \right) $ is
+                    maximal. Suppose
+                    $f^{n} \in \left( x^2+1 \right) $.
+                    Since $x^2 +1$ is irreducible
+                    and $x^2 +1  \mid f^{n}$, we must
+                    have $x^2 + 1  \mid f$, hence
+                    $f \in \left( x^2 +1 \right) $,
+                    so $\sqrt{\left( x^2+1 \right) } 
+                    =\left( x^2 +1 \right) $.
+                Over $\mathbb{C}\left[ x \right] $,
+                    we claim that
+                    $\left( x^2+1 \right) $ is neither
+                    prime nor maximal, but still radical.
+                    It is not prime as
+                    $x^2+1 = \left( x+i \right) \left( x-i \right) $
+                    and hence also not maximal
+                    since $\left( x^2+1 \right) 
+                    \subset \left( x+i \right) \neq 
+                    \mathbb{C}[x]$, where
+                    inequality follows from 
+                    $\left( x+i \right) $ only
+                    having polynomials of degree $\ge 1$.
+
+                    Now suppose
+                    $f^{n} \in \left( x^2+1 \right) $.
+                    Then $x+i, x-i  \mid f^{n}$, hence
+                    both must divide $f$ as they are
+                    irreducible, so
+                    $x^2 +1  \mid f$. Thus
+                    $f \in \left( x^2+1 \right) $, so
+                    $\sqrt{\left( x^2+1 \right) } 
+                    = \left( x^2+1 \right)  $ over
+                    $\mathbb{C}\left[ x \right] $
+                    as well.\\
+                    \linebreak
+                    (ii) Since $\left( x^2 +1 \right) $  is
+                    a prime ideal in $
+                    \mathbb{R}[x]$ by the previous exercise,
+                    we find by Eisenstein's criterion that
+                    $y^2 + x^2 + 1$ is irreducible
+                    in $\mathbb{R}[x][y] =:
+                    \mathbb{R}[x,y]$.\\
+                    \linebreak
+                    
+
+                    (iii)
+                 
+                    Let $C =
+                    \left\{ f \in 
+                    C\left( \mathbb{R}^2,\mathbb{R} \right)
+                 \mid \forall x \in \mathbb{R}\colon
+             f\left( x,0 \right) =0 \right\}
+             \subset C\left( \mathbb{R}^2,\mathbb{R} \right)$.
+             We claim that $C$ is radical, but neither
+             prime nor maximal.
+
+             To see that it is radical, suppose
+             $g^{n} \in C$, so
+             $g(x,0) \cdot \ldots \cdot 
+             g(x,0) = g^{n}(x,0) = 0$. Since
+             $\mathbb{R}$ is an integral domain,
+             this forces $g(x,0) = 0$, so
+             $g \in C$. Thus $\sqrt{C}  = C$.
+
+             Now let
+             $h(x) = \mathbbm{1}_{\ge 0}(x) x $
+             and
+             $k(x) = \mathbbm{1}_{\le 0}(x) x$. Then
+             $h,k \not\in C$, but
+             $hk \in C$. Therefore,
+             $C$ is not prime.
+             Since $C\left( \mathbb{R}^2,\mathbb{R} \right) $ is
+             a commutative ring and maximal ideals are
+             prime over a commutative ring, we
+             thus also conclude that $C$ is not maximal.\\
+             \linebreak
+             (iv) The ideal $\left( 5 \right) $ in
+             $\mathbb{Z}[i]$ is not prime, hence
+             not maximal as $\mathbb{Z}[i]$ is commutative.
+             It is not prime because $5 = 
+             (2+i) (2-i)$.
+
+             For the radical part, if
+             $a+bi \in \sqrt{(5)} $, then
+             $(2+i)(2-i)  \mid \left( a+bi \right)^{n}$,
+             so $2+i  \mid a+bi$ and
+             $2-i  \mid a+bi$ since
+             each is irreducible, hence
+             $5  \mid a+bi$, so
+             $\sqrt{\left( 5 \right) } =
+             \left( 5 \right) $.\\
+             \linebreak
+             
+             (v) We claim that
+             $\left( n \right) \subset \mathbb{Z}$ 
+             is prime and maximal whenever
+             $n$ is a prime and not otherwise.
+             If $n$ is not prime, then
+             writing $n = ab$ for $a,b >1$, we
+             have $\left( n \right) 
+             = \left( a \right) (b)$, so $\left( n \right) $ is
+             not prime, hence not maximal as
+             $\mathbb{Z}$ is commutative so
+             all maximal ideals are prime ideals.
+             If instead $n$ is a prime, $n=p$, then
+             $\left( p \right) $ is both
+             maximal and prime since
+             $\mathbb{Z} / p$ is a field.
+
+
+             Suppose now
+             $m \in \sqrt{\left( n \right) } $.
+             Then $m^{k} \in \left( n \right) $, so
+             $m^{k} = nq$ for some $q \in \mathbb{Z}$.
+             Suppose $n$ is squarefree. Let
+             $p  \mid n$. Then $p  \mid m^{k}$ and thus
+             $p  \mid m$, so $n  \mid m$, hence
+             $m \in \left( n \right) $. Conversely,
+             if $n$ is not squarefree, then
+             letting $n = p^k q$ for some $k>1$, we have
+             $p^{k-1}q \in \sqrt{\left( n \right) } $ while
+             $p^{k-1} q \not\in \left( n \right) $, so
+             $\left( n \right) $ is not radical.
+        \end{proof}
+    \end{exercise}
+
+
+
+    \begin{exercise}[2]
+        Let $n \in \mathbb{N}$. We denote the set
+        of orthogonal matrices on
+        $\mathbb{R}^{n}$ by
+        \[
+        O \left( \mathbb{R}^{n} \right) 
+        = \left\{ A \in \mathbb{R}^{n\times n}
+         \mid A^{T} A = I_n \right\} 
+        \] 
+        Write $R = 
+        \mathbb{R} \left[ x_{ij} \mid 
+        i,j = 1,\ldots, n\right] $ for the polynomial
+        ring in variables $X = \left( x_{ij} \right)_{i,j
+        = 1,\ldots, n}$. 
+        \begin{enumerate}
+            \item Show that $O \left( \mathbb{R}^{n} \right) $ 
+                is the zero set 
+                $\mathbb{V} (I)$ of the ideal
+                $I = 
+                \left( \left\{ f_{ij}  \mid 
+                i,j = 1,\ldots,n\right\}  \right) $  of
+                $R$ where
+                \[
+                f_{i,j} = \sum_{k=1}^{n} x_{ki}x_{kj}
+                \quad \text{for } i\neq j
+                \quad \text{and} \quad
+                f_{ii} = \sum_{k=1}^{n} x_{ki}^2 -1.
+                \] 
+            \item Show that $O \left( \mathbb{R}^{n} \right) $ 
+                is also the real zero set of the ideal
+                $J = \left( g,h \right) $ generated by
+                the polynomials
+                $g = \det (X)^2 -1$ and
+                $h = \sum_{i,j=1}^{n} x_{ij}^2 -n$.
+        \end{enumerate}
+    \end{exercise}
+    \begin{proof}
+        (a) We know that $A = 
+        \left( \alpha_{ij} \right)
+        \in O \left( \mathbb{R}^{n} \right) $ if and only
+        if $A^{T} A = I$.
+        Taking entries of either side of this equality, we
+        get that $A$ is orthogonal if and only if
+        both of the following conditions hold:
+        \begin{align*}
+            0 &= \left( A^{T}A \right)_{ij}
+            = \sum_{k=1}^{n} \left( A^{T} \right)_{ik}
+            A_{kj}
+            = \sum_{k=1}^{n} \alpha_{ki} \alpha_{kj}\\
+            1 &= \left( A^{T}A \right)_{ii}
+            = \sum_{k=1}^{n} \alpha_{ki}^2.
+        \end{align*}
+        That is,
+        $A \in O\left( \mathbb{R}^{n} \right) $ if and
+        only if
+        $A \in \mathbb{V} (I)$ where we identify
+        $R \cong M_{n} \left( \mathbb{R} \right) $ by
+        $\sum \alpha_{ij} x_{ij}
+        \mapsto \left( \alpha_{ij} \right) $.\\
+        \linebreak
+        (b) Firstly, suppose
+        $A \in O \left( \mathbb{R}^{n} \right) $.
+        Then $A^{T}A = I$. Therefore,
+        $\det (A)^2 -1 = 
+        \det (A^{T}) \det (A) -1
+        = \det (A^{T}A) -1 
+        = \det (I) - 1
+        = 0$, so
+        $g(A) = 0$. And now
+        \[
+        n = \tr (I) = \tr (A^{T}A)
+        = \sum_{k=1}^{n} \left( A^{T}A \right)_{kk}
+        = \sum_{k,r=1}^{n} \alpha_{rk}^2
+        \] 
+        hence also $h(A) = 0$.
+        Therefore
+        $O \left( \mathbb{R}^{n} \right) 
+        \subset \mathbb{V} (J)$.\\
+        Conversely,
+        suppose
+        $A = \left( \alpha_{ij} \right)  \in \mathbb{V}(J)$.
+        Firstly, note that since
+        \[
+        x^{T} A^{T}A x
+        = \left( Ax \right)^{T} Ax
+        = \|Ax\|^2 \ge 0,
+        \] 
+        the matrix $A^{T}A$ is positive semi-definite,
+        hence all its eigenvalues are non-negative real numbers.
+        In particular,
+        $\sqrt[n]{\Pi_{i=1}^{n} \lambda_i} $ is well-defined
+        where
+        $\lambda_1, \ldots, \lambda_m$ are the eigenvalues
+        of $A^{T}A$ listed
+        with repetition, and
+        we can apply the AMGM inequality.
+        Recall that the AMGM inequality
+        tells us that
+        \[
+        \frac{\sum_i \lambda_i}{n} \ge 
+        \sqrt[n]{\prod_i \lambda_i} 
+        \] 
+        with equality if and only if all the
+        $\lambda_i$ are equal. But 
+        by Jordan normal form,
+        $\tr \left( A^{T}A \right) =
+        \sum_{i} \lambda_i$, and
+        $\det \left( A^{T}A \right) =
+        \prod_i \lambda_i$, so we obtain
+        \[
+        \tr(A^{T}A) \ge n \det \left( A^{T}A \right) 
+        \] 
+        with equality if and only if all eigenvalues are equal.
+        But since $A \in \mathbb{V} (J)$, we have
+        $g (A) = 0$, so
+        $\det \left( A^{T}A \right) 
+        = \det (A)^2 = 1$. Likewise,
+        \[
+        \tr \left( A^{T}A \right) 
+        = \sum_{k=1}^{n} \left( A^{T}A \right)_{kk} 
+        = \sum_{k,r=1}^{n} \alpha_{rk}^2
+        = h(A)+n = n
+        \] 
+        Thus we get
+        \[
+        n = \tr\left( A^{T}A \right) \ge 
+        n \det \left( A^{T}A \right) = n
+        \] 
+        so we conclude that, since we have equality between
+        the two sides, all eigenvalues of
+        $A^{T}A$ must be equal.
+        Now since
+        $A^{T}A$ is self-adjoint, it is in particular
+        diagonable, hence it has
+        precisely $n$ eigenvalues counted with multiplicity.
+        Therefore, it has one eigenvalue with multiplicity $n$.
+        Letting wlog $\lambda$ denote this eigenvalue, we
+        get
+        \[
+        n \lambda = \tr \left( A^{T}A \right) 
+        = n
+        \] 
+        so $\lambda = 1$ since $\mathbb{R}$ is an integral
+        domain.
+        To see that this forces $A^{T}A$ to be $I$, 
+        we note that since $A^{T}A$ is diagonable, we can
+        find some invertible linear map
+        $P \in \GL_n \left( \mathbb{R} \right) $ such that
+        $P A^{T}A P^{-1} = I$, implying
+        $A^{T}A = I$. Thus $A$ is orthogonal, so
+        $A \in O \left( \mathbb{R}^{n} \right) $.
+        This gives the inclusion
+        $\mathbb{V} (J) \subset O \left( \mathbb{R}^{n} \right) $.
+    \end{proof}
+
+
+\section{Sheet 3}
+
+\begin{exercise}[2]
+    Let $R$ be a Noetherian ring. Show that every ideal of
+    $R$ is a finite intersection of
+    irreducible ideals.
+\end{exercise}
+
+\begin{proof}
+    Let
+    $\mathcal{A}$ be the set of ideals
+    of $R$ which are not a finite intersection of
+    irreducible ideals.
+    Suppose
+    $\left\{ X_i \right\}
+    = \mathcal{X} \subset \mathcal{A}$ is a chain with
+    respect to inclusion.
+    Then since $R$ is Noetherian, this chain stabilizes, hence
+    it has an upper bound. Thus
+    $\mathcal{A}$ has a maximal element, call it
+    $M$. Now, $M$ is not a finite intersection
+    of irreducible ideals, so in particular,
+    $M$ is not irreducible, so write
+    $M = I \cap J$ where
+    $I$ and $J$ contain $M$ properly. But then
+    $I,J \not\in \mathcal{A}$, so
+    they are finite intersections of irreducible ideals.
+    However, then
+    their intersection is also a finite intersection of
+    irreducible ideals.
+\end{proof}
+
+\begin{exercise}[3]
+    Let $R$ be a ring. Show that an ideal
+    $\mathfrak{B}$ of $R$ is a prime ideal if and only
+    if for all ideals $I$ and $J$ of $R$,
+    $IJ \subset \mathfrak{B}$ implies
+    $I \subset \mathfrak{B}$ or
+    $J \subset \mathfrak{B}$.
+\end{exercise}
+
+\begin{proof}
+    If $\mathcal{B}$ is a prime ideal, then
+    suppose $IJ \subset \mathcal{B}$, and suppose
+    $I \not \subset  \mathcal{B}$.
+    Then there exists some $i \in I$ such that
+    $i \not\in \mathcal{B}$ but
+    $i J \subset \mathcal{B}$.
+    Since $\mathcal{B}$ is prime,
+    we must have that
+    $J \subset \mathcal{B}$.\\
+    Conversely, suppose that for all $I,J$,
+    $IJ \subset \mathcal{B}$ implies $I \subset \mathcal{B}$
+    or $J \subset \mathcal{B}$. Let
+    $a,b \in R$ such that
+    $ab \in \mathcal{B}$. Then
+
+    $\left( a \right)  \left( b \right)
+    \subset \mathcal{B}$, so either
+    $\left( a \right)  \subset \mathcal{B}$ or
+    $\left( b \right)  \subset \mathcal{B}$, so
+    either $a \in \mathcal{B}$ or $b \in \mathcal{B}$.
+    So $\mathcal{B}$ is prime.
+\end{proof}
+
+
+
+\begin{exercise}[4]
+    Let $R_S$ be the localization of the integral domain
+    $R$ by a multiplicative subset
+    $S$ which does not contain $0$. Let
+    $\mathfrak{U}$ be a primary ideal of
+    $R$. Show that the extension
+    $\mathfrak{U}R_S$ is a primary ideal of
+    $R_S$ and that $R \cap \mathfrak{U}R_S =
+    \mathfrak{U}$.
+\end{exercise}
+
+\begin{proof}
+    Let $\tau \colon R \to R_S = \left( R-S \right)^{-1}R$.
+    Recall that
+    $\mathfrak{U}R_S = \left( \tau \left(
+    \mathfrak{U}\right)  \right) $.
+    Suppose
+    $ab \in \mathfrak{U}R_S$. Then
+    there exists $\sum \alpha_i u_i
+    \in \mathfrak{U}$ such that
+    $ab = \sum \alpha_i \tau(u_i)
+    = \sum \alpha_i \frac{u_i}{1}$.
+    We can write
+    $a = \frac{x}{y}$ and
+    $b = \frac{v}{w}$.
+    Then
+    $xv \in \mathfrak{U}$, so
+    either $x \in \mathfrak{U}$, in which case
+    $\frac{x}{y} \in \mathfrak{U}R_S$, or
+    $v^{n} \in \mathfrak{U}$, in which case
+    $\left( \frac{v}{w} \right)^{n} \in
+    \mathfrak{U}R_S$ since $S$ is multiplicative, so
+    $w^{n} \in S$. Thus
+    $a \in \mathfrak{U}R_S$ or
+    $b^{n} \in \mathfrak{U}R_S$. Hence
+    $\mathfrak{U}R_S$ is primary in $R_S$.\\
+    Now recall that
+    $R \cap \mathfrak{U}R_S$ denote the contraction
+    of $\mathfrak{U}R_S$ along $\tau$, i.e.,
+    $R \cap \mathfrak{U}R_S =
+    \tau^{-1} \left( \mathfrak{U}R_S \right) $.
+    Clearly,
+    $\mathfrak{U} \subset
+    R \cap \mathfrak{U}R_S$.
+    Conversely, suppose
+    $a \in \tau^{-1}\left( \mathfrak{U}R_S \right) $.
+    Then
+    $\frac{a}{1} \in \mathfrak{U}R_S$, so
+    $\frac{a}{1} =
+    \sum \alpha_i \frac{u_i}{1}$. So
+    there exists some
+    $r \in R-S$ such that
+    $ra = r \sum \alpha_i u_i$. So
+    since $r \neq 0$ as $0 \not\in S$, we have
+    $a = \sum \alpha_i u_i$ since $R$ is an integral domain.
+    Thus $a \in \mathfrak{U}$.
+\end{proof}
+
+
+
+
+\begin{exercise}[5]
+    Let $R$ be a ring and $\mathfrak{U}$ a
+    $\mathfrak{B}$-primary ideal. Show the following.
+    \begin{enumerate}
+        \item For all $x \in \mathfrak{U}$, we have
+            $\left( \mathfrak{U} \colon x
+            \right) = R$.
+        \item For all $x \in R - \mathfrak{U}$,
+            we have that
+            $\left( \mathfrak{U} \colon x \right) $ is
+            $\mathfrak{B}$-primary.
+        \item For all $x \in
+            R - \mathfrak{B}$, we have
+            that $\left( \mathfrak{U}\colon x \right)
+            = \mathfrak{U}$.
+        \item If $R$ is Noetherian, then there is some
+            $x \in R - \mathfrak{U}$ such that
+            $\left( \mathfrak{U} \colon x \right)
+            = \mathfrak{B}$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    So $\sqrt{\mathfrak{U}} = \mathfrak{B}$ by assumption.\\
+    \linebreak
+    (1) Since $\mathfrak{U}$ is an ideal,
+    $x \mathfrak{U} \subset  \mathfrak{U}$ for
+    all $x \in R$, so
+     for all $x \in \mathfrak{U}$,
+     $\left( \mathfrak{U} \colon x \right) = R$.\\
+     (2) Suppose $a \in \sqrt{\left( \mathfrak{U}\colon
+     x\right) } $, so
+     $a^{n} x \in \mathfrak{U}$. Since $\mathfrak{U}$ is primary,
+     either $x \in \mathfrak{U}$, which we have assumed it is
+     not, or $a^{nm} \in \mathfrak{U}$ for some $m$. Hence
+     the latter must be true. So
+     $a \in \sqrt{\mathfrak{U}} = \mathfrak{B}$.\\
+     Hence
+     $ \sqrt{\left( \mathfrak{U} : x \right) } \subset
+     \mathfrak{B}$.
+     Conversely, suppose
+     $a \in \mathfrak{B}$, so
+     $a^{n} \in \mathfrak{U}$. So for
+     any $x \in R - \mathfrak{U}$, we have
+     $a^{n} x \in \mathfrak{U}$, so
+     $a \in \sqrt{\left( \mathfrak{U} : x \right) } $.\\
+     (3) Suppose
+     $x \in R - \mathfrak{B}$.
+     Now if $y \in \mathfrak{U}$ then
+     $xy \in \mathfrak{U}$, so
+     $y \in \left( \mathfrak{U} : x \right) $.
+     Conversely, suppose
+     $y \in \left( \mathfrak{U} : x \right) $.
+     So $xy \in \mathfrak{U}$, so
+     since  $x \not\in \mathfrak{B} =
+     \sqrt{\mathfrak{U}} $, we must have that
+     $y \in \mathfrak{U}$.\\
+     (4) Let $n$ be minimal such that
+     $\mathfrak{B}^{n} \subset \mathfrak{U}$.
+     Let
+     $x \in \mathfrak{B}^{n-1} - \mathfrak{U}$.
+     We claim
+     $\left( \mathfrak{U} : x \right) = \mathfrak{B}$.
+     For $b \in \mathfrak{B}$, we have
+     $bx \in \mathfrak{B}^{n} \subset
+     \mathfrak{U}$, so
+     $b \in \left( \mathfrak{U} : x \right) $.
+     Conversely, if
+     $bx \in \mathfrak{U}$, then
+     since  $x \not\in U$, we have
+     $b^{m} \in \mathfrak{U}$, so
+     $b \in \sqrt{U} = \mathfrak{B}$.
+\end{proof}
+
+
+\section{Assignment 2}
+
+    \begin{exercise}[]
+        Given two local rings $\left( R,
+        \mathfrak{m} \right) $ and
+        $\left( S, \mathfrak{n} \right) $ be local rings.
+        A ring homomorphism
+        $f \colon R \to S$ is called a local
+        homomorphism if the image of
+        $\mathfrak{m}$ under $f$ is contained in
+        $\mathfrak{n}$.
+        \begin{enumerate}
+            \item Let $g \colon A \to B$ be a ring
+                homomorphism between two arbitrary
+                rings and let 
+                $\mathfrak{p} \subset B$ and
+                $\mathfrak{q} = g^{-1}(\mathfrak{p}) \subset A$ be
+                prime ideals. Show that
+                $g$ localizes to a ring homomorphism
+                $A_{\mathfrak{q}} \to 
+                B_{\mathfrak{p}}$ to be more precise, let
+                $\pi_{A} \colon A \to A_{\mathfrak{q}}$ 
+                and $\pi_{B} \colon B \to 
+                B_{\mathfrak{p}}$ be the natural ring
+                homomorphisms from the
+                rings to their localizations. You need
+                to construct a ring homomorphism
+                $g' \colon
+                A_{\mathfrak{q}} \to 
+                B_{\mathfrak{p}}$ such that
+                $\pi_{B} \circ g = g' \circ \pi_A$. Show that
+                the map $g'$ you construct is a local
+                homomorphism.
+            \item Find a ring homomorphims between
+                local rings which is not a local
+                homomorphism.
+        \end{enumerate}
+    \end{exercise}
+
+\begin{proof}
+    (1) Consider the diagram
+
+    \begin{equation*}
+    \begin{tikzcd}
+        A \ar[d, "\pi_A"'] \ar[r, "g"] & B \ar[d, "\pi_B"] \\
+        A_{\mathfrak{q}} \ar[r, "g'"', dashed] & B_{\mathfrak{p}}
+    \end{tikzcd}
+    \end{equation*}
+    Note that
+    by the universal property of localizations, 
+    the map $g'$ exists if and only if
+    $\pi_B \circ g \left( \left( A- \mathfrak{q} \right) 
+    \right) \subset 
+    B_{\mathfrak{p}}^{\times }
+    = \left( R - \mathfrak{p} \right)_{\mathfrak{p}}$.
+    Let 
+    $a \in A - \mathfrak{q}$. By assumption, 
+    $g (a) \not\in \mathfrak{p}$, so
+    $\pi_B \left( g (a) \right) = \frac{g(a)}{1}
+    \in \left( R - \mathfrak{p} \right)_{\mathfrak{p}} $.
+    This gives the existence of $g'$.\\
+    Next we show that
+    $g'$ is a local homomorphism. 
+    Note that $A_{\mathfrak{q}}$ and
+    $B_{\mathfrak{p}}$ are local rings
+    with unique maximal ideals
+    $\mathfrak{q}_{\mathfrak{q}}$ and
+    $\mathfrak{p}_{\mathfrak{p}}$, respectively. Thus, to
+    show that $g'$ is a local homomorphism, we must show
+    that $g' \left( \mathfrak{q}_{\mathfrak{q}} \right) 
+    \subset \mathfrak{p}_{\mathfrak{p}}$.
+    Explicitly, 
+    \begin{align*}
+        \mathfrak{q}_{\mathfrak{q}} &=
+        \left\{ \frac{a}{b} \in A_{\mathfrak{q}} \colon
+        a \in \mathfrak{q} \right\} \\
+        \mathfrak{p}_{\mathfrak{p} } &=
+        \left\{ \frac{a}{b} \in B_{\mathfrak{p}} \colon
+        a \in \mathfrak{q} \right\} .
+    \end{align*}
+    Let $x \in 
+    \mathfrak{q}_{\mathfrak{q}}$, so
+    there exist $a \in \mathfrak{q}$ and
+    $b \in A - \mathfrak{q}$ such that
+    $x = \frac{a}{b}$.
+    Then
+    $\frac{a}{b} = \pi_A (a) \pi_A(b)^{-1}$, so
+    $g' \left( \frac{a}{b} \right) 
+    = g' \circ \pi_A (a) 
+    \left( g' \circ \pi_A (b) \right)^{-1}
+    = \pi_B \circ g(a) \left( \pi_B \circ g(b) \right)^{-1}
+    = \frac{g(a)}{g(b)}$ where
+    we can invert by $g(b)$ since
+    $g(b) \in B - \mathfrak{p}$ as
+    $b \in A - \mathfrak{q}$ and
+    $\mathfrak{q} = g^{-1}\left( \mathfrak{p} \right) $.
+    Since $g(b) \in B - \mathfrak{p}$ and
+    $g\left( \mathfrak{q} \right) 
+    \subset \mathfrak{p}$, 
+    so $g(a) \in \mathfrak{p}$, we have
+    $\frac{g(a)}{g(b)} \in 
+    \mathfrak{p}_{\mathfrak{p}}$, so
+    $g'(x) \in \mathfrak{p}_{\mathfrak{p}}$, hence
+    $g\left( \mathfrak{q}_{\mathfrak{q}} \right) 
+    \subset \mathfrak{p}_{\mathfrak{p}}$.
+    \\
+    \linebreak
+    (2) 
+The ring $\mathbb{Z}_{(p)}$ is local and 
+$\mathbb{Q}$ being a field is also local. However,
+the inclusion  $\mathbb{Z}_{(p)} \hookrightarrow
+\mathbb{Q}$ is not a local homomorphism since
+$\frac{p}{1}$ is not mapped to $0$, for example.
+\end{proof}
+
+
+
+\section{Assignment 3}
+    \begin{exercise}[]
+        Let $R$ be a Noetherian ring. Show the following
+        \begin{enumerate}
+            \item For every ideal
+                $I \subset R$, there exists $n \in \mathbb{N} $
+                such that $\left( \sqrt{I}  \right)^{n}
+                \subset I$.
+            \item Every radical ideal of $R$ is a finite
+                intersection of prime ideals.
+            \item If a radical ideal of $R$ is irreducible,
+                then it is a prime ideal.
+        \end{enumerate}
+    \end{exercise}
+
+    \begin{proof}
+        (1) Since $I \subset \sqrt{I} $ are
+        sub-$R$-modules of $R$ considered as a module
+        over itself, we find that
+        $\sqrt{I} $ must be finitely generated, so let
+        $\sqrt{I}  = \left< x_1, \ldots, x_n \right>$, and
+        by assumption,
+        there exist $\alpha_1, \ldots, \alpha_n$ such that
+        $x_i^{\alpha_i} \in I$.
+        Let $\alpha = \alpha_1 + \ldots
+        + \alpha_n$.
+        Now let
+        $x \in \sqrt{I} $ and write
+        $x = \sum_{i} c_i x_i$. Then
+        any term in
+        $x^{\alpha}$ will contain some
+        $x_i$ to the power of at
+        least $\alpha_i$ by
+        the pigeonhole principle. Since
+        $I$ is an ideal, the whole term is in $I$, so
+        again, ideals are closed under sums, so
+         $x^{\alpha} \in I$.
+         Since $x$ was arbitrary, we find
+         that
+         $\left( \sqrt{I}  \right)^{\alpha}
+         \subset I$.\\
+         \linebreak
+         (2) Let
+         $I$ be a radical ideal of $R$, so
+         $\sqrt{I}  = I$.
+         By theorem 7.19 (Primary decomposition),
+         $I$ is the finite intersection
+         of primary ideals, so
+         \[
+         I = \mathfrak{p}_1 \cap \ldots
+         \cap \mathfrak{p_n}
+         \]
+         where each $\mathfrak{p}_i$ is primary.
+
+         \begin{lemma}[]
+             For an ideal $J =
+             J_1 \cap \ldots \cap J_n$, we have
+             \[
+             \sqrt{J}  = \sqrt{J_1}  \cap
+             \ldots \cap \sqrt{J_n}
+             \]
+         \end{lemma}
+         \begin{proof}
+             Suppose
+             $x \in \sqrt{J} $ so
+             $x^{i} \in J =
+             J_1 \cap \ldots \cap J_n$, then
+             $x^{i} \in J_j$ for all $j$ so
+             $x \in \sqrt{J_j} $ for all $J$, so
+             $x \in \sqrt{J_1}  \cap \ldots
+             \cap \sqrt{J_n} $.
+             Conversely, if
+             $x \in \sqrt{J_1} \cap \ldots
+             \cap \sqrt{J_n} $ then
+             there exist  $\alpha_1, \ldots, \alpha_n$
+             such that
+             $x^{\alpha_i} \in J_i$.
+             Let $\alpha = \max_{i} \left\{ \alpha_i \right\} $.
+             Then
+             $x^{\alpha} \in
+             J_1 \cap \ldots \cap J_n = J$, so
+             $x \in \sqrt{J} $.
+         \end{proof}
+         Hence we obtain
+         \[
+         I = \sqrt{I}  =
+         \sqrt{\mathfrak{p}_1}  \cap
+         \ldots \cap
+         \sqrt{\mathfrak{p}_n} .
+         \]
+         To finish it off, we note that
+         by Lemma 7.11,
+         each $\sqrt{\mathfrak{p}_i} $ is prime.\\
+         \linebreak
+         (3) Suppose
+         $I \subset R$ is a radical ideal which is
+         irreducible.
+         By Lemma 7.16, $I$ is primary, and now by
+         Lemma 7.11,
+         $I = \sqrt{I} $ is prime.
+    \end{proof}
+
+
+    \begin{exercise}[]
+        Let $V \subset K^{n}$ be an affine
+        algebraic set. Show the following.
+        \begin{enumerate}
+            \item $V$ is irreducible if and only if
+                $\mathbb{I}(V)$ is a prime ideal.
+            \item $V$ can be written as a finite
+                union of irreducible affine algebraic
+                sets.
+            \item There is a minimal decomposition
+                $V = V_1 \cup \ldots \cup
+                V_m$ of $V$ into irreducible affine
+                algebraic sets $V_i$, where
+                $m \in \mathbb{N}_0$. This is meant in the
+                sense that no $V_i$ is contained in
+                $\bigcup_{j \neq i} V_j$.
+            \item The minimal decomposition $V =
+                V_1 \cup \ldots \cup V_m$ is unique,
+                up to reordering of
+                $V_1,\ldots, V_m$. We
+                call $V_1, \ldots, V_m$ the irreducible
+                components of $V$.
+        \end{enumerate}
+    \end{exercise}
+
+
+    \begin{proof}
+        (1) Since $V \subset K^{n}$ is an affine
+        algebraic set, there exists
+        some ideal $I \subset k\left[ x_1, \ldots,
+        x_n\right] $ such that
+        $V = \mathbb{V}(I)$.
+        Suppose
+        $V = V_1 \cap V_2$ with
+        both $V_1$ and $V_2$ being affine
+        algebraic sets properly containing
+        $V$.
+        Then
+        $\mathbb{I}(V) \subset
+        \mathbb{I}(V_1) \cap \mathbb{I}(V_2)$ since
+        any polynomial vanishing on $V$ must vanish on
+        both $V_1$ and on $V_2$. But now any
+        prime ideal is irreducible, so
+        $\mathbb{I}(V_1) = \mathbb{I}(V)$  or
+        $\mathbb{I}(V_2) = \mathbb{I}(V)$.
+        Suppose without loss
+        of generality that
+        $\mathbb{I}(V_2) = \mathbb{I}(V)$. Then
+        $V_2 = \mathbb{V} (\mathbb{I}(V_2)) =
+        \mathbb{V} (\mathbb{I}(V)) = V$.
+        For this, we need to show that
+        $\mathbb{V} \left( \mathbb{I} (W) \right)
+        = W$ when $W$ is an affine algebraic set.
+        But $\mathbb{I} \left( \mathbb{V}(U) \right)
+        \subset U$ always, so since
+        $\mathbb{V}$ is containment-reversing, we get
+        $W = \mathbb{V}(U) \subset
+        \mathbb{V} \left( \mathbb{I} (W) \right) $.
+        For the opposite direction, we simply have
+        that if
+        $x \in \mathbb{V} \left( \mathbb{I}(W) \right) $, then
+        any $f \in \mathbb{I}(W)
+        = \mathbb{I}\left( \mathbb{V}(U) \right)
+        \subset U$ vanishes on
+        $x$. Suppose
+        $x \not\in W = \mathbb{V}(U)$.
+        Then there exists some $g \in U$ such that
+        $g(x) \neq 0$. But
+        $g \in \mathbb{I} \left( \mathbb{V}
+        (U) \right) = \mathbb{I}(W)$ by definition
+        which gives a contradiction.
+        Hence
+        $\mathbb{V}\left( \mathbb{I}(W) \right)
+        \subset W$.
+        Having concluded that
+        $V = V_1$ or $V = V_2$, this shows that
+        $V$ is irreducible.\\
+        \linebreak
+
+        \textbf{A faster way to see this, I suppose
+        would be the following:}
+        If $V = V_1 \cup  V_2$, then
+        $\mathbb{I}(V_1) \cap
+        \mathbb{I}(V_2) \subset
+        \mathbb{I}(V)$, showing that
+        $\mathbb{I}(V)$ is not irreducible, contradicting
+        lemma 7.3.\\
+        \linebreak
+
+        Conversely, if
+        $\mathbb{I}(V)$ is not prime, let
+        $fg \in \mathbb{I}(V)$ such that
+        $f,g \not\in \mathbb{I}(V)$.
+        Then
+        $V =
+        \mathbb{V} \left( \mathbb{I}(V) \right)
+        \subset \mathbb{V}
+        \left( (f) (g) \right)
+        \subset \mathbb{V}(f) \cap
+        \mathbb{V}(g)$ using that
+        $\mathbb{V}$ is inclusion-reversing.
+        Now by assumption,
+        if $V = \mathbb{V}(f)$, then
+        $f$ would vanish on all of $V$, contradicting
+        $f \not\in \mathbb{I}(V)$. Similarly for
+        $g$. Hence
+        $V$ is shown to not be irreducible.
+
+
+
+
+
+        (2) Since $V$ is an affine algebraic set,
+        there exists an ideal $I$ such that
+        $V = \mathbb{V}(I)$. Now,
+        $I \subset k\left[ x_1, \ldots, x_n \right] $ which
+        is Noetherian by applying
+        Hilbert's basis theorem
+        iteratively since a field is Noetherian (having
+        only $\left( 0 \right) $ and itself as ideals) considered
+        as $k$-modules. This in particular
+        gives us a decomposition
+        \[
+        I = \mathfrak{p}_1 \cap \ldots \cap
+        \mathfrak{p}_n
+        \]
+        where each $\mathfrak{p}_i$ is primary. Hence
+        \[
+        \mathbb{V}(I)
+        = \mathbb{V}(\mathfrak{p}_1) \cup
+        \ldots \cup
+        \mathbb{V}\left( \mathfrak{p}_n \right) .
+        \]
+        To show that
+        $\mathbb{V}\left( \mathfrak{p}_i \right) $
+        is irreducible, we can
+        show that
+        $\mathbb{I} \left( \mathbb{V}
+        \left( \mathfrak{p}_i \right) \right) $ is a
+        prime ideal.
+        This can be easily achieved if we may use
+        Nullstellensatz since then
+        $\mathbb{I} \left( \mathbb{V}\left(
+        \mathfrak{p}_i\right)  \right)
+        = \sqrt{\mathfrak{p}_i}
+        $ which is prime by Lemma 7.11.\\
+        \linebreak
+        (3) By part (2),
+        $V$ can be decomposed as
+        $V = V_1 \cup \ldots \cup  V_n$ where
+        each $V_i$ is an irreducible affine
+        algebraic set. Suppose now that
+        $V_1 \subset \bigcup_{i=2}^{n}V_i $.
+        But then
+        \[
+        V_1 = \bigcup_{i=2}^{n} \left( V_1 \cap
+        V_i \right).
+        \]
+        Now, the intersection of affine algebraic sets
+        is still an affine algebraic set since
+        $\mathbb{V}(I_1) \cap
+        \mathbb{V}(I_2) =
+        \mathbb{V}\left( I_1 \cup I_2 \right) $.
+       Similarly, a union of finitely many affine
+       algebraic sets is also an affine algebraic set since
+       $\mathbb{V}(I_1 \cdots I_n)
+       = \mathbb{V}(I_1) \cap \ldots \cap
+       \mathbb{V}(I_n)$.
+       So by irreducibility of $V_1$, either
+       $V_1 = V_1 \cap V_2$ or
+       $V_1 = \bigcup_{i=3}^{n} V_1 \cap V_i$.
+       Inductively, we obtain that for some
+       $i\ge 2$,
+       $V_1 = V_1 \cap V_2$, i.e.,
+       $V_1 \subset  V_2$. Hence we may
+       discard $ V_1$ from the collection, so
+       $V = V_2 \cup  \ldots \cup  V_n$.
+       Thus if we have a collection
+       $V = V_1 \cup \ldots \cup  V_n$ such that
+       $V_i \subset \bigcup_{j\neq i} V_j$, then we
+       can simply discard $V_i$. We can continue to do so and
+       after at most $n-1$ steps, we will obtain a minimal
+       decomposition.\\
+       \linebreak
+       (4) Suppose
+       \[
+       V = V_1 \cup \ldots \cup  V_m =
+       W_1 \cup  \ldots \cup W_n
+       \]
+       are two minimal decompositions.
+       Then
+       $W_i \subset
+       V_1 \cup  \ldots \cup V_m$, so
+       \[
+       W_i = \bigcup_{j=1}^{m} V_j \cap W_i
+       \]
+       By part (3), this is a union of affine algebraic sets,
+       so we completely equivalently obtain that
+       $W_i = V_j \cap W_i$ for some $j$.
+       Hence $W_i \subset V_j$.
+       For each  $i$, let
+       $j_i$ be such that
+       $W_i \subset V_{j_i}$.
+       Repeating this the other way around, we obtain
+       $i_k$ such that
+       $V_k \subset W_{i_k}$.
+       Now
+       $V_k \subset W_{i_k} \subset
+       V_{j_{i_k}}$. So since the decomposition is minimal,
+       we must have
+       $k = j_{i_{k}}$, so
+       $V_k = W_{i_k}$ for all $k$.
+       This in particular gives an injective map
+       $\left\{ 1, \ldots,m \right\} \to
+       \left\{ 1, \ldots, n \right\} $, so
+       $m\le n$.
+       And similarly, $W_i = V_{j_i}$ for all
+       $i$, so we similarly get $n\le n$.
+       This implies that
+       $m = n$ and that indeed the decompositions
+       are the same up to reordering, namely by the reordering
+       $\sigma \colon k \mapsto i_k$ giving
+       $V_{k} =
+       W_{\sigma (k)}$.
+    \end{proof}
+
+
+    \section{Assignment 4}
+       \begin{exercise}[2]
+        Which of the following modules are flat over the
+        corresponding rings?
+        Justify your answer
+        \begin{enumerate}
+            \item $R = \mathbb{C}\left[ x,y \right] $ and
+                the module is
+                $I = \left( x,y \right) \subset R$.
+            \item $R = \mathbb{C}\left[ x \right] /
+                (x^2)$ and the module is
+                $I = (x) \subset R$.
+            \item $R = \mathbb{C}\left[ x \right] $ and
+                the module is the ring
+                $\mathbb{C} \left[ y \right] $ considered
+                as an $R$-module by ring
+                homomorphism $\mathbb{C} \left[ x \right]
+                \to \mathbb{C} \left[ y \right] \colon
+                x \mapsto y^2$.
+            \item $R = \mathbb{C}\left[ x \right] $ and the
+                module is the ring
+                $\mathbb{C} \left[ x,y \right]
+                /(xy)$ considered as an
+                $R$-module by ring
+                homomorphism
+                $\mathbb{C} \left[ x \right] \to
+                \mathbb{C} \left[ x,y \right] / (xy) \colon
+                x \mapsto x$.
+        \end{enumerate}
+    \end{exercise}
+
+    \begin{solution}
+        (1) We claim that
+        $I = \left( x,y \right) $ is not
+        a flat $R = \mathbb{C}\left[ x,y \right] $ module.
+        Firstly,
+        $\mathbb{C} \left[ x,y \right] $ is Noetherian by
+        Hilbert's basis theorem since
+        $\mathbb{C}$ is, and
+        it is also local: we claim that
+        $\left( x,y \right) = I$ is precisely the
+        maximal ideal. Firstly,
+        it is maximal because
+        $\mathbb{C} \left[ x,y \right] / \left( x,y \right)
+        \cong \mathbb{C}$ is a field. Now if
+        $M \subset \mathbb{C} \left[ x,y \right] $ is a
+        maximal ideal, then $1 \not\in M$, so
+        for any $f \in M$, we have that
+        $f(x,y) =
+        \sum_{i+j\ge 1} \alpha_{ij} x^{i} y^{j}
+        \in \left( x,y \right) $.
+        Thus $M \subset (x,y)$, so
+        $M$ is not maximal unless $M = (x,y)$.
+        Therefore $(x,y)$ is the only maximal ideal.
+        Now, $I$ is finitely generated as
+        a $\mathbb{C}\left[ x,y \right] $-module
+        with generators
+        $x$ and  $y$, hence
+        proposition 9.15 applies. Since
+        $(x,y)$ is not free since it in particular is a
+        proper submodule of $R$, we have that
+        it is not flat.\\
+        \linebreak
+        (2) We claim that
+         $I = \left( x \right) \subset
+         \mathbb{C} \left[ x \right] / (x^2)$ is indeed
+         flat. This can be seen since
+         $\mathbb{C} \left[ x \right] / (x^2) =
+         \mathbb{C} \oplus (x) \cong
+         \mathbb{C} \oplus \mathbb{C}$, so
+         since $(x)$ is a direct summand of
+         $R = \mathbb{C} \left[ x \right] /(x^2)$,
+         it is flat by proposition 9.13 and the fact that
+         $R$ is itself flat by example 9.2.\\
+         \linebreak
+         (3)
+         \textbf{I will give two solutions since I'm
+         not sure whether I may use that over a PID,
+     a module is flat iff it is torsion-free}
+     Suppose there
+     is a relation
+     $\sum a_i y^{i} = 0$ in $\mathbb{C}[y]$ where
+     $a_i \in \mathbb{C}[x]$. However,
+     then taking the maximal degree of $x^{j}$ in
+     $a_j$ for $y^{j}$ the maximal degree
+     of $y $ in the relation, we find that
+     $a_j = 0$. But this contradicts $y^{j}$ being the
+     maximal degree. Hence
+     $a_i = 0$ for all $i$. But this
+     shows that the relation is trivial. Now
+     remark 9.21 tells us that
+     $\mathbb{C}[y]$ is flat cosidered as a
+     $\mathbb{C}[x]$ module by the homomorphism
+     $\mathbb{C}[x] \to \mathbb{C}[y]$ by
+     $x \mapsto y^2$.\\
+     \linebreak
+     The other solution is the following:
+         Since $R = \mathbb{C} \left[ x \right] $ is a
+         PID, we immediately find that
+         $\mathbb{C} \left[ y \right] $ is
+         flat if and only if it is torsion-free considered
+         as a  $\mathbb{C}\left[ x \right] $-module by
+         restriction of scalars along
+         $x \mapsto y^2$. Suppose
+         $f(y) \in \mathbb{C}[y]$ is such that
+         for  $g(x) \in R$,
+         $g(x) f(y) = 0$, i.e.,
+         $g(y^2) f(y) = 0$ in $\mathbb{C}[y]$. However, this
+         forces $f$ or $g$ to be $0$, so
+         we find that
+         $\mathbb{C} [y]$ is torsion-free as a
+         $\mathbb{C} [x]$ module under the ring-homomorphism
+         $x \mapsto y^2$. Thus
+         $\mathbb{C}[y]$ is a flat
+         $\mathbb{C}[x]$-module by the ring homomorphism
+         $\mathbb{C}[x] \to \mathbb{C}[y]$ sending
+         $x \mapsto y^2$.\\
+         \linebreak
+         (4)
+         We note that if a module has torsion, this
+         gives an non-trivial relation since
+         $am = 0$ with $a \neq 0$  and
+         $m \neq 0$
+         admitting a genuinely trivial reparametrization
+         implies $a = 0$, contradiction. Hence
+         proposition 9.20 gives that if a module
+         has torsion, then it cannot be flat.
+         $\mathbb{C} \left[ x,y \right] /(xy)$ is clearly
+         not a flat
+         $\mathbb{C} \left[ x \right] $-module under the
+         homomorphism
+         $\mathbb{C} \left[ x \right] \to
+         \mathbb{C} \left[ x,y \right] /(xy)$ sending
+         $x\mapsto x$ since
+         $y $ is nonzero in
+         $\mathbb{C} \left[ x,y \right] /(xy)$ however,
+         $x \cdot y := xy = 0$, hence
+         $\mathbb{C} \left[ x,y \right] /(xy)$ is not
+         torsion-free over $\mathbb{C}\left[ x \right] $.
+    \end{solution}
+
+
+
+
+    \section{Assignment 5}
+        \begin{exercise}[1]
+        (2)
+
+    We claim that
+    $\mathbb{Z} \left[ x_1, x_2, x_3 \right] $ is a
+    finite extension.
+    Now, clearly, we can express
+    $1, x_1, x_1^{2}, x_1^3$ as linear combinations over
+    $1, x_1, x_1^{2}, x_1^3$.
+    Suppose we can express $x_1^{n}$ as
+    a linear combination of
+    $1, x_1, x_1^2, x_1^{3}$ for
+    $n = 1, \ldots, N-1$ for
+    some $N \ge 4$. Since
+    \begin{align*}
+        x^{n}
+        &= x_1^{n-1} \left( x_1+ x_2 + x_3  \right)
+        - x_1^{n-1} x_2 - x_1^{n-1} x_3\\
+        &= x_1^{n-1} \sigma_1 -
+        x_1^{n-2} \sigma_2 + x_1^{n-2} x_2 x_3\\
+        &= x_1^{n-1} \sigma_1 - x_1^{n-2} \sigma_2
+        + x_1^{n-3} \sigma_3
+    \end{align*}
+    we find that for
+    $N \ge 4$,
+    $x_1^{N}$ can be written as a linear combination
+    over
+    $x_1^{N-1}, x_1^{N-2}$ and
+    $x_1^{N-3}$ which by the inductive assumption
+    can be written as linear combinations
+    of $1, x_1, x_1^2, x_1^3$.
+    Hence
+    $\mathbb{Z}\left[ x_1, x_2, x_3 \right] $ is
+    a finite extension over
+    $\mathbb{Z}\left[ \sigma_1, \sigma_2, \sigma_3 \right] $ with
+    \[
+    \left\{ 1, x_1, x_1^2, x_1^3, x_2,x_2^2,
+    x_2^3, x_3, x_3^2, x_3^3 \right\}
+    \]
+    as a finite generating set.
+    By proposition 10.11, this also implies that
+    the extension is integral.\\
+    \linebreak
+    (3) We claim that
+    $\mathbb{Z}\left[ x,y \right] $ is
+    not a finite extension of
+    $\mathbb{Z}\left[ x,xy \right] $.
+     Suppose
+     $\left\{ g_1, \ldots, g_n \right\}
+     \in \mathbb{Z}\left[ x,y \right] $ is a
+     generating set as a module.
+     Let $N$ be the maximal degree of $y$ over
+     $g_1, \ldots, g_n$.
+     Then
+     $y^{N+1} \in
+     \Span \left( g_1, \ldots, g_n \right) $, so
+     let
+     $y^{N+1} = f_1(x,xy) g_1(x,y) + \ldots +
+     f_n (x,xy) g_n(x,y)$.
+
+     Writing each
+     $f_i (x,xy) =
+     \sum \alpha_{i, k,l}
+     x^{k} \left( xy \right)^{l}$, we see that
+     \begin{align*}
+         y^{N+1} &
+         =
+     \sum \alpha_{1,k,l} x^{k} (xy)^{l} g_1(x,y)
+     + \ldots +
+     \sum \alpha_{n,k,l} x^{k}(xy)^{l} g_n(x,y)\\
+     &= \sum \left( \alpha_{1,k,l}g_1(x,y) +
+     \ldots + \alpha_{n,k,l}g_n(x,y) \right)
+     x^{k} (xy)^{l}.
+     \end{align*}
+     So in particular, we must have
+     that
+     for $\left( k,l \right) \neq (0,0)$,
+     \[
+     \alpha_{1,k,l}g_1(x,y) + \ldots+
+     \alpha_{n,k,l}g_n(x,y) = 0.
+     \]
+     But then we get
+     \[
+     y^{N+1} =
+     \alpha_{1,0,0} g_1(x,y) +\ldots
+     + \alpha_{n,0,0}g_n(x,y)
+     \]
+     which has  maximal $y$ degree $N$, giving a contradiction.
+     Thus the extension is not finite.
+     However,
+     clearly, it is a finite-type extension, since
+     $y$ together with
+     $\mathbb{Z}\left[ x,xy \right] $ precisely generate all
+     of $\mathbb{Z}\left[ x,y \right] $.
+     By proposition 10.11, we then
+     find that $\mathbb{Z}\left[ x,y \right] $ is not an
+     integral extension.\\
+     \linebreak
+     (7) If the map
+     $\mathbb{C}\left[ x \right]
+     \hookrightarrow
+     \mathbb{C}\left[ x,y,z \right] / \left( z^2
+     -xy\right) $ were integral, proposition 10.6 gives that
+     $\mathbb{C}\left[ x,y \right]
+     \subset \mathbb{C}\left[ x,y,z \right]
+     / \left( z^2 - xy \right)$ would be
+     finitely generated as a
+      $\mathbb{C}\left[ x \right] $-module.
+      Suppose
+      $f_1, \ldots, f_n$ generated
+      $\mathbb{C}\left[ x,y \right] $ as
+      a $\mathbb{C}\left[ x \right] $ module in
+      $\mathbb{C}\left[ x,y,z \right] /
+      \left( z^2 - xy \right) $.
+      If $y^{N}$ is the maximal degree of $y$ among
+      $f_1, \ldots, f_n$, then
+      $y^{N+1} = \sum g_i f_i$ for
+      $g_i \in \mathbb{C}\left[ x \right] $.
+      However, there is clearly no way to obtain
+      $y^{N+1}$ in such a way. So
+      the extension is not integral. Since it is
+      clearly finite type, it is also not finite by proposition
+      10.11.\\
+      \linebreak
+      (9) If
+      $\mathbb{C}[x]
+      \hookrightarrow
+      \mathbb{C}\left[ x,y,z \right] /
+      \left( z^2 - xy, x^3 - yz \right) $ were
+      integral, $z$ would be integral over
+      $\mathbb{C}\left[ x \right] $, so there
+      would be some
+      linear combination
+      \[
+      f_n(x) z^{n} + \ldots + f_0 (x) = 0
+      \]
+      However, there is not relation
+      converting $xz$ to something different, so if
+      $x^{k_n}$ is the highest term of $x$ in
+      $f_n(x)$, then
+      $x^{k_n} z^{n}$ is a term that cannot
+      cancel in the above linear combination.
+      So the extension cannot be integral. Hence it
+       can also not be finite.\\
+       \linebreak
+       (10) The extension
+       $\mathbb{C} \hookrightarrow
+       \mathbb{C}\left[ x_1, x_2, x_3, \ldots \right]
+       / \left( x_1^2, x_2^2, x_3^2, \ldots \right) $
+       is not finite: suppose
+       it were generated by
+       $f_1, \ldots, f_n \in
+       \mathbb{C}\left[ x_1, x_2, \ldots \right]
+       / \left( x_1^2, x_2^2, \ldots \right) $, and let
+        $m$ be maximal such that
+        one of the $f_i$ has a term with
+        $x_m$. Then
+        $x_{m+1} = c_1 f_1 + \ldots+ c_n f_n$ with
+        $c_i \in \mathbb{C}$. However, then multiplying
+        both sides by $x_{m+1}$, we see that
+        each non-zero term in
+        $c_1 f_1+ \ldots + c_n f_n$ must have a $x_{m+1}$,
+        contradicting maximality of $m$.\\
+        \linebreak
+        The extension is integral, however, since
+        for any $b \in
+        \mathbb{C}\left[ x_1, x_2, \ldots \right]
+        / \left( x_1^2, x_2^2, \ldots \right) $,
+        let $x_{i_1}, \ldots, x_{i_k}$ be the
+        $x_i$ which appear in $b$. Then
+        $b \left( x_{i_1} \cdots x_{i_k} \right)
+        = 0 \subset
+        \left( x_{i_1} \cdots x_{i_k} \right) $, and
+        $\left( x_{i_1} \cdots
+        x_{i_k} \right) $ is clearly finitely generated,
+        so by proposition 10.6,
+        $b$ is integral over $\mathbb{C}$.
+
+
+
+
+    \end{exercise}
+
+
+    \section{Assignment 6}
+        \begin{exercise}[1]
+        Let $R$ be a Noetherian ring and $A$ be a finitely
+
+        generated $R$-algebra. Show that if
+        $B \subset A$ is a subalgebra such that $A$ is
+        a finitely generated $B$-module, then
+        $B$ is also a finitely generated
+        $R$-algebra.
+    \end{exercise}
+
+
+    \begin{proof}
+        We want to show that
+        $B$ is finitely generated as an $R$-algebra.\\
+
+        Suppose $\left\{ y_1, \ldots, y_n \right\} \subset A$
+        generate $A$ as an $R$-algebra, so
+        $A = R \left[ y_1, \ldots y_n \right] $.
+        Since $A$ is also finitely generated
+        as a $R$-module, there
+        exist $a_1, \ldots, a_m \in A$ such that
+        $A = Ba_1 + \ldots + Ba_m$.
+        Now using the module expression for $A$, write
+        \[
+        y_i = \sum_j b_{ij} a_j
+        \]
+        and similarly, since
+        $a_i a_j \in A$,
+        \[
+        a_i a_j = \sum_k b_{ijk} a_k.
+        \]
+        Then given arbitrary
+        $u,v \in A$,
+        we can write
+        \[
+        u = \sum_{i,j} \alpha_i b_{ij} a_{j}
+        \]
+        and
+         \[
+        v = \sum_{i,j} \beta_i b_{ij} a_{j}
+        \]
+        We have then seen that
+        \[
+        uv = \sum_{i,j,k,l} \alpha_i b_{ij} a_j \beta_k b_{kl}a_l
+        = \sum_{i,j,k,l} \left( \alpha_i \beta_k \right)
+        \left( b_{ij} b_{kl} \right) \sum_{r} b_{jlr} a_r
+        = \sum_{i,,k,l,r} \left( \alpha_i b_{k} \right)
+        \left( b_{ij} b_{kl} b_{jlr} \right) a_r.
+        \]
+        This shows that
+        $A$ is generated by
+        $a_1, \ldots, a_n$  as an
+        $D = R \left[ b_{ij}, b_{jlr} \mid
+        j,l = 1,\ldots, n \quad
+    i,r = 1,\ldots,m\right] $ algebra.
+        In particular, $D$ is Noetherian by corollary
+        6.15, so $A$ is a Noetherian
+        $D$-module by applying by
+        theorem 6.11. Hence
+        since
+        $B$ is a natural $D$-submodule of $A$ it is
+        finitely generated as a $D$-module, so
+        $B = D b_1 + \ldots + D b_n$.
+        However, this in particular expresses
+        $B$ as the $R$-algebra
+        $R \left[ b_{ij},b_{ijk}, b_1,\ldots, b_n
+         \mid  i,j,k = 1, \ldots, n\right] $.
+
+    \end{proof}
+
+    \begin{exercise}[2]
+        Let $K$ be a field and let $A$ be a finitely
+        generated $K$-algebra. Show that if
+        $A$ is a field, then $A$ is finite-dimensional
+        as a $K$-vector space. In particular, note that
+        for every maximal ideal
+        $\mathfrak{R} \subset A$,
+        $A / \mathfrak{R}$ is a finite dimensional
+        $K$-vector space.
+    \end{exercise}
+
+
+    \begin{proof}
+        If $A$ is a field extension of $K$ such that
+        $A$ is finite type over $K$, then
+        by Zariski's lemma, we directly find that
+        $A$ is finite over $K$ - i.e. that it
+        is finitely generated as a $K$-module, and since
+        $K$ is a field, this is saying that
+        $A$ is finitely generated as a $K$-vector space.
+        The latter part is corollary 11.7.\\
+        \linebreak
+    \end{proof}
+
+
+
+
+
+    %\printbibliography
+\end{document}

@@ -1,0 +1,524 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+%\usepackage[backend=biber]{biblatex}
+%\addbibresource{.bib}
+
+
+\setlength\parindent{0pt}
+\pdfsuppresswarningpagegroup=1
+
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\SHomeo}{SHomeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Teich}{Teich}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\corank}{corank}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Bun}{Bun}
+\DeclareMathOperator{\Sm}{Sm}
+\DeclareMathOperator{\Fr}{Fr}
+\DeclareMathOperator{\Cob}{Cob}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\MCG}{{\mathrm{MCG}}}
+\newcommand{\PMCG}{{\mathrm{PMCG}}}
+\newcommand{\SMCG}{{\mathrm{SMCG}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+
+
+
+\title{Assignment 1}
+\author{Jonas Trepiakas}
+\date{}
+
+\renewcommand{\thesection}{\arabic{section}}
+
+\begin{document}
+\maketitle
+
+\section{Problem 1}
+
+    \begin{problem}[]
+        Fix an isomorphism $H_n\left( S^{n} \right) \cong \mathbb{Z}$.
+        We define the degree $\deg f$ of a map
+        $f \colon S^{n} \to S^{n}$ to be the integer such that
+        $f_* \colon H_n(S^{n}) \to H_n(S^{n})$ sends $1$ to
+        $\deg f \in \mathbb{Z}$.
+        \begin{enumerate}
+            \item Show that taking the degree of a map
+                $S^{n} \to S^{n}$ induces a well-defined
+                map
+                \[
+                \deg \colon \pi_n(S^{n}) \to \mathbb{Z}
+                \] 
+            \item Show that $\deg $ is a group homomorphism.
+            \item Show that the map $\deg$ is surjective.
+            \item Suppose that $n\ge 2$. Show that
+                $\pi_n\left( S^{n} \right) \cong
+                \mathbb{Z} \times A$ for some abelian group $A$.
+        \end{enumerate}
+    \end{problem}
+
+        \begin{proof}
+
+
+        \begin{enumerate}
+            \item Let
+                $ \left[ f \right] 
+                \in \pi_n \left( S^{n} \right) $ and
+                suppose $f, f'$ are two representatives of
+                this class. Then
+                $f$ and $f'$ are homotopic by definition,
+                so $f_* = \left( f' \right)_* \colon
+                \mathbb{Z} = H_n\left( S^{n} \right) \to 
+                H_n\left( S^{n} \right) = \mathbb{Z} $ are equal.
+                In particular,
+                $\deg f = f_*(1) = \left( f' \right)_* (1)
+                = \deg f'$. So the map is well-defined.
+            \item To show that degree is a group homomorphism,
+                we must show that
+                $\deg \left( f+g \right) = 
+                \deg f + \deg g$.
+
+                For this, we will show a couple of results.
+
+                \begin{proposition}[]
+                    Let $X = S_1^{n} \vee \ldots \vee
+                    S_k^{n}$ for $n > 0$. Then
+                    the homomorphism 
+                    $H_n\left( S_1^{n} \right) \oplus \ldots
+                    \oplus H_n\left( S_k^{n} \right) 
+                    \to H_n(X)$ induced by the inclusion maps
+                    is an isomorphism whose inverse
+                    is induced by the projections
+                    $X \to S_i^{n}$.
+                \end{proposition}
+                
+                To prove this proposition, we must show the following
+                lemma.
+
+                \begin{lemma}[]
+                    Let $X$ be a Hausdorff space and let
+                    $x_0 \in X$ be a point having a closed
+                    neighborhood $N$ in $X$ of which
+                    $\left\{ x_0 \right\} $ is a strong deformation
+                    retract. Let $Y$ be a Hausdorff space and
+                    let $y_0 \in Y$. Define
+                    $X \vee Y = X \times \left\{ y_0 \right\} 
+                    \cup \left\{ x_0 \right\} \times Y$.
+                    Then the inclusion maps induce
+                    isomorphisms 
+                    $\tilde{H}_i(X) \oplus \tilde{H}_i(Y)
+                    \cong \tilde{H}_i\left( X \vee Y \right) $
+                    whose inverse is induced by the projections
+                    of $X \vee Y$ to $X$ and $Y$.
+                \end{lemma}
+                
+                \begin{proof}[Proof of lemma]
+                    Consider $A = X$ and
+                    $U = X - N$ which is open, and
+                    $\overline{U} \subset A$. Then by
+                    excision,
+                    $H_* \left( X \vee Y, X \right) 
+                    \cong H_*\left( N \cup Y, N \right) 
+                    \cong \tilde{H}_*\left( Y \right) $
+
+                    Consider the LES of the triple
+                    $\left( X \vee Y,
+                    \left\{ x_0 \right\} \times Y,
+                \left\{ x_0 \right\} \times 
+            \left\{ y_0 \right\} \right) $. We obtain
+            \[
+            \ldots \to 
+            H_p\left( \left\{ x_0 \right\} \times Y,
+            \left( x_0,y_0 \right) \right)
+            \stackrel{i_*}{\to}
+            H_p\left( X \vee Y, \left( x_0,y_0 \right)  \right) 
+            \stackrel{j_*}{\to} H_p\left( X \vee Y,
+            \left\{ x_0 \right\} \times Y \right) \to \ldots
+            \] 
+            Since $\pi_Y \circ i = \id_{
+            \left\{ x_0 \right\} \times Y} $, 
+            $i_*$ is injective.
+
+            Furthermore, we have
+            \[
+            H_p\left( X \vee Y, 
+            \left( x_0, y_0 \right) \right) 
+            \stackrel{\left( \pi_X \right)_* }{\to } 
+            H_p \left( \left\{ x_0 \right\} \times Y,
+            \left( x_0, y_0 \right) \right) 
+            \cong H_p\left( X \vee Y , 
+            \left\{ x_0 \right\} \times Y \right) 
+            \] 
+            so $j_* = \left( \pi_X \right)_*$ under these
+            identifications, so, in particular, 
+            $j_*$ is surjective. Therefore, our exact sequence
+            is a SES:
+            \[
+            0 \to  H_p\left( Y, pt \right)
+            \stackrel{i_*}{\to }
+            H_p \left( X \vee Y, pt \right) 
+            \stackrel{j_*}{\to }
+            \underbrace{H_p \left( X \vee Y, Y \right)}_{
+            \cong H_p\left( X, pt \right) } \to 0
+            \] 
+            It remains to show that this SES is split, but
+            since
+            $\pi_X \circ \iota_{X} = 
+            \id_{\left\{ x_0 \right\} \times X}$,
+            we have that $\iota_{X*}$ provides a section.
+
+        \end{proof}
+
+        \begin{proof}[Proof of proposition]
+            This follows by induction on the lemma.
+        \end{proof}
+
+        Next, suppose that $E_1, \ldots, E_k$ are
+        disjoint open subsets of $S^{n}$, each homeomorphic to
+        $\mathbb{R}^{n}$ for $n>0$.
+        Let $f \colon S^{n} \to Y$ be a map which takes
+        $S^{n} - \bigcup E_i $ to $y_0$. Then
+        $f$ factors through the quotient space
+        $S^{n} / \left( S^{n} - \bigcup E_i  \right) 
+        \cong S_1^{n} \vee \ldots \vee S_k^{n}$ where
+        $S_i^{n} = S^{n} / \left( S^{n} - E_i \right) $:
+        \[
+            f \colon S^{n} \stackrel{g}{\to }
+            S_1^{n} \vee \ldots \vee S_k^{n}
+            \stackrel{h}{\to } Y
+        \] 
+        Let $\iota_{j} \colon S_j^{n} 
+        \hookrightarrow S_1^{n} \vee \ldots \vee
+        S_k^{n}$ be the $j$ th inclusion and let
+        $p_j \colon S_1^{n} \vee \ldots \vee
+        S_k^{n} \to S_j^{n}$ be the $j$ th projection.
+        Then by the proposition,
+        $\sum_j \iota_{j*} p_{j*} = \id_* \colon
+        H_n \left( S_1^{n} \vee \ldots \vee S_k^{n} \right) 
+        \to H_n \left( S_1^{n} \vee \ldots \vee
+        S_k^{n}\right) $. Let
+        $g_j = p_j \circ g \colon S^{n} \to S_j^{n}$ and
+        $h_j = h \circ \iota_j \colon
+        S_j^{n} \to Y$ and let
+        $f_j = h_j \circ g_j \colon  S^{n} \to Y$.
+        That is, $f_j$ is the map which is $f$ on
+        $E_j$ and maps the complement of $E_j$ to the basepoint
+        $y_0$.
+
+        \begin{theorem}[]
+            In the above situation, $f_*
+            = \sum_{j=1}^{k} f_{j*} \colon
+            H_n\left( S^{n} \right) \to H_n(Y)$.
+        \end{theorem}
+
+        \begin{proof}[Proof of theorem]
+            We have
+            $f_* = 
+            h_* \circ g_* = 
+            \sum_j h_* i_{j*} p_{j*} g_*
+            = \sum_j h_{j*} g_{j*}
+            = \sum_j f_{j*}$.
+        \end{proof}
+
+        Now we get back to showing that
+        $\deg \left( f+g \right) = \deg f + \deg g$.
+
+        Note that by way of defining
+        $f+g$, this essentially maps $I^{n}$ by
+        $f$ on the left half and $g$ on the right half with
+        the boundary mapping to the base point $x_0$.
+        In particular, this factors through the
+        quotient $I^{n} \to I^{n} / \partial I^{n} 
+        \cong S^{n}$, where now the two halves can be interpreted
+        as, say, the upper and lower hemispheres. In particular,
+        the equator is by assumption also mapped to
+        $x_0$, so we can quotient further by
+        $S^{n} \to S^{n} \vee S^{n}$ by "pinching" the equator
+        to a point. This is essentially what the proposition
+        above describes. In particular, $f+g$ can be covered
+        by the two open hemispheres and maps the equator
+        to $x_0$, so by the theorem,
+        we have $\left( f+g \right)_*
+        = f_* + g_*$, i.e.,
+        $\deg (f+g) = \left( f+g \right)_*(1)
+        = f_*(1) + g_*(1) = \deg f + \deg g$, as we wanted
+        to show.
+
+    \item 
+        Next we show that $\deg$ is surjective. 
+        First note that
+        $\deg \id = \id_* (1) = 1$ by functoriality since
+        $\id_* = \id_{H_n(S^{n})}$.
+        By functoriality, we thus hit
+        all of $\mathbb{Z}$. More precisely,
+        $\deg \left( \ast_{n} \id \right) = n$ for
+        $n \in \mathbb{N} $ as
+        $\deg$ is a homomorphism.
+        Also $\deg \left( \ast_{n} (-\id) \right) 
+        = -n$ for $n \in \mathbb{N} $ and
+        $\deg (c_{x_0}) = 0$, so
+        $\deg$ is surjective.
+    \item Let $n\ge 2$. We have a SES
+        \[
+        0 \to \ker \deg \to 
+        \pi_n\left( S^{n} \right) \stackrel{\deg}{\to }
+        \mathbb{Z} \to 0.
+        \] 
+        Since $\mathbb{Z}$ is projective, 
+        this splits, so
+        $\pi_n\left( S^{n} \right) 
+        \cong \mathbb{Z} \oplus \ker \deg$.
+        But $\ker \deg$ is a subgroup of
+        $\pi_n\left( S^{n} \right) $ which is abelian, hence
+        is itself abelian.
+
+
+
+
+
+
+
+        \end{enumerate}
+
+    \end{proof}
+
+    \section{Problem 2}
+
+    \begin{problem}[]
+        Fix $n\ge 1$. We say that a space $X$ is
+        \textit{$n$-connected} if it is non-empty, path-connected,
+        and $\pi_k (X, x) = 0$ for all $1 \le k \le n$ and
+        $x \in X$.
+        For $\left( X, x_0 \right) $ a pointed, path-connected space,
+        show that the following are equivalent:
+        \begin{enumerate}
+            \item $X$ is $n$-connected.
+            \item $\pi_k\left( X,x_0 \right) = 0$ for all
+                $1 \le k \le n$.
+            \item Every map
+                $S^{k} \to X$ can be extended to a map
+                $D^{k+1} \to X$ for all $k \le n$.
+            \item Every map
+                $S^{k} \to X$ is homotopic to a constant
+                map for all
+                $k \le n$.
+        \end{enumerate}
+    \end{problem}
+
+    \begin{proof}
+        $\left( 1 \implies 2 \right) $: this follows since
+        $X$ being $n$-connected means that $\pi_k\left( X,x \right) 
+        = 0$ for all $x \in X$ and all $1\le k\le n$,
+        hence in particular for $x_0$.\\
+        $(2 \implies 3)$ : Let
+        $f \colon S^{k} \to X$ be a map. 
+        Then $f$ represents some homotopy class
+        $\left[ f \right] \in \pi_k\left( X,x_0 \right) $. But
+        since $\pi_k(X,x_0) = 0$, $f$ is homotopic to
+        the constant map at $x_0 \rel s_0$.
+        Let $H \colon S^{k} \times I \to X$ be this homotopy.
+        Define
+        $\tilde{f} \colon D^{k+1} \to X$ by
+        $\tilde{f}(x) = H \left( x, \|x\| \right) $.
+        Then $\tilde{f}$ is continuous as a composite of
+        continuous maps and
+        $\tilde{f}|_{S^{k}}(-) = 
+        H\left( - , 1 \right) =
+        f(-)$, so $\tilde{f}$ indeed extends $f$.\\
+        $(3 \implies 4)$ : Let $f \colon S^{k} \to X$ be
+        a map. Extends $f$ to a map
+        $\tilde{f} \colon D^{k+1} \to X$. Define now
+        a homotopy
+        $H \colon S^{k} \times I \to X$ by
+        $H\left( x,t \right) =
+        \tilde{f}\left( xt \right) $. This is continuous
+        and $H\left( x,1 \right) =
+        \tilde{f}(x) = f(x)$ while
+        $H\left( x,0 \right) = 
+        \tilde{f}(0) \in X$ is constant. Hence this gives
+        a homotopy between $f$ and $c_{\tilde{f}(0)}$.\\
+        \linebreak
+        $(4 \implies 3)$ : 
+        Let $f \colon S^{k} \to X$ be a given map.
+        By assumption, there exists
+        a homotopy
+        $H \colon S^{k} \times I \to X$ such that
+        $H\left( -,1 \right) = f(-)$ and
+        $H(-,0) = c$ where $c$ is some constant map
+        at a point in $X$.
+        But then $H$ factors through the quotient
+        \begin{equation*}
+        \begin{tikzcd}
+            S^{k} \times I \ar[d] \ar[dr, "H"] & \\
+            D^{k+1} \ar[r, "\tilde{H}"'] & X
+        \end{tikzcd}
+        \end{equation*}
+        where we identify
+        $S^{k} \times \left\{ 0 \right\} $ to a point.
+        But then $\tilde{H}|_{S^{k}} (-) = 
+        H\left( -, 1 \right) =
+        f(-)$, so $\tilde{H}$ extends $f$.\\
+        \linebreak
+        $(3 \implies 2)$ : 
+        Let $\left[ f \right] \in \pi_k(X, x_0)$ and
+        $f$ a representative. 
+        We want to show that $f$ is homotopic to the
+        constant map at $x_0$ relative $\partial I^{k}$.
+        We can consider $f$ as a map
+        $\left( I^{k}, \partial I^{k} \right) \to 
+        \left( X, x_0 \right) $.  
+        Then suppose that we construct a homotopy
+        $H \colon I^{k} \times I \to X$ as follows.
+        At time $t$ we shrink the unit cube $I^{k}$ to
+        $t$ times its size (so at $t= 1$, we simply have
+        the normal unit cube, and at $t= 0$, we have
+        no cube). Then inside the shrunken cube, we
+        apply $f$ and outside the inner cube, we map everything
+        to $x_0$. This gives a continuous homotopy
+        from the constant map at $x_0$ at time $t=0$ to
+        $f$ at time $t = 1$. Furthermore, it maps
+        the boundary to $x_0$ at all times. Thus
+        this gives the desired homotopy, so
+        $\pi_k (X, x_0) = 0$ for all $1 \le k \le n$.\\
+        \linebreak
+        $\left( 2 \implies 1 \right) $ : the only thing that
+        requires showing is that
+        given that $\pi_k(X, x_0) = 0$ for all $k$, we then
+        have $\pi_k \left( X, x \right) = 0$ for all $k$ and
+        all $x \in X$. But this is precisely what the given
+        hint says we are allowed to assume since
+        $X$ is path connected. So we are done.
+    \end{proof}
+
+
+
+
+
+    %\printbibliography
+\end{document}

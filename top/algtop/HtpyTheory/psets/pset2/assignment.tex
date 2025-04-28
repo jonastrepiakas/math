@@ -1,0 +1,241 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+%\usepackage[backend=biber]{biblatex}
+%\addbibresource{.bib}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\SHomeo}{SHomeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Teich}{Teich}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\corank}{corank}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Bun}{Bun}
+\DeclareMathOperator{\Sm}{Sm}
+\DeclareMathOperator{\Fr}{Fr}
+\DeclareMathOperator{\Cob}{Cob}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\MCG}{{\mathrm{MCG}}}
+\newcommand{\PMCG}{{\mathrm{PMCG}}}
+\newcommand{\SMCG}{{\mathrm{SMCG}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+
+
+
+
+\begin{document}
+    \begin{problem}[]
+        Let $T = S^{1} \times S^{1}$ be the torus and
+        $i \colon D^2 \hookrightarrow T$ an embedding
+        of the unit disk that is disjoint from $S^{1} \times 
+        \left\{ s_0 \right\} $. Define
+        $A := \left( S^{1} \times \left\{ s_0 \right\}  \right) 
+        \cup i \left( S^{1} \right) \subset T$. 
+        Let $x_0 = \left( s_0 , s_0 \right) $ and
+        $x_1 \in i \left( S^{1} \right) $.
+        \begin{enumerate}
+            \item Draw a picture of $\left( X,A \right) $ 
+                and the two points $x_0$ and $x_1$.
+            \item Construct an explicit bijection of sets
+                $\pi_1 \left( T,A, x_1 \right) \cong
+                \mathbb{Z}^2 \sqcup \mathbb{Z}$.
+            \item Compute the relative homotopy groups
+                $\pi_2 \left( T,A, x_0 \right) $ and
+                $\pi_2 \left( T,A,x_1 \right) $.
+        \end{enumerate}
+    \end{problem}
+
+    \begin{problem}[]
+        \begin{enumerate}
+            \item Compute $\pi_1 \left( S^{1} \vee S^2 \right) $ 
+                and describe the universal cover of
+                $S^{1} \vee S^2$.
+            \item Show that $\pi_2 \left( S^{1} \vee S^2 \right) $ 
+                is isomorphic to $\bigoplus_{\mathbb{Z}}\mathbb{Z}$.
+            \item Explicitly describe the action of
+                $\pi_1 \left( S^{1}\vee S^2 \right) $ on
+                $\bigoplus_{\mathbb{Z}} \mathbb{Z} \cong
+                \pi_2 \left( S^{1} \vee S^2 \right) $.
+        \end{enumerate}
+    \end{problem}
+
+    \begin{problem}[]
+        Let $\left( X, A, x_0 \right) $ be a pointed pair
+        such that the inclusion $i \colon A \to X$ is based
+        nullhomotopic (the nullhomotopy preserves the basepoint).
+        The goal is to show that for $n\ge 2$, there is an
+        isomorphism of groups:
+        \[
+        \pi_n \left( X,A, x_0 \right) \cong
+        \pi_n \left( X, x_0 \right) \times 
+        \pi_{n-1} \left( A, x_0 \right) .
+        \] 
+        \begin{enumerate}
+            \item Show that there is an exact sequence of
+                groups
+                \[
+                1 \to \pi_n \left( X, x_0 \right) 
+                \stackrel{j_*}{\to } \pi_n \left( X,A,
+                x_0\right) \stackrel{\partial_{*}}{\to }
+                \pi_{n-1}\left( A, x_0 \right) \to 1.
+                \] 
+            \item Using a based nullhomotopy 
+                $H \colon A \times \left[ 0,1 \right] 
+                \to X$, construct a natural group morphism
+                \[
+                r_* \colon \pi_n\left( X,A,x_0 \right) 
+                \to \pi_n (X, x_0)
+                \] 
+                such that $r_* \circ j_* = 1$.
+            \item Show that for any SES of groups
+                \[
+                1 \to A \stackrel{\alpha}{\to} B
+                \stackrel{\beta}{\to} C\to 1.
+                \] 
+                such that $\alpha$ admits a retraction, there
+                is a group isomorphism
+                \[
+                B \cong A \times C.
+                \] 
+                Conclude the desired isomorphism.
+        \end{enumerate}
+    \end{problem}
+
+
+
+
+
+
+
+
+
+    %\printbibliography
+\end{document}
