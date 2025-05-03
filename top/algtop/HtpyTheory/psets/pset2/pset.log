@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  3 MAY 2025 13:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  2 MAY 2025 21:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**notes.tex
-(./notes.tex
+**pset.tex
+(./pset.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
 (/usr/share/texlive/texmf-dist/tex/latex/amscls/amsart.cls
@@ -482,283 +482,52 @@ File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfarrowlength=\dimen270
 \pgfarrowwidth=\dimen271
 \pgfarrowlinewidth=\dimen272
-))) (/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.sty
-Package: biblatex 2023/03/05 v3.19 programmable bibliographies (PK/MW)
- (/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.sty
-Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count309
- (/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.def
-File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
-)) (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
-Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
-)
-\c@tabx@nest=\count310
-\c@listtotal=\count311
-\c@listcount=\count312
-\c@liststart=\count313
-\c@liststop=\count314
-\c@citecount=\count315
-\c@citetotal=\count316
-\c@multicitecount=\count317
-\c@multicitetotal=\count318
-\c@instcount=\count319
-\c@maxnames=\count320
-\c@minnames=\count321
-\c@maxitems=\count322
-\c@minitems=\count323
-\c@citecounter=\count324
-\c@maxcitecounter=\count325
-\c@savedcitecounter=\count326
-\c@uniquelist=\count327
-\c@uniquename=\count328
-\c@refsection=\count329
-\c@refsegment=\count330
-\c@maxextratitle=\count331
-\c@maxextratitleyear=\count332
-\c@maxextraname=\count333
-\c@maxextradate=\count334
-\c@maxextraalpha=\count335
-\c@abbrvpenalty=\count336
-\c@highnamepenalty=\count337
-\c@lownamepenalty=\count338
-\c@maxparens=\count339
-\c@parenlevel=\count340
-\blx@tempcnta=\count341
-\blx@tempcntb=\count342
-\blx@tempcntc=\count343
-\c@blx@maxsection=\count344
-\blx@maxsegment@0=\count345
-\blx@notetype=\count346
-\blx@parenlevel@text=\count347
-\blx@parenlevel@foot=\count348
-\blx@sectionciteorder@0=\count349
-\blx@sectionciteorderinternal@0=\count350
-\blx@entrysetcounter=\count351
-\blx@biblioinstance=\count352
-\labelnumberwidth=\skip59
-\labelalphawidth=\skip60
-\biblabelsep=\skip61
-\bibitemsep=\skip62
-\bibnamesep=\skip63
-\bibinitsep=\skip64
-\bibparsep=\skip65
-\bibhang=\skip66
-\blx@bcfin=\read4
-\blx@bcfout=\write4
-\blx@langwohyphens=\language91
-\c@mincomprange=\count353
-\c@maxcomprange=\count354
-\c@mincompwidth=\count355
-Package biblatex Info: Trying to load biblatex default data model...
-Package biblatex Info: ... file 'blx-dm.def' found.
- (/usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-dm.def
-File: blx-dm.def 2023/03/05 v3.19 biblatex localization (PK/MW)
-)
-Package biblatex Info: Trying to load biblatex custom data model...
-Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count356
-\c@savedafterword=\count357
-\c@annotator=\count358
-\c@savedannotator=\count359
-\c@author=\count360
-\c@savedauthor=\count361
-\c@bookauthor=\count362
-\c@savedbookauthor=\count363
-\c@commentator=\count364
-\c@savedcommentator=\count365
-\c@editor=\count366
-\c@savededitor=\count367
-\c@editora=\count368
-\c@savededitora=\count369
-\c@editorb=\count370
-\c@savededitorb=\count371
-\c@editorc=\count372
-\c@savededitorc=\count373
-\c@foreword=\count374
-\c@savedforeword=\count375
-\c@holder=\count376
-\c@savedholder=\count377
-\c@introduction=\count378
-\c@savedintroduction=\count379
-\c@namea=\count380
-\c@savednamea=\count381
-\c@nameb=\count382
-\c@savednameb=\count383
-\c@namec=\count384
-\c@savednamec=\count385
-\c@translator=\count386
-\c@savedtranslator=\count387
-\c@shortauthor=\count388
-\c@savedshortauthor=\count389
-\c@shorteditor=\count390
-\c@savedshorteditor=\count391
-\c@labelname=\count392
-\c@savedlabelname=\count393
-\c@institution=\count394
-\c@savedinstitution=\count395
-\c@lista=\count396
-\c@savedlista=\count397
-\c@listb=\count398
-\c@savedlistb=\count399
-\c@listc=\count400
-\c@savedlistc=\count401
-\c@listd=\count402
-\c@savedlistd=\count403
-\c@liste=\count404
-\c@savedliste=\count405
-\c@listf=\count406
-\c@savedlistf=\count407
-\c@location=\count408
-\c@savedlocation=\count409
-\c@organization=\count410
-\c@savedorganization=\count411
-\c@origlocation=\count412
-\c@savedoriglocation=\count413
-\c@origpublisher=\count414
-\c@savedorigpublisher=\count415
-\c@publisher=\count416
-\c@savedpublisher=\count417
-\c@language=\count418
-\c@savedlanguage=\count419
-\c@origlanguage=\count420
-\c@savedoriglanguage=\count421
-\c@pageref=\count422
-\c@savedpageref=\count423
-\shorthandwidth=\skip67
-\shortjournalwidth=\skip68
-\shortserieswidth=\skip69
-\shorttitlewidth=\skip70
-\shortauthorwidth=\skip71
-\shorteditorwidth=\skip72
-\locallabelnumberwidth=\skip73
-\locallabelalphawidth=\skip74
-\localshorthandwidth=\skip75
-\localshortjournalwidth=\skip76
-\localshortserieswidth=\skip77
-\localshorttitlewidth=\skip78
-\localshortauthorwidth=\skip79
-\localshorteditorwidth=\skip80
-Package biblatex Info: Trying to load compatibility code...
-Package biblatex Info: ... file 'blx-compat.def' found.
- (/usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-compat.def
-File: blx-compat.def 2023/03/05 v3.19 biblatex compatibility (PK/MW)
-)
-Package biblatex Info: Trying to load generic definitions...
-Package biblatex Info: ... file 'biblatex.def' found.
- (/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.def
-File: biblatex.def 2023/03/05 v3.19 biblatex compatibility (PK/MW)
-\c@textcitecount=\count424
-\c@textcitetotal=\count425
-\c@textcitemaxnames=\count426
-\c@biburlbigbreakpenalty=\count427
-\c@biburlbreakpenalty=\count428
-\c@biburlnumpenalty=\count429
-\c@biburlucpenalty=\count430
-\c@biburllcpenalty=\count431
-\biburlbigskip=\muskip18
-\biburlnumskip=\muskip19
-\biburlucskip=\muskip20
-\biburllcskip=\muskip21
-\c@smartand=\count432
-)
-Package biblatex Info: Trying to load bibliography style 'numeric'...
-Package biblatex Info: ... file 'numeric.bbx' found.
- (/usr/share/texlive/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx
-File: numeric.bbx 2023/03/05 v3.19 biblatex bibliography style (PK/MW)
-Package biblatex Info: Trying to load bibliography style 'standard'...
-Package biblatex Info: ... file 'standard.bbx' found.
- (/usr/share/texlive/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
-File: standard.bbx 2023/03/05 v3.19 biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count433
-\c@bbx:relatedtotal=\count434
-))
-Package biblatex Info: Trying to load citation style 'numeric'...
-Package biblatex Info: ... file 'numeric.cbx' found.
- (/usr/share/texlive/texmf-dist/tex/latex/biblatex/cbx/numeric.cbx
-File: numeric.cbx 2023/03/05 v3.19 biblatex citation style (PK/MW)
-Package biblatex Info: Redefining '\cite'.
-Package biblatex Info: Redefining '\parencite'.
-Package biblatex Info: Redefining '\footcite'.
-Package biblatex Info: Redefining '\footcitetext'.
-Package biblatex Info: Redefining '\smartcite'.
-Package biblatex Info: Redefining '\supercite'.
-Package biblatex Info: Redefining '\textcite'.
-Package biblatex Info: Redefining '\textcites'.
-Package biblatex Info: Redefining '\cites'.
-Package biblatex Info: Redefining '\parencites'.
-Package biblatex Info: Redefining '\smartcites'.
-)
-Package biblatex Info: Trying to load configuration file...
-Package biblatex Info: ... file 'biblatex.cfg' found.
- (/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.cfg
-File: biblatex.cfg 
-)
-Package biblatex Info: Input encoding 'utf8' detected.
-Package biblatex Info: Document encoding is UTF8 ....
- (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2024-01-22 L3 programming layer (loader) 
+)))
+\c@theorem=\count309
  (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count435
+\l__color_backend_stack_int=\count310
 \l__pdf_internal_box=\box65
-))
-Package biblatex Info: ... and expl3
-(biblatex)             2024-01-22 L3 programming layer (loader) 
-(biblatex)             is new enough (at least 2020/04/06),
-(biblatex)             setting 'casechanger=expl3'.
- (/usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty (/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-Package: xparse 2023-10-10 L3 Experimental document command parser
-)
-Package: blx-case-expl3 2023/03/05 v3.19 expl3 case changing code for biblatex
-))
-\c@theorem=\count436
+) (./pset.aux)
+\openout1 = `pset.aux'.
 
-
-Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
-(biblatex)                Loading 'csquotes' recommended.
-
-\@quotelevel=\count437
-\@quotereset=\count438
-(./notes.aux (./psets/pset1/pset1.aux))
-\openout1 = `notes.aux'.
-
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 158.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 154.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 158.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 154.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count439
+\scratchcounter=\count311
 \scratchdimen=\dimen273
 \scratchbox=\box66
-\nofMPsegments=\count440
-\nofMParguments=\count441
+\nofMPsegments=\count312
+\nofMParguments=\count313
 \everyMPshowfont=\toks44
-\MPscratchCnt=\count442
+\MPscratchCnt=\count314
 \MPscratchDim=\dimen274
-\MPnumerator=\count443
-\makeMPintoPDFobject=\count444
+\MPnumerator=\count315
+\makeMPintoPDFobject=\count316
 \everyMPtoPDFconversion=\toks45
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -766,320 +535,42 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring ON on input line 158.
- (./notes.out) (./notes.out)
-\@outlinefile=\write5
-\openout5 = `notes.out'.
+Package hyperref Info: Link coloring ON on input line 154.
+ (./pset.out) (./pset.out)
+\@outlinefile=\write4
+\openout4 = `pset.out'.
 
-Package biblatex Info: Trying to load language 'nil'...
-Package biblatex Info: ... file 'nil.lbx' not found.
-
-
-Package biblatex Warning: Language 'nil' not supported.
-(biblatex)                Using dummy definitions on input line 158.
-
-Package biblatex Info: Input encoding 'utf8' detected.
-Package biblatex Info: Automatic encoding selection.
-(biblatex)             Assuming data encoding 'utf8'.
-\openout4 = `notes.bcf'.
-
-Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'notes.bbl' found.
-(./notes.bbl)
-Package biblatex Info: Reference section=0 on input line 158.
-Package biblatex Info: Reference segment=0 on input line 158.
-
-Underfull \hbox (badness 10000) in paragraph at lines 166--172
+<p11.jpeg, id=7, 3071.475pt x 1304.875pt>
+File: p11.jpeg Graphic file (type jpg)
+<use p11.jpeg>
+Package pdftex.def Info: p11.jpeg  used on input line 181.
+(pdftex.def)             Requested size: 288.0011pt x 122.35164pt.
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc} <./p11.jpeg>] [2]
+Underfull \hbox (badness 10000) in paragraph at lines 422--427
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 173--177
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 173--177
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 182--196
-
- []
-
-
-Overfull \hbox (10.5989pt too wide) in paragraph at lines 224--238
-[]\T1/cmr/m/n/10 If $[]$ has the homotopy extension property with respect to $\OML/cmm/m/it/10 Y$\T1/cmr/m/n/10 , then the extensibility
- []
-
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
-<DUWUWUJK122.png, id=63, 764.8575pt x 231.86626pt>
-File: DUWUWUJK122.png Graphic file (type png)
-<use DUWUWUJK122.png>
-Package pdftex.def Info: DUWUWUJK122.png  used on input line 319.
-(pdftex.def)             Requested size: 288.0011pt x 87.30696pt.
- [2]
-Underfull \hbox (badness 10000) in paragraph at lines 383--447
-
- []
-
-
-Overfull \hbox (12.67168pt too wide) in paragraph at lines 383--447
-\T1/cmr/m/n/10 To prove the converse, suppose that the inclusion $\OML/cmm/m/it/10 A ,[]\OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 X$ \T1/cmr/m/n/10 is a cofibration. Equivalently,
- []
-
-[3 <./DUWUWUJK122.png>] [4]
-<DWIJJXNXJNXJUI.png, id=94, 624.3325pt x 217.81375pt>
-File: DWIJJXNXJNXJUI.png Graphic file (type png)
-<use DWIJJXNXJNXJUI.png>
-Package pdftex.def Info: DWIJJXNXJNXJUI.png  used on input line 612.
-(pdftex.def)             Requested size: 288.0011pt x 100.47803pt.
- [5 <./DWIJJXNXJNXJUI.png>]
-Overfull \hbox (9.75377pt too wide) in paragraph at lines 700--701
- \T1/cmr/m/n/10 1.0.1.\T1/cmr/m/it/10 Interlude on pointed-spaces and operations on spaces.[] \T1/cmr/m/n/10 We recall some important
- []
-
-
-Overfull \hbox (29.96289pt too wide) in paragraph at lines 754--757
-[][]\T1/cmr/bx/n/10 Definition 1.14 \T1/cmr/m/n/10 (Wedge Sum/one-point union)\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 Given two pointed spaces $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; x[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; []$\T1/cmr/m/n/10 ,
- []
-
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 781--792
-
- []
-
-
-Overfull \hbox (14.85468pt too wide) in paragraph at lines 802--807
-[][]\T1/cmr/bx/n/10 Definition 1.16 \T1/cmr/m/n/10 (Well-pointed space)\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 A base point $\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 X$ \T1/cmr/m/n/10 is said to be \T1/cmr/m/it/10 nondegenerate
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 809--813
-
- []
-
-<IWIDK01.jpeg, id=120, 3011.25pt x 732.7375pt>
-File: IWIDK01.jpeg Graphic file (type jpg)
-<use IWIDK01.jpeg>
-Package pdftex.def Info: IWIDK01.jpeg  used on input line 853.
-(pdftex.def)             Requested size: 180.0pt x 43.79463pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 862--905
-
- []
-
-[7 <./IWIDK01.jpeg>]
-Underfull \hbox (badness 10000) in paragraph at lines 908--960
-
- []
-
-
-Overfull \hbox (3.66199pt too wide) in paragraph at lines 1030--1034
-[][]\T1/cmr/bx/n/10 Problem 1.21. []\T1/cmr/m/n/10 Find $\OML/cmm/m/it/10 H[] []$ \T1/cmr/m/n/10 using methods from this section. 
- []
-
-[8] [9]
-Underfull \hbox (badness 10000) in paragraph at lines 1101--1102
-
- []
-
-[10] [11]
-<TKISO0932.png, id=179, 523.9575pt x 317.185pt>
-File: TKISO0932.png Graphic file (type png)
-<use TKISO0932.png>
-Package pdftex.def Info: TKISO0932.png  used on input line 1452.
-(pdftex.def)             Requested size: 216.0022pt x 130.75813pt.
- [12]
-<JIDWOOL0290L.png, id=188, 730.73pt x 113.42375pt>
-File: JIDWOOL0290L.png Graphic file (type png)
-<use JIDWOOL0290L.png>
-Package pdftex.def Info: JIDWOOL0290L.png  used on input line 1527.
-(pdftex.def)             Requested size: 288.0011pt x 44.70236pt.
-<JDWIXHHX011SJ.png, id=190, 232.87pt x 218.8175pt>
-File: JDWIXHHX011SJ.png Graphic file (type png)
-<use JDWIXHHX011SJ.png>
-Package pdftex.def Info: JDWIXHHX011SJ.png  used on input line 1559.
-(pdftex.def)             Requested size: 90.0pt x 84.56718pt.
- [13 <./TKISO0932.png> <./JIDWOOL0290L.png>]
-<WIWIWSSK11.png, id=205, 695.59875pt x 134.5025pt>
-File: WIWIWSSK11.png Graphic file (type png)
-<use WIWIWSSK11.png>
-Package pdftex.def Info: WIWIWSSK11.png  used on input line 1587.
-(pdftex.def)             Requested size: 288.0011pt x 55.68819pt.
-
-Overfull \hbox (7.65619pt too wide) in paragraph at lines 1593--1607
-[]\T1/cmr/m/n/10 Now if $\OML/cmm/m/it/10 ^^L[] [] [] ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; x[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; x[]\OT1/cmr/m/n/10 )$ \T1/cmr/m/n/10 is the change-of-basepoint transformation, $\OML/cmm/m/it/10 ^^L[] [] \OT1/cmr/m/n/10 =
- []
-
-[14 <./JDWIXHHX011SJ.png> <./WIWIWSSK11.png>]
-Overfull \hbox (1.78966pt too wide) in paragraph at lines 1650--1671
-[]\T1/cmr/m/n/10 Since $\OML/cmm/m/it/10 S[]$ \T1/cmr/m/n/10 is path-connected and locally path-connected, and simply connected
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1708--1736
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1708--1736
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1708--1736
-
- []
-
-[15]
-<DJIMMXKXO0O.jpeg, id=233, 3139.73pt x 1152.305pt>
-File: DJIMMXKXO0O.jpeg Graphic file (type jpg)
-<use DJIMMXKXO0O.jpeg>
-Package pdftex.def Info: DJIMMXKXO0O.jpeg  used on input line 1779.
-(pdftex.def)             Requested size: 288.0011pt x 105.68982pt.
-
-Overfull \hbox (40.80489pt too wide) detected at line 1841
-[] \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 ^^Y[] [] [] ^^Y[] [] [] ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; A; x[]\OT1/cmr/m/n/10 ) [] \OML/cmm/m/it/10 ^^Y[] [] \OMS/cmsy/m/n/10 ! [] ! \OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; A; x[]\OT1/cmr/m/n/10 )
- []
-
-[16 <./DJIMMXKXO0O.jpeg>]
-<IDIWKAKX.png, id=243, 282.05376pt x 292.09125pt>
-File: IDIWKAKX.png Graphic file (type png)
-<use IDIWKAKX.png>
-Package pdftex.def Info: IDIWKAKX.png  used on input line 1909.
-(pdftex.def)             Requested size: 71.9989pt x 74.56027pt.
-
-Overfull \hbox (61.30563pt too wide) in paragraph at lines 1914--1950
-[]\T1/cmr/m/it/10 Exactness at $\OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A; B; x[]\OT1/cmr/m/n/10 )$ \T1/cmr/m/it/10 : \T1/cmr/m/n/10 First, $\OML/cmm/m/it/10 i[]@$ \T1/cmr/m/n/10 is zero since the restriction of a map $\OML/cmm/m/it/10 f [] []  [] \OMS/cmsy/m/n/10 !
- []
-
-
-Overfull \hbox (31.02379pt too wide) in paragraph at lines 1914--1950
-\T1/cmr/m/n/10 Conversely, if $\OML/cmm/m/it/10 B$ \T1/cmr/m/n/10 is a point, then a nullhomotopy $\OML/cmm/m/it/10 f[] [] []  [] \OMS/cmsy/m/n/10 ! []$ \T1/cmr/m/n/10 of $\OML/cmm/m/it/10 f[] [] []  [] \OMS/cmsy/m/n/10 !
- []
-
-<USIIOOQ.png, id=246, 486.81876pt x 236.885pt>
-File: USIIOOQ.png Graphic file (type png)
-<use USIIOOQ.png>
-Package pdftex.def Info: USIIOOQ.png  used on input line 1953.
-(pdftex.def)             Requested size: 143.9978pt x 70.06842pt.
-
-Overfull \hbox (22.50691pt too wide) in paragraph at lines 1961--1971
-[][]\T1/cmr/bx/n/10 Corollary 2.30. []\T1/cmr/m/it/10 Consider the inclusion $\OML/cmm/m/it/10 ^^S [] [] X \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 X \OMS/cmsy/m/n/10 ^^B [] \OML/cmm/m/it/10 ,[]\OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 CX$\T1/cmr/m/it/10 . Then $\OML/cmm/m/it/10 ^^Y[] [] []
- []
-
-[17 <./IDIWKAKX.png> <./USIIOOQ.png>]
-<DIWIOA.png, id=256, 242.9075pt x 253.94875pt>
-File: DIWIOA.png Graphic file (type png)
-<use DIWIOA.png>
-Package pdftex.def Info: DIWIOA.png  used on input line 1986.
-(pdftex.def)             Requested size: 71.9989pt x 75.27072pt.
- [18 <./DIWIOA.png>]
-\openout2 = `psets/pset1/pset1.aux'.
-
- (./psets/pset1/pset1.tex
-Overfull \hbox (18.47104pt too wide) in paragraph at lines 104--108
-[]\T1/cmr/m/n/10 To show that degree is a group homomorphism, we must show that $[] [] \OT1/cmr/m/n/10 =
- []
-
-
-Overfull \hbox (7.57002pt too wide) in paragraph at lines 112--121
-[][]\T1/cmr/bx/n/10 Proposition 2.34. []\T1/cmr/m/it/10 Let $\OML/cmm/m/it/10 X \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 S[] \OMS/cmsy/m/n/10 _ [] _ \OML/cmm/m/it/10 S[]$ \T1/cmr/m/it/10 for $\OML/cmm/m/it/10 n > \OT1/cmr/m/n/10 0$\T1/cmr/m/it/10 . Then the homomorphism
- []
-
-[19
-
-]
-Overfull \hbox (1.9703pt too wide) detected at line 165
-[] \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 H[] [] [] H[] [] [] H[] [] \OMS/cmsy/m/n/10 ! []
- []
-
-[20]
-Underfull \hbox (badness 10000) in paragraph at lines 336--377
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 382--409
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 382--409
-
- []
-
-[21]) [22]
-Underfull \hbox (badness 10000) in paragraph at lines 2103--2137
-
- []
-
-[23
-
-
-] [24]
-
-Package biblatex Warning: Bibliography string 'volume' untranslated
-(biblatex)                at entry 'Bredon' on input line 2172.
-
-
-Package biblatex Warning: Using fallback definition for \mkbibdatelong.
-(biblatex)                The command should be defined in the .lbx file.
-(biblatex)                If you see this message, the .lbx file could not be
-(biblatex)                loaded, is faulty or does not contain a definition
-(biblatex)                for \mkbibdatelong.
-
-
-Package biblatex Warning: Bibliography string 'pages' untranslated
-(biblatex)                at entry 'Bredon' on input line 2172.
-
-
-Package biblatex Warning: Using fallback definition for \mkbibdatelong.
-(biblatex)                The command should be defined in the .lbx file.
-(biblatex)                If you see this message, the .lbx file could not be
-(biblatex)                loaded, is faulty or does not contain a definition
-(biblatex)                for \mkbibdatelong.
-
-
-Package biblatex Warning: Bibliography string 'pages' untranslated
-(biblatex)                at entry 'Hatcher' on input line 2172.
-
-
-Package biblatex Warning: Using fallback definition for \mkbibdatelong.
-(biblatex)                The command should be defined in the .lbx file.
-(biblatex)                If you see this message, the .lbx file could not be
-(biblatex)                loaded, is faulty or does not contain a definition
-(biblatex)                for \mkbibdatelong.
-
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 2172.
-(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-) [25] (./notes.aux (./psets/pset1/pset1.aux))
+[3] (./pset.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
-Package rerunfilecheck Info: File `notes.out' has not changed.
-(rerunfilecheck)             Checksum: A23CB8C57C366FF05BB10A993C449447;981.
-Package logreq Info: Writing requests to 'notes.run.xml'.
-\openout1 = `notes.run.xml'.
-
+Package rerunfilecheck Info: File `pset.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 30050 strings out of 474222
- 573065 string characters out of 5748733
- 1950975 words of memory out of 5000000
- 51580 multiletter control sequences out of 15000+600000
- 569751 words of font info for 66 fonts, out of 8000000 for 9000
+ 22804 strings out of 474222
+ 424615 string characters out of 5748733
+ 1949975 words of memory out of 5000000
+ 44520 multiletter control sequences out of 15000+600000
+ 567298 words of font info for 62 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 98i,15n,107p,678b,1431s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on notes.pdf (25 pages, 783774 bytes).
+ 98i,9n,107p,593b,542s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb>
+Output written on pset.pdf (3 pages, 320493 bytes).
 PDF statistics:
- 441 PDF objects out of 1000 (max. 8388607)
- 352 compressed objects within 4 object streams
- 138 named destinations out of 1000 (max. 500000)
- 124 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 127 PDF objects out of 1000 (max. 8388607)
+ 86 compressed objects within 1 object stream
+ 17 named destinations out of 1000 (max. 500000)
+ 18 words of extra memory for PDF output out of 10000 (max. 10000000)
 

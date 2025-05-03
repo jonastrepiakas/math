@@ -261,7 +261,7 @@ $H \left( -,1 \right) \colon X \to Y$ extends $g$.
     \textit{absolute homotopy extension property}.
 \end{note}
 
-\begin{theorem}[]
+\begin{theorem}[]\label{Thm:Retract-cofibration}
     For an inclusion $A \subset X$, the following are equivalent:
     \begin{enumerate}
         \item The inclusion map $A \hookrightarrow X$ is a 
@@ -289,7 +289,7 @@ $H \left( -,1 \right) \colon X \to Y$ extends $g$.
     $X \times \left\{ 0 \right\} \to Y$ from the diagram.
 \end{proof}
 
-\begin{corollary}
+\begin{corollary}\label{Cor:Subcomplex-Cofibration}
     If $A$ is a subcomplex of a CW-complex $X$, then
     the inclusion $A \hookrightarrow X$ is a cofibration.
 \end{corollary}
@@ -327,12 +327,12 @@ $H \left( -,1 \right) \colon X \to Y$ extends $g$.
     of the weak topology on $X \times I$.
 \end{proof}
 
-\begin{theorem}[]
+\begin{theorem}[]\label{Thm:SJJDHW29WW}
     Assume that $A \subset X$ is closed and that there
     exists a neighborhood $U$ of $A$ and a map
     $\varphi  \colon X \to I$ such that
     \begin{enumerate}
-        \item $A = \varph^{-1} (0)$.
+        \item $A = \varphi ^{-1} (0)$.
         \item $\varphi \left( X-U \right) = \left\{ 1 \right\} $.
         \item $U$ deforms to $A$ through $X$ with $A$ fixed.
             That is, there is a map $H \colon U \times I \to X$ 
@@ -389,14 +389,708 @@ $H \left( -,1 \right) \colon X \to Y$ extends $g$.
     $V \subset W$ containing $a$ such that
     $H\left( V \times I \right) \subset W$, by
     assumption of $H$ being continuous.
-
-
+    So for $t < \varepsilon$ for some $\varepsilon$ and
+    $u \in V$, we have
+    $\Phi \left( u,t \right) 
+    \in W \times \left[ 0,\varepsilon \right] $.
+    Hence $\Phi$ is continuous.\\
+    \linebreak
+    To prove the converse, suppose that the
+    inclusion $A \hookrightarrow X$ is a cofibration. Equivalently,
+    $A \times I \cup  X \times \left\{ 0 \right\} $ is
+    a retract of $X \times I$. Let $r
+    \colon X \times I \to  A \times I \cup X \times
+    \left\{ 0 \right\} $ be this retraction.
+    Let $s(x) = r\left( x,1 \right) $ and set
+    $U = s^{-1}\left( A \times (0,1] \right) $.
+    Let $p_X, p_I$ be the projections of
+    $X \times I$ to its factors. Then
+    put $H = p_X \circ r|_{U \times I} \colon U \times I \to X$.
+    Now, $H(a,t) = p_X \circ r |_{U \times I}(a,t)
+    = p_X \left( a,t \right) = a$ for all
+    $a \in A$ and $t \in I$;
+    $H(u,0) = p_X \circ r|_{U \times I}(u,0) =
+    p_X \left( u,0 \right) = u$, and
+    $H\left( u,1 \right) =
+    p_X \circ r|_{U \times I}(u,1) = 
+    u$ forces $(u,1) \in A \times I$, hence
+    $u \in A$. Thus, $H$ satisfies condition (3).\\
+    For (1) and (2), let
+    $\varphi (x) = 
+    \max_{t \in I} \left| t - p_I r(x,t) \right| $ which
+    is possible since $I$ is compact. Then
+    $x \in \varphi^{-1}(0)$ implies that
+    $\max_{t \in I} \left| t - p_I r(x,t) \right| = 0$, so
+    for all $t \in I$, we have
+    $\left| t - p_I r(x,t) \right| = 0$, so
+    $r(x,t) \in A \times \left\{ t \right\} $ for all
+    $t \in (0,1]$. Then
+    $r\left( x,0 \right) = \lim_{n \to \infty}
+    r\left( x, \frac{1}{n} \right) 
+    \in A \times I$ since $A \times I$ is closed. But
+    $(x,0) = r(x,0)$, so $x \in A$. Conversely, for any
+    $x \in A$, clearly, $\varphi (x) = 0$ since
+    $r(x,t) = (x,t)$ for all $t \in I$. This shows that
+    $\varphi $ satisfies (1). 
+    For (2), we have that for
+    $x \in X -U$, with $U = 
+    s^{-1}\left( A \times (0,1] \right) $, we
+    have $r(x,1) = s(x) \not\in A \times (0,1]$, so
+    $r(x,1) \in X \times \left\{ 0 \right\} $. Hence
+    $\varphi (x) = 
+    \max_{t \in I} \left| t - p_I r(x,t) \right| = 1$, giving
+    (2).\\
+    It remains to show that $\varphi $ is continuous.
+    Let $f(x,t) = \left| t - p_I r(x,t) \right| $ and
+    $f_t = (x,t)$ all of which are continuous.
+    Then
+    \[
+        \varphi^{-1} \left( (- \infty, b] \right) 
+        = \left\{ x  \mid f(x,t) \le b \text{ for all }t 
+        \right\} = 
+        \bigcap_{i \in  I} f_t^{-1}\left( (- \infty, b] \right) .
+    \]
+    is an intersection of closed sets and so is closed.
+    Similarly,
+    \[
+    \varphi^{-1} \left( [a, \infty) \right) 
+    = \left\{ x  \mid  f(x,t) \ge a \text{ for some }t \right\} 
+    = p_X \left( f^{-1} \left( [a, \infty) \right)  \right) 
+    \] 
+    which si also closed since $p_X$ is closed as
+    a projection and
+    $I$ is compact.
+    Since the complements of the intervals of the
+    form $[a, \infty)$ and 
+    $(-\infty, b]$ give a subbase for the topology of
+    $\mathbb{R}$, this shows that
+    $\varphi $ is continuous.
 
 
 
 
 
 \end{proof}
+
+
+Next, we recall that for a map
+$f \colon X \to Y$, the mapping cylinder
+$M_f$ is defined as
+\[
+M_f = \left( \left( X \times I \right) \sqcup Y \right) 
+/ \left( \left( x,0 \right) \sim f(x) \right) .
+\] 
+Consider the inclusion
+$\iota \colon X \hookrightarrow 
+M_f$ where we include $X$ as
+$X \times \left\{ 1 \right\} $.
+Consider the map
+$ \varphi \colon
+M f \to I$ given by
+$ \varphi (x,t)  =  1 - 2t$ for
+$t \ge \frac{1}{2}$ and
+$\varphi (x,t) = 1$ on the rest of $M_f$. Choosing
+$U = X \times (\frac{1}{3}, 1]$, $U$ clearly
+deformations retracts to $X \times \left\{ 1 \right\} $ and
+satisfies the conditions of 
+Theorem \ref{Thm:SJJDHW29WW}, hence
+the inclusion $X \hookrightarrow M_f$ is a cofibration.
+Also, the retraction
+$r \colon M_f \to Y$ is a homotopy equivalence
+with the homotopy inverse being the inclusion
+$Y \hookrightarrow M_f$. The diagram
+\begin{equation*}
+\begin{tikzcd}
+    X \ar[rr, "\iota"] \ar[ddr, "f"'] & & M_f \ar[ddl, "r", "\simeq"']\\ 
+                                     &&\\
+                                     & Y &
+\end{tikzcd}
+\end{equation*}
+commutes.
+Thus any map $f$ is a cofibration up to
+a homotopy equivalence of spaces.
+
+Recall also that the mapping cone of a
+map $f \colon X \to Y$ is defined as
+\[
+C_f := M_f / X \times \left\{ 1 \right\} 
+\cong M_f \cup CX.
+\] 
+In the case of an inclusion
+$\iota \colon A \hookrightarrow X$, we have
+$C_{\iota} = X \cup  CA$.\\
+There is a map
+$C_{\iota} \stackrel{h}{\to} X / A$, defined
+as the composite of the quotient map
+$X \cup  CA \to X \cup  CA /CA$ composed with the
+inverse of the homeomorphism $X / A \to 
+X \cup  CA /CA$.
+
+\begin{question}
+    Is $h$ a homotopy equivalence?
+\end{question}
+
+\begin{theorem}[]\label{Thm:2030akKAK}
+    If $A \subset X$ is closed and the inclusion
+    $\iota \colon A \to X$ is a cofibration, then
+    $h \colon C_{\iota} \to X /A$ is a homotopy equivalence.
+    In fact, it is a homotopy equivalence of pairs
+    \[
+        \left( X /A, * \right) \simeq
+        \left( C_{\iota}, CA \right) \simeq
+        \left( C_{\iota}, v \right) ,
+    \] 
+    where $v$ is the vertex of the cone.
+\end{theorem}
+
+\begin{proof}
+    The mapping cone $C_{\iota} = X
+    \cup CA$ consists of three different types of
+    points: the vertex $v = \left\{ A \times \left\{ 1 \right\} 
+    \right\} $, the rest of the cone
+    $\left\{ \left( a,t \right)  \mid 0\le t < 1 \right\} $ 
+    where $\left( a,0 \right) = a \in A \subset X$, and
+    points in $X$ itself, which we identify with $X \times 
+    \left\{ 0 \right\} $.\\
+    Define $f \colon A \times I \cup  X \times \left\{ 0 \right\} 
+    \to C_{\iota}$ as the collapsing map and extend
+    $f$ to $\overline{f} \colon X \times I \to 
+    C_{\iota}$ using that $f$ is a cofibration. 
+    Then $\overline{f}\left( a,1 \right) =
+    v, \overline{f}(a,t) = (a,t)$ and
+    $\overline{f}(x,0) = x$.\\
+    Let $\overline{f}_t = 
+    \overline{f}|_{X \times \left\{ t \right\} }$.
+    Since $\overline{f}_1 (A) = \left\{ v \right\} $, 
+    we can factorize $\overline{f}_1 \colon
+    X \to C_{\iota}$ as
+    $g \circ j$ where
+    $j \colon X \to X /A$ is the quotient map
+    and $g \colon X / A \to C_{\iota}$ is
+    the induced map
+    \begin{equation*}
+    \begin{tikzcd}
+        X \ar[d, "j"] \ar[dr, "\overline{f}_1"] & \\
+        X / A \ar[r, "g", dashed] & C_{\iota}.
+    \end{tikzcd}
+    \end{equation*}
+    where $g$ is induced and continuous by
+    definition of the quotient topology.\\
+    We claim that $g$ is a homotopy equivalence with
+    homotopy inverse $h$.
+    First, we prove that $hg \simeq \id_{X / A}$.
+
+    Note that taking the composite
+    $h \overline{f}_t \colon X \to X / A$ gives a homotopy
+    between $h \overline{f}_0$ and $h \overline{f}_1$.
+    For all $t$, this homotopy takes
+    $A$ to the point $\left\{ A \right\} $. Thus, it
+    factors to give a homotopy
+    \[
+    hgj = h \overline{f}_1 
+    \simeq h \overline{f}_0 = j
+    \] 
+    Let $H \colon X \times I \to X / A$ be the homotopy
+    between $hgj$ and $j$, so
+    $H(x, 0) = hgj(x)$ and
+    $H(x,1) = j(x)$. Then
+    the map
+    $\overline{H} \colon X / A \times I \to X / A$ defined
+    by
+    $\overline{H}(\left[ x \right] ,t) = 
+    H\left( x,t \right) $ defines a homotopy
+    between $hg$ and $\id_{X / A}$, so
+    $hg \simeq \id_{X / A}$.
+
+    Next, we will show that $gh \simeq \id_{C_{\iota}}$.
+    Consider $W = \left( X \times I \right) / 
+    \left( A \times \left\{ 1 \right\}  \right) $ 
+    and the maps illustrated in Figure \ref{fig:DWIJJXNXJNXJUI-png}.
+
+    \begin{figure}[htpb]
+        \centering
+        \includegraphics[width=0.8\textwidth]{DWIJJXNXJNXJUI.png}
+        \caption{DWIJJXNXJNXJUI.png}
+        \label{fig:DWIJJXNXJNXJUI-png}
+    \end{figure}
+    The map $\overline{f}'$ is induced by
+    $\overline{f}$. The map
+    $k$ is the "top face" map.
+    From this, we see that
+    \begin{align*}
+        \overline{f}' \circ l 
+        &= \id \\
+        \pi \circ k 
+        &= \id \\
+        k \circ \pi 
+        &\simeq \id \\
+        \overline{f}' \circ k
+        &= g \\
+        \pi \circ l 
+        &= l.
+    \end{align*}
+   Hence $g h = \overline{f}' k \pi l 
+   \simeq \overline{f}' l = \id$. 
+\end{proof}
+
+
+\begin{example}[A non example]
+    An example of when the result
+    of Theorem 1.6 does not hold is with
+    $A = \left\{ 0 \right\} \cup 
+    \left\{ \frac{1}{n} \mid n = 1, 2, \ldots \right\} $ 
+    and $X = \left[ 0,1 \right] $.
+    In this case, $C_{\iota}$ is not homotopy equivalent
+    to $X / A$ which is a one-point union of a countably infinite
+    sequence of circles with radii going to zero.
+
+    $C_i$ has homeomorphs of circles joined along edges. However,
+    the circles do not tend to a point ,so any prospective homotopy
+    equivalence $X / A \to C_{\iota}$ would be discontinuous at
+    the image of $\left\{ 0 \right\} $ in $X / A$.
+\end{example}
+
+\begin{corollary}\label{Cor:Cofibration-Homology}
+    If $A \subset X$ is closed and the inclusion
+    $A \hookrightarrow X$ is a cofibration, then the map
+    $j \colon \left( X, A \right) \to 
+    \left( X / A, * \right) $ induces isomorphisms
+    \[
+    H_* (X,A) \stackrel{\cong}{\to} 
+    H_* \left( X / A, * \right) 
+    \cong \tilde{H}_* \left( X / A \right) 
+    \] 
+    and
+    \[
+    \tilde{H}^{*}(X /A) \cong
+    H^{*} (X / A, *) 
+    \stackrel{\cong}{\to} H^{*} (X , A).
+    \] 
+\end{corollary}
+
+\begin{proof}
+    We have
+    $H_* \left( X/A , *\right) \cong
+    H_* \left( C_{\iota}, CA \right) $ by Theorem
+    \ref{Thm:2030akKAK}. And since
+    $C_{\iota} = X \cup A \times \left[ 0,\frac{1}{2} \right] $ 
+    and $CA = A \times \left[ 0,\frac{1}{2} \right] $, where
+    we collapse $A \times \left\{ \frac{1}{2} \right\} $ in
+    both, and attach  $A \times \left[ 0,\frac{1}{2} \right] $ 
+    along $A \times \left\{ 0 \right\} $ in
+    $X \cup A \times \left[ 0,\frac{1}{2} \right] $, we obtain
+    \[
+    H_*(C_{\iota}, CA) \cong
+    H_* \left( X \cup A \times \left[ 0,\frac{1}{2} \right] ,
+    A \times \left[ 0, \frac{1}{2} \right] \right) 
+    \cong H_* (X, A)
+    \] 
+    since 
+    $\left( X \cup A \times \left[ 0,\frac{1}{2} \right] ,
+    A \times \left[ 0,\frac{1}{2} \right] \right) 
+    \simeq \left( X,A \right) $ by deformation retracting
+    $A \times \left[ 0,\frac{1}{2} \right] $ down to
+    $A \times \left\{ 0 \right\} \subset X$.
+\end{proof}
+
+
+\subsubsection{Interlude on pointed-spaces and
+operations on spaces}
+
+We recall some important constructions:
+
+\begin{definition}[Unreduced Suspension]
+    For a space $X$, the \textit{unreduced suspension} 
+    $\Sigma X$ is the
+    quotient obtained from $X \times I$ by
+    collapsing $X \times \left\{ 0 \right\} $ to one
+    point and $X \times \left\{ 1 \right\} $ to another
+    point.
+\end{definition}
+
+\begin{note}
+    We have $\Sigma S^{n} = S^{n+1}$.
+\end{note}
+
+
+
+\begin{definition}[Suspension of a map]
+    Given a map
+    $f \colon X \to Y$, we can suspend $f$ to
+    $\Sigma f \colon \Sigma X \to \Sigma Y$
+    by letting $\Sigma f$ be the induced
+    map on the quotients:
+    \begin{equation*}
+    \begin{tikzcd}
+        X \times I \ar[r, "f \times \id"] \ar[d]  & Y \times I \ar[d] \\
+        \Sigma X \ar[r, "\Sigma f"] & \Sigma Y
+    \end{tikzcd}
+    \end{equation*}
+    
+\end{definition}
+
+\begin{exercise}[]
+    For any homology theory, show that
+    there is a natural isomorphism
+    $\tilde{H}_I (X) \stackrel{\cong}{\to} 
+    \tilde{H}_{i+1} \left( \Sigma X \right) $. Here,
+    natural means that for a map $f \colon X \to Y$,
+    and its suspension $\Sigma f \colon \Sigma X \to 
+    \Sigma Y$, the following diagram commutes:
+    \begin{equation*}
+    \begin{tikzcd}
+        \tilde{H}_i (X) \ar[r, "\cong"] \ar[d, "f_*"]& 
+        \tilde{H}_{i+1} \left( \Sigma X \right)
+        \ar[d, "(\Sigma f)_*"] \\
+        \tilde{H}_i (Y) \ar[r, "\cong"] & \tilde{H}_{i+1}
+        \left( \Sigma Y \right) 
+    \end{tikzcd}
+    \end{equation*}
+    
+\end{exercise}
+
+
+\begin{definition}[Wedge Sum/one-point union]
+    Given two pointed spaces $(X, x_0), \left( Y, y_0 \right) $,
+    we define
+    the \textit{wedge sum}  $X \vee Y$ to be
+    \[
+    X \vee Y = X \sqcup Y / \left( x_0 \sim y_0 \right) ,
+    \] 
+    i.e., the quotient of the disjoint union identifying
+    $x_0$ and $y_0$ to a single point.
+\end{definition}
+
+\begin{definition}[Smash Product]
+    Inside the product $X \times Y$
+    of two pointed space $(X,x_0), (Y,y_0)$,
+    we have natural copies of $X$ and $Y$ by
+    $X \times \left\{ y_0 \right\} $ and
+    $\left\{ x_0 \right\} \times Y$, respectively.
+    These two copies intersect only at the point
+    $\left( x_0,y_0 \right) $, so their union can
+    be identified with
+    the wedge sum $X \vee Y$. I.e., $X \vee Y = 
+    X \times \left\{ y_0 \right\} \cup 
+    \left\{ x_0 \right\} \times Y$. We define
+    the \textit{smash product} $X \wedge Y$ to be
+    the quotient $X \times Y / X \vee Y$.
+\end{definition}
+
+
+If $f \colon X \to Y$ is a pointed map, then
+the reduced mapping cylinder of $f$ is defined
+as the quotient space $M_f$ of
+$\left( X \times I \right) \cup  Y$ modulo the relations
+identifying
+$\left( x,0 \right) \sim f(x)$ and the set
+$\left\{ * \right\} \times I$ to the base point of $M_f$.\\
+The reduced mapping cone is the quotient of the reduced
+mapping cylinder $M_f$ obtained by identifying the image of
+$X \times \left\{ 1 \right\} $ to a point, the
+base point.\\
+
+The circle $S^{1}$ is defined as
+$I / \partial I$ with base point $\left\{ \partial I \right\} $.\\
+The reduced suspension of a pointed space $X$ is
+$SX = X \wedge S^{1}$. It can also be considered
+as the quotient space $X \times I / \left( X \times 
+\partial I \cup  \left\{ * \right\} \times I\right) $
+
+
+\begin{definition}[Well-pointed space]
+    A base point $x_0 \in X$ is said to be
+    \textit{nondegenerate} if the inclusion
+    $\left\{ x_0 \right\} \hookrightarrow X$ is a cofibration.
+    A pointed Hausdorff space $X$ with nondegenerate
+    base point is said to be \textit{well-pointed}.
+\end{definition}
+
+It is clear that any manifold or CW-complex satisfies
+Theorem \ref{Thm:SJJDHW29WW} with $A$ being any point of
+the space. Hence any manifold or CW-complex is
+well-pointed.\\
+
+\begin{example}[Pointed space that is not well-pointed]
+    Taking the pointed space  $X = 
+    \left\{ 0 \right\} \cup  \left\{ \frac{1}{n} \mid 
+    n \in \mathbb{N} \right\} $ with base point $0$, this
+    space is not well-pointed. This can for example be
+    seen because it fails to satisfy Theorem
+    \ref{Thm:Retract-cofibration} - any retraction
+    would break continuity at
+    $\left( 0,1 \right) $.
+\end{example}
+
+\begin{example}[]
+    If $A \hookrightarrow X$ is a cofibration, then
+    $X / A$ with base point $\left\{ A \right\} $ is well-pointed,
+    as follows from Theorem \ref{Thm:SJJDHW29WW}.
+\end{example}
+
+\begin{theorem}[]
+    If $X$ is well-pointed, then so are the reduced
+    cone $CX$ and the reduced suspension $SX$. Moreover,
+    the collapsing map  $\Sigma X \to SX$, of the unreduced
+    suspension to the reduced suspension, is a homotopy
+    equivalence.
+\end{theorem}
+
+\begin{proof}
+    Denote the base point of $X$ by $*$.
+    Consider the homeomorphism
+    \[
+    h \colon \left( I \times I,
+    I \times \left\{ 0 \right\} \cup 
+\partial I \times I \right) 
+\stackrel{\cong}{\to} \left( I \times I, I \times 
+\left\{ 0 \right\} \right) 
+    \] 
+    which clearly exists. For example, take Figure
+    \ref{fig:IWIDK01-jpeg}
+    \begin{figure}[htpb]
+        \centering
+        \includegraphics[width=0.5\textwidth]{IWIDK01.jpeg}
+        \caption{}
+        \label{fig:IWIDK01-jpeg}
+    \end{figure}
+
+    Then the induced homeomorphism
+    \[
+    \id_X \times h\colon X \times I \times I 
+    \stackrel{\cong}{\to} X \times I \times I
+    \] 
+    carries 
+    $X \times I \times \left\{ 0 \right\} \cup 
+    X \times \partial I\times I$ to
+    $X \times I \times \left\{ 0 \right\} $.
+    Hence it takes
+    $A = X \times I \times \left\{ 0 \right\} \cup 
+    X \times \partial I \times I \cup 
+    \left\{ * \right\} \times I \times I$ to
+    $X \times I \times \left\{ 0 \right\} 
+    \cup \left\{ * \right\} \times I \times I$. 
+    Therefore, the pair
+    $\left( X \times I \times I, A \right) $ is homeomorphic
+    to the pair
+    $I \times \left( X \times I, 
+    X \times \left\{ 0 \right\} \cup 
+\left\{ * \right\} \times I \right) $.
+Now, $X$ is well-pointed, so
+$X \times \left\{ 0 \right\} \cup 
+\left\{ * \right\} \times I$ is a retract of
+$X \times I$ by
+Theorem \ref{Thm:Retract-cofibration} and the
+definition of well-pointed.
+It follows that
+$A$ is a retract of
+$X \times I \times I$.
+By another application of
+\ref{Thm:Retract-cofibration}, then
+the inclusion
+$X \times \partial I \cup \left\{ * \right\} \times I
+\hookrightarrow X \times I$ is a cofibration. 
+Hence the quotient by this,
+$SX = X \times I / \left( X \times \partial I
+\cup \left\{ * \right\} \times I \right) $ is well-pointed,
+using the quotient of the above inclusion.\\
+\linebreak
+Next consider the homeomorphism
+$\left( I \times I, I \times \left\{ 0 \right\} \cup 
+\left\{ 1 \right\} \times I \right) 
+\stackrel{\cong}{\to} \left( 
+I \times I, I \times \left\{ 0 \right\} \right) $ which
+can be seen similarly. The induced
+homeomorphism
+\[
+1 \times h \colon X \times I \times I
+\stackrel{\cong}{\to} X \times I \times I
+\] 
+takes
+$A:= X \times \left\{ 1 \right\} \times I \cup 
+\left\{ * \right\} \times I \times I
+\cup X \times I \times \left\{ 0 \right\} $ to
+$X \times I \times \left\{ 0 \right\} \cup 
+\left\{ * \right\} \times I \times I$.
+Thus the pair
+$\left( X \times I \times I,
+A\right) $ is homeomorphic to
+ $I \times \left( X \times I,
+ X \times \left\{ 0 \right\} \cup 
+\left\{ * \right\} \times I\right) $.
+Just as above, we have that
+$X \times \left\{ 0 \right\} \cup 
+\left\{ * \right\} \times I$ is a retract
+of $X \times I$, so
+it follows that
+$A$ is a retract of $X \times I \times I$. Thus
+the inclusion
+$X \times \left\{ 1 \right\} \cup 
+\left\{ * \right\} \times I \hookrightarrow
+X \times I$ is a cofibration, which shows
+that $CX = X \times I / \left( X \times \left\{ 1 \right\} 
+\cup \left\{ * \right\} \times I\right) $ is
+well-pointed.\\
+\linebreak
+The fact that
+$X \times \partial I \cup \left\{ * \right\} \times I
+\hookrightarrow X \times I$ is a cofibration
+gives that there exists a neighborhood $U$ of
+$X \times \partial I \cup 
+\left\{ * \right\} \times I$ and a map
+$\varphi \colon X \times I \to I$ 
+that satisfy Theorem \ref{Thm:SJJDHW29WW}.
+We obtain an induced map
+$\overline{\varphi }\colon
+\Sigma X \to I$ 
+which satisfies the same conditions, so
+$I \times \times \left\{ * \right\} \times I
+\hookrightarrow X \times I / 
+\left\{ X \times \left\{ 0 \right\} ,
+X \times \left\{ 1 \right\} \right\} = \Sigma X$ is a
+cofibration. Now 
+Theorem \ref{Thm:2030akKAK} implies
+that $\Sigma X \cup CI = C_{\iota} \to \Sigma X / I$ is a homotopy
+equivalence.
+Hence we obtain
+that 
+$\Sigma X \simeq
+\Sigma X \cup CI \simeq
+\Sigma X / I = SX$, via the collapsing map.
+
+\end{proof}
+
+
+\begin{problem}[]
+    Find $H_* \left( \mathbb{P}^2, \mathbb{P}^{1} \right) $ 
+    using methods or results from this section.
+\end{problem}
+
+\begin{solution}
+    Consider $\mathbb{P}^2$ as 
+    $S^2$ quotiented by the relation
+    $x \simeq -x$. Then
+    we can think of  $\mathbb{P}^{1}$ as
+    $S^{1} \subset S^{2}$ under this relation.
+    We want to show that the inclusion
+    $\mathbb{P}^{1} \hookrightarrow \mathbb{P}^2$ is a
+    cofibration. 
+    Using Theorem \ref{Thm:SJJDHW29WW}, it suffices to
+    find a neighborhood $U$ of $\mathbb{P}^{1} \subset 
+    \mathbb{P}^2$ and a map $\overline{\varphi } \colon
+    \mathbb{P}^2 \to I$ such that
+    the conditions of the theorem are satisfied.
+    We construct a preliminary map on
+    $S^2$ towards this end. 
+    Define $\varphi \colon S^2 \to I$ to be
+    $\varphi (x) = 
+    \min \left\{ 1, 2 \left| x_3 \right|  \right\} $, where
+    $x_3$ is the last coordinate of $x$. Since
+    $\varphi (x) = \varphi (-x)$, $\varphi $ induces
+    a map $\overline{\varphi }\colon
+    \mathbb{P}^2 \to I$ such that the diagram
+    \begin{equation*}
+    \begin{tikzcd}
+        S^2 \ar[d] \ar[dr, "\varphi "] & \\
+        \mathbb{P}^2 \ar[r, "\overline{\varphi }"] & I
+    \end{tikzcd}
+    \end{equation*}
+    commutes.
+    Letting $U$ be the image under the quotient
+    map of 
+    $\left\{ x \in S^2  \mid 
+    \left| x_3 \right| < \frac{1}{2} \right\} $, this
+    becomes an open set in $\mathbb{P}^2$ since 
+    the above set is saturated with respect to the quotient
+    map. It is also clear that
+    $U$ and $\overline{\varphi }$ satisfy the conditions of
+    the theorem, hence the inclusion
+    $\mathbb{P}^{1} \hookrightarrow \mathbb{P}^2$ is a cofibration.
+    By Corollary \ref{Cor:Cofibration-Homology}, we
+    obtain that
+    $H_* \left( \mathbb{P}^2, \mathbb{P}^{1} \right) 
+    \cong \tilde{H}_* \left( \mathbb{P}^2 / \mathbb{P}^{1} \right) $.
+    But $\mathbb{P}^2 / \mathbb{P}^{1} \cong
+    S^{2}$, so
+    $H_* \left( \mathbb{P}^2, \mathbb{P}^{1} \right) 
+    \cong \tilde{H}_* \left( S^2 \right)$.
+    Now simply recall that
+    \[
+    \tilde{H}_p \left( S^2 \right) 
+    \cong
+    \begin{cases}
+        \mathbb{Z},& p = 2\\
+        0,& p \neq 2.
+    \end{cases}
+    \] 
+    \qed
+\end{solution}
+
+\begin{problem}[]
+    Find $H_*\left( T^2,
+    \left\{ * \right\} \times S^{1} \cup 
+S^{1} \times \left\{ * \right\} \right) $ using
+methods from this section.
+\end{problem}
+
+\begin{solution}
+    If we can show that the inclusion
+    $A:= \left\{ * \right\} \times S^{1} \cup 
+    S^{1} \times \left\{ * \right\} \hookrightarrow
+    T^2$ is a cofibration, then
+    we will again obtain that
+    $H_* (T^2, A) \cong
+    \tilde{H}_* \left( T^2 / A \right) \cong
+    \tilde{H}_* \left( S^2 \right) $.
+    But we have a CW-structure on the
+    torus given by the square with identified sides.
+    With this identificaiton, $A$ simple becomes
+    the $1$-skeleton, hence it is a subcomplex, so
+    by Corollary \ref{Cor:Subcomplex-Cofibration}, 
+    the inclusion $A \hookrightarrow T^2$ is a cofibration.
+    This finishes the solution. \qed
+\end{solution}
+
+\begin{problem}[]
+    For a space $X$, consider the pair
+    $\left( CX, X \right) $. What do the results of this
+    section tell you about the homology of these, and related,
+    spaces?
+\end{problem}
+
+\begin{solution}
+    We can define a map
+    $\varphi \colon CX \to I$ by
+    $\varphi (x,t) = t$. Choosing
+    $A = X = X \times \left\{ 0 \right\} \subset 
+    CX$ and
+    $U = CX - \left\{ v \right\} $ where
+    $v$ is the vertex, this satisfies the
+    conditions in Theorem \ref{Thm:SJJDHW29WW} 
+    ($H$ can be defined by
+    $H((x,t_0),t) = \left( x,t_0 \right) (1-t)
+    + (x,0) t$).
+    Hence the inclusion
+    $X \hookrightarrow CX$ is a cofibration, so we
+    know that
+    $H_* \left( CX, X \right) 
+    \cong \tilde{H}_* \left( CX / X \right) $.
+    Similarly, one can
+    show that the inclusion
+    $X \hookrightarrow \Sigma X$ is a cofibration, so
+    $H_* \left( \Sigma X , X \right) 
+    \cong \tilde{H}_* \left( \Sigma X / X \right) 
+    \cong \tilde{H}_* \left( 
+    \Sigma X \vee \Sigma X \right) $ and
+    $H_*\left( SX, X \right) 
+    \cong \tilde{H}_* \left( SX \vee SX \right) $.
+\end{solution}
+
+
+
+
+
+
 
 
 \newpage
@@ -1037,15 +1731,423 @@ $\left( X \times I \right) / A \to Y$ which take
   to $\left( D^{n}, S^{n-1}, s_0 \right) $.
   In this case, addition is done by
   the map $c \colon D^{n} \to D^{n} \vee D^{n}$ collapsing
-  $D^{n-1} \subset D^{n}$ to a point.
+  $D^{n-1} \subset D^{n}$ to a point.\\
+  \linebreak
+  \begin{theorem}[Compression criterion]\label{Thm:Compression}
+      A map $f \colon \left( D^{n}, S^{n-1}, s_0 \right) 
+      \to \left( X, A, x_0 \right) $ represents zero
+      in $\pi_n \left( X, A, x_0 \right) $ if and only if
+      it is homotopic $\rel S^{n-1}$ to a map with image
+      contained in $A$.
+  \end{theorem}
+  
+  \begin{proof}
+      Suppose we have a homotopy
+      $\rel S^{n-1}$ from $f$ to a map
+      $g$, so
+      $\left[ f \right] = \left[ g \right] $ in
+      $\pi_n \left( X, A, x_0 \right) $. 
+      Viewing $g$ as a map
+      $\left( D^{n}, S^{n-1}, s_0 \right) 
+      \to \left( X, A, x_0 \right) $ whose
+      image is contained in $A$, we
+      can construct the homotopy
+      $H \colon D^{n} \times I \to X$ by
+      $H(x,t) = g\left( (1-t) x + s_0 t \right) $ 
+      which is a homotopy from $g$ to the
+      constant map at $x_0$, hence
+      $\left[ g \right]  = 0$ in $\pi_n (X, A, x_0)$.\\
+      Conversely, if $\left[ f \right] = 0$ via
+      a homotopy $F \colon D^{n} \times I \to X$ such that
+      $F(x,0) = f(x)$ and
+      $F(x,1) = x_0$ for all $x \in D^{n}$ and
+      $F(x,t) \in A$ for all
+      $x$ with $\left| x \right| = 1$ as well
+      as $F(s_0,t) = x_0$ for all $t$. We can
+      construct a homotopy
+      using $F$ by restricting $F$ to a family of
+      $n$-disks in $D^{n} \times I$ starting with
+      $D^{n}\times \left\{ 0 \right\} $ and ending
+      with the disk $D^{n} \times \left\{ 1 \right\} 
+      \cup S^{n-1} \times I$, and where all the disks
+      throughout the family have the same boundary.
+      See Figure \ref{fig:DJIMMXKXO0O-jpeg} for a depiction
+      of this homotopy.
+
+      \begin{figure}[htpb]
+          \centering
+          \includegraphics[width=0.8\textwidth]{DJIMMXKXO0O.jpeg}
+          \caption{}
+          \label{fig:DJIMMXKXO0O-jpeg}
+      \end{figure}
+      This completes the proof.
+  \end{proof}
+
+  Next, some things that carry over:
+  a map $\varphi \colon \left( X, A, x_0 \right) 
+  \to \left( Y, B, y_0 \right) $ induces maps
+  $\varphi_* \colon \pi_n \left( X, A, x_0 \right) 
+  \to \pi_n \left( Y, B, y_0 \right) $ which are
+  homomorphisms when $n\ge 2$ and have properties analogous
+  to those in the absolute case: 
+  $\left( \varphi \psi  \right)_* = 
+  \varphi_* \psi_*, (\id_{(X,A,x_0)})_{*} = \id_{\pi_n (X, A, x_0)}$,
+  and if  $\varphi \simeq \psi $ through maps
+  $\left( X,A,x_0 \right) \to \left( Y,B,y_0 \right) $,
+  then $\varphi_* = \psi_*$. 
+
+  \subsubsection{LES of relative homotopy groups}
+  Probably the most useful feature of relative homotopy
+  groups $\pi_n (X,A,x_0)$ is that they 
+  fit into a long exact sequence
+  \[
+  \ldots \to \pi_n (A,x_0)
+  \stackrel{i_*}{\to} \pi_n(X,x_0)
+  \stackrel{j_*}{\to} \pi_n (X,A,x_0)
+  \stackrel{\partial}{\to} \pi_{n-1}(A,x_0) \to 
+  \ldots \to \pi_0 (X,x_0).
+  \] 
+  Here $i$ and $j$ are the inclusions
+  $\left( A, x_0 \right) \hookrightarrow
+  (X,x_0)$ and
+  $\left( X, x_0, x_0 \right) \hookrightarrow
+  \left( X,A,x_0 \right) $. The map
+  $\partial$ comes from restricting maps
+  $\left( I^{n},\partial I^{n}, J^{n-1} \right) \to 
+  \left( X,A,x_0 \right) $ to
+  $I^{n-1}$ (the face of $I^{n}$ with the last
+  coordinate $s_n = 0$ ),
+  or equivalently, by restricting maps
+  $\left( D^{n},S^{n-1},s_0 \right) \to 
+  \left( X,A,x_0 \right) $ to $S^{n-1}$. The map $\partial$,
+  called the \textit{boundary map}, is a homomorphism
+  when $n>1$. In fact, we can show the following theorem
+
+  \begin{theorem}[LES of relative homotopy groups]
+      Given 
+      $x_0 \in B \subset A \subset X$,
+      the sequence of relative homotopy groups
+  \[
+      \ldots \to 
+      \pi_n \left( A,B, x_0 \right) 
+      \stackrel{i_*}{\to} 
+      \pi_n \left( X, B, x_0 \right) 
+      \stackrel{j_*}{\to} 
+      \pi_n (X, A, x_0)
+      \stackrel{\partial}{\to} 
+      \pi_{n-1} \left( A,B, x_0 \right) 
+      \to \ldots \to 
+      \pi_1 (X,A,x_0)
+  \] 
+  is exact and natural.
+  In the case when $B = \left\{ x_0 \right\} $, we have that
+  the LES
+  \[
+  \ldots \to \pi_n (A,x_0)
+  \stackrel{i_*}{\to} \pi_n(X,x_0)
+  \stackrel{j_*}{\to} \pi_n (X,A,x_0)
+  \stackrel{\partial}{\to} \pi_{n-1}(A,x_0) \to 
+  \ldots \to \pi_0 (X,x_0).
+  \] 
+  is exact and natural.
+  \end{theorem}
+
+  \begin{proof}
+      \textit{Exactness at $\pi_n
+      \left( X,B,x_0 \right) $ :} the composition
+      $j_* i_*$ is zero because any
+      map $\left( I^{n}, \partial I^{n},
+      J^{n-1}\right) \to \left( A,B,x_0 \right) $ 
+      is zero in $\pi_n \left( X, A, x_0 \right) $ by the
+      compression criterion (Theorem \ref{Thm:Compression}).
+      To see that $\ker j_* \subset 
+      \im i_*$, let
+      $f \colon \left( I^{n}, \partial I^{n},
+      J^{n-1}\right) \to \left( X, B, x_0 \right) $ 
+      represent zero in $\pi_n \left( X, A, x_0 \right) $.
+      Using the compression criterion again, we
+      then get that $f$ is homotopic $\rel \partial I^{n}$ 
+      to a map with image in $A$, hence the class
+      $\left[ f \right] \in \pi_n \left( X, B, x_0 \right) $ 
+      is indeed in the image of $i_*$. We conclude that
+      $\ker j_* = \im i_*$, obtaining exactness
+      at $\pi_n \left( X,B, x_0 \right) $.\\
+      \textit{Exactness at $\pi_n (X,A,x_0)$:} 
+      for a map  $\left[ f \right] 
+      \in \im j_*$, we have that
+      $j_*$ maps $\partial I^{n}$ into $B$, hence
+      in particular $I^{n-1} \subset \partial I^{n}$ into
+      $B$, so $\partial j_* \left[ f \right] $ 
+      represents a homotopy class
+      in $\pi_{n-1}\left( A,B,x_0 \right) $ with
+      image in $B$, but then by the compression criterion,
+      $\partial j_* \left[ f \right] = 0$ in
+      $\pi_{n-1} \left( A,B,x_0 \right) $, so
+      $\im j_* \subset \ker \partial $.
+      Conversely, suppose
+      $\partial \left[ f \right] = 0$. By the compression
+      criterion, representatives of $\partial \left[ f \right] $
+      are homotopic $\rel \partial I^{n-1}$ to a map
+      with image in $B$. In particular,
+      $f|_{I^{n-1}}$ is homotopic to a map with
+      image in $B$ via a homotopy $F \colon
+      I^{n-1} \times I \to A \rel \partial I^{n-1}$.
+      We can tack $F$ onto $f$ to get a new map
+      $\left( I^{n}, \partial I^{n},
+      J^{n-1}\right) \to 
+      \left( X, B, x_0 \right) $ which, as
+      a map
+      $\left( I^{n}, \partial I^{n}, J^{n-1} \right) \to 
+      \left( X, A, x_0 \right) $ is homotopic to
+      $f$ by the homotopy that tacks on increasingly longer
+      initial segments of $F$. See Figure
+      \ref{fig:IDIWKAKX-png}. Hence
+      $\left[ f \right] \in \im j_*$.
+
+      \begin{figure}[htpb]
+          \centering
+          \includegraphics[width=0.2\textwidth]{IDIWKAKX.png}
+          \caption{}
+          \label{fig:IDIWKAKX-png}
+      \end{figure}
+
+      \textit{Exactness at $\pi_n (A,B,x_0)$ :} 
+      First, $i_* \partial$ is zero since
+      the restriction of a map
+      $f \colon \left( I^{n+1}, \partial I^{n+1},
+      J^{n}\right) \to \left( X,A,x_0 \right) $ 
+      to $I^{n}$ is homotopic $\rel \partial I^{n}$ to a 
+      constant map via $f$ itself (a similar picture
+      to Figure \ref{fig:DJIMMXKXO0O-jpeg} works).\\
+      Conversely, if $B$ is a point, then
+      a nullhomotopy $f_t \colon
+      \left( I^{n}, \partial I^{n} \right) 
+      \to \left( X, x_0 \right) $ of
+      $f_0 \colon \left( I^{n},\partial I^{n} \right) 
+      \to \left( A,x_0 \right) $ gives a map
+      $F \colon \left( I^{n+1},\partial I^{n+1},J^{n} \right) 
+      \to \left( X,A,x_0 \right) $ with
+      $\partial \left( \left[ F \right]  \right) 
+      = \left[ f_0 \right] $. So in this case, the proof is
+      finished.
+      For a general $B$, let
+      $F$ be a nullhomotopy of
+      $f \colon \left( I^{n},\partial I^{n},J^{n-1} \right) 
+      \to \left( A,B,x_0 \right) $ through maps
+      $\left( I^{n}, \partial I^{n}, J^{n-1} \right) 
+      \to \left( X,B,x_0 \right) $ and
+      let $g$ be the restriction of
+      $F$ to $I^{n-1}$ in $I^{n-1} \times I = I^{n}$ (see
+      the first of the pictures in
+      Figure \ref{fig:USIIOOQ-png}).
+      Next reparametrize the $n$ th and
+      $(n+1)$ st coordinates as in the
+      second picture. Then 
+       we find that $f$ with $g$ tacked on
+       is in the image of $\partial$. But
+       as before, tacking $g$ onto $f$ gives the
+       same element of $\pi_n (A,B,x_0)$
+
+      \begin{figure}[htpb]
+          \centering
+          \includegraphics[width=0.4\textwidth]{USIIOOQ.png}
+          \caption{}
+          \label{fig:USIIOOQ-png}
+      \end{figure}
+  \end{proof}
+
+  
+\begin{corollary}
+    Consider the inclusion
+    $\iota \colon X = X \times \left\{ 0 \right\} 
+    \hookrightarrow CX$.
+    Then
+    $\pi_n \left( CX, X, x_0 \right) 
+    \cong \pi_{n-1}\left( X, x_0 \right) $ for all
+    $n\ge 1$. Taking
+    $n=2$, we can thus realize an group $G$, abelian
+    or not, as a relative $\pi_2$ by
+    choosing $X$ to have $\pi_1 (X) \cong G$.
+\end{corollary}
+
+There are also change-of-basepoint isomorphisms
+$\beta_{\gamma}$ for relative homotopy groups.
+One takes a path  $\gamma$ in $A \subset X$ from
+$x_0$ to $x_1$ which induces
+$\beta_{\gamma} \colon \pi_n (X,A,x_1) \to 
+\pi_n (X,A,x_0)$ by setting
+$\beta_{\gamma} \left( \left[ f \right]  \right) 
+= \left[ \gamma f \right] $, where
+$\gamma f$ is depicted in 
+Figure \ref{fig:DIWIOA-png}.
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.2\textwidth]{DIWIOA.png}
+    \caption{}
+    \label{fig:DIWIOA-png}
+\end{figure}
+
+Restricting to loops at the
+basepoint, the association $\gamma \mapsto 
+\beta_{\gamma}$ defines an action
+of $\pi_1 \left( A, x_0 \right) $ on
+$\pi_n \left( X, A, x_0 \right) $ analogous to the
+action of $\pi_1 \left( X, x_0 \right) $ on
+$\pi_n (X,x_0)$.
 
 
-  \include{psets/pset1/pset1}
 
 
 
 
 
+
+\include{psets/pset1/pset1}
+
+\begin{problem}[$n$-connected in the relative case]\label{n-connected-relative}
+    The following four conditions are equivalent for
+    $i>0$ :
+    \begin{enumerate}
+        \item Every map
+            $\left( D^{i} , \partial D^{i} \right) \to 
+            \left( X,A \right) $ is homotopic
+            $\rel \partial D^{i}$ to a map $D^{i} \to A$.
+        \item Every map $\left( D^{i},\partial D^{i} \right) 
+            \to (X,A)$ is homotopic through such maps
+            to a map $D^{i} \to A$.
+        \item Every map $\left( D^{i}, \partial D^{i} \right) 
+            \to \left( X,A \right) $ is homotopic through such
+            maps to a constant map $D^{i} \to A$.
+        \item $\pi_i \left( X, A, x_0 \right) = 0$ for all
+            $x_0 \in A$.
+    \end{enumerate}
+    When $i = 0$, we did not define the relative $\pi_0$,
+    and (1)-(3) are each equivalent to saying that
+    each path-component of $X$ contains points
+    in $A$ since $D^{0}$ is a point and
+    $\partial D^{0}$ is empty. The pair
+    $\left( X, A \right) $ is called \textit{$n$-connected}
+    if (1)-(4) hold for $0<i\le n$ and
+    (1)-(3) hold for  $i=0$.
+\end{problem}
+
+
+\subsection{Whitehead's Theorem}
+
+\begin{theorem}[Whitehead's Theorem]\label{Thm:Whitehead}
+    If a map $f \colon X \to Y$ between connected
+    $CW$ complexes induces isomorphisms
+    $f_* \colon \pi_n (X) \to \pi_n (Y)$ for all
+    $n$, then $f$ is a homotopy equivalence.
+    In case $f$ is the inclusion of a subcomplex
+    $X \hookrightarrow Y$, the conclusion is stronger:
+    $X$ is a deformation retract of $Y$.
+\end{theorem}
+
+The proof will require the following lemma:
+
+\begin{lemma}[Compression Lemma]
+    Let $\left( X,A \right) $ be a CW pair and let
+    $\left( Y, B \right) $ be any pair with
+    $B \neq \varnothing$. For each  $n$ such that
+    $X - A$ has cells of dimension $n$, assume
+    that  $\pi_n \left( Y, B, y_0 \right) = 0$ for
+    all $y_0 \in B$. Then every map $f \colon
+    \left( X,A \right) \to \left( Y,B \right) $ is homotopic
+    $\rel A$ to a map $X \to B$.
+    When $n = 0$, the condition that
+    $\pi_n \left( Y,B,y_0 \right) =0$ for all
+    $y_0 \in B$ is to be regarded as saying that
+    $\left( Y,B \right) $ is $0$-connected.
+\end{lemma}
+
+\begin{proof}[Proof of lemma]
+    Assume inductively that $f$ has already been
+    homotoped to take the skeleton
+    $X^{k-1}$ to $B$. Let
+    $\Phi$ be the caracteristic (attaching) map of 
+    cell $e^{k}$ of $X - A$. Then the composition
+    $f \Phi \colon \left( D^{k} , \partial D^{k} \right) 
+    \to \left( Y,B \right) $ is in some class
+    in $\pi_k \left( Y, B, y_0 \right) = 0$, so
+    it can be homotoped into $B \rel \partial D^{k}$ by
+    the compression criterion when
+    $k > 0$, or
+    by $\left( Y,B \right) $ being $0$-connected for
+    $k = 0$ (this is condition (3) in Problem \ref{n-connected-relative}).
+    This homotopy of $f \Phi$ induces a homotopy
+    $\rel X^{k-1}$ on the quotient space
+    $X^{k-1} \cup e^{k}$ of $X^{k-1} \sqcup D^{k}$.
+    Doing this for all $k$-cells of $X-A$ simultaneously, and
+    taking the constant homotopy on $A$, we obtain a
+    homotopy of $f|_{X^{k} \cup A}$ to a map into
+    $B$. Since the inclusion of a
+    subcomplex into a CW-complex is a cofibration,
+    $f|_{X^{k} \cup  A}$ extends to all of $X$ (essentially
+    the homotopy extension property).
+    This completes the inductive step in the finite dimensional
+    CW-complex case.
+    In the general case, we perform the
+    homotopy of the inductive step during the
+    $t$-interval $\left[ 1- \frac{1}{2^{k}},
+    1- \frac{1}{2^{k+1}}\right] $. Any finite skeleton
+    $X^{k}$ is eventually stationary under these
+    homotopies, hence we have a well-defined
+    homotopy $f_t, t \in \left[ 0,1 \right] $ with
+    $f_1 (X) \subset B$.
+\end{proof}
+
+
+\begin{proof}[Proof of Whitehead's Theorem, \ref{Thm:Whitehead}]
+    Let's tackle the case when $f$ is the inclusion
+    of a subcomplex first. Consider then
+    the LES of the pair $\left( Y,X \right) $. Since
+    $f$ by assumption induces isomorphisms
+    on all homotopy groups,
+    $f_* \colon \pi_* (X) \to \pi_* (Y)$, the
+    relative homotopy groups
+    $\pi_* (Y,X)$ are zero. Applying the lemma now
+    to the identity map $\left( Y,X \right) \to 
+    \left( Y,X \right) $, we obtain a homotopy
+    of the identity  $\id \colon Y \to Y$ to
+    a map $Y \to X$ which is relative to
+    $X$. That is, we obtain a deformation retract of
+    $Y$ onto $X$.\\
+    \linebreak
+    For the general case, recall that
+    a map $f \colon X \to Y$, can be considered
+    as the composition of the
+    inclusion $X \hookrightarrow M_f$ and the
+    retraction $M_f \to Y$. Since
+    the retraction is a homotopy equivalence,
+    it suffices to show that $M_f$ deformation retracts
+    onto $X$ if $f$ induces isomorphisms on homotopy
+    groups, or equivalently, if the relative groups
+    $\pi_n \left( M_f, X \right) $ are all zero (since
+    $M_f \simeq Y$ ).
+    If $f$ is cellular - i.e., takes the $n$-skeleton of
+    $X$ to the $n$-skeleton of $Y$ for all
+    $n$ - then $\left( M_f, X \right) $ is a CW pair and
+    we can apply the first paragraph of the proof.\\
+    If $f$ is not cellular, we can either apply
+    Theorem 4.8 in \cite{Hatcher} which says
+    that $f$ is homotopic to a cellular map, or we can use
+    the following argument.
+
+    First, using that 
+    $\pi_n \left( M_f, X \right) = 0$ for all $n$, 
+    apply the Compression Lemma to
+    the inclusion $ \left( X \cup  Y, X \right) 
+    \hookrightarrow \left( M_f, X \right) $ to
+    obtain a homotopy of the
+    inclusion to a map into $X \rel X$.
+    The inclusion $X \cup Y \hookrightarrow M_f$ can be
+    seen to be a cofibration using 
+    Theorem \ref{Thm:SJJDHW29WW}, so
+    the pair $\left( M_f, X \cup Y \right) $ satisfies the
+    homotopy extension property. 
+\end{proof}
 
 
 
