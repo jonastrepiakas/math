@@ -316,7 +316,7 @@ $H \left( -,1 \right) \colon X \to Y$ extends $g$.
 
     \begin{figure}[htpb]
         \centering
-        \includegraphics[width=0.8\textwidth]{DUWUWUJK122.png}
+        \includegraphics[width=0.8\textwidth]{Figures/DUWUWUJK122.png}
         \caption{A homeomorphism of pairs.}
         \label{fig:DUWUWUJK122-png}
     \end{figure}
@@ -609,7 +609,7 @@ X \cup  CA /CA$.
 
     \begin{figure}[htpb]
         \centering
-        \includegraphics[width=0.8\textwidth]{DWIJJXNXJNXJUI.png}
+        \includegraphics[width=0.8\textwidth]{Figures/DWIJJXNXJNXJUI.png}
         \caption{DWIJJXNXJNXJUI.png}
         \label{fig:DWIJJXNXJNXJUI-png}
     \end{figure}
@@ -850,7 +850,7 @@ well-pointed.\\
     \ref{fig:IWIDK01-jpeg}
     \begin{figure}[htpb]
         \centering
-        \includegraphics[width=0.5\textwidth]{IWIDK01.jpeg}
+        \includegraphics[width=0.5\textwidth]{Figures/IWIDK01.jpeg}
         \caption{}
         \label{fig:IWIDK01-jpeg}
     \end{figure}
@@ -1449,7 +1449,7 @@ $\left( X \times I \right) / A \to Y$ which take
   
   \begin{figure}[htpb]
       \centering
-      \includegraphics[width=0.6\textwidth]{TKISO0932.png}
+      \includegraphics[width=0.6\textwidth]{Figures/TKISO0932.png}
       \caption{The product of two map classes
       $SX \to Y$.}
       \label{fig:TKISO0932-png}
@@ -1524,7 +1524,7 @@ $\left( X \times I \right) / A \to Y$ which take
       around in a continuous manner. The rest is clear.
       \begin{figure}[htpb]
           \centering
-          \includegraphics[width=0.8\textwidth]{JIDWOOL0290L.png}
+          \includegraphics[width=0.8\textwidth]{Figures/JIDWOOL0290L.png}
           \caption{The homotopy in question}
           \label{fig:JIDWOOL0290L-png}
       \end{figure}
@@ -1556,7 +1556,7 @@ $\left( X \times I \right) / A \to Y$ which take
 
       \begin{figure}[htpb]
           \centering
-          \includegraphics[width=0.25\textwidth]{JDWIXHHX011SJ.png}
+          \includegraphics[width=0.25\textwidth]{Figures/JDWIXHHX011SJ.png}
           \caption{Depiction of $\gamma f$.}
           \label{fig:JDWIXHHX011SJ-png}
       \end{figure}
@@ -1584,7 +1584,7 @@ $\left( X \times I \right) / A \to Y$ which take
 
       \begin{figure}[htpb]
           \centering
-          \includegraphics[width=0.8\textwidth]{WIWIWSSK11.png}
+          \includegraphics[width=0.8\textwidth]{Figures/WIWIWSSK11.png}
           \caption{}
           \label{fig:WIWIWSSK11-png}
       \end{figure}
@@ -1776,7 +1776,7 @@ $\left( X \times I \right) / A \to Y$ which take
 
       \begin{figure}[htpb]
           \centering
-          \includegraphics[width=0.8\textwidth]{DJIMMXKXO0O.jpeg}
+          \includegraphics[width=0.8\textwidth]{Figures/DJIMMXKXO0O.jpeg}
           \caption{}
           \label{fig:DJIMMXKXO0O-jpeg}
       \end{figure}
@@ -1906,7 +1906,7 @@ $\left( X \times I \right) / A \to Y$ which take
 
       \begin{figure}[htpb]
           \centering
-          \includegraphics[width=0.2\textwidth]{IDIWKAKX.png}
+          \includegraphics[width=0.2\textwidth]{Figures/IDIWKAKX.png}
           \caption{}
           \label{fig:IDIWKAKX-png}
       \end{figure}
@@ -1950,7 +1950,7 @@ $\left( X \times I \right) / A \to Y$ which take
 
       \begin{figure}[htpb]
           \centering
-          \includegraphics[width=0.4\textwidth]{USIIOOQ.png}
+          \includegraphics[width=0.4\textwidth]{Figures/USIIOOQ.png}
           \caption{}
           \label{fig:USIIOOQ-png}
       \end{figure}
@@ -1983,7 +1983,7 @@ Figure \ref{fig:DIWIOA-png}.
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[width=0.2\textwidth]{DIWIOA.png}
+    \includegraphics[width=0.2\textwidth]{Figures/DIWIOA.png}
     \caption{}
     \label{fig:DIWIOA-png}
 \end{figure}
@@ -2003,7 +2003,7 @@ $\pi_n (X,x_0)$.
 
 
 
-\include{psets/pset1/pset1}
+\include{pset1}
 
 \begin{problem}[$n$-connected in the relative case]\label{n-connected-relative}
     The following four conditions are equivalent for
@@ -2146,10 +2146,175 @@ The proof will require the following lemma:
     seen to be a cofibration using 
     Theorem \ref{Thm:SJJDHW29WW}, so
     the pair $\left( M_f, X \cup Y \right) $ satisfies the
-    homotopy extension property. 
+    homotopy extension property. So the
+    homotopy in question extends to a homotopy
+    from the identity of $M_f$ to a
+    map $g \colon M_f \to M_f$ taking 
+    $X \cup Y$ into $X \rel X$. 
+    However, we first of all do not know that this
+    homotopy is $\rel X$ nor that 
+    $g$ maps all of $M_f$ into $X$.\\
+    So we apply the
+    Compression lemma again to the
+    composition
+     \[
+         \left( X \times I \sqcup Y,
+         X \times \partial I \sqcup Y\right) 
+         \to \left( M_f, X \cup Y \right) 
+         \stackrel{g}{\to} \left( M_f,X \right) ,
+    \]
+    to get a homotopy
+    $\rel X \times \partial I \sqcup Y$ of
+    $g$ to a map 
+    $X \times I \sqcup Y \to X$. In particular,
+    this homotopy passes through the quotient
+    $X \times I \sqcup Y \to M_f$, so we
+    get a homotopy of $g \rel X \times \partial I \cup Y$
+    to a map $M_f \to X$.\\
+    Composing the homotopy
+    from the identity of $M_f$ to $g$ with this homotopy,
+    we get a deformation retraction of
+    $M_f$ onto $X$.
+\end{proof}
+
+\begin{note}
+    Whitehead's theorem requires a map
+    $f \colon X \to Y$ which induces isomorphisms
+    on homotopy groups. Thus it does not apply simply
+    to any two CW complexes $X$ and $Y$ with isomorphic
+    homotopy groups since there might not exist such a map.
+    For examples where this is the case, see
+    \cite[p. 348]{Hatcher}.
+\end{note}
+
+\begin{corollary}
+    If $X$ is a CW complex with
+    $\pi_n(X) = 0$ for all $n\ge 0$, then
+    $X \simeq \left\{ 0 \right\} $.
+\end{corollary}
+
+\begin{proof}
+    The inclusion of a $0$-cell into the complex
+    induces an isomorphism on homotopy
+    groups, so by Whitehead's theorem, the complex deformation
+    retracts to the $0$-cell.
+\end{proof}
+
+\begin{lemma}[Extension Lemma]
+    Given a CW pair $\left( X,A \right) $ and a map
+    $f \colon A \to Y$ with $Y$-path connected,
+    then $f$ can be extended to a map
+    $X \to Y$ if $\pi_{n-1}(Y) = 0$ for all $n$ such that
+    $X -A$ has cells of dimension $n$.
+\end{lemma}
+
+\begin{proof}
+    Suppose that $f$ has been extended over the
+    $\left( n-1 \right) $-skeleton. Then an extension
+    over an $n$-cell exists if and only if
+    the composition of the cell's attaching
+    map $S^{n-1} \to X^{n-1}$ with $f
+    \colon X^{n-1} \to Y$ is nullhomotopic, which
+    it is if $\pi_{n-1} (Y) = 0$.
+\end{proof}
+
+\subsection{Cellular Approximation}
+
+\begin{definition}[Cellular maps]
+    A map $f \colon X \to Y$ between CW complexes,
+    satisfying
+    $f(X^{n}) \subset Y^{n}$ for all $n$, is called
+    a \textit{cellular map}.
+\end{definition}
+
+\begin{theorem}[Cellular Approximation Theorem]
+    Every map $f \colon X \to Y$ of CW complexes is homotopic
+    to a cellular map. If $f$ is already cellular
+    on a subcomplex $A \subset X$, then homotopy
+    map be taken to be stationary on $A$.
+\end{theorem}
+
+Recall the following about simplicial maps and simplicial
+approximations:
+
+\begin{definition}[Simplicial map]
+    Let $K$ and $L$ be simplicial complexes. A function
+    $s \colon \left| K \right| \to \left| L \right| $ 
+    is called \textit{simplicial} if it takes simplexes
+    of $K$ linearly onto simplexes of $L$.
+\end{definition}
+
+\begin{definition}[Carrier of $f(x)$]
+    Given a map  $f \colon \left| K \right| 
+    \to \left| L \right| $ between polyhedra and a
+    point $x \in \left| K \right| $, the point
+    $f(x)$ lies in the interior of a unique simplex of
+    $L$. Call this simplex the \textit{carrier} of 
+    $f(x)$.
+\end{definition}
+
+\begin{definition}[Simplicial Approximation]
+    A simplicial map $s \colon \left| K \right| 
+    \to \left| L \right| $ is a simplicial approximation of 
+    $f \colon \left| K \right|  \to \left| L \right| $ 
+    if $s(x)$ lies in the carrier of $f(x)$ for
+    each $x \in \left| K \right| $.
+\end{definition}
+
+\begin{theorem}[Simplicial approximation theorem]
+    Let $f \colon \left| K \right| \to 
+    \left| L \right| $ be a map between polyhedra.
+    If $m$ is chosen large enough, there is a simplicial
+    approximation $s \colon \left| K^{m} \right| \to 
+    \left| L \right| $ to $f \colon \left| K^{m} \right| 
+    \to \left| L \right| $.
+\end{theorem}
+
+Thus we may view cellular approximation as
+a CW analog of simplicial approximation since simplicial
+maps are cellular. Simplicial maps are much more rigid
+than cellular maps, however, and the core
+proof of cellular approximation will be
+a weaker form of simplciial approximation.\\
+\linebreak
+But first, a nice corollary:
+
+\begin{corollary}
+    $\pi_n \left( S^{k} \right) $ for
+    $n<k$.
+\end{corollary}
+
+\begin{proof}
+    If $S^{n}$ and $S^{k}$ are given their usual
+    CW structure of a single $0$-cell and
+    then an $n$- or $k$-cell, respectively, then by
+    the Cellular Approximation Theorem, 
+    any pointed map $S^{n} \to S^{k}$ is based homotopic to a 
+    cellular map, and hence maps
+    the  $n$-skeleton of $S^{n}$ into the $n$-skeleton
+    of $S^{k}$. But the $n$-skeleton of $S^{k}$ is
+    just the $0$-cell. That is, 
+    any map $S^{n} \to S^{k}$ is based nullhomotopic, so
+    $\pi_n \left( S^{k} \right) = 0$.
+\end{proof}
+
+\begin{proof}[Proof of Cellular Approximation Theorem]
+    To do
 \end{proof}
 
 
+\section{Methods of Calculation}
+
+\subsection{The Hurewicz Theorem}
+
+
+
+
+
+\subsection{Problem Set 2}
+
+
+\include{pset2}
 
 
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  3 MAY 2025 13:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  4 MAY 2025 16:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -719,7 +719,7 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 
 \@quotelevel=\count437
 \@quotereset=\count438
-(./notes.aux (./psets/pset1/pset1.aux))
+(./notes.aux (./pset1.aux) (./pset2.aux))
 \openout1 = `notes.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 158.
@@ -814,10 +814,10 @@ Overfull \hbox (10.5989pt too wide) in paragraph at lines 224--238
  []
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
-<DUWUWUJK122.png, id=63, 764.8575pt x 231.86626pt>
-File: DUWUWUJK122.png Graphic file (type png)
-<use DUWUWUJK122.png>
-Package pdftex.def Info: DUWUWUJK122.png  used on input line 319.
+<Figures/DUWUWUJK122.png, id=79, 764.8575pt x 231.86626pt>
+File: Figures/DUWUWUJK122.png Graphic file (type png)
+<use Figures/DUWUWUJK122.png>
+Package pdftex.def Info: Figures/DUWUWUJK122.png  used on input line 319.
 (pdftex.def)             Requested size: 288.0011pt x 87.30696pt.
  [2]
 Underfull \hbox (badness 10000) in paragraph at lines 383--447
@@ -829,13 +829,13 @@ Overfull \hbox (12.67168pt too wide) in paragraph at lines 383--447
 \T1/cmr/m/n/10 To prove the converse, suppose that the inclusion $\OML/cmm/m/it/10 A ,[]\OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 X$ \T1/cmr/m/n/10 is a cofibration. Equivalently,
  []
 
-[3 <./DUWUWUJK122.png>] [4]
-<DWIJJXNXJNXJUI.png, id=94, 624.3325pt x 217.81375pt>
-File: DWIJJXNXJNXJUI.png Graphic file (type png)
-<use DWIJJXNXJNXJUI.png>
-Package pdftex.def Info: DWIJJXNXJNXJUI.png  used on input line 612.
+[3 <./Figures/DUWUWUJK122.png>] [4]
+<Figures/DWIJJXNXJNXJUI.png, id=110, 624.3325pt x 217.81375pt>
+File: Figures/DWIJJXNXJNXJUI.png Graphic file (type png)
+<use Figures/DWIJJXNXJNXJUI.png>
+Package pdftex.def Info: Figures/DWIJJXNXJNXJUI.png  used on input line 612.
 (pdftex.def)             Requested size: 288.0011pt x 100.47803pt.
- [5 <./DWIJJXNXJNXJUI.png>]
+ [5 <./Figures/DWIJJXNXJNXJUI.png>]
 Overfull \hbox (9.75377pt too wide) in paragraph at lines 700--701
  \T1/cmr/m/n/10 1.0.1.\T1/cmr/m/it/10 Interlude on pointed-spaces and operations on spaces.[] \T1/cmr/m/n/10 We recall some important
  []
@@ -860,17 +860,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 809--813
 
  []
 
-<IWIDK01.jpeg, id=120, 3011.25pt x 732.7375pt>
-File: IWIDK01.jpeg Graphic file (type jpg)
-<use IWIDK01.jpeg>
-Package pdftex.def Info: IWIDK01.jpeg  used on input line 853.
+<Figures/IWIDK01.jpeg, id=136, 3011.25pt x 732.7375pt>
+File: Figures/IWIDK01.jpeg Graphic file (type jpg)
+<use Figures/IWIDK01.jpeg>
+Package pdftex.def Info: Figures/IWIDK01.jpeg  used on input line 853.
 (pdftex.def)             Requested size: 180.0pt x 43.79463pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 862--905
 
  []
 
-[7 <./IWIDK01.jpeg>]
+[7 <./Figures/IWIDK01.jpeg>]
 Underfull \hbox (badness 10000) in paragraph at lines 908--960
 
  []
@@ -886,34 +886,34 @@ Underfull \hbox (badness 10000) in paragraph at lines 1101--1102
  []
 
 [10] [11]
-<TKISO0932.png, id=179, 523.9575pt x 317.185pt>
-File: TKISO0932.png Graphic file (type png)
-<use TKISO0932.png>
-Package pdftex.def Info: TKISO0932.png  used on input line 1452.
+<Figures/TKISO0932.png, id=195, 523.9575pt x 317.185pt>
+File: Figures/TKISO0932.png Graphic file (type png)
+<use Figures/TKISO0932.png>
+Package pdftex.def Info: Figures/TKISO0932.png  used on input line 1452.
 (pdftex.def)             Requested size: 216.0022pt x 130.75813pt.
  [12]
-<JIDWOOL0290L.png, id=188, 730.73pt x 113.42375pt>
-File: JIDWOOL0290L.png Graphic file (type png)
-<use JIDWOOL0290L.png>
-Package pdftex.def Info: JIDWOOL0290L.png  used on input line 1527.
+<Figures/JIDWOOL0290L.png, id=204, 730.73pt x 113.42375pt>
+File: Figures/JIDWOOL0290L.png Graphic file (type png)
+<use Figures/JIDWOOL0290L.png>
+Package pdftex.def Info: Figures/JIDWOOL0290L.png  used on input line 1527.
 (pdftex.def)             Requested size: 288.0011pt x 44.70236pt.
-<JDWIXHHX011SJ.png, id=190, 232.87pt x 218.8175pt>
-File: JDWIXHHX011SJ.png Graphic file (type png)
-<use JDWIXHHX011SJ.png>
-Package pdftex.def Info: JDWIXHHX011SJ.png  used on input line 1559.
+<Figures/JDWIXHHX011SJ.png, id=206, 232.87pt x 218.8175pt>
+File: Figures/JDWIXHHX011SJ.png Graphic file (type png)
+<use Figures/JDWIXHHX011SJ.png>
+Package pdftex.def Info: Figures/JDWIXHHX011SJ.png  used on input line 1559.
 (pdftex.def)             Requested size: 90.0pt x 84.56718pt.
- [13 <./TKISO0932.png> <./JIDWOOL0290L.png>]
-<WIWIWSSK11.png, id=205, 695.59875pt x 134.5025pt>
-File: WIWIWSSK11.png Graphic file (type png)
-<use WIWIWSSK11.png>
-Package pdftex.def Info: WIWIWSSK11.png  used on input line 1587.
+ [13 <./Figures/TKISO0932.png> <./Figures/JIDWOOL0290L.png>]
+<Figures/WIWIWSSK11.png, id=221, 695.59875pt x 134.5025pt>
+File: Figures/WIWIWSSK11.png Graphic file (type png)
+<use Figures/WIWIWSSK11.png>
+Package pdftex.def Info: Figures/WIWIWSSK11.png  used on input line 1587.
 (pdftex.def)             Requested size: 288.0011pt x 55.68819pt.
 
 Overfull \hbox (7.65619pt too wide) in paragraph at lines 1593--1607
 []\T1/cmr/m/n/10 Now if $\OML/cmm/m/it/10 ^^L[] [] [] ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; x[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; x[]\OT1/cmr/m/n/10 )$ \T1/cmr/m/n/10 is the change-of-basepoint transformation, $\OML/cmm/m/it/10 ^^L[] [] \OT1/cmr/m/n/10 =
  []
 
-[14 <./JDWIXHHX011SJ.png> <./WIWIWSSK11.png>]
+[14 <./Figures/JDWIXHHX011SJ.png> <./Figures/WIWIWSSK11.png>]
 Overfull \hbox (1.78966pt too wide) in paragraph at lines 1650--1671
 []\T1/cmr/m/n/10 Since $\OML/cmm/m/it/10 S[]$ \T1/cmr/m/n/10 is path-connected and locally path-connected, and simply connected
  []
@@ -934,21 +934,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 1708--1736
  []
 
 [15]
-<DJIMMXKXO0O.jpeg, id=233, 3139.73pt x 1152.305pt>
-File: DJIMMXKXO0O.jpeg Graphic file (type jpg)
-<use DJIMMXKXO0O.jpeg>
-Package pdftex.def Info: DJIMMXKXO0O.jpeg  used on input line 1779.
+<Figures/DJIMMXKXO0O.jpeg, id=249, 3139.73pt x 1152.305pt>
+File: Figures/DJIMMXKXO0O.jpeg Graphic file (type jpg)
+<use Figures/DJIMMXKXO0O.jpeg>
+Package pdftex.def Info: Figures/DJIMMXKXO0O.jpeg  used on input line 1779.
 (pdftex.def)             Requested size: 288.0011pt x 105.68982pt.
 
 Overfull \hbox (40.80489pt too wide) detected at line 1841
 [] \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 ^^Y[] [] [] ^^Y[] [] [] ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; A; x[]\OT1/cmr/m/n/10 ) [] \OML/cmm/m/it/10 ^^Y[] [] \OMS/cmsy/m/n/10 ! [] ! \OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; A; x[]\OT1/cmr/m/n/10 )
  []
 
-[16 <./DJIMMXKXO0O.jpeg>]
-<IDIWKAKX.png, id=243, 282.05376pt x 292.09125pt>
-File: IDIWKAKX.png Graphic file (type png)
-<use IDIWKAKX.png>
-Package pdftex.def Info: IDIWKAKX.png  used on input line 1909.
+[16 <./Figures/DJIMMXKXO0O.jpeg>]
+<Figures/IDIWKAKX.png, id=259, 282.05376pt x 292.09125pt>
+File: Figures/IDIWKAKX.png Graphic file (type png)
+<use Figures/IDIWKAKX.png>
+Package pdftex.def Info: Figures/IDIWKAKX.png  used on input line 1909.
 (pdftex.def)             Requested size: 71.9989pt x 74.56027pt.
 
 Overfull \hbox (61.30563pt too wide) in paragraph at lines 1914--1950
@@ -960,26 +960,26 @@ Overfull \hbox (31.02379pt too wide) in paragraph at lines 1914--1950
 \T1/cmr/m/n/10 Conversely, if $\OML/cmm/m/it/10 B$ \T1/cmr/m/n/10 is a point, then a nullhomotopy $\OML/cmm/m/it/10 f[] [] []  [] \OMS/cmsy/m/n/10 ! []$ \T1/cmr/m/n/10 of $\OML/cmm/m/it/10 f[] [] []  [] \OMS/cmsy/m/n/10 !
  []
 
-<USIIOOQ.png, id=246, 486.81876pt x 236.885pt>
-File: USIIOOQ.png Graphic file (type png)
-<use USIIOOQ.png>
-Package pdftex.def Info: USIIOOQ.png  used on input line 1953.
+<Figures/USIIOOQ.png, id=262, 486.81876pt x 236.885pt>
+File: Figures/USIIOOQ.png Graphic file (type png)
+<use Figures/USIIOOQ.png>
+Package pdftex.def Info: Figures/USIIOOQ.png  used on input line 1953.
 (pdftex.def)             Requested size: 143.9978pt x 70.06842pt.
 
 Overfull \hbox (22.50691pt too wide) in paragraph at lines 1961--1971
 [][]\T1/cmr/bx/n/10 Corollary 2.30. []\T1/cmr/m/it/10 Consider the inclusion $\OML/cmm/m/it/10 ^^S [] [] X \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 X \OMS/cmsy/m/n/10 ^^B [] \OML/cmm/m/it/10 ,[]\OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 CX$\T1/cmr/m/it/10 . Then $\OML/cmm/m/it/10 ^^Y[] [] []
  []
 
-[17 <./IDIWKAKX.png> <./USIIOOQ.png>]
-<DIWIOA.png, id=256, 242.9075pt x 253.94875pt>
-File: DIWIOA.png Graphic file (type png)
-<use DIWIOA.png>
-Package pdftex.def Info: DIWIOA.png  used on input line 1986.
+[17 <./Figures/IDIWKAKX.png> <./Figures/USIIOOQ.png>]
+<Figures/DIWIOA.png, id=272, 242.9075pt x 253.94875pt>
+File: Figures/DIWIOA.png Graphic file (type png)
+<use Figures/DIWIOA.png>
+Package pdftex.def Info: Figures/DIWIOA.png  used on input line 1986.
 (pdftex.def)             Requested size: 71.9989pt x 75.27072pt.
- [18 <./DIWIOA.png>]
-\openout2 = `psets/pset1/pset1.aux'.
+ [18 <./Figures/DIWIOA.png>]
+\openout2 = `pset1.aux'.
 
- (./psets/pset1/pset1.tex
+ (./pset1.tex
 Overfull \hbox (18.47104pt too wide) in paragraph at lines 104--108
 []\T1/cmr/m/n/10 To show that degree is a group homomorphism, we must show that $[] [] \OT1/cmr/m/n/10 =
  []
@@ -1019,10 +1019,92 @@ Underfull \hbox (badness 10000) in paragraph at lines 2103--2137
 [23
 
 
-] [24]
+]
+Overfull \hbox (7.8848pt too wide) in paragraph at lines 2197--2201
+[]\T1/cmr/m/n/10 The inclusion of a $\OT1/cmr/m/n/10 0$\T1/cmr/m/n/10 -cell into the complex induces an isomorphism on homotopy
+ []
+
+[24]
+Overfull \hbox (5.43744pt too wide) in paragraph at lines 2273--2281
+[]\T1/cmr/m/n/10 Thus we may view cellular approximation as a CW analog of simplicial approximation
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2273--2281
+
+ []
+
+[25]
+\openout2 = `pset2.aux'.
+
+ (./pset2.tex
+<Figures/p11.jpeg, id=353, 3071.475pt x 1304.875pt>
+File: Figures/p11.jpeg Graphic file (type jpg)
+<use Figures/p11.jpeg>
+Package pdftex.def Info: Figures/p11.jpeg  used on input line 27.
+(pdftex.def)             Requested size: 288.0011pt x 122.35164pt.
+ [26
+
+ <./Figures/p11.jpeg>]
+Underfull \hbox (badness 10000) in paragraph at lines 172--225
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 228--254
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 228--254
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 263--308
+
+ []
+
+[27] [28]
+Underfull \hbox (badness 10000) in paragraph at lines 443--469
+
+ []
+
+<Figures/p31.jpeg, id=380, 3312.375pt x 1200.485pt>
+File: Figures/p31.jpeg Graphic file (type jpg)
+<use Figures/p31.jpeg>
+Package pdftex.def Info: Figures/p31.jpeg  used on input line 472.
+(pdftex.def)             Requested size: 288.0011pt x 104.3754pt.
+[29 <./Figures/p31.jpeg>]
+<Figures/p32.jpeg, id=390, 2055.68pt x 1225.57875pt>
+File: Figures/p32.jpeg Graphic file (type jpg)
+<use Figures/p32.jpeg>
+Package pdftex.def Info: Figures/p32.jpeg  used on input line 535.
+(pdftex.def)             Requested size: 251.9989pt x 150.22354pt.
+
+Overfull \hbox (21.92426pt too wide) in paragraph at lines 540--551
+[]\T1/cmr/m/n/10 Naturality amounts to showing that $\OML/cmm/m/it/10 r[]$ \T1/cmr/m/n/10 defines a natural transformation from $\OML/cmm/m/it/10 ^^Y[] []$
+ []
+
+<Figures/p33.jpeg, id=392, 1606.0pt x 902.37125pt>
+File: Figures/p33.jpeg Graphic file (type jpg)
+<use Figures/p33.jpeg>
+Package pdftex.def Info: Figures/p33.jpeg  used on input line 600.
+(pdftex.def)             Requested size: 288.0011pt x 161.81398pt.
+<Figures/p322.jpeg, id=394, 1704.3675pt x 794.97pt>
+File: Figures/p322.jpeg Graphic file (type jpg)
+<use Figures/p322.jpeg>
+Package pdftex.def Info: Figures/p322.jpeg  used on input line 626.
+(pdftex.def)             Requested size: 216.0022pt x 100.74171pt.
+[30 <./Figures/p32.jpeg>]
+Underfull \hbox (badness 10000) in paragraph at lines 631--635
+
+ []
+
+[31 <./Figures/p33.jpeg> <./Figures/p322.jpeg>]) [32]
 
 Package biblatex Warning: Bibliography string 'volume' untranslated
-(biblatex)                at entry 'Bredon' on input line 2172.
+(biblatex)                at entry 'Bredon' on input line 2323.
 
 
 Package biblatex Warning: Using fallback definition for \mkbibdatelong.
@@ -1033,7 +1115,7 @@ Package biblatex Warning: Using fallback definition for \mkbibdatelong.
 
 
 Package biblatex Warning: Bibliography string 'pages' untranslated
-(biblatex)                at entry 'Bredon' on input line 2172.
+(biblatex)                at entry 'Bredon' on input line 2323.
 
 
 Package biblatex Warning: Using fallback definition for \mkbibdatelong.
@@ -1044,7 +1126,7 @@ Package biblatex Warning: Using fallback definition for \mkbibdatelong.
 
 
 Package biblatex Warning: Bibliography string 'pages' untranslated
-(biblatex)                at entry 'Hatcher' on input line 2172.
+(biblatex)                at entry 'Hatcher' on input line 2323.
 
 
 Package biblatex Warning: Using fallback definition for \mkbibdatelong.
@@ -1053,33 +1135,36 @@ Package biblatex Warning: Using fallback definition for \mkbibdatelong.
 (biblatex)                loaded, is faulty or does not contain a definition
 (biblatex)                for \mkbibdatelong.
 
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 2172.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 2323.
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-) [25] (./notes.aux (./psets/pset1/pset1.aux))
+) [33
+
+
+] (./notes.aux (./pset1.aux) (./pset2.aux))
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `notes.out' has not changed.
-(rerunfilecheck)             Checksum: A23CB8C57C366FF05BB10A993C449447;981.
+(rerunfilecheck)             Checksum: 1FB35D99CC3D1A7CC3DE8CEFC7F34A89;1705.
 Package logreq Info: Writing requests to 'notes.run.xml'.
 \openout1 = `notes.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 30050 strings out of 474222
- 573065 string characters out of 5748733
- 1950975 words of memory out of 5000000
- 51580 multiletter control sequences out of 15000+600000
+ 30199 strings out of 474222
+ 576260 string characters out of 5748733
+ 1952975 words of memory out of 5000000
+ 51684 multiletter control sequences out of 15000+600000
  569751 words of font info for 66 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  98i,15n,107p,678b,1431s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on notes.pdf (25 pages, 783774 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
+Output written on notes.pdf (33 pages, 1361432 bytes).
 PDF statistics:
- 441 PDF objects out of 1000 (max. 8388607)
- 352 compressed objects within 4 object streams
- 138 named destinations out of 1000 (max. 500000)
- 124 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 542 PDF objects out of 1000 (max. 8388607)
+ 437 compressed objects within 5 object streams
+ 177 named destinations out of 1000 (max. 500000)
+ 181 words of extra memory for PDF output out of 10000 (max. 10000000)
 
