@@ -35,6 +35,7 @@
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
 \newtheorem*{note}{Note}
+\newtheorem*{idea}{Idea}
 \newtheorem*{solution}{Solution}
 
 
@@ -243,11 +244,11 @@ $H \left( -,1 \right) \colon X \to Y$ extends $g$.
     \begin{equation*}
     \begin{tikzcd}
         A \times \left\{ 0 \right\} \ar[dd, "f \times \id"] 
-        \ar[rr]
+        \ar[rr, hookrightarrow]
         & & A\times I \ar[dd, "f \times \id"] \ar[dl] \\
             & Y &\\
         X \times \left\{ 0 \right\} \ar[ru]
-        \ar[rr]& & X \times I 
+        \ar[rr, hookrightarrow]& & X \times I 
         \ar[lu, dashed]
     \end{tikzcd}
     \end{equation*}
@@ -259,6 +260,58 @@ $H \left( -,1 \right) \colon X \to Y$ extends $g$.
     as the homotopy extension property for all $Y$. That attribute
     is sometimes referred to as the 
     \textit{absolute homotopy extension property}.
+\end{note}
+
+\begin{lemma}[]\label{Lemma:Cofibration-Inclusion-2}
+    If $f \colon A \to X$ is a cofibration, then
+    the inclusion  $\iota \colon f(A) \hookrightarrow X$ 
+    is a cofibration with $f\left( A \right) $ inheriting
+    the subspace topology.
+\end{lemma}
+
+\begin{proof}
+    If $f$ is a cofibration, then for any $Y$, there
+    following diagram can be filled out given the solid arrows
+
+    \begin{equation*}
+    \begin{tikzcd}
+        A \times \left\{ 0 \right\} \ar[dd, "f \times \id"] 
+        \ar[rr, hookrightarrow]
+        & & A\times I \ar[dd, "f \times \id"] \ar[dl] \\
+            & Y &\\
+        X \times \left\{ 0 \right\} \ar[ru]
+        \ar[rr]& & X \times I 
+        \ar[lu, dashed, "F"]
+    \end{tikzcd}
+    \end{equation*}
+    And thus we can fill the following diagram as well
+
+    \begin{equation*}
+    \begin{tikzcd}
+        f(A) \times \left\{ 0 \right\} \ar[dd, "\iota \times \id",
+        hookrightarrow] 
+        \ar[rr, hookrightarrow]
+        & & f(A) \times I \ar[dd, "\iota \times \id", 
+        hookrightarrow, bend left] \ar[dl, "F|_{f(A) \times I}"] \\
+            & Y &\\
+        X \times \left\{ 0 \right\} \ar[ru]
+        \ar[rr, hookrightarrow]& & X \times I 
+        \ar[lu, dashed, "F"]
+    \end{tikzcd}
+    \end{equation*}
+    By definition then $\iota \colon
+    f(A) \hookrightarrow X$ is a cofibration.
+\end{proof}
+
+\begin{note}
+    Note that the converse is not true since
+    we will see later in a problem that
+    a cofibration is an embedding, so it is
+    easy to construct a counter example, for example
+    by choosing a well-pointed space (see definition later)
+    and then choosing any space
+    $A$ which is not a single point and the collapsing map
+    $A \to X$ to the base point.
 \end{note}
 
 \begin{theorem}[]\label{Thm:Retract-cofibration}
@@ -729,6 +782,29 @@ We recall some important constructions:
     
 \end{definition}
 
+\begin{definition}[Reduced Suspension]
+    For a space $X$, the \textit{reduced suspension}
+    $SX$ is the quotient
+    \[
+    SX = X \times I / \left( X \times \partial I
+    \cup \left\{ * \right\} \times I \right) .
+    \] 
+\end{definition}
+
+\begin{definition}[Reduced Suspension of a map]
+    The reduced suspension of a map $f \colon X \to Y$ is
+    the induced map on the reduced suspensions of
+    $X$ and $Y$ :
+    \begin{equation*}
+    \begin{tikzcd}
+        X \times I \ar[r, "f \times \id"]
+        \ar[d] & Y \times I \ar[d] \\
+        SX \ar[r, "Sf"] & SY
+    \end{tikzcd}
+    \end{equation*}
+    
+\end{definition}
+
 \begin{exercise}[]
     For any homology theory, show that
     there is a natural isomorphism
@@ -1095,25 +1171,570 @@ methods from this section.
 \end{problem}
 
 \begin{proof}
-    The map
-    $f \colon A \to X$ can be factored as
-    the inclusion $A \hookrightarrow M_f$ with
-    the retraction $M_f \to X$. Now, the
-    inclusion is an embedding, so
-    it suffices to
+    Since $f$ is a cofibration, the following diagram
+    can be filled out, inducing a map
+    $g \colon X \times I \to M_f$ :
+    \begin{equation*}
+    \begin{tikzcd}
+        A \times \left\{ 0 \right\} \ar[dd, "f \times \id"] 
+        \ar[rr, hookrightarrow] & & A \times I \ar[dd, "f \times 
+        \id"] \ar[dl, "q"] \\
+                                & M_f & \\
+        X \times \left\{ 0 \right\} \ar[ur, "q"] 
+        \ar[rr, hookrightarrow]& & X \times I 
+        \ar[ul, "g"]
+    \end{tikzcd}
+    \end{equation*}
+    By construction, we have that
+    $q \colon A \times \left\{ 1 \right\} 
+    \hookrightarrow M_f$ is an embedding, so
+    letting $l \colon
+    q \left( A \times \left\{ 1 \right\}  \right) 
+    \to A \times \left\{ 1 \right\} $ be the inverse map,
+    we have
+    $l \circ g|_{f(A) \times \left\{ 1 \right\} } 
+    \circ \left( f \times \id \right) 
+    = \id_{A \times \left\{ 1 \right\} }$.
+    Likewise,
+    $\left( f \times \id \right) 
+    \circ l \circ g|_{f(A) \times \left\{ 1 \right\} }$,
+    since $g \left( f(a), t \right) 
+    = q(a,t)$, we have that
+    $l \circ g|_{f(A) \times \left\{ 1 \right\} }
+    (f(a),1) = (a,t)$, hence
+    $\left( f \times \id \right) 
+    \circ l \circ g|_{f(A) \times \left\{ 1 \right\} }
+    = \id_{f(A) \times \left\{ 1 \right\} }$.
+    Therefore,
+    $f \times \id$ is a homeomorphism
+    $A \times \left\{ 1 \right\}  \stackrel{\cong}{\to} 
+    f(A) \times \left\{ 1 \right\} $, so
+    $f \colon A \stackrel{\cong}{\to} f(A)$ is a homeomorphism.\\
+    \linebreak
+    By Lemma \ref{Lemma:Cofibration-Inclusion-2} and
+    Theorem \ref{Thm:Retract-cofibration}, we
+    have that there exists a retraction
+    $r \colon X \times I \to 
+    X \times \left\{ 0 \right\} \cup 
+    f(A) \times I$.
+
+    \begin{lemma}[]
+         If a space $X$ is Hausdorff and
+          there exists a retraction
+          $r \colon X \to A$, then $A$ is closed.
+    \end{lemma}
+
+    \begin{proof}
+        Let
+        $x \in X -A$ be a limit point of $A$. Let
+        $U ,V$ be open disjoint neighborhoods of
+        $x$ and $r(x)$. Then
+        $r^{-1}(V)$ is open and contains $x$, so
+        let $U' = U \cap r^{-1}(V)$.
+        Now $U \cap A \cap r^{-1}(V) = \varnothing$ since
+        otherwise $U \cap A = r\left( U \cap A \right) 
+        \subset V$ contradicting $U \cap V = \varnothing$.
+        But then $U'$ is an open neighborhood of $x$
+        that is disjoint from $A$, contradicting $x$ being
+        a limit point of $A$.
+        Thus $\overline{A} = A$.
+    \end{proof}
+
+    Using this Lemma, we find that since
+    $X \times I$ is Hausdorff and
+    $r \colon X \times I \to X \times \left\{ 0 \right\} 
+    \cup f(A) \times I$ is a retraction,
+    $X \times \left\{ 0 \right\} \cup 
+    f(A) \times I$ is closed in
+    $X \times I$.
+    Now,
+    $f(A) \times \left\{ 1 \right\} 
+    = X \times \left\{ 1 \right\} 
+    \cap \left( X \times \left\{ 0 \right\} \cup 
+    f(A) \times I\right) $, so
+    since $X \times \left\{ 1 \right\} $ is closed
+    in $X \times I$,
+    $f(A) \times \left\{ 1 \right\} $ 
+    is by definition closed in 
+    $X \times \left\{ 0 \right\} \cup 
+    f(A) \times I$ in the subspace topology. Hence
+    it is also closed in $X \times I$.
+    Now we use another lemma:
+    \begin{lemma}[]
+        If $Y$ is a compact space, then
+        the projection $X \times Y \to X$ is a closed map.
+    \end{lemma}
+    \begin{proof}
+        Let $W \subset X \times Y$ be closed and
+        set $W' = X \times Y -W$.
+        Note that $x_0 \in \pi_X (W)$ if and only
+        if $\exists y_0 \in Y$ such that
+        $(x_0,y_0) \in W$. Thus
+        $x_0 \not\in \pi_X(W)$ if and only if
+        $\left\{ x_0 \right\} \times Y \subset 
+        W'$.
+
+        By the tube lemma,
+        $x_0 \not\in \pi_X (W)$ if and only if
+        $W'$ contains some tube
+        $N \times Y$ about $\left\{ x_0 \right\} \times Y$ 
+        where $N$ is an open neighborhood of $x_0$ in $X$. 
+        But then
+        $N = \pi(N \times Y) \subset 
+        X - \pi(W)$ is an open neighborhood of $x_0$ in
+        $X - \pi(W)$. Hence
+        $X - \pi(W)$ is open, so $\pi(W)$ is
+        closed.
+    \end{proof}
+    Noting that
+    $\left\{ 1 \right\} \subset I$ is compact,
+    we can apply this Lemma to
+    $f(A) \times \left\{ 1 \right\} $ to obtain that
+    $f(A)$ is closed in $X$.
+    This completes the proof.
+
 \end{proof}
 
+\newpage
+\begin{problem}[]
+    Let $\iota \colon A \hookrightarrow X$,
+    the inclusion of $A$ in $X$, be a cofibration and
+    $A$ be a contractible space. Show that the
+    quotient map $X \to X / A$ is a homotopy equivalence.
+\end{problem}
 
+\begin{proof}
+    Let
+    $H \colon A \times I \to A$ be the contraction of
+    $A$ where
+    $H(a,0) = a$ and $H(a,1) = a_0 \in A$.
+    Consider the diagram
+    \begin{equation*}
+    \begin{tikzcd}
+        A \times \left\{ 0 \right\} \ar[dd, "\iota \times \id"]
+        \ar[rr] 
+        & &
+        A \times I \ar[dd, "\iota \times \id"] \ar[dl, "H"] \\
+                                                    & X&\\
+        X \times \left\{ 0 \right\} \ar[rr] \ar[ru,"\id"]
+                                                    & & X \times I
+        \ar[ul, "\tilde{H}"] 
+    \end{tikzcd}
+    \end{equation*}
+    Then since 
+    $\tilde{H}(a,t) \in A$ for all $t$,
+    the composition $q \tilde{H} \colon X \times I \to X / A$ sends
+    $A$ to a point at all times, hence factors as
+    $X \times I \stackrel{q \times \id}{\to} X / A \times I
+    \to X / A$. Denote the
+    latter map by $\overline{H} \colon 
+    X / A \times I \to X / A$. Then
+    $q \tilde{H} = \overline{H} \left( q \times \id \right) $.
+    When $t = 1$, we have
+    $\tilde{H}\left( A,1 \right) $ equal to a point, so
+    $\tilde{H}\left( -,1 \right) $ induces a map
+    $g \colon X / A \to X$ with $g q = \tilde{H}
+    \left( -,1 \right) $.
+    It follows that
+    $qg = \overline{H}(-,1)$ since
+    $qg\left( \overline{x} \right) 
+    =qg q(x) = q \tilde{H}(x,1) 
+    = \overline{H} \left( q(x),1 \right) =
+    \overline{H}\left( \overline{x},1 \right) $.
+    Now the maps $g$ and $q$ are inverse homotopy
+    equivalences since
+    $gq = \tilde{H}(-,1) \simeq
+    \tilde{H}(-,0) = \id_X$ and
+    $qg = \overline{H}(-,1) \simeq
+    \overline{H}(-,0) = \id_{X / A}$.
+\end{proof}
 
+\subsubsection{Some Applications of the HEP}
 
+\begin{proposition}[]\label{Prop:HEP-Homotopy-Equivalence}
+    Suppose $\left( X,A \right) $ and
+    $\left( Y,A \right) $ satisfy the HEP, and 
+    $f \colon X \to Y$ is a homotopy equivalence
+    with $f |_{A} = \id$. Then $f$ is a homotopy equivalence
+    $\rel A$.
+\end{proposition}
 
+\begin{corollary}
+    If $\left( X,A \right) $ satisfy the HEP and the
+    inclusion $A \hookrightarrow X$ is a homotopy equivalence,
+    then $A$ is a deformation retract of $X$.
+\end{corollary}
 
-
-
-
-
+\begin{corollary}
+    A map $f \colon X \to Y$ is a homotopy equivalence
+    if and only if $X$ is a deformation retract of the
+    mapping cylinder $M_f$. Hence, two space $X$ and 
+    $Y$ are homotopy equivalence if and only if
+    there is a third space containing both $X$ and
+    $Y$ as deformation retracts.
+\end{corollary}
 
 \newpage
+
+
+
+\section{The Compact-Open Topology}
+
+Recall that $Y^{X}$ denotes the \textit{set} of 
+\textit{continuous} functions $X \to Y$.
+
+\begin{definition}[]
+    The \textit{compact-open topology} on $Y^{X}$ is the
+    topology generated by the sets
+    $M \left( K, U \right) 
+    = \left\{ f \in Y^{X} \mid 
+    f(K) \subset U \right\} $ where
+    $K \subset X$ is compact and
+    $U \subset Y$ is open.
+\end{definition}
+Generated here means that these sets form
+a \textit{subbasis} for the open sets.\\
+
+
+\begin{lemma}[]\label{Lemma:Compact-Open-Subbasis}
+    Let $\mathcal{K}$ be a collection of compact subsets
+    of $X$ containing a neighborhood base
+    at each point of $X$. Let
+    $\mathcal{B}$ be a subbasis for the open sets
+    of $Y$. Then
+    the collection
+     \[
+    \left\{ M\left( K,U \right)  \mid 
+    K \in \mathcal{K}, B \in \mathcal{B} \right\} 
+    \] 
+    forms a subbasis for the compact-open topology
+    on $Y^{X}$.
+\end{lemma}
+
+\begin{proof}
+    Recall first that a subbasis is a collection whose
+    union is the whole space and such that the
+    collection of finite intersections of elements of the
+    subbasis form a basis.\\
+    In particular, noting that
+    $M \left( K, U \right) \cap M\left( K,V \right) =
+    M\left( K, U \cap V \right) $, this implies that it
+    suffices to consider the case when $\mathcal{B}$ is
+    a basis.\\
+    So to show that the collection in question
+    is a subbasis, it suffices to show that
+    given $f \in M(K,U)$, there exist
+    $K_1, \ldots,K_n \in \mathcal{K}$ and
+    $U_1, \ldots, U_n \in \mathcal{B}$ such that
+    $f \in \bigcap_{i=1}^{n} M\left( K_i,U_i \right) 
+    \subset M\left( K,U \right) $.
+
+    For each $x \in K$, there is an open
+    set $U_x \in \mathcal{B}$ with
+    $f(x) \in U_x \subset U$ (since $\mathcal{B}$ was
+    assumed to be a basis), and there
+    exists a neighborhood $K_x \in \mathcal{K}$  of
+    $x$ such that $f(K_x) \subset U_x$ (since
+    $f$ is continuous and $\mathcal{K}$ was assumed
+    to contain a neighborhood base at each point of $X$ ).
+    Thus $f \in M\left( K_x, U_x \right) $.
+    Now, covering $K$ with these sets
+    $K \subset \bigcup_{x \in K} K_{x}$. By 
+    compactness of $K$, there exists a finite subcover
+    $K \subset K_{x_1} \cup \ldots \cup K_{x_n}$. Then
+    $f \in \bigcap_{i=1}^{n} M\left( K_{x_i}, U_{x_i} \right) 
+    \subset M\left( K,U \right) $.
+\end{proof}
+
+\begin{proposition}[]\label{Prop:SJUSIO12}
+    For $X$ locally compact Hausdorff, the
+    "evaluation map" $e\colon Y^{X} \times X
+    \to Y$, defined by $e\left( f,x \right) =
+    f(x)$, is continuous.
+\end{proposition}
+
+\begin{proof}
+    Let $\left( f,x \right) \in 
+    Y^{X} \times X$ and
+    $U$ a neighborhood of $f(x) \in  Y$.
+    Now we make use of the following lemma:
+    \begin{lemma}[]\label{Lemma:SIJDLII}
+        If $X$ is a locally compact Hausdorff space, then
+        each neighborhood of a point $x \in X$ contains
+        a compact neighborhood of $X$.
+        In particular, $X$ is completely regular.
+    \end{lemma}
+
+    \begin{proof}
+        Let $C$ be a compact neighborhood of $x$ and
+        $U$ an arbitrary neighborhood of $x$.
+        Since $X$ is Hausdorff, $C$ is closed, so
+        $\left( X - U \right) \cap C$ is a closed
+        subspace of $C$, hence compact. Now,
+        for each point $z \in (X-U) \cap C$, choose, by Hausdorffness,
+        open neighborhoods $U_z',V_z'$ of $z$ and $x$, respectively,
+        and consider $W' := \bigcup_{z \in (X-U)\cap C} 
+        U_z'$. Since this is open,
+        $C - W'$ is closed hence compact. Furthermore,
+        it is contained in $U$ and contains $x$.\\
+        \linebreak
+        \textit{Alternative proof due to Bredon:}
+        Let $C$ be a compact neighborhood of $x$ and
+        $U$ an arbitrary neighborhood
+        of $x$. Let $V \subset C \cap U$ be open with
+        $x \in V$. Then $\overline{V} \subset C$ is compact
+        Hausdorff, hence regular, so there exists
+        a neighborhood $N \subset V$ of $x$ in
+        $C$ which is closed in $\overline{V}$ 
+        and hence closed in $X$. Since
+        $N$ is closed in the compact space $C$, it
+        is compact. Since $N$ is a neighborhood of
+        $x$ in $\overline{V}$ and since
+        $N = N \cap V$, $N$ is a neighborhood of $x$ in
+        the open set $V$ and hence in $X$.
+    \end{proof}
+
+    By Lemma \ref{Lemma:SIJDLII}, 
+    there exists a compact neighborhood $K$ of
+    $x$ such that
+    $f(K) \subset U$. Hence
+    $f \in M\left( K,U \right) $, and
+    $e \left( M \left( K, U \right) \times 
+    K \right) \subset U$.
+    This finishes the proof.
+\end{proof}
+
+\begin{theorem}[]\label{Thm:Compact-Open-Top}
+    Let $X$ be locally compact Hausdorff and $Y$ and
+    $T$ arbitrary Hausdorff spaces. Given a function
+    $f \colon X \times T \to Y$, define, for each
+    $t \in T$, the function
+    $f_t \colon X \to Y$ by
+    $f_t (x) = f(x,t)$. Then $f$ is continuous
+    if and only if both of the following conditions
+    hold:
+    \begin{enumerate}
+        \item Each $f_t$ is continuous
+        \item The function $T \to Y^{X}$ taking
+            $t \mapsto f_t$ is continuous.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    The "if" implication follows from the fact
+    that $f$ is the composition
+    \[
+    X \times T \stackrel{\left( x,t \right) \mapsto 
+    \left( f_t, x \right) }{\longrightarrow} Y^{X} \times X
+    \stackrel{e}{\to} Y.
+    \] 
+    Now the evaluation map is continuous
+    by Proposition \ref{Prop:SJUSIO12} since
+    $X$ is assumed to be locally compact Hausdorff and
+    since $f_t$ is assumed to
+    be continuous for all $t$ by condition (1); and
+    $\left( x,t \right) \mapsto \left( f_t, x \right) $ 
+    is continuous since 
+    $t \mapsto f_t$ is assumed to be continuous
+    by condition (2).\\
+    Conversely, for the "only if" implication,
+    (1) follows from the fact that $f_t$ is the
+    composition
+    \[
+    X \stackrel{x \mapsto (x,t)}{\to} X \times T
+    \stackrel{f}{\to} Y.
+    \] 
+    To prove (2), let
+    $t \in T$ be given and
+    $f_t \in M\left( K, U \right) $. It suffices
+    to find a neighborhood $W$ of $t$ in $T$ such that
+    $t' \in W$ implies that
+    $f_{t'} \in M\left( K,U \right) $ (i.e., it suffices to
+    prove conditions for continuity for a subbasis only).
+    For $x \in K$, there are open neighborhoods $V_x \subset 
+    X$ of $x$ and $W_x \subset T$ of $t$ such that
+    $f\left( V_x \times W_x \right) \subset U$.
+    By compactness, $K \subset 
+    V_{x_1} \cup  \ldots \cup  V_{x_n} =: V$ for
+    some $V_{x_i}$. Let
+    $W = \bigcap_{i=1}^{n} W_{x_i}$. Then
+    $f\left( K \times W \right) \subset 
+    f\left( V \times W \right)  \subset U$.
+    So $t' \in W$ implies that
+    $f_{t'} \in M\left( K,U \right) $ as claimed.
+\end{proof}
+
+\begin{note}
+    This theorem implies that
+    a homotopy $X \times I \to Y$ with $X$ locally
+    compact is the same thing as a path
+    $I \to Y^{X}$ when we give
+    $Y^{X}$ the compact-open topology.
+\end{note}
+
+\begin{note}
+    This is precisely the reason why, when we define
+    $\MCG (X)$, we define it as
+    $\pi_0 \Homeo^{+}(X, \partial X)$ where we equip
+    $\Homeo^{+}\left( X, \partial X \right) $ with the
+    subspace topology inherited from
+    $X^{X}$ in the compact-open topology.
+    By the above theorem, a path 
+    $I \to \Homeo^{+} \left( X, \partial X \right) $ 
+    given as $t \mapsto \gamma_t$
+    is continuous if and only if
+    the associated function
+    $\gamma \colon X \times I \to X$ given
+    by $\gamma(x,t) = \gamma_t(x)$ is
+    continuous. But since each
+    $\gamma_t$ is a self-homeomorphism of $X$, this
+    just tells us that $\gamma$ is an isotopy of
+    $X$. So path components
+    of $\Homeo^{+} \left( X , \partial X \right) $ 
+    correspond to isotopy classes of orientation-preserving
+    self-homeomorphisms of $X$ fixing the boundary point-wise.
+\end{note}
+
+\begin{theorem}[The Exponential Law]
+    Let $X$ and $T$ be locally compact Hausdorff spaces
+    and let $Y$ be an arbitrary Hausdorff space. Then
+    there is the homeomorphism
+    \[
+    Y^{X \times T} \stackrel{\cong}{\to} \left( Y^{X} \right)^{T}
+    \] 
+    taking $f \mapsto f^{*}$ where
+    $f^{*}(t) (x) = f(x,t) = f_t(x)$.
+\end{theorem}
+
+\begin{proof}
+    By Theorem \ref{Thm:Compact-Open-Top}, the assignment
+    $f \mapsto f^{*}$ is a bijection.\\
+    We must show it and its inverse to be continuous.
+    Let $U \subset Y$ be open and
+    $K \subset X, K'\subset T$ be compact. Then
+    \begin{align*}
+        f \in M \left( K \times K', U \right) 
+        &\iff \left( t \in K', x \in K
+        \implies f_t(x) = f(x,t) \in U \right) \\
+        &\iff \left( t \in K' \implies 
+        f_t \in M \left( K, U \right) \right) \\
+        &\iff f^{*} \in M \left( K', M\left( K ,U \right)  \right).
+    \end{align*}
+    Now, the $K \times K'$ are compact
+    subsets of $X \times T$, and the collection
+    of all these over $X \times T$ contain
+    a neighborhood basis at each point since
+    $X$ and $T$ are both assumed to be locally compact.
+    By Lemma \ref{Lemma:Compact-Open-Subbasis},
+    the collection
+    \[
+        \left\{ M\left( K \times K', U \right) 
+     \mid U \subset Y \text{ open}, 
+ K \subset X, K' \subset T \text{ both compact}\right\} 
+\]
+forms a subbasis for the compact-open topology on
+$Y^{X \times T}$. Also, the
+$M\left( K, U \right)  $ give a subbasis for
+$Y^{X}$ and therefore the
+$M \left( K', M\left( K,U \right)  \right) $ form
+a subbasis for the topology on
+$\left( Y^{X} \right)^{T}$.
+Since we showed that these subbases correspond to one
+another under the exponential correspondence, the
+theorem is proved.
+\end{proof}
+
+\begin{proposition}[]
+    If $X$ is locally compact Hausdorff and $Y$ and $W$ are
+    Hausdorff, then there is the homeomorphism
+    \[
+    Y^{X} \times W^{X}
+    \stackrel{\cong}{\to} \left( Y \times W \right)^{X}
+    \] 
+    given by $\left( f,g \right) \mapsto 
+    f \times g$.
+\end{proposition}
+
+\begin{proof}
+    It is clearly a bijection.
+    If $K, K' \subset X$ are compact
+    and $U \subset Y$ and
+    $V \subset W$ are open, then
+    \begin{align*}
+        \left( f,g \right) 
+        \in M \left( K,U \right) \times 
+        M\left( K',V \right) 
+        &\iff \left( x \in K \implies f(x) \in U \right) 
+        \text{ and } \left( x \in K' \implies
+        g(x) \in V \right) \\
+        &\iff \left( (x,y) \in K \times K' \implies
+        f \times g(x,y) \in U \times V \right) \\
+        &\iff f\times g \in 
+        M\left( K , U \times W \right) \cap
+        M\left( K', U \times W \right) .
+    \end{align*}
+    so $\left( f, g \right) \mapsto f \times g$ is an
+    open map.\\
+    Also $\left( f,g \right) \in 
+    M(K, U) \times M(K,V) \iff
+    f \times g \in M \left( K, U \times V \right) $ which
+    implies that the function is continuous.
+\end{proof}
+
+\begin{proposition}[]
+    If $X$ and $T$ are locally compact Hausdorff spaces
+    and $Y$ is an arbitrary Hausdorff space, then there
+    is the homeomorphism
+    \[
+    Y^{X \sqcup T} \stackrel{\cong}{\to} 
+    Y^{X} \times Y^{T}
+    \] 
+    taking $f \mapsto \left( f \circ \iota_X,
+    f \circ \iota_T \right) $.
+\end{proposition}
+
+\begin{proof}
+    The map is clearly well-defined and
+    injective. Also, given $\left( f,g \right) 
+    \in Y^{X} \times Y^{T}$, we can
+    define a function $f \cup  g\colon
+    X \sqcup T \to Y$ by
+    $f$ on $X$ and $g$ on $T$, and
+    clearly,
+    $f \cup g \mapsto (f,g)$ under the correspondence, giving
+    surjectivity. We must show that
+    it is continuous and has continuous inverse.\\
+    Let $f \colon X \sqcup T \to Y$ and
+    suppose $\left( 
+    f \circ \iota_X , f \circ \iota_T \right) 
+    \in M\left( K, U \right) \times 
+    M\left( K', V \right)$.
+    Then
+    $f \in 
+    M \left( K, U \right) \cap
+    M\left( K', V \right)$ which is an open set
+    that is mapped precisely to
+    $M \left( K , U \right) \times 
+    M \left( K', V \right) $. Hence
+    $f\mapsto \left( f \circ \iota_X, f \circ \iota_T \right) $ 
+    is continuous.\\
+
+    Conversely, note that
+     under the correspondence,
+     $M\left( C \sqcup C',U \right) $ is mapped
+     to
+     $M(C, U) \times M(C',U)$, so
+     the map is also open.
+\end{proof}
+
+\begin{theorem}[]
+    For $X$ locally compact and both $X$ and $Y$ Hausdorff,
+    $Y^{X}$ is a covariant functor of $Y$ and
+    a contravariant functor of $X$
+    from $\Top$ to $\Top$.
+\end{theorem}
+
+
 
 \section{Homotopy Groups}
 
@@ -2220,7 +2841,7 @@ The proof will require the following lemma:
     retracts to the $0$-cell.
 \end{proof}
 
-\begin{lemma}[Extension Lemma]
+\begin{lemma}[Extension Lemma]\label{Extension-Lemma}
     Given a CW pair $\left( X,A \right) $ and a map
     $f \colon A \to Y$ with $Y$-path connected,
     then $f$ can be extended to a map
@@ -2319,18 +2940,707 @@ But first, a nice corollary:
 \end{proof}
 
 \begin{proof}[Proof of Cellular Approximation Theorem]
-    To do
+    Long. To do
 \end{proof}
+
+\begin{example}[Cellular Approximation for Pairs]
+    Every map $f \colon \left( X,A \right) 
+    \to \left( Y,B \right) $ of $CW$ pairs can be deformed
+    through maps $\left( X,A \right) \to 
+    \left( Y,B \right) $ to a cellular map.
+    This follows from the theorem by first deforming the
+    restriction $f \colon A\to B$ to be cellular,
+    then extending this to a homotopy of $f$ on all
+    of $X$, then deforming the resulting map
+    to be cellular staying fixed on $A$. As a further
+    refinement, the homotopy of $f$ can be
+    taken to be stationary on any subcomplex of
+    $X$ where $f$ is already cellular.
+\end{example}
+
+\begin{corollary}[Geometric Version of
+    $n$-connectedness]\label{n-connectedness-geometrically}
+    A CW pair $\left( X,A \right) $ is $n$-connected
+    if all the cells in $X - A$ have dimension
+    greater than $n$. In particular, the
+    pair  $\left( X, X^{n} \right) $ is
+    $n$-connected, hence the
+    inclusion $X^{n} \hookrightarrow X$ induces
+    isomorphisms on $\pi_i$ for $i < n$ and
+    a surjection on $\pi_n$.
+\end{corollary}
+
+\begin{proof}
+    Recall that $\left( X,A \right) $ is $n$-connected
+    if every map
+    $\left( D^{i}, \partial D^{i} \right) 
+    \to \left( X,A \right) $ is homotopic through
+    such maps to a map $D^{i} \to A$.
+    Now let
+    $f \left( D^{i}, \partial D^{i} \right) 
+    \to \left( X,A \right) $ be any map.
+    Then by the Cellular Approximation theorem for
+    Pairs, $f$ is homotopic through maps
+    $\left( D^{i} ,\partial D^{i} \right) \to 
+    \left( X,A \right) $ to a cellular map, 
+    $\tilde{f} \colon \left( D^{i} , \partial D^{i} \right) 
+    \to \left( X,A \right) $. But by assumption, all
+    cells in $X-A$ have dimension greater than
+    $n \ge i$. Hence $\tilde{f}$ maps
+    $D^{i}$ into $A$.
+    The last part of the statement now follows from the LES
+    \[
+    \ldots \to \pi_n (X^{n}) \stackrel{\iota_*}{\to} \pi_n(X) \to 
+    \underbrace{\pi_n\left( X,X^{n} \right)}_{0} \to 
+    \pi_{n-1}(X^{n}) \stackrel{\iota_*}{\to}  \pi_{n-1}(X) \to 
+    \underbrace{\pi_{n-1}\left( X, X^{n} \right)}_{0} \to \ldots
+    \] 
+\end{proof}
+
+\subsection{CW Approximation}
+
+\begin{definition}[Weak Homotopy Equivalence]
+    A map $f \colon X \to Y$ is called a
+    \textit{weak homotopy equivalence} if it induces
+    isomorphisms $\pi_n \left( X, x_0 \right) 
+    \to \pi_n \left( Y, f(x_0) \right) $ for all
+    $n \ge 0$ and all choices
+    of basepoint $x_0$.
+\end{definition}
+
+\begin{remark}[Reformulation of Whitehead's Theorem]
+    Whitehead's Theorem thus says that
+    a weak homotopy equivalence between
+     CW complexes is, in fact, a homotopy equivalence.
+\end{remark}
+
+\begin{definition}[CW Approximation]
+    For a space $X$, a weak homotopy equivalence
+    $f \colon Z \to X$, where $Z$ is a CW complex, is
+    called a \textit{CW approximation} to $X$.
+\end{definition}
+
+\begin{remark}[]
+    CW approximations to a given space $X$ are
+    unique up to homotopy equivalence since
+    if $f \colon Z \to X$ and 
+    $f' \colon Z' \to X$ are CW approximations, then
+    consider the composition
+    $Z \to X \hookrightarrow M_{f'}$.
+    Since $f' \colon Z' \to X$ is assumed to be a weak
+    homotopy equivalence, we find by the relative LES that
+    $\pi_n (M_f, Z') \cong \pi_n \left( X, Z' \right) = 0$ for all
+    $n\ge 0$, so by 
+    the Compression Lemma (with $A$ chosen to
+    be the basepoint of $Z$), we
+    find that the map $Z \to X \hookrightarrow M_{f'}$
+    is homotopic to a map
+    $Z \to Z' \subset M_{f'}$ relative
+    to the basepoint.
+    But taking $\pi_n$ of
+    $Z \to X \to M_{f'} \to Z'$, we get
+    $\pi_n(Z) \stackrel{\cong}{\to} 
+    \pi_n(X) \stackrel{\cong}{\to} 
+    \pi_n (M_{f'}) \stackrel{\cong}{\to}
+    \pi_n \left( Z' \right)$
+    where $\pi_n (X) \stackrel{\cong}{\to} \pi_n (M_{f'})$ 
+    follows from $\iota \colon X \simeq M_{f'}$ being
+    a homotopy equivalence;
+    $\pi_n\left( M_{f'} \right) 
+    \stackrel{\cong}{\to} \pi_n (Z')$ follows
+    from the homotopy that we got from the compression lemma,
+    and the first isomorphism
+    $f_* \colon \pi_n (Z) \stackrel{\cong}{\to}  \pi_n (X)$ 
+    follows from $f$ being a weak homotopy equivalence.
+    Applying Whitehead's theorem, we find that this
+    composition is a homotopy equivalence
+    $Z \simeq Z'$.
+\end{remark}
+
+\begin{proposition}[]\label{Prop:CW-Approximation}
+    Every space $X$ has a CW approximation
+    $f \colon Z \to X$. If $X$ is path-connected,
+    $Z$ can be chosen to have a single $0$-cell, with
+    all other cells attached by basepoint-preserving maps.
+    Thus every connected CW complex is homotopy equivalent to
+    a CW complex with these additional properties.
+\end{proposition}
+
+\begin{proof}
+    The construction of a CW approximation
+    $f \colon Z \to X$ is inductive, so we first
+    describe the induction step. 
+    Suppose we are given a CW complex $A$ with a map
+    $f \colon A \to X$ and suppose
+    we have chosen a basepoint $0$-cell $a_{\gamma}$ in
+    each component of $A$.
+    Then for an integer $k\ge 0$, we will attach
+    $k$-cells to $A$ to form a CW complex
+    $B$ with a map $f \colon B \to X$ extending $f$ such that
+    \begin{itemize}
+        \item For each basepoint $a_{\gamma}$, the
+            induced map $f_* \colon
+            \pi_i \left( B, a_{\gamma} \right) 
+            \to \pi_i \left( X, f\left( a_{\gamma} \right) 
+            \right) $ is injective for
+            $i = k-1$ (when $k>0$ ) and surjective
+            for $i = k$.
+    \end{itemize}
+
+    We do this in two steps (the first step is omitted
+    when $k= 0$ ):
+
+    \begin{enumerate}
+        \item We have been given
+            a CW complex $A$ and a map
+            $f \colon A \to X$ alongside basepoints
+            $a_{\gamma}$. Now for each
+            nontrivial element $\alpha$ of the kernel
+            $\ker f_*$ ranging over
+            all basepoints, choose
+            a map $\varphi_{\alpha}\colon
+            \left( S^{k-1}, s_0 \right) \to 
+            \left( A, a_{\gamma} \right) $ representing
+            $\alpha$. We may assume that the
+            $\varphi_{\alpha}$ are all cellular (by
+            the Cellular Approximation Theorem) where
+            $S^{k-1}$ is given its standard CW structure
+            with $s_0$ as a 0-cell. 
+            Attaching cells $e_{\alpha}^{k}$ to $A$ via
+            the maps $\varphi_{\alpha}$ then produces
+            a CW complex. Now, $f \circ \varphi_{\alpha}$ 
+            is nullhomotopic, so
+            $f$ extends over the cell
+            $e_{\alpha}^{k}$.
+        \item Choose maps
+            $f_{\beta}\colon S^{k}\to X$ representing
+            all nontrivial elements of
+            $\pi_k \left( X, f(a_{\gamma}) \right) $ for
+            all the $a_{\gamma}$ 's Then attach
+            cells $e_{\beta}^{k}$ to $A$ via the
+            constant maps at the appropriate basepoints
+            $a_{\gamma}$ and extend $f$ over the resulting spheres
+            $S_{\beta}^{k}$ via $f_{\beta}$.
+    \end{enumerate}
+    By the construction, then
+    surjectivity of
+    $f_* \colon \pi_i \left( B, a_{\gamma} \right) 
+    \to \pi_i \left( X, f(a_{\gamma}) \right) $ for
+    $i = k$ follows. Now
+    let $\alpha$ be in the kernel of
+    $f_* \colon \pi_{k-1} (B, a_{\gamma}) \to 
+    \pi_{k-1}\left( X, f(a_{\gamma}) \right) $, and
+    let $h \colon S^{k-1} \to B$ be a cellular
+    map that represent $\alpha$. Since
+    $h$ is cellular, its image is contained in the
+     $\left( n-1 \right) $-skeleton
+     of $B$ which is a subskeleton (could be all) of $A$.
+     Since $h$ has image in $A$, it is in the kernel
+     of $f_* \colon \pi_{k-1}(A, a_{\gamma}) \to 
+     \pi_{k-1} \left( X, f(a_{\gamma}) \right) $ and thus
+     it is homotopic to some $\varphi_{\alpha}$ and therefore
+     nullhomotopic in $B$.\\
+     \begin{note}
+         In step (1), it suffices to attach cells for
+         just the generators of the kernels
+         when $k>1$, and just for the generators
+         of $\pi_k \left( X, f(a_{\gamma}) \right) $ in
+         step (2) when $k>0$.
+     \end{note}
+
+     \begin{note}
+         If the given map $f \colon A \to X$ happened
+         to already be injective or surjective
+         on $\pi_i$ for some $i < k-1$ or
+         $i < k$, respectively, then this remains
+         true after attaching the $k$-cells.
+         This is because attaching $k$-cells does
+         not affect $\pi_i$ if $i < k-1$, by
+         cellular approximation, not does
+         it affect surjectivity on
+         any $\pi_i$, simply because the same maps
+         still hold and work.
+     \end{note}
+
+     Now to construct a CW approximation $f \colon Z \to 
+     X$, one can start with $A$ consisting of one point for
+     each path-component of $X$, with
+     $f \colon A \to X$ mapping each of these points
+     to the corresponding path-component.
+     This gives a bijection on $\pi_0$ by construction, hence
+     it provides us with the inductive base case.
+     Now we can attach $1$-cells to $A$ to create
+     a surjection on $\pi_1$ for each path-component, then
+     $2$-cells to improve this to an isomorphism on
+     $\pi_1$ and a surjection on $\pi_2$ and so forth
+     for each successive $\pi_i$ in turn. After all cells
+     have been attached, on has a CW complex $Z$ with
+     a weak homotopy equivalence $f \colon Z \to X$.
+\end{proof}
+
+
+\begin{example}[]
+    One can apply this technique to produce a CW approximation
+    to a pair $(X,X_0)$ also. First one constructs
+    a CW approximation $f_0 \colon Z_0 \to X_0$, then
+    one starts with the composition
+    $Z_0 \to X_0 \hookrightarrow X$ and attaches
+    cells to $Z_0$ to create a weak homotopy equivalence
+    $f \colon Z \to X$ extending $f_0$.
+    Then we get
+
+    \begin{equation*}
+    \begin{tikzcd}
+        \pi_n(Z_0) \ar[r] \ar[d, "\cong"] & \pi_n (Z) \ar[r] \ar[d,
+        "\cong"] & 
+        \pi_n (Z, Z_0) \ar[r] \ar[d] &
+        \pi_{n-1} (Z_0) \ar[r] 
+        \ar[d, "\cong"]&
+        \pi_{n-1} (Z) \ar[d, "\cong"] \\
+        \pi_n (X_0) \ar[r] & \pi_n(X) \ar[r] & \pi_n (X,X_0) \ar[r] &
+        \pi_{n-1} (X_0) \ar[r] & \pi_{n-1}(X)
+    \end{tikzcd}
+    \end{equation*}
+    By the five-lemma, it follows that
+    $\pi_n \left( Z,Z_0 \right) \to 
+    \pi_n \left( X,X_0 \right) $ is an isomorphism
+    for each $n$.
+\end{example}
+
+\begin{proposition}[]
+    If $\left( X,A \right) $ is an $n$-connected
+    CW pair, then there exists a CW pair
+    $\left( Z,A \right) \simeq \left( X,A \right) \rel A$ 
+    such that all cells of $Z - A$ have dimension greater
+    than $n$.
+\end{proposition}
+
+\begin{proof}
+    Starting with the inclusion
+    $A \hookrightarrow X$, attach cells of
+    dimension $n+1$ and higher to
+    $A$ to produce a CW complex $Z$ and
+    a map $f \colon Z \to X$ using the
+    procedure of Proposition \ref{Prop:CW-Approximation}.
+    In particular then
+    by the Proposition proof,
+    $f_*$ induces an injection of
+    $\pi_n$ and isomorphisms on all higher homotopy groups.
+    Now, the induced map on $\pi_n$ is also
+    surjective since it is true for
+    $A \hookrightarrow Z \stackrel{f}{\to} X$ 
+    as $\left( X,A \right) $ is $n$-connected and hence
+    $\pi_n (A) \stackrel{\cong}{\to}  \pi_n(X)$ is an isomorphism.
+    Since $f$ is equal to this inclusion on the
+    $n$-skeleton, this gives that $f_*$ is also surjective.
+    By cellular approximation
+    $A \hookrightarrow Z$ induces an isomorphism
+    on homotopy groups in dimensions below $n$, and
+    likewise $n$-connectedness does the same for
+    $A \hookrightarrow X$. But then since
+    \begin{equation*}
+    \begin{tikzcd}
+        \pi_n (A) \ar[rr, bend right, "\iota_*",
+        "\cong"'] 
+        \ar[r, "\iota_*", "\cong"'] & 
+        \pi_n (Z) \ar[r,"f_*"] & 
+        \pi_n (X)
+    \end{tikzcd}
+    \end{equation*}
+    commutes, we find that $f_*$ is also an
+    isomorphism on all $n\ge 0$.
+    Thus $f$ is a weak homotopy equivalence, and hence
+    a homotopy equivalence by Whitehead's theorem.\\
+
+    To see that $f$ is a homotopy equivalence
+    $\rel A$, we could apply Proposition 
+    \ref{Prop:HEP-Homotopy-Equivalence}, but
+    here is an alternative argument. Let
+    $W$ be the quotient space of the mapping cylinder
+    $M_f$ obtained by collapsing each segment
+    $\left\{ a \right\} \times I$ to a point, for
+    $a \in A$. Assuming $f$ has been made cellular,
+    $W$ is a CW complex (why?) containing $X$ and $Z$ as
+    subcomplexes, and $W$ deformation retracts
+    to $X$ just as $M_f$ does. Also,
+    $\pi_i \left( W,Z \right) = 0$ for all
+    $i$ since $f$ induces isomorphisms on all
+    homotopy groups (by the LES), so $W$ deformation retracts
+    onto $Z$ by Whitehead's Theorem (Theorem \ref{Thm:Whitehead}).
+    The deformation retract of $W$ onto $X$ and the
+    deformation retract of $W$ onto $Z$ are stationary
+    on $A$, hence give a homotopy equivalence
+    $X \simeq Z \rel A$.
+\end{proof}
+
+\begin{example}[Postnikov Towers]\label{Postnikov-Towers}
+    For each connected CW complex $X$ and each
+    integer $n\ge 1$, we can construct a 
+    CW complex $X_n$ containing $X$ as a subcomplex such that
+    \begin{enumerate}
+        \item $\pi_i \left( X_n \right) = 0$ for $i>n$.
+        \item The inclusion $X \hookrightarrow X_n$ induces
+            an isomorphism on $\pi_i$ for $i\le n$.
+    \end{enumerate}
+    
+    \begin{idea}
+        Take $X$ and fill out any spheres of dimension
+        $>n$ by filling them in.
+    \end{idea}
+    Indeed, we attach $(n+2)$-cells to
+    $X$ using cellular maps $S^{n+1} \to X$ that
+    generate $\pi_{n+1}(X)$ to form a 
+    space with $\pi_{n+1}$ trivial. Then
+    for this space, we attach $(n+3)$-cells to
+    make $\pi_{n+2}$ trivial, and so on. The result
+    is a CW complex $X_n$ with the desired properties.
+    The inclusion $X \hookrightarrow X_n$ extends
+    to a map $X_{n+1} \to X$ since
+    $X_{n+1}$ is obtained from $X$ by attaching cells
+    of dimension $n+3$ and greater, and
+    $\pi_i (X_n) = 0$ for $i>n$, so we
+    can apply the Extension Lemma (Lemma \ref{Extension-Lemma}).
+    Thus we get a commutative diagram as follows:
+    \begin{equation*}
+    \begin{tikzcd}
+        & \vdots \ar[d] \\
+        & X_3 \ar[d] \\
+        & X_2 \ar[d] \\
+        X \ar[r] \ar[ru] \ar[ruu] & X_1
+    \end{tikzcd}
+    \end{equation*}
+    This is called a \textit{Postnikov tower} for $X$.
+    One can regard the spaces $X_n$ as truncations of
+    $X$ which provides successively better approximations
+    to $X$ as $n$ increases.
+    
+
+
+\end{example}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \section{Methods of Calculation}
 
+
+\subsection{Excision for Homotopy Groups}
+
+\begin{theorem}[]\label{Thm:Homotopy-Excision}
+    Let $X$ be a CW complex decomposed as the union of
+    subcomplexes $A$ and $B$ with nonempty connected
+    intersection $C = A \cap B$. If
+    $(A,C)$ is $m$-connected and
+    $\left( B,C \right) $ is $n$-connected,
+    $m,n \ge 0$, then the map
+    $\pi_i (A,C) \to \pi_i (X,B)$ induced
+    by inclusion is an isomorphism for
+    $i < m+n$ and a surjection for
+    $i = m+n$.
+\end{theorem}
+
+\begin{corollary}[Freudenthal Suspension Theorem]
+    The unreduced suspension map
+    $\pi_i (S^{n}) \to 
+    \pi_{i+1} \left( S^{n+1} \right) $, induced
+    by the suspension map $S^{n} \to 
+    \Sigma S^{n} \cong S^{n+1}$, is an
+    isomorphism for
+    $i < 2n-1$ and a surjection for
+    $i = 2n-1$. More generally, this holds for
+    the suspension
+    $\pi_i (X) \to \pi_{i+1}\left( \Sigma X \right) $ whenever
+    $X$ is an $(n-1)$-connected CW complex.
+\end{corollary}
+
+\begin{proof}[Proof of Corollary]
+    Decompose the unreduced suspension
+    $\Sigma X = 
+    (X \times I) / \left( 
+    X \times \left\{ 0 \right\} ,
+X \times \left\{ 1 \right\} \right) $ as the
+    union of two cones
+    $C_+ X$ and $C_{-}X$ intersecting in a 
+    copy of $X$.
+    Recall that a map
+    $f\colon X \to Y$ induces a suspended map
+    $\Sigma f \colon \Sigma X \to \Sigma Y$. Now,
+    if we consider 
+    $f$ to be any map
+    $f \colon \left( S^{n},s_0 \right) \to 
+    \left( X, x_0 \right) $, then
+    we have
+    a suspended map
+    \begin{equation*}
+    \begin{tikzcd}
+        S^{n} \times I \ar[r, "f \times \id"]
+        \ar[d] & X \times I \ar[d] \\
+        S^{n+1} \cong \Sigma S^{n} \ar[r, "\Sigma f"] & \Sigma X
+    \end{tikzcd}
+    \end{equation*}
+    So, in particular,
+    $\Sigma f$ is some class
+    in $\pi_{n+1} \left( \Sigma X \right) $.
+    Define the suspension homomorphism
+    $\pi_i (X) \to \pi_{i+1}\left( \Sigma X \right) $ 
+    to be the map that sends
+    $f$ to $\Sigma f$. This is a homomorphism (why?).
+
+    The unreduced suspension map is the same
+    as the map
+    \[
+    \pi_i (X) \cong
+    \pi_{i+1} \left( C_+ X, X \right) 
+    \to \pi_{i+1} (\Sigma X, C_{-}X) \cong
+    \pi_{i+1} \left( \Sigma X \right) .
+    \] 
+    (why?) where the two isomorphisms come
+    from the LES of pairs and the middle
+    map is induced by inclusion.
+    The first map
+    $\pi_i (X) \to \pi_{i+1}(C_+ X, X)$ 
+    takes a map
+    $\left( I^{i}, \partial I^{n} \right) 
+    \to \left( X, x_0 \right) $ 
+    to the map
+    $\left( I^{n+1}, \partial I^{n+1},
+    J^{n}\right) \to \left( C_+ X, X, x_0 \right) $
+    constructed by extending
+    the given map radially to correspond with the
+    height of $C_{+}X$. So one face of
+    $I^{n+1}$ will be mapped to the vertex of
+    $C_{+}X$.\\
+
+    Including this into
+    $\left( \Sigma X, C_{-}X \right) $ gives
+    the middle homomorphism, and
+    then the map
+    $\pi_{i+1} \left( \Sigma X, C_{-}X \right) \to 
+    \pi_{i+1}(\Sigma X)$ is simply the identity on
+    our map. \\
+    From the LES of $\left( C_{\pm }X, X \right) $, we
+    see that this pair is $n$-connected
+    if $X$ is $(n-1)$-connected. Then
+    Theorem \ref{Thm:Homotopy-Excision} gives
+    that the middle map is an isomorphism
+    for $i+1 < 2n$ and surjective for
+    $i+1 = 2n$.
+
+\end{proof}
+
+
+
+
+
+\begin{example}[$\pi_n \left( \bigvee_{\alpha}\label{Example:Wedge-of-Spheres}
+    S_{\alpha}^{n} \right) $]
+    We want to show that
+    $\pi_n \left( \bigvee_{\alpha}S_{\alpha}^{n} \right) $ 
+    for $n\ge 2$ is free abelian with basis
+    the homotopy classes of the inclusions
+    $S_{\alpha}^{n} \hookrightarrow 
+    \bigvee_{\alpha} S_{\alpha}^{n}$.\\
+    Suppose first that there are only \textit{finitely many}
+    summands $S_{\alpha}^{n}$. Then we can regard
+    $\bigvee_{\alpha} S_{\alpha}^{n}$ as
+    the $n$-skeleton of the product
+    $\prod_{\alpha} S_{\alpha}^{n}$, where
+    $S_{\alpha}^{n}$ is given the usual CW structure
+    and $\prod_{\alpha} S_{\alpha}^{n}$ has the product
+    CW structure. (See Hatcher appendix A).\\
+    By construction then $\prod_{\alpha} S_{\alpha}^{n}$ 
+    has cells only in dimensions a multiple of $n$, so
+    the pair $\left( \prod_{\alpha} S_{\alpha}^{n},
+    \bigvee_{\alpha} S_{\alpha}^{n} \right) $ is
+    $(2n-1)$-connected by Corollary 
+    \ref{n-connectedness-geometrically}.
+    So from the LES for the pair, we see that
+    the inclusion
+    $\bigvee_{\alpha} S_{\alpha}^{n}
+    \hookrightarrow \prod_{\alpha} S_{\alpha}^{n}$
+    induces an isomorphism on homotopy groups
+    in dimensions $\le 2n-1$. Next we have
+    $\pi_n \left( \prod_{\alpha} S_{\alpha}^{n} \right) 
+    \cong \bigoplus_{\alpha} \pi_n \left( S_{\alpha}^{n} \right) 
+    \cong \bigoplus_{\alpha} \mathbb{Z}$,
+    a free abelian group with basis the inclusions
+    $S_{\alpha}^{n} \hookrightarrow \prod_{\alpha}
+    S_{\alpha}^{n}$, so pulling this back along the
+    isomorphism
+    $\pi_{n}\left( \bigvee_{\alpha}S_{\alpha}^{n} \right) 
+    \cong \pi_n \left( \prod_{\alpha}S_{\alpha}^{n} \right) $,
+    the same is true for $\bigvee_{\alpha}S_{\alpha}^{n}$.
+    This proves the claim when there are
+    finitely many $S_{\alpha}^{n}$'s.\\
+    When there are infinitely many summands
+    $S_{\alpha}^{n}$, consider the homomorphism
+    $\Phi \colon \bigoplus_{\alpha}
+    \pi_n \left( S_{\alpha}^{n} \right) \to 
+    \pi_n \left( \bigvee_{\alpha}S_{\alpha}^{n} \right) $ 
+    induced by the inclusions
+    $S_{\alpha}^{n} \hookrightarrow \bigvee_{\alpha}
+    S_{\alpha}^{n}$. Then $\Phi$ is surjective
+    since any map $f \colon S^{n} \to 
+    \bigvee_{\alpha}S_{\alpha}^{n}$ has compact
+    image contained in the wedge sum of finitely many
+    $S_{\alpha}^{n}$'s, so by the finite case already proved,
+    $\left[ f \right] $ is in the image of $\Phi$.\\
+    Similarly, a nullhomotopy of $f$ has compact image
+    contained in a finite wedge sum of $S_{\alpha}^{n}$'s,
+    so the finite case also implies that $\Phi$ is injective.
+\end{example}
+
+\begin{proposition}[]\label{Prop:JXKDAOWJ}
+    If a CW pair $\left( X,A \right) $ is $r$-connected
+    and $A$ is $s$-connected, with $r,s \ge 0$, then
+    the map $\pi_i (X,A) \to \pi_i (X /A)$ induced
+    by the quotient map
+    $X \to X / A$ is an isomorphism for
+    $i \le r +s$ and a surjection for
+    $i = r+s+1$.
+\end{proposition}
+
+\begin{proof}
+    Consider $X \cup  CA$. Since
+    $A$ is closed and the inclusion
+    $A \hookrightarrow X$ is a cofibration (since these
+    are CW complexes), the map
+    $h \colon C_{\iota} = X \cup CA \to 
+    X / A$ is a homotopy equivalence by Theorem 
+    \ref{Thm:2030akKAK}. So we have a commutative
+    diagram
+    \begin{equation*}
+    \begin{tikzcd}
+        \pi_i (X,A) \ar[r] & \pi_i \left( X \cup CA, CA \right) 
+        \ar[r] & \pi_i \left( X \cup  CA /CA \right) 
+        = \pi_i (X / A)\\
+               & \pi_i (X \cup  CA) \ar[u, "\cong"] 
+               \ar[ru, "\cong"]
+    \end{tikzcd}
+    \end{equation*}
+    where the vertical isomorphism comes from the
+    LES of the pair $\left( X \cup CA, CA \right) $.
+    Now, applying Theorem \ref{Thm:Homotopy-Excision}
+    to $\left( A,B \right) = \left( X, CA \right) $,
+    since $\left( X, A \right) $ is
+    $r$-connected and
+    $\left( CA, A \right) $ is
+    $(s+1)$-connected, we find that the
+    homomorphism 
+    $\pi_i \left( X,A \right) \to 
+    \pi_i \left( X \cup CA, CA \right) $ induced
+    by the inclusion
+    is an isomorphism for
+    $i < r+s+1$ and a surjection for
+    $i = r+s+1$, which proves the result.
+\end{proof}
+
+
+\begin{example}[Construction of spaces
+    with a particular group as $\pi_n$]\label{Example:DJISI02}
+    Suppose $X$ is obtained from a wedge of
+    spheres $\bigvee_{\alpha} S_{\alpha}^{n}$ by
+    attaching cells $e_{\beta}^{n+1}$ via
+    basepoint-preserving maps
+    $\varphi_{\beta} \colon S^{n} \to 
+    \bigvee_{\alpha} S_{\alpha}^{n}, n\ge 2$.
+    By cellular approximation, we know that
+    $\pi_i (X) = 0$ for $i < n$, and we shall show
+    that $\pi_n(X)$ is the quotient of the free
+    abelian group
+    $\pi_n \left( \bigvee_{\alpha} S_{\alpha}^{n} \right) 
+    \cong \bigoplus_{\alpha} \mathbb{Z}$ by
+    the subgroup generated by the
+    classes $\left[ \varphi_{\alpha} \right] $.
+    Any subgroup can be realized in this way, by
+    choosing maps $\varphi_{\beta}$ to represent a 
+    set of generators for the subgroup.
+    Let 
+    $X = \left( \bigvee_{\alpha}S_{\alpha}^{n} \right) 
+    \bigcup_{\beta } e_{\beta}^{n+1}$.\\
+    Then the LES of the pair
+    $\left( X, \bigvee_{\alpha} S_{\alpha}^{n} \right) $ gives
+    \[
+    \pi_{n+1}\left( X, \bigvee_{\alpha}S_{\alpha}^{n} \right) 
+    \stackrel{\partial}{\to} \pi_n \left( \bigvee_{\alpha}
+    S_{\alpha}^{n} \right) \to 
+    \pi_n (X) \to 0.
+    \] 
+    so 
+    \[
+    \pi_n (X) \cong \pi_n \left( \bigvee_{\alpha}S_{\alpha}^{n}
+    \right) / \im \partial
+    \] 
+    The quotient
+    $X / \bigvee_{\alpha} S_{\alpha}^{n}$ is a wedge
+    of spheres $S_{\beta}^{n+1}$, so by Proposition
+    \ref{Prop:JXKDAOWJ} and Example \ref{Example:Wedge-of-Spheres},
+    the map
+     $\pi_{n+1} \left( X, \bigvee_{\alpha}S_{\alpha}^{n} \right) 
+     \to \pi_{n+1} \left( X / \bigvee_{\alpha}S_{\alpha}^{n} \right) 
+     \cong \pi_{n+1} \left( \bigvee_{\beta}
+     S_{\beta}^{n+1} \right) $ 
+     is an isomorphism, so
+     $\pi_{n+1}\left( X, \bigvee_{\alpha}S_{\alpha}^{n} \right) $ 
+     is free with basis the caracteristic
+     maps $\varphi_{\beta}$ of the cells $e_{\beta}^{n+1}$.
+     The boundary map $\partial$ takes
+     these to the classes
+     $\left[ \varphi_{\beta} \right] $, so
+     the result follows.
+
+\end{example}
+
+
+\newpage
+
+\subsubsection{Eilenberg-MacLane Spaces}
+
+\begin{definition}[Eilenberg-MacLane space, $K (G,n)$]
+    A space $X$ having just one nontrivial homotopy
+    group $\pi_n (X) \cong G$ is called
+    an \textit{Eilenberg-MacLane space} $K(G,n)$. 
+\end{definition}
+
+Given arbitrary $G$ and $n$, and assuming $G$ is abelian
+if $n>1$, we can construct a CW complex
+$K(G,n)$. To begin, construct the
+CW complex $X$ from Example \ref{Example:DJISI02}. Then
+$X$ is an $(n-1) $- conneted CW complex of dimension
+$n+1$ such that $\pi_n (X) \cong G$ by construction. Hence
+we just need to fix all homotopy groups of dimension
+greater than $n$. By
+Example \ref{Postnikov-Towers}, we can
+construct a CW complex $X_n$ containing $X$ as a subcomplex
+such that
+$\pi_n (X_n) \cong \pi_n (X) \cong G$ while
+$\pi_k(X_n) \cong 0$ for all $k \neq  n$.
 
 
 
 
 \subsection{The Hurewicz Theorem}
 
+\begin{theorem}[]
+    If a space $X$ is $(n-1)$-connected, $n\ge 2$,
+    then $\tilde{H}_i (X) = 0$ for 
+    $i < n$ and $\pi_n (X) \cong
+    H_n (X)$. If a pair $(X,A)$ is $(n-1)$-connected,
+    $n \ge 2$, with $A$ simply connected
+    and nonempty, then $H_i (X,A) = 0$ for
+    $i < n$ and $\pi_n (X,A) \cong
+    H_n (X,A)$.
+\end{theorem}
 
 
 
