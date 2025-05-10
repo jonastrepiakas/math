@@ -1,158 +1,3 @@
-\documentclass[reqno]{amsart}
-\usepackage{amscd, amssymb, amsmath, amsthm}
-\usepackage{graphicx}
-\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{textcomp}
-\usepackage{babel}
-%% for identity function 1:
-\usepackage{bbm}
-%%For category theory diagrams:
-\usepackage{tikz-cd}
-
-%\usepackage[backend=biber]{biblatex}
-%\addbibresource{.bib}
-
-
-\setlength\parindent{0pt}
-
-\pdfsuppresswarningpagegroup=1
-
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{conjecture}[theorem]{Conjecture}
-
-\theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{example}[theorem]{Example}
-\newtheorem{exercise}[theorem]{Exercise}
-\newtheorem{problem}[theorem]{Problem}
-\newtheorem{question}[theorem]{Question}
-
-\theoremstyle{remark}
-\newtheorem*{remark}{Remark}
-\newtheorem*{note}{Note}
-\newtheorem*{solution}{Solution}
-
-
-
-%Inequalities
-\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
-\newcommand{\symsum}{\sum_{\mathrm{sym}}}
-\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
-\newcommand{\symprod}{\prod_{\mathrm{sym}}}
-
-%Linear Algebra
-
-\DeclareMathOperator{\Span}{span}
-\DeclareMathOperator{\im}{im}
-\DeclareMathOperator{\diag}{diag}
-\DeclareMathOperator{\Ker}{Ker}
-\DeclareMathOperator{\ob}{ob}
-\DeclareMathOperator{\Hom}{Hom}
-\DeclareMathOperator{\Mor}{Mor}
-\DeclareMathOperator{\sk}{sk}
-\DeclareMathOperator{\Vect}{Vect}
-\DeclareMathOperator{\Set}{Set}
-\DeclareMathOperator{\Group}{Group}
-\DeclareMathOperator{\Ring}{Ring}
-\DeclareMathOperator{\Ab}{Ab}
-\DeclareMathOperator{\Top}{Top}
-\DeclareMathOperator{\hTop}{hTop}
-\DeclareMathOperator{\Htpy}{Htpy}
-\DeclareMathOperator{\Cat}{Cat}
-\DeclareMathOperator{\CAT}{CAT}
-\DeclareMathOperator{\Cone}{Cone}
-\DeclareMathOperator{\dom}{dom}
-\DeclareMathOperator{\cod}{cod}
-\DeclareMathOperator{\Aut}{Aut}
-\DeclareMathOperator{\Mat}{Mat}
-\DeclareMathOperator{\Fin}{Fin}
-\DeclareMathOperator{\rel}{rel}
-\DeclareMathOperator{\Int}{Int}
-\DeclareMathOperator{\sgn}{sgn}
-\DeclareMathOperator{\Homeo}{Homeo}
-\DeclareMathOperator{\SHomeo}{SHomeo}
-\DeclareMathOperator{\PSL}{PSL}
-\DeclareMathOperator{\Bil}{Bil}
-\DeclareMathOperator{\Sym}{Sym}
-\DeclareMathOperator{\Skew}{Skew}
-\DeclareMathOperator{\Alt}{Alt}
-\DeclareMathOperator{\Quad}{Quad}
-\DeclareMathOperator{\Sin}{Sin}
-\DeclareMathOperator{\Supp}{Supp}
-\DeclareMathOperator{\Char}{char}
-\DeclareMathOperator{\Teich}{Teich}
-\DeclareMathOperator{\GL}{GL}
-\DeclareMathOperator{\tr}{tr}
-\DeclareMathOperator{\codim}{codim}
-\DeclareMathOperator{\coker}{coker}
-\DeclareMathOperator{\corank}{corank}
-\DeclareMathOperator{\rank}{rank}
-\DeclareMathOperator{\Diff}{Diff}
-\DeclareMathOperator{\Bun}{Bun}
-\DeclareMathOperator{\Sm}{Sm}
-\DeclareMathOperator{\Fr}{Fr}
-\DeclareMathOperator{\Cob}{Cob}
-\DeclareMathOperator{\Ext}{Ext}
-\DeclareMathOperator{\Tor}{Tor}
-\DeclareMathOperator{\colim}{colim}
-
-
-
-%Row operations
-\newcommand{\elem}[1]{% elementary operations
-\xrightarrow{\substack{#1}}%
-}
-
-\newcommand{\lelem}[1]{% elementary operations (left alignment)
-\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
-}
-
-%SS
-\DeclareMathOperator{\supp}{supp}
-\DeclareMathOperator{\Var}{Var}
-
-%NT
-\DeclareMathOperator{\ord}{ord}
-
-%Alg
-\DeclareMathOperator{\Rad}{Rad}
-\DeclareMathOperator{\Jac}{Jac}
-
-%Misc
-\newcommand{\SL}{{\mathrm{SL}}}
-\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
-\newcommand{\id}{{\mathrm{id}}}
-\newcommand{\MCG}{{\mathrm{MCG}}}
-\newcommand{\PMCG}{{\mathrm{PMCG}}}
-\newcommand{\SMCG}{{\mathrm{SMCG}}}
-\newcommand{\ud}{{\mathrm{d}}}
-\newcommand{\Vol}{{\mathrm{Vol}}}
-\newcommand{\Area}{{\mathrm{Area}}}
-\newcommand{\diam}{{\mathrm{diam}}}
-\newcommand{\End}{{\mathrm{End}}}
-
-
-\newcommand{\reg}{{\mathtt{reg}}}
-\newcommand{\geo}{{\mathtt{geo}}}
-
-\newcommand{\tori}{{\mathcal{T}}}
-\newcommand{\cpn}{{\mathtt{c}}}
-\newcommand{\pat}{{\mathtt{p}}}
-
-\let\Cap\undefined
-\newcommand{\Cap}{{\mathcal{C}}ap}
-\newcommand{\Push}{{\mathcal{P}}ush}
-\newcommand{\Forget}{{\mathcal{F}}orget}
-
-
-
-
-\begin{document}
     \begin{problem}[]
         Let $Y$ be a simply-connected CW-complex. Assume
         there exists a finite wedge of spheres
@@ -165,11 +10,9 @@
         $\bigvee_{j} S^{m_j}$.
     \end{problem}
 
+
     \begin{proof}
-        Since $r \circ \iota \simeq \id_Y$, we
-        have that the induced map
-        $r_* \colon H_n \left( \bigvee_i S^{n_i} \right) 
-        \to H_n (Y)$ is surjective for all $n$. We want
+        We want
         to make use of the Corollary 4.33 in Hatcher which says:
         \begin{corollary}[4.33 Hatcher]
             A map $f \colon X \to Y$ between simply-connected
@@ -177,110 +20,57 @@
             $f_* \colon H_n (X) \to H_n(Y)$ is an isomorphism
             for each $n$.
         \end{corollary}
-        By assumption $Y$ is a simply-connected CW complex,
-        and $\bigvee_{i} S^{n_i}$ is also a simply-connected
-        CW complex. Attaching cells of
-        dimension $\ge 2$ to $\bigvee_{i}S^{n_i}$ 
-        does not change either of these properties - i.e., the
-        space remains a simply-connected CW complex.\\
-        We would like to
-        modify $\bigvee_i S^{n_i}$ such that
-        $r_*$ becomes injective also on each
-        homology group.
-        Let $\left[ f \right] 
-        \in H_n \left( \bigvee_i S^{n_i} \right) $ 
-        be in the kernel of $r_*$.
-        For the sake 
 
-        
-
-
-        \newpage
-        Since $r \circ i \simeq \id_Y$, we have
-        $r_* \circ i_* = \id_{\pi_n (Y)}$ for any $n \ge 0$, so
-        $r_* \colon \pi_n \left( \bigvee_i S^{n_i} \right) 
-        \to \pi_n (Y)$ is surjective for each $n$.
-        We will extend $r$ inductively to obtain
-        a weak homotopy equivalence
-        $\bigvee_j S^{m_j} \to Y$. By Whitehead's theorem, it
-        will then follow that
-        $\bigvee_j S^{m_j} \simeq Y$.\\
-        Now, $r_*$ is surjective on
-        $\pi_0$, and since both
-        $\bigvee_i S^{n_i}$ and $Y$ are path-connected,
-        $r_*$ is, in fact, bijective on $\pi_0$.\\
-        
-        We will now inductively attach cells onto
-        $\bigvee_{i}S^{n_i}$ so as to make
-        $r_*$ a weak homotopy equivalence. 
-        In particular, we will inductively attach
-         cells by the constant attaching map
-         $e_{\alpha}^{k} \to \bigvee_{i} S^{n_i}$ to
-         the base point of $\bigvee_i S^{n_i}$. But this
-         will simply be a wedge of spheres again, so
-         if we let $Z_k$ denote the space obtained after
-         the $k$ th inductive step (i.e., after having attached
-         $n$-cells for $n= 1,\ldots, k$), then 
-         $Z_k$ will again have the form
-         $Z_k = \bigvee_{j} S^{n_j}$.\\
-        Suppose we have already made 
-        $r_*$ an isomorphism on
-        $\pi_n$ for $n = 0, \ldots, k-1$.\\
-        Next, choose maps
-        $\varphi_{\alpha} \colon \left( S^{k}, s_0 \right) \to 
-        \left( \bigvee_{i} S^{n_i}, * \right)$ representing
-        all nontrivial elements of the kernel of
-        $r_* \colon \pi_{k} (\bigvee_i S^{n_i}) \to 
-        \pi_k \left( Y \right)  $. By the Cellular Approximation
-        Theorem, if we let $S^{k}$ have the
-        CW structure with $s_0$ being the single $0$-cell with a
-        $k$-cell attached, then $\varphi_{\alpha}$ may
-        be assumed to be cellular. Next
-        we can attach $e_{\alpha}^{k+1}$ cells to
-        $Z_k= \bigvee_i S^{n_i}$ via the maps $\varphi_{\alpha}$ which
-        produces a new CW complex $Z_{k+1}$, which still is
-        of the form $\bigvee_i S^{n_i}$, so we shall continue
-        to denote $Z_k = \bigvee_i S^{n_i}$. Since
-        $r \circ \varphi_{\alpha} $ is based nullhomotopic by
-        construction, $r$ extends over the new cells, so
-        $r$ extends to a map
-        $Z_{k+1} \to Y$. Note that
-        by assumption, $r_*$ was an isomorphism
-        on $\pi_n$ for $n\le k-1$, and attaching
-        $k+1$-cells to $Z_{k}$ has not changed this (the same
-        maps from before still work for surjectivity).
-        However, we now claim that $r_*$ is injective on
-        $\pi_k$ also.
-        Suppose $h \colon \left( S^{k}, s_0 \right) 
-        \to \left( Z_{k+1}, * \right) $ represents
-        an element of the kernel
-        of $r_* \colon \pi_{k} \left( Z_{k+1} \right) \to 
-        \pi_k\left( Y \right) $. By the Cellular Approximation Theorem
-        again (using the standard CW structure on $S^{k}$ as above),
-        we may assume that $h$ is cellular, so
-        in particular, the image of
-        $h$ lies in $Z_{k}$, and thus
-        $h$ is in the kernel
-        of $r_* \colon
-        \pi_{k}(Z_k) \to \pi_k(Y)$ 
-        and is thus based homotopic to some $\varphi_{\alpha}$,
-        which is based nullhomotopic in $Z_{k+1}$, so
-        $h$ represents zero in
-        $\pi_k \left( Z_{k+1} \right) $.
-        Thus the kernel
-        of $r_* \colon \pi_k \left( Z_{k+1} \right) 
-        \to \pi_k (Y)$ is trivial, so
-        $r$ induces isomorphisms on $\pi_n$ for 
-        $n\le k$ now.\\
-        Note now that
-        since $\bigvee_i S^{n_i} = Z_0$ was assumed 
-        to be a finite wedge of spheres, so
-        there exists largest $n_M$ in the wedge.
-        In particular, then for any $k > n_M$ and
-        any map $\left( S^{k}, s_0 \right) \to 
-        (Z_{n_M}, *)$ is based homotopic to a cellular
-        map by the Cellular Approximation Theorem, and
-        hence maps all of $S^{k}$ 
+        Since
+        $r_* \circ \iota_* = \id_*$, 
+        $\iota_* \colon
+        H_n (Y) \to H_n\left( \bigvee_i S^{n_i} \right) $ 
+        is injective for each $n$.
+        Now
+        $H_n \left( \bigvee_i S^{n_i} \right) 
+        \cong \bigoplus_{A_n} \mathbb{Z}$ where
+        we let $A_n$ be an indexing set
+        for the $n$-cells $\left\{ e_{\alpha}^{n} \right\} $ 
+        in the CW structure of $\bigvee_{i}S^{n_i}$.
+        Let $\mathcal{A}_n$ be a set of representative basis
+        elements for $H_n \left( \bigvee_i S^{n_i} \right) 
+        \cong \bigoplus_{A_n}\mathbb{Z}$ corresponding
+        to the inclusion of a sphere into the
+        wedge.
+        Any
+        subgroup of a free group is free, so
+        $H_n(Y) \cong
+        \bigoplus_{B_n} \mathbb{Z}$ for some
+        indexing set $B_n$ for each $n$.
+        Now, starting with a single $0$-cell $* $ and
+        attaching $\left| B_1 \right| $ $1$-cells to
+        $*$, $\left| B_2 \right| $ $2$-cells to $*$, etc.,
+        we obtain a space
+        $Z = \bigvee_j S^{m_j}$ which satisfies
+        $H_n(Z) = H_n(Y)$.
+        Now let
+        $\mathcal{C}_n$ denote the basis set for
+        $H_n (Y) \cong \bigoplus_{B_n} \mathbb{Z}$.
+        Since $r_*
+        \colon H_n \left( \bigvee_i S^{n_i} \right) 
+        \cong \bigoplus_{A_n} \mathbb{Z} \to 
+        \bigoplus_{B_n} \mathbb{Z} \cong
+        H_n (Y)$ is surjective,
+        we can choose representatives
+        $\tilde{\mathcal{A}_n} \subset 
+        \mathcal{A}_n$ such that
+        $r_* \left( \tilde{\mathcal{A}_n} \right) $ 
+        gives a set of (by construction, linearly independent) 
+        basis elements which generate
+        $H_n (Y)$. Now defining a map
+        $f \colon \bigvee_j S^{m_j} \to 
+        \bigvee_i S^{n_i}$ by sending, for each $n$,
+        all the $n$-spheres to distinct elements
+        of $\tilde{\mathcal{A}_n}$ (this map is bijective by
+        construction), we obtain a map
+        $f$ such that
+        $r \circ f$ induces an isomorphism on homology on all
+        $n$.
     \end{proof}
 
 
@@ -311,7 +101,6 @@
         \end{enumerate}
     \end{problem}
 
-    \textbf{See Prop 4.40 in Hatcher}
 
     \begin{proof}
         (1) Since $H_1$ is just the abelianization for
@@ -349,6 +138,20 @@
         $H_1 \left( X_{A_5} \right) 
         \cong \text{ab}\left( A_5 \right) \cong 1 $.\\
         \linebreak
+        Another example is the example from
+        Exercise 5 in problem set 2: namely,
+        the Poincaré homology sphere. We showed that
+        $H_1 \left( S^3 / 2 I ; \mathbb{Z} \right) \cong
+        0$ while
+        $\pi_1 \left( S^3 / 2 I  \right) \cong 2 I \not \cong 1$.
+        Furthermore, we showed that
+        $S^3 / 2I$ is a manifold, hence admits a CW complex
+        structure, and furthermore, as the quotient of
+        a path-connected space, it is also path-connected, so
+        $S^3 / 2I$ satisfies all the 
+        criterions of the problem.\\
+        \linebreak
+
         (2) We want to attach cells to $X$ to obtain
         a $CW$-complex $Y$ which is simply
         connected and induce an isomorphism on
@@ -356,7 +159,7 @@
         To do this, suppose
         $f \colon \left( S^{1}, s_0 \right) 
         \to \left( X, x_0 \right) $ is
-        in $\pi_1 (X, x_0)$. We can assume
+        a nontrivial element in $\pi_1 (X, x_0)$. We can assume
         by the Cellular Approximation Theorem that
         $f$ is cellular. Then
         we can attach a $2$-cell along $f$ which renders
@@ -481,13 +284,162 @@
     \] 
 
 
-    (4) 
-    
+    (4) Since $Y$ is simply-connected, the Hurewicz
+    theorem gives us an isomorphism
+    $h \colon \pi_2 (Y) \to H_2 (Y)$ given
+    by sending $f \colon \left( S^2, s_0 \right) 
+    \to \left( Y,x_0 \right) $ to
+    $h \left( \left[ f \right]  \right) =
+    f_* \left( \alpha \right) $ where $\alpha$ is
+    a generator of $H_2 \left( S^2 \right) $.
+    In particular, we can represent each
+    basis element $\alpha$ in $A$ by some
+    map $\psi_{\alpha} \colon \left( S^2,s_0 \right) 
+    \to \left( Y,x_0 \right) $ by pulling $\alpha$ back
+    along the Hurewicz isomorphism.
+    By the Cellular Approximation Theorem, we may
+    again assume that each  $\psi_{\alpha}$ is cellular
+    (giving $S^2$ its standard CW structure).
+    Now we let $Z$ be the space obtained
+    by attaching $3$-cells to $Y$ along the maps
+    $\left\{ \psi_{\alpha} \right\}_{\alpha \in A}$.\\
+    \linebreak
+    (5) 
 
+    The inclusions $X \hookrightarrow Y \hookrightarrow Z$ now
+    give the following maps of chain complexes:
+    
+         \begin{equation*}
+    \begin{tikzcd}
+        \ldots \ar[r] &\bigoplus_{A_4} \mathbb{Z} \ar[r,
+        "\partial_4^{X}"] \ar[d, equal] 
+        & \bigoplus_{A_3} \mathbb{Z} \ar[r, "\partial_3^{X}"]
+        \ar[d, equal] &
+        \bigoplus_{A_2} \mathbb{Z} \ar[d, hookrightarrow] \ar[r,
+        "\partial_2^{X}"] &
+        \bigoplus_{A_1} \mathbb{Z} \ar[d, equal] 
+        \ar[r, "\partial_1^{X}"] & \ldots \\
+        \ldots \ar[r] &\bigoplus_{A_4}\mathbb{Z} \ar[r,
+        "\partial_4^{Y}"] \ar[d, equal]
+        & \bigoplus_{A_3} \mathbb{Z} \ar[r, "\partial_3^{Y}"] 
+        \ar[d, hookrightarrow]&
+        \bigoplus_{A_2 \sqcup I} \mathbb{Z} \ar[r, "\partial_2^{Y}"]
+        \ar[d, equal] & 
+        \bigoplus_{A_1} \mathbb{Z} \ar[r, "\partial_1^{Y}"]
+        \ar[d, equal]& \ldots
+        \\
+        \ldots \ar[r] &\bigoplus_{A_4}\mathbb{Z} \ar[r,
+        "\partial_4^{Z}"]
+        & \bigoplus_{A_3 \sqcup I} 
+        \mathbb{Z} \ar[r, "\partial_3^{Z}"] &
+        \bigoplus_{A_2 \sqcup I} \mathbb{Z} \ar[r, "\partial_2^{Z}"]
+        & 
+        \bigoplus_{A_1} \mathbb{Z} \ar[r, "\partial_1^{Z}"] & \ldots
+    \end{tikzcd}
+    \end{equation*}
+    By the exact same reasoning as before,
+    since $\partial_{n}^{Z} = \partial_n^{Y} = 
+    \partial_n^{X}$ for $n\ge 4$, it follows
+    that $H_n (Z) = H_n(Y) = H_n(X)$ for $n\ge 4$ with
+    the inclusions again, by the exact same reasoning as
+    in (2), inducing the isomorphisms (in fact, equalities,
+    and the inclusions simply become the identity).
+    For $n= 1$, we have that  $H_1(X) = H_1(Y) =  0$, and
+    so since 
+    \[
+    H_1 (Z) = \ker \partial_1^{Z} / \im \partial_2^{Z}
+    = \ker \partial_1^{Y} / \im \partial_2^{Y} = 
+    H_1 (Y)
+    \] 
+    we also find that
+    $H_1 (Z) = 0$,
+    so the inclusion $X \hookrightarrow Y \hookrightarrow Z$ 
+    trivially induces an isomorphism
+    $H_1 (X) \to H_1(Z)$.\\
+    For $n = 2$, note that we have the following commutative
+    diagram (which commutes by naturality of the Hurewicz
+    isomorphism):
+    \begin{equation*}
+    \begin{tikzcd}
+        \pi_2 (X) \ar[r, "i_{*}"] \ar[d, "h", "\cong"']
+        & \pi_2(Y) \ar[r, "j_*"] \ar[d, "h", "\cong"'] &
+        \pi_2 (Z) \ar[d, "h", "\cong"'] \\
+        H_2(X) \ar[r, "i_*"] & H_2(Y) 
+        \cong H_2(X) \oplus \bigoplus_{I}\mathbb{Z}
+        \ar[r, "j_*"] & H_2(Z)
+    \end{tikzcd}
+    \end{equation*}
+    First, recall that the splitting
+    \[
+    H_2(Y) \cong H_2(X) \oplus \bigoplus_I \mathbb{Z}
+    \] 
+    was given by
+    $\left( \alpha, \beta \right) \mapsto 
+    i_* \left( \alpha \right) +
+    s \left( \beta \right) $ where
+    $s$ is the section for
+    $H_2 (Y) \stackrel{j_*}{\to} H_2 (Y,X)$, so
+    in particular, the
+    inclusion
+    $X \hookrightarrow Y$, becomes the inclusion
+    $H_2(X) \hookrightarrow H_2(X) \oplus \bigoplus_{I} \mathbb{Z}$ 
+    into the $H_2(X)$ factor under this isomorphism.
  
+    In this diagram,
+    each element $\alpha \in A$ is mapped
+    to some representative $\left( S^2, s_0 \right) 
+    \to \left( Y, x_0 \right) $ in
+    $\pi_2 (Y)$ which, by construction, is based nullhomotopic
+    in $Z$, so we see that
+    $j_* \circ h^{-1} (\alpha) = 0$, hence
+    $j_* \left( \alpha \right) =
+    h \circ j_* \circ h^{-1}(\alpha) = 0$.
+    Meanwhile, any element in
+    $H_2 (X) \subset H_2(X) \oplus \bigoplus_{I}\mathbb{Z}$ 
+    is pulled back along $h$ to a nontrivial element
+    which has nonzero image under
+    $j_*$ (by construction, $Z$ eliminates only
+    the elements of $A$ ). Thus
+    $j_* \colon
+    H_2(Y) \cong H_2(X) \oplus
+    \bigoplus_{I}\mathbb{Z} \to H_2(Z)$ is injective
+    on the $H_2(X)$ factor.\\
+    hence $j_* i_* = \left( j \circ i \right)_* \colon
+    H_2 (X) \to H_2 (Z)$ is injective. Now,
+    for any nontrivial $\gamma \in H_2 (Z)$,
+    this pulls back to a nontrivial element in
+    $\pi_2(Z)$ which is the image of some
+    $\beta \in \pi_2 (Y)$ under $j_*$ since $j_*\colon
+    \pi_2(Y) \to \pi_2(Z)$ is surjective. 
+    This maps down to some element
+    $\left( x,y \right) \in 
+    H_2(X) \oplus \bigoplus_{I}\mathbb{Z}$, and
+    since $j_*$ is $0$ on all factors in
+    $\bigoplus_{I}\mathbb{Z}$, we find that
+    $j_* (x,0) = \gamma$. So
+    $\left( j \circ i \right)_* (x) = 
+    j_* \left( x,0 \right) = \gamma$, which shows
+    that $\left( j \circ i \right)_*$ is also surjective.
+    Thus $\left( j \circ i \right)_* \colon
+    H_2 (X) \to H_2(Z)$ is an isomorphism.\\
+    \linebreak
+    Lastly, for $n=3$, it suffices to show that the
+    inclusion $Y \hookrightarrow Z$ induces an isomorphism
+    $H_3(Y) \to H_3(Z)$ since we already showed in
+    (2) that $H_3(X) \to H_3(Y)$ induced by the inclusion
+    is an isomorphism can be seen as follows:
+    for each basis element in the $I$ part of
+    the summand of the domain of $\partial_3^{Z}$ :
+    $\bigoplus_{A_3 \sqcup I} \mathbb{Z}$, this
+    is by construction of $Z$ mapped
+    to an element in $A$ under $\partial_3^{Z}$ which
+    is nontrivial in
+    $\bigoplus_{A_2 \sqcup I}\mathbb{Z}$, hence
+    $\ker \partial_3^{Z} = \ker \partial_3^{Y}$, so
+    $H_3 (Z) = H_3(Y)$ and hence
+    the inclusion induces the identity which is
+    an isomorphism.\\
+    \linebreak
+    This completes the proof.
     \end{proof}
 
-
-
-    %\printbibliography
-\end{document}

@@ -24,7 +24,7 @@
         (1) 
         \begin{figure}[htpb]
             \centering
-            \includegraphics[width=0.8\textwidth]{p11.jpeg}
+            \includegraphics[width=0.8\textwidth]{Figures/p11.jpeg}
             \caption{Note that 
             in this figure, $A$ are the parts drawn
         without the interior of the disk $i(D^2)$.}
@@ -469,7 +469,7 @@
 
         \begin{figure}[htpb]
             \centering
-            \includegraphics[width=0.8\textwidth]{p31.jpeg}
+            \includegraphics[width=0.8\textwidth]{Figures/p31.jpeg}
             \caption{}
             \label{fig:p31-jpeg}
         \end{figure}
@@ -532,7 +532,7 @@
 
         \begin{figure}[htpb]
             \centering
-            \includegraphics[width=0.7\textwidth]{p32.jpeg}
+            \includegraphics[width=0.7\textwidth]{Figures/p32.jpeg}
             \caption{}
             \label{fig:p32-jpeg}
         \end{figure}
@@ -597,7 +597,7 @@
 
         \begin{figure}[htpb]
             \centering
-            \includegraphics[width=0.8\textwidth]{p33.jpeg}
+            \includegraphics[width=0.8\textwidth]{Figures/p33.jpeg}
             \caption{}
             \label{fig:p33-jpeg}
         \end{figure}
@@ -623,7 +623,7 @@
 
         \begin{figure}[htpb]
             \centering
-            \includegraphics[width=0.6\textwidth]{p322.jpeg}
+            \includegraphics[width=0.6\textwidth]{Figures/p322.jpeg}
             \caption{}
             \label{fig:p322-jpeg}
         \end{figure}

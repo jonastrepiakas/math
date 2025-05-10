@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1746808257.57419 "pset3.tex" "pset3.pdf" "pset3" 1746808258.42704 0
+["pdflatex"] 1746827324.46524 "pset3.tex" "pset3.pdf" "pset3" 1746827326.32555 0
   "/etc/texmf/web2c/texmf.cnf" 1718688975.81737 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1000.tfm" 1136768653 3584 2d666ecf6d466d8b007246bc2f94d9da ""
@@ -166,14 +166,15 @@
   "/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1636152094 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb" 1636152094 145408 43d44302ca7d82d487f511f83e309505 ""
   "/usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb" 1719350528.74166 154599 ded6d7c21788a8930eadc7fef7518942 ""
+  "/usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb" 1719350528.74266 164227 3df942b4ff2124425d8fb1b6d3e01c7a ""
   "/usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb" 1636152094 138258 6525c253f16cededa14c7fd0da7f67b2 ""
   "/usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb" 1636152094 186554 e8f0fa8ca05e038f257a06405232745f ""
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1719350542.55051 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1719350620 8213228 2bf4bdc60b7e8eadcc399e002a7ccc4d ""
-  "pset3.aux" 1746808258.33291 374 0cac822e76c1b0fec5082188ea661ddf "pdflatex"
-  "pset3.out" 1746808258.1339 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "pset3.tex" 1746808256.05482 17884 7d4017ec7d092496c4d9133e08be995b ""
+  "pset3.aux" 1746827326.17112 374 0cac822e76c1b0fec5082188ea661ddf "pdflatex"
+  "pset3.out" 1746827325.47011 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "pset3.tex" 1746827320.13906 21909 6bf55dd29b4f918f9a7eab1025362449 ""
   (generated)
   "pset3.aux"
   "pset3.log"
