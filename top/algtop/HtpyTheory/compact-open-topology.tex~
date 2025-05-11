@@ -353,3 +353,61 @@ theorem is proved.
     a contravariant functor of $X$
     from $\Top$ to $\Top$.
 \end{theorem}
+
+
+
+\begin{proof}
+    A map $\varphi  \colon Y \to Z$ induces
+    $\varphi^{X} \colon Y^{X} \to Z^{X}$ (put differently,
+    $\varphi $ induces
+    $\varphi_* \colon \Hom (X,Y) \to \Hom(X,Z)$.))
+    We must show that $\varphi^{X}$ is continuous.
+    By Theorem \ref{Thm:Compact-Open-Top}, it suffices
+    to show that the map
+    $Y^{X} \times X \to Z$ given by
+    $\left( f,x \right) \mapsto \varphi \left( f(x) \right) $ 
+    is continuous, but this is
+    the composition $\varphi \circ e$ which is 
+    thus continuous.\\
+    Next, for the contravariant part, we must show that
+    for $\psi \colon X \to T$, both spaces locally compact, we
+    have that 
+    $Y^{\psi } \colon Y^{T} \to Y^{X}$ given
+    by $\psi^{*} \colon f \mapsto f \circ \psi $ is continuous.
+    By the same theorem as above, it suffices to show that
+    $Y^{T} \times X \to Y$ taking
+    $\left( f,x \right) \mapsto f \left( \psi (x) \right) $ is
+    continuous, but this is
+    $e \circ \left( \id \times \psi  \right) $, which is
+    continuous.
+\end{proof}
+
+\begin{corollary}
+    For $A \subset X$ both locally compact and $X,Y$ Hausdorff,
+    the restriction $Y^{X} \to Y^{A}$ is continuous.
+\end{corollary}
+
+\begin{proof}
+    Apply the contravariant functor
+    $\Hom \left( -,Y \right) = 
+    Y^{-}$ to the inclusion $\iota \colon A \hookrightarrow X$.
+\end{proof}
+
+\begin{theorem}[]
+    For $X,Y$ locally compact, and $X,Y,Z$ Hausdorff, the
+    function
+    \[
+    Z^{Y} \times Y^{X} \to Z^{X}
+    \] 
+    taking $\left( f,g \right) \mapsto f \circ g$ is continuous.
+\end{theorem}
+
+\begin{proof}
+    Again, by Theorem \ref{Thm:Compact-Open-Top}, it
+    suffices to show that the map
+    $Z^{Y} \times Y^{X} \times X \to Z$ taking
+    $\left( f,g,x \right) \mapsto \left( f \circ g \right) (x)$ 
+    is continuous, but this is simply 
+    $e \circ \left( \id \times e \right) $.
+\end{proof}
+

@@ -1,0 +1,268 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+%\usepackage[backend=biber]{biblatex}
+%\addbibresource{.bib}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\SHomeo}{SHomeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Teich}{Teich}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\corank}{corank}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Bun}{Bun}
+\DeclareMathOperator{\Sm}{Sm}
+\DeclareMathOperator{\Fr}{Fr}
+\DeclareMathOperator{\Cob}{Cob}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\MCG}{{\mathrm{MCG}}}
+\newcommand{\PMCG}{{\mathrm{PMCG}}}
+\newcommand{\SMCG}{{\mathrm{SMCG}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+
+
+
+
+\begin{document}
+\section{H-Spaces, H-Groups and H-Cogroups}
+
+An H-space or H-group is a space with a product that satisfies
+some of the laws of a group \textit{but only up to homotopy}.
+An H-cogroup is a dual notion. The
+"H" stands for "Hopf" or for "Homotopy".
+
+\begin{definition}[H-Space, homotopy associativity, homotopy inverse]
+    An \textit{H-space} is a pointed space $X \in \Top_*$ with
+    base point $e$, together with a map
+    \[
+    \cdot \colon X \times X \to X
+    \] 
+    sending $\left( x,y \right) \mapsto x \cdot y$ such that
+    $e \cdot  e = e$, and the maps
+    $X \to X$ taking $x \mapsto x \cdot e$ and
+    $x \mapsto e \cdot x$ are each homotopic 
+    $\rel \left\{ e \right\} $ to the identity.\\
+    \linebreak
+    It is said to be \textit{homotopy associative} if the
+    maps $X \times X \times X \to X$ taking
+    $\left( x,y,z \right) $ to
+    $\left( x \cdot y \right) \cdot z$ and
+    to $x \cdot  \left( y \cdot z \right) $ are
+    homotopic $\rel \left\{ \left( e,e,e \right)  \right\} $.\\
+    \linebreak
+    It is said to have a \textit{homotopy inverse}
+    $\hat{-} \colon X \to X$ if
+    $\hat{e} = e$ and the maps
+    $X \to X$ taking $x$ to
+    $x \cdot \hat{x}$ and to
+    $\hat{x}\cdot x$ are each homotopic $\rel \left\{ e \right\} $ 
+    to the constant map to $\left\{ e \right\} $.
+\end{definition}
+
+\begin{definition}[H-group]
+    An \textit{H-group} is a homotopy associative H-space
+    with a given homotopy inverse.
+\end{definition}
+
+There are two main examples: the first
+is the class of topological groups, the second is the class
+of "loop spaces". 
+
+\begin{definition}[Loop space]
+    The loop space on a space $X$ is the space
+    \[
+    \Omega X = \left( X,* \right)^{\left( S^{1},* \right) },
+    \] 
+    i.e., $X^{S^{1}}$ in the pointed category. 
+    The product is concatenation of loops, and
+    the homotopy inverse is loop reversal.
+    $\Omega X$ is a pointed space with base point being
+    the constant loop at $*$.
+\end{definition}
+
+\begin{definition}[Operations on maps]
+    If $f \colon X \to Z$ and
+    $g \colon Y \to W$ are maps, let
+    $f \vee g \colon X \vee Y \to Z \vee W$ be the
+    induced map on the one-point union.\\
+    Let $\nabla \colon Z \vee Z \to Z$ be the
+    codiagonal, i.e., the identity on
+    both factors.\\
+    We also define
+    $f \veebar g \colon X \vee Y \to Z$ as
+    the composition $f \veebar g =
+    \nabla \circ \left( f \vee g \right) $ ; i.e., the
+    map which is $f$ on $X$ and $g$ on $Y$.
+\end{definition}
+
+\begin{definition}[H-cogroup]
+    An \textit{H-cogroup} is a pointed space $Y$ and
+    a map $\gamma \colon Y \to Y \vee Y$ such that
+    the following three conditions are satisfied:
+    \begin{enumerate}
+        \item The constant map $* \colon Y \to Y$ to the
+            base point is a \textit{homotopy identity}; i.e.,
+            the compositions
+            $\left( * \veebar \id \right) \circ \gamma$ and
+            $\left( \id \veebar * \right) \circ \gamma$ of
+            $Y \stackrel{\gamma}{\to} Y \vee Y \to Y$ 
+            are both homotopic to the identity rel base
+            point.
+        \item It is homotopy associative. That is, the compositions
+            $\left( \gamma \vee \id \right) \circ \gamma$
+            and $\left( \id \vee \gamma \right) \circ \gamma$ 
+            of $Y \stackrel{\gamma}{\to} Y \vee Y
+            \to Y \vee Y \vee Y$ are homotopic to one another
+            rel base point.
+        \item There is a homotopy inverse $i \colon Y \to Y$.
+            That is, $\left( \id \veebar i \right) \circ \gamma$ 
+            and $\left( i \veebar \id \right) \circ \gamma$
+            of $Y \stackrel{\gamma}{\to} Y \vee Y \to Y$ 
+            are both homotopic to the constant map to the
+            base point rel base point.
+    \end{enumerate}
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    %\printbibliography
+\end{document}
