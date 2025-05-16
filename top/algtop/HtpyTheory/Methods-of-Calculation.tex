@@ -1,0 +1,776 @@
+\section{Methods of Calculation}
+
+
+\subsection{Excision for Homotopy Groups}
+
+\begin{theorem}[]\label{Thm:Homotopy-Excision}
+    Let $X$ be a CW complex decomposed as the union of
+    subcomplexes $A$ and $B$ with nonempty connected
+    intersection $C = A \cap B$. If
+    $(A,C)$ is $m$-connected and
+    $\left( B,C \right) $ is $n$-connected,
+    $m,n \ge 0$, then the map
+    $\pi_i (A,C) \to \pi_i (X,B)$ induced
+    by inclusion is an isomorphism for
+    $i < m+n$ and a surjection for
+    $i = m+n$.
+\end{theorem}
+
+\begin{corollary}[Freudenthal Suspension
+    Theorem]\label{Thm:Freudenthal-Suspension}
+    The unreduced suspension map
+    $\pi_i (S^{n}) \to 
+    \pi_{i+1} \left( S^{n+1} \right) $, induced
+    by the suspension map $S^{n} \to 
+    \Sigma S^{n} \cong S^{n+1}$, is an
+    isomorphism for
+    $i < 2n-1$ and a surjection for
+    $i = 2n-1$. More generally, this holds for
+    the suspension
+    $\pi_i (X) \to \pi_{i+1}\left( \Sigma X \right) $ whenever
+    $X$ is an $(n-1)$-connected CW complex.
+\end{corollary}
+
+\begin{proof}[Proof of Corollary]
+    Decompose the unreduced suspension
+    $\Sigma X = 
+    (X \times I) / \left( 
+    X \times \left\{ 0 \right\} ,
+X \times \left\{ 1 \right\} \right) $ as the
+    union of two cones
+    $C_+ X$ and $C_{-}X$ intersecting in a 
+    copy of $X$.
+    Recall that a map
+    $f\colon X \to Y$ induces a suspended map
+    $\Sigma f \colon \Sigma X \to \Sigma Y$. Now,
+    if we consider 
+    $f$ to be any map
+    $f \colon \left( S^{n},s_0 \right) \to 
+    \left( X, x_0 \right) $, then
+    we have
+    a suspended map
+    \begin{equation*}
+    \begin{tikzcd}
+        S^{n} \times I \ar[r, "f \times \id"]
+        \ar[d] & X \times I \ar[d] \\
+        S^{n+1} \cong \Sigma S^{n} \ar[r, "\Sigma f"] & \Sigma X
+    \end{tikzcd}
+    \end{equation*}
+    So, in particular,
+    $\Sigma f$ is some class
+    in $\pi_{n+1} \left( \Sigma X \right) $.
+    Define the suspension homomorphism
+    $\pi_i (X) \to \pi_{i+1}\left( \Sigma X \right) $ 
+    to be the map that sends
+    $f$ to $\Sigma f$. This is a homomorphism (why?).
+
+    The unreduced suspension map is the same
+    as the map
+    \[
+    \pi_i (X) \cong
+    \pi_{i+1} \left( C_+ X, X \right) 
+    \to \pi_{i+1} (\Sigma X, C_{-}X) \cong
+    \pi_{i+1} \left( \Sigma X \right) .
+    \] 
+    (why?) where the two isomorphisms come
+    from the LES of pairs and the middle
+    map is induced by inclusion.
+    The first map
+    $\pi_i (X) \to \pi_{i+1}(C_+ X, X)$ 
+    takes a map
+    $\left( I^{i}, \partial I^{n} \right) 
+    \to \left( X, x_0 \right) $ 
+    to the map
+    $\left( I^{n+1}, \partial I^{n+1},
+    J^{n}\right) \to \left( C_+ X, X, x_0 \right) $
+    constructed by extending
+    the given map radially to correspond with the
+    height of $C_{+}X$. So one face of
+    $I^{n+1}$ will be mapped to the vertex of
+    $C_{+}X$.\\
+
+    Including this into
+    $\left( \Sigma X, C_{-}X \right) $ gives
+    the middle homomorphism, and
+    then the map
+    $\pi_{i+1} \left( \Sigma X, C_{-}X \right) \to 
+    \pi_{i+1}(\Sigma X)$ is simply the identity on
+    our map. \\
+    From the LES of $\left( C_{\pm }X, X \right) $, we
+    see that this pair is $n$-connected
+    if $X$ is $(n-1)$-connected. Then
+    Theorem \ref{Thm:Homotopy-Excision} gives
+    that the middle map is an isomorphism
+    for $i+1 < 2n$ and surjective for
+    $i+1 = 2n$.
+
+\end{proof}
+
+
+\begin{corollary}
+    $\pi_n\left( S^{n} \right) \cong \mathbb{Z}$, generated
+    by the identity map, for all all
+    $n\ge 1$. In particular, the degree map
+    $\deg \colon \pi_n \left( S^{n} \right) \to \mathbb{Z}$ is an
+    isomorphism.
+\end{corollary}
+
+\begin{proof}
+    From Corollary \ref{Thm:Freudenthal-Suspension}, we
+    obtain a sequence of suspension homomorphisms
+    \[
+    \pi_1 \left( S^{1} \right) \to \pi_2\left( S^2 \right) 
+    \to \pi_3 \left( S^3 \right) \to \ldots
+    \] 
+    where the first map is surjective and all
+    subsequent maps are isomorphisms.
+    Since $\pi_1 \left( S^{1} \right) \cong \mathbb{Z}$,
+    this implies that $\pi_i \left( S^{i} \right) $ 
+    is either $\mathbb{Z}$ or a cyclic finite group for
+    all  $i\ge 2$.
+    Note that there exist basepoint-preserving maps
+    $S^{n} \to S^{n}$ for arbitrary degree and since
+    degree is a homotopy invariant, this implies that
+    $\pi_n \left( S^{n} \right) $ must be infinite for
+    all $n\ge 2$ since otherwise there would be
+    maps $S^{n} \to S^{n}$ that are based homotopic but
+    of different degrees which is a contradiction.\\
+    Lastly, we claim that the degree map
+    $\pi_n \left( S^{n} \right) \to \mathbb{Z}$ is an
+    isomorphism.
+
+    One way to see this is first to note
+    that $\deg$ is a homomorphism by
+    Problem \ref{pset1-degree}, where we also
+    showed it to be surjective.\\
+    A different way to show surjectivity is to
+    note that
+
+    \begin{proposition}[]
+        $\deg \Sigma f = \deg f$, where
+        $\Sigma f \colon S^{n+1} \to S^{n+1}$ is the suspension
+        of the map $f\colon S^{n} \to S^{n}$.
+    \end{proposition}
+
+    \begin{proof}
+        Let $C S^{n} = \left( S^{n} \times I \right) /
+        \left( S^{n} \times \left\{ 1 \right\}  \right) $ 
+        be the cone on $S^{n}$ and let
+        $S^{n} = S^{n}\times \left\{ 0 \right\} \subset 
+        CS^{n}$ be the base, so $CS^{n} / S^{n} \cong
+        \Sigma S^{n}$. First the map
+        $f$ induces $Cf \colon \left( CS^{n}, S^{n} \right) 
+        \to \left( CS^{n} , S^{n} \right) $ with
+        quotient $\Sigma f$. The naturality of the boundary
+        maps in the homology LES of the pair $\left( CS^{n},
+        S^{n}\right) $ then gives commutativity
+        of the diagram
+        \begin{equation*}
+        \begin{tikzcd}
+            \tilde{H}_{n+1}\left( S^{n+1} \right) 
+            \ar[r, "\partial", "\cong"']
+            \ar[d, "\Sigma f_*"]& \tilde{H}_n(S^{n}) 
+            \ar[d, "f_*"]\\
+            \tilde{H}_{n+1}(S^{n+1}) \ar[r, "\partial", 
+            "\cong"'] & \tilde{H}_n \left( S^{n} \right) 
+        \end{tikzcd}
+        \end{equation*}
+        So if $f_*$ is multiplication by
+        $\deg f$, then so is $\Sigma f_*$.
+    \end{proof}
+
+    Now since 
+    $\gamma_k \colon z \mapsto z^{k}$ is a degree $k$ map of
+    $S^{1}$, this shows that $\deg$ is surjective
+    as a map $\pi_1\left( S^{1} \right) \to \mathbb{Z}$, and
+    now by the above Proposition, the degree
+    map on
+    $\Sigma \gamma_k \colon S^{n+1} \to S^{n+1}$ has
+    degree $k$ also, so by repeated suspension, we
+    have degree $k$ maps in all $\pi_n\left( S^{n} \right) $,
+    giving surjectivity of
+    $\pi_n \left( S^{n} \right) \to \mathbb{Z}$.
+
+
+
+
+\end{proof}
+
+
+
+\begin{example}[$\pi_n \left( \bigvee_{\alpha}\label{Example:Wedge-of-Spheres}
+    S_{\alpha}^{n} \right) $]
+    We want to show that
+    $\pi_n \left( \bigvee_{\alpha}S_{\alpha}^{n} \right) $ 
+    for $n\ge 2$ is free abelian with basis
+    the homotopy classes of the inclusions
+    $S_{\alpha}^{n} \hookrightarrow 
+    \bigvee_{\alpha} S_{\alpha}^{n}$.\\
+    Suppose first that there are only \textit{finitely many}
+    summands $S_{\alpha}^{n}$. Then we can regard
+    $\bigvee_{\alpha} S_{\alpha}^{n}$ as
+    the $n$-skeleton of the product
+    $\prod_{\alpha} S_{\alpha}^{n}$, where
+    $S_{\alpha}^{n}$ is given the usual CW structure
+    and $\prod_{\alpha} S_{\alpha}^{n}$ has the product
+    CW structure. (See Hatcher appendix A).\\
+    By construction then $\prod_{\alpha} S_{\alpha}^{n}$ 
+    has cells only in dimensions a multiple of $n$, so
+    the pair $\left( \prod_{\alpha} S_{\alpha}^{n},
+    \bigvee_{\alpha} S_{\alpha}^{n} \right) $ is
+    $(2n-1)$-connected by Corollary 
+    \ref{n-connectedness-geometrically}.
+    So from the LES for the pair, we see that
+    the inclusion
+    $\bigvee_{\alpha} S_{\alpha}^{n}
+    \hookrightarrow \prod_{\alpha} S_{\alpha}^{n}$
+    induces an isomorphism on homotopy groups
+    in dimensions $\le 2n-1$. Next we have
+    $\pi_n \left( \prod_{\alpha} S_{\alpha}^{n} \right) 
+    \cong \bigoplus_{\alpha} \pi_n \left( S_{\alpha}^{n} \right) 
+    \cong \bigoplus_{\alpha} \mathbb{Z}$,
+    a free abelian group with basis the inclusions
+    $S_{\alpha}^{n} \hookrightarrow \prod_{\alpha}
+    S_{\alpha}^{n}$, so pulling this back along the
+    isomorphism
+    $\pi_{n}\left( \bigvee_{\alpha}S_{\alpha}^{n} \right) 
+    \cong \pi_n \left( \prod_{\alpha}S_{\alpha}^{n} \right) $,
+    the same is true for $\bigvee_{\alpha}S_{\alpha}^{n}$.
+    This proves the claim when there are
+    finitely many $S_{\alpha}^{n}$'s.\\
+    When there are infinitely many summands
+    $S_{\alpha}^{n}$, consider the homomorphism
+    $\Phi \colon \bigoplus_{\alpha}
+    \pi_n \left( S_{\alpha}^{n} \right) \to 
+    \pi_n \left( \bigvee_{\alpha}S_{\alpha}^{n} \right) $ 
+    induced by the inclusions
+    $S_{\alpha}^{n} \hookrightarrow \bigvee_{\alpha}
+    S_{\alpha}^{n}$. Then $\Phi$ is surjective
+    since any map $f \colon S^{n} \to 
+    \bigvee_{\alpha}S_{\alpha}^{n}$ has compact
+    image contained in the wedge sum of finitely many
+    $S_{\alpha}^{n}$'s, so by the finite case already proved,
+    $\left[ f \right] $ is in the image of $\Phi$.\\
+    Similarly, a nullhomotopy of $f$ has compact image
+    contained in a finite wedge sum of $S_{\alpha}^{n}$'s,
+    so the finite case also implies that $\Phi$ is injective.
+\end{example}
+
+\begin{proposition}[]\label{Prop:JXKDAOWJ}
+    If a CW pair $\left( X,A \right) $ is $r$-connected
+    and $A$ is $s$-connected, with $r,s \ge 0$, then
+    the map $\pi_i (X,A) \to \pi_i (X /A)$ induced
+    by the quotient map
+    $X \to X / A$ is an isomorphism for
+    $i \le r +s$ and a surjection for
+    $i = r+s+1$.
+\end{proposition}
+
+\begin{proof}
+    Consider $X \cup  CA$. Since
+    $A$ is closed and the inclusion
+    $A \hookrightarrow X$ is a cofibration (since these
+    are CW complexes), the map
+    $h \colon C_{\iota} = X \cup CA \to 
+    X / A$ is a homotopy equivalence by Theorem 
+    \ref{Thm:2030akKAK}. So we have a commutative
+    diagram
+    \begin{equation*}
+    \begin{tikzcd}
+        \pi_i (X,A) \ar[r] & \pi_i \left( X \cup CA, CA \right) 
+        \ar[r] & \pi_i \left( X \cup  CA /CA \right) 
+        = \pi_i (X / A)\\
+               & \pi_i (X \cup  CA) \ar[u, "\cong"] 
+               \ar[ru, "\cong"]
+    \end{tikzcd}
+    \end{equation*}
+    where the vertical isomorphism comes from the
+    LES of the pair $\left( X \cup CA, CA \right) $.
+    Now, applying Theorem \ref{Thm:Homotopy-Excision}
+    to $\left( A,B \right) = \left( X, CA \right) $,
+    since $\left( X, A \right) $ is
+    $r$-connected and
+    $\left( CA, A \right) $ is
+    $(s+1)$-connected, we find that the
+    homomorphism 
+    $\pi_i \left( X,A \right) \to 
+    \pi_i \left( X \cup CA, CA \right) $ induced
+    by the inclusion
+    is an isomorphism for
+    $i < r+s+1$ and a surjection for
+    $i = r+s+1$, which proves the result.
+\end{proof}
+
+
+\begin{example}[Construction of spaces
+    with a particular group as $\pi_n$]\label{Example:DJISI02}
+    Suppose $X$ is obtained from a wedge of
+    spheres $\bigvee_{\alpha} S_{\alpha}^{n}$ by
+    attaching cells $e_{\beta}^{n+1}$ via
+    basepoint-preserving maps
+    $\varphi_{\beta} \colon S^{n} \to 
+    \bigvee_{\alpha} S_{\alpha}^{n}, n\ge 2$.
+    By cellular approximation, we know that
+    $\pi_i (X) = 0$ for $i < n$, and we shall show
+    that $\pi_n(X)$ is the quotient of the free
+    abelian group
+    $\pi_n \left( \bigvee_{\alpha} S_{\alpha}^{n} \right) 
+    \cong \bigoplus_{\alpha} \mathbb{Z}$ by
+    the subgroup generated by the
+    classes $\left[ \varphi_{\alpha} \right] $.
+    Any subgroup can be realized in this way, by
+    choosing maps $\varphi_{\beta}$ to represent a 
+    set of generators for the subgroup.
+    Let 
+    $X = \left( \bigvee_{\alpha}S_{\alpha}^{n} \right) 
+    \bigcup_{\beta } e_{\beta}^{n+1}$.\\
+    Then the LES of the pair
+    $\left( X, \bigvee_{\alpha} S_{\alpha}^{n} \right) $ gives
+    \[
+    \pi_{n+1}\left( X, \bigvee_{\alpha}S_{\alpha}^{n} \right) 
+    \stackrel{\partial}{\to} \pi_n \left( \bigvee_{\alpha}
+    S_{\alpha}^{n} \right) \to 
+    \pi_n (X) \to 0.
+    \] 
+    so 
+    \[
+    \pi_n (X) \cong \pi_n \left( \bigvee_{\alpha}S_{\alpha}^{n}
+    \right) / \im \partial
+    \] 
+    The quotient
+    $X / \bigvee_{\alpha} S_{\alpha}^{n}$ is a wedge
+    of spheres $S_{\beta}^{n+1}$, so by Proposition
+    \ref{Prop:JXKDAOWJ} and Example \ref{Example:Wedge-of-Spheres},
+    the map
+     $\pi_{n+1} \left( X, \bigvee_{\alpha}S_{\alpha}^{n} \right) 
+     \to \pi_{n+1} \left( X / \bigvee_{\alpha}S_{\alpha}^{n} \right) 
+     \cong \pi_{n+1} \left( \bigvee_{\beta}
+     S_{\beta}^{n+1} \right) $ 
+     is an isomorphism, so
+     $\pi_{n+1}\left( X, \bigvee_{\alpha}S_{\alpha}^{n} \right) $ 
+     is free with basis the caracteristic
+     maps $\varphi_{\beta}$ of the cells $e_{\beta}^{n+1}$.
+     The boundary map $\partial$ takes
+     these to the classes
+     $\left[ \varphi_{\beta} \right] $, so
+     the result follows.
+
+\end{example}
+
+
+\newpage
+
+\subsubsection{Moore Spaces}
+
+\begin{definition}[Moore Space]
+    Given an abelian group $G$ and an integer $n\ge 1$,
+    a CW complex $X$ such that
+    $H_n(X) \cong G$ and $\tilde{H}_i(X) \cong 0$ for
+    $i\neq n$, then $X$ is said to be a \textit{Moore space},
+    commonly written $M(G,n)$ to indicate the
+    dependence on $G$ and $n$. It is
+    also sensible to require that $X$ be simply connected when
+    $n>1$.
+\end{definition}
+
+\begin{lemma}[Existence of Moore spaces]\label{Moore-space-existence}
+    For any abelian group $G$ and any integer $n\ge 1$,
+    we can construct a $M(G,n)$-space.
+\end{lemma}
+
+\begin{proof}
+As a simple case, when $G = \mathbb{Z} / m$, we can
+take $X$ to be $S^{n}$ with a cell $e^{n+1}$ attached
+by a map $S^{n} \to S^{n}$ of degree $m$. More
+generally, any finite generated $G$ can be realized
+by taking wedges of examples of this type for finite cyclic
+summands of $G$ together with copies of $S^{n}$ for
+infinite cyclic summands of $G$.\\
+\linebreak
+For the general nonfinitely generated case, let
+$F \to G$ be a homomorphism of a free abelian group
+$F$ onto $G$, sending a basis for $F$ onto some
+set of generators of $G$. The kernel $K$ of this
+homomorphism is a subgroup of a free abelian group, hence
+is itself free abelian. Choose
+bases $\left\{ x_{\alpha} \right\} $ for $F$ and
+$\left\{ \gamma_{\beta} \right\} $ for $K$, and
+write $y_{\beta} = \sum_{\alpha} d_{\beta \alpha} x_{\alpha}$.
+Let $X^{n} = \bigvee_{\alpha} S_{\alpha}^{n}$, so
+$H_n \left( X^{n} \right) \cong F$ . We will construct
+$X$ from $X^{n}$ by attaching cells $e_{\beta}^{n+1}$ 
+via maps $f_{\beta} \colon S^{n} \to X^{n}$ such that the
+composition of $f_{\beta}$ with the projection onto the
+summand $S_{\alpha}^{n}$ has degree $d_{\beta \alpha}$. Then
+the cellular boundary map $d_{n+1}$ will be the inclusion
+$K \hookrightarrow F$, hence $X$ will have the desired
+homotopy groups.\\
+
+We let the map $f_{\beta}$ be the
+map which maps the complement of
+$\sum_{\alpha} \left| d_{\beta \alpha} \right| $ 
+disjoint balls in $S^{n}$ to the $0$-cell of $X^{n}$ while
+sending $\left| d_{\beta \alpha} \right| $ of the
+balls onto the summand $S_{\alpha}^{n}$ by maps of degree
+$+1$ if $d_{\beta \alpha}> 0$ or degree
+$-1$ if $d_{\beta \alpha}<0$.
+By Theorem \ref{Thm:Degree-of-sum-of-maps}, we get
+that the composition of
+$f_{\beta}$ with the projection onto
+the summand $S_{\alpha}^{n}$ has degree
+$d_{\beta \alpha}$.\\
+This finishes the construction of  a $M(G,n)$ space.
+\end{proof}
+
+\begin{corollary}
+    For any abelian groups 
+    $\left\{ G_{n} \right\}_{n \in \mathbb{N} }$, we
+    can construct a space $X$ such that
+    $H_n \left( X \right) \cong G_n$ for all $n$.
+\end{corollary}
+
+\begin{proof}
+    Take the wedge of the Moore spaces $M\left( G_n,n \right) $ for
+    $n \in \mathbb{N} $.
+\end{proof}
+
+
+
+\subsubsection{Eilenberg-MacLane Spaces}
+
+\begin{definition}[Eilenberg-MacLane space, $K (G,n)$]
+    A space $X$ having just one nontrivial homotopy
+    group $\pi_n (X) \cong G$ is called
+    an \textit{Eilenberg-MacLane space} $K(G,n)$. 
+\end{definition}
+
+
+\textit{Construction of Eilenberg-MacLane Spaces:}\\
+Given arbitrary $G$ and $n$, and assuming $G$ is abelian
+if $n>1$, we can construct a CW complex
+$K(G,n)$. To begin, construct the
+CW complex $X$ from Example \ref{Example:DJISI02}. Then
+$X$ is an $(n-1) $- conneted CW complex of dimension
+$n+1$ such that $\pi_n (X) \cong G$ by construction. 
+Alternatively, given the existence of Moore spaces
+$M(G,n)$ for any $G$ and $n$, we can take a Moore space
+$M(G,n)$ and use the Hurewicz isomorphism
+to conclude that $\pi_n (X) \cong H_n(X)$.
+Hence
+we just need to fix all homotopy groups of dimension
+greater than $n$. By
+Example \ref{Postnikov-Towers}, we can
+construct a CW complex $X_n$ containing $X$ as a subcomplex
+such that
+$\pi_n (X_n) \cong \pi_n (X) \cong G$ while
+$\pi_k(X_n) \cong 0$ for all $k \neq  n$.
+
+
+\begin{example}[Constructing spaces with arbitrary
+    (abelian) homotopy groups]
+    Recall that
+    \[
+    \pi_n \left( \prod_{\alpha}X_{\alpha} \right) 
+    \cong \prod_{\alpha} \pi_n \left( X_{\alpha} \right) ,
+    \] 
+    so if we have a sequence
+    of abelian groups $\left\{ G_{n_i} \right\}_{i \in I}$, and let
+    $X_{n_i}$ denote that $K(G_{n_i}, n_{i})$ space, then
+    we find that
+    \[
+    \pi_k( \prod_{i \in I} X_{n_i})
+    \cong \prod_{i \in I} \pi_k \left( X_{n_i} \right) 
+    \cong \begin{cases}
+        G_{n_i},& k = n_{i} \text{ for some }i \in I\\
+        0,& \text{else}
+    \end{cases}
+    \] 
+\end{example}
+
+Having covered the existence of Eilenberg-MacLane spaces, we
+now find the following for uniqueness of these spaces:
+
+\begin{proposition}[Uniqueness of Eilenberg-MacLane spaces]\label{Prop:23SUIHD}
+    The homotopy type of a $CW$ complex
+    $K(G,n)$ is uniquely determined by $G$ and $n$.
+\end{proposition}
+
+The proof is based on the following
+lemma giving a condition for when homomorphisms
+between homotopy groups are induced by some
+map:
+
+\begin{lemma}[]\label{Lemma:NDWUAI288}
+    Let $X$ be a $CW$ complex of the form
+    $\left( \bigvee_{\alpha} S_{\alpha}^{n} \right) 
+    \bigcup_{\beta} e_{\beta}^{n+1}$ for some $n\ge 1$.
+    Then for every homomorphism $\psi \colon
+    \pi_n (X) \to \pi_n (Y)$ with $Y$ path-connected
+    there exists a map $f \colon X \to Y$ with
+    $f_* = \psi $.
+\end{lemma}
+
+\begin{proof}
+    The construction of $f$ is as one would expect:
+    first let $f$ send the natural basepoint of
+    $\bigvee_{\alpha} S_{\alpha}^{n}$ to a chosen
+    basepoint $y_0 \in Y$.
+    Now for every sphere $S_{\alpha}^{n}$ in $X$,
+    we extend $f$ over the sphere via a map
+    representing $\psi \left( \left[ i_{\alpha} \right]  \right) 
+    $ where $i_{\alpha}$ is the inclusion
+    $S_{\alpha}^{n} \hookrightarrow X$. This defines
+    $f$ on the $n$-skeleton of $X$ : $f \colon X^{n} \to Y$.
+    Since now $f_* \left[ i_{\alpha} \right] =
+    \psi \left[ i_{\alpha} \right] $ for all $\alpha$ and
+    the $\left[ i_{\alpha} \right] $ generate
+    $\pi_n \left( X^{n} \right) $, this
+    defines $f_*$ on all of $\pi_n(X^{n})$.
+
+    To extend $f$ over the $(n+1)$-cells, it will suffice
+    to show that $f \circ \varphi_{\beta}$ is nullhomotopic,
+    where $\varphi_{\beta} \colon S^{n} \to X^{n}$ is the
+    attaching map for the $(n+1)$-cell $e_{\beta}^{n+1}$.
+    But $f \circ \varphi_{\beta}$ is a representative
+    of $f_* \left[ \varphi_{\beta} \right] =
+    \psi \left[ \varphi_{\beta} \right] $.
+    Thus we have transformed $f_* \left[ \varphi_{\beta} \right] $ 
+    into an element in the image of
+    $\psi \colon \pi_n(X) \to \pi_n(Y)$, and
+    for this, we can use the extra structure of $X$, not just
+    $X^{n}$. In $X$, $\left[ \varphi_{\beta} \right] $ is
+    trivial via the
+    characteristic map of the cell
+    $e_{\beta}^{n+1}$, so $\psi \left[ \varphi_{\beta} \right] =
+    \psi (0) = 0$, thus indeed
+    $f \circ \varphi_{\beta}$ is nullhomotopic.
+    Thus we obtain the desired extension
+    $f \colon X \to Y$.
+    To see that $f_* = \psi $, simply note that
+    by cellular approximation, any element
+    of $\pi_n(X)$ can be represented as
+    an element in $\pi_n(X^{n})$, and on
+    $\pi_n(X^{n})$, $f_*$ agrees with $\psi $ by construction.
+\end{proof}
+
+
+\begin{proof}[Proof of Proposition \ref{Prop:23SUIHD}]
+    Let $K'$ be any $K\left( G,n \right) $ CW complex, and
+    let $K$ be the specific $K(G,n)$ CW complex constructed
+    in Example \ref{Example:DJISI02}. In particular,
+    $K$ is of the form of 
+    Lemma \ref{Lemma:NDWUAI288}. Since
+    $\pi_n(K) = \pi_n(Y)$, we can apply Lemma
+    \ref{Lemma:NDWUAI288} to obtain a map
+    $f \colon K \to K'$ inducing the identity
+    on $\pi_n$. Since all other homotopy groups
+    of $K$ and $K'$ are trivial, Whitehead's theorem now gives
+    that $f$ is a homotopy equivalence. Since
+    homotopy equivalence is an equivalence relation, this finishes
+    the proof.
+\end{proof}
+
+
+\subsection{The Hurewicz Theorem}
+
+\begin{theorem}[The Little Hurewicz Theorem]\label{Theorem:Little-Hurewicz}
+    If a space $X$ is $(n-1)$-connected, $n\ge 2$,
+    then $\tilde{H}_i (X) = 0$ for 
+    $i < n$ and $\pi_n (X) \cong
+    H_n (X)$. If a pair $(X,A)$ is $(n-1)$-connected,
+    $n \ge 2$, with $A$ simply connected
+    and nonempty, then $H_i (X,A) = 0$ for
+    $i < n$ and $\pi_n (X,A) \cong
+    H_n (X,A)$.
+\end{theorem}
+
+\begin{remark}[]
+    This result is, in a sense, the best that we can
+    expect. For example, $S^{n}$ has trivial
+    homology groups above dimension $n$ but many
+    nontrivial homotopy groups in this range
+    when $n\ge 2$; and conversely,
+    Eilenberg-MacLane spaces such as
+    $\mathbb{C}\mathbb{P}^{\infty}$ have trivial
+    higher homotopy groups but many nontrivial homology
+    groups.
+\end{remark}
+
+\begin{proof}
+    We may assume $X$ is a CW complex and $(X,A)$ is a CW
+    pair by taking $CW$ approximations to $X$ and
+    $\left( X,A \right) $. For
+    CW pairs, the relative case then reduces
+    to the absolute case since
+    $\pi_i \left( X,A \right) \cong
+    \pi_i (X / A)$ for $i\le n$ by
+    Proposition \ref{Prop:JXKDAOWJ}, while
+    $H_i(X,A) \cong \tilde{H}_I \left( X / A \right) $ 
+    as $A \hookrightarrow X$ is a cofibration of
+    a closed subspace.\\
+    In the absolute case, using Proposition 
+    \ref{Prop:Removing-lower-dim-cells}, we
+    can replace $X$ by a homotopy equivalence
+    CW complex with  $(n-1)$-skeleton a point, hence
+    $\tilde{H}_i(X) = 0$ for
+    $i < n$. To show that
+    $\pi_n (X) = H_n(X)$, we can take the
+    Postnikov truncation $X_{n+1} = \tau_{\le n+1} X$, obtained
+    by throwing away all cells of dimension $> n+1$ from
+    $X$. Then $X$ has the form
+    $\left( \bigvee_{\alpha}S_{\alpha}^{n} \right) \cup_{\beta}
+    e_{\beta}^{n+1}$. We may assume that the
+    attaching maps $\varphi_{\beta}$ of the
+    cells $e_{\beta}^{n+1}$ are basepoint-preserving (we
+    can do this since we used Proposition 
+    \ref{Prop:Removing-lower-dim-cells} which used
+    Proposition \ref{Prop:CW-Approximation} and its
+    proof, and in this proof, we could choose
+    the cells to be basepoint-preserving.)
+    But now by Example \ref{Example:DJISI02}, we get
+    that 
+    $\pi_n(X) = \coker \left( 
+    \pi_{n+1}(X,X^{n}) \to 
+\pi_n \left( X^{n} \right) \right) $ which is the cokernel
+of a map $\bigoplus_{\beta} \mathbb{Z} \to 
+\bigoplus_{\alpha} \mathbb{Z}$.
+We claim that this is the
+same as the cellular boundary map
+$d \colon \tilde{H}_{n+1}\left( X^{n+1} / X^{n} \right) 
+\cong H_{n+1}\left( X^{n+1}, X^{n} \right) \to 
+H_{n}\left( X^{n}, X^{n-1} \right)\cong 
+\tilde{H}_n \left( X^{n} / X^{n-1} \right) $.
+For a cell $e_{\beta}^{n+1}$, the coefficients
+of $d \left( e_{\beta}^{n+1} \right) $ are
+precisely the degrees of the compositions
+$q_{\alpha} \varphi_{\beta}$ where
+$q_{\alpha}$ collapses all $n$-cells except
+$e_{\alpha}^{n}$ to a point.
+Similarly, since the isomorphism
+$\pi_n \left( S^{n} \right) \cong \mathbb{Z}$ is
+obtained by the degree map, and
+the map $\pi_{n+1}\left( X / X^{n} \right) 
+\cong \pi_{n+1}\left( X , X^{n} \right) \stackrel{\partial}{\to} 
+\pi_n \left( X^{n} \right) $ sends
+the $(n+1)$-cell $e_{\beta}^{n+1}$ to
+$\deg \varphi_{\beta}^{n}$ also (the degree of the attaching
+map), by construction. Hence the maps
+are the same, so 
+$\pi_n (X) \cong \coker \left( 
+\pi_{n+1}\left( X,X^{n} \right) \to 
+\pi_n \left( X^{n} \right) \right) \cong
+\coker d = H_n (X)$ where the last equality holds since
+there are no $(n-1)$-cells.
+
+
+\end{proof}
+
+
+\begin{corollary}[Homology version of Whitehead's Theorem]
+    A map $f \colon X \to Y$ between simply-connected
+    CW complexes is a homotopy equivalence if
+    $f_* \colon H_n (X) \to H_n(Y)$ is an isomorphism
+    for each $n$.
+\end{corollary}
+
+\begin{proof}
+    By replacing $Y$ with the mapping cylinder $M_f$, we
+    may assume $f$ is the inclusion $X \hookrightarrow Y$.
+    Since $X$ and $Y$ are simply-connected,
+    $\pi_1 \left( Y,X \right) = 0$. The relative Hurewicz
+    theorem says that the first nonzero $\pi_n(Y,X)$ is isomorphic
+    to the first nonzero $H_n(Y,X)$, but by the LES
+    of the pair $(Y,X)$ in homology,
+    $H_n(Y,X) \cong 0$ for all $n\ge 0$, so
+    also $\pi_n(Y,X) \cong 0$ for all $n\ge 0$, so
+     $f$ induces isomorphisms
+     $\pi_n(X) \to \pi_n(Y)$ for all $n$. By
+     Whitehead's theorem, $f$ is a homotopy equivalence.
+\end{proof}
+
+\begin{lemma}[Uniqueness of Moore Spaces]
+    The homotopy type of a CW complex Moore 
+    space $M(G,n)$ is uniquely determined by $G$ and
+    $n$ if $n>1$, so $M(G,n)$ is simply-connected.
+\end{lemma}
+
+\begin{proof}
+    Let $Y$ be any $M(G,n)$ space and $X $ be the Moore
+    space constructed in Lemma \ref{Moore-space-existence}.
+    By Hurewicz,
+    $G \cong H_n(X) \cong \pi_n(X)$ and
+    similarly for $Y$.\\
+    Since $X$ is a CW complex of the
+    form $\left( \bigvee_{\alpha}S_{\alpha}^{n} \right) 
+    \cup_{\beta} e_{\beta}^{n+1}$, it
+    follows from Lemma \ref{Lemma:NDWUAI288} that
+    there exists a map $f \colon X \to Y$ 
+    inducing the identity on homotopy groups.
+    We would like to be able to conclude that this
+    map then also induces the identity on
+    homology, or just an isomorphism, however,
+    this requires the stronger Hurewicz theorem.
+    Instead, we can fix this problem differently:
+    there is an induced map
+    $\tilde{f}  \colon X
+    \to M_f$, and we have
+    that this induces an isomorphism on homotopy groups
+    in degrees $\le n$, so
+    $\left( M_f, X \right) $ is $n$-connected.
+    Since $X$ is simply connected, the Little Hurewicz Theorem
+    further gives us that
+    $H_{n+1} \left( M_f, X \right) \cong
+    \pi_{n+1} \left( M_f, X \right) $, so
+    if $\left( M_f, X \right) $ is furthermore
+    $(n+1)$-connected, then we would find that
+    $f$ also also induces an isomorphism on
+    $H_n$ by the LES.
+    So see this, we can first attach
+    $(n+2)$-cells to $Y$ so that
+    $\pi_{n+1}(Y) = 0$. With this $Y$,
+    $\left( M_f,X \right) $ becomes $(n+1)$-connected, so
+    for the enlarged $Y$, $f$ induces an
+    isomorphism on $H_n$, and
+    now we can note that
+    adding $(n+2)$-cells to $Y$ did not affect
+    the homology of $Y$ in degree $n$, so
+    $f$ induced an isomorphism to begin with.
+\end{proof}
+
+
+\begin{definition}[Hurewicz map]
+    Thinking of $\pi_n \left( X,A,x_0 \right) $ for
+    $n>0$ as
+    $\left[ D^{n},\partial D^{n}, s_0 ; X,A,x_0 \right] $, the
+    \textit{Hurewicz map} $h \colon
+    \pi_n \left( X,A,x_0 \right) \to 
+    H_n (X,A)$ is defined by
+    $h \left( \left[ f \right]  \right) 
+    = f_* \left( \alpha \right) $ where
+    $\alpha$ is a fixed generator
+    of $H_n \left( D^{n}, \partial D^{n} \right) \cong
+    \mathbb{Z}$, and
+    $f_* \colon H_n \left( D^{n},\partial D^{n} \right) 
+    \to H_n (X,A)$ is induced by $f$.
+\end{definition}
+
+If we have a homotopy
+    $f \simeq g$ through maps $\left( D^{n},
+    \partial D^{n}, s_0\right) \to \left( X,A,x_0 \right) $,
+    through maps
+    $\left( D^{n},\partial D^{n}, s_0 \right) 
+    \to \left( X,A,x_0 \right) $ or even
+    through maps $\left( D^{n},\partial D^{n} \right) \to 
+    \left( X,A \right) $, we have
+    $f_* = g_*$, so $h$ is well-defined.
+
+    \begin{proposition}[]
+        The Hurewicz maps $h \colon 
+        \pi_n \left( X,A,x_0 \right) \to 
+        H_n (X,A)$  is a homomorphism, assuming
+        $n>1$ so that $\pi_n \left( X,A,x_0 \right) $ is a group.
+    \end{proposition}
+
+
+
+

@@ -61,7 +61,7 @@
 
 \subsubsection{Problems}
 
-    \begin{problem}[]
+\begin{problem}[]\label{pset1-degree}
         Fix an isomorphism $H_n\left( S^{n} \right) \cong \mathbb{Z}$.
         We define the degree $\deg f$ of a map
         $f \colon S^{n} \to S^{n}$ to be the integer such that
@@ -230,7 +230,7 @@
         $E_j$ and maps the complement of $E_j$ to the basepoint
         $y_0$.
 
-        \begin{theorem}[]
+        \begin{theorem}[]\label{Thm:Degree-of-sum-of-maps}
             In the above situation, $f_*
             = \sum_{j=1}^{k} f_{j*} \colon
             H_n\left( S^{n} \right) \to H_n(Y)$.
@@ -404,6 +404,13 @@
         hint says we are allowed to assume since
         $X$ is path connected. So we are done.
     \end{proof}
+
+    \begin{definition}[n-connected maps]
+        A map $f \colon X \to Y$ is called \textit{n-connected}
+        if it induces isomorphisms on all homotopy
+        groups in degree $<n$ and an epimorphism
+        in degree $n$.
+    \end{definition}
 
 
 

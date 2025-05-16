@@ -1,0 +1,683 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+%\usepackage[backend=biber]{biblatex}
+%\addbibresource{.bib}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\SHomeo}{SHomeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Teich}{Teich}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\corank}{corank}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Bun}{Bun}
+\DeclareMathOperator{\Sm}{Sm}
+\DeclareMathOperator{\Fr}{Fr}
+\DeclareMathOperator{\Cob}{Cob}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\MCG}{{\mathrm{MCG}}}
+\newcommand{\PMCG}{{\mathrm{PMCG}}}
+\newcommand{\SMCG}{{\mathrm{SMCG}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+
+
+
+
+\begin{document}
+
+\subsubsection{Exercises}
+
+\begin{exercise}[]
+    Let $p \colon E \to B$ be a Serre (resp. Hurewicz) fibration.
+    Given any map of spaces $f \colon B' \to B$, show that
+    the projection $f^{*}E \to B'$ is a Serre (resp. Hurewicz)
+    fibration, where
+     \[
+     f^{*}(E) = B' \times_B E
+     = \left\{ \left( b', e \right)  \mid 
+     f(b') = p(e) \right\} 
+     \] 
+     is the pullback along $f$.
+\end{exercise}
+
+\begin{proof}
+    Consider the solid part of the diagram
+    \begin{equation*}
+    \begin{tikzcd}
+        X \times \left\{ 0 \right\} \ar[d] \ar[r] 
+        \ar[rr, bend left] & f^{*}E \ar[d] \ar[r] & E 
+        \ar[d, "p"]\\
+        X \times I \ar[r] \ar[rr, bend right]
+        \ar[rru, dashed] \ar[ru, dashed]&
+        B' \ar[r] & B
+    \end{tikzcd}
+    \end{equation*}
+    In the case where $p$ is a Hurewicz fibration,
+    $X$ can be any space, while when $p$ is a Serre
+    fibration, it represents any disk $D^{n}$.\\
+    We then obtain the first dashed
+    arrow $X \times I \to E$ because
+    $E \stackrel{p}{\to} B$ is a Hurewicz/Serre fibration.
+    But then we have maps
+    $X \times I \to B'$ and
+    $X \times I \to E$, so by the universal property
+    of the pullback, this induces a unique map
+    $X \times I \to f^{*} E$ in $\Top$.
+\end{proof}
+
+\begin{exercise}[]
+    Let $G$ be a topological group and $H$ a subgroup,
+    and let $G / H$ have the quotient topology from
+    the projection $p \colon G \to G / H$ (here
+    $G / H$ is the space of cosets, not the space obtained
+    by collapsing $H$ to a point).
+    Assume that there exists a nonempty open set
+    $U \subset G / H$ such that 
+    $p \colon p^{-1}(U) \to U$ admits
+    a section $s \colon U \to p^{-1}(U)$. Prove that
+    $G \to G / H$ is a fiber bundle. Deduce that
+    it is a fibration.
+\end{exercise}
+
+\begin{proof}
+    By assumption, $p \circ s = \id_U$. 
+    Now, picking some $x_0 \in p^{-1}(U)$, the set
+    $V:= x_0^{-1} \cdot p^{-1}(U)$ is a neighborhood
+    of the identity $e \in G$.
+    Let $y \in G / H$, and pick a
+    $y_0 \in p^{-1}(y)$. Then
+    $y_0 \cdot V$ is a neighborhood of $y_0$, hence
+    $p(y_0 \cdot V)$ is a neighborhood of $y$ (it is open
+    since $V$ was saturated with respect to $p$ by construciton
+    and multiplication by $y_0$ is a homeomorphism of $G$, so
+    saturated sets remain saturated).
+    Defining
+    $s' \colon p(y_0\cdot V) \to 
+    y_0 \cdot V $ by
+    $s'(\overline{x}) = s \circ p \left( y_0^{-1} \cdot 
+    p^{-1}(\overline{x}) \right)  $.
+    If $\overline{x} = \overline{z}$, then
+    $z^{-1} \cdot x \in H$, so
+    $\left( y_0^{-1} \cdot z \right)^{-1} \cdot 
+    \left( y_0^{-1} \cdot x \right) \in H$, hence
+    $s'\left( \overline{x} \right) 
+    = s'\left( \overline{z} \right)$.
+    We claim that $s'$ is then also a section
+    of $p |_{y_0 V} \colon y_0\cdot 
+    V \to p\left( y_0 \cdot V \right) $.
+    To see this, we have
+    \[
+    p \circ s' = 
+    p \circ s \circ p \circ \left( y_0^{-1} \cdot - \right) 
+    \circ p^{-1}
+    = p \circ \left( y_0^{-1} \cdot - \right) \circ
+    p^{-1}
+    \] 
+    Now if $\overline{x} = \overline{z}$ then
+    again  $z^{-1}\cdot  x \in H$, so
+    $\left( y_0^{-1} \cdot z \right)^{-1} \cdot 
+    \left( y_0^{-1} \cdot x \right) \in H$, from which
+    the claim follows.\\
+
+    We claim that
+    $p^{-1}(U)$ admits a trivialization
+    $H \times U \cong p^{-1}(U)$ via the map
+    $k \colon 
+    \left( h,u \right) \mapsto h \cdot s(u)$. Firstly, this
+    is in $p^{-1}(U)$ since
+    $p\left( h\cdot s(u) \right) = 
+    p\left( s (u) \right) = u \in U$. It is also continuous
+    and injective
+    as the composition
+    $H \times U \stackrel{\id \times s}{\to} 
+    H \times p^{-1}(U) \stackrel{\text{prod}}{\to} 
+    p^{-1}(U)$.
+
+    Furthermore, if
+    $h\cdot v = h' \cdot v$ for some
+    $v \in p^{-1}(U)$, then
+    $h = h \cdot v \cdot v^{-1} = 
+    h' \cdot v \cdot v^{-1} = h'$, so
+    the action of $H$ on $U$ is free.
+
+    Suppose
+    $h \cdot s(U) \cap
+    h' \cdot s(U) \neq \varnothing$, so for
+    some $u,u' \in U$,
+    $h\cdot s(u) = h' \cdot s(u')$. But then
+    $u = p \left( h \cdot s(u) \right) =
+    p\left( h' \cdot s(u') \right) 
+    = u'$, and so
+    $h = h \cdot s(u) \cdot s(u)^{-1} =
+    h' \cdot s(u) \cdot s(u)^{-1} = h'$.
+    Hence
+    $p^{-1}(U) = 
+    \sqcup_{h \in H} h\cdot s(U)$. Now define
+    $r \colon p^{-1}(U) \to H \times U$ by
+    $r (u) = \left( \sum_{h \in H}
+    h \cdot \delta_{u \in h\cdot s(U)}, p(u) \right) $.
+    Then
+    \[
+    r \circ k(h,u) =
+    r \left( h \cdot s(u) \right) 
+    = \left( h, u \right) 
+    \] 
+    and
+    \[
+    k \circ r \left( x \right) 
+    = k \left( h,u \right) 
+    = x
+    \] 
+    since $(h,u)$ are by definition such that
+    $p(x) = u$ and
+    $x \in h \cdot s(U)$, so we
+    must have $x = h\cdot s (u)$. Thus
+    $k (h,u) = h \cdot s(u) = x$. 
+    So $r$ is an inverse function to $k$. It remains to show
+    that it is continuous. The
+    coordinate $p(u)$ is continuous, so
+    we must show that
+    $r_1 \colon u \mapsto \sum_{h \in H} h \cdot \delta_{u \in 
+    h \cdot s(U)}$ is continuous. For this,
+    note that for an open set
+    $W \subset H$, $r_1^{-1} (W)
+    = \bigcup_{h \in W} h\cdot s(U)$. Now,
+    since $p \left( h \cdot s(u) \right) =
+    p(s(u)) = u $, so
+    $r_1^{-1}(W) \subset p^{-1}(U)$, and
+    conversely, for any
+    $x \in p^{-1}(U)$, there is an $h\in H$ such that
+    $x \in h \cdot s(U)$, so
+    $p^{-1}(U) \subset \bigcup_{h \in W}  h\cdot s(U)$.
+    Hence $r_1^{-1}(W) = p^{-1}(U)$ which is open.
+    
+    This completes the proof that
+    $G \to G /H$ is a fiber bundle.
+
+    Since any fiber bundle is a fibration, the last part follows
+    directly.
+
+
+\end{proof}
+
+
+\begin{exercise}[]
+    Recall that $S^3 \subset \mathbb{R}^{4} \cong
+    \mathbb{H} $ is a topological group, with
+    $S^{1} \subset \mathbb{C} \subset \mathbb{H}$ as a topological
+    subgroup.
+    Recall that
+    \[
+    \mathbb{H} = \left\{ 
+    a + bi + cj + dk  \mid a,b,c,d \in \mathbb{R} \right\} .
+    \] 
+    so $S^{3} \subset \mathbb{H}$ here
+    is considered as the group whose
+    elements are elements in $\mathbb{H}$ with
+    norm $1$, and
+    $S^{1} \subset S^3$ as the subgroup
+    \[
+    \left\{ a+bi  \mid  a^2+ b^2 = 1 \right\} .
+    \] 
+    \begin{enumerate}
+        \item Prove (using the previous exercise)
+            that $S^3 \to S^3 / S^{1}$ is a fiber bundle
+            with fiber $S^{1}$, and therefore a fiber bundle.
+        \item Prove that $S^3 / S^{1} \cong S^2$. The
+            fiber sequence $S^{1} \to S^3 \to S^2$ is
+            called the \textit{Hopf} fibration.
+        \item Use the LES associated to this fibration
+            to compute $\pi_3 (S^2)$.
+        \item Show that $S^3 \times K(\mathbb{Z},2)$ and
+            $S^2$ have isomorphic homotopy groups. Are
+            they homotopy equivalent?
+    \end{enumerate}
+\end{exercise}
+
+
+
+\begin{proof}
+    (1) Let
+    $S_+^{3}$ denote the open upper hemisphere.
+    Then if $p \colon S^3 \to S^3 / S^{1}$ is the quotient map,
+    $S^3 / S^{1}$ looks 
+\end{proof}
+
+
+
+
+\newpage
+
+\subsubsection{Problems}
+
+
+    \begin{problem}[]
+        Suppose $p \colon E \to B$ is a Serre
+        fibration and $f \colon X \to B$ is
+        $n$-connected. Prove that the projection
+        $E \times_B X \to E$ is also $n$-connected.
+    \end{problem}
+
+    \begin{proof}
+        We are given the following commutative diagram
+        \begin{equation*}
+        \begin{tikzcd}
+            E \times_B X \ar[r] \ar[d] & E \ar[d, "p"] \\
+            X \ar[r, "f"'] & B
+        \end{tikzcd}
+        \end{equation*}
+        Firstly, by Exercise 1 on Problem set 4, 
+        the map
+        $E \times_B X \to X$ is also a
+        Serre fibration.\\
+        Secondly, by assumption in the conventions section
+        for problem set 4, all spaces
+        are assumed to be locally path-connected and connected,
+        hence all spaces are path-connected. In 
+        particular, both $X$ and $B$ are assumed to be
+        path-connected, so
+        by Theorem 4.41 in Hatcher, we have a LES
+        \[
+        \ldots \to 
+        \pi_k (F',y_0) \to 
+        \pi_k(E \times_B X, y_0) 
+        \stackrel{(\pi_X)_*}{\to} \pi_k (X,x_0)
+        \to \pi_{k-1}(F',y_0) \to \ldots \to 
+        \pi_0 \left( E \times_B X, y_0 \right)  \to 0
+        \] 
+        where
+        $F' = \left( \pi_X \right)^{-1}(x_0)$ for
+        some $x_0 \in X$
+        and $y_0 \in F'$.
+        Now,
+        \[
+        F' = 
+        \left( \pi_X \right)^{-1}(x_0)
+        = \left\{ \left( e,x_0 \right)  \mid 
+        f(x_0) = p(e)  \right\} 
+        \xrightarrow[\cong]{\pi_E}  p^{-1}\left( f(x_0) \right) =: 
+        F
+        \] 
+        where we choose $F$ to be
+        the fiber of $p \colon E \to B$ (when repeating
+        Theorem 4.41 for this fibration), and
+        we choose 
+        $e_0 \in F$ to be
+        $\pi_E (y_0)$.
+        With these choices of fibers and basepoints, we
+        obtain that the map
+        $\pi_E|_{F'} \colon F' \to F$ is a homeomorphism
+        (it has the inverse
+        $e \mapsto (e, x_0)$ )
+        by construction, so the following
+        diagram commutes:
+
+        \begin{equation*}\tag{$\Omega$}\label{Omega}
+        \begin{tikzcd}
+            (F',y_0) \ar[r, "\cong"] \ar[d, hookrightarrow]
+            & (F,e_0) \ar[d, hookrightarrow] \\
+            (E \times_B X, y_0) \ar[d, "\pi_X"] \ar[r, "\pi_E"]
+            & (E,e_0) \ar[d, "p"] \\
+            (X,x_0) \ar[r, "f"] & (B,f(x_0))
+        \end{tikzcd}
+        \end{equation*}
+        
+
+
+        With these choices of basepoints,
+        Theorem 4.41 gives the following long exact sequences
+        (the solid part of the diagram)
+        \begin{equation*}\tag{$\Gamma$}\label{Gamma}
+        \begin{tikzcd}
+            \pi_{k+2}(X,x_0) \ar[d, dashed]
+            \ar[r] & \pi_{k+1}(F',y_0) \ar[r] \ar[d, dashed] & 
+            \pi_{k+1}(E \times_B X, y_0) \ar[r, "(\pi_X)_*"] 
+            \ar[d, dashed] &
+            \pi_{k+1}(X,x_0) \ar[r] \ar[d, dashed] & 
+            \pi_k (F',y_0) \ar[d, dashed] \\
+            \pi_{k+2}(B, f(x_0) \ar[r] & \pi_{k+1}(F, e_0) \ar[r] & 
+            \pi_{k+1}(E,e_0) \ar[r, "p_*"] &
+            \pi_{k+1}(B,f(x_0)) \ar[r] &
+            \pi_{k}(F,e_0)
+        \end{tikzcd}
+        \end{equation*}
+
+        Now, applying $\pi_{k+1}$ to 
+        \eqref{Omega}, i.e., using functoriality of
+        $\pi_{k+1}$ on pointed topological spaces,
+        we find that for
+        $k+1 \ge 1$, we have
+
+        
+        \begin{equation*}\tag{$\zeta$}\label{zeta}
+        \begin{tikzcd}
+            \pi_{k+1}(F', y_0) \ar[r, "\cong"] \ar[d]
+            & \pi_{k+1}(F,e_0) \ar[d] \\
+            \pi_{k+1}(E \times_B X, y_0)
+            \ar[d, "(\pi_X)_*"] \ar[r, "(\pi_E)_*"]
+            & \pi_{k+1}(E,e_0) \ar[d, "p_*"] \\
+            \pi_{k+1}(X,x_0) \ar[r, "f_*", "\cong"']
+            & \pi_{k+1}(B,f(x_0))
+        \end{tikzcd}
+        \end{equation*}
+        commutes (since functoriality of $\pi_{k+1}$ implies
+        that compositions are preserved) - where
+        also $f_*$ is an isomorphism for
+        $k < n-1$ and surjective for
+        $k = n-1$.\\
+        We now claim that
+        \begin{equation*}
+        \begin{tikzcd}
+            \pi_{k+1}(X,x_0) \ar[r] \ar[d, "f_*"] &
+            \pi_k (F',y_0) \ar[d, "(\pi_E|_{F'})_*",
+            "\cong"']\\
+            \pi_{k+1}(B,f(x_0)) \ar[r] & 
+            \pi_{k}(F,e_0)
+        \end{tikzcd}
+        \end{equation*}
+        commutes.
+        Consider the following diagram:
+
+        \begin{equation*}
+        \begin{tikzcd}
+            \pi_{k+1}(E \times_B X, F') \ar[r, "(\pi_X)_*",
+            "\cong"']
+            \ar[rr, bend left, "\partial"] 
+            \ar[d, "(\pi_E)_*"]& 
+            \pi_{k+1}(X,x_0) \ar[r] \ar[d, "f_*"]&
+            \pi_k(F',y_0) \ar[d, "(\pi_E|_{F'})_*"] \\
+            \pi_{k+1}(E, F) \ar[r, "p_*", "\cong"']
+            \ar[rr, bend right,
+            "\partial"] &
+            \pi_{k+1}(B, f(x_0)) \ar[r] &
+            \pi_k (F,e_0)
+        \end{tikzcd}
+        \end{equation*}
+        The outer triangle commutes by construction:
+        since for $g \colon
+        \left( D^{n+1}, S^{n}, s_0 \right) 
+        \to \left( E \times_B X, F', y_0 \right) $,
+        we get
+        \[
+          \partial \circ
+          \left( \pi_E \right)_*
+          \left( \left[ g \right]  \right) 
+          =\partial \left[ \pi_E \circ g \right] 
+        = \left[ \left( \pi_E \circ g \right)|_{S^{n}} \right] 
+        = \left[ \pi_E|_{F'} \circ g|_{S^{n}} \right]
+        = \left( \pi_E|_{F'} \right)_*
+        \left( \left[ g|_{S^{n}} \right]  \right) 
+        = \left( \pi_E|_{F'} \right)_*
+    \circ \partial \left( \left[ g \right]  \right).
+\]
+Also, the left hand square commutes for $k+1\ge 1$, since
+this is what we obtained from \eqref{zeta}.
+From this, we can conclude that the right hand square
+also commutes for $k+1\ge 1$, i.e., for $k\ge 0$.
+Explicitly, if we let
+$k$ be the map
+$\pi_{k+1}(X,x_0) \to \pi_{k}(F',y_0)$ and
+$l$ the map
+$\pi_{k+1}(B,f(x_0)) \to \pi_k (F,e_0)$, then we
+get
+\begin{align*}
+    (\pi_E|_{F'})_* \circ j
+    &= (\pi_E|_{F'})_* \circ \partial \circ
+    \left( \pi_X \right)_*^{-1}\\
+    &= \partial \circ (\pi_E)_* \circ (\pi_X)_*^{-1}\\
+    &= \partial \circ p_*^{-1} \circ f_*\\
+    &= l \circ f_*
+\end{align*}
+giving commutativity.\\
+        
+
+        Therefore, we can fill in the dashed arrows
+        in diagram \eqref{Gamma}, giving that the
+        following diagram commutes
+        for $0\le k < n-1$.
+
+        \begin{equation*}
+            \begin{tikzcd}
+                \pi_{k+2}(X,x_0) \ar[d, "f_*", twoheadrightarrow]
+                \ar[r] & \pi_{k+1}(F',y_0) \ar[r] \ar[d,
+            "\cong", "(\pi_E|_{F'})_*"'] & 
+            \pi_{k+1}(E \times_B X, y_0) \ar[r, "(\pi_X)_*"] 
+            \ar[d, "(\pi_E)_*"] &
+            \pi_{k+1}(X,x_0) \ar[r] \ar[d, "f_*"',
+            "\cong"] & 
+            \pi_k (F',y_0) \ar[d, "\cong"] \\
+            \pi_{k+2} (B, f(x_0)) \ar[r] & \pi_{k+1}(F, e_0) \ar[r] & 
+            \pi_{k+1}(E,e_0) \ar[r, "p_*"] &
+            \pi_{k+1}(B,f(x_0)) \ar[r] &
+            \pi_{k}(F,e_0)
+        \end{tikzcd}
+        \end{equation*}
+
+        By the $5$-lemma, we
+        obtain that
+        $\left( \pi_E \right)_* \colon
+        \pi_{k+1}(E \times_B X, y_0)
+        \to \pi_{k+1}(E,e_0)$ is an isomorphism
+        for $1 \le k+1 \le n-1$.
+        Note that this also works
+        for $1 = k+1$ despite $\pi_0$ not being
+        a group (one can simply trace through the
+        arguments in the proof of the $5$-lemma and
+        see that it still works).
+
+
+
+        It remains to show that it
+        is an isomorphism on $\pi_0$ and
+        surjective on $\pi_n$.
+        Surjectivity on $\pi_n$ 
+        immediately follows by applying the
+        $4$-lemma to the following diagram:
+        
+        \begin{equation*}
+            \begin{tikzcd}
+               \pi_{n}(F',y_0) \ar[r] \ar[d,
+            "\cong", "(\pi_E|_{F'})_*"'] & 
+            \pi_{n}(E \times_B X, y_0) \ar[r, "(\pi_X)_*"] 
+            \ar[d, "(\pi_E)_*"] &
+            \pi_{n}(X,x_0) \ar[r] \ar[d, "f_*"',
+            "\cong"] & 
+            \pi_{n-1} (F',y_0) \ar[d, "\cong"] \\
+            \pi_{n}(F, e_0) \ar[r] & 
+            \pi_{n}(E,e_0) \ar[r, "p_*"] &
+            \pi_{n}(B,f(x_0)) \ar[r] &
+            \pi_{n-1}(F,e_0)
+        \end{tikzcd}
+        \end{equation*}
+
+        For the isomorphism on
+        $\pi_0$, note that we have
+        assumed that $E$ is path-connected, so it
+        suffices to show
+        that $E \times_B X$ is also path-connected.
+        Define a map $s \colon
+        \left( E,e_0 \right) \to 
+        \left( E \times_B X, y_0 \right) $ by
+        $s(e) = (e,y_0)$
+         
+
+
+
+
+
+
+
+
+
+        
+    \end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    %\printbibliography
+\end{document}

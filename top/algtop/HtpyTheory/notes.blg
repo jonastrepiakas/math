@@ -1,17 +1,17 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
 [0] Config.pm:310> INFO - Logfile is 'notes.blg'
-[75] biber:340> INFO - === Sun May 11, 2025, 01:21:37
-[87] Biber.pm:419> INFO - Reading 'notes.bcf'
-[137] Biber.pm:979> INFO - Found 3 citekeys in bib section 0
-[147] Biber.pm:4419> INFO - Processing section 0
-[155] Biber.pm:4610> INFO - Looking for bibtex file 'notes.bib' for section 0
-[156] bibtex.pm:1713> INFO - LaTeX decoding ...
-[159] bibtex.pm:1519> INFO - Found BibTeX data source 'notes.bib'
-[202] UCollate.pm:68> INFO - Overriding locale 'nil' defaults 'variable = shifted' with 'variable = non-ignorable'
-[202] UCollate.pm:68> INFO - Overriding locale 'nil' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[202] Biber.pm:4239> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'nil'
-[202] Biber.pm:4245> INFO - No sort tailoring available for locale 'nil'
-[208] bbl.pm:660> INFO - Writing 'notes.bbl' with encoding 'UTF-8'
-[209] bbl.pm:763> INFO - Output to notes.bbl
-[210] Biber.pm:131> WARN - ISBN '0-521-79160-X; 0-521-79540-0' in entry 'Hatcher' is invalid - run biber with '--validate_datamodel' for details.
-[210] Biber.pm:133> INFO - WARNINGS: 1
+[77] biber:340> INFO - === Thu May 15, 2025, 23:41:50
+[91] Biber.pm:419> INFO - Reading 'notes.bcf'
+[145] Biber.pm:979> INFO - Found 3 citekeys in bib section 0
+[155] Biber.pm:4419> INFO - Processing section 0
+[164] Biber.pm:4610> INFO - Looking for bibtex file 'notes.bib' for section 0
+[165] bibtex.pm:1713> INFO - LaTeX decoding ...
+[168] bibtex.pm:1519> INFO - Found BibTeX data source 'notes.bib'
+[215] UCollate.pm:68> INFO - Overriding locale 'nil' defaults 'variable = shifted' with 'variable = non-ignorable'
+[215] UCollate.pm:68> INFO - Overriding locale 'nil' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[216] Biber.pm:4239> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'nil'
+[216] Biber.pm:4245> INFO - No sort tailoring available for locale 'nil'
+[222] bbl.pm:660> INFO - Writing 'notes.bbl' with encoding 'UTF-8'
+[223] bbl.pm:763> INFO - Output to notes.bbl
+[223] Biber.pm:131> WARN - ISBN '0-521-79160-X; 0-521-79540-0' in entry 'Hatcher' is invalid - run biber with '--validate_datamodel' for details.
+[223] Biber.pm:133> INFO - WARNINGS: 1

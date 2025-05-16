@@ -1,157 +1,3 @@
-\documentclass[reqno]{amsart}
-\usepackage{amscd, amssymb, amsmath, amsthm}
-\usepackage{graphicx}
-\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{textcomp}
-\usepackage{babel}
-%% for identity function 1:
-\usepackage{bbm}
-%%For category theory diagrams:
-\usepackage{tikz-cd}
-
-%\usepackage[backend=biber]{biblatex}
-%\addbibresource{.bib}
-
-
-\setlength\parindent{0pt}
-
-\pdfsuppresswarningpagegroup=1
-
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{conjecture}[theorem]{Conjecture}
-
-\theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{example}[theorem]{Example}
-\newtheorem{exercise}[theorem]{Exercise}
-\newtheorem{problem}[theorem]{Problem}
-\newtheorem{question}[theorem]{Question}
-
-\theoremstyle{remark}
-\newtheorem*{remark}{Remark}
-\newtheorem*{note}{Note}
-\newtheorem*{solution}{Solution}
-
-
-
-%Inequalities
-\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
-\newcommand{\symsum}{\sum_{\mathrm{sym}}}
-\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
-\newcommand{\symprod}{\prod_{\mathrm{sym}}}
-
-%Linear Algebra
-
-\DeclareMathOperator{\Span}{span}
-\DeclareMathOperator{\im}{im}
-\DeclareMathOperator{\diag}{diag}
-\DeclareMathOperator{\Ker}{Ker}
-\DeclareMathOperator{\ob}{ob}
-\DeclareMathOperator{\Hom}{Hom}
-\DeclareMathOperator{\Mor}{Mor}
-\DeclareMathOperator{\sk}{sk}
-\DeclareMathOperator{\Vect}{Vect}
-\DeclareMathOperator{\Set}{Set}
-\DeclareMathOperator{\Group}{Group}
-\DeclareMathOperator{\Ring}{Ring}
-\DeclareMathOperator{\Ab}{Ab}
-\DeclareMathOperator{\Top}{Top}
-\DeclareMathOperator{\hTop}{hTop}
-\DeclareMathOperator{\Htpy}{Htpy}
-\DeclareMathOperator{\Cat}{Cat}
-\DeclareMathOperator{\CAT}{CAT}
-\DeclareMathOperator{\Cone}{Cone}
-\DeclareMathOperator{\dom}{dom}
-\DeclareMathOperator{\cod}{cod}
-\DeclareMathOperator{\Aut}{Aut}
-\DeclareMathOperator{\Mat}{Mat}
-\DeclareMathOperator{\Fin}{Fin}
-\DeclareMathOperator{\rel}{rel}
-\DeclareMathOperator{\Int}{Int}
-\DeclareMathOperator{\sgn}{sgn}
-\DeclareMathOperator{\Homeo}{Homeo}
-\DeclareMathOperator{\SHomeo}{SHomeo}
-\DeclareMathOperator{\PSL}{PSL}
-\DeclareMathOperator{\Bil}{Bil}
-\DeclareMathOperator{\Sym}{Sym}
-\DeclareMathOperator{\Skew}{Skew}
-\DeclareMathOperator{\Alt}{Alt}
-\DeclareMathOperator{\Quad}{Quad}
-\DeclareMathOperator{\Sin}{Sin}
-\DeclareMathOperator{\Supp}{Supp}
-\DeclareMathOperator{\Char}{char}
-\DeclareMathOperator{\Teich}{Teich}
-\DeclareMathOperator{\GL}{GL}
-\DeclareMathOperator{\tr}{tr}
-\DeclareMathOperator{\codim}{codim}
-\DeclareMathOperator{\coker}{coker}
-\DeclareMathOperator{\corank}{corank}
-\DeclareMathOperator{\rank}{rank}
-\DeclareMathOperator{\Diff}{Diff}
-\DeclareMathOperator{\Bun}{Bun}
-\DeclareMathOperator{\Sm}{Sm}
-\DeclareMathOperator{\Fr}{Fr}
-\DeclareMathOperator{\Cob}{Cob}
-\DeclareMathOperator{\Ext}{Ext}
-\DeclareMathOperator{\Tor}{Tor}
-
-
-
-%Row operations
-\newcommand{\elem}[1]{% elementary operations
-\xrightarrow{\substack{#1}}%
-}
-
-\newcommand{\lelem}[1]{% elementary operations (left alignment)
-\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
-}
-
-%SS
-\DeclareMathOperator{\supp}{supp}
-\DeclareMathOperator{\Var}{Var}
-
-%NT
-\DeclareMathOperator{\ord}{ord}
-
-%Alg
-\DeclareMathOperator{\Rad}{Rad}
-\DeclareMathOperator{\Jac}{Jac}
-
-%Misc
-\newcommand{\SL}{{\mathrm{SL}}}
-\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
-\newcommand{\id}{{\mathrm{id}}}
-\newcommand{\MCG}{{\mathrm{MCG}}}
-\newcommand{\PMCG}{{\mathrm{PMCG}}}
-\newcommand{\SMCG}{{\mathrm{SMCG}}}
-\newcommand{\ud}{{\mathrm{d}}}
-\newcommand{\Vol}{{\mathrm{Vol}}}
-\newcommand{\Area}{{\mathrm{Area}}}
-\newcommand{\diam}{{\mathrm{diam}}}
-\newcommand{\End}{{\mathrm{End}}}
-
-
-\newcommand{\reg}{{\mathtt{reg}}}
-\newcommand{\geo}{{\mathtt{geo}}}
-
-\newcommand{\tori}{{\mathcal{T}}}
-\newcommand{\cpn}{{\mathtt{c}}}
-\newcommand{\pat}{{\mathtt{p}}}
-
-\let\Cap\undefined
-\newcommand{\Cap}{{\mathcal{C}}ap}
-\newcommand{\Push}{{\mathcal{P}}ush}
-\newcommand{\Forget}{{\mathcal{F}}orget}
-
-
-
-
-\begin{document}
 \section{H-Spaces, H-Groups and H-Cogroups}
 
 An H-space or H-group is a space with a product that satisfies
@@ -251,18 +97,197 @@ of "loop spaces".
     \end{enumerate}
 \end{definition}
 
+One important class of examples is the
+reduced suspensions: the
+"coproduct" $\gamma \colon SX \to SX \vee SX$ is given by
+\[
+\gamma (t,x) = 
+\begin{cases}
+    \left( 2t,x \right)_{1},& t \le \frac{1}{2}\\
+    \left( 2t-1,x \right)_{2},& t\ge \frac{1}{2}
+\end{cases}
+\] 
+where the subscripts indicate in which copy
+of $SX$ in the one-point union the indicated point lies.
+
+The homotopy inverse is just reversal of the $t$ parameter.
+
+
+\begin{theorem}[]
+    In the pointed category:
+    \begin{enumerate}
+        \item If $Y$ is an H-group then
+            $\left[ X ; Y \right] $ is a group with
+            multiplication induced by
+            $\left( f\cdot g \right) (x) = f(x) \cdot g(x)$.
+        \item If $X$ is an H-cogroup then
+            $\left[ X;Y \right] $ is a group with multiplication
+            induced by $f * g = \left( f \veebar g \right) \circ
+            \gamma$.
+        \item If $X$ is an  H-cogroup and $Y$ is an
+            H-space then the two multiplications above
+            on $\left[ X;Y \right] $ coincide and are abelian.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    We first show that $f\cdot g$ is well defined
+    on $\left[ X;Y \right] \times \left[ X;Y \right] 
+    \to \left[ X;Y \right] $.
+    Suppose $f \simeq f'$ and $g \simeq g'$.
+    Then we must show that
+    $f(x) \cdot g(x) \simeq f'(x) \cdot g'(x)$.
+    By assumption,
+    $\id \simeq \widehat{f(x)}\cdot  f'$ and
+    $\id \simeq g'(x) \cdot \widehat{g(x)}$, so
+    \begin{align*}
+        f'(x) \cdot g'(x)
+        &\simeq \left( f(x) \cdot \widehat{f(x)} \right) 
+        \cdot \left( \left( f'(x) \cdot g'(x) \right) \cdot 
+        \left( \widehat{g(x)} \cdot g(x) \right) \right)\\
+        &\simeq f(x) \cdot \left( \widehat{f(x)}\cdot 
+        f'(x) \right) \cdot \left( g'(x) \cdot 
+        \widehat{g(x)} \right) \cdot g(x)\\
+        &\simeq f(x) \cdot g(x).
+    \end{align*}
+    Now we check the group axioms.
+    Associativity follows from
+    homotopy associativity of $Y$. 
+    The constant map to the basepoint
+     of $Y$ is an identity, let us denote it by
+     $e$, since
+     $\left( f \cdot e \right) (x) 
+     = f(x) \cdot e(x) \simeq
+     f(x) \simeq e(x) \cdot f(x) 
+     = \left( e\cdot f \right) (x) \rel
+     \left\{ e(x)=* \right\}$ since $Y$ is an
+     H-space. So there
+     exists a map $H \colon Y \times I \to Y$ such that
+     $H(f(x),0) = f(x) \cdot *$ ad
+     $H\left( f(x), 1 \right) = f(x)$.
+     Define $G \colon X \times I \to Y$ by
+     $G(x,t) = H\left( f(x),t \right) $.
+     This defines a homotopy
+     of $f\cdot e$ with $f$.
+     One can do the same for $e\cdot f \simeq f$.
+     Lastly, given $f \in \left[ X;Y \right] $, 
+     define $\widehat{f} \colon X \to Y$ by
+     $\widehat{f}(x) = \widehat{f(x)}$. This
+     is continuous as the composition
+     $\widehat{-} \circ f \colon X \to Y$. 
+     Now, for each $x \in X$,
+     $\left( f\cdot \widehat{f} \right) (x)
+     = f(x) \cdot \widehat{f(x)}
+     \simeq e \rel{e}$, so
+     there exists $H \colon Y \times I \to Y$ such that
+     $H\left( f\left( x \right) \cdot \widehat{f}(x),
+     0 \right) = f(x) \cdot \widehat{f(x)}$ and
+     $H\left( f(x) \cdot \widehat{f(x)},1 \right) 
+     = e$. Then again defining
+     $G(x,t) = H\left( f(x)\cdot \widehat{f(x)},t \right) $ 
+     defines a homotopy from
+     $f \cdot \widehat{f}$ to $e$ relative
+     $*$. Etc.\\
+     \linebreak
+     For (2), associativity is shown as follows:
+     $\left( f*g \right) *h
+     = \left[ \left( \left( f \veebar g \right) \circ \gamma
+     \right) \veebar h \right] \circ \gamma$ which is the
+     composition
+     \[
+     X \stackrel{\gamma}{\to} X \vee X
+     \stackrel{\gamma \vee \id}{\to} 
+     \left( X \vee X \right) \vee X
+     \stackrel{\left( f \veebar g \right) \veebar h}{\to} 
+     Y.
+     \] 
+     The first composition 
+     $\left( \gamma \vee \id \right) \circ \gamma$ is
+     homotopic to $\left( \id \vee \gamma \right) \circ \gamma$ 
+     by condition (2) of an H-cogroup, and
+     the maps $\left( f \veebar g \right) \veebar h$ 
+     and $f \veebar \left( g \veebar h \right) $ are
+     equal, which provides the homotopy
+     from $\left( f*g \right) *h $ to
+     $f* \left( g*h \right) $. The other
+     parts are similar.\\
+     \linebreak
+     For (3), we need the following lemma:
+     \begin{lemma}[]
+         If $X$ is an H-cogroup and $Y$ an
+         H-space, then for
+         $f,g,h,k \colon X \to Y$, we have
+         \[
+             \left( f\cdot g \right) * \left( h\cdot k \right) 
+             = \left( f*h \right) \cdot \left( g*k \right) .
+         \] 
+     \end{lemma}
+
+     \begin{proof}
+         Suppose $x \in X$ is an arbitary point
+         and that $\gamma(x) = 
+         \left( w,* \right) \in X \vee X$ (recall
+         that we can view $X \vee X$ as
+         $X \times \left\{ * \right\} \cup 
+         \left\{ * \right\} \times X$ ), so
+         this amounts to $\left( w,* \right) $ just
+         representing a point in one copy of
+         $X$ and $\left( *,w' \right) $ would then
+         represent a point in the other copy.\\
+         Now
+         \[
+             \left( f\cdot g \right) *
+             \left( h\cdot k \right) (x)
+             = \left( \left( f \cdot g \right) 
+             \veebar \left( h\cdot k \right) \right) 
+             \left( w,* \right) 
+             = \left( f\cdot g \right) (w) 
+             = f(w) \cdot g(w)
+         \] 
+         and
+         \[
+             \left( f*h \right) \cdot 
+             \left( g*k \right) (x)
+             = (f*h)(x) \cdot (g*k)(x)
+             = f(w) \cdot g(w).
+         \] 
+         The case $\gamma(x) = (*,w')$ is similar.
+     \end{proof}
+
+     Returning to part (3), note first that
+     for both product, the identity $\id$ is given
+     by the constant map to the base point by
+     condition (1) for an H-cogroup.\\
+     Operating in $\left[ X;Y \right] $, we have
+     \[
+         \left( \alpha \cdot \beta  \right) *
+         \left( \gamma \cdot \delta \right) 
+         = \left( \alpha * \gamma \right) \cdot 
+         \left( \beta * \delta \right) .
+     \] 
+     Thus 
+     \[
+     \alpha * \beta =
+     \left( \id \cdot \alpha \right) *
+     \left( \beta \cdot \id \right) 
+     = \left( \id * \beta \right) \cdot 
+     \left( \alpha * \id \right) = 
+     \beta \cdot  \alpha,
+     \] 
+     and
+     \[
+     \alpha * \beta =
+     \left( \alpha \cdot  \id \right) *
+     \left( \id \cdot  \beta  \right) =
+     \left( \alpha * \id  \right) \cdot 
+     \left( \id * \beta  \right) = \alpha \cdot \beta.
+     \] 
+     Therefore
+     $\alpha \cdot  \beta= \beta \cdot  \alpha
+     = \alpha * \beta$.
 
 
 
+\end{proof}
 
 
-
-
-
-
-
-
-
-
-    %\printbibliography
-\end{document}

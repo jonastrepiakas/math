@@ -390,6 +390,269 @@ $\left( X \times I \right) / A \to Y$ which take
       with this operation.
   \end{definition}
 
+  \subsection{Homotopy Groups using H-Spaces/Groups/Cogroups}
+
+  From now on, unless otherwise indicated, we regard
+  the $n$-sphere $S^{n}$ as having the cogroup
+  structure as the reduced suspension
+  $S^{n} = S S^{n-1} = S^{n-1} \wedge S^{1}$ - i.e.,
+  the map $\gamma$ in the definition of an H-cogroup will
+  be $\gamma \colon S^{n} \to S^{n} \vee S^{n}$ 
+  given by
+  \[
+  \gamma(t,x) = 
+  \begin{cases}
+      \left( 2t,x \right)_{1},& t\le \frac{1}{2}\\
+      \left( 2t-1, x \right)_2,& t\ge \frac{1}{2}.
+  \end{cases}
+  \] 
+  The
+  $0$-sphere $S^{0}$ is $\left\{ 0,1 \right\} $ 
+  with base point $\left\{ 0 \right\} $.\\
+
+  For a based space $X$ with base point $x_0$, we define
+  the nth homotopy group
+  \[
+  \pi_n (X,x_0) = 
+  \left[ S^{n},* ; X, x_0 \right] .
+  \] 
+  This is a group with the product defined by
+  Theorem \ref{Thm:H-group-cogroup}.(2).
+
+  \begin{theorem}[]\label{Theorem:Htpy-Groups-Abelian}
+      If $X$ is an H-space then the multiplication
+      in $\pi_n (X,x_0)$ is induced by
+      the H-space multiplication and is abelian for
+      $n\ge 1$.
+  \end{theorem}
+
+  \begin{proof}
+      This follows directly from Theorem \ref{Thm:H-group-cogroup}.
+  \end{proof}
+
+  \begin{lemma}[]\label{Lemma:Suspension-Loop-Space}
+      In the pointed category,
+      $\left[ SX ; Y \right] \cong
+      \left[ X ; \Omega Y \right]$ as groups.
+  \end{lemma}
+  
+  \begin{proof}
+      Recall the characteristic correspondence for
+      the compact-open topology (Theorem \ref{Thm:Compact-Open-Top}):
+      \[
+      f\colon X \times S^{1} \to Y 
+      \leftrightarrow f' \colon X \to Y^{S^{1}}
+      \] 
+      given by
+      $f'(x) (t) = f(x,t)$.
+      Recall that $SX = X \wedge S^{1}$, so
+      a map
+      $g \colon X \wedge S^{1} \to Y$ induces a map
+      $f \colon X \times S^{1} \to Y$ by
+      the composition 
+      $X \times S^{1} \to X \wedge S^{1} \stackrel{g}{\to} Y$.
+      Then $f$ is continuous if and only if
+      the map $f' \colon X \to Y^{S^{1}}$ is continuous, where
+      $f'(x)(*) = f(x,*) = *$, so
+      $f'(*) = * \in Y^{S^{1}}$, the basepoint
+      of $\Omega Y$.
+      So the correspondence induces a bijective
+      correspondence between pointed maps
+      $SX \to Y$ and pointed maps $X \to \Omega Y$, and
+      pointed homotopies correspond as well.\\
+      It remains to show that the correspondence
+      is a group homomorphism.
+      Recall that $SX$ is an H-cogroup and
+      $\Omega X$ is an H-group, so using
+      Theorem \ref{Thm:H-group-cogroup}, we
+      get that 
+      for $f,g \colon SX \to Y$, the product in
+      $\left[ SX;Y \right] $ is induced by
+      \[
+          \left( f*g \right) (x,t) = 
+          \begin{cases}
+              f(x,2t),& t\le \frac{1}{2}\\
+              g\left( x,2t-1 \right),& t\ge \frac{1}{2},
+          \end{cases}
+      \] 
+      which is equal to
+      $\left( f*g \right)'(x)(t)$, 
+      while the multiplication in
+      $\left[ X ; \Omega Y \right] $ is given by
+      $\left( f' \cdot g' \right) (x) = 
+      f'(x) * g'(x)$ where $*$ is loop concatenation. 
+      At time $t$, this is
+      $f'(x) (2t)$ for $t\le \frac{1}{2}$ and
+      $g'(x) (2t-1)$ for $t\ge \frac{1}{2}$. Thus
+      $\left( f*g \right) ' = f' \cdot  g'$.
+  \end{proof}
+
+
+  All of the above immediately carries over to pointed
+  pairs $(X,A)$ with a base point in $A$, so
+  $\left[ SX, SA ; Y,B \right] $ is a group that
+  is canonically isomorphic to
+  $\left[ X,A; \Omega Y, \Omega B \right] $.
+
+  Note in particular that
+  $D^{n} \cong S D^{n-1}$ for all $n\ge 2$, so
+  $D^{n} = D^{1} \wedge S^{n-1} \supset 
+  S^{0} \wedge S^{n-1} = S^{n-1}$, so
+  $\left( D^{n}, S^{n-1} \right) 
+  = S^{n-1} \left( D^{1}, S^{0} \right) $, the
+  $(n-1)$-fold reduced suspension. Hence
+  we can define the relative homotopy group by
+  \[
+  \pi_n \left( Y,B,* \right) =
+  \left[ D^{n}, S^{n-1}; Y ,B \right] 
+  = \left[ S^{n-1}\left( D^{1}, S^{0} \right) ;
+  Y,B\right] .
+  \] 
+  Note that this is defined on pointed spaces and pointed maps,
+  so this set is really
+  $\left[ D^{n},S^{n-1},s_0; Y,B, * \right] $.
+  This becomes a group for $n\ge 2$. 
+
+  Next note that we have a quotienting map
+  \[
+      I^{n} = \underbrace{D^{1}}_{=I} \times I \times \ldots \times I
+      \to D^{1} \wedge S^{1} \wedge \ldots
+      \wedge S^{1} =
+      D^{n}.
+  \] 
+  Under this map, 
+  $\partial I^{n}$ corresponds to
+  $S^{n-1}$ and
+  the base point corresponds to
+  $J^{n-1} = \left( I \times \partial I^{n-1} \right) 
+  \cup  \left( \left\{ 0 \right\} \times I^{n-1} \right) $.
+  Thus under this quotienting map, we obtain a
+  bijection
+  \[
+  \pi_n(Y,B,*) =
+  \left[ D^{n}, S^{n-1},s_0; Y,B, * \right] 
+  \cong \left[ I^{n}, \partial I^{n}, J^{n-1};
+  Y,B,*\right].
+  \] 
+
+  \begin{corollary}
+      $\pi_n(Y,*)$ is abelian for
+      $n\ge 2$ and $\pi_n (Y,B,*)$ is abelian for
+      $n\ge 3$. Moreover, the group structure is
+      independent of the suspension coordinate used
+      to define it.
+  \end{corollary}
+
+  \begin{proof}
+      Recall from Lemma \ref{Lemma:Suspension-Loop-Space}, that
+      $\left[ S^{n};Y \right] 
+      = \left[ S^{1} \wedge \ldots \wedge S^{1};Y \right] 
+      \cong \left[ S^{n-1} ; \Omega Y \right] $ as
+      groups. Now
+      the loop structure corresponds to the suspension in
+      the last coordinate by definition, and
+      by Theorem \ref{Thm:H-group-cogroup}, this
+      is the same as the group 
+      $\left[ S^{n};Y \right] $ with the suspension
+      operation on any of the coordinates, since
+      the choice of coordinate is arbitrary, this
+      shows that
+      the group structure on $\pi_n(Y,*) =
+      \left[ S S^{n-1};Y \right]
+      = \left[ S^{1} \wedge \ldots \wedge
+      S^{1}; Y \right] $ is independent
+      of the suspension coordinate used to define it.\\
+      The product in $\left[ S^{n-1}; \Omega Y \right] $ is
+      furthermore abelian for $n-1 \ge 1$ by
+      Theorem \ref{Theorem:Htpy-Groups-Abelian} (using that
+      $\Omega Y$ is an H-space), and
+      the relative case is similar.
+  \end{proof}
+
+  \begin{corollary}
+      \[
+      \pi_n\left( Y,* \right) \cong
+      \pi_{n-1}\left( \Omega Y, * \right) 
+      \cong \ldots \cong
+      \pi_1\left( \Omega^{n-1}Y,* \right) 
+      \cong \pi_0 \left( \Omega^{n}Y ,* \right) 
+      \] 
+      and similarly in the relative case.
+  \end{corollary}
+
+  \begin{theorem}[]
+      Let $A$ be a closed subspace of $X$ containing the
+      base point $*$. Suppose that $F \colon X \times I \to X$ 
+      is a deformation of $X$ contracting $A$ to
+      $*$ ; i.e.,
+      \begin{align*}
+          F(A \times I) 
+          &\subset A\\
+          F(x,0) 
+          &= x\\
+          F\left( A \times \left\{ 1 \right\}  \right) 
+          &= *\\
+          F\left( \left\{ * \right\} \times I \right) 
+          &= *
+      \end{align*}
+      then the quotient map $X \to X /A$ is a homotopy equivalence.
+      Similarly for pairs $\left( X,X' \right) $ with
+      $A \subset X'$.
+  \end{theorem}
+
+  \begin{proof}
+      Let
+      $\psi \colon X / A \to X$ be defined by the
+      commutative diagram
+      \begin{equation*}
+      \begin{tikzcd}
+          X \ar[d, "\varphi "] 
+          \ar[dr, "F_{X \times \left\{ 1 \right\} } "]& \\
+          X / A \ar[r, "\psi"] & X
+      \end{tikzcd}
+      \end{equation*}
+      We claim that. Let $\varphi \colon X \to X / A$ be
+      the quotienting map. We claim that
+      $\psi \varphi \simeq \id_{X}$ and
+      $\varphi \psi \simeq \id_{X / A}$.
+      Since $F\left( A \times I \right) \subset A$, 
+      $F$ induces a homotopy
+      $F' \colon X / A \times I \to X / A$, where
+      $F_{X / A \times \left\{ 1 \right\} }
+      = \varphi \psi $, so
+      since $F_{X / A \times \left\{ 0 \right\} }
+      = \id_{X / A}$, we get the result.
+  \end{proof}
+
+  \subsection{Homotopy Sequence of a Pair}
+  In this section, we develop the LES of a pair
+  in the way Bredon does it. Further down, we will do
+  it the way Hatcher does it also.
+
+  \begin{definition}[Coexact]
+      A sequence 
+      \[
+      A \stackrel{f}{\to} B \stackrel{g}{\to} C
+      \] 
+      of pointed spaces (or pointed pairs) is
+      called \textit{coexact} if, for each pointed space
+      (or pair) $Y$, the sequence of sets
+      (pointed homotopy classes)
+      \[
+      \left[ C;Y \right] \stackrel{g^{\#}}{\to} 
+      \left[ B;Y \right] \stackrel{f^{\#}}{\to} 
+      \left[ A;Y \right] 
+      \] 
+      is exact, i.e., 
+      $\im g^{\#} = \left( f^{\#} \right)^{-1} (*)$.
+  \end{definition}
+
+
+  \newpage
+
+
+
+
   \subsubsection{A different way of defining
   $\pi_n \left( Y, y_0 \right) $}
   Note that reduced suspension supplies a parameter in
@@ -1473,7 +1736,7 @@ But first, a nice corollary:
     for each $n$.
 \end{example}
 
-\begin{proposition}[]
+\begin{proposition}[]\label{Prop:Removing-lower-dim-cells}
     If $\left( X,A \right) $ is an $n$-connected
     CW pair, then there exists a CW pair
     $\left( Z,A \right) \simeq \left( X,A \right) \rel A$ 

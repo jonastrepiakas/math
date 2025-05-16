@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  11 MAY 2025 20:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  16 MAY 2025 12:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**H-Spaces-Groups-Cogroups.tex
-(./H-Spaces-Groups-Cogroups.tex
+**pset4.tex
+(./pset4.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
 (/usr/share/texlive/texmf-dist/tex/latex/amscls/amsart.cls
@@ -488,8 +488,8 @@ File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count310
 \l__pdf_internal_box=\box65
-) (./H-Spaces-Groups-Cogroups.aux)
-\openout1 = `H-Spaces-Groups-Cogroups.aux'.
+) (./pset4.aux)
+\openout1 = `pset4.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 154.
 LaTeX Font Info:    ... okay on input line 154.
@@ -536,51 +536,71 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Package hyperref Info: Link coloring ON on input line 154.
- (./H-Spaces-Groups-Cogroups.out) (./H-Spaces-Groups-Cogroups.out)
+ (./pset4.out) (./pset4.out)
 \@outlinefile=\write4
-\openout4 = `H-Spaces-Groups-Cogroups.out'.
+\openout4 = `pset4.out'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 167--188
+Overfull \hbox (3.84984pt too wide) in paragraph at lines 182--194
+\T1/cmr/m/n/10 We then obtain the first dashed arrow $\OML/cmm/m/it/10 X \OMS/cmsy/m/n/10 ^^B \OML/cmm/m/it/10 I \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 E$ \T1/cmr/m/n/10 because $\OML/cmm/m/it/10 E [] B$ \T1/cmr/m/n/10 is a Hurewicz/Serre
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 243--249
+
+ []
+
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}] [2]
+Overfull \hbox (58.68958pt too wide) detected at line 415
+[] \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 F[]; y[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 E \OMS/cmsy/m/n/10 ^^B[] \OML/cmm/m/it/10 X; y[]\OT1/cmr/m/n/10 ) [] \OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; x[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 F[]; y[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ! [] ! \OML/cmm/m/it/10 ^^Y[] [] \OMS/cmsy/m/n/10 ! \OT1/cmr/m/n/10 0
+ []
+
+
+Overfull \hbox (78.9166pt too wide) detected at line 471
+[]
+ []
+
+[3]
+Overfull \hbox (45.00038pt too wide) in paragraph at lines 523--529
+\T1/cmr/m/n/10 The outer triangle commutes by construction: since for $\OML/cmm/m/it/10 g [] []  [] \OMS/cmsy/m/n/10 ! []$\T1/cmr/m/n/10 ,
+ []
+
+
+Overfull \hbox (59.26244pt too wide) detected at line 540
+\OML/cmm/m/it/10 @ \OMS/cmsy/m/n/10 ^^N [][] [] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 @ [] \OT1/cmr/m/n/10 = [] = [] = [][] [] = [][] \OMS/cmsy/m/n/10 ^^N \OML/cmm/m/it/10 @ [] :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 558--560
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 167--188
-
+Overfull \hbox (82.80548pt too wide) detected at line 582
+[]
  []
 
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
-Underfull \hbox (badness 10000) in paragraph at lines 306--351
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 357--370
-
- []
-
-[2] [3] (./H-Spaces-Groups-Cogroups.aux)
+[4] [5] (./pset4.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
-Package rerunfilecheck Info: File `H-Spaces-Groups-Cogroups.out' has not changed.
-(rerunfilecheck)             Checksum: 627092EF3DC079BE7890036F743EC2C9;235.
+Package rerunfilecheck Info: File `pset4.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 22803 strings out of 474222
- 424985 string characters out of 5748733
- 1945975 words of memory out of 5000000
- 44518 multiletter control sequences out of 15000+600000
- 567298 words of font info for 62 fonts, out of 8000000 for 9000
+ 23539 strings out of 474222
+ 443015 string characters out of 5748733
+ 1963975 words of memory out of 5000000
+ 45253 multiletter control sequences out of 15000+600000
+ 567391 words of font info for 62 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 98i,11n,107p,613b,658s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on H-Spaces-Groups-Cogroups.pdf (3 pages, 195297 bytes).
+ 98i,15n,107p,594b,1047s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb>
+Output written on pset4.pdf (5 pages, 219407 bytes).
 PDF statistics:
- 121 PDF objects out of 1000 (max. 8388607)
- 85 compressed objects within 1 object stream
- 18 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 133 PDF objects out of 1000 (max. 8388607)
+ 93 compressed objects within 1 object stream
+ 19 named destinations out of 1000 (max. 500000)
+ 13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
