@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  16 MAY 2025 23:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  18 MAY 2025 23:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**pset4.tex
-(./pset4.tex
+**cohomology.tex
+(./cohomology.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
 (/usr/share/texlive/texmf-dist/tex/latex/amscls/amsart.cls
@@ -488,32 +488,32 @@ File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count310
 \l__pdf_internal_box=\box65
-) (./pset4.aux)
-\openout1 = `pset4.aux'.
+) (./cohomology.aux)
+\openout1 = `cohomology.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 155.
-LaTeX Font Info:    ... okay on input line 155.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 155.
-LaTeX Font Info:    ... okay on input line 155.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 155.
-LaTeX Font Info:    ... okay on input line 155.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 155.
-LaTeX Font Info:    ... okay on input line 155.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 155.
-LaTeX Font Info:    ... okay on input line 155.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 155.
-LaTeX Font Info:    ... okay on input line 155.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 155.
-LaTeX Font Info:    ... okay on input line 155.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 155.
-LaTeX Font Info:    ... okay on input line 155.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 155.
-LaTeX Font Info:    ... okay on input line 155.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 155.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 156.
+LaTeX Font Info:    ... okay on input line 156.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 156.
+LaTeX Font Info:    ... okay on input line 156.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 156.
+LaTeX Font Info:    ... okay on input line 156.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 156.
+LaTeX Font Info:    ... okay on input line 156.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 156.
+LaTeX Font Info:    ... okay on input line 156.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 156.
+LaTeX Font Info:    ... okay on input line 156.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 156.
+LaTeX Font Info:    ... okay on input line 156.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 156.
+LaTeX Font Info:    ... okay on input line 156.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 156.
+LaTeX Font Info:    ... okay on input line 156.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 156.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 155.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 156.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -535,221 +535,52 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring ON on input line 155.
- (./pset4.out) (./pset4.out)
+Package hyperref Info: Link coloring ON on input line 156.
+ (./cohomology.out) (./cohomology.out)
 \@outlinefile=\write4
-\openout4 = `pset4.out'.
+\openout4 = `cohomology.out'.
 
 
-Overfull \hbox (3.84984pt too wide) in paragraph at lines 183--195
-\T1/cmr/m/n/10 We then obtain the first dashed arrow $\OML/cmm/m/it/10 X \OMS/cmsy/m/n/10 ^^B \OML/cmm/m/it/10 I \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 E$ \T1/cmr/m/n/10 because $\OML/cmm/m/it/10 E [] B$ \T1/cmr/m/n/10 is a Hurewicz/Serre
+Overfull \hbox (4.48299pt too wide) in paragraph at lines 272--280
+ \T1/cmr/m/n/10 0.2.\T1/cmr/bx/n/10 Cohomology of Spaces.[][] \T1/cmr/m/n/10 Define $\OML/cmm/m/it/10 S[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 G\OT1/cmr/m/n/10 ) := [][] []$\T1/cmr/m/n/10 , so $\OML/cmm/m/it/10 S[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 A\OT1/cmr/m/n/10 )$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 244--250
+Underfull \hbox (badness 10000) in paragraph at lines 272--280
 
  []
 
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}] [2]
-./pset4.tex:382: Undefined control sequence.
-<argument> \shorttitle 
-                       
-l.382 
-      
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-./pset4.tex:382: LaTeX Error: NO \title GIVEN.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.382 
-      
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-Overfull \hbox (58.68958pt too wide) detected at line 419
-[] \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 F[]; y[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 E \OMS/cmsy/m/n/10 ^^B[] \OML/cmm/m/it/10 X; y[]\OT1/cmr/m/n/10 ) [] \OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; x[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 F[]; y[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ! [] ! \OML/cmm/m/it/10 ^^Y[] [] \OMS/cmsy/m/n/10 ! \OT1/cmr/m/n/10 0
- []
-
-
-Overfull \hbox (78.9166pt too wide) detected at line 475
-[]
- []
-
-[3]
-Overfull \hbox (45.00038pt too wide) in paragraph at lines 527--533
-\T1/cmr/m/n/10 The outer triangle commutes by construction: since for $\OML/cmm/m/it/10 g [] []  [] \OMS/cmsy/m/n/10 ! []$\T1/cmr/m/n/10 ,
- []
-
-
-Overfull \hbox (59.26244pt too wide) detected at line 544
-\OML/cmm/m/it/10 @ \OMS/cmsy/m/n/10 ^^N [][] [] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 @ [] \OT1/cmr/m/n/10 = [] = [] = [][] [] = [][] \OMS/cmsy/m/n/10 ^^N \OML/cmm/m/it/10 @ [] :
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 562--564
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
+Underfull \hbox (badness 10000) in paragraph at lines 308--314
 
  []
 
 
-Overfull \hbox (82.80548pt too wide) detected at line 586
-[]
- []
-
-[4]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 676.
- (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-)
-Overfull \hbox (4.17345pt too wide) in paragraph at lines 655--681
-\T1/cmr/m/n/10 commutes with exact rows, we obtain by the $\OT1/cmr/m/n/10 4$\T1/cmr/m/n/10 -lemma that $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 )[] [] [] \OML/cmm/m/it/10 ^^Y[] [] \OMS/cmsy/m/n/10 !
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 655--681
+Underfull \hbox (badness 10000) in paragraph at lines 308--314
 
  []
 
-[5]
-Overfull \hbox (28.2505pt too wide) in paragraph at lines 702--707
-\T1/cmr/m/n/10 is a fiber bundle. We define the base-point of $[][]\OT1/cmr/m/n/10 (\U/msb/m/n/10 R[]\OT1/cmr/m/n/10 )$ \T1/cmr/m/n/10 to be $\OML/cmm/m/it/10 x \OT1/cmr/m/n/10 = []$\T1/cmr/m/n/10 . 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 702--707
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 710--715
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 719--723
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 723--729
-
- []
-
-
-Overfull \hbox (25.32626pt too wide) in paragraph at lines 733--740
-\T1/cmr/m/n/10 This is topologised with the quotient topology coming from the map $[][]\OT1/cmr/m/n/10 (\U/msb/m/n/10 R[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 !
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 733--740
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 733--740
-
- []
-
-
-Overfull \hbox (65.97693pt too wide) detected at line 766
-\OML/cmm/m/it/10 ^^Y[] [] \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 ^^Y[] [] \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 ^^Y[] [] \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 ^^Y[] [] :
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 777--787
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 789--813
-
- []
-
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 848--858
-
- []
-
-
-Overfull \hbox (27.40569pt too wide) in paragraph at lines 860--865
-[]\T1/cmr/m/it/10 Note. []\T1/cmr/m/n/10 Below, we will abuse terminology by identifying $\OML/cmm/m/it/10 F[]$ \T1/cmr/m/n/10 with $\OML/cmm/m/it/10 ^^Y[] []$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 869--881
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 882--901
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 882--901
-
- []
-
-[7]
-Overfull \hbox (6.64133pt too wide) in paragraph at lines 980--1008
-[]\T1/cmr/m/n/10 To see this, we will regard $\OML/cmm/m/it/10 ^^Y[] [][] []$ \T1/cmr/m/n/10 in a different way. The group $\OML/cmm/m/it/10 ^^Y[] [][] []$
- []
-
-<Figures/braid-diagram.png, id=91, 208.78pt x 242.9075pt>
-File: Figures/braid-diagram.png Graphic file (type png)
-<use Figures/braid-diagram.png>
-Package pdftex.def Info: Figures/braid-diagram.png  used on input line 1011.
-(pdftex.def)             Requested size: 180.0pt x 209.43379pt.
-<Figures/braid2.jpg, id=93, 1093.08376pt x 363.3575pt>
-File: Figures/braid2.jpg Graphic file (type jpg)
-<use Figures/braid2.jpg>
-Package pdftex.def Info: Figures/braid2.jpg  used on input line 1035.
-(pdftex.def)             Requested size: 360.0pt x 119.66992pt.
-[8 <./Figures/braid-diagram.png>]
-<Figures/braid3.jpg, id=104, 691.58376pt x 701.62125pt>
-File: Figures/braid3.jpg Graphic file (type jpg)
-<use Figures/braid3.jpg>
-Package pdftex.def Info: Figures/braid3.jpg  used on input line 1064.
-(pdftex.def)             Requested size: 288.0011pt x 292.18443pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 1069--1118
-
- []
-
-
-Overfull \hbox (22.07782pt too wide) in paragraph at lines 1069--1118
-[][] [] \OMS/cmsy/m/n/10 ! [][] []$ \T1/cmr/m/n/10 is, in fact, a covering map. Let $[] \OMS/cmsy/m/n/10 2 [][] []$\T1/cmr/m/n/10 ,
- []
-
-[9 <./Figures/braid2.jpg>] [10 <./Figures/braid3.jpg>] (./pset4.aux)
+[2] (./cohomology.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
-Package rerunfilecheck Info: File `pset4.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+Package rerunfilecheck Info: File `cohomology.out' has not changed.
+(rerunfilecheck)             Checksum: D9D5C97A2E545B0EABB0D36D074836FD;483.
  ) 
 Here is how much of TeX's memory you used:
- 23693 strings out of 474222
- 446684 string characters out of 5748733
- 1967975 words of memory out of 5000000
- 45387 multiletter control sequences out of 15000+600000
- 568377 words of font info for 64 fonts, out of 8000000 for 9000
+ 22980 strings out of 474222
+ 429204 string characters out of 5748733
+ 1961975 words of memory out of 5000000
+ 44703 multiletter control sequences out of 15000+600000
+ 566625 words of font info for 61 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 98i,21n,107p,594b,1051s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt0800.pfb>
-Output written on pset4.pdf (10 pages, 469096 bytes).
+ 98i,15n,107p,599b,1036s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb>
+Output written on cohomology.pdf (2 pages, 197052 bytes).
 PDF statistics:
- 228 PDF objects out of 1000 (max. 8388607)
- 160 compressed objects within 2 object streams
- 34 named destinations out of 1000 (max. 500000)
- 28 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 128 PDF objects out of 1000 (max. 8388607)
+ 87 compressed objects within 1 object stream
+ 11 named destinations out of 1000 (max. 500000)
+ 29 words of extra memory for PDF output out of 10000 (max. 10000000)
 

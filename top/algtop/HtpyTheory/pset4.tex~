@@ -99,7 +99,8 @@
 \DeclareMathOperator{\Cob}{Cob}
 \DeclareMathOperator{\Ext}{Ext}
 \DeclareMathOperator{\Tor}{Tor}
-
+\DeclareMathOperator{\Conf}{Conf}
+\DeclareMathOperator{\UConf}{UConf}
 
 
 %Row operations
@@ -376,6 +377,9 @@
 
 \newpage
 
+
+\maketitle
+
 \subsubsection{Problems}
 
 
@@ -591,7 +595,8 @@ giving commutativity.\\
         for $1 = k+1$ despite $\pi_0$ not being
         a group (one can simply trace through the
         arguments in the proof of the $5$-lemma and
-        see that it still works).
+        see that it still works with exactly
+        the same arguments).
 
 
 
@@ -621,34 +626,538 @@ giving commutativity.\\
         For the isomorphism on
         $\pi_0$, note that we have
         assumed that $E$ is path-connected, so it
-        suffices to show
-        that $E \times_B X$ is also path-connected.
-        Define a map $s \colon
-        \left( E,e_0 \right) \to 
-        \left( E \times_B X, y_0 \right) $ by
-        $s(e) = (e,y_0)$
-         
+        suffices to show that
+        the induced map
+        $(\pi_E)_* \colon
+        \pi_0 \left( E \times_B X, y_0 \right) \to 
+        \pi_0 (E,e_0) = 0$ is injective.
+        Since the diagram (footnote: \footnote{In this diagram,
+        when we are talking about exactness of the rows,
+        while $\pi_0$ of the spaces are not groups, we
+    can still define exactness and exact sequences of
+pointed sets as one might expect: 
+$\left( X,x \right) \stackrel{f}{\to} 
+\left( Y,y \right) \stackrel{g}{\to} (Z,z)$ is
+exact if the composite $gf$ is constant at
+$z$ and $g(a) = z$ implies that
+there a $b$ with $a = f(b)$})
 
-
-
-
-
-
-
-
-
-        
+        \begin{equation*}
+        \begin{tikzcd}
+            \pi_1(X,x_0) \ar[d, "f_*", "\cong"'] \ar[r] &
+            \pi_0(F',y_0) \ar[r] \ar[d, "\cong"'] 
+            & \pi_0 (E \times_B
+            X,y_0) \ar[d, "(\pi_E)_*"] \ar[r] &
+            0\\
+            \pi_1 (B,f(x_0)) \ar[r] & \pi_0(F,e_0) \ar[r] &
+            \underbrace{\pi_0 (E,e_0)}_{0} \ar[r] & 0
+        \end{tikzcd}
+        \end{equation*}
+        commutes with exact rows, we obtain by the
+        $4$-lemma that 
+        $(\pi_E)_* \colon
+        \pi_0 \left( E \times_B X,y_0 \right) \to 
+        \pi_0(E,e_0) =0$ is injective, so in particular
+        $\pi_0 \left( E\times_B X,y_0 \right) = 0$.
+        Note that the part of the $4$-lemma which we
+        used (the one concluding monomorphism) does
+        not require the objects to be groups or, for that
+        matter, the diagram to be in an abelian category - 
+        we just need the kernel to be concrete. 
+        (See footnote \footnote{For concreteness,
+        what I am saying is that all the steps in the
+    proof of the $4$-lemma as laid out for example on
+Wikipedia (\url{https://en.wikipedia.org/wiki/Five_lemma}) all
+still hold in our situation ad verbum, hence
+I do not wish to repeat all the arguments since it's just a
+lengthy diagram chase. One thing to note, however, is
+that when we talk about $0$ in $\pi_0$ in the arguments,
+this means to be in the same path-component as
+the basepoint. With this terminology, all things go through.}).
+        Thus $(\pi_E)_*$ is an isomorphism on
+        $\pi_0$ also.\\
+        \linebreak
+        This completes the proof.
     \end{proof}
 
+    \begin{problem}[]
+        The (ordered) configuration space on
+        $n$-points of a space
+        $X$ is the subspace
+        \[
+        \Conf_n (X) = 
+        \left\{ \left( x_1, \ldots, x_n \right) \in X^{n}
+         \mid \forall i\neq j \colon
+     x_i \neq x_j \right\} \subset X^{n}
+        \] 
+        of those $n$-tuples of points that are
+        pairwise distinct. In this problem, we consider
+        the special case $X = \mathbb{R}^2$. You may assume
+        that the map
+        \begin{align*}
+            \Conf_n (\mathbb{R}^2) 
+            &\to \Conf_{n-1}(\mathbb{R}^2)\\
+            \left( x_1,\ldots, x_n \right) 
+            &\mapsto \left( x_1, \ldots, x_{n-1} \right) 
+        \end{align*}
+        is a fiber bundle. We define
+        the base-point of $\Conf_n (\mathbb{R}^2)$ to
+        be $x = \left( (1,0), (2,0) ,\ldots,
+        (n,0)\right) $.\\
+
+        
+        \begin{enumerate}
+            \item Show that $\Conf_n (X)$ is an Eilenberg-MacLane
+        space of type $(G,1)$ with $G = \pi_1 \Conf_n (\mathbb{R}^2)$.\\
+        \linebreak
+        For $1 \le i < j \le n$, define elements
+        $\gamma_{i,j} \in \pi_1 \Conf_n (X)$ as follows:
+        \[
+        \gamma_{i,j}(t) = \left( (1,0),
+        \ldots, (i-1,0), \rho(t), (i+1,0), \ldots,
+    (n,0) \right) 
+        \] 
+        where $\rho \colon \left[ 0,1 \right] \to \mathbb{R}^2$ 
+        is a loop that starts and ends at $(i,0)$ and loops
+        around $(j,0)$ and avoids the other points.\\
+    \item Show that the  $\gamma_{i,j}$ generate
+        $\pi_1 \Conf_n (\mathbb{R}^2)$.\\
+        \linebreak
+        The unordered configuration space is defined as
+        the set of subsets of $\mathbb{R}^2$ of cardinality
+        $n$ :
+        \[
+        \UConf_n (\mathbb{R}^2)
+        = \left\{ A \subset \mathbb{R}^2  \mid 
+        \left| A \right| = n\right\} .
+        \] 
+        This is topologised with the quotient topology
+        coming from the map $\Conf_n (\mathbb{R}^2) \to 
+        \UConf_n (\mathbb{R}^{n})$ sending
+        $\left( x_1,\ldots, x_n \right) $ to
+        $\left\{ x_1,\ldots, x_n \right\} $.\\
+        \linebreak
+    \item Show that $\UConf_n (X)$ is an Eilenberg-MacLane space
+        of type $(G,1)$ with $G = \pi_1 \UConf_n (\mathbb{R}^2)$.
+        \end{enumerate}
+
+
+    \end{problem}
+
+
+    \begin{proof}
+        (1) The fiber above the base point
+        $\left( x_1,\ldots,x_{n-1} \right) 
+        \in \Conf_{n-1}(\mathbb{R}^2)$ under the map
+        is
+        $F = \left\{ \left( x_1,\ldots,x_n \right)  \mid 
+        \forall i\colon x_n \neq x_i\right\} \cong 
+        \mathbb{R}^2 - \left\{ x_1,\ldots,x_{n-1} \right\} $.
+        Since every fiber bundle is a Serre fibration, we
+        find from the LES associated to the fibration that
+
+        \[
+        \pi_k \left( \mathbb{R}^2 - \left\{ x_1,\ldots,
+        x_{n-1}\right\}  \right) \to 
+        \pi_k \left( \Conf_n (\mathbb{R}^2) \right) 
+        \to \pi_k \left( \Conf_{n-1}(\mathbb{R}^2) \right) 
+        \to \pi_{k-1}\left( \mathbb{R}^2 - 
+        \left\{ x_1,\ldots, x_{n-1} \right\} \right) .
+        \] 
+        is exact for all
+        $k \ge 1$.
+
+        By theorem 4.41, if
+        $\Conf_{n-1}(\mathbb{R}^2)$ is path-connected, then
+        \[
+        \underbrace{\pi_0 \left( \mathbb{R}^2 - \left\{ x_1,\ldots,
+        x_0\right\}  \right)}_{0} \to 
+        \pi_0 \left( \Conf_n (\mathbb{R}^2) \right) 
+        \to 0
+        \] 
+        is exact, 
+        so $ \pi_0 \left( \Conf_n (\mathbb{R}^2) \right) 
+        \cong 0$. Now,
+        $\Conf_1 (\mathbb{R}^2) = \mathbb{R}^2$ which
+        is path-connected, so by induction,
+        $\Conf_n (\mathbb{R}^2)$ is path-connected for
+        all $n\ge 1$, hence
+        $\pi_0 \left( \Conf_n \left( \mathbb{R}^2 \right)  \right) =
+        0$.\\
+
+
+        Now, $\mathbb{R}^2 - \left\{ x_1,\ldots,x_{n-1} \right\} 
+        \simeq \bigvee_{n-1}S^{1}$.
+        In particular, the universal cover of a graph
+        is a tree hence contractible, so since
+        $\pi_k \left( \bigvee_{n-1}S^{1} \right) $ 
+        coincides with $\pi_k$ of the universal cover
+        when $k\ge 2$, we find that
+        $\pi_k \left( \mathbb{R}^2 - \left\{ x_1,
+        \ldots, x_{n-1}\right\}  \right) \cong 0$ for
+        $k\ge 2$.
+        Thus
+        $\pi_k \left( \Conf_n \left( \mathbb{R}^2 \right) 
+        \right) \cong
+        \pi_k \left( \Conf_{n-1}(\mathbb{R}^2) \right) $ for
+        all $k\ge 2$.
+        By repeated application, we thus get
+        that
+        $\pi_k \left( \Conf_n \left( \mathbb{R}^2 \right) 
+        \right) \cong
+        \pi_k \left( \Conf_1 \left( \mathbb{R}^2 \right)  \right) 
+        \cong \pi_k \left( \mathbb{R}^2 \right) 
+        \cong 0$ for $k\ge 2$ since
+        $\Conf_1\left( \mathbb{R}^2 \right) = 
+        \mathbb{R}^2$.\\
+
+        It remains to show that
+        $\pi_1 \Conf_n (\mathbb{R}^2) \neq 0$.
+        Noting that
+        $\pi_0 \left( \Conf_n (\mathbb{R}^2) \right) \cong 0$ 
+        and $\pi_2 \left( \Conf_{n-1}(\mathbb{R}^2) \right) $,
+        we obtain from the LES associated
+        to the fibration
+        $\Conf_n (\mathbb{R}^2) \to \Conf_{n-1}\left( \mathbb{R}^2
+        \right) $ the following exact sequence:
+        \[
+        0 \to \pi_1 \left( \mathbb{R}^2 - 
+        \left\{ x_1, \ldots, x_{n-1} \right\} \right) 
+        \to \pi_1 \Conf_n \left( \mathbb{R}^2 \right) 
+        \to \pi_1 \Conf_{n-1} \left( \mathbb{R}^2 \right) \to 0
+        \] 
+        Now,
+        $\pi_1 \left( \mathbb{R}^2
+        - \left\{ x_1,\ldots, x_{n-1} \right\} \right) 
+        \cong \pi_1 \left( \bigvee_{n-1} S^{1} \right) 
+        \cong F_{n-1} = 
+        \left< x_1, \ldots, x_{n-1} \right>$, the
+        free group on $n-1$ elements.
+        Now, when $n=1$,
+        $\Conf_n \left( \mathbb{R}^2 \right) =
+        \mathbb{R}^2$, so
+        $\pi_1 \Conf_1 \left( \mathbb{R}^2 \right) \cong 0$, and
+        hence
+        $\pi_1 \Conf_2 \left( \mathbb{R}^2 \right) 
+        \cong F_1 \cong \mathbb{Z}$. But free groups are
+        projective, so by induction, the exact sequence
+        \[
+        0 \to F_{n-1} \to \pi_1 \Conf_n \left( \mathbb{R}^2 \right) 
+        \to \pi_1 \Conf_{n-1} (\mathbb{R}^2) \to 0
+        \tag{$\xi$}\label{xi}
+        \] 
+        splits, hence each
+        $\pi_1 \Conf_n (\mathbb{R}^2)$ is non-trivial as
+        it contains an isomorphic copy of a free group.
+        This shows that $\Conf_n (\mathbb{R}^2)$ is
+        a $K(G,1)$ space for all $n\ge 1$.\\
+        We will even show below that the SES 
+        in \eqref{xi} splits.\\
+        \linebreak
+        (2)
+
+        \begin{note}
+            Below, we will abuse terminology by identifying
+            $F_{n-1}$ with
+            $\pi_1 \left( \mathbb{R}^2 - \left\{ x_1,
+            \ldots, x_{n-1} \right\}  \right) $ and
+            $\iota_n$ having either as a domain.
+
+            Furthermore, these are always pointed maps.
+        \end{note}
+
+        To find generators, we first look at the
+        actual maps in the LES for the fiber bundle.
+        Let $p_n \colon
+        \Conf_n (\mathbb{R}^2) \to 
+        \Conf_{n-1} \left( \mathbb{R}^2 \right) $ be
+        the map that forgets the last coordiante, and
+        and let 
+        $\iota_n \colon  
+        \mathbb{R}^2 - \left\{ x_1,\ldots,x_{n-1}  \right\} 
+        \cong F \hookrightarrow 
+        \Conf_n \left( \mathbb{R}^2 \right) $ be
+        the inclusion of the fiber.\\
+
+        We now show that 
+        \eqref{xi} splits. Define a map
+        $s \colon
+        \Conf_{n-1}\left( \mathbb{R}^2 \right) 
+        \to \Conf_n \left( \mathbb{R}^2 \right) $ by
+        $s\left( x_1, \ldots, x_{n-1} \right) 
+        = \left( x_1,\ldots, x_{n-1},
+        x_n'\right) $ where
+        $x_n' = (1 + \max_{i\le n-1} \left| x_i \right|, 0) $. This
+        map is continuous since the norm is
+        continuous, and we also have
+        $p \circ s = \id_{\Conf_{n-1}\left( \mathbb{R}^2 \right) }$.
+        Since both $p$ and $s$ preserve
+        basepoints, we find by taking $\pi_1$ that
+        $p_* \circ s_* = 
+        \id_{\pi_1 \Conf_{n-1} \left( \mathbb{R}^2 \right) }$.
+        That is, $s_*$ is a section, so
+        \eqref{xi} splits.\\
+         \linebreak
+        
 
 
 
 
 
+         Thus we have
+        \[
+        F_{n-1} \oplus \pi_1 \Conf_{n-1}(\mathbb{R}^2)
+        \cong \pi_1 \Conf_n (\mathbb{R}^2)
+        \] 
+        under the isomorphism
+        $(x,y) \mapsto \left( \iota_n \right)_*(x) +
+        s_*(y)$.
+        Since $\pi_1 \Conf_2 \left( \mathbb{R}^2 \right) 
+        \cong \pi_1 S^{1}$ induced by the deformation retract
+        $\mathbb{R}^2 -\left\{ x_1 \right\} 
+        \times I \to  \mathbb{R}^2 - \left\{ x_1 \right\} $ sending
+        $\left( x,t \right) \mapsto 
+        (1-t) (x-x_1) + t \frac{x-x_1}{\|x - x_1\|} + x_1$.
+        Under this isomorphism, we see that 
+        $\gamma_{1,2}$ which winds
+        around the puncture once corresponds to
+        a generator for $\pi_1 S^{1}$ - namely a loop that
+        goes once around.
+        Thus $\gamma_{1,2}$ indeed generates
+        $\pi_1 \Conf_2 \left( \mathbb{R}^2 \right) $.\\
+        Now, suppose we have
+        shown for $n \le N-1$ that
+        $\pi_1 \Conf_n \left( \mathbb{R}^2 \right) $ 
+        is generated by
+        $\left\{ \gamma_{i,j} \right\}_{1 \le i < j \le n}$.
+        Then using the isomorphism
+        \[
+        \pi_1 \left(F \right)  \oplus \pi_1 \Conf_{N-1}\left( \mathbb{R}^2 \right) 
+        \stackrel{\left( x,y \right) \mapsto 
+        \iota_{N*}(x) +s_* (y)}{\to} \pi_1 \Conf_N 
+        \left( \mathbb{R}^2 \right) 
+        \] 
+        we see that the
+        $\gamma_{i,j} \in 
+        \pi_1 \Conf_{N-1} \left( \mathbb{R}^2 \right)$ 
+        are mapped under the isomorphism to
+        $\gamma_{i,j} \in 
+        \pi_1 \Conf_{N-1}\left( \mathbb{R}^2 \right) $ 
+        (we will furthermore assume that the given
+        $\rho $ which loop around $(j,0)$ from $(i,0)$ are
+        sufficiently close to he the other points
+        $(1,0) ,\ldots, (N,0)$ at all times so that
+        $1 + \max_{i \le N-1} \left| x_i \right| $ will
+        be equal to $(N,0)$):
+
+        \[
+            \gamma_{i,j}(t) =
+        \left( (1,0) ,\ldots, (i-1,0) ,
+        \rho(t), (i+1,0) , \ldots, \underbrace{(1 + 
+    \max_{i\le N-1} \left| x_i \right| ,0)}_{(N,0)} \right)
+\]
+
+        So to complete the induction, it suffices to show
+        that the remaining loops
+        $\gamma_{i,N}$ correspond to generators of
+        $F_{n-1}$. The problem is that under the isomorphism
+        above, a loop  $\alpha_{i} \in 
+        \pi_1 \left( \mathbb{R}^2 - \left\{ x_1, \ldots,
+        x_{N-1}\right\}  \right) $, which winds once
+        around $x_i$ and then returns to the basepoint, corresponds
+        to the loop
+        in $\pi_1(F)$ whose $N-1$ first coordinates remain
+        fixed at $x_1, \ldots, x_{N-1}$ and where
+        the last coordinate traces out a loop
+        where it winds around $x_i$ once and then returns back
+        to the basepoint $x_N$.
+        Hence all of the loops
+        in $\pi_1 (F)$ are not of the form
+        $\gamma_{i,N}$. 
+        However, we claim that the loop is homotopic
+        to a $\gamma_{i,N}$.
+
+        To see this, we will regard 
+        $\pi_1 \Conf_N \left( \mathbb{R}^2 \right) $ 
+        in a different way.
+        The group $\pi_1 \Conf_N \left( \mathbb{R}^2 \right) $ 
+        is commonly called the pure braid group
+        $PB_N$. To visualize a loop
+        $\alpha \colon \left( I, \left\{ 0,1 \right\}  \right) 
+        \to \pi_1 \left( \Conf_N (\mathbb{R}^2),
+         \left( (1,0), \ldots, (N,0) \right)  \right) $ 
+         consider 
+         $\alpha$ as
+         $\alpha(t) = 
+         \left( \alpha_1(t), \ldots,
+         \alpha_N(t) \right) $ where
+         $\alpha_i(t)$ is the $i$ th coordinate
+         of $\alpha$.
+         This $\alpha_i$ traces out a loop in
+         $\mathbb{R}^2$
+         in the common sense.
+         Define now a new map
+         $\beta_i \colon I \to 
+         \mathbb{R}^2 \times I$
+         by $\beta_i (t) = 
+         \left( \alpha_i(t), t \right) $. Then
+         $\left( \beta_1, \ldots, \beta_N \right) $ is a braid.
+         See Figure \ref{fig:Figures-braid-diagram-jpg}
+         for a typical example in
+         $\pi_1 \Conf_3 \left( \mathbb{R}^2 \right) $.
+
+         \begin{figure}[htpb]
+             \centering
+             \includegraphics[width=0.5\textwidth]{Figures/braid-diagram.png}
+             \caption{Here $\mathbb{C}$ can be replaced
+             with $\mathbb{R}^2$.}
+             \label{fig:Figures-braid-diagram-jpg}
+         \end{figure}
+
+         So how do the loops
+         in the image of
+         $\left( \iota_N \right)_* $ look like?
+         Well, since the first $N-1$ coordinates are
+         constant, our $\beta_i$ are of the form
+         $\beta_i (t) = 
+         \left( (i,0), t \right) $ for $i \le N-1$.
+         And since $\alpha_N$ by construction traced
+         out a loop that went around
+         one of the punctures $(i,0)$ and not the others, 
+         $\beta_N$ will be a strand which starts
+         at $\left( (N,0),0 \right) $ then which wraps (in a
+         continuous level-wise manner) around
+         the $i$ th braid once and the connects
+         to $\left( (N,0),1 \right) $.
+         See Figure \ref{fig:braid2-jpg} 
+         \begin{figure}[htpb]
+             \centering
+             \includegraphics[width=1\textwidth]{Figures/braid2.jpg}
+             \caption{}
+             \label{fig:braid2-jpg}
+         \end{figure}
+         Now, what is a homotopy in
+         $\pi_1 \Conf_n \left( \mathbb{R}^2 \right) $?
+         It will have the form
+         $\left( F_1(x,t), \ldots, F_N(x,t) \right) $ where
+         $F_i \colon
+          I \times I \to \mathbb{R}^2$
+          depicts a loop. Furthermore,
+          at each time $t_0 \in I$,
+          $F_i(x,t_0) \neq F_j(x,t_0)$; i.e.,
+          the braids are disjoint/non-intersecting.
+          Hence a homotopy in $\pi_1 \Conf_n(\mathbb{R}^2)$ 
+          is the same as an isotopy of the braid
+          that the loop depicts.
+
+          With this setup in mind, we can now show that
+          the loop in Figure \ref{fig:braid2-jpg} is
+          homotopic to $\gamma_{i,N}$.
+          This, in particular, is equivalent to saying that
+          the braid in \ref{fig:braid2-jpg} is isotopic
+          to the braid the $\gamma_{i,N}$ corresponds to.
+          To see this, consider the isotopy depicted in
+          Figure \ref{fig:braid3-jpg}.
+
+          \begin{figure}[htpb]
+              \centering
+              \includegraphics[width=0.8\textwidth]{Figures/braid3.jpg}
+              \caption{}
+              \label{fig:braid3-jpg}
+          \end{figure}
+          
+          At the bottom, we obtain
+          $\gamma_{i,N}$. Thus
+           $\im \left( \iota_N \right)_*$ indeed
+           corresponds to the remaining
+           $\gamma_{i,j}$ 's.\\
+           And this completes the inductive argument.\\
+           \linebreak
+           (3) 
+           As we equip $\UConf_n \left( \mathbb{R}^{2} \right) $
+           with the quotient topology obtained from
+           the map
+           $\Conf_n \left( \mathbb{R}^2 \right) \to 
+           \UConf_n \left( \mathbb{R}^2 \right) $, this
+           map becomes continuous, and as 
+           $\Conf_n \left( \mathbb{R}^2 \right) $ was
+           path-connected and continuous images of
+           path-connected spaces are path-connected, we
+           find that
+           $\pi_0 \UConf_n \left( \mathbb{R}^2 \right) =0$
+           for all $n$. Next,
+           we claim that
+           $\Conf_n \left( \mathbb{R}^2 \right) \to 
+           \UConf_n \left( \mathbb{R}^2 \right) $ is, in fact,
+           a covering map.
+           Let
+           $ \left\{ x_1, \ldots, x_n \right\} \in 
+           \UConf_n \left( \mathbb{R}^2 \right) $, where
+           we have just given indices in some random fashion.
+           We can define an action of
+           $\Sigma_n$ on $\left( x_1, \ldots, x_n \right) $ 
+           by $\sigma \cdot \left( x_1, \ldots, x_n \right) 
+           = \left( x_{\sigma(1)}, \ldots, 
+           x_{\sigma(n) }\right) $. Since all
+           $x_i$ are pairwise distinct, so are
+           all $\sigma \cdot \left( x_1, \ldots, x_n \right) $.
+           Furthermore, distinct $\sigma \in \Sigma_n$ produce
+           distinct tuples. Since this gives
+           us finitely many distinct elements
+           in $\left( \mathbb{R}^2 \right)^{\times n}
+           \cong \mathbb{R}^{2n}$ which is Hausdorff, one
+           can show that
+           $\Sigma_n$ acts properly discontinuously
+           on $\Conf_n \left( \mathbb{R}^2 \right) $.
+           Furthermore, the quotient map
+           $q \colon \Conf_n \left( \mathbb{R}^2 \right) 
+           \to \Conf_n \left( \mathbb{R}^2 \right) /
+           \Sigma_n$ agrees with the quotient map
+           $\Conf_n \left( \mathbb{R}^2 \right) \to 
+           \UConf_n \left( \mathbb{R}^2 \right) $.
+
+           By proposition 2.4.3 in the AlgTop1 notes,
+           the quotient map
+           $q \colon \Conf_n \left( \mathbb{R}^2 \right) 
+           \to \Conf_{n}\left( \mathbb{R}^2 \right) / \Sigma_n$ 
+           is, in fact, a covering map.
+           By proposition 4.1 in Hatcher, then
+           $\pi_k \Conf_n \left( \mathbb{R}^2 \right) 
+           \cong \pi_k \UConf_n $ for
+           all $k\ge 2$ and all $n$. We have already
+           shown that
+           $\pi_k \Conf_n \left( \mathbb{R}^2 \right) 
+           \cong 0$ for all $k\ge 2$, so
+           $\pi_k \UConf_n \left( \mathbb{R}^2 \right) \cong 0$ 
+           for all $k\ge 2$ also.\\
+           Furthermore,
+           by Theorem 2.2.9 in the AlgTop1 notes, 
+           $q_*$ induces an injection on
+           fundamental groups, so
+           since $\pi_1 \Conf_n \left( \mathbb{R}^2 \right) $ 
+           was nontrivial, so 
+           $\pi_1 \UConf_n \left( \mathbb{R}^2 \right) $ 
+           is nontrivial as it contains an
+           isomorphic copy of
+           $\pi_1 \Conf_n \left( \mathbb{R}^2 \right) $.
+
+           This can also be seen very easily when 
+           we consider the visual representation of
+           $\pi_1 \UConf_n \left( \mathbb{R}^2 \right) $ as
+           the standard braid group $B_n$.
+           The pure braid group
+           $PB_n$ sits inside $B_n$ as all the braids
+           where each strand starts and ends at the
+           same point - i.e., it starts at some
+            $(p,0)$ and ends at $(p,1)$.
 
 
+    \end{proof}                 
+                 
 
-
+                    
+          
+                    
 
 
 

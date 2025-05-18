@@ -1,0 +1,332 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+%\usepackage[backend=biber]{biblatex}
+%\addbibresource{.bib}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\SHomeo}{SHomeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Teich}{Teich}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\corank}{corank}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Bun}{Bun}
+\DeclareMathOperator{\Sm}{Sm}
+\DeclareMathOperator{\Fr}{Fr}
+\DeclareMathOperator{\Cob}{Cob}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Conf}{Conf}
+\DeclareMathOperator{\UConf}{UConf}
+
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\MCG}{{\mathrm{MCG}}}
+\newcommand{\PMCG}{{\mathrm{PMCG}}}
+\newcommand{\SMCG}{{\mathrm{SMCG}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+
+
+
+
+\begin{document}
+
+
+\subsection{Cohomology in terms of Homological Algebra}
+
+    Recall the Universal Coefficient Theorem for Cohomology:
+
+    \begin{theorem}[Universal Coefficient Theorme for Cohomology]
+        Let $R$ be a ring and $A$ an $R-$ module. Let
+        $C_*$ be a complex of projective $R$-modules
+        such that the subcomplex of boundaries 
+        $B_*$ is also a complex of projective modules.
+        \begin{enumerate}
+            \item For all $n$, there is a SES
+                \[
+                0 \to \Ext_R^{1} \left( 
+                H_{n-1}(C_*),A\right) \stackrel{\lambda_n}{\to} 
+                H^{n} \left( \Hom_R \left( C_*,A \right)  \right) 
+                \stackrel{\mu_n}{\to} \Hom_R \left( 
+                H_n \left( C_* \right), A \right) \to 0
+                \] 
+                where both $\lambda_n$ and $\mu_n$ are
+                natural in $C_*$ and $A$.
+            \item If $R$ is a PID, then the SES in (1) is
+                split, but it is not always naturally split.
+        \end{enumerate}
+    \end{theorem}
+
+    Also recall the basic properties:
+
+    \begin{lemma}[]
+        For a finitely generated $H$, we have
+        \begin{itemize}
+            \item $\Ext \left( 
+                H \oplus H' , G\right) \cong
+                \Ext \left( H, G \right) \oplus
+                \Ext(H',G)$
+            \item $\Ext (H,G) = 0$ if $H$ is free.
+            \item $\Ext (\mathbb{Z} / n, G) \cong
+                G / n G$.
+        \end{itemize}
+    \end{lemma}
+
+    \begin{corollary}
+        If the homology groups $H_n$ and
+        $H_{n-1}$ of a chain complex
+        $C$ of free abelian groups are finitely
+        generated, with torsion subgroups
+        $T_n \subset H_n$ and 
+        $T_{n-1} \subset H_{n-1}$, then
+        $H^{n}( \Hom_\mathbb{Z} (C_*, \mathbb{Z}) ) \cong
+        \left( H_n / T_n \right) \oplus T_{n-1}$.
+    \end{corollary}
+
+    \begin{proof}
+        By the Universal Coefficient theorem for cohomology, we
+        have that
+        \[
+        H^{n} \left( 
+        \Hom_\mathbb{Z} \left( C_*, \mathbb{Z} \right) \right) 
+        \cong
+        \Ext_{\mathbb{Z}}^{1} 
+        \left( H_{n-1}(C_*), \mathbb{Z} \right) 
+        \oplus \Hom_{\mathbb{Z}} \left( 
+        H_n \left( C_*\right), \mathbb{Z} \right) 
+        \] 
+        Now,
+        $\Ext_{\mathbb{Z}}^{1} \left( H_{n-1}(C_*),\mathbb{Z}
+        \right) \cong T_{n-1}$ and
+        $\Hom_{\mathbb{Z}} \left( H_n
+        \left( C_* \right), \mathbb{Z} \right) 
+        \cong H_n / T_n$.
+    \end{proof}
+
+    \begin{proposition}[]
+        If a chain map between chain complexes of free
+        abelian groups induces an isomorphism on homology
+        groups, then it induces an isomorphism
+        on cohomology groups with any coefficient
+        group $G$.
+    \end{proposition}
+
+    \begin{proof}
+        Suppose
+        $\alpha \colon C_* \to C_*'$ is the chain map
+        such that $\alpha_* \colon
+        H_n (C_*) \to H_n (C_*')$ is an isomorphism
+        for all $n$.
+        Consider the diagram
+
+        \begin{equation*}
+        \begin{tikzcd}
+            0 \ar[r] & 
+            \Ext \left( H_{n-1}(C),G \right) 
+            \ar[r] & H^{n}(C;G) \ar[r, "h"] &
+            \Hom(H_n(C),G) \ar[r] & 0\\
+            0 \ar[r] & 
+            \Ext(H_{n-1}(C'),G) \ar[r] \ar[u, "(\alpha_*)^{*}",
+            "\cong"']
+                     & H^{n}(C';G) \ar[r, "h"] \ar[u, "\alpha^*"] 
+                     & \Hom(H_n (C'),G) \ar[r] 
+            \ar[u, "(\alpha_*)^{*}", "\cong"'] & 0
+        \end{tikzcd}
+        \end{equation*}
+        which follows form naturality of the
+        Universal Coefficient theorem.
+        Then by the $5$-lemma, we obtain that
+        $\alpha^*$ is an isomorphism also.
+        
+    \end{proof}
+
+
+
+    \subsection{Cohomology of Spaces}
+
+
+    Define
+    $S^{-n} (X;G) :=
+    \Hom_{\mathbb{Z}} \left( S_n(X),A \right) $,
+    so $S^{*}(X;A)$ is a chain complex.
+    We define
+    $H^{n}(X;A) :=
+    H_{-n}\left( S^{*}(X;A) \right) $, called \textit{singular
+    cohomology of $X$ with coefficients in $A$.}\\
+
+    Thus an $n$-cochain $\varphi 
+    \in S^{-n}(X;G)$ assigns to each
+    $n$-simplex $\sigma \colon \Delta^{n} \to X$ a
+    value $\varphi \left( \sigma \right) \in G$.
+    Since the $n$-simplicies form a basis for
+    $S_n(X)$, these values can be chosen arbitrarily,
+    hence $n$-cochains are exactly equivalent to functions
+    from singular $n$-simplices to $G$.\\
+    The \textit{coboundary map} $\delta
+    \colon S^{-n}(X;G) \to S^{-(n+1)}(X;G)$ is the dual
+     $\partial^{*}$, so for
+     a cochain $\varphi \in 
+     S^{-n}(X;G)$, its coboundary $\delta
+     \varphi  $ is the composition
+     $\delta \varphi  = 
+     \partial^{*} \varphi =
+     \varphi \circ \partial$, i.e., the composition
+     $C_{n+1} (X) \stackrel{\partial}{\to} 
+     C_n(X) \stackrel{\varphi }{\to} G$.
+
+     Hence for a singular $(n+1)$-simplex
+     $\sigma \colon \Delta^{n+1} \to X$, we have
+     \[
+     \delta \varphi (\sigma) = 
+     \sum_{i} (-1)^{i} 
+     \varphi \left( \sigma |_{\left[ v_0, \ldots,
+     \widehat{v_i}, \ldots, v_{n+1}\right] } \right).
+     \] 
+     Since $\delta^2$ is the dual of
+     $\partial^2 = 0$, we have
+     $\delta^2 = 0$ also, so
+     $H^{n}(X;G)$ can be defined as above.\\
+     \linebreak
+     \begin{note}
+         For a cochain $\varphi \in 
+         S^{-n}(X;G)$ to be a cocyle means that
+         $\delta \varphi = \varphi \partial = 0$, i.e.,
+         it means that $\varphi $ vanishes on boundaries.
+     \end{note}
+
+
+
+
+
+
+
+
+
+
+
+    %\printbibliography
+\end{document}
