@@ -1,0 +1,434 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+%\usepackage[backend=biber]{biblatex}
+%\addbibresource{.bib}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\SHomeo}{SHomeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Teich}{Teich}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\corank}{corank}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Bun}{Bun}
+\DeclareMathOperator{\Sm}{Sm}
+\DeclareMathOperator{\Fr}{Fr}
+\DeclareMathOperator{\Cob}{Cob}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Conf}{Conf}
+\DeclareMathOperator{\UConf}{UConf}
+\DeclareMathOperator{\Map}{Map}
+
+
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\MCG}{{\mathrm{MCG}}}
+\newcommand{\PMCG}{{\mathrm{PMCG}}}
+\newcommand{\SMCG}{{\mathrm{SMCG}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+
+
+
+\title{Assignment 5}
+\author{Jonas Trepiakas}
+\date{}
+
+
+\begin{document}
+\maketitle
+    \begin{problem}[]
+        Let $F := \text{hofib} \left( i \colon
+        \mathbb{C}\mathbb{P}^{n} \to \mathbb{C}\mathbb{P}^{\infty}
+    \right) $ be the homotopy fiber of the inclusion.
+    \begin{enumerate}
+        \item Show that $F$ is $2n$-conected.\\
+            There is a LES coming from the Puppe
+            sequence
+            \[
+            \ldots \to 
+            \left[ X, \Omega \mathbb{C}\mathbb{P}^{\infty}
+            \right]_* \to \left[ X,F \right]_* 
+            \to \left[ X,\mathbb{C}\mathbb{P}^{n} \right]_*
+            \to \left[ X,\mathbb{C}\mathbb{P}^{\infty} \right]_*
+            \] 
+            Let $X $ be a CW complex of dimension $\le 2n$.
+        \item Show that if $f \colon
+            X \to \mathbb{C}\mathbb{P}^{n}$ induces
+            the $0$-map on $H^{2}$, then
+            $f$ is nullhomotopic.
+        \item Show that there is a counter-example when
+            $X$ is allowed to be
+            $(2n+1)$-dimensional.
+    \end{enumerate}
+    \end{problem}
+
+\begin{solution}
+        (1) The LES for
+        the pair
+        $\left( \mathbb{C}\mathbb{P}^{\infty},
+        \mathbb{C}\mathbb{P}^{n}\right) $ and
+        the fibration $E_f \to B$ can be identified, so
+        in particular,
+        $\pi_k \left( F, \gamma_0 \right) 
+        \cong \pi_{k+1} \left( \mathbb{C}\mathbb{P}^{\infty},
+        \mathbb{C}\mathbb{P}^{n}\right)$.\\
+
+        Recall now (p. 7, Hatcher) that
+        $\mathbb{C}\mathbb{P}^{n}$ has a cell
+        structure of a single cell in every even
+        degree up to $2n$ :
+        $\mathbb{C}\mathbb{P}^{n}
+        = e^{0} \cup e^{2} \cup \ldots \cup 
+        e^{2n}$.
+        By definition, 
+        $\mathbb{C}\mathbb{P}^{\infty}$ is defined
+        as the sequential colimit over the sequence
+        $\mathbb{C}\mathbb{P}^{n} \hookrightarrow 
+        \mathbb{C}\mathbb{P}^{n+1}$:
+        $\mathbb{C}\mathbb{P}^{\infty} :=
+        \lim_{\leftarrow_n} \mathbb{C}\mathbb{P}^{n}$.
+        In paritcular (Hatcher, p.7), it also
+        has a cell structure with one cell in each even
+        dimension with $\mathbb{C}\mathbb{P}^{n}$ 
+        constituting its
+        $2n$-skeleton.
+        From Corollary 4.12 in Hatcher, it now follows
+        that $(\mathbb{C}\mathbb{P}^{\infty},
+        \mathbb{C}\mathbb{P}^{n})$ is $(2n+1)$-connected,
+        so
+        $F$ is $2n$-connected.\\
+        \linebreak
+        
+
+
+
+
+
+        
+
+    (2) 
+
+
+
+
+
+      Firstly, $F$ is $2n$-connected, so we
+      can replace it using Proposition 4.15 in Hatcher
+      by a CW complex with a single
+      $0$-cell and cells of dimension $>2n$.
+      Then by Cellular Approximation,
+      $\left[ X,F \right]_* = 0$, so
+      $\left[ X,\mathbb{C}\mathbb{P}^{n} \right]_*$ 
+      injects into
+      $\left[ X, \mathbb{C}\mathbb{P}^{\infty} \right]_*$.
+      What is this injection? 
+
+      Recall that the Puppe sequence
+      given is obtained by applying
+      $\left[ X,- \right]_* $ to the Puppe sequence
+      from p. 409 in Hatcher:
+      \[
+      \ldots \to \Omega^2 \mathbb{C}\mathbb{P}^{\infty}
+      \to \Omega F \to \Omega \mathbb{C}\mathbb{P}^{n}
+      \to \Omega \mathbb{C}\mathbb{P}^{\infty}
+      \to F \to \mathbb{C}\mathbb{P}^{n} 
+      \stackrel{i}{\to} \mathbb{C}\mathbb{P}^{n}
+      \] 
+      so the map
+      $\left[ X,\mathbb{C}\mathbb{P}^{n} \right]_*
+      \to \left[ X, \mathbb{C}\mathbb{P}^{\infty} \right]_* $ 
+      is given by postcomposing with the
+      inclusion $i$, and we are told that this is injective.
+      In particular,
+      $\left[ f \right] $ is zero if and only if
+      $\left[ i \circ f \right] \in 
+      \left[ X, \mathbb{C}\mathbb{P}^{\infty} \right]_*$ is
+      zero.
+
+      But now since $X$ is a CW complex, we have
+    by Theorem 4.57 in Hatcher that
+    $H^k(X;\mathbb{Z})
+    \cong \left[ X, K(\mathbb{Z},k) \right] $, so
+     since $\mathbb{C}\mathbb{P}^{\infty}$ is
+     $K\left( \mathbb{Z},2 \right) $, we have
+     $H^2 (X;\mathbb{Z})
+     \cong \left[ X, \mathbb{C}\mathbb{P}^{\infty} \right] $.
+     Now, by theorem 4.57, the correspondence
+     $\left[ X, \mathbb{C}\mathbb{P}^{\infty} \right]_* 
+     \stackrel{\cong}{\to} H^{2}(X;\mathbb{Z})$ takes
+     $\left[ g \right]$ to
+     $g^{*}(\alpha)$ for some fundamental class
+     $\alpha \in 
+     H^{2}\left( \mathbb{C}\mathbb{P}^{\infty};\mathbb{Z} \right) $.
+     But
+     $\left( i \circ f \right)^{*}(\alpha)
+     = f^{*} \left( i^{*}(\alpha) \right) = 0$ by assumption
+     on $f$. But the $0$ map
+     in $\left[ X, \mathbb{C}\mathbb{P}^{n} \right]_* $ 
+     sending all of $X$ to the basepoint clearly also induces
+     the $0$-map on $H^2$, so by the same reasoning, 
+     it is mapped to $0$ in
+     $H^2 \left( X; \mathbb{Z} \right) $ under this correspondence.
+     Hence
+     $\left[ i \circ f \right] 
+     = \left[ i \circ 0 \right] $ by Theorem 4.57,
+     and so by the injectivity from the Puppe sequence,
+     $\left[ f \right] = \left[ 0 \right] $ in
+     $\left[ X, \mathbb{C}\mathbb{P}^{n} \right]_*$,
+     so $f$ is based nullhomotopic, which was what we wanted
+     to show.\\
+     \linebreak
+     (3) 
+     Consider the Hopf fibration
+     $S^{1} \to S^{2n+1} \stackrel{f}{\to}  \mathbb{C}\mathbb{P}^{n}$.
+     Since $f$ induces a nontrivial isomorphism
+     $\pi_k \left( S^{2n+1} \right) 
+     \stackrel{f_*}{\to} \pi_k \left( \mathbb{C}\mathbb{P}^{n}
+     \right) $ for $k>2$,
+     $f$ cannot be a nullhomotopic in
+     $\left[ S^{2n+1},\mathbb{C}\mathbb{P}^{n} \right]_*$,
+     however, it does induces the $0$ map on
+     $H^2$ since $H^2 \left( S^{2n+1} \right) = 0$.
+
+
+
+
+\end{solution}
+
+
+
+
+\begin{problem}[]
+    Let $Y$ be a locally compact CW complex.
+    Use $\left[ Y; \Omega Z \right] \cong
+    \pi_1 \Map (Y,Z)$ to define a group structure
+    on $\left[ Y, \Omega Z \right] $ and show that the part
+    \[
+    \ldots \to \left[ Y, \Omega F \right]_*
+    \to \left[ Y, \Omega E \right]_* \to 
+    \left[ Y, \Omega B \right]_*
+    \] 
+    of the Puppe sequence can be made into a LES of
+    groups. Using this and the previous exercise,
+    show that  $\left[ X, \mathbb{C}\mathbb{P}^{n} \right] 
+    \cong H^2 (X;\mathbb{Z})$ for
+    $X = \Sigma Y$ and $Y$ an
+    $(2n-1)$-dimensional CW complex.
+\end{problem}
+
+\begin{proof}
+    I will assume that the formulation of the problem
+    was meant for based spaces and based maps.
+    In that case, given maps
+    $\left[ f \right] ,\left[ g \right] \in 
+    \left[ Y, \Omega Z \right] $, we can define
+    $\left[ f \right] + \left[ g \right] $ as the
+    $\varphi^{-1} \left( \varphi \left[ f \right] 
+    \cdot  \varphi \left[ g \right] \right) $ where
+    $\varphi $ is the isomorphism
+    $\varphi \colon \left[ Y; \Omega Z \right] 
+    \cong \pi_1 \Map(Y,Z)$, and
+    $\cdot $ denotes concatenation of loops.
+    This makes the sets into groups as they inherit
+    the group structure from
+    $\pi_1 \Map \left( Y,Z \right) $.
+    In general,
+    $\left[ A,B \right] $ is group with multiplication
+    $(f\cdot g)(x) = f(x) \cdot g(x)$ whenever
+    $B$ is an H-group which loop spaces are (Bredon, Theorem 3.3,
+    VII.(3)).
+
+    Then the sequence
+    \[
+    \left[ Y, \Omega F \right]_* \to 
+    \left[ Y, \Omega E \right]_* \to 
+    \left[ Y, \Omega B \right]_*
+    \] 
+    can be made into a LES of groups if we can show that
+    the maps between these groups become group homomorphisms
+    (exactness is already given).
+    For this, note that the
+    Puppe sequence in those degrees was already a LES
+    of groups, and then
+    taking $\left[ Y, - \right]_*$ of this sequence
+    just becomes postcomposition which distributes
+    over the loop operation since it is simply concatenation,
+    so the postcomposed function just distributes over
+    the concatenation on $\left[ 0,\frac{1}{2} \right] $ and
+     $\left[ \frac{1}{2},1 \right] $.\\
+
+
+
+    Now similarly to the previous problem, we then get
+    $\left[ X, \mathbb{C}\mathbb{P}^{n} \right] 
+    \cong \left[ \Sigma Y, \mathbb{C}\mathbb{P}^{n} \right] 
+    \cong \left[ Y, \Omega \mathbb{C}\mathbb{P}^{n} \right] $,
+    and also
+    $\left[ X, \mathbb{C}\mathbb{P}^{\infty} \right] 
+    \cong H^2 (X;\mathbb{Z})$, so
+    if we can show that
+    $\left[ Y,F \right]_* = 0$ and
+    $\left[ \Sigma Y, F \right]_* = 0$, then
+    we are done, as then
+    $\left[ X, \mathbb{C}\mathbb{P}^{n} \right] 
+    \cong \left[ X, \mathbb{C}\mathbb{P}^{\infty} \right] 
+    \cong H^2 (X;\mathbb{Z})$ by the LES from problem 1 (now
+    as groups).
+
+    And $\left[ Y,F \right]_* = 0 =
+    \left[ \Sigma Y,F \right]_* = 0$ follows since
+    $Y$ is $(2n-1)$-dimensional hence
+    $\Sigma Y$ is $(2n)$-dimensional, so by Cellular Approximation,
+    and replacing $F$ by a CW-complex with cells
+    only of dimension greater than $2n$ along with the
+    basepoint, we obtain that
+    any map in
+    $ \left[ Y,F \right]_*$ or
+    $\left[ \Sigma Y,F \right]_*$ is based nullhomotopic, giving
+    the result.
+
+
+
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    %\printbibliography
+\end{document}

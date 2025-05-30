@@ -1,0 +1,324 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+%\usepackage[backend=biber]{biblatex}
+%\addbibresource{.bib}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\SHomeo}{SHomeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Teich}{Teich}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\corank}{corank}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Bun}{Bun}
+\DeclareMathOperator{\Sm}{Sm}
+\DeclareMathOperator{\Fr}{Fr}
+\DeclareMathOperator{\Cob}{Cob}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Conf}{Conf}
+\DeclareMathOperator{\UConf}{UConf}
+
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\MCG}{{\mathrm{MCG}}}
+\newcommand{\PMCG}{{\mathrm{PMCG}}}
+\newcommand{\SMCG}{{\mathrm{SMCG}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+
+
+
+
+\begin{document}
+    Conventions for this assignment: We assume
+    all topological spaces to be nice enough for covering
+    theory (we can even assume locally contractible).
+    Basepoints are assumed to be good basepoints, namely
+    the inclusion $\left\{ x \right\} \subset 
+    X$ is assumed to have the homotopy extension property.
+    If
+    $X$ is a space, then $\Omega X$ denotes
+    its loop space and there is a fiber sequence
+    \[
+    \Omega X \to PX \to X
+    \] 
+    where $PX$ is a contractible space.
+
+
+    \begin{problem}[]
+        Show that the homology of
+        $\Omega\left( S^2 \vee S^3 \right) $ is
+        \[
+        H_* \left( \Omega \left( S^2 \vee S^3 \right) ;
+        \mathbb{Z}\right) \cong
+        \mathbb{Z}^{F_n}
+        \] 
+        where $F_n$ is the $n$ th Fibbonaci number
+        (We set $F_0 = F_1 = 1$ and
+        $F_n = F_{n-1} + F_{n-2}$ ).
+    \end{problem}
+
+    \begin{proof}
+        Using the fiber sequence
+        \[
+        \Omega \left( S^2 \vee S^3 \right) 
+        \to P \left( S^2 \vee S^3 \right) 
+        \to S^2 \vee S^3
+        \] 
+        we obtain the following quadrant double complex:
+        \[\begin{tikzcd}
+	\vdots && \vdots & \vdots \\
+	{H_3(\Omega (S^2 \vee S^3))} && {H_3(\Omega (S^2 \vee S^3))} & {H_3(\Omega (S^2 \vee S^3))} \\
+	{H_2(\Omega (S^2 \vee S^3))} && {H_2(\Omega (S^2 \vee S^3))} & {H_2(\Omega (S^2 \vee S^3))} \\
+	{H_1(\Omega (S^2 \vee S^3))} && {H_1(\Omega (S^2 \vee S^3))} & {H_1(\Omega (S^2 \vee S^3))} \\
+	\mathbb{Z} && \mathbb{Z} & \mathbb{Z} & \cdots
+	\arrow[no head, from=2-1, to=1-1]
+	\arrow[no head, from=3-1, to=2-1]
+	\arrow[from=3-1, to=4-3]
+	\arrow[from=3-1, to=5-4]
+	\arrow[no head, from=4-1, to=3-1]
+	\arrow["\cong"{description}, from=4-1, to=5-3]
+	\arrow[no head, from=5-1, to=4-1]
+	\arrow[no head, from=5-1, to=5-3]
+	\arrow[no head, from=5-3, to=5-4]
+	\arrow[no head, from=5-4, to=5-5]
+\end{tikzcd}\]
+
+In this complex, representing
+the $E^2$ page, we obtain that
+the $d_2$ emminating from
+$H_1 \left( \Omega \left( S^2 \vee S^3 \right)  \right) $ 
+to $\mathbb{Z}$ must be an isomorphism,
+since in $E^{\infty}$ which represents
+the homology of the total space 
+$P \left( S^2 \vee S^3 \right) $ which is
+contractible,
+we have that the $\mathbb{Z}$ at
+$(2,1)$ vanishes, hence
+it must vanish in $E^2$ as
+$d_2$ is the only nontrivial map emminating
+or terminating at $(2,1)$. This gives surjectivity
+of this map, and the same argument
+on $H_1 \left( \Omega
+\left( S^2 \vee S^3 \right) \right) $, which must also
+vanish, gives that
+$d_2$ must be injective as well.
+
+Next, we come to the inductive part of the
+diagram.
+Note that in $E^{\infty}$, all
+$H_n \left( \Omega \left( S^2 \vee S^3 \right)  \right) $ 
+must vanish for $n \ge 1$. Furthermore,
+any map in
+$E^{k}$ for $k\ge 4$ has horizontal
+length greater than the greatest horizontal distance
+between nontrivial objects of the double complex,
+hence all maps in $E^{k}$, for $k\ge 4$, must be
+trivial, so
+$E^{4} = E^{\infty}$. Hence
+all the homologies
+of $\Omega \left( S^2 \vee S^3 \right) $ must
+vanish because of the maps
+$d_2$ and $d_3$.
+Firstly, note that
+$d_2$ maps
+$d_2 \colon
+H_i \left( \Omega \left( S^2 \vee S^3 \right)  \right) 
+\to H_{i-1} 
+\left( \Omega \left( S^2 \vee S^3 \right)  \right) $, and
+in particular, this map must be surjective
+since it is the only nontrivial map
+terminating at the homologies
+in the second column which all must vanish.
+Next note that
+we similarly can see that
+the maps
+$ d_3$ must be surjective (killing off the
+terms in the third column) and
+injective as they must kill of the objects in the
+$0$ th column.
+
+Hence we find that we obtain a SES
+\[
+0 \to  H_{i-1} \left( \Omega \left( S^2 \vee S^3 \right)  \right) 
+\to H_{i+1} \left( \Omega \left( 
+S^2 \vee S^3 \right)  \right) 
+\to H_i \left( \Omega \left( S^2 \vee S^3 \right)  \right) 
+\to 0
+\] 
+        
+Inserting $\mathbb{Z}$ for
+$H_{0}$ and
+$H_1$ when $i = 1$,
+we obtain, since $\mathbb{Z}$ is projective,
+that the sequence splits
+and $H_2 \left( \Omega
+\left( S^2 \vee S^3 \right) \right) \cong
+\mathbb{Z}^2$. Assume that
+$H_k \left( \Omega
+\left( S^2 \vee S^3 \right) \right) \cong
+\mathbb{Z}^{F_k}$ for $k\le N-1$.
+Then again
+\[
+0 \to \mathbb{Z}^{F_{N-2}}
+\to H_{N}\left( \Omega \left( S^2 \vee S^3 \right)  \right) 
+\to \mathbb{Z}^{F_{N-1}} \to 0
+\] 
+Again $\mathbb{Z}^{F_{N-1}}$ is projective, so the
+SES splits, so
+\[
+    H_{N}\left( \Omega \left( S^2 \vee S^3 \right)  \right) 
+\cong
+\mathbb{Z}^{F_{N-2}}
+\oplus \mathbb{Z}^{F_{N-1}}
+\cong \mathbb{Z}^{F_{N-2} + F_{N-1}}
+\cong \mathbb{Z}^{F_N}.
+\]
+Induction now finishes the proof.
+
+
+
+
+
+
+    \end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    %\printbibliography
+\end{document}

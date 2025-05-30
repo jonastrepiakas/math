@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  15 MAY 2025 23:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  23 MAY 2025 02:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -719,7 +719,7 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 
 \@quotelevel=\count437
 \@quotereset=\count438
-(./notes.aux (./cofibrations.aux) (./homotopy-groups.aux) (./pset1.aux) (./Methods-of-Calculation.aux))
+(./notes.aux (./homotopy-groups.aux) (./pset1.aux) (./Methods-of-Calculation.aux))
 \openout1 = `notes.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 159.
@@ -789,113 +789,6 @@ Package biblatex Info: ... file 'notes.bbl' found.
 Package biblatex Info: Reference section=0 on input line 159.
 Package biblatex Info: Reference segment=0 on input line 159.
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
-\openout2 = `cofibrations.aux'.
-
- (./cofibrations.tex
-Underfull \hbox (badness 10000) in paragraph at lines 2--8
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9--13
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9--13
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--32
-
- []
-
-
-Overfull \hbox (10.5989pt too wide) in paragraph at lines 60--74
-[]\T1/cmr/m/n/10 If $[]$ has the homotopy extension property with respect to $\OML/cmm/m/it/10 Y$\T1/cmr/m/n/10 , then the extensibility
- []
-
-[2
-
-] [3]
-<Figures/DUWUWUJK122.png, id=108, 764.8575pt x 231.86626pt>
-File: Figures/DUWUWUJK122.png Graphic file (type png)
-<use Figures/DUWUWUJK122.png>
-Package pdftex.def Info: Figures/DUWUWUJK122.png  used on input line 207.
-(pdftex.def)             Requested size: 288.0011pt x 87.30696pt.
- [4 <./Figures/DUWUWUJK122.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 271--335
-
- []
-
-
-Overfull \hbox (12.67168pt too wide) in paragraph at lines 271--335
-\T1/cmr/m/n/10 To prove the converse, suppose that the inclusion $\OML/cmm/m/it/10 A ,[]\OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 X$ \T1/cmr/m/n/10 is a cofibration. Equivalently,
- []
-
-[5]
-<Figures/DWIJJXNXJNXJUI.png, id=128, 624.3325pt x 217.81375pt>
-File: Figures/DWIJJXNXJNXJUI.png Graphic file (type png)
-<use Figures/DWIJJXNXJNXJUI.png>
-Package pdftex.def Info: Figures/DWIJJXNXJNXJUI.png  used on input line 500.
-(pdftex.def)             Requested size: 288.0011pt x 100.47803pt.
- [6]
-Overfull \hbox (9.75377pt too wide) in paragraph at lines 588--589
- \T1/cmr/m/n/10 1.0.1.\T1/cmr/m/it/10 Interlude on pointed-spaces and operations on spaces.[] \T1/cmr/m/n/10 We recall some important
- []
-
-[7 <./Figures/DWIJJXNXJNXJUI.png>]
-Overfull \hbox (29.96289pt too wide) in paragraph at lines 665--668
-[][]\T1/cmr/bx/n/10 Definition 1.17 \T1/cmr/m/n/10 (Wedge Sum/one-point union)\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 Given two pointed spaces $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; x[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; []$\T1/cmr/m/n/10 ,
- []
-
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 754--765
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 766--768
-
- []
-
-
-Overfull \hbox (14.85468pt too wide) in paragraph at lines 787--792
-[][]\T1/cmr/bx/n/10 Definition 1.22 \T1/cmr/m/n/10 (Well-pointed space)\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 A base point $\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 X$ \T1/cmr/m/n/10 is said to be \T1/cmr/m/it/10 nondegenerate
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 794--798
-
- []
-
-<Figures/IWIDK01.jpeg, id=162, 3011.25pt x 732.7375pt>
-File: Figures/IWIDK01.jpeg Graphic file (type jpg)
-<use Figures/IWIDK01.jpeg>
-Package pdftex.def Info: Figures/IWIDK01.jpeg  used on input line 838.
-(pdftex.def)             Requested size: 180.0pt x 43.79463pt.
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 847--890
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 893--945
-
- []
-
-[10 <./Figures/IWIDK01.jpeg>]
-Overfull \hbox (3.66199pt too wide) in paragraph at lines 1015--1019
-[][]\T1/cmr/bx/n/10 Problem 1.27. []\T1/cmr/m/n/10 Find $\OML/cmm/m/it/10 H[] []$ \T1/cmr/m/n/10 using methods from this section. 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1096--1129
-
- []
-
-[11] [12]) [13]
 \openout2 = `homotopy-groups.aux'.
 
  (./homotopy-groups.tex
@@ -903,17 +796,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--5
 
  []
 
-[14
+[2
 
-
-
-] [15]
-<Figures/TKISO0932.png, id=240, 523.9575pt x 317.185pt>
+] [3]
+<Figures/TKISO0932.png, id=113, 523.9575pt x 317.185pt>
 File: Figures/TKISO0932.png Graphic file (type png)
 <use Figures/TKISO0932.png>
 Package pdftex.def Info: Figures/TKISO0932.png  used on input line 355.
 (pdftex.def)             Requested size: 216.0022pt x 130.75813pt.
- [16]
+ [4]
 Overfull \hbox (5.20813pt too wide) in paragraph at lines 395--402
 \T1/cmr/m/n/10 unless otherwise indicated, we regard the $\OML/cmm/m/it/10 n$\T1/cmr/m/n/10 -sphere $\OML/cmm/m/it/10 S[]$ \T1/cmr/m/n/10 as having the cogroup structure
  []
@@ -924,13 +815,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 408--412
  []
 
 
-LaTeX Warning: Reference `Thm:H-group-cogroup' on page 17 undefined on input line 420.
+LaTeX Warning: Reference `Thm:H-group-cogroup' on page 5 undefined on input line 420.
 
 
-LaTeX Warning: Reference `Thm:H-group-cogroup' on page 17 undefined on input line 430.
+LaTeX Warning: Reference `Thm:H-group-cogroup' on page 5 undefined on input line 430.
 
 
-LaTeX Warning: Reference `Thm:Compact-Open-Top' on page 17 undefined on input line 441.
+LaTeX Warning: Reference `Thm:Compact-Open-Top' on page 5 undefined on input line 441.
 
 
 Overfull \hbox (21.65797pt too wide) in paragraph at lines 440--442
@@ -938,25 +829,25 @@ Overfull \hbox (21.65797pt too wide) in paragraph at lines 440--442
  []
 
 
-LaTeX Warning: Reference `Thm:H-group-cogroup' on page 17 undefined on input line 467.
+LaTeX Warning: Reference `Thm:H-group-cogroup' on page 5 undefined on input line 467.
 
-[17 <./Figures/TKISO0932.png>]
+[5 <./Figures/TKISO0932.png>]
 
-LaTeX Warning: Reference `Thm:H-group-cogroup' on page 18 undefined on input line 554.
+LaTeX Warning: Reference `Thm:H-group-cogroup' on page 6 undefined on input line 554.
 
-[18] [19]
-<Figures/JIDWOOL0290L.png, id=273, 730.73pt x 113.42375pt>
+[6] [7]
+<Figures/JIDWOOL0290L.png, id=149, 730.73pt x 113.42375pt>
 File: Figures/JIDWOOL0290L.png Graphic file (type png)
 <use Figures/JIDWOOL0290L.png>
 Package pdftex.def Info: Figures/JIDWOOL0290L.png  used on input line 693.
 (pdftex.def)             Requested size: 288.0011pt x 44.70236pt.
-<Figures/JDWIXHHX011SJ.png, id=275, 232.87pt x 218.8175pt>
+<Figures/JDWIXHHX011SJ.png, id=151, 232.87pt x 218.8175pt>
 File: Figures/JDWIXHHX011SJ.png Graphic file (type png)
 <use Figures/JDWIXHHX011SJ.png>
 Package pdftex.def Info: Figures/JDWIXHHX011SJ.png  used on input line 725.
 (pdftex.def)             Requested size: 90.0pt x 84.56718pt.
- [20 <./Figures/JIDWOOL0290L.png> <./Figures/JDWIXHHX011SJ.png>]
-<Figures/WIWIWSSK11.png, id=292, 695.59875pt x 134.5025pt>
+ [8 <./Figures/JIDWOOL0290L.png> <./Figures/JDWIXHHX011SJ.png>]
+<Figures/WIWIWSSK11.png, id=168, 695.59875pt x 134.5025pt>
 File: Figures/WIWIWSSK11.png Graphic file (type png)
 <use Figures/WIWIWSSK11.png>
 Package pdftex.def Info: Figures/WIWIWSSK11.png  used on input line 753.
@@ -971,7 +862,7 @@ Overfull \hbox (1.78966pt too wide) in paragraph at lines 816--837
 []\T1/cmr/m/n/10 Since $\OML/cmm/m/it/10 S[]$ \T1/cmr/m/n/10 is path-connected and locally path-connected, and simply connected
  []
 
-[21 <./Figures/WIWIWSSK11.png>]
+[9 <./Figures/WIWIWSSK11.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 874--902
 
  []
@@ -986,17 +877,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 874--902
 
  []
 
-<Figures/DJIMMXKXO0O.jpeg, id=309, 3139.73pt x 1152.305pt>
+<Figures/DJIMMXKXO0O.jpeg, id=185, 3139.73pt x 1152.305pt>
 File: Figures/DJIMMXKXO0O.jpeg Graphic file (type jpg)
 <use Figures/DJIMMXKXO0O.jpeg>
 Package pdftex.def Info: Figures/DJIMMXKXO0O.jpeg  used on input line 945.
 (pdftex.def)             Requested size: 288.0011pt x 105.68982pt.
-[22]
+[10]
 Overfull \hbox (40.80489pt too wide) detected at line 1007
 [] \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 ^^Y[] [] [] ^^Y[] [] [] ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; A; x[]\OT1/cmr/m/n/10 ) [] \OML/cmm/m/it/10 ^^Y[] [] \OMS/cmsy/m/n/10 ! [] ! \OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; A; x[]\OT1/cmr/m/n/10 )
  []
 
-<Figures/IDIWKAKX.png, id=320, 282.05376pt x 292.09125pt>
+<Figures/IDIWKAKX.png, id=196, 282.05376pt x 292.09125pt>
 File: Figures/IDIWKAKX.png Graphic file (type png)
 <use Figures/IDIWKAKX.png>
 Package pdftex.def Info: Figures/IDIWKAKX.png  used on input line 1075.
@@ -1011,33 +902,37 @@ Overfull \hbox (31.02379pt too wide) in paragraph at lines 1080--1116
 \T1/cmr/m/n/10 Conversely, if $\OML/cmm/m/it/10 B$ \T1/cmr/m/n/10 is a point, then a nullhomotopy $\OML/cmm/m/it/10 f[] [] []  [] \OMS/cmsy/m/n/10 ! []$ \T1/cmr/m/n/10 of $\OML/cmm/m/it/10 f[] [] []  [] \OMS/cmsy/m/n/10 !
  []
 
-[23 <./Figures/DJIMMXKXO0O.jpeg>]
-<Figures/USIIOOQ.png, id=329, 486.81876pt x 236.885pt>
+[11 <./Figures/DJIMMXKXO0O.jpeg>]
+<Figures/USIIOOQ.png, id=205, 486.81876pt x 236.885pt>
 File: Figures/USIIOOQ.png Graphic file (type png)
 <use Figures/USIIOOQ.png>
 Package pdftex.def Info: Figures/USIIOOQ.png  used on input line 1119.
 (pdftex.def)             Requested size: 143.9978pt x 70.06842pt.
 
 Overfull \hbox (22.50691pt too wide) in paragraph at lines 1127--1137
-[][]\T1/cmr/bx/n/10 Corollary 2.36. []\T1/cmr/m/it/10 Consider the inclusion $\OML/cmm/m/it/10 ^^S [] [] X \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 X \OMS/cmsy/m/n/10 ^^B [] \OML/cmm/m/it/10 ,[]\OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 CX$\T1/cmr/m/it/10 . Then $\OML/cmm/m/it/10 ^^Y[] [] []
+[][]\T1/cmr/bx/n/10 Corollary 1.36. []\T1/cmr/m/it/10 Consider the inclusion $\OML/cmm/m/it/10 ^^S [] [] X \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 X \OMS/cmsy/m/n/10 ^^B [] \OML/cmm/m/it/10 ,[]\OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 CX$\T1/cmr/m/it/10 . Then $\OML/cmm/m/it/10 ^^Y[] [] []
  []
 
-<Figures/DIWIOA.png, id=331, 242.9075pt x 253.94875pt>
+<Figures/DIWIOA.png, id=207, 242.9075pt x 253.94875pt>
 File: Figures/DIWIOA.png Graphic file (type png)
 <use Figures/DIWIOA.png>
 Package pdftex.def Info: Figures/DIWIOA.png  used on input line 1152.
 (pdftex.def)             Requested size: 71.9989pt x 75.27072pt.
-[24 <./Figures/IDIWKAKX.png> <./Figures/USIIOOQ.png> <./Figures/DIWIOA.png>]
+[12 <./Figures/IDIWKAKX.png> <./Figures/USIIOOQ.png> <./Figures/DIWIOA.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 1267--1301
 
  []
 
-[25]
+[13]
+
+LaTeX Warning: Reference `Thm:SJJDHW29WW' on page 14 undefined on input line 1311.
+
+
 Overfull \hbox (7.8848pt too wide) in paragraph at lines 1361--1365
 []\T1/cmr/m/n/10 The inclusion of a $\OT1/cmr/m/n/10 0$\T1/cmr/m/n/10 -cell into the complex induces an isomorphism on homotopy
  []
 
-[26]
+[14]
 Overfull \hbox (5.43744pt too wide) in paragraph at lines 1443--1451
 []\T1/cmr/m/n/10 Thus we may view cellular approximation as a CW analog of simplicial approximation
  []
@@ -1052,9 +947,9 @@ Overfull \hbox (21.89781pt too wide) detected at line 1526
 [] \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X[]\OT1/cmr/m/n/10 ) [] \OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ! [] ! \OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X[]\OT1/cmr/m/n/10 ) [] \OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ! [] ! []
  []
 
-[27]
+[15]
 Overfull \hbox (5.96132pt too wide) in paragraph at lines 1547--1550
-[][]\T1/cmr/bx/n/10 Definition 2.52 \T1/cmr/m/n/10 (CW Approximation)\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 For a space $\OML/cmm/m/it/10 X$\T1/cmr/m/n/10 , a weak homotopy equivalence
+[][]\T1/cmr/bx/n/10 Definition 1.52 \T1/cmr/m/n/10 (CW Approximation)\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 For a space $\OML/cmm/m/it/10 X$\T1/cmr/m/n/10 , a weak homotopy equivalence
  []
 
 
@@ -1067,7 +962,7 @@ Overfull \hbox (6.83435pt too wide) in paragraph at lines 1623--1644
 \OML/cmm/m/it/10 $\T1/cmr/m/n/10 . We may assume that the $\OML/cmm/m/it/10 '[]$ \T1/cmr/m/n/10 are all cellular (by the Cellular Approximation
  []
 
-[28]
+[16]
 Overfull \hbox (9.31335pt too wide) in paragraph at lines 1644--1653
 []\T1/cmr/m/n/10 Choose maps $\OML/cmm/m/it/10 f[] [] [] S[] \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 X$ \T1/cmr/m/n/10 representing all nontrivial elements of $\OML/cmm/m/it/10 ^^Y[] []$
  []
@@ -1077,12 +972,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 1654--1672
 
  []
 
-[29]
+[17]
 Underfull \hbox (badness 10000) in paragraph at lines 1778--1783
 
  []
 
-[30]) [31]
+
+LaTeX Warning: Reference `Prop:HEP-Homotopy-Equivalence' on page 18 undefined on input line 1786.
+
+[18]) [19]
 \openout2 = `pset1.aux'.
 
  (./pset1.tex
@@ -1092,10 +990,10 @@ Overfull \hbox (18.47104pt too wide) in paragraph at lines 101--105
 
 
 Overfull \hbox (7.57002pt too wide) in paragraph at lines 109--118
-[][]\T1/cmr/bx/n/10 Proposition 2.60. []\T1/cmr/m/it/10 Let $\OML/cmm/m/it/10 X \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 S[] \OMS/cmsy/m/n/10 _ [] _ \OML/cmm/m/it/10 S[]$ \T1/cmr/m/it/10 for $\OML/cmm/m/it/10 n > \OT1/cmr/m/n/10 0$\T1/cmr/m/it/10 . Then the homomorphism
+[][]\T1/cmr/bx/n/10 Proposition 1.60. []\T1/cmr/m/it/10 Let $\OML/cmm/m/it/10 X \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 S[] \OMS/cmsy/m/n/10 _ [] _ \OML/cmm/m/it/10 S[]$ \T1/cmr/m/it/10 for $\OML/cmm/m/it/10 n > \OT1/cmr/m/n/10 0$\T1/cmr/m/it/10 . Then the homomorphism
  []
 
-[32
+[20
 
 
 
@@ -1104,7 +1002,7 @@ Overfull \hbox (1.9703pt too wide) detected at line 162
 [] \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 H[] [] [] H[] [] [] H[] [] \OMS/cmsy/m/n/10 ! []
  []
 
-[33]
+[21]
 Underfull \hbox (badness 10000) in paragraph at lines 333--374
 
  []
@@ -1119,7 +1017,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 379--406
 
  []
 
-[34]) [35]
+[22]) [23]
 \openout2 = `Methods-of-Calculation.aux'.
 
  (./Methods-of-Calculation.tex
@@ -1137,7 +1035,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 74--91
 
  []
 
-[36
+[24
 
 
 
@@ -1151,7 +1049,10 @@ Overfull \hbox (44.40254pt too wide) in paragraph at lines 203--257
 \T1/cmr/m/n/10 When there are infinitely many summands $\OML/cmm/m/it/10 S[]$\T1/cmr/m/n/10 , consider the homomorphism $\OT1/cmr/m/n/10 ^^H [] []  [][] \OML/cmm/m/it/10 ^^Y[] [] \OMS/cmsy/m/n/10 !
  []
 
-[37] [38]
+
+LaTeX Warning: Reference `Thm:2030akKAK' on page 25 undefined on input line 276.
+
+[25] [26]
 Underfull \hbox (badness 10000) in paragraph at lines 382--408
 
  []
@@ -1161,7 +1062,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 382--408
 
  []
 
-[39]
+[27]
 Overfull \hbox (2.0227pt too wide) in paragraph at lines 490--492
 []\T1/cmr/m/n/10 Having covered the existence of Eilenberg-MacLane spaces, we now find the following
  []
@@ -1171,17 +1072,17 @@ Overfull \hbox (10.21515pt too wide) in paragraph at lines 498--502
 []\T1/cmr/m/n/10 The proof is based on the following lemma giving a condition for when homomorphisms
  []
 
-[40] [41]
+[28] [29]
 Overfull \hbox (53.62067pt too wide) in paragraph at lines 742--755
-[][]\T1/cmr/bx/n/10 Definition 3.18 \T1/cmr/m/n/10 (Hurewicz map)\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 Thinking of $\OML/cmm/m/it/10 ^^Y[] []$ \T1/cmr/m/n/10 for $\OML/cmm/m/it/10 n > \OT1/cmr/m/n/10 0$ \T1/cmr/m/n/10 as $[]$,
+[][]\T1/cmr/bx/n/10 Definition 2.18 \T1/cmr/m/n/10 (Hurewicz map)\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 Thinking of $\OML/cmm/m/it/10 ^^Y[] []$ \T1/cmr/m/n/10 for $\OML/cmm/m/it/10 n > \OT1/cmr/m/n/10 0$ \T1/cmr/m/n/10 as $[]$,
  []
 
 
 Overfull \hbox (30.7955pt too wide) in paragraph at lines 768--772
-[][]\T1/cmr/bx/n/10 Proposition 3.19. []\T1/cmr/m/it/10 The Hurewicz maps $\OML/cmm/m/it/10 h [] [] ^^Y[] [] \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; A\OT1/cmr/m/n/10 )$ \T1/cmr/m/it/10 is a homomorphism,
+[][]\T1/cmr/bx/n/10 Proposition 2.19. []\T1/cmr/m/it/10 The Hurewicz maps $\OML/cmm/m/it/10 h [] [] ^^Y[] [] \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; A\OT1/cmr/m/n/10 )$ \T1/cmr/m/it/10 is a homomorphism,
  []
 
-) [42]
+) [30]
 
 Package biblatex Warning: Bibliography string 'volume' untranslated
 (biblatex)                at entry 'Bredon' on input line 193.
@@ -1218,10 +1119,10 @@ Package biblatex Warning: Using fallback definition for \mkbibdatelong.
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 193.
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-) [43
+) [31
 
 
-] (./notes.aux (./cofibrations.aux) (./homotopy-groups.aux) (./pset1.aux) (./Methods-of-Calculation.aux))
+] (./notes.aux (./homotopy-groups.aux) (./pset1.aux) (./Methods-of-Calculation.aux))
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -1231,24 +1132,24 @@ L3 programming layer <2024-01-22>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `notes.out' has not changed.
-(rerunfilecheck)             Checksum: E8F8B97353DFB009405BED516341B126;2510.
+(rerunfilecheck)             Checksum: 434070CBFA2E8593A38E496EB9958A27;2388.
 Package logreq Info: Writing requests to 'notes.run.xml'.
 \openout1 = `notes.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 30904 strings out of 474222
- 594024 string characters out of 5748733
- 1953975 words of memory out of 5000000
- 52326 multiletter control sequences out of 15000+600000
+ 30157 strings out of 474222
+ 575703 string characters out of 5748733
+ 1951975 words of memory out of 5000000
+ 51644 multiletter control sequences out of 15000+600000
  569751 words of font info for 66 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  98i,20n,107p,678b,1431s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on notes.pdf (43 pages, 878883 bytes).
+Output written on notes.pdf (31 pages, 683745 bytes).
 PDF statistics:
- 667 PDF objects out of 1000 (max. 8388607)
- 556 compressed objects within 6 object streams
- 226 named destinations out of 1000 (max. 500000)
- 180 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 524 PDF objects out of 1000 (max. 8388607)
+ 431 compressed objects within 5 object streams
+ 168 named destinations out of 1000 (max. 500000)
+ 157 words of extra memory for PDF output out of 10000 (max. 10000000)
 

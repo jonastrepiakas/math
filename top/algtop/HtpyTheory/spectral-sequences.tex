@@ -1,0 +1,398 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+%\usepackage[backend=biber]{biblatex}
+%\addbibresource{.bib}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\SHomeo}{SHomeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Teich}{Teich}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\corank}{corank}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Bun}{Bun}
+\DeclareMathOperator{\Sm}{Sm}
+\DeclareMathOperator{\Fr}{Fr}
+\DeclareMathOperator{\Cob}{Cob}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Conf}{Conf}
+\DeclareMathOperator{\UConf}{UConf}
+\DeclareMathOperator{\Ch}{Ch}
+\DeclareMathOperator{\Tot}{Tot}
+
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\MCG}{{\mathrm{MCG}}}
+\newcommand{\PMCG}{{\mathrm{PMCG}}}
+\newcommand{\SMCG}{{\mathrm{SMCG}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+
+
+
+
+\begin{document}
+
+\section{Double and Total Complexes}
+
+\begin{definition}[Double complex]
+    A \textit{double complex} (or \textit{bicomplex}) in
+    an abelian category $\mathcal{A}$ is a family
+    $\left\{ C_{p,q} \right\} $ of objects of $\mathcal{A}$,
+    together with maps
+    \[
+    d^{h} \colon C_{p,q} \to C_{p-1,q} \quad
+    \text{and} \quad
+    d^{v} \colon C_{p,q} \to C_{p,q-1}
+    \] 
+    such that $d^{h} \circ d^{h} =
+    d^{v} \circ d^{v} = d^{v} d^{h} +
+    d^{h} d^{v} = 0$.
+\end{definition}
+
+It is useful to picture the double complex as a lattice
+in which the maps $d^{h}$ go horizontally, the maps
+$d^{v}$ go vertically, and each square anticommutes.\\
+\linebreak
+Each row $C_{*q}$ and each
+columns $C_{p*}$ is a chain complex.
+
+We say that the double complex
+$C$ is \textit{bounded} if $C$ has only finitely many
+nonzero terms along each diagonal line
+$p+q = n$.
+For example, if $C$ is concentrated in the first quadrant of
+the plane (a \textit{first quadrant double complex}).
+
+
+\subsubsection{Sign Trick}
+
+Are the maps
+$d^{v}$ and $d^{h}$ maps in
+$\Ch$?
+
+Because of anticommutativity, the chain map conditions fail, but
+we can construct chain maps
+$f_{*q} $ from $C_{*,q}$ to $C_{*,q-1}$ by introducing signs:
+\[
+f_{p,q} = (-1)^{p} d_{p,q}^{v} \colon
+C_{p,q} \to C_{p,q-1}.
+\] 
+Using this sign trick, we can identify the category of double
+complexes with the category
+$\Ch \left( \Ch \right) $.
+
+\subsubsection{Total Complexes}
+
+To see why the anticommutativity condition
+$d^{v} d^{h} + d^{h} d^{v} = 0$ is useful,
+we define the \textit{total complexes} 
+$\Tot (C) = Tot^{\prod} (C)$ and
+$\Tot^{\oplus} (C)$ as follows:
+
+ \begin{definition}[Total complexes]
+    We define
+    \[
+        \Tot^{\prod}(C)_n = 
+        \prod_{p+q=n}C_{p,q} \quad
+        \text{and} \quad
+        \Tot^{\oplus} (C)_n = 
+        \bigoplus_{p+q=n}C_{p,q}.
+    \] 
+    The formula $d = d^{h} + d^{v}$ define maps
+    \[
+        d \colon \Tot^{\prod} (C)_n = 
+        \prod_{p+q = n} C_{p,q} \quad \text{and} \quad
+        d \colon \Tot^{\oplus}(C)_n \to 
+        \Tot^{\oplus} (C)_{n-1}
+    \] 
+    such that $d \circ d = 0$, making
+    $\Tot^{\prod}(C)$ and
+    $\Tot^{\oplus}(C)$ into chain complexes.
+\end{definition}
+
+\begin{exercise}[]
+    Check that $d = d^{h} + d^{v}$ define maps as
+    claimed.
+\end{exercise}
+
+\begin{solution}
+    Let
+    $\left( \alpha_{p,q} \right) 
+    \in \Tot^{\prod}(C)_n$, so
+    $p+q = n$. Then
+    $d \left( \left( \alpha_{p,q} \right)  \right) 
+    = d^{h} \left( \left( \alpha_{p,q} \right)  \right) 
+    + d^{v} \left( \left( \alpha_{p,q} \right)  \right) 
+    = \left( \alpha_{p-1,q} \right) 
+    + \left( \alpha_{p,q-1} \right) \in 
+    \prod_{p+q=n-1} C_{p,q}$.
+    Clearly, this also works for
+    direct products since the number of non-zero terms 
+    under $d$ just multiplies by $2$, hence is still finite.
+    We also want to show that
+    $d \circ d = 0$. For this, note that
+    \begin{align*}
+        d \circ d \left( \alpha \right) =
+    d \left( d^{h} (\alpha) + d^{v}(\alpha) \right) 
+    &= d^{h} \left( d^{h}(\alpha) + 
+    d^{v} (\alpha) \right) +
+    d^{v} \left( d^{h}(\alpha) + d^{v}(\alpha) \right)\\
+    &= d^{h}d^{h} (\alpha) + d^{h} d^{v}(\alpha)
++ d^{v} d^{h}(\alpha) + d^{v} d^{v} (\alpha) \\
+    &= 0.
+    \end{align*}
+\end{solution}
+
+\section{Introduction to Spectral Sequences}
+
+Consider the problem of computing the homology
+of the total chain complex
+$T_* = \Tot(E_{* * })$ where
+$E_{* *}$ is a first quadrant double complex.
+
+Firstly, it is convenient to forget the horizontal differentials
+and add a superscript zero, retaining only the vertical
+differentials $d^{v}$ along the columns
+$E_{p*}^{0}$.
+
+Let $E_{pq}^{1}$ be the vertical homology
+$H_q \left( E_{p*}^{0} \right) $ at the
+$(p,q)$ spot.
+
+
+
+
+
+\section{Filtrations}
+
+\begin{definition}[Filtered $R$-module]
+    A \textit{filtered $R$-module} is an $R$-module
+    $A$ with an increasing sequence
+    of submodules 
+    $\left\{ F_p \right\}_{p \in \mathbb{Z}}$ 
+    such that $F_p A \subset F_{p+1}A$ for all
+    $p$ and such that
+    $\bigcup_{p} F_pA = A$ and
+    $\bigcap_{p} F_p A = \left\{ 0 \right\} $.
+
+    A filtration is said to be \textit{bounded} if
+    $F_p A = \left\{ 0 \right\} $ for
+    $p$ sufficiently small and
+    $F_p A = A$ for $p$ sufficiently larger.
+\end{definition}
+
+\begin{definition}[Associated graded module]
+    The \textit{associated graded module} is defined
+    by $G_p A = F_p A / F_{p-1} A$.
+\end{definition}
+
+\begin{definition}[Filtered chain complex]
+    A \textit{filtered chain complex} is a chain
+    complex $\left( C_*, \partial \right) $ together
+    with a filtration $\left\{ F_p C_i \right\}_{p \in \mathbb{Z}}$ 
+    of each $C_i$ such that the differential preserves
+    the filtration, i.e., s.t. 
+    $\partial \left( F_p C_i \right) \subset F_p C_{i-1}$.
+\end{definition}
+
+Note that we, in particular, obtain an
+induced differential
+$\partial \colon G_p C_i \to G_{p} C_{i-1}$ by
+the universal property of cokernels
+
+\begin{equation*}
+\begin{tikzcd}
+    F_p C_i \ar[d] \ar[r, "\partial"] & F_p C_{i-1} \ar[d] \\
+    F_{p-1} C_i \ar[d, "\coker"]
+    \ar[r, "\partial"] & F_{p-1} C_{i-1} \ar[d, "\coker"] \\
+    G_p C_i \ar[r, "\partial", dashed] & G_p C_{i-1}
+\end{tikzcd}
+\end{equation*}
+so we obtain an associated graded
+chain complex $G_p C_*$.\\
+\linebreak
+The filtration on $C_*$ also induces
+a filtration on the homology of $C_*$ by
+
+\[
+F_p H_i (C_*) = 
+\left\{ \alpha \in 
+H_i (C_*)  \mid 
+\left( \exists x \in F_p C_i \right) \colon
+\alpha = \left[ x \right] \right\} .
+\] 
+
+This filtration has associated graded pieces
+$G_p H_i (C_*)$ which, in favorable cases, determine
+$H_i (C_*)$.\\
+\linebreak
+
+
+
+\subsection{Example}
+
+Suppose we have a chain complex
+$C_*$ and a filtration consisting
+of a single $F_0 C_*$, so
+$F_n C_* = 0$ if
+$n <0$ and
+$F_n C_* = F_0 C_*$ if $n\ge 0$.
+
+Then
+$G_n C_* = 0$ for
+$n \neq  0$ and
+$G_0 C_* = F_0 C_*$ and
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    %\printbibliography
+\end{document}

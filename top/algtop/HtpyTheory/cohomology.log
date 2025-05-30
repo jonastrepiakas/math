@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  18 MAY 2025 23:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  26 MAY 2025 02:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -541,46 +541,164 @@ Package hyperref Info: Link coloring ON on input line 156.
 \openout4 = `cohomology.out'.
 
 
-Overfull \hbox (4.48299pt too wide) in paragraph at lines 272--280
- \T1/cmr/m/n/10 0.2.\T1/cmr/bx/n/10 Cohomology of Spaces.[][] \T1/cmr/m/n/10 Define $\OML/cmm/m/it/10 S[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 G\OT1/cmr/m/n/10 ) := [][] []$\T1/cmr/m/n/10 , so $\OML/cmm/m/it/10 S[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 A\OT1/cmr/m/n/10 )$
+Overfull \hbox (4.12051pt too wide) in paragraph at lines 273--281
+ \T1/cmr/m/n/10 1.2.\T1/cmr/bx/n/10 Cohomology of Spaces.[][] \T1/cmr/m/n/10 Define $\OML/cmm/m/it/10 S[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 A\OT1/cmr/m/n/10 ) := [][] []$\T1/cmr/m/n/10 , so $\OML/cmm/m/it/10 S[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 A\OT1/cmr/m/n/10 )$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 272--280
+Underfull \hbox (badness 10000) in paragraph at lines 273--281
 
  []
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
-Underfull \hbox (badness 10000) in paragraph at lines 308--314
+Underfull \hbox (badness 10000) in paragraph at lines 309--315
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 308--314
+Underfull \hbox (badness 10000) in paragraph at lines 309--315
 
  []
 
-[2] (./cohomology.aux)
+
+Overfull \hbox (2.1601pt too wide) in paragraph at lines 392--395
+ \T1/cmr/m/n/10 1.2.4.\T1/cmr/m/it/10 Relative Groups and the LES of a Pair.[] \T1/cmr/m/n/10 To define relative groups $\OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; A\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 G\OT1/cmr/m/n/10 )$
+ []
+
+[2]
+Overfull \hbox (19.17162pt too wide) in paragraph at lines 443--459
+[]\T1/cmr/m/n/10 Relative coboundary maps $\OML/cmm/m/it/10 ^^N [] [] C[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; A\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 G\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 C[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; A\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 G\OT1/cmr/m/n/10 )$ \T1/cmr/m/n/10 are obtained as restrictions
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 443--459
+
+ []
+
+
+Overfull \hbox (5.47935pt too wide) detected at line 469
+[] \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 H[] [] [] H[] [] [] H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 S[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 G\OT1/cmr/m/n/10 )) [] \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; A\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 G\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ! []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 469--480
+
+ []
+
+[3]
+Overfull \hbox (10.62923pt too wide) in paragraph at lines 525--579
+\T1/cmr/m/n/10 One the other hand, let us consider $\OML/cmm/m/it/10 @[]h\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 \OT1/cmr/m/n/10 )$\T1/cmr/m/n/10 . Recall that $\OML/cmm/m/it/10 S[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 A\OT1/cmr/m/n/10 ) = [][] []$\T1/cmr/m/n/10 ,
+ []
+
+
+Overfull \hbox (15.70642pt too wide) in paragraph at lines 585--600
+\T1/cmr/m/n/10 In the relative case, a map $\OML/cmm/m/it/10 f [] [] \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; A\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ! \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Y; B\OT1/cmr/m/n/10 )$ \T1/cmr/m/n/10 induces $\OML/cmm/m/it/10 f[] [] [] H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Y; B\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 G\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; A\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 G\OT1/cmr/m/n/10 )$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 606--620
+
+ []
+
+
+Overfull \hbox (18.66095pt too wide) detected at line 632
+[]
+ []
+
+[4]
+Overfull \hbox (19.79596pt too wide) in paragraph at lines 696--701
+[][]\T1/cmr/m/n/10 Directly from the definitions, compute the simplicial cohomology
+ []
+
+<Figures/Delta-for-T.png, id=79, 279.0425pt x 276.03125pt>
+File: Figures/Delta-for-T.png Graphic file (type png)
+<use Figures/Delta-for-T.png>
+Package pdftex.def Info: Figures/Delta-for-T.png  used on input line 715.
+(pdftex.def)             Requested size: 90.0pt x 89.02676pt.
+[5 <./Figures/Delta-for-T.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 777--794
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 777--794
+
+ []
+
+
+Overfull \hbox (24.41255pt too wide) in paragraph at lines 812--829
+[]\T1/cmr/m/n/10 In this case, the image in degree three is $[]$, so $\OML/cmm/m/it/10 H[] [] [] \U/msb/m/n/10 Z[]\OML/cmm/m/it/10 = [] []
+ []
+
+
+Overfull \hbox (7.41635pt too wide) in paragraph at lines 812--829
+\U/msb/m/n/10 Z[]$\T1/cmr/m/n/10 . The kernel in degree $\OT1/cmr/m/n/10 1$ \T1/cmr/m/n/10 also now becomes $[] [] \U/msb/m/n/10 Z[]$\T1/cmr/m/n/10 , so $\OML/cmm/m/it/10 H[] [] []
+ []
+
+<Figures/Delta-RP2-Klein.png, id=95, 646.415pt x 230.8625pt>
+File: Figures/Delta-RP2-Klein.png Graphic file (type png)
+<use Figures/Delta-RP2-Klein.png>
+Package pdftex.def Info: Figures/Delta-RP2-Klein.png  used on input line 840.
+(pdftex.def)             Requested size: 216.0022pt x 77.14302pt.
+[6 <./Figures/Delta-RP2-Klein.png>]
+Overfull \hbox (6.65492pt too wide) in paragraph at lines 910--914
+[][]\T1/cmr/bx/n/10 Definition 2.2 \T1/cmr/m/n/10 (Fundamental Class)\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 A class $\OML/cmm/m/it/10  \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 H[] []$ \T1/cmr/m/n/10 with the property
+ []
+
+
+Overfull \hbox (6.0495pt too wide) in paragraph at lines 922--927
+\T1/cmr/m/n/10 basepoint and every homotopy between basepoint-preserving maps can be homotoped
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 959--967
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 959--967
+
+ []
+
+[7]
+Overfull \hbox (68.42514pt too wide) in paragraph at lines 1055--1080
+\T1/cmr/m/n/10 extended to $\OML/cmm/m/it/10 I \OMS/cmsy/m/n/10 ^^B \OML/cmm/m/it/10 I$\T1/cmr/m/n/10 , and hence $\OML/cmm/m/it/10 X \OMS/cmsy/m/n/10 ^^B [] \OT1/cmr/m/n/10 = []$
+ []
+
+[8]
+
+LaTeX Warning: Citation `Hatcher' on page 9 undefined on input line 1276.
+
+
+Overfull \hbox (25.07445pt too wide) in paragraph at lines 1334--1357
+\OML/cmm/m/it/10 h [] \OT1/cmr/m/n/10 = []$ \T1/cmr/m/n/10 which likewise belongs to $\OML/cmm/m/it/10 E$\T1/cmr/m/n/10 , so $\OML/cmm/m/it/10 h [] \OMS/cmsy/m/n/10 ^^Z
+ []
+
+[9] [10] (./cohomology.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `cohomology.out' has not changed.
-(rerunfilecheck)             Checksum: D9D5C97A2E545B0EABB0D36D074836FD;483.
+(rerunfilecheck)             Checksum: 011D36F7EB136B1AAA29D60618291DA9;1134.
  ) 
 Here is how much of TeX's memory you used:
- 22980 strings out of 474222
- 429204 string characters out of 5748733
+ 23491 strings out of 474222
+ 441488 string characters out of 5748733
  1961975 words of memory out of 5000000
- 44703 multiletter control sequences out of 15000+600000
- 566625 words of font info for 61 fonts, out of 8000000 for 9000
+ 45164 multiletter control sequences out of 15000+600000
+ 568064 words of font info for 63 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  98i,15n,107p,599b,1036s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on cohomology.pdf (2 pages, 197052 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb>
+Output written on cohomology.pdf (10 pages, 313748 bytes).
 PDF statistics:
- 128 PDF objects out of 1000 (max. 8388607)
- 87 compressed objects within 1 object stream
- 11 named destinations out of 1000 (max. 500000)
- 29 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 236 PDF objects out of 1000 (max. 8388607)
+ 180 compressed objects within 2 object streams
+ 59 named destinations out of 1000 (max. 500000)
+ 63 words of extra memory for PDF output out of 10000 (max. 10000000)
 

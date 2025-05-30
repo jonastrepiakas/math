@@ -163,7 +163,7 @@
 For these notes, we will follow \cite{Hatcher}, \cite{Bredon}
 and \cite{ORW}.
 
-\include{cofibrations}
+%\include{cofibrations}
 
 
 %\include{compact-open-topology}
