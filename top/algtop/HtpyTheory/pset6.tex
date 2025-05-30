@@ -11,6 +11,8 @@
 %%For category theory diagrams:
 \usepackage{tikz-cd}
 
+\usepackage{adjustbox}
+
 %\usepackage[backend=biber]{biblatex}
 %\addbibresource{.bib}
 
@@ -311,7 +313,299 @@ Induction now finishes the proof.
 
 
 
+    \begin{problem}[]
+        Let $G$ be a finite group acting freely on a space
+        $X$. There is a homotopy fiber sequence
+        \[
+        X \to X /G \to BG
+        \] 
+        in which the action of $\pi_1 (BG)$ on
+        $H_i(X)$ is induced by the action
+        of $G$ on $X$.
+        \begin{enumerate}
+            \item Show that if $G$ acts freely
+                on $S^{n}$ via orientation preserving
+                maps (i.e., the action on
+                $H_n(S^{n})$ is trivial), then
+                there is an isomorphism
+                \[
+                H_{k+n+1}(BG) \stackrel{\cong}{\to} 
+                H_k(BG)
+                \] 
+                for $k>0$ ($H_*(BG)$ is periodic).\\
+                You may use without proof that
+                $n$-manifolds admit $n$-dimensional CW structures.
+            \item Compute $H_* (BC_3 ; \mathbb{F}_3)$.
+                By considering the Serre spectral sequence
+                over $\mathbb{F}_3$, show that
+                $C_3$ does not acts freely on 
+                $\mathbb{R}\mathbb{P}^{2n}$.
+            \item Compute $H_{*}\left( B
+                \left( C_2 \times C_2 \right) ; \mathbb{F}_2\right) $.
+                Is there a free action of $C_2 \times C_2$ on
+                 $S^{n}$?
+        \end{enumerate}
+    \end{problem}
 
+    \begin{proof}
+        (1) By assumption, the action of
+        $\pi_1 (BG)$ on
+        $H_i (S^{n})$ is induced from the action
+        of $G$ on $X$ which is by orientation
+        preserving maps, so the action on
+        $H_i(S^{n})$ is trivial.
+
+        If $BG$ is path-connected, we can use Theorem 1.3.
+
+        Since $G$ is finite and acts freely
+        on $S^{n}$, the
+        action of $G$ on $S^{n}$ is continuous, free and
+        proper, so the quotient space
+        $S^{n} / G$ is an $n$-manifold, and thus
+        admits an $n$-dimensional CW structure. 
+
+        In particular, all homology groups
+        of dimension greater than $n$ vanish
+        for $S^{n} /G$.
+
+        
+        In the double complex,
+        we plot 
+        $H_s(BG,H_s(S^{n}))$ on
+        the $(s,t)$ th coordinate.
+        In particular,
+        for $t \neq 0,n$, the coefficient group
+        vanishes, hence 
+        $H_s(BG, H_t(S^{n}))$ vanishes
+        for $t \neq 0,n$.\\
+        For $t = 0,n$, $H_s(S^{n}) \cong \mathbb{Z}$, so
+        letting
+        $H_s(BG) = H_s (BG; \mathbb{Z})$ denote the
+        integral homology, we obtain the following
+        diagram from
+        the double complex using the Serre spectral sequence
+
+\adjustbox{scale=0.8,center}{
+\begin{tikzcd}
+	\vdots \\
+	{H_n(S^n) \cong \mathbb{Z}} & {H_1(BG)} & {H_2(BG)} & \cdots & {H_k(BG)} \\
+	\\
+	{\mathbb{Z}} & {H_1(BG)} & {H_2(BG)} & \cdots & {H_{1+n}(BG)} & {H_{2+n}(BG)} & {H_{3+n}(BG)} & \cdots & {H_{k+n+1}(BG)}
+	\arrow[no head, from=2-1, to=1-1]
+	\arrow["\cong", from=2-2, to=4-6]
+	\arrow["\cong", from=2-3, to=4-7]
+	\arrow["\cong", from=2-5, to=4-9]
+	\arrow[no head, from=4-1, to=2-1]
+	\arrow[no head, from=4-1, to=4-2]
+	\arrow[from=4-2, to=4-3]
+	\arrow[no head, from=4-3, to=4-4]
+	\arrow[no head, from=4-4, to=4-5]
+\end{tikzcd}
+}
+In the diagram, we can conclude the isomorphisms because
+we know that the direct sum of the
+objects on the diagonals $n+1+k$ for $k\ge 0$
+must be $0$ (as this is the
+$(n+k+1)$ st homology of
+$S^{n} / G$ which vanishes), and thus
+$H_{k+n+1}(BG)$ on the horizontal axis must
+be eliminated for $k\ge 0$. The only possibilities
+for nontrivial map terminating at
+these objects are the maps drawn in the diagram, hence
+these are surjective.
+
+But similarly, the domain objects of these maps
+must be eliminated since they lie on
+the diagonals for $n+k+1$ with $k\ge 0$, hence
+all these maps must be injective too since these are
+the only nontrivial maps emminating or terminating from
+the objects.
+
+From this, we obtain the desired isomorphisms
+$H_k (BG) \cong H_{n+k+1}(BG)$ for all
+$k\ge 1$.\\
+\linebreak
+(2) Since $\mathbb{F}_3$ is a field, there is no torsion and
+it is abelian,
+so $E_{s,t}^2 = 
+H_s \left( B, H_t(F) \right) $ simplifies
+to $E_{s,t}^2 =
+H_s(B) \otimes_{\mathbb{Z}} H_t(F)$.
+
+For $C_3 = \mathbb{Z}_3$, we obtain using the
+free action of $\mathbb{Z}_3$ on
+$S^{1}$ by
+$z \mapsto e^{\frac{2 \pi i}{3}} z$, a
+quotient space which is the lens space
+$L(3;1) $.
+Using (1), we now have that
+$H_k(B\mathbb{Z}_3) \cong
+H_{k+2}(B\mathbb{Z}_3)$ for all $k>0$.
+
+
+We know the homology
+of the lens space is
+
+\[
+H_k \left( L(3;1) \right) 
+\cong 
+\begin{cases}
+    \mathbb{Z},& k=0,1\\
+    0,& \text{else}
+\end{cases}
+\] 
+so
+\[
+H_k \left( L(3;1); \mathbb{F}_3 \right) 
+\cong
+\begin{cases}
+    \mathbb{Z} /3,& k=0,1\\
+    0,& \text{else}
+\end{cases}
+\] 
+Since $\mathbb{F}_3$ is a field,
+the homology of
+$L(3;1)$ in degree $k$ will be the direct sum of the diagonal entries
+on the $k$ diagonal.\\
+So for the double complex, we want
+a $\mathbb{Z}/3$ in the $0$ and $1$ diagonal, and trivial groups
+in the rest.
+
+We obtain the following diagram, and conclude that
+
+ \[
+H_n\left( B\mathbb{Z}_3 \right) 
+\cong
+\begin{cases}
+    \mathbb{Z},& n=0 \text{ or } n \text{ odd}\\
+    \mathbb{Z}/m,& \text{else}
+\end{cases}
+\] 
+for some $m \in \mathbb{N}$
+
+\begin{tikzcd}
+	\vdots \\
+	{\mathbb{Z}} & {H_1(B\mathbb{Z}_3)} & {H_2(B\mathbb{Z}_3)} & {H_3(B\mathbb{Z}_3)} \\
+	{\mathbb{Z}} & {H_1(B\mathbb{Z}_3)} & {H_2(B\mathbb{Z}_3)} & {H_3(B\mathbb{Z}_3)} & \cdots
+	\arrow[no head, from=2-1, to=1-1]
+	\arrow[two heads, from=2-1, to=3-3]
+	\arrow["\cong"{description}, from=2-2, to=3-4]
+	\arrow["\cong", from=2-3, to=3-5]
+	\arrow[no head, from=3-1, to=2-1]
+	\arrow[no head, from=3-1, to=3-2]
+	\arrow[no head, from=3-2, to=3-3]
+	\arrow[no head, from=3-3, to=3-4]
+	\arrow[no head, from=3-4, to=3-5]
+\end{tikzcd}
+
+
+Consider now the free action of
+$\mathbb{Z}_3$ on $S^3$ giving
+ the lens space $L(3;1,1)$.
+ Note that
+  \[
+  H_k(L(3;1,1)) \cong
+  \begin{cases}
+      \mathbb{Z},& k=0,3\\
+      \mathbb{Z} / 3,& 0<k<3 \text{ odd}\\
+     0,& \text{else}
+  \end{cases}
+  \] 
+  so
+  \[
+  H_k\left( L(3;1,1); \mathbb{F}_3 \right) 
+  \cong
+  \begin{cases}
+      \mathbb{Z} /3,& k=0,1,3\\
+      0,& \text{else}
+  \end{cases}
+  \] 
+
+So we obtain the following double complex:
+\[
+    \begin{tikzcd}
+	{\mathbb{Z}/3} & {H_1(B\mathbb{Z}_3;\mathbb{F}_3)}
+                   & \cdots & {H_4(B\mathbb{Z}_3;\mathbb{F}_3)}
+                   & {H_5(B\mathbb{Z}_3;\mathbb{F}_3)} \\
+	\\
+	{\mathbb{Z}/3} & {H_1(B\mathbb{Z}_3;\mathbb{F}_3)}
+                   & \cdots & {H_4(B\mathbb{Z}_3;\mathbb{F}_3)}
+                   & {H_5(B\mathbb{Z}_3;\mathbb{F}_3)}
+	\arrow[from=1-1, to=3-4]
+	\arrow[from=1-2, to=3-5]
+	\arrow[no head, from=3-1, to=1-1]
+	\arrow[no head, from=3-1, to=3-2]
+	\arrow[no head, from=3-2, to=3-3]
+	\arrow[no head, from=3-3, to=3-4]
+	\arrow[no head, from=3-4, to=3-5]
+\end{tikzcd}
+\]
+It is then clear that there are no maps that can
+cancel the $H_1\left( B\mathbb{Z}_3 ;\mathbb{F}_3\right) $ and
+$H_2\left( B\mathbb{Z}_3; \mathbb{F}_3 \right) $ and
+that these terms are the only contributions to the
+degree $1$ and $2$ homology of the
+lens space $L(3;1,1)$, respectively.
+In particular, this immediately gives that
+$H_1\left( B\mathbb{Z}_3; \mathbb{F}_3 \right)
+\cong \mathbb{Z} /3$ and
+$H_2 \left( B\mathbb{Z}_3 ; \mathbb{F}_3 \right) \cong
+0$
+so by the first part,
+
+\[
+H_k \left( B\mathbb{Z}_3 ; \mathbb{F}_3 \right) 
+\cong
+\begin{cases}
+    \mathbb{Z}/3,& k=0 \text{ or } k \text{ odd and positive}\\
+    0,& \text{else}
+\end{cases}
+\] 
+
+Now suppose that
+$\mathbb{Z}_3$ acted freely on
+$\mathbb{R}\mathbb{P}^{2n}$.
+Then the quotient space, just as in the first problem,
+is a $2n$-manifold, hence admits
+a $2n$-dimensional CW structure, hence
+$H_k(\mathbb{R}\mathbb{P}^{2n}/ \mathbb{Z}_3)$ vanishes
+for $k>2n$.
+Now the double complex looks like the following diagram:
+
+
+\adjustbox{scale=0.8,center}{
+\begin{tikzcd}
+	{\mathbb{Z}/3} & {\underbrace{H_1(B\mathbb{Z}/3;\mathbb{F}_3)}_{\cong \mathbb{Z}/3}} & {\underbrace{H_2(B\mathbb{Z}/3;\mathbb{F}_3)}_{\cong 0}} \\
+	\\
+	{\mathbb{Z}/3} & {\underbrace{H_1(B\mathbb{Z}/3;\mathbb{F}_3)}_{\cong \mathbb{Z}/3}} & \cdots & {\underbrace{H_{2n+1}(B\mathbb{Z}/3;\mathbb{F}_3)}_{\cong \mathbb{Z}/3}} & {\underbrace{H_{2n+2}(B\mathbb{Z}/3;\mathbb{F}_3)}_{\cong 0}} & {\underbrace{H_{2n+3}(B\mathbb{Z}/3;\mathbb{F}_3)}_{\cong \mathbb{Z}/3}}
+	\arrow["{d_{2n}}", from=1-1, to=3-4]
+	\arrow[from=1-2, to=3-5]
+	\arrow[from=1-3, to=3-6]
+	\arrow[no head, from=3-1, to=1-1]
+\end{tikzcd}
+}
+In particular,
+since the homologies
+of $\mathbb{R}\mathbb{P}^{2n}/ \mathbb{Z}_3$ vanish
+in dimensions $>2n$, we must have that
+the maps
+into $H_{2n+k}\left( B\mathbb{Z}/3, \mathbb{F}_3 \right) $ 
+for $k>0$
+on the horizontal line must be surjective when
+$k$ is odd (to cancel the $\mathbb{Z}/3$ ).
+But consider for example the map
+$0 \cong H_2 \left( B \mathbb{Z}/3; \mathbb{F}_3 \right) 
+\to H_{2n+3}\left( B\mathbb{Z}/3; \mathbb{F}_3 \right) \cong
+\mathbb{Z} / 3$. This cannot be surjective, so
+we obtain a contradiction. So the
+assumption of $\mathbb{Z}_3$ acting freely
+on $\mathbb{R}\mathbb{P}^{2n}$ must be false.\\
+\linebreak
+
+
+
+
+    \end{proof}
 
 
 
