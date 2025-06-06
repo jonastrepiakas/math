@@ -175,6 +175,7 @@
                 $\deg (x), \deg (y) > 0$, then
                  $x \smile y = 0$.
         \end{enumerate}
+    \end{problem}
 
         \begin{proof}
             (1) Since $\pi_1 S^{n} = 0$, the Serre spectral
@@ -183,8 +184,10 @@
             F \to S^{n} \to S^{n}
             \] 
             gives the following double complex:
-\[
-            \begin{tikzcd}
+
+
+
+\[\begin{tikzcd}
 	{H^{n-1}(F)} \\
 	\vdots \\
 	{H^2(F)} \\
@@ -209,16 +212,105 @@ $H^{i}(F)$ for $0<i<n-1$, we obtain that
 $H^{i}(F) =
 H^{i}(S^{n}) = 0$ for $0 < i < n-1$.
 
+All that's missing is $i = n-1$. For this, note that by the LES
+for the fibration, we get the following exact sequence:
+\[
+    \underbrace{\mathbb{Z}}_{\pi_n(S^{n})}
+    \stackrel{\cdot k}{\to} \underbrace{\mathbb{Z}}_{\pi_n(S^{n})}
+    \to \pi_{n-1}(F) \to \underbrace{0}_{\pi_{n-1}(S^{n})}
+\] 
+hence $\pi_{n-1}\left(F \right) \cong
+\coker \left( \mathbb{Z} \stackrel{\cdot k}{\to} \mathbb{Z} \right) 
+\cong \mathbb{Z} / k$, and by the Hurewicz theorem, we
+get $H_{n-1}(F) \cong \pi_{n-1}(F) \cong
+\mathbb{Z} / k$.
+Now using the UCT, we obtain 
+\[
+    0 \to \underbrace{\Ext \left( H_{n-2}(F), \mathbb{Z} \right)}_{=0}
+    \to H^{n-1} (F) \to \underbrace{
+        \Hom \left( \underbrace{H_{n-1}(F)}_{=
+    \mathbb{Z} / k},\mathbb{Z} \right)}_{=0} \to 0
+\] 
+so $H^{n-1}(F) = 0$ as we wanted.
 
-        \end{proof}
+
+
+(2)
+
+By the LSSS, the $E^{\infty}$ page has the
+form $E_{0,0}^{\infty} = E_{n,0}^{\infty} \cong
+\mathbb{Z}$, so in particular,
+on the $E^{k}$ page, we get the following double complex:
+
+
+\[\begin{tikzcd}
+	\vdots \\
+	{H^{3(n-1)}(F)} && {H^{3(n-1)}(F)} \\
+	{H^{2(n-1)}(F)} && {H^{2(n-1)}(F)} \\
+	{\mathbb{Z}\cong H^{n-1}(F)} && {\mathbb{Z}\cong H^{n-1}(F)} \\
+	{\mathbb{Z}} && {\mathbb{Z}}
+	\arrow[no head, from=2-1, to=1-1]
+	\arrow[from=2-1, to=3-3]
+	\arrow[no head, from=3-1, to=2-1]
+	\arrow[from=3-1, to=4-3]
+	\arrow[no head, from=4-1, to=3-1]
+	\arrow[from=4-1, to=5-3]
+	\arrow[no head, from=5-1, to=4-1]
+	\arrow[no head, from=5-1, to=5-3]
+\end{tikzcd}\]
+
+This is the only page on which the horizontal maps
+can be nontrivial, so given the
+$E^{\infty}$ page, we conclude that the
+maps must be isomorphisms (including the trivial ones
+by just inductively shifting down
+by $n-1$ enough times).
+Hence we get periodicity, so
+\[
+H^{i}(F) =
+\begin{cases}
+    \mathbb{Z},& i=0\\
+    \mathbb{Z} /k,& i = 1+m(n-1), \, m>0\\
+    0,& \text{otherwise}
+\end{cases},
+\] 
+which was what we wanted to show.\\
+\linebreak
+
+
+
+
+
+(3) Suppose $\deg (x) + \deg (y) = 2$ so both are of 
+degree $1$, then
+since $H^{1}(F) = 0$, we have $x=0=y$ so
+$x \smile y = 0$.
+Suppose we have shown it for
+$\deg (x) + \deg (y) \le N-1$ now. If
+$\deg x + \deg y = N$, then
+firstly we can assume
+$x,y\neq 0$ since otherwise
+$x \smile y = 0$. Hence
+$x \in H^{1+ m(n-1)}(F)$ and
+$y \in H^{1+m'(n-1)}$, so
+$x \smile y \in 
+H^{2 + (m+m')(n-1)}(F) = 0$, so directly,
+$x \smile y = 0$.
+
+
+
+\end{proof}
+
+
+\begin{problem}[]
+    Use the path-loop fibration to deduce the
+    cohomo
+\end{problem}
 
 
 
 
 
 
-
-
-    \end{problem}
     %\printbibliography
 \end{document}
