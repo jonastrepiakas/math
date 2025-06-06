@@ -19,7 +19,7 @@
       ISBN = {0-387-97926-3},
 }
 
-@article{ORW,
+@MISC{ORW,
   author  = "Randal-Williams, Oscar",
   title   = "Homotopy Theory",
   year    = 2021,

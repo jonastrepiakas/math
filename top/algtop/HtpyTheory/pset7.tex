@@ -1,0 +1,224 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+%\usepackage[backend=biber]{biblatex}
+%\addbibresource{.bib}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\SHomeo}{SHomeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Teich}{Teich}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\corank}{corank}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Bun}{Bun}
+\DeclareMathOperator{\Sm}{Sm}
+\DeclareMathOperator{\Fr}{Fr}
+\DeclareMathOperator{\Cob}{Cob}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Conf}{Conf}
+\DeclareMathOperator{\UConf}{UConf}
+
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\MCG}{{\mathrm{MCG}}}
+\newcommand{\PMCG}{{\mathrm{PMCG}}}
+\newcommand{\SMCG}{{\mathrm{SMCG}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+
+
+
+
+\begin{document}
+    \begin{problem}[]
+        Let $F$ be the homotopy fibre of the map
+        $S^{n} \to S^{n}$ of degree $k$, for
+        $n\ge 2$.
+        \begin{enumerate}
+            \item Show that
+                $H^{i}(F) = 0$ for $0 < i < n$.
+            \item Using the Serre spectral sequence,
+                compute that
+                \[
+                H^{i}(F) = 
+                \begin{cases}
+                    \mathbb{Z},& i=0\\
+                    \mathbb{Z} / k,& i = 1 + m(n-1), \, m>0\\
+                    0,& \text{otherwise}
+                \end{cases}.
+                \] 
+            \item Show that for $x,y \in H^{*}(F)$, if
+                $\deg (x), \deg (y) > 0$, then
+                 $x \smile y = 0$.
+        \end{enumerate}
+
+        \begin{proof}
+            (1) Since $\pi_1 S^{n} = 0$, the Serre spectral
+            sequence to the homotopy fiber sequence
+            \[
+            F \to S^{n} \to S^{n}
+            \] 
+            gives the following double complex:
+\[
+            \begin{tikzcd}
+	{H^{n-1}(F)} \\
+	\vdots \\
+	{H^2(F)} \\
+	{H^1(F)} \\
+	{\mathbb{Z}} && {\mathbb{Z}} & \cdots \\
+	&& n
+	\arrow[from=1-1, to=5-3]
+	\arrow[no head, from=2-1, to=1-1]
+	\arrow[no head, from=3-1, to=2-1]
+	\arrow[no head, from=4-1, to=3-1]
+	\arrow[no head, from=5-1, to=4-1]
+	\arrow[no head, from=5-1, to=5-3]
+	\arrow[no head, from=5-3, to=5-4]
+\end{tikzcd}\]
+
+We apply the LSSS for cohomology and find that
+$H^{i}(S^{n}) = F_0^{n}$, and since
+$H^{i}(F)$ is the only nontrivial entry on the
+antidiagonal in degree $i$, and 
+since there are no maps to kill off 
+$H^{i}(F)$ for $0<i<n-1$, we obtain that
+$H^{i}(F) =
+H^{i}(S^{n}) = 0$ for $0 < i < n-1$.
+
+
+        \end{proof}
+
+
+
+
+
+
+
+
+    \end{problem}
+    %\printbibliography
+\end{document}

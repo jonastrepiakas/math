@@ -1,0 +1,318 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+%\usepackage[backend=biber]{biblatex}
+%\addbibresource{.bib}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\SHomeo}{SHomeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Teich}{Teich}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\corank}{corank}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Bun}{Bun}
+\DeclareMathOperator{\Sm}{Sm}
+\DeclareMathOperator{\Fr}{Fr}
+\DeclareMathOperator{\Cob}{Cob}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Conf}{Conf}
+\DeclareMathOperator{\UConf}{UConf}
+
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\MCG}{{\mathrm{MCG}}}
+\newcommand{\PMCG}{{\mathrm{PMCG}}}
+\newcommand{\SMCG}{{\mathrm{SMCG}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+
+
+
+
+\begin{document}
+    We will cover the cup product following Hatcher.\\
+
+    \begin{definition}[Cup Product]
+        For a ring $R$, let
+        $\varphi \in C^{k}(X;R)$ and
+        $\psi \in C^{l}(X;R)$. Then
+        the \textit{cup product}
+        $\varphi \smile \psi \in C^{k+l}(X;R)$ is the cochain
+        whose value
+        on $\sigma \colon \Delta^{k+l} \to X$ is given
+        by
+        \[
+            \left( \varphi \smile \psi  \right) (\sigma)
+            = \varphi \left( \sigma |_{\left[ v_0,\ldots,
+            v_k \right] } \right) 
+            \psi \left( \sigma|_{\left[ v_k,\ldots,
+            v_{k+l} \right] } \right) 
+        \] 
+        where the right-hand side is the product
+        in $R$.
+    \end{definition}
+
+    To see that this induces a
+    cup product on cohomology, we
+    need the following lemma:
+
+    \begin{lemma}[]
+        $\delta \left( \varphi \smile
+        \psi \right) = 
+        \delta \varphi \smile \psi +
+        (-1)^{k} \varphi \smile \delta \psi $ 
+        for $\varphi \in C^{k}(X;R)$ and
+        $\psi \in C^{l}(X;R)$.
+    \end{lemma}
+
+    Using the lemma, it is clear
+    that the cup product
+    of two cocycles is again a cocycles, and
+    that the cup product of a
+    cocycle and a coboundary, in either order,
+    is a coboundary.
+    It follows that there is an induced cup product
+    \[
+    H^{k}(X;R) \times H^{l}(X;R)
+    \stackrel{\smile}{\to} H^{k+l}(X;R).
+    \] 
+    This is associative and distributive since at the level
+    of cochains the cup product has these properties.\\
+    If $R$ has an identity, then there is an identity
+    elements for the cup product, the class
+    $1 \in H^{0}(X;R)$ defined by the
+    $0$-cocycle taking the value $1$ on each singular
+    $0$-simplex.
+
+
+    \begin{proposition}[]
+        For a map $f \colon X \to Y$, the induced
+        map $f^{*} \colon
+        H^{n} (Y;R) \to H^{n}(X;R)$ satisfies
+        $f^{*}\left( \alpha \smile \beta \right) 
+        = f^{*}(\alpha) \smile
+        f^{*}(\beta)$, and similarly in the relative
+        case.
+    \end{proposition}
+
+    \begin{theorem}[]
+        The identity $\alpha \smile \beta =
+        (-1)^{kl} \beta \smile \alpha$ holds
+        for all $\alpha \in H^{k}\left( X,A;R \right) $ and
+        $\beta \in H^{l}(X,A;R)$, when $R$ is commutative.
+    \end{theorem}
+
+    \section{The Cohomology Ring}
+
+    Since the cup product is associative and distributive,
+    it is natural to try to make it the
+    multiplication in a ring structure on
+    the cohomology groups of a space $X$.
+    This is easy to do if we define
+    $H^{*}(X;R) = \bigoplus_{k \in \mathbb{Z}} H^{k}(X;R)$.
+    That is, if we define $H^{*}(X;R)$ as the
+    direct sum of the cohomology
+    groups of the space. Then
+    elements of $H^{*}(X;R)$ are
+    finite sums
+    $\Sigma_i \alpha_i$ with
+    $\alpha_i \in H^{i}(X;R)$ and the
+    product of two such sums
+    is defined to be
+    $\left( \Sigma_i \alpha_i \right) 
+    \left( \Sigma_j \beta_j \right) =
+    \Sigma_{i,j} \alpha_i \beta_j$.
+    
+    \begin{exercise}[]
+        Show that this makes $H^{*}(X;R)$ into a ring,w
+        with identity if $R$ has an identity.
+        Similarly for $H^{*}(X,A;R)$ with the relative
+        cup product.
+
+        Taking scalar multiplication by elements
+        of $R$ into account, these rings
+        can also be regarded as $R$-algebras.
+    \end{exercise}
+
+    \begin{example}[]
+        Recall that
+        $H^{k}(\mathbb{R}\mathbb{P}^{2};\mathbb{Z}_2)
+        \cong \mathbb{Z}_2$ for
+        $k = 0, 1,2$ and is $0$ otherwise.
+        Also by example 3.8 in Hatcher on Cohomology,
+        for a generator
+        $\alpha \in H^{1}(\mathbb{R}\mathbb{P}^2;\mathbb{Z}_2)$,
+        $\alpha^2 
+        =\alpha \smile \alpha$ is a generator
+        of $H^{2}(\mathbb{R}\mathbb{P}^2; \mathbb{Z}_2)$,
+        hence
+        $H^{*}(\mathbb{R}\mathbb{P}^2;\mathbb{Z}_2) \cong
+        \mathbb{Z}_2 \left[ \alpha \right] /
+        \left( \alpha^3 \right) $.
+    \end{example}
+
+    Adding cohomology classes of different dimensions
+    to form $H^{*}(X;R)$ is convenient, but it has
+    little topological significance. One
+    can always regard the
+    cohomology ring as a \textit{graded ring}:
+
+    \begin{definition}[Graded Ring]
+        A ring $A$ with a decomposition
+        $\bigoplus_{k\ge 0}A_k$  into additive
+        subgroups $A_k \le A$ such that the
+        multiplication takes
+        $A_k \times A_l$ to $A_{k+l}$ is called
+        a \textit{graded ring}.
+    \end{definition}
+
+    To indicate that $\alpha \in A$ lies
+    in $A_k$, we write
+    $\left| a \right| = k$.
+
+    \begin{definition}[Degree/dimension]
+        The number $\left| a \right| $ 
+        is called the \textit{degree} or 
+        \textit{dimension} of $a$.
+    \end{definition}
+
+    \begin{definition}[Commutative/anticommutative/graded commutative]
+        A graded ring satisfying the commutativity
+        property that
+        $ab = (-1)^{\left| a \right| \left| b \right| } ba$ 
+        is usually called \textit{commutative} or any of
+        the following less ambiguous terms:
+        \textit{graded commutative},
+        \textit{anticommutative}, or 
+        \textit{skew commutative}.
+    \end{definition}
+
+
+
+
+    %\printbibliography
+\end{document}

@@ -268,6 +268,187 @@ $\Tot^{\oplus} (C)$ as follows:
     \end{align*}
 \end{solution}
 
+\subsection{Exact Couples}
+
+\begin{definition}[Exact Couple]
+    An \textit{exact couple} is an exact sequence of
+    abelian groups of the form
+    \begin{equation*}
+    \begin{tikzcd}
+        A \ar[rr, "i"] & & A \ar[dl, "j"] \\
+                       & B \ar[ul, "k"] &
+    \end{tikzcd}
+    \end{equation*}
+    where $i,j$ and $k$ are group homomorphisms. Define
+    $d \colon B \to B$ by $d = j \circ k$.
+    Then $d^2 = j (kj)k = 0$, so
+    $H(B) := \ker d / \im d$ is defined - in particular,
+    since $A$ and $B$ are abelian, the quotient
+    $H(B)$ is well-defined and a group.
+\end{definition}
+
+\begin{definition}[Derived Couple]
+    Out of a given exact couple, we can construct
+    a new exact couple, called the \textit{derived couple}:
+
+    \begin{equation*}
+    \begin{tikzcd}
+        A' \ar[rr, "i'"] & & A' \ar[dl, "j'"] \\
+                       & B' \ar[ul, "k'"] &
+    \end{tikzcd}
+    \end{equation*}
+    where we define
+    \begin{enumerate}
+        \item $A' = i(A)$ and $B' = H(B)$.
+        \item $i'$ is the induced
+            map $i' := i|_{A'} \colon
+            A'\to A'$ by $i' (ia) = i(ia)$ 
+        \item We define $j'$ by
+            $j' a' = \left[ ja \right] $ where
+            $a' = ia$ for some $a$ in $A$.
+        \item $k'$ is defined by
+            $k' \left[ b \right] = kb \in i(A)$.
+    \end{enumerate}
+    With these definitions, the derived couple is an exact
+    couple.
+\end{definition}
+
+\begin{exercise}[]
+    Check that the maps are well-defined and that the
+    derived sequence is exact.
+\end{exercise}
+
+\begin{proof}
+    We must check that $j'$ and $k'$ are well-defined maps.
+
+    Suppose $a' = ia = i \tilde{a}$.
+    Then $a-\tilde{a} \in \ker i = \im k$ so
+    $a - \tilde{a} = k\left[ b \right] $. Hence
+    Then
+    $j a - j \tilde{a} =
+    j k \left[ b \right] 
+    = d \left[ b \right] \in \im d$, so
+    $\left[ j a \right] =
+    \left[ j \tilde{a} \right] $.\\
+    Next, suppose
+    $\left[ b \right] = \left[ \tilde{b} \right] $, so
+    $b - \tilde{b}\in 
+    \im d$, i.e., $b - \tilde{b} = 
+    jk (\overline{b})$.
+    Then
+    $k b - k \tilde{b} = 
+    kjk (\overline{b}) = 
+    0$, so
+    $k' \left[ b \right] =
+    k'\left[ \tilde{b} \right] $.\\
+    \linebreak
+    Lastly, exactness at $B'$:
+     suppose $k' \left[ b \right] = 0$. Then
+     $kb = 0$, so by exactness of the original exact
+     couple, there exists some $a \in A$ such that
+     $j (a) = b$. Then
+     let $a' = i(a)$, so
+     $j' (a') = \left[ j (a) \right] =
+     \left[ b \right] $, hence
+     $\ker k' \subset \im j'$.\\
+     Conversely, 
+     $k' j' (a') =
+     k' \left[ ja \right] =
+     kja = 0$, by exactness at
+     $B$ of the original couple.
+\end{proof}
+
+\subsection{The Spectral Sequence of a Filtered
+Complex}
+
+\begin{definition}[Differential Complex]
+    A differential complex $K$ with differential operator
+    $D$ is an abelian group $K$ together with
+    a group homomorphism $D \colon K \to K$ such that
+    $D^2 = 0$.
+\end{definition}
+
+Let $K$ be a differential complex with differential operator
+$D$.
+Usually $K$ comes with a grading
+$K = \bigoplus_{k \in \mathbb{Z}}C^{k}$ and
+$D \colon C^{k} \to C^{k+1}$ increases the
+degree by $1$, but the grading is not
+absolutely necessary.
+
+\begin{definition}[Subcomplex]
+    A \textit{subcomplex} $K'$ of $K$ is a
+    graded subgroup such that $DK' \subset 
+    K'$.
+\end{definition}
+
+\begin{definition}[Filtration, Associated Graded Complex]
+    A sequence of subcomplexes
+    \[
+    K = K_0 \supset K_1 \supset K_2 \supset K_3 \supset
+    \ldots
+    \] 
+    is called a \textit{filtration} on $K$.
+    This makes $K$ into a \textit{filtered complex}, with
+    \textit{associated graded complex}
+    \[
+    GK = \bigoplus_{p=0}^{\infty} K_p / K_{p+1}.
+    \] 
+    For notational reasons, we usually extend the
+    filtration to negative indices
+    by defining
+    $K_p = K$ for $p < 0$.
+\end{definition}
+
+\begin{example}[]
+    If $K = \bigoplus K^{p,q}$ is a double complex with
+    horizontal operator $\delta$ and vertical operator
+    $d$ (which we assume
+    to commute), we can form a single complex out of it by
+    setting $C^{k} = \bigoplus_{p+q=k} K^{p,q}$ and
+    then letting
+    $K = \bigoplus C^{k}$ and
+    the differential operator
+    $D \colon C^{k} \to C^{k+1}$ to be
+    $D = \delta + (-1)^{p} d$. 
+    Then letting
+    \[
+    K_p = \bigoplus_{i\ge p} \bigoplus_{q \ge 0}
+    K^{i,q}
+    \] 
+    we obtain a filtration on
+    $K$.
+\end{example}
+
+
+
+
+Suppose now that we have a general filtered
+complex $K
+= K_0 \supset K_1 \supset \ldots$, and let $A$ be the group defined
+by
+\[
+A = \bigoplus_{p \in \mathbb{Z}} K_p.
+\] 
+Then $A$ is again a differential complex with
+operator $D$.
+Let $i \colon A \to A$ be the inclusion
+$K_{p+1} \hookrightarrow K_{p}$ on each $p$.
+Let $B$ be the cokernel of $i \colon A \to A$.
+Then $B = GK =
+\bigoplus_{p=0}^{\infty} K_p / K_{p+1}$, and
+we have an exact sequence
+\[
+0 \to A \stackrel{i}{\to} A
+\stackrel{j}{\to} GK \to 0.
+\] 
+
+
+
+
+
+
+\newpage
 \section{Introduction to Spectral Sequences}
 
 Consider the problem of computing the homology
