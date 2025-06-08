@@ -152,8 +152,12 @@
 
 
 
+\title{Assignment 7}
+\author{Jonas Trepiakas}
+\date{}
 
 \begin{document}
+\maketitle
     \begin{problem}[]
         Let $F$ be the homotopy fibre of the map
         $S^{n} \to S^{n}$ of degree $k$, for
@@ -302,6 +306,142 @@ $x \smile y = 0$.
 \end{proof}
 
 
+\begin{problem}[]
+    Use the path-loop fibration to deduce the
+    cohomology ring structure of
+    $H^{*}\left( \Omega S^{n} \right) $ when
+    $n\ge 2$ is even.
+\end{problem}
+
+\begin{proof}
+    Consider the path-loop fibration
+    $\Omega S^{n} \to PS^{n} \to S^{n}$.
+    Since $S^{n}$ is simply connected,
+    we can use the LSSS.
+    Since $H^{*}\left( S^{n} \right) $ and
+    $H^{*}(PS^{n})$ are free and finitely 
+    generated,
+    there is no torsion, so 
+    $E_2^{s,t} = H^{s}(S^{n}) \otimes
+    H^{t}(\Omega S^{n})$. Thus
+    we obtain the following $E_n$ page:
+
+
+    \[\begin{tikzcd}
+	\vdots \\
+	{H^{3(n-1)}(\Omega S^n)} && {H^{3(n-1)}(\Omega S^n)} \\
+	{H^{2(n-1)}(\Omega S^n)} && {H^{2(n-1)}(\Omega S^n)} \\
+	{H^{n-1}(\Omega S^n)} && {H^{n-1}(\Omega S^n)} \\
+	{\mathbb{Z}} && {\mathbb{Z}} \\
+	&& n
+	\arrow[no head, from=2-1, to=1-1]
+	\arrow[from=2-1, to=3-3]
+	\arrow[no head, from=3-1, to=2-1]
+	\arrow[from=3-1, to=4-3]
+	\arrow[no head, from=4-1, to=3-1]
+	\arrow[from=4-1, to=5-3]
+	\arrow[no head, from=5-1, to=4-1]
+	\arrow[no head, from=5-1, to=5-3]
+\end{tikzcd}\]
+
+Again, using that
+$E_{\infty}$ has only
+$E_{\infty}^{0,0} = \mathbb{Z}$ and all
+other entries $0$, we obtain that
+all the maps must be isomorphisms in this diagram.
+
+Thus we can write
+$H^{k(n-1)}(\Omega S^{n}) \cong
+\mathbb{Z} a_k$ for all $k\ge 1$, where
+$d(a_1) = x$ and 
+$d (a_k) = a_{k-1}x$ (we can change some $a_k$ 's for their
+negatives to make signs check out if necessary) - here
+we also choose $a_1$ and then $a_2$ to satisfy the relation, and
+then $a_3$, etc.
+
+Recall now from the multiplicative structure that we
+have $d(xy) = 
+(dx) y + (-1)^{p+q} x (dy)$, so
+
+Now, $\left| a_1 \right| = n-1$ which is odd as $n$ was assumed
+to be even, so
+$2a_1^2 = 0$ by anticommutativity, so
+since $H^{2(n-1)}\left( \Omega S^{n} \right) \cong 
+\mathbb{Z} a_2$ is torsion-free,
+$a_1^2 = 0$.
+
+Now that we have picked
+generators for 
+$H^{*}(\Omega S^{n})$, we want to see if we can reduce
+the generators and find relations between them.\\
+So far, we have chosen
+ the $a_i$ such that
+ $a_i \smile a_j = A(i,j) a_{i+j}$ for some
+ integer $A(i,j)$, simply because 
+ $a_i \smile a_j \in H^{i+j}(\Omega S^{n})$ which
+ $a_{i+j}$ generates.
+
+ So we are interested in finding these
+ coefficients $A(i,j)$.
+
+ Now we have, first of all, that
+ $a_k x = x a_k$ since $\left| a_k \right| \left| x \right| $ 
+ is even, so these commute for all $k$.
+ \begin{itemize}
+     \item $d(a_1 a_{2k}) =
+         x a_{2k} + (-1)^{2k+1} a_1 a_{2k-1}x$.
+         Now if $k=1$, then $a_1 a_{2k-1} = a_1^2 = 0$, so
+         $x a_{2} - a_1^2 x$ becomes
+         $x a_2$ and since
+         $d (a_3) = x a_2$, we have
+         $a_1 a_2 = a_3$ as $d$ is an isomorphism.
+         Now, inductively, suppose
+         $a_1 a_{2k} = a_{2k+1}$ for $k \le N-1$.
+         Then again
+         $d\left( a_1 a_{2N} \right) =
+         x a_{2N} - a_1 a_{2N-1} x$ and
+         by induction, either $2N-1 = 1$ such that
+         $a_1 a_{2N-1} = a_1^2 = 0$ or
+         $a_1 a_{2N-1} = a_1 a_1 a_{2(N-1)} = 0$.
+         Hence $d\left( a_1 a_{2N} \right) = x a_{2N}$, so
+         again $d\left( a_{2N+1} \right) = 
+         d\left( a_1 a_{2N} \right) $, so
+         $a_{2N+1} = d_1 a_{2N}$.
+     \item Next we have
+         $d_n \left( a_2^{k} \right) 
+         = a_1 x a_2^{k-1} + a_2 d\left( a_2^{k-1} \right) $.
+         For $k = 1$, this equals
+         $a_1 x = k a_1 x a_2^{k-1}$, so we claim that
+         $d_n \left( a_2^{k} \right) = k a_1 x a_2^{k-1}$ in
+         general. This is obtain by applying the inductive step
+         to $a_2 d\left( a_2^{k-1} \right) $ above to
+         obtain
+         $d_{n}\left( a_2^{k} \right) =
+         a_1 x a_2^{k-1} + a_2 (k-1) a_1 x a_2^{k-2}
+         =a_1 a_2^{k-1} x k$, as claimed.
+         Next, inductively, we find that
+         $a_2^{k-1} = 
+         (k-1)! a_{2k-2}$, so
+         then $d_n (a_2^{k}) = k! a_1 x a_{2k-2} = 
+         k! a_{2k-1} x = k! d_n \left( a_{2k} \right) 
+         = d_n \left( k! a_{2k} \right) $, so
+         again since $d_n$ is an isomorphism,
+         $a_2^{k} = k! a_{2k}$.
+         Clearly, $a_2^{k-1}= (k-1)! a_{2k-2}$ is true
+         for $k=2$, and then
+         $d_n(a_2^{k}) = k a_1 x a_2^{k-1}=
+         k! a_1 x a_{2k-2} = 
+         k! x a_{2k-1} = d \left( k! a_{2k} \right) $
+         gives $a_{2}^{k} = k! a_{2k}$ inductively as desired.
+ \end{itemize}
+
+ Hence $H^{*}\left( \Omega S^{n} \right) 
+ \cong \Lambda_{\mathbb{Z}} \left[ a \right] 
+ \otimes \Gamma_{\mathbb{Z}}\left[ b \right] $ with
+ $\left| a \right|  = n-1$ and
+ $\left| b \right| = 2n-2$.
+
+\end{proof}
 
 
 
