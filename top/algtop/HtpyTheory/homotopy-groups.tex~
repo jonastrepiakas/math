@@ -1188,7 +1188,7 @@ $\pi_n (X,x_0)$.
 
 The proof will require the following lemma:
 
-\begin{lemma}[Compression Lemma]
+\begin{lemma}[Compression Lemma]\label{Compression-Lemma}
     Let $\left( X,A \right) $ be a CW pair and let
     $\left( Y, B \right) $ be any pair with
     $B \neq \varnothing$. For each  $n$ such that
@@ -1823,3 +1823,276 @@ But first, a nice corollary:
 
 
 \end{example}
+
+
+Next, let us try to give some names to the
+properties which the constructions that attaching
+cells to make a map more nearly a weak homotopy equivalence
+can achieve. 
+
+Suppose we are given a map $f \colon A \to B$.
+We can factor this as the map
+$A \hookrightarrow M_f \stackrel{r}{\to} B$ (\cite[433]{Bredon}),
+so the setup is now that
+we have a pair $(X,A)$ where
+$A \subset X$ is a nonempty CW complex.
+
+\begin{definition}[$n$-connected CW model]
+    Given a pair $(X,A)$ where $A \subset X$ is a
+    nonempty CW complex, we
+    define an \textit{$n$-connected CW model for}
+    $(X,A)$ to be an $n$-connected CW pair
+    $(Z,A)$ and a map $f \colon Z \to X$ with
+    $f |_{A} = \id$ such that
+    $f_* \colon \pi_i (Z) \to \pi_i(X)$ is an isomorphism
+    for $i>n$ and an injection for $i = n$, for all
+    choices of basepoint.
+\end{definition}
+
+Since $(Z,A)$ is $n$-connected, the map
+$\pi_i(A) \to \pi_i(Z)$ induced by the inclusion
+is an isomorphism for $i< n$ and a surjection
+for $i = n$. 
+
+So in the critical dimension $i =n$, the maps
+$A \hookrightarrow Z \stackrel{f}{\to} X$ induces
+a composition
+$\pi_n (A) \stackrel{\iota_*}{\twoheadrightarrow} \pi_n(Z)
+\stackrel{f_*}{\hookrightarrow} X$ of a surjection followed
+by an injection.\\
+\linebreak
+\begin{remark}[]
+    One can think of $Z$ as a homotopy-theoretic
+    hybrid of $A$ and $X$. As
+    $n$ increases, the hybrid looks more and more like
+    $A$ and less and less like $X$.
+\end{remark}
+
+\begin{proposition}[]\label{Prop:4-15}
+    For every pair $(X,A)$ with $A$ a nonempty
+    CW complex, there exist  $n$-connected 
+    CW models  $f \colon (Z,A) \to (X,A)$ for all
+    $n\ge 0$, and these models can be
+    chosen to have the additional property that $Z$ is obtained
+    from $A$ by attaching cells of dimension greater than
+    $n$.
+\end{proposition}
+
+\begin{proof}
+    This is what we showed above.
+\end{proof}
+
+\begin{question}
+    Are $n$-connected CW models unique up to homotopy equivalence?
+\end{question}
+
+\begin{proposition}[]
+    Suppose we are given:
+    \begin{enumerate}
+        \item an $n$-connected CW model $f \colon (Z,A) \to 
+            (X,A)$,
+        \item an $n'$-connected CW model $f' \colon
+            \left( Z',A' \right) \to (X',A')$,
+        \item a map $g \colon (X,A) \to (X',A')$.
+    \end{enumerate}
+    Then if $n\ge n'$, there is a map $h \colon Z \to Z'$ such
+    that $h |_{A} = g$ and $gf \simeq f'h \rel A$, so
+    the following diagram commutes up to homotopy
+    $\rel A$. Furthermore, such a map $h$ is unique
+    up to homotopy $\rel A$.
+
+    \begin{equation*}
+    \begin{tikzcd}
+        Z \ar[r, "f"] \ar[d, "h"] & X \ar[d, "g"] \\
+        Z' \ar[r, "f'"] & X'
+    \end{tikzcd}
+    \end{equation*}
+    
+\end{proposition}
+
+\begin{proof}
+    By Proposition \ref{Prop:4-15}, we may assume
+    that the cells of $Z- A$ have dimension
+    $>n$. Let
+    $W$ be the quotient space of a mapping cylinder
+    of $f'$ obtained by collapsing each line segment
+    $\left\{ a' \right\} \times I$ to a point for
+    $a' \in A'$, say to 
+    $\left\{ a' \right\} \times \left\{ 0 \right\} $.
+    Then $W$ contains copies of $Z'$ and $X'$, with
+    $Z'$ being $Z' \times \left\{ 0 \right\} 
+    \subset Z' \times I \cup_{f'} X'$ and
+    $X'$ being a deformation retract of
+    $W$, contained as the $X'$ copy in
+    $Z' \times I \cup_{f'} X'$. The
+    assumption that $(Z',A')$ is an $n'$-connected
+    CW model for $(X',A')$ implies that
+    the relative homotopy groups $\pi_i (W,Z*)$ are 
+    zero for $i>n'$ since
+    the inclusion
+    $\iota \colon Z' \hookrightarrow W$ is,
+    up to homotopy, the same as
+    $f' \colon Z' \to X'$ which
+    induces isomorphisms for
+    $i>n'$. More precisely, we have a commutative diagram
+    as follows:
+    \begin{equation*}
+    \begin{tikzcd}
+        & & W \ar[dd, "r"] \\
+        Z' \ar[rru, "\iota"] \ar[drr, "f'"] & &\\
+                             & & X'
+    \end{tikzcd}
+    \end{equation*}
+    where $r$ is a retractions (the ending map of a 
+    deformation retraction which is thus homotopic
+    to the identity on $W$), so $r_*$ induces
+    an isomorphism on homotopy groups. Hence
+    $\left( f' \right)_* $ is an isomorphism if
+    and only if $\iota_*$ is.\\
+    Now using the
+    inclusion $X' \hookrightarrow W$, we can view
+    $gf$ as a map
+    \[
+        \left( Z,A \right) \stackrel{f}{\to} (X,A)
+        \stackrel{g}{\to} \left( X',A' \right)
+        \hookrightarrow \left( W,Z' \right) 
+    \] 
+    Recall that we collapsed strands
+    $\left\{ a' \right\} \times I$ so
+    $A'$ gets included into
+    $W$ in a unique way and it is both contained
+    in the $X'$ and $Z'$ copy (we write
+    $Z'$ above because we want to make use
+    of $(W,Z')$ having trivial homotopy
+    groups in dimensions $>n$.)
+    Using the compression lemma (Lemma \ref{Compression-Lemma})
+    and the hypothesis that $n\ge n'$, we
+    find that $gf$ is homotopic $\rel A$ to a map
+    $h'$ with image in $Z'$, considering
+    $gf$ as a map
+    $\left( Z,A \right) \to (W,Z')$.
+    More precisely, $i_{X'} gf \simeq h' \rel A$ as
+    maps $Z \to W$ where
+    $i_{X'} \colon X' \hookrightarrow W$ is the inclusion.
+    Let $h \colon Z \to Z'$ be the map with restricted
+    codomain. Then $h' = i_{Z'} h$, so
+    $gf = r i_{X'} gf \simeq r i_{Z'} h 
+    = f' h \rel A$.
+
+    This gives the desired map
+    $h \colon Z \to Z'$ making the
+    diagram above commute.
+
+    For uniqueness, suppose 
+    $h_0$ and $h_1$ are two maps $Z \to Z'$ whose
+    compositions with $f'$ are homotopic to
+    $gf \rel A$. Let
+    $h_i' = i_{Z'} h_i$, for $i=0,1$. Then
+    the homotopy for $h_0' \simeq h_1' \rel A$ gives
+    a map
+    $\left( Z \times I, 
+    Z \times \partial I \cup  A \times I\right) \to 
+    \left( W,Z' \right) $ and by the compression lemma
+    (Lemma \ref{Compression-Lemma}), this
+    map can be deformed $\rel Z \times \partial I
+    \cup A \times I$ to a map with image in
+    $Z'$, which gives the desired homotopy $h_0 \simeq
+    h_1 \rel A$.
+\end{proof}
+
+\begin{corollary}
+    An $n$-connected CW model for $(X,A)$ is unique up to
+    homotopy equivalence $\rel A$.
+\end{corollary}
+
+\begin{proof}
+    Consider the diagram
+    \begin{equation*}
+    \begin{tikzcd}
+        Z \ar[r] \ar[d, "h"] & X \ar[d, equal] \\
+        Z' \ar[u, "h'"] \ar[r] & X
+    \end{tikzcd}
+    \end{equation*}
+    By uniqueness, $h h' \simeq \id$ and
+    $h' h \simeq \id \rel A$.
+\end{proof}
+
+\begin{corollary}
+    Given CW approximations $Z \to X$ and $Z' \to X'$ and
+    a map $X \to X'$, there exists a unique map
+    $Z \to Z'$ up
+    to homotopy equivalence making the following diagram
+    commute:
+    \begin{equation*}
+    \begin{tikzcd}
+        Z \ar[d] \ar[r] & X \ar[d] \\
+        Z' \ar[r] & X'
+    \end{tikzcd}
+    \end{equation*}
+    
+\end{corollary}
+
+\begin{example}[]\label{Example:23190SA}
+Let $\left( Z_i, A \right)_{i \in \mathbb{N}_0} $ be a 
+collection of $i$-connected CW models for
+$(X,A)$. By the Proposition,
+we obtain the right hand part of the following tower:
+\begin{equation*}
+\begin{tikzcd}
+    & \vdots \ar[d] & \\
+    & Z_2 \ar[d] \ar[ddr] &\\
+    & Z_1 \ar[d] \ar[dr] & \\
+    A \ar[r] \ar[ru] \ar[ruu] & Z_0 \ar[r] & X
+\end{tikzcd}
+\end{equation*}
+and the left hand side is obtained by the inclusions
+$A \hookrightarrow Z_i$.
+The left hand side commutes
+by the part of the proposition saying
+$h |_A = g$ and then noting hat $g$ in our case
+is the identity throughout. The right
+hand side commutes up to homotopy by the proposition as well.
+We can also make the right hand side strictly commutative
+by replacing the maps
+$Z_i \to X$ by the composite
+$Z_i \to Z_{i-1} \to \ldots \to  Z_0 \to X$.
+
+\end{example}
+
+\begin{example}[Whitehead Towers]
+    Let $X$ be an arbitrary CW complex with
+    a subspace $A$ that is a point. The resulting tower
+    obtained from Example \ref{Example:23190SA}
+    gives a sequence
+    of maps
+    $\ldots \to Z_2 \to Z_1 \to Z_0 \to X$ where
+    $Z_n$ is now $n$-connected since
+    $(Z_n, A)$ is $n$-connected and
+    $0 = \pi_k (Z_n, A, A) = \pi_k (Z_n, A)$ for
+    $k\le n$. Furthermore, the map
+    $Z_n \to X$ induces an isomorphism on all homotopy
+    groups $\pi_i$ with $i>n$.
+
+    The space $Z_0$ is path-connected and homotopy equivalent
+    (by Whitehead's Theorem, Theorem \ref{Thm:Whitehead})
+    to the component of $X$ containing $A$, so
+    one may as well assume $Z_0$ equals this component.
+    
+    Next, $Z_1$ is simply-connected, and the map
+    $Z_1 \to X$ has the homotopy properties
+    of the universal cover of the component $Z_0$ of $X$.
+    By analogy, one can view
+    $Z_n \to X$ as '$n$-connected covers' of $X$ 
+    for larger $n$.
+
+\end{example}
+
+\begin{proposition}[]
+    A weak homotopy equivalence $f \colon X \to Y$ 
+    induces isomorphisms
+    $f_* \colon H_n (X;G) \to H_n(Y;G)$ and
+    $f^{*} \colon H^{n}(Y;G) \to H^{n}(X;G)$ for
+    all $n$ and all coefficient groups $G$.
+\end{proposition}
+
+

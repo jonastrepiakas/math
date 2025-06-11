@@ -36,6 +36,7 @@
 \newtheorem*{remark}{Remark}
 \newtheorem*{note}{Note}
 \newtheorem*{solution}{Solution}
+\newtheorem*{construction}{Construction}
 
 
 
@@ -207,6 +208,57 @@
     $1 \in H^{0}(X;R)$ defined by the
     $0$-cocycle taking the value $1$ on each singular
     $0$-simplex.
+
+    \subsubsection{Relative cup product}
+    The cup product formula $\left( \varphi \smile
+    \psi \right) (\sigma) = 
+    \varphi \left( \sigma |_{\left[ v_0, \ldots, v_k \right] 
+    }\right) \psi \left( 
+    \sigma |_{\left[ v_k, \ldots, v_{k+l} \right] }\right) $ also
+    gives relative cup products
+    \begin{align*}
+        H^{k}(X;R) \times H^{l}(X,A;R)
+        &\stackrel{\smile}{\to} H^{k+l}(X,A;R)\\
+        H^{k}(X,A;R) \times H^{l}(X;R)
+        &\stackrel{\smile}{\to} H^{k+l}(X,A;R)\\
+        H^{k}(X,A;R) \times H^{l}(X,A;R)
+        &\stackrel{\smile}{\to} H^{k+l}(X,A;R)
+    \end{align*}
+    since if $\varphi $ or $\psi $ vanishes
+    on chains in $A$, then so does
+    $\varphi \smile \psi $.\\
+    \linebreak
+    We can also define an even more general relative cup product
+    \[
+    H^{k}(X,A;R) \times H^{l}(X,B;R)
+    \stackrel{\smile}{\to} H^{k+l}(X, A \cup B;R)
+    \] 
+    when $A$ and $B$ are open subsets of $X$ or subcomplexes
+    of the CW complex $X$.
+
+    \begin{construction}
+        The absolute cup product restricts to a cup product
+        $C^{k}(X,A;R) \times C^{l}(X,B;R)
+        \to C^{k+l}(X,A \sqcup  B; R)$ where
+        $C^{n}\left( X,A \sqcup  B;R \right) $ is the subgroup
+        of $C^{n}(X;R)$ consisting of cochains vanishing
+        on sums of chains in $A$ and chains in $B$.
+        If $A$ and $B$ are open in $X$, then
+        the inclusions
+        $C^{n} (X,A \cup B;R) \hookrightarrow 
+        C^{n}(X, A\sqcup B;R)$ induces
+        isomorphisms on cohomology:
+        
+    \end{construction}
+
+
+
+
+
+
+
+
+
 
 
     \begin{proposition}[]
