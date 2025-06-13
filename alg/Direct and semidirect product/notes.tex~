@@ -325,7 +325,7 @@ so indeed $khk^{-1} = h^{k}$ under the identifications.
 \end{definition}
 
 
-\begin{proposition}[]
+\begin{proposition}[]\label{Prop:JSAO2}
     Let $H$ and $K$ be groups and let $\varphi  \colon K \to \Aut(H)$ be
     a homomorphism. Then the following are equivalent:
     \begin{enumerate}
@@ -333,9 +333,22 @@ so indeed $khk^{-1} = h^{k}$ under the identifications.
             $H \rtimes K$ and $H \times K$ is a group homomorphism (hence an
             isomorphism)
         \item $\varphi $ is the trivial homomorphism from $K$ into $\Aut(H)$ 
-        \item $K \trianglelefteq H \rangle K$.
+        \item $K \trianglelefteq H \rtimes K$.
     \end{enumerate}
 \end{proposition}
+
+\begin{corollary}
+    When $H$ is abelian, $H \rtimes K \cong H \oplus K = H \times K$.
+\end{corollary}
+
+\begin{proof}
+    When $H$ is abelian, 
+    $h = k h k^{-1} = h^{k} = \varphi (k) (h)$, so
+    $\varphi (k) = \id$ for all $k$, so
+    $\varphi \colon K \to \Aut (H)$ is the trivial homomorphism.
+    Now Proposition \ref{Prop:JSAO2} gives that
+    $H \rtimes K \cong H \times K = H \oplus K$.
+\end{proof}
     
     %\bibliography{../refs.bib}
 \end{document}

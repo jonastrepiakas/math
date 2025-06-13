@@ -1,0 +1,586 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+%\usepackage[backend=biber]{biblatex}
+%\addbibresource{.bib}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\SHomeo}{SHomeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Teich}{Teich}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\corank}{corank}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Bun}{Bun}
+\DeclareMathOperator{\Sm}{Sm}
+\DeclareMathOperator{\Fr}{Fr}
+\DeclareMathOperator{\Cob}{Cob}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Conf}{Conf}
+\DeclareMathOperator{\UConf}{UConf}
+
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\MCG}{{\mathrm{MCG}}}
+\newcommand{\PMCG}{{\mathrm{PMCG}}}
+\newcommand{\SMCG}{{\mathrm{SMCG}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+
+
+
+
+\begin{document}
+    Recall that the cohomology with integral coefficients
+    of $K(\mathbb{Z} /3,2)$ up to degree $6$ is:
+    \[
+    H^{*}\left( K(\mathbb{Z}/3,2); \mathbb{Z} \right) 
+    \cong
+    \begin{cases}
+        \mathbb{Z},& * = 0,\\
+        \mathbb{Z} /3,& *=3,5,\\
+        0,& * = 1,2,4,6.
+    \end{cases}
+    \] 
+    With $\mathbb{F}_3$-coefficients we have
+    \[
+    H^{*}\left( K\left( \mathbb{Z}/3, 2 \right) ;
+    \mathbb{F}_3 \right) \cong \mathbb{F}_3
+    \left<1, a,b,a^2, ab \right> \quad \text{for } * \le 5
+    \] 
+    where
+    $\left| a \right| =2$ and $\left| b \right| =3$.
+
+
+    \begin{problem}[]
+        The goal is to classify up to homotopy equivalence all
+        CW complexes $X$ with the following properties:
+        \begin{enumerate}
+            \item $X$ has a single cell in each
+                dimension $0,3,4,6$, and no cells in
+                other dimensions.
+            \item $H_3(X) \cong \mathbb{Z} /3$.
+        \end{enumerate}
+        Let $Y = X^{(4)}$ be the $4$-skeleton of $X$.
+        \begin{enumerate}
+            \item Show that $Y$ is uniquely determined up to
+                homotopy equivalence.
+            \item Compute the $E_4$-page of the cohomology
+                spectral sequence (up to degree $6$ ) for the
+                fiber sequence
+                \[
+                K\left( \mathbb{Z}/3, 2 \right) \to 
+                \tau_{>3}Y \to Y.
+                \] 
+                Assuming the differential 
+                $d_3 \colon E_3^{0,5} \to E_{3}^{3,3}$ is non-trivial,
+                show that
+                \[
+                \pi_k(Y) \cong
+                \begin{cases}
+                    0,& *=0,1,2,4,5\\
+                    \mathbb{Z} /3,& *=3
+                \end{cases}
+                \] 
+                and that $\pi_6(Y)$ has at least three elements.
+            \item Redo step 3 with $\mathbb{F}_3$-coefficients.
+                Deduce that the $d_3$-differential in step 2
+                must indeed have been non-trivial.
+            \item Show that $X$ is unique up to homotopy.
+        \end{enumerate}
+    \end{problem}
+
+    
+    \begin{solution}
+        (1) The $\Delta$-chain complex for $Y$ has the form
+        \[
+        \ldots \to 0 \to \mathbb{Z} \stackrel{a}{\to} \mathbb{Z}
+        \to  0 \to  0 \to \mathbb{Z} \to  0 \to  \ldots
+        \] 
+        where $\coker a = \mathbb{Z}/3$, hence
+        $a$ must be multiplication by $3$.
+        But then taking homology, we obtain
+        \[
+       \ldots \to 
+       0 \to 0 \to \mathbb{Z} /3 \to 0 \to  0 \to \mathbb{Z} \to 0
+       \to \ldots
+        \] 
+        I.e.,
+        \[
+        \tilde{H}_k(Y) \cong
+        \begin{cases}
+            \mathbb{Z}/3,& k=3\\
+            0,& k\neq 3
+        \end{cases}
+        \] 
+        so $Y$ is a Moore space
+        $M(\mathbb{Z}/3, 3)$.
+        We have seen, (Hatcher, example 4.34), that
+        Moore spaces are unique up to homotopy equivalent from
+        which the claim follows.\\
+        \linebreak
+        (2) 
+        Firstly, since
+        $X$ and hence $Y$ only have
+        cells in dimension $0$ and then
+        $>1$, we obtain by the cellular approximation theorem
+        that $\pi_1(Y) \cong \pi_1(X) \cong 0$, so
+        that $\pi_1$ acts trivially on homology.
+        Hence we can use the LSSS.
+        By the UCT, 
+        \[
+        \tilde{H}^{k}(Y)
+        \cong
+        \begin{cases}
+            \mathbb{Z}/3,& k=4\\
+            0,& k\neq 4
+        \end{cases}
+        \] 
+        so we obtain a double complex as follows:
+
+
+
+\[\begin{tikzcd}
+	& \vdots \\
+	5 & {\mathbb{Z}/3} && {\mathbb{Z}/3} & {\mathbb{Z}/3} \\
+	\\
+	3 & {\mathbb{Z}/3} && {\mathbb{Z}/3} & {\mathbb{Z}/3} \\
+	\\
+	& {\mathbb{Z}} &&& {\mathbb{Z}/3} & \cdots \\
+	&&& 3 & 4
+	\arrow[no head, from=2-2, to=1-2]
+	\arrow[dashed, from=2-2, to=4-4]
+	\arrow[no head, from=4-2, to=2-2]
+	\arrow[dashed, from=4-2, to=6-5]
+	\arrow[no head, from=6-2, to=4-2]
+	\arrow[no head, from=6-2, to=6-5]
+	\arrow[no head, from=6-5, to=6-6]
+\end{tikzcd}\]
+where
+$H^{3}\left( Y; H^{k}\left( K\left( \mathbb{Z}/3,2 \right) ;
+\mathbb{Z} \right)  \right) 
+\cong \Hom \left( H_3(Y) ,
+H^{k} \left( K\left( \mathbb{Z}/3,2 \right)  \right) \right) \cong
+\Hom \left( \mathbb{Z}/3, \mathbb{Z}/3 \right) 
+\cong \mathbb{Z}/3$ for $k=3,5$ from the UCT and
+$H^{4}\left( Y; H^{k}\left( 
+K\left( \mathbb{Z}/3,2 \right) ; \mathbb{Z}\right)  \right) 
+\cong \Ext \left( H_{3}(Y),
+H^{k}\left( K\left( \mathbb{Z}/3,2 \right) ;\mathbb{Z}
+\right) \right) \cong
+\Ext \left( \mathbb{Z}/3, \mathbb{Z}/3 \right) 
+\cong \mathbb{Z}/3$ again from the UCT.\\
+
+Since there can only be trivial maps
+in $E_2$, the same double complex forms
+$E_3$ where we also obtain the topmost indicated dashed
+map as the only possible nontrivial map.
+
+We assumed that this map is nontrivial, hence
+must be an isomorphism, so the $E_4$ page will
+be as follows:
+
+\[\begin{tikzcd}
+	& \vdots \\
+	5 &&& {\mathbb{Z}/3} & {\mathbb{Z}/3} \\
+	\\
+	3 & {\mathbb{Z}/3} &&& {\mathbb{Z}/3} \\
+	\\
+	& {\mathbb{Z}} &&& {\mathbb{Z}/3} & \cdots \\
+	&&& 3 & 4
+	\arrow[no head, from=4-2, to=1-2]
+	\arrow[dashed, from=4-2, to=6-5]
+	\arrow[no head, from=6-2, to=4-2]
+	\arrow[no head, from=6-2, to=6-5]
+	\arrow[no head, from=6-5, to=6-6]
+\end{tikzcd}\]
+Since $H^{3}\left( \tau_{>3}Y;\mathbb{Z} \right) 
+\cong \Hom \left( H_3(\tau_{>3}Y), \mathbb{Z} \right) 
+\cong 0$ by UCT, we must have that the indicated map is
+injective, hence an isomorphism. Thus
+$E^{4}$ will look as follows:
+
+\[\begin{tikzcd}
+	& \vdots \\
+	5 &&& {\mathbb{Z}/3} & {\mathbb{Z}/3} \\
+	\\
+	3 &&&& {\mathbb{Z}/3} \\
+	\\
+	& {\mathbb{Z}} &&&& \cdots \\
+	&&& 3 & 4
+	\arrow[no head, from=6-2, to=1-2]
+	\arrow[no head, from=6-2, to=6-6]
+\end{tikzcd}\]
+From this, we can read off that
+$H^{7}\left( \tau_{>3}Y; \mathbb{Z} \right) 
+\cong \mathbb{Z}/3$. 
+Now,
+recall that $\tau_{>3}Y$ is a CW-complex, hence
+its homology and cohomology groups are
+finitely generated abelian!!!. Now
+\[
+0 \to \Ext \left(H_6 (\tau_{>3}Y), \mathbb{Z} \right) 
+\to \underbrace{H^{7}\left( \tau_{>3}Y;\mathbb{Z} \right)}_{\cong
+\mathbb{Z}/3} \to 
+\Hom \left( H_7\left( \tau_{>3}Y \right) ,\mathbb{Z} \right) \to 
+0
+\] 
+and
+$\Hom \left( H_7 \left( \tau_{>3}Y \right) ,\mathbb{Z} \right) $ 
+is the torsion-free part of
+$H_7 \left( \tau_{>3}Y \right) $, so
+since $\mathbb{Z}/3$ surjects onto this part, it
+must be $0$. Thus
+$\Ext\left( H_6\left( \tau_{>3}Y \right) ,\mathbb{Z} \right) 
+\cong H^{7}\left( \tau_{>3}Y;\mathbb{Z} \right) 
+\cong \mathbb{Z}/3$, but
+$\Ext \left( H_6 \left( \tau_{>3}Y \right) ,\mathbb{Z} \right) $ 
+is the torsion part of $H_6 \left( \tau_{>3}Y \right) $, so
+$H_6 \left( \tau_{>3}Y \right) 
+\cong \mathbb{Z}/3 \bigoplus \left( \text{free part} \right) $,
+where the free part could be trivial. In any case,
+$H_6 \left( \tau_{>3}Y \right) $ is nontrivial,
+while all
+$H_k \left( \tau_{>3}Y \right) \cong 0$ for 
+$1\le k \le 5$ by the UCT. Hence
+by Hurewicz,  
+\[
+\pi_k \left( \tau_{>3}Y \right) 
+\cong
+\begin{cases}
+    \mathbb{Z}/3 \bigoplus \left( \text{free part} \right),& k=6\\
+    0,& 1\le k\le 5
+\end{cases}
+\] 
+Combining this with
+$\pi_k \left( Y \right) $ for
+$k \le 3$ which by Hurewicz and the previous problem is
+\[
+\pi_k(Y) \cong
+\begin{cases}
+    \mathbb{Z}/3,& k=3\\
+    0,& 0\le k\le 2
+\end{cases}
+\] 
+we obtain
+\[
+\pi_k(Y) \cong
+\begin{cases}
+    \mathbb{Z}/3 \bigoplus \left( \text{free part} \right),& k=6\\
+    \mathbb{Z}/3,& k=3\\
+    0,& k=0,1,2,4,5
+\end{cases}
+\] 
+
+
+(3) We have
+\[
+H_* (Y; \mathbb{Z}/3) \cong
+H_* (Y;\mathbb{Z}) \otimes \mathbb{Z}/3
+\cong
+\begin{cases}
+    \mathbb{Z}/3,& k=0,3\\
+    0,& \text{else}
+\end{cases}
+\] 
+and
+\[
+H^{*}\left( K\left( \mathbb{Z}/3,2 \right) ; \mathbb{Z}/3 \right) 
+\cong
+\mathbb{Z}/3 \left<1,a,b,a^2,ab \right>, \quad *\le 5
+\] 
+was given, where
+$\left| a \right| =2$ and
+$\left| b \right| =3$.
+
+By UCT,
+\[
+0 \to \Ext \left( H_{n-1}(Y), \mathbb{Z}/3 \right) 
+\to H^{n}(Y;\mathbb{Z}/3) \to 
+\Hom \left( H_n (Y), \mathbb{Z}/3 \right) \to 0
+\] 
+so when $n=3$,
+$\Ext$ vanishes, so
+$H^{3}(Y;\mathbb{Z}/3) \cong
+\Hom \left( \mathbb{Z}/3, \mathbb{Z}/3 \right) 
+\cong \mathbb{Z}/3$ and
+when $n=4$,
+$\Hom$ vanishes, so
+$H^{4}(Y;\mathbb{Z}/3) \cong
+\Ext \left( H_3(Y),\mathbb{Z}/3 \right) 
+\cong \mathbb{Z}/3$.
+Furthermore,
+$H^{0}(Y;\mathbb{Z}/3) \cong
+\mathbb{Z}/3$.
+
+Consider the double complex
+\[\begin{tikzcd}
+	& \vdots \\
+	5 & {\mathbb{Z}/3 ab} &&& {\mathbb{Z}/3abx} & {\mathbb{Z}/3aby} \\
+	4 & {\mathbb{Z}/3 a^2} &&& {\mathbb{Z}/3a^2x} & {\mathbb{Z}/3a^2y} \\
+	3 & {\mathbb{Z}/3b} &&& {\mathbb{Z}/3bx} & {\mathbb{Z}/3by} \\
+	2 & {\mathbb{Z}/3 a} &&& {\mathbb{Z}/3 ax} & {\mathbb{Z}/3ay} \\
+	\\
+	& {\mathbb{Z}/3} &&& {\mathbb{Z}/3 x} & {\mathbb{Z}/3y} & \cdots \\
+	&&&& 3 & 4
+	\arrow[no head, from=2-2, to=1-2]
+	\arrow["{d_3}"{description}, from=2-2, to=4-5]
+	\arrow["{d_4}"{description}, from=2-2, to=5-6]
+	\arrow[no head, from=3-2, to=2-2]
+	\arrow[from=3-2, to=5-5]
+	\arrow[no head, from=4-2, to=3-2]
+	\arrow["\cong"{description}, from=4-2, to=7-6]
+	\arrow[no head, from=5-2, to=4-2]
+	\arrow["\cong"{description}, from=5-2, to=7-5]
+	\arrow[no head, from=7-2, to=5-2]
+	\arrow[no head, from=7-2, to=7-5]
+	\arrow[no head, from=7-5, to=7-6]
+	\arrow[no head, from=7-6, to=7-7]
+\end{tikzcd}\]
+Since
+$H^{p}(\tau_{>3}Y; \mathbb{Z}/3) \cong 0$ for
+$p = 2,3$, we must have that the
+maps eminating from
+$\mathbb{Z} /3a$ and $\mathbb{Z}/3b$ are injective, hence
+they must be isomorphisms since any
+nontrivial group homomorphism
+$\mathbb{Z}/3 \to \mathbb{Z}/3$ is an isomorphism.
+Thus $d_3(a) = x$ and
+$d_4(b) = y$. These are both forced since all other maps eminating
+from these groups or terminating at them are $0$-maps.
+Now, using the multiplicative structure, we can
+calculate $d$ evaluated at the other generators.
+Using the Leibniz rule, we get
+$d_3 (a^2) = d(a) a + (-1)^{\left| a \right| } a d(a)
+= 2ax \in \mathbb{Z}/3 ax
+$ which still generates
+$\mathbb{Z}/3ax$, hence
+$d_3 \colon
+\mathbb{Z}/3a^2 \to \mathbb{Z}/3 ax$ is an isomorphism.
+Likewise
+\[
+d_3(ab) = 
+x b + a d_3(b) = xb \in \mathbb{Z}/3 xb
+\] 
+so since $d_3 \colon \mathbb{Z}/3ab \to 
+\mathbb{Z}/3 xb$ maps generators to generators,
+it is an isomorphism.
+
+Thus, the page $E_4$ looks as follows:
+
+\[\begin{tikzcd}
+	& \vdots \\
+	5 &&&& {\mathbb{Z}/3abx} & {\mathbb{Z}/3aby} \\
+	4 &&&& {\mathbb{Z}/3a^2x} & {\mathbb{Z}/3a^2y} \\
+	3 &&&&& {\mathbb{Z}/3by} \\
+	2 &&&&& {\mathbb{Z}/3ay} \\
+	\\
+	& {\mathbb{Z}/3} &&&&& \cdots \\
+	&&&& 3 & 4
+	\arrow[no head, from=7-2, to=1-2]
+	\arrow[no head, from=7-2, to=7-7]
+\end{tikzcd}\]
+
+Clearly, on this and all subsequent pages, all
+maps are trivial, so
+$E_4 = E_{\infty}$, and we get that
+$H^{p}\left( \tau_{>3}Y; \mathbb{Z}/3 \right) 
+\cong
+\begin{cases}
+    \mathbb{Z}/3,& p=0,6\\
+    0,& 1\le p\le 5
+\end{cases}$
+
+
+Now, suppose that the map
+$\mathbb{Z}/3 \to \mathbb{Z}/3$ in the
+integral case from part (2) of the problem were
+not an isomorphism - i.e., suppose it were trivial.
+Then since that group was the only group of total degree
+$5$ and since all maps from it or terminating at it on subsequent
+pages would be $0$-maps, we would get that
+$H^{5}(\tau_{>3}Y;\mathbb{Z}) \cong \mathbb{Z}/3$.
+But then by UCT, and the above part of this problem,
+$0 = H^{5}\left( \tau_{>3}Y;\mathbb{Z}/3 \right) 
+\cong H^{5}\left( \tau_{>3}Y ; \mathbb{Z} \right) \otimes
+\mathbb{Z}/3 \cong \mathbb{Z}/3 \otimes \mathbb{Z}/3 
+\neq \mathbb{Z}/3 \neq 0$
+gives a contradiction. Hence the map
+must have been nontrivial, which was what we wanted to show.\\
+\linebreak
+Now proceeding as in step (2), we can conclude all the same things.\\
+\linebreak
+(4) 
+
+We can obtain $X$ by attaching a $6$-cell
+to $Y = X^{(4)}$ by its attaching map
+$\varphi \colon S^{5} \to Y $.
+But note that since
+$ \pi_5(Y) \cong 0$ as we showed above,
+the attaching map can by
+proposition 0.18 in Hatcher be assumed to be constant at
+the basepoint. Furthermore,
+
+We have that
+$\tau_{\le 5} Y \cong
+K\left( \mathbb{Z}/3, 3 \right) $.
+
+But $Y$ is $5$-connected, so we may replace it with
+a homotopy equivalent CW complex with cells of
+dimension $\ge 6$ only as well as the
+
+Suppose $X$ and $X'$ are two spaces
+satisfying the assumptions of the problem.
+Let $Y$ and $Y'$ be the $4$-skeletons of $X$ and $X'$, respectively.
+We saw in problem (1), that $Y \simeq Y'$ because they were
+Moore spaces. Let
+$f \colon Y' \to Y$ be this homotopy equivalence.
+Let $\varphi , \varphi '$ be the attaching maps of the
+$6$-cell.
+Then $f  \circ \varphi '$ is an attaching
+map on $Y$. But since
+$\pi_5 \left( Y \right) \cong 0$, we have
+$f \circ \varphi ' \simeq \varphi $.
+Now
+$X = Y \cup_{\varphi } S^{5} 
+\simeq Y \cup_{f \circ \varphi '} S^{5}$
+
+
+
+    \end{solution}
+
+
+
+
+
+
+
+
+
+
+
+    %\printbibliography
+\end{document}

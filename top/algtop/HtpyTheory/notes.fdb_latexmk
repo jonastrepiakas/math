@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber notes"] 1749421755.39024 "notes.bcf" "notes.bbl" "notes" 1749611436.07755 0
-  "notes.bcf" 1749611435.83779 108303 cee134a62ef7979f32c05e746139d25c "pdflatex"
+["biber notes"] 1749421755.39024 "notes.bcf" "notes.bbl" "notes" 1749809164.83935 0
+  "notes.bcf" 1749809164.70106 108303 cee134a62ef7979f32c05e746139d25c "pdflatex"
   "notes.bib" 1748880644.96454 744 1fa9fafd5c51d7a3b3055c42a61017c1 ""
   (generated)
   "notes.bbl"
   "notes.blg"
   (rewritten before read)
-["pdflatex"] 1749611432.52857 "notes.tex" "notes.pdf" "notes" 1749611436.0781 0
+["pdflatex"] 1749809162.22071 "notes.tex" "notes.pdf" "notes" 1749809164.83983 0
   "/etc/texmf/web2c/texmf.cnf" 1718688975.81737 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1000.tfm" 1136768653 3584 2d666ecf6d466d8b007246bc2f94d9da ""
@@ -209,16 +209,16 @@
   "Figures/TKISO0932.png" 1745495524.77862 53366 69d0a40bc759bd86e7a88d86b61495b3 ""
   "Figures/USIIOOQ.png" 1746179070.98407 9531 8ef96f3bb77fd9a6fd5804a0fdf910e2 ""
   "Figures/WIWIWSSK11.png" 1745502832.73762 32351 819f3147bd911310a027984cc363a55f ""
-  "Methods-of-Calculation.aux" 1749611435.8028 5348 1c321005312ce5525bc1e2305bf42fab "pdflatex"
+  "Methods-of-Calculation.aux" 1749809164.68006 5348 0fc4acec0cdef7e2b77bc8d774186a7d "pdflatex"
   "Methods-of-Calculation.tex" 1747124541.57099 28459 2fd69c864b8489c14d0bdc464a1ff2d7 ""
-  "homotopy-groups.aux" 1749611435.42895 7807 23fbe7d6ccc382d81c0bf6b20d1fe1ba "pdflatex"
-  "homotopy-groups.tex" 1749611427.944 73724 3eee926640e790cace0957cadc2d5e63 ""
-  "notes.aux" 1749611435.83279 1424 06d16c79a7fe3e35f4f7c59d730ce423 "pdflatex"
+  "homotopy-groups.aux" 1749809164.44104 7973 b392d212662183e21880f18721e1c87b "pdflatex"
+  "homotopy-groups.tex" 1749809158.41066 74312 e34c84cac8ac6c0bbef25c4a6fd9dfed ""
+  "notes.aux" 1749809164.69806 1424 06d16c79a7fe3e35f4f7c59d730ce423 "pdflatex"
   "notes.bbl" 1749421756.25958 3908 622795ac255318259bc4cedc5cc53fed "biber notes"
-  "notes.out" 1749611435.83579 2155 beebf4f674c4e4f2ea39a8d3f06468f8 "pdflatex"
-  "notes.run.xml" 1749611435.83879 2276 cfbec4827927b5e3688c896d693f9468 "pdflatex"
+  "notes.out" 1749809164.70006 2508 a184de6669e2b373a3eb2b7e8a9bc67d "pdflatex"
+  "notes.run.xml" 1749809164.70206 2276 cfbec4827927b5e3688c896d693f9468 "pdflatex"
   "notes.tex" 1747958753.71688 4488 63f85cdd91e89c76e53ab88923de97a0 ""
-  "pset1.aux" 1749611435.52591 4383 d70aa1bf7d0eb51a92e07bd9eea391eb "pdflatex"
+  "pset1.aux" 1749809164.50705 4383 c020195d8e46fe1859cd4f9f2d7c1dbb "pdflatex"
   "pset1.tex" 1747259063.45948 15830 92c81317b6d66051d76634683db9bc09 ""
   (generated)
   "Methods-of-Calculation.aux"

@@ -157,6 +157,543 @@
 
 \begin{document}
 
+\section{Hatcher}
+
+
+
+
+
+
+
+
+\subsection{Exact Couples}
+
+\begin{definition}[Exact Couple]
+    An \textit{exact couple} is an exact sequence of
+    abelian groups of the form
+    \begin{equation*}
+    \begin{tikzcd}
+        A \ar[rr, "i"] & & A \ar[dl, "j"] \\
+                       & B \ar[ul, "k"] &
+    \end{tikzcd}
+    \end{equation*}
+    where $i,j$ and $k$ are group homomorphisms. Define
+    $d \colon B \to B$ by $d = j \circ k$.
+    Then $d^2 = j (kj)k = 0$, so
+    $H(B) := \ker d / \im d$ is defined - in particular,
+    since $A$ and $B$ are abelian, the quotient
+    $H(B)$ is well-defined and a group.
+\end{definition}
+
+\begin{definition}[Derived Couple]
+    Out of a given exact couple, we can construct
+    a new exact couple, called the \textit{derived couple}:
+
+    \begin{equation*}
+    \begin{tikzcd}
+        A' \ar[rr, "i'"] & & A' \ar[dl, "j'"] \\
+                       & B' \ar[ul, "k'"] &
+    \end{tikzcd}
+    \end{equation*}
+    where we define
+    \begin{enumerate}
+        \item $A' = i(A)$ and $B' = H(B)$.
+        \item $i'$ is the induced
+            map $i' := i|_{A'} \colon
+            A'\to A'$ by $i' (ia) = i(ia)$ 
+        \item We define $j'$ by
+            $j' a' = \left[ ja \right] $ where
+            $a' = ia$ for some $a$ in $A$.
+        \item $k'$ is defined by
+            $k' \left[ b \right] = kb \in i(A)$.
+    \end{enumerate}
+    With these definitions, the derived couple is an exact
+    couple.
+\end{definition}
+
+\begin{exercise}[]
+    Check that the maps are well-defined and that the
+    derived sequence is exact.
+\end{exercise}
+
+\begin{proof}
+    We must check that $j'$ and $k'$ are well-defined maps.
+
+    Suppose $a' = ia = i \tilde{a}$.
+    Then $a-\tilde{a} \in \ker i = \im k$ so
+    $a - \tilde{a} = k\left[ b \right] $. Hence
+    Then
+    $j a - j \tilde{a} =
+    j k \left[ b \right] 
+    = d \left[ b \right] \in \im d$, so
+    $\left[ j a \right] =
+    \left[ j \tilde{a} \right] $.\\
+    Next, suppose
+    $\left[ b \right] = \left[ \tilde{b} \right] $, so
+    $b - \tilde{b}\in 
+    \im d$, i.e., $b - \tilde{b} = 
+    jk (\overline{b})$.
+    Then
+    $k b - k \tilde{b} = 
+    kjk (\overline{b}) = 
+    0$, so
+    $k' \left[ b \right] =
+    k'\left[ \tilde{b} \right] $.\\
+    \linebreak
+    Lastly, exactness at $B'$:
+     suppose $k' \left[ b \right] = 0$. Then
+     $kb = 0$, so by exactness of the original exact
+     couple, there exists some $a \in A$ such that
+     $j (a) = b$. Then
+     let $a' = i(a)$, so
+     $j' (a') = \left[ j (a) \right] =
+     \left[ b \right] $, hence
+     $\ker k' \subset \im j'$.\\
+     Conversely, 
+     $k' j' (a') =
+     k' \left[ ja \right] =
+     kja = 0$, by exactness at
+     $B$ of the original couple.
+\end{proof}
+
+\begin{definition}[Spectral Sequence]
+    A \textit{spectral sequence} $\left( E_{*,*},d \right) $ 
+    (in homological Serre grading), starting on page
+    $r_0 \ge 1$, consists of:
+    \begin{enumerate}
+        \item a bigraded group
+            $\left( E_{p,q}^{r} \right)_{p,q \in \mathbb{Z}}$ 
+            for each $r \ge r_0$, called the
+            \textit{$r$ th page} of the spectral sequence.
+        \item For all $r \ge r_0$ and $p, q \in \mathbb{Z}$ 
+            a map of abelian groups
+            \[
+            d_{p,q}^{r} \colon E_{p,q}^{r} \to 
+            E_{p-r,q+r-1}^{r}
+            \] 
+            called the\textit{$r$ th differential}
+            which squares to zero in the
+            sense that
+             \[
+             d_{p-r,q+r-1}^{r} \circ
+             d_{p,q}^{r} = 0
+             \] 
+             holds for all $p,q,r$.
+         \item For all $r \ge r_0$ and
+             $p,q \in \mathbb{Z}$, isomorphisms of abelian groups
+             \[
+             E_{p,q}^{r+1} \cong
+             \frac{\ker \left( d_{p,q}^{r} \colon
+             E_{p,q}^{r} \to E_{p-r,q+r-1}^{r}\right) }{
+         \im \left( d_{p+q,q-r+1}^{r} \colon
+     E_{p+r,q-r+1}^{r} \to E_{p,q}^{r}\right) }
+             \] 
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[]
+    We say that a spectral sequence
+    $\left( E_{*,*},d \right) $ \textit{converges} to
+    a graded abelian group
+    $H_*$ and write
+    \[
+    E_{p,q}^2 \implies H_{p+q}
+    \] 
+    if there is a filtration
+    \[
+    0 \subset F_n^{0} \subset F_n^{1} \subset \ldots
+    \subset F_{n}^{n-1} \subset F_{n}^{n} = H_n
+    \] 
+    and isomorphisms $E_{p,q}^{\infty} \cong
+    F_{p+q}^{p} / F_{p+q}^{p-q}$.
+\end{definition}
+
+Note that if
+$\left( E_{*,*},d \right) $ is a first quadrant
+spectral sequence, then
+$E_{p,q}^{r+1} \cong
+E_{p,q}^{r}$ for
+$r > \max \left\{ p,q+1 \right\} $ because
+$d_{p,q}^{r}$ maps to the $0$ group
+and $d_{p+r,q-r+1}$ comes from the $0$ group.
+
+\begin{definition}[$E^{\infty}$-page]
+    For a first quadrant spectral sequence, we
+    define the \textit{$E^{\infty}$-page} as:
+    \[
+    E_{p,q}^{\infty} :=
+    E_{p,q}^{r}, \quad \text{for } r \gg p,q
+    \] 
+\end{definition}
+
+\begin{lemma}[]
+    If
+    \[
+    1 \to A \to B \to C \to 1
+    \] 
+    is a SES of groups, then $B = A \rtimes C$.
+\end{lemma}
+
+\begin{theorem}[Leray-Serre spectral sequence]\label{LSSS}
+    For every abelian group $G$ and every
+    fiber sequence
+    \[
+    F \to E \to B
+    \] 
+    such that $\pi_1 (B)$ acts trivially on
+    $H_* (F;G)$, there is a natural, convergent
+    \textit{Leray-Serre spectral sequence}
+    of signature
+    \[
+    E_{p,q}^2 = H_p \left( B; H_q(F;G) \right) \implies
+    H_{p+q}(E;G)
+    \] 
+    meaning that the $E_{p,q}^2$ page is given
+    by $E_{p,q}^2 = H_p \left( B; H_p (F;G) \right) $ and
+    there is a natural filtration
+    \[
+    0 = F_{-1}^{n} \subset F_n^{0} \subset 
+    \ldots \subset F_{n}^{n} = H_n(E;G)
+    \] 
+    and natural SES:
+    \[
+    0 \to F_{p-1}^{p+q} \hookrightarrow 
+    F_{p}^{p+q} \twoheadrightarrow E_{p,q}^{\infty} \to 0
+    \] 
+\end{theorem}
+
+\begin{note}
+    The SES in Theorem \ref{LSSS} splits as
+    \begin{align*}
+    H_n(E;G) = F_{n}^{n} 
+    &\cong F_{n-1}^{n} \rtimes E_{n,0}^{\infty}\\
+    &\cong F_{n-2}^{n} \rtimes E_{n-1,1}^{\infty} \rtimes
+    E_{n,0}^{\infty}\\
+    &\vdots \\
+    &\cong F_0^{n} \rtimes E_{1,n-1}^{\infty} \rtimes \ldots
+    \rtimes E_{n,0}^{\infty}\\
+    &\cong E_{0,n}^{\infty} \rtimes E_{1,n-1}^{\infty} \rtimes \ldots
+    \rtimes E_{n,0}^{\infty}
+    \end{align*}
+
+\end{note}
+
+
+\begin{example}[]
+    Suppose
+    \[
+    F \to E \to B
+    \] 
+    is a fiber sequence and that
+    $H_n(E;G) = 0$ for an abelian group $G$.
+    Then $E_{p, n -p}^{\infty} = 0$ for all
+    $0 \le p \le n$.\\
+    This can be seen because
+    $F_{n}^{n} = H_n(E;G) = 0$, and
+    $0 \subset F_n^{0} \subset \ldots \subset 
+    F_n^{n} = 0$, hence
+    $E_{p, n-p}^{\infty} \cong
+    F_n^{p} / F_n^{p-1} \cong 0$.
+\end{example}
+    
+
+\begin{example}[]
+    Suppose that the $E_{p,q}^{\infty}$ are abelian groups.
+    Then the semidirect products reduce to normal direct
+    products, so that
+    \[
+    H_n(E;G) \cong
+    \bigoplus_{p=0}^{n} E_{p,n-p}^{\infty}
+    \] 
+    For example, if $G$ is a field, then 
+    $H_n(E;G)$ is a $G$-vector space, hence abelian, so
+    each $F_n^{p}$ being subgroups of $H_n(E;G)$ is abelian,
+    so each $E_{p,q}^{\infty} \cong
+    F_{n}^{p} / F_{n}^{p-q}$ is abelian.
+\end{example}
+
+
+\subsection{Serre Classes}
+
+Let
+$\mathcal{C}$ be one of the following classes of abelian groups:
+\begin{enumerate}
+    \item $\mathcal{F} \mathcal{G}$, finitely generated
+        abelian groups.
+    \item $\mathcal{T}_p$, torsion abelian groups whose
+        elements have orders divisible only by
+        primes from a fixed set $P$ of primes.
+    \item $\mathcal{F}_p$, the finite groups
+        in $\mathcal{T}_p$.
+\end{enumerate}
+
+
+\begin{note}
+    $P$ could be all primes and then $\mathcal{T}_p$ would
+    be all torsion abelian groups and
+    $\mathcal{F}_p$ would be all finite abelian groups.
+\end{note}
+
+\begin{theorem}[]
+    If $X$ is simply-connected, then $\pi_n (X) \in 
+    \mathcal{C}$ for all $n$ if and only if
+    $H_n(X;\mathbb{Z}) \in \mathcal{C}$ for all
+    $n > 0$. This holds also if
+    $X$ is path-connected and abelian, that is, the
+    action of $\pi_1 (X)$ on $\pi_n(X)$ is trivial
+    for all $n\ge 1$.
+\end{theorem}
+
+
+\begin{theorem}[Hurewicz module $\mathcal{C}$]
+    If a path-connected abelian space
+    $X$ has $\pi_i (X) \in \mathcal{C}$ for $i < n$, then
+    the Hurewicz homomorphism $h \colon
+    \pi_n (X) \to H_n(X)$ is an isomorphism
+    $\mod \mathcal{C}$, meaning
+    that the kernel and cokernel of $h$ belong
+    to $\mathcal{C}$.
+\end{theorem}
+
+\subsection{Supplements}
+
+\subsubsection{Naturality}
+
+Suppose we are given two fibrations
+and a map between them, a commutative diagram as
+below:
+
+\begin{equation*}
+\begin{tikzcd}
+    F \ar[r] \ar[d] & X \ar[r] \ar[d, "\tilde{f}"] &
+    B \ar[d, "f"] \\
+    F' \ar[r] & X' \ar[r] & B'
+\end{tikzcd}
+\end{equation*}
+Suppose that the hypotheses of the LSSS are satisfied
+for both fibrations. Then the naturality properties are:
+\begin{enumerate}
+    \item There are induced maps
+        $f_*^{r} \colon E_{pq}^{r} \to 
+        E_{pq}^{'r}$ commuting with differentials, with
+        $f_*^{r+1}$ the map on homology induced by
+        $f_*^{r}$.
+    \item The map $\tilde{f}_* \colon
+        H_* (X;G) \to H_* (X';G)$ preserves filtrations,
+        inducing a map on successive quotient groups
+        which is the map $f_*^{\infty}$.
+    \item Under the isomorphisms
+        $E_{pq}^2 \cong
+        H_p (B; H_q(F;G))$ and
+        $E_{pq}^{'2} \cong
+        H_p (B'; H_q(F';G))$, the map
+        $f_*^2$ corresponds to the map induced by
+        the maps $B \to B'$ and $F \to F'$.
+\end{enumerate}
+
+\subsection{Spectral Sequence Comparison}
+
+\begin{proposition}[]
+    Suppose we have a map of fibrations
+    as in the diagram:
+
+\begin{equation*}
+\begin{tikzcd}
+    F \ar[r] \ar[d] & X \ar[r] \ar[d, "\tilde{f}"] &
+    B \ar[d, "f"] \\
+    F' \ar[r] & X' \ar[r] & B'
+\end{tikzcd}
+\end{equation*}
+and that both fibrations satisfy the hypothesis of trivial
+action for the Serre spectral sequence. Then if
+two of the three maps $F \to F', B \to B'$ and
+$X \to X'$ induce isomorphisms
+on $H_* \left( - ; R \right) $ with $R$ a PID,
+so does the third.
+
+
+
+
+\end{proposition}
+
+
+
+
+\subsection{Cohomology}
+
+\begin{theorem}[]
+    For a fibration $F \to X \to B$ with
+    $B$ path-connected and $\pi_1 (B)$ acting
+    trivially on $H^{*}(F;G)$, there is a spectral
+    sequence $\left\{ E_r^{p,q}, d_r \right\} $ with:
+    \begin{enumerate}
+        \item $d_r \colon E_r^{p,q} \to E_{r}^{p+r, q-r+1}$ 
+            and $E_{r+1}^{p,q} = \ker d_r / \im d_r$ at
+            $E_{r}^{p,q}$.
+        \item Stable terms $E_{\infty}^{p,n-p}$ isomorphic
+            to the successive quotients
+            $F_p^{n} / F_{p+1}^{n}$ in a filtration
+            $0 \subset F_{n}^{n} \subset \ldots \subset 
+            F_0^{n} = H^{n}(X;G)$ of $H^{n}(X;G)$.
+        \item $E_2^{p,q} \cong H^{p}(B;H^{q}(F;G))$.
+    \end{enumerate}
+\end{theorem}
+
+\subsection{Multiplicative structure}
+
+\begin{definition}[Weibel, multiplicative structure]
+    Suppose that for $r = a$ we are given a
+    bigraded product
+    \[
+    E^{p_1 q_1}_{r} \times E^{p_2q_2}_{r} \to 
+    E^{p_1+p_2 , q_1+ q_2}_{r}
+    \] 
+    such that the differential $d_{r}$ satisfies
+    the Leibnitz relation
+    \[
+    d_{r}(x_1 x_2) = d_{r}(x_1) x_2 + 
+    (-1)^{p_1} x_1 d_{r}(x_2), \quad x_i \in E^{p_i q_i}_{r}.
+    \] 
+    Then the product of two cycles (boundaries)
+    is again a cycle (boundary), and
+    by induction, we have the above product for every
+    $r \ge a$. We shall call this a \textit{multiplicative structure}
+    on the spectral sequence. 
+\end{definition}
+
+
+When considering cohomology with
+coefficients in a ring $R$, we can
+construct a multiplicative structure on a spectral sequence
+with $r = 1$
+with the following properties:
+\begin{enumerate}
+    \item The product
+        $E_2^{p,q} \times E_2^{s,t} \to 
+        E_2^{p+s,q+t}$ is
+        $(-1)^{qs}$ times the standard cup product
+        \[
+        H^{p}(B; H^{q}(F;R)) \times H^{s}(B;
+        H^{t}(F;R)) \to H^{p+s}(B;H^{q+t}(F;R))
+        \] 
+        sending a pair of cocycles
+        $\left( \varphi , \psi  \right) $ to
+        $\varphi \smile \psi $ where coefficients
+        are multiplied via the cup product
+        $H^{q}(F;R) \times H^{t}(F;R) \to H^{q+t}(F;R)$.
+    \item The cup product in $H^{*}(X;R)$ restricts
+        to  maps $F_p^{m} \times F_s^{n} \to F_{p+s}^{m+n}$.
+        These induce quotient maps 
+        $F_p^{m} / F_{p+1}^{m} \times F_s^{n} / F_{s+1}^{n} \to 
+        F_{p+s}^{m+n} / F_{p+s+1}^{m+n}$ that coincide
+        with the products
+        $E_{\infty}^{p,m-p} \times E_{\infty}^{s,n-s} \to 
+        E_{\infty}^{p+s, m+n-p-s}$.
+\end{enumerate}
+
+
+
+
+
+\newpage
+
+
+
+
+\subsection{The Spectral Sequence of a Filtered
+Complex}
+
+\begin{definition}[Differential Complex]
+    A differential complex $K$ with differential operator
+    $D$ is an abelian group $K$ together with
+    a group homomorphism $D \colon K \to K$ such that
+    $D^2 = 0$.
+\end{definition}
+
+Let $K$ be a differential complex with differential operator
+$D$.
+Usually $K$ comes with a grading
+$K = \bigoplus_{k \in \mathbb{Z}}C^{k}$ and
+$D \colon C^{k} \to C^{k+1}$ increases the
+degree by $1$, but the grading is not
+absolutely necessary.
+
+\begin{definition}[Subcomplex]
+    A \textit{subcomplex} $K'$ of $K$ is a
+    graded subgroup such that $DK' \subset 
+    K'$.
+\end{definition}
+
+\begin{definition}[Filtration, Associated Graded Complex]
+    A sequence of subcomplexes
+    \[
+    K = K_0 \supset K_1 \supset K_2 \supset K_3 \supset
+    \ldots
+    \] 
+    is called a \textit{filtration} on $K$.
+    This makes $K$ into a \textit{filtered complex}, with
+    \textit{associated graded complex}
+    \[
+    GK = \bigoplus_{p=0}^{\infty} K_p / K_{p+1}.
+    \] 
+    For notational reasons, we usually extend the
+    filtration to negative indices
+    by defining
+    $K_p = K$ for $p < 0$.
+\end{definition}
+
+\begin{example}[]
+    If $K = \bigoplus K^{p,q}$ is a double complex with
+    horizontal operator $\delta$ and vertical operator
+    $d$ (which we assume
+    to commute), we can form a single complex out of it by
+    setting $C^{k} = \bigoplus_{p+q=k} K^{p,q}$ and
+    then letting
+    $K = \bigoplus C^{k}$ and
+    the differential operator
+    $D \colon C^{k} \to C^{k+1}$ to be
+    $D = \delta + (-1)^{p} d$. 
+    Then letting
+    \[
+    K_p = \bigoplus_{i\ge p} \bigoplus_{q \ge 0}
+    K^{i,q}
+    \] 
+    we obtain a filtration on
+    $K$.
+\end{example}
+
+
+
+
+Suppose now that we have a general filtered
+complex $K
+= K_0 \supset K_1 \supset \ldots$, and let $A$ be the group defined
+by
+\[
+A = \bigoplus_{p \in \mathbb{Z}} K_p.
+\] 
+Then $A$ is again a differential complex with
+operator $D$.
+Let $i \colon A \to A$ be the inclusion
+$K_{p+1} \hookrightarrow K_{p}$ on each $p$.
+Let $B$ be the cokernel of $i \colon A \to A$.
+Then $B = GK =
+\bigoplus_{p=0}^{\infty} K_p / K_{p+1}$, and
+we have an exact sequence
+\[
+0 \to A \stackrel{i}{\to} A
+\stackrel{j}{\to} GK \to 0.
+\] 
+
+
+
+
+
+
+\newpage
+\section{Weibel}
+
+
 \section{Double and Total Complexes}
 
 \begin{definition}[Double complex]
@@ -268,188 +805,355 @@ $\Tot^{\oplus} (C)$ as follows:
     \end{align*}
 \end{solution}
 
-\subsection{Exact Couples}
 
-\begin{definition}[Exact Couple]
-    An \textit{exact couple} is an exact sequence of
-    abelian groups of the form
-    \begin{equation*}
-    \begin{tikzcd}
-        A \ar[rr, "i"] & & A \ar[dl, "j"] \\
-                       & B \ar[ul, "k"] &
-    \end{tikzcd}
-    \end{equation*}
-    where $i,j$ and $k$ are group homomorphisms. Define
-    $d \colon B \to B$ by $d = j \circ k$.
-    Then $d^2 = j (kj)k = 0$, so
-    $H(B) := \ker d / \im d$ is defined - in particular,
-    since $A$ and $B$ are abelian, the quotient
-    $H(B)$ is well-defined and a group.
-\end{definition}
 
-\begin{definition}[Derived Couple]
-    Out of a given exact couple, we can construct
-    a new exact couple, called the \textit{derived couple}:
+\subsection{Terminology}
 
-    \begin{equation*}
-    \begin{tikzcd}
-        A' \ar[rr, "i'"] & & A' \ar[dl, "j'"] \\
-                       & B' \ar[ul, "k'"] &
-    \end{tikzcd}
-    \end{equation*}
-    where we define
+\begin{definition}[Homology spectral sequence]
+    A \textit{homology spectral sequence (starting
+    with $E^{a}$ )} in an abelian category
+    $\mathcal{A}$ consists of the following data:
     \begin{enumerate}
-        \item $A' = i(A)$ and $B' = H(B)$.
-        \item $i'$ is the induced
-            map $i' := i|_{A'} \colon
-            A'\to A'$ by $i' (ia) = i(ia)$ 
-        \item We define $j'$ by
-            $j' a' = \left[ ja \right] $ where
-            $a' = ia$ for some $a$ in $A$.
-        \item $k'$ is defined by
-            $k' \left[ b \right] = kb \in i(A)$.
+        \item A family $\left\{ E_{pq}^{r} \right\} $ of
+            objects of $\mathcal{A}$ defined for
+            all integers $p,q$ and $r \ge a$.
+        \item Maps $d_{pq}^{r} \colon
+            E_{pq}^{r} \to E_{p-r,q+r-1}^{r}$ that
+            are differentials in the sense that
+            $d^{r} d^{r} = 0$, so that the "lines
+            of slope $-(r+1) / r$ " in the lattice
+            $E_{* *}^{r}$ form chain complexes.
+        \item Isomorphisms between $E_{pq}^{r+1}$ and the
+            homology of $E_{* *}^{r}$ at the spot
+            $E_{pq}^{r}$ :
+            \[
+            E_{pq}^{r+1} \cong \ker d_{pq}^{r} /
+            \im d_{p+r, q-r+1}^{r}.
+            \] 
     \end{enumerate}
-    With these definitions, the derived couple is an exact
-    couple.
 \end{definition}
 
-\begin{exercise}[]
-    Check that the maps are well-defined and that the
-    derived sequence is exact.
-\end{exercise}
+Note that $E_{pq}^{r+1}$ is a subquotient of
+$E_{pq}^{r}$, and that
+each differential $d_{pq}^{r}$ decreases the
+total degree by one.
 
-\begin{proof}
-    We must check that $j'$ and $k'$ are well-defined maps.
-
-    Suppose $a' = ia = i \tilde{a}$.
-    Then $a-\tilde{a} \in \ker i = \im k$ so
-    $a - \tilde{a} = k\left[ b \right] $. Hence
-    Then
-    $j a - j \tilde{a} =
-    j k \left[ b \right] 
-    = d \left[ b \right] \in \im d$, so
-    $\left[ j a \right] =
-    \left[ j \tilde{a} \right] $.\\
-    Next, suppose
-    $\left[ b \right] = \left[ \tilde{b} \right] $, so
-    $b - \tilde{b}\in 
-    \im d$, i.e., $b - \tilde{b} = 
-    jk (\overline{b})$.
-    Then
-    $k b - k \tilde{b} = 
-    kjk (\overline{b}) = 
-    0$, so
-    $k' \left[ b \right] =
-    k'\left[ \tilde{b} \right] $.\\
-    \linebreak
-    Lastly, exactness at $B'$:
-     suppose $k' \left[ b \right] = 0$. Then
-     $kb = 0$, so by exactness of the original exact
-     couple, there exists some $a \in A$ such that
-     $j (a) = b$. Then
-     let $a' = i(a)$, so
-     $j' (a') = \left[ j (a) \right] =
-     \left[ b \right] $, hence
-     $\ker k' \subset \im j'$.\\
-     Conversely, 
-     $k' j' (a') =
-     k' \left[ ja \right] =
-     kja = 0$, by exactness at
-     $B$ of the original couple.
-\end{proof}
-
-\subsection{The Spectral Sequence of a Filtered
-Complex}
-
-\begin{definition}[Differential Complex]
-    A differential complex $K$ with differential operator
-    $D$ is an abelian group $K$ together with
-    a group homomorphism $D \colon K \to K$ such that
-    $D^2 = 0$.
-\end{definition}
-
-Let $K$ be a differential complex with differential operator
-$D$.
-Usually $K$ comes with a grading
-$K = \bigoplus_{k \in \mathbb{Z}}C^{k}$ and
-$D \colon C^{k} \to C^{k+1}$ increases the
-degree by $1$, but the grading is not
-absolutely necessary.
-
-\begin{definition}[Subcomplex]
-    A \textit{subcomplex} $K'$ of $K$ is a
-    graded subgroup such that $DK' \subset 
-    K'$.
-\end{definition}
-
-\begin{definition}[Filtration, Associated Graded Complex]
-    A sequence of subcomplexes
-    \[
-    K = K_0 \supset K_1 \supset K_2 \supset K_3 \supset
-    \ldots
-    \] 
-    is called a \textit{filtration} on $K$.
-    This makes $K$ into a \textit{filtered complex}, with
-    \textit{associated graded complex}
-    \[
-    GK = \bigoplus_{p=0}^{\infty} K_p / K_{p+1}.
-    \] 
-    For notational reasons, we usually extend the
-    filtration to negative indices
-    by defining
-    $K_p = K$ for $p < 0$.
+\begin{definition}[Total degree]
+    The \textit{total degree} of the term
+    $E_{pq}^{r}$ is $n = p+q$.
 \end{definition}
 
 \begin{example}[]
-    If $K = \bigoplus K^{p,q}$ is a double complex with
-    horizontal operator $\delta$ and vertical operator
-    $d$ (which we assume
-    to commute), we can form a single complex out of it by
-    setting $C^{k} = \bigoplus_{p+q=k} K^{p,q}$ and
-    then letting
-    $K = \bigoplus C^{k}$ and
-    the differential operator
-    $D \colon C^{k} \to C^{k+1}$ to be
-    $D = \delta + (-1)^{p} d$. 
-    Then letting
-    \[
-    K_p = \bigoplus_{i\ge p} \bigoplus_{q \ge 0}
-    K^{i,q}
-    \] 
-    we obtain a filtration on
-    $K$.
+    A \textit{first quadrant (homology) spectral sequence}
+    is one with $E_{pq}^{r} = 0$ unless
+    $p\ge 0$ and $q\ge 0$. 
+
+    If we fix $p$ and $q$, then
+    $E_{pq}^{r} = E_{pq}^{r+1}$ for all large
+    enough $r$ (for $r> \max \left\{ p,q+1 \right\} $ ), because
+    $d^{r}$ landing in the $(p,q)$ spot comes from the fourth
+    quadrant, and the $d^{r}$ leaving $E_{pq}^{r}$ lands
+    in the second quadrant.
+
+    We write
+    $E_{pq}^{\infty}$ for this
+    stable value of $E_{pq}^{r}$.
 \end{example}
 
+\begin{definition}[Dual Definition, Cohomology spectral sequence]
+    A \textit{cohomology spectral sequence (starting with
+    $E_a$ )} in $\mathcal{A}$ is a family
+    $\left\{ E_r^{pq} \right\} $ of objects $(r\ge a)$, together
+    with maps $d_r^{pq}$ going "to the right":
+    \[
+    d_r^{pq} \colon E_{r}^{pq} \to E_{r}^{p+r,q-r+1}
+    \] 
+    which are differentials in the sense that
+    $d_r d_r = 0$.
+
+    So it is the same thing as a homology
+    spectral sequence, reindexed via
+    $E_r^{pq} = E_{-p,-q}^{r}$, so
+    that $d_r$ \textit{increases} the total degree
+    $p+q$ of $E_{pq}^{r}$ by one.
+\end{definition}
+
+
+\begin{definition}[Bounded convergence]
+    A homology spectral sequence is said to be
+    \textit{bounded} if for each $n$, there
+    are only finitely many nonzero terms of total
+    degree $n$ in $E_{* *}^{a}$.
+
+    \begin{exercise}[]
+        Show that if
+        $E_{* *}$ is a bounded homology
+        spectral sequence, then
+        for each $p$ and $q$, there is an $r_0$ such that
+    $E_{pq}^{r} = E_{pq}^{r+1}$ for all $r \ge r_0$.
+    \end{exercise}
+    \begin{proof}
+        If the spectral sequence has at most 
+        $N$ non-vanishing terms of degree $n$ on page
+        $r$, say, then on the following pages,
+        we have at most $N$ non-vanishing terms of degree
+        $n$ again, since these are homologies of
+        the terms of degree $n$ on the previous pages.
+
+        Hence, for the bounded sequence, for each
+        $n$, there exists $L (n) \in \mathbb{Z}$ such that
+        $E_{p, n-p}^{r} = 0$ for all $p \le L(n)$ and all
+        $r$.
+        Similarly, there is a $T(n) \in \mathbb{Z}$ such that
+        $E_{n-q,q}^{r} = 0$ for all $q \le T(n)$ and all
+        $r$.\\
+        Now we claim that
+        $E^{r}_{p,q} = E_{p,q}^{\infty}$ for
+         \[
+        r> \max \left\{ p - L(p+q-1), q+1 - T(p+q+1) \right\} .
+        \] 
+
+        This is because
+        we have
+        \begin{enumerate}
+            \item $p-r < L(p+q-1)$, so
+                $0 = E_{p-r, p+q-1 - (p-r)}^{r} = 
+                E^{r}_{p-r, q+r-1}$, so
+                $\ker d_{p,q}^{r} = E_{p,q}^{r}$, and
+            \item $q-r+1 < T(p+q+1)$, so
+                $0 = 
+                E_{(p+q+1)-(q-r+1),q-r+1} = E_{p+r, q-r+1}$,
+                and hence $d_{p+r,q-r+1} \colon
+                0 = E_{p+r,q-r+1}^{r} \to E_{p,q}^{r}$ is $0$.
+        \end{enumerate}
+        Thus
+        \begin{align*}
+            E_{pq}^{r+1} 
+            &= \ker d_{pq}^{r} / \im d_{p+r,q-r+1}^{r}\\
+            &= E_{pq}^{r} / 0\\
+            &= E_{pq}^{r}
+        \end{align*}
+    \end{proof}
+    We write
+    $E_{pq}^{\infty}$ for this stable value of
+    $E_{pq}^{r}$.\\
+    \linebreak
+    Next, we say that a bounded spectral sequence
+    \textit{converges} to $H_*$ if we are given
+    a family of objects $H_n$ of $\mathcal{A}$, each
+    having a \textit{finite} filtration
+    \[
+    0 = F_s H_n \subset \ldots \subset 
+    F_{p-1} H_n \subset F_p H_n \subset \ldots
+    \subset 
+    F_t H_n = H_n,
+    \] 
+    and we are given isomorphisms
+    $E_{pq}^{\infty} \cong
+    F_p H_{p+q} / F_{p-1} H_{p+q}$.
+
+    The traditional symbolic way of describing such a bounded
+    convergence is like this:
+    \[
+    E_{pq}^{a} \implies H_{p+q}.
+    \] 
+
+    Similarly, a cohomology spectral sequence is
+    called \textit{bounded} if there are
+    only finitely many nonzero terms in each total 
+    degree in $E_a^{* *}$. In a bounded cohomology
+    spectral sequence, we write
+    $E_{\infty}^{p q}$ for the stable value of the
+    terms $E_{r}^{pq}$ and say the (bounded) spectral
+    sequence converges to $H^{*}$ if there is a
+    \textit{finite} filtration
+    \[
+    0 = F^{t} H^{n} \subset \ldots \subset 
+    F^{p+1} H^{n} \subset F^{p} H^{n} \subset \ldots
+    \subset  F^{s} H^{n} = H^{n},
+    \] 
+    so that
+    \[
+    E_{\infty}^{pq} \cong F^{p} H^{p+q} / F^{p+1} H^{p+q}.
+    \] 
+\end{definition}
+
+    \begin{example}[]
+        If a first quadrant homology spectral sequence converges
+        to $H_*$, then each $H_n$ has a finite filtration of length
+        $n+1$ :
+        \[
+        0 = F_{-1} H_n \subset F_0 H_n \subset 
+        \ldots \subset F_{n-1} H_n \subset 
+        F_n H_n = H_n.
+        \] 
+
+        The bottom piece
+        $F_0 H_n = E_{0n}^{\infty}$ of $H_n$ is located
+        on the $y$-axis, and the top quotient
+        $H_n / F_{n-1} H_n \cong E_{n 0}^{\infty}$ is located
+        on the $x$-axis.
+
+        Note also that each arrow landing on the
+        $x$-axis is zero, and each arrow leaving the
+        $y$-axis is zero, hence
+        $E_{0n}^{a}$ is a subobject of
+        $E_{0 n}^{\infty}$, and each
+        $E_{n 0}^{\infty}$ is a quotient of
+        $E_{n 0}^{a}$.
+
+        \begin{definition}[Fiber and base terms, edge homomorphism]
+            The terms $E_{0n}^{r}$ on the $y$-axis are
+            called the \textit{fiber} terms, and the
+            terms $E_{n 0}^{r}$ on the $x$-axis are called the
+            \textit{base} terms. The
+            resulting maps $E_{0 n}^{a} \to 
+            E_{0n}^{\infty} \subset H_n$ and
+            $H_n \to E_{n 0}^{\infty} \subset 
+            E_{n 0}^{a}$ are known as the \textit{edge homomorphisms}
+            of the spectral sequence.
+        \end{definition}
+
+
+        Similarly, if a first quadrant cohomology spectral
+        sequence converges to $H^{*}$, then
+        $H^{n}$ has a finite filtration:
+        \[
+        0 = F^{n+1} H^{n} \subset F^{n} H^{n} \subset 
+        \ldots \subset 
+        F^{1} H^{n} \subset F^{0} H^{n} = H^{n}.
+        \] 
+        In this case, the bottom piece $F^{n} H^{n} \cong
+        E_{\infty}^{n 0}$ is located on the $x$-axis, and the
+        top quotient $H^{n} / F^{1} H^{n} \cong
+        E_{\infty}^{0 n}$ is located on the $y$-axis.
+        In this case, the edge homomorphisms are the
+        maps $E_a^{n 0} \to E_{\infty}^{n 0} \subset H^{n}$ 
+        and $H^{n} \to E_{\infty}^{0n} \subset E_a^{0n}$.
+    \end{example}
+
+    \begin{definition}[Collapsing of spectral sequence]
+        A (homology) spectral sequence
+        \textit{collapses at $E^{r} (r \ge 2)$} if there
+        is exactly one nonzero row or column in the lattice
+        $\left\{ E_{pq}^{r} \right\} $. If a collapsing spectral
+        sequence converges to $H_*$, we can read the $H_n$ off:
+        $H_n$ is the unique nonzero $E_{pq}^{r}$ with
+        $p+q=n$. The overwhelming majority of all applications
+        of spectral sequences involve spectral sequences
+        that collapse at $E^{1}$ or $E^2$.
+    \end{definition}
+
+    \begin{exercise}[2 columns]
+        Suppose that a spectral sequence
+        converging to $H_*$ has $E_{pq}^2 = 0$ unless
+        $p = 0,1$. Show that there are exact sequences
+        \[
+        0 \to E_{1, n-1}^2 \to H_n \to E_{0n}^2 \to 0
+        \] 
+    \end{exercise}
+
+    \begin{proof}
+        We have $E_{p,n-p}^{\infty} \cong 0$ if
+        $p>1$, so
+        $F_{p}H_n / F_{p-1} H_n \cong 0$ whenever
+        $p>1$, so
+        $F_p H_n \cong F_{p-1} H_n$ for $p>1$.
+        Hence $H_n = F_n H_n \cong F_1 H_n$.  
+        Now, $E_{1,n-1}^{\infty} \cong
+        H_n / F_0 H_n$, and
+        $E_{0n}^{\infty} \cong
+        F_0 H_n / F_{-1} H_n \cong
+        F_0 H_n$, so
+        we have a SES
+        \[
+        0 \to F_0 H_n \hookrightarrow  H_n \to H_n / F_0 H_n \to 0
+        \] 
+        which thus becomes
+        \[
+        0 \to E_{0n}^{\infty} \to 
+        H_n \to E_{1,n-1}^{\infty} \to 0
+        \] 
+        Furthermore, all differentials on pages
+        $E^{r}$ for $r\ge 2$ are $0$, so
+        $E_{0n}^{\infty} \cong
+        E_{0n}^2$ and
+        $E_{1,n-1}^{\infty} \cong
+        E_{1,n-1}^{2}$.
+        So we get
+        a SES
+        \[
+        0 \to E_{0n}^2 \to H_n \to E_{1,n-1}^2 \to 0.
+        \]
+    \end{proof}
+
+
+    \begin{example}[2 rows]
+        Suppose that a spectral sequence
+        converging to $H_*$ has $E_{pq}^2 = 0$ unless
+        $q = 0,1$. Show that there is a LES
+        \[
+        \ldots \to H_{p+1} \to E_{p+1,0}^2
+        \stackrel{d}{\to} E_{p-1,1}^2 \to H_p
+        \to E_{p 0}^2 \stackrel{d}{\to} 
+        E_{p-2,1}^2 \to H_{p-1} \to \ldots
+        \] 
+    \end{example}
+
+    \begin{proof}
+        We have
+        $\ker \left( d \colon
+        E_{p,0}^2 \to  E_{p-2,1}^2 \right) 
+        \cong E_{p,0}^{\infty}
+        \cong H_{p} / F_{p-1} H_{p}$. Furthermore,
+        $E_{p-1,1}^{\infty} \cong
+        F_{p-1} H_{p} / F_{p-2} H_p \cong
+        F_{p-1} H_p$ since
+        $F_{p-k} H_p / F_{p-k-1} H_p \cong
+        E_{p-k,k}^{\infty} \cong 0$ for
+        $k\ge 2$ and $F_{0} H_p = 0$.
+        Hence we have
+        a SES 
+        \[
+        0 \to F_{p-1}H_p \to H_p \to H_p / F_{p-1} H_p \to 0
+        \] 
+        which becomes
+        \[
+            0 \to E_{p-1,1}^{\infty}
+            \to H_p
+        \to \ker d \to 0
+        \] 
+        Now
+        $E_{p-1,1}^{\infty} \cong
+        \coker \left( d \colon E_{p+1,0}^2 \to 
+        E_{p-1,1}^2 \right) $, so we have
+        \[
+        E_{p+1,0}^2 \stackrel{d}{\to} 
+        E_{p-1,1}^2 \to E_{p-1,1}^{\infty} \to 0
+        \] 
+        but the kernel of the cokernel map is the
+        image of $d$, so
+        \[
+        0 \to \im d \to E_{p-1,1}^2 \to 
+        E_{p-1,1}^{\infty} \to 0
+        \] 
+        is exact.
+    \end{proof}
 
 
 
-Suppose now that we have a general filtered
-complex $K
-= K_0 \supset K_1 \supset \ldots$, and let $A$ be the group defined
-by
-\[
-A = \bigoplus_{p \in \mathbb{Z}} K_p.
-\] 
-Then $A$ is again a differential complex with
-operator $D$.
-Let $i \colon A \to A$ be the inclusion
-$K_{p+1} \hookrightarrow K_{p}$ on each $p$.
-Let $B$ be the cokernel of $i \colon A \to A$.
-Then $B = GK =
-\bigoplus_{p=0}^{\infty} K_p / K_{p+1}$, and
-we have an exact sequence
-\[
-0 \to A \stackrel{i}{\to} A
-\stackrel{j}{\to} GK \to 0.
-\] 
 
 
 
 
 
 
-\newpage
-\section{Introduction to Spectral Sequences}
+
+
+
+\newpage 
+\section{Bott Tu}
+\subsection{Introduction to Spectral Sequences}
 
 Consider the problem of computing the homology
 of the total chain complex
@@ -469,7 +1173,7 @@ $(p,q)$ spot.
 
 
 
-\section{Filtrations}
+\subsection{Filtrations}
 
 \begin{definition}[Filtered $R$-module]
     A \textit{filtered $R$-module} is an $R$-module
