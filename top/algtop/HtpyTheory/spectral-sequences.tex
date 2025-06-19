@@ -434,7 +434,7 @@ $\mathcal{C}$ be one of the following classes of abelian groups:
     $\mathcal{F}_p$ would be all finite abelian groups.
 \end{note}
 
-\begin{theorem}[]
+\begin{theorem}[]\label{Thm:SIAO9}
     If $X$ is simply-connected, then $\pi_n (X) \in 
     \mathcal{C}$ for all $n$ if and only if
     $H_n(X;\mathbb{Z}) \in \mathcal{C}$ for all
@@ -445,7 +445,7 @@ $\mathcal{C}$ be one of the following classes of abelian groups:
 \end{theorem}
 
 
-\begin{theorem}[Hurewicz module $\mathcal{C}$]
+\begin{theorem}[Hurewicz modulo $\mathcal{C}$]\label{Thm:Hurewicz-Mod-C}
     If a path-connected abelian space
     $X$ has $\pi_i (X) \in \mathcal{C}$ for $i < n$, then
     the Hurewicz homomorphism $h \colon
@@ -454,6 +454,297 @@ $\mathcal{C}$ be one of the following classes of abelian groups:
     that the kernel and cokernel of $h$ belong
     to $\mathcal{C}$.
 \end{theorem}
+
+In order to prove this, we need a lemma:
+
+\begin{lemma}[]\label{Lemma:SIDOA1}
+    Let $F \to X\to B$ be a fibration of path-connected
+    spaces, with $\pi_1 (B)$ acting trivially
+    on $H_*(F)$. Then if two of $F,X$ and $B$ have
+    $H_n \in \mathcal{C}$ for all $n>0$, so does
+    the third.
+\end{lemma}
+
+\begin{proof}
+    We shall show the following:
+    \begin{enumerate}
+        \item For a SES of abelian groups $0 \to A\to B\to C\to 0$,
+            the group $B$ is in $\mathcal{C}$ if and only
+            if $A$ and $C$ are in $\mathcal{C}$.
+        \item If $A$ and $B$ are in $\mathcal{C}$, then
+            $A \otimes B$ and $\Tor (A,B)$ are in
+            $\mathcal{C}$.
+    \end{enumerate}
+
+    \textit{Case 1:} Suppose
+    $H_n(F), H_n(B) \in \mathcal{C}$ for all
+    $n>0$. In the Serre spectral sequence, we have
+    \[
+    E_{p,q}^2 = H_p \left( B; H_q(F) \right) 
+    \cong H_p (B) \otimes H_q(F) \bigoplus
+    \Tor \left( H_{p-1}(B),H_q(F) \right) \in 
+    \mathcal{C}
+    \] 
+    for $(p,q) \neq (0,0)$.
+    Here we use property (2) twice - once
+    for
+    $H_p (B) \otimes H_q(F) \in \mathcal{C}$ and
+    once for
+    $\Tor \left( H_{p-1}(B), H_q(F) \right) \in \mathcal{C}$.\\
+    
+    We proceed by induction now - having
+    shown the base case $r = 2$. Suppose
+    $E_{p,q}^{r} \in \mathcal{C}$ for $(p,q) \neq (0,0)$.
+    Then both $\ker d_r$ and $\im d_r$ are in
+    $\mathcal{C}$ as can easily be checked in each case.
+    Hence the quotient $E_{p,q}^{r+1}$ is also in $\mathcal{C}$ 
+    as can also be checked in each case.
+    Thus also $E_{p,q}^{\infty} \in \mathcal{C}$ 
+    for $(p,q) \neq (0,0)$.
+
+    Now, the groups $E_{p,n-p}^{\infty}$ are quotients
+    in the filtration
+    $0 \subset F_0 H_n(X) \subset 
+    \ldots \subset F_n H_n(X) = H_n(X)$, so by
+    induction on $p$, the subgroups
+    $F_p H_n(X)$ are in $\mathcal{C}$ for $n>0$, so
+    in particular, $H_n(X) \in \mathcal{C}$.
+    Here the induction starts
+    with $F_0 H_n (X) \in \mathcal{C}$ since
+    $F_0 H_n(X) \cong E_{0,n}^{\infty} \in \mathcal{C}$.\\
+    \linebreak
+    \textit{Case 2:} Suppose
+    $H_n(F), H_n(X) \in \mathcal{C}$ for
+    all $n>0$. Since
+    $H_n(X) \in \mathcal{C}$, all
+    the subgroups filtering $H_n(X)$ also lie in
+    $\mathcal{C}$, hence also their
+    quotients
+    $E_{p,n-p}^{\infty} \in \mathcal{C}$.
+    Now,
+    $H_1(B) = 
+    E_{1,0}^2 \cong E_{1,0}^{\infty} \in \mathcal{C}$ since
+    any differentials out of and into $E_{1,0}^2$ must vanish.
+    So suppose now inductively that
+    $H_p (B) \in \mathcal{C}$ for $0<p<k$.
+
+    But now
+    \[
+    E_{p,q}^2 = 
+    H_{p}\left( B, H_q(F) \right) 
+    \cong
+    H_p(B) \otimes H_q(F) \bigoplus
+    \Tor \left( H_{p-1}(B), H_q(F) \right) 
+    \] 
+    Note that in this application, we use the Künneth theorem
+    \[
+        H_n(C_* \otimes D_*) \cong
+        \bigoplus_{i+j=n} H_i(C_*) \otimes
+        H_j(D_*) \oplus
+        \bigoplus_{i+j=n-1} \Tor (H_i(C_*),
+        H_j(D_*))
+    \] 
+    where, in our case,
+    $C_*$ is the usual singular chain complex for
+    $B$ and $D_*$ in this case is the chain complex
+    consisting of a single
+    nontrivial element in degree $p$ where it is
+    $H_q(F)$.
+    Thus
+    $E_{p,q}^2 \in \mathcal{C}$ for
+    $p< k, (p,q)\neq (0,0)$. Since
+    $\ker$ and $\im$ are subgroups, they inherit
+    this property also as well as their quotient,
+    so
+    $E_{p,q}^{r} \in \mathcal{C}$ for
+    $p<k, (p,q)\neq (0,0)$.
+
+    Next, since
+    $E_{k,0}^{r+1} = \ker d_r \subset E_{k,0}^{r}$, we have
+    a SES
+    \[
+    0 \to E_{k,0}^{r+1} \to E_{k,0}^{r} \to 
+    \im d_r \to 0
+    \] 
+    with
+    $\im d_r \subset E_{k-r,r-1}^{r}$, and so
+    $\im d_r \in \mathcal{C}$ by induction since
+    $E_{k-r,r-1}^{r} \in \mathcal{C}$. Then property
+    (1) says that
+    $E_{k,0}^{r+1} \in \mathcal{C}$ if and only if
+    $E_{k,0}^{r} \in \mathcal{C}$.
+    By downward induction on $r$, we obtain
+    $E_{k,0}^{r} \in \mathcal{C}$ if and only if
+    $E_{k,0}^2 = H_k(B) \in \mathcal{C}$.
+    But $E_{k,0}^{\infty} \in \mathcal{C}$, so
+    we conclude that
+     $H_k(B) \in \mathcal{C}$ for all $k$.\\
+     \linebreak
+     \textit{Case 3:} Suppose
+     $H_n (B) , H_n(X) \in \mathcal{C}$ for all
+     $n>0$. This is similar to Case 2, so
+     we will omit this.
+
+\end{proof}
+
+
+\begin{lemma}[]\label{Lemma:SIDOA2}
+    If $\pi \in \mathcal{C}$, then $H_k\left( K
+    \left( \pi,n \right) \right) \in \mathcal{C}$ for all
+    $k,n>0$.
+\end{lemma}
+
+\begin{proof}
+    Using the path fibration
+    $K\left( \pi,n-1 \right) \to P\to 
+    K\left( \pi, n \right) $ and the previous lemma, it
+    suffices to show the case $n=1$. 
+    For the classes $\mathcal{F} \mathcal{G}$ and
+    $\mathcal{F}_P$, the group $\pi$ is a product
+    of cyclic groups in $\mathcal{C}$, and hence
+    $K\left( G_1, 1 \right) \times 
+    K\left( G_2,1 \right) $ is
+     a $K\left( G_1 \times G_2,1 \right) $, so by the
+     Künneth formula, it suffices to show the case
+     when $\pi$ is cyclic.
+
+     If $\pi = \mathbb{Z}$, we are in the case
+     of $\mathcal{C} = \mathcal{F} \mathcal{G}$, and
+     $S^{1}$ is a $K(\mathbb{Z},1)$, and
+     obviously $H_k\left( S^{1}  \right) \in \mathcal{C}$.
+     If $\pi = \mathbb{Z} / m$, we know that
+     $H_k \left( K\left( \mathbb{Z}/m,1 \right)  \right) $ 
+     is $\mathbb{Z} / m$ for odd $k$ and $0$ for even
+     $k>0$, since we can choose an infinite-dimensional
+     lens space for $K\left( \mathbb{Z}/m,1 \right) $.
+     Hence $H_k \left( K\left( \mathbb{Z}/m,1 \right)  \right) 
+     \in \mathcal{C}$ for $k>0$.\\
+     \linebreak
+     For the class
+     $\mathcal{T}_p$, we can use the construction
+     in section 1.B in Hatcher's Algebraic Topology of
+     a $K\left( \pi,1 \right) $ CW complex 
+     $B \pi$ with the property that for any
+     subgroup $G \subset \pi$, $BG$ is a subcomplex
+     of $B \pi$ (TODO).
+     An element $x \in H_k \left( B \pi \right) $ with
+     $k > 0$ is represented by a singular
+     chain $\sum_i n_i \sigma_i$ with compact
+     image contained in some finite subcomplex
+     of  $B \pi$. This finite subcomplex
+     can involve generation by only finitely many elements
+     of $\pi$, hence is contained in a subcomplex $BG$ 
+     for some finitely generated subgroup $G \subset \pi$.
+     Since $G \in \mathcal{F}_P$, by the first part
+     of the proof, we know that the element
+     of $H_k(BG)$ represented by $\Sigma_i n_i \sigma_i$ has
+     finite order divisible only by primes in $P$, so
+     the same is true for its image $x \in H_k\left( B \pi \right) $.
+\end{proof}
+
+
+\begin{proof}[Proof of Theorems
+    \ref{Thm:SIAO9} and \ref{Thm:Hurewicz-Mod-C}]
+    Assume first that $X$ is simply-connected. Consider
+    the Postnikov tower for $X$ :
+    \[
+    \ldots \to X_n \to X_{n-1} \to \ldots \to 
+    X_2 = K\left( \pi_2 (X),2 \right) 
+    \] 
+    where $X_n \to X_{n-1}$ is a fibration with
+    fiber $F_n = K\left( \pi_n(X), n \right) $.
+    If $\pi_i (X) \in \mathcal{C}$ for all $i$, then
+    by Lemma \ref{Lemma:SIDOA2}, we have
+    $H_k(X_2) \in \mathcal{C}$ for all $k$, and
+    $H_k(F_n) = H_k\left( K \left( \pi_n (X),n \right)  \right) 
+    \in \mathcal{C}$ for all $k$ and $n$.
+    Since $X_n \to X_{n-1}$ is a fibration with fiber
+    $F_n$, we obtain by induction and
+    Lemma \ref{Lemma:SIDOA1} that
+    $H_k\left( X_n \right) \in \mathcal{C}$ for all
+    $n$ and all $k$.
+
+
+    Now, by Cor. 4.12 in Hatcher, we know that
+    the inclusion $X^{n} \hookrightarrow X$ induces an isomorphism
+    on $\pi_i$ for $i<n$ and a surjection for $i=n$, so
+    by attaching cells of dimensions $\ge n+1$, we can
+    obtain a space $X'$ such that the composite inclusion
+    $X^{n} \hookrightarrow X \hookrightarrow X'$ induces
+    an isomorphism on all homotopy groups, hence
+    is a homotopy equivalence.
+
+    Thus, up
+    to homotopy equivalence, we can build
+    $X_n$ from $X$ by attaching cells of dimension
+    $\ge n+1$, so $H_i(X) \cong
+    H_i(X_n)$ for $n\ge i$, and therefore
+    $H_i \left( X \right) \in \mathcal{C}$ for all $i >0$.
+
+    Next, the Hurewicz maps $\pi_n (X) \to H_n(X)$ and
+    $\pi_n(X_n) \to H_n(X_n)$ are equivalent, and
+    we can deal with the latter via the fibration
+    $F_n \to X_n \to X_{n-1}$. Recall
+     that $F_n = K\left( \pi_n(X), n \right) $, so
+     by the Hurewicz theorem,
+     $H_i (F_n) = 0$ for $0<i < n$, hence the associated
+     spectral sequence to the fibration has nothing
+     between the  $0$ th and $n$ th rows, so
+     the first nontrivial differential is
+     $d_{n+1} \colon H_{n+1}(X_{n-1}) \to 
+     H_n (F_n)$. 
+     Recalling that from the spectral sequence, we have
+
+     \[
+     0 \to F_{n-1}H_n(X_n) \to 
+     H_n(X_n) \to E_{n,0}^{\infty} \to 0
+     \] 
+     we get 
+     that since
+     $F_{i}H_n(X_n) / F_{i-1}H_n(X_n) \cong
+     E_{i,n-i}^{\infty}
+     \cong 0$ for $0<i<n$, this implies that
+     $F_{n-1}H_n(X_n) \cong
+     F_0 H_n(X_n) \cong
+     E_{0,n}^{\infty}$, so we get a SES
+     \[
+     0 \to E_{0,n}^{\infty} \to 
+     H_n(X_n) \to E_{n,0}^{\infty} \to 0.
+     \] 
+     Now, also
+     since the only possible nontrivial differential terminating
+     at
+     $E_{0,n}^{r}$ for all $r$ is
+     $d_{n+1} \colon
+     H_{n+1}(X_{n-1}) \to H_{n}(F_n)$, we find that
+     $E_{0,n}^{\infty}$ must be the cokernel, so
+     we get that
+     \[
+     H_{n+1}(X_{n-1}) \stackrel{d_{n+1}}{\to} H_n(F_n)
+     \to E_{0,n}^{\infty} \to 0
+     \] 
+     is exact.
+
+     Next, what is the map
+     $H_n(F_n) \to E_{0,n}^{\infty} \to 
+     H_n(X_n)$?
+     One can read off that the
+     latter map $E_{0,n}^{\infty} \to H_n(X_n)$ is the
+     inclusion, and the former is the quotienting map.
+     
+
+
+\end{proof}
+
+
+
+
+
+
+
+
+
+
 
 \subsection{Supplements}
 
@@ -591,6 +882,27 @@ with the following properties:
         E_{\infty}^{p+s, m+n-p-s}$.
 \end{enumerate}
 
+
+We shall obtain these products by thinking of the cup product
+as the composition
+\[
+H^{*}(X;R) \times H^{*}(X;R) \stackrel{\times }{\to} 
+H^{*}(X \times X; R) \stackrel{\Delta^*}{\to} 
+H^{*}(X;R)
+\] 
+of cross product with the map induced by the
+diagonal map $\Delta \colon X \to X \times X$.
+This can be seen because
+\begin{align*}
+    \Delta^{*}  (- \times -) (a,b) (x)
+    &= a \times b \circ \Delta (x)\\
+    &= p_1^{*}(a) \smile p_2^{*}(b) \circ \Delta (x)\\
+    &= p_1^{*}(a)(x,x) p_2^{*}(b)(x,x)\\
+    &= a(x) b(x)\\
+    &= (a \smile b)(x)
+\end{align*}
+so
+$\Delta^{*} \circ (- \times -) = (- \smile -)$.
 
 
 
@@ -998,9 +1310,9 @@ total degree by one.
         Note also that each arrow landing on the
         $x$-axis is zero, and each arrow leaving the
         $y$-axis is zero, hence
-        $E_{0n}^{a}$ is a subobject of
+        $E_{0n}^{a}$ is a quotient of
         $E_{0 n}^{\infty}$, and each
-        $E_{n 0}^{\infty}$ is a quotient of
+        $E_{n 0}^{\infty}$ is a subobject of
         $E_{n 0}^{a}$.
 
         \begin{definition}[Fiber and base terms, edge homomorphism]
@@ -1050,7 +1362,7 @@ total degree by one.
         converging to $H_*$ has $E_{pq}^2 = 0$ unless
         $p = 0,1$. Show that there are exact sequences
         \[
-        0 \to E_{1, n-1}^2 \to H_n \to E_{0n}^2 \to 0
+        0 \to E_{0, n}^2 \to H_n \to E_{1,n-1}^2 \to 0
         \] 
     \end{exercise}
 
@@ -1102,46 +1414,153 @@ total degree by one.
     \end{example}
 
     \begin{proof}
-        We have
-        $\ker \left( d \colon
-        E_{p,0}^2 \to  E_{p-2,1}^2 \right) 
-        \cong E_{p,0}^{\infty}
-        \cong H_{p} / F_{p-1} H_{p}$. Furthermore,
-        $E_{p-1,1}^{\infty} \cong
-        F_{p-1} H_{p} / F_{p-2} H_p \cong
-        F_{p-1} H_p$ since
-        $F_{p-k} H_p / F_{p-k-1} H_p \cong
-        E_{p-k,k}^{\infty} \cong 0$ for
-        $k\ge 2$ and $F_{0} H_p = 0$.
-        Hence we have
-        a SES 
-        \[
-        0 \to F_{p-1}H_p \to H_p \to H_p / F_{p-1} H_p \to 0
-        \] 
-        which becomes
-        \[
-            0 \to E_{p-1,1}^{\infty}
-            \to H_p
-        \to \ker d \to 0
-        \] 
-        Now
-        $E_{p-1,1}^{\infty} \cong
-        \coker \left( d \colon E_{p+1,0}^2 \to 
-        E_{p-1,1}^2 \right) $, so we have
-        \[
-        E_{p+1,0}^2 \stackrel{d}{\to} 
-        E_{p-1,1}^2 \to E_{p-1,1}^{\infty} \to 0
-        \] 
-        but the kernel of the cokernel map is the
-        image of $d$, so
-        \[
-        0 \to \im d \to E_{p-1,1}^2 \to 
-        E_{p-1,1}^{\infty} \to 0
-        \] 
-        is exact.
+        The maps
+        $H_p \to E_{p,0}^2$ and
+        $E_{p-1,1}^2 \to H_p$ are the edge homomorphisms given,
+        respectively, by the map
+        $H_p \to H_p / F_{p-1}H_p \cong E_{p,0}^{\infty}
+        \hookrightarrow E_{p,0}^2$, where the last
+        part is the inclusion since
+        $E_{p,0}^{\infty}$ is the kernel of a map
+        out of $E_{p,0}^2$, and
+        the map
+        $E_{p-1,1}^2 \to 
+        E_{p-1,1}^2 / \im d \cong
+        E_{p-1,1}^{\infty} \cong F_{p-1}H_p
+        \subset H_p$. Thus the kernel of $d$ is
+        indeed the image of the edge map
+        $H_p \to E_{p,0}^2$, giving exactness
+        at $E_{p,0}^2$, and the
+        image of the edge map
+        $E_{p-1,1}^2 \to H_p$ is the subgroup
+        $F_{p-1}H_p$. Now, the kernel
+        of the edge map
+        $H_p \to E_{p,0}^2$ is
+        the subgroup $F_{p-1}H_p$, giving
+        exactness at $H_p$.
+        Also the image of the edge
+        map $E_{p-1,1}^2 \to H_p$ is
+        $\im d$ giving exactness at
+        $E_{p-1,1}^2$. This proves the claim.
     \end{proof}
 
 
+    \subsection{The category of homology spectral
+    sequences}
+
+    A morphism $f \colon E' \to E$ in the category
+    of homology spectral sequences is a family
+    of maps $f_{pq}^{r} \colon
+    E_{pq}^{'r} \to E_{pq}^{r}$ in $\mathcal{A}$ 
+    (for $r$ suitably large) such that
+    \begin{equation*}
+    \begin{tikzcd}
+        E_{pq}^{'r} \ar[r, "f^{r}"] \ar[d, "d^{r}"] & E_{pq}^{r}
+        \ar[d, "d^{r}"] \\
+        E_{p-r, q-r+1}^{'r} \ar[r, "f^{r}"] & E_{p-r,q-r+1}^{r}
+    \end{tikzcd}
+    \end{equation*}
+    for all $p,q$, and such that
+    $f_{pq}^{r+1}$ is the map induced
+    by $f_{pq}^{r}$ on homology. That is, from the 
+    commutative diagram
+    \begin{equation*}
+    \begin{tikzcd}
+        E_{p+r,q+r-1}^{'r} \ar[r, "f^{r}"] \ar[d, "d^{r}"]
+        & E_{p+r,q+r-1}^{r}
+        \ar[d, "d^{r}"]\\
+        E_{pq}^{'r} \ar[r, "f^{r}"] \ar[d, "d^{r}"] & E_{pq}^{r}
+        \ar[d, "d^{r}"] \\
+        E_{p-r, q-r+1}^{'r} \ar[r, "f^{r}"] & E_{p-r,q-r+1}^{r}
+    \end{tikzcd}
+    \end{equation*}
+    we obtain a map on
+    homology since if 
+    $\left[ a \right] \in 
+    E_{pq}^{'r+1} = H E_{pq}^{'r}$, then
+    $d^{r}a = 0$, so
+    since  $f^{r} d^{r} = d^{r} f^{r}$, we get
+    that $d^{r} \left( f^{r} \left[ a \right]  \right) 
+    = f^{r} \left( d^{r} \left[ a \right]  \right) 
+    = f^{r} \left[ d^{r} a \right] = 0$, hence
+    $f^{r}$ takes cycles to cycles, and
+    similarly,
+    if $\left[ b \right] \in \im
+    d^{r}$, say $\left[ b \right]  = 
+    d^{r}\left[ \tilde{b} \right] 
+    $, then
+    $f^{r} \left[ b \right] =
+    d^{r} f^{r} \left[ \tilde{b} \right] $, so
+    $f^{r}$ also maps boundaries to boundaries, hence
+    $f^{r}$ induces a map on homology.
+
+    
+    \begin{lemma}[Mapping Lemma]
+        Let $f \colon \left\{ E_{pq}^{r} \right\} \to 
+        \left\{ E_{pq}^{'r} \right\} $ be a morphism
+        of spectral sequences such that for some
+        fixed $r$, $f^{r} \colon
+        E_{pq}^{r} \cong E_{pq}^{'r}$ is an isomorphism
+        for all $p$ and $q$. Then
+        $f^{s} \colon E_{pq}^{s} \cong
+        E_{pq}^{'s}$ for all $s\ge r$ as well.
+    \end{lemma}
+
+    \begin{proof}
+        Suppose $f^{r}$ is an isomorphism.
+        Then since $f^{r} d^{r} = d^{r} f^{r}$, we must have
+        that $f^{r}$ induces an isomorphism on
+        cycles and boundaries, so
+        let $B_{pq}'^{r}$ and $B_{pq}^{r}$ denote the
+        boundaries at $pq$ and
+        $Z_{pq}^{'r}$ and $Z_{pq}^{r}$ the cycles, respectively.
+        Then we have the SES
+        
+        \begin{equation*}
+        \begin{tikzcd}
+            0 \ar[r] & B_{pq}^{'r} \ar[d, "f^{r}"] \ar[r] &
+            Z_{pq}^{'r} \ar[r] \ar[d, "f^{r}"] & E_{pq}^{'r+1} \ar[r] 
+            \ar[d, "f^{r+1}"] & 0 \\
+            0 \ar[r] & B_{pq}^{r} \ar[r] &
+            Z_{pq}^{r} \ar[r]  & E_{pq}^{r+1} \ar[r] 
+             & 0 
+        \end{tikzcd}
+        \end{equation*}
+        Applying the $5$-lemma, we get that
+        $f^{r+1}$ is an isomorphism for
+        all $pq$. By induction, 
+        we obtain the claim.
+    \end{proof}
+ 
+    \subsubsection{$E^{\infty}$ terms}
+    
+    Given a homology spectral
+    sequence, we know that each $E_{pq}^{r+1}$ is a subquotient
+    of the previous term $E_{pq}^{r}$. Letting
+    $Z_{pq}^{r}$ be the 
+    kernel of 
+    $E_{pq}^{r-1} \to E_{p-r,q+r-1}$ and
+    $B_{pq}^{r}$ the image of
+    $E_{p+r,q-r+1}^{r-1} \to E_{pq}^{r-1}$, we get
+    a nested family of subobjects of
+    $E_{pq}^{a}$ :
+    \[
+    0 = B_{pq}^{a} \subset \ldots \subset 
+    B_{pq}^{r} \subset B_{pq}^{r+1} \subset \ldots
+    \subset Z_{pq}^{r+1} \subset Z_{pq}^{r} \subset 
+    \ldots \subset Z_{pq}^{a} = E_{pq}^{a}
+    \] 
+    such that $E_{pq}^{r} \cong
+    Z_{pq}^{r} / B_{pq}^{r}$.
+    Let
+    \[
+    B_{pq}^{\infty} = \bigcup_{r=a}^{\infty} B_{pq}^{r}
+    \quad \text{and} \quad 
+    Z_{pq}^{\infty} =
+    \bigcap_{r=a}^{\infty} Z_{pq}^{r}
+    \] 
+    and define $E_{pq}^{\infty} = 
+    Z_{pq}^{\infty} / B_{pq}^{\infty}$.
 
 
 

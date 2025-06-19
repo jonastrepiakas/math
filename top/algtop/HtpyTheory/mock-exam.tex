@@ -1,0 +1,374 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+%\usepackage[backend=biber]{biblatex}
+%\addbibresource{.bib}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\SHomeo}{SHomeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Teich}{Teich}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\corank}{corank}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Bun}{Bun}
+\DeclareMathOperator{\Sm}{Sm}
+\DeclareMathOperator{\Fr}{Fr}
+\DeclareMathOperator{\Cob}{Cob}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Conf}{Conf}
+\DeclareMathOperator{\UConf}{UConf}
+
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\MCG}{{\mathrm{MCG}}}
+\newcommand{\PMCG}{{\mathrm{PMCG}}}
+\newcommand{\SMCG}{{\mathrm{SMCG}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+
+
+
+
+\begin{document}
+    \begin{problem}[]
+        It can be shown that
+        $\pi_{13} (S^{6}) = \mathbb{Z} / 60$.
+        Let $X = S^{6} \cup  e^{14}$ be obtained
+        by attaching a $14$-cell to a $S^{6}$ along a generator
+        in $\pi_{13}\left( S^{6} \right) $.
+        \begin{enumerate}
+            \item Calculate $\pi_6(X)$.
+            \item Calculate $\pi_{13}(X)$
+        \end{enumerate}
+    \end{problem}
+
+    \begin{solution}
+        Attaching a $14$-cell along a generator
+        in $\pi_{13}(S^{6}) = \mathbb{Z} /60$ trivializes
+        this homotopy group, so
+        $\pi_{13}\left( X \right) \cong 0$.
+
+        By cellular approximation, 
+        $\pi_i (X) = 0$ for $i < 6$, so by Hurewicz,
+        $\pi_6(X) \cong H_6(X)$, and it is clear that
+        $H_6(X) \cong \mathbb{Z}$ by cellular homology.
+    \end{solution}
+
+    \begin{problem}[]
+        Compute $H_* \left( \Omega \left( S^3
+        \vee S^3 \right)  \right) $.
+    \end{problem}
+
+    \begin{solution}
+        We have the homotopy fibration
+        $\Omega \left( S^3 \vee S^3 \right) 
+        \to P \left( S^3 \vee S^3 \right) \to 
+        S^3 \vee S^3$, since the base space is simply-connected,
+        we obtain the following by LSSS:
+\[\begin{tikzcd}
+	\vdots \\
+	{H_3(\Omega (S^3 \vee S^3))} && 0 \\
+	{H_2(\Omega (S^3 \vee S^3))} && {(\mathbb{Z} \oplus \mathbb{Z}) \otimes (\mathbb{Z} \oplus \mathbb{Z}) \cong \mathbb{Z}^4} \\
+	{0 \cong H_1(\Omega (S^3 \vee S^3))} && 0 \\
+	{\mathbb{Z}} && {\mathbb{Z} \oplus \mathbb{Z}} & \cdots
+	\arrow[no head, from=2-1, to=1-1]
+	\arrow[no head, from=3-1, to=2-1]
+	\arrow["\cong", from=3-3, to=1-1]
+	\arrow[no head, from=4-1, to=3-1]
+	\arrow["\cong", from=4-3, to=2-1]
+	\arrow[no head, from=5-1, to=4-1]
+	\arrow[no head, from=5-1, to=5-3]
+	\arrow["\cong"{description}, from=5-3, to=3-1]
+	\arrow[no head, from=5-3, to=5-4]
+\end{tikzcd}\]
+from which we can deduce that
+
+
+\[
+H_{n} \left( \Omega \left( S^3 \vee S^3 \right)  \right) 
+\cong
+\begin{cases}
+    \mathbb{Z}^{n},& n \text{ even}\\
+    0,& n \text{ odd}
+\end{cases}
+\] 
+
+    \end{solution}
+
+
+    \begin{problem}[]
+        True or false? Briefly justify your answer:
+        \begin{enumerate}
+            \item If an $n$-dimensional CW complex is $n$-connected,
+                then it is contractible.
+            \item If $X$ is a simply connected CW complex
+                with finitely many cells, then
+                $\Omega X$ is weakly equivalent to a CW complex
+                with finitely many cells.
+            \item If $X$ is an $n$-truncated CW complex, then
+                its suspension $\Sigma X$ is
+                $(n+1)$-truncated.
+        \end{enumerate}
+    \end{problem}
+
+    \begin{solution}
+        (a) By the Hurewicz theorem, the first nontrivial
+        homology group equals the first nontrivial homotopy
+        group, so if $\pi_k$ is nontrivial for some
+        $k>n$, then $H_k$ is also nontrivial, but since
+        there are no cells of dimension $>n$, we conclude
+        that $\pi_k = 0$ for all $k$. Now the inclusion of
+        a point induces a weak homotopy equivalence, hence
+        it is a homotopy equivalence by Whitehead's theorem, so
+        the space is contractible.\\
+        \linebreak
+        
+
+        (b) False. If this were true, then
+        the homology groups
+        of $\Omega X$ would be nontrivial only in finitely
+        many dimensions, but
+        we have just seen that
+        $H_n \left( \Omega \left( S^{3} \vee S^{3} \right)  \right) 
+        \cong \mathbb{Z}^{n}$ in all even dimensions.\\
+        \linebreak
+        
+        (c) False: $S^{1}$ is $2$-truncated, but
+        $S^2$ is not $3$-truncated since
+        $\pi_3 \left( S^2 \right) \cong \mathbb{Z}$ (and
+        $S^2 = \Sigma S^{1}$ ).
+    \end{solution}
+
+    \begin{problem}[]
+        Let $X$ be a simply connected space with
+        homology
+        \[
+        H_n(X) \cong \mathbb{Z}/n \quad \text{for all }
+        n\ge 1.
+        \] 
+        \begin{enumerate}
+            \item Show that $\pi_k(X)$ is finite for all
+                $k$.
+            \item Show that there are infinitely many
+                $k \in \mathbb{N} $ with $\pi_k(X) \not \cong
+                0$.
+        \end{enumerate}
+    \end{problem}
+
+    \begin{proof}
+        (1) Let $P$ be the set of all primes.
+        Then $\mathcal{F}_P$ is the set of all
+        finite abelian groups.
+        Now by theorem 1.7 in Hatcher's spectral sequences text,
+        since $X$ is simply-connected and
+        $H_n(X) \in \mathcal{C} = \mathcal{F}_p$ for all
+        $n>0$, we have $\pi_n(X) \in \mathcal{F}_p$ for all
+        $n>0$.\\
+        \linebreak
+        (2) Suppose for contradiction that
+        there are only finitely many nontrivial homotopy
+        groups. Since these are also finite abelian, this
+        means that there is a maximal finite collection $P$ of primes
+        such that each $p \in P$ divides the order of some
+        nontrivial homotopy group of $X$.
+        Let now $p \not\in P$. Then
+        by assumption,
+        $\pi_k \in \mathcal{C} = \mathcal{F}_P$ for
+        all $k < p$, so
+        the Hurewicz homomorphism
+        $h \colon \pi_p (X) \to H_p(X) \cong \mathbb{Z} / p$ is
+        an isomorphism mod $\mathcal{C} = \mathcal{F}_P$.
+        Hence the cokernel is in $\mathcal{F}_P$. But
+        $\mathbb{Z} / p \not\in \mathcal{F}_P$ by assumption, so
+        the image of $h$ must be all of $\mathbb{Z} / p$.
+        But then by the first isomorphism theorem, we obtain
+        $\pi_p(X) / \ker h \cong \mathbb{Z} / p$, so in particular,
+        \[
+        \left| \pi_p(X) \right| \cong 
+        \left| \ker h \right| \left| \mathbb{Z}/p \right| 
+        = p \left| \ker h \right| > 1
+        \] 
+        so $\pi_p (X)$ is nontrivial, and also has
+        order a multiple of $p$, so
+        $p \in P$, which is a contradiction.
+
+
+
+        
+
+    \end{proof}
+
+    \begin{problem}[Whitehead tower computation ]
+        Let $\mathbb{R}\mathbb{P}^{1} \subset 
+        \mathbb{R}\mathbb{P}^{\infty}$ be the inclusion. Define
+        $X = \mathbb{R}\mathbb{P}^{\infty} / 
+        \mathbb{R}\mathbb{P}^{1}$ by collapsing
+        $\mathbb{R}\mathbb{P}^{1}$ to a point.
+        \begin{enumerate}
+            \item Show that $X$ is simply connected,
+                that
+                \[
+                H^{*}(X;\mathbb{Z}) \cong
+                \begin{cases}
+                    \mathbb{Z},& *=0,2\\
+                    \mathbb{Z}/2,& *>3 \text{ even}\\
+                    0,& \text{otherwise}
+                \end{cases}
+                \] 
+                and that as a graded ring,
+                $H^{*}(X;\mathbb{Z}) \cong
+                \mathbb{Z} \left[ a \right] / 2a^2$ with
+                $\left| a \right| = 2$.
+            \item Show that there is a homotopy fiber sequence
+                \[
+                S^{1} \to \tau_{>2}X \to X
+                \] 
+                and use the cohomological Leray-Serre spectral
+                sequence to compute $H^{*}\left( \tau_{>2}X;
+                \mathbb{Z}\right) $.
+            \item Show that $\tau_{>2} X$ is homotopy equivalent
+                to a finite CW complex.
+            \item Is there a finite CW complex with the same
+                homotopy groups as $X$? Briefly justify your
+                answer.
+        \end{enumerate}
+    \end{problem}
+
+    \begin{solution}
+        a
+    \end{solution}
+
+
+
+
+
+
+
+
+
+    %\printbibliography
+\end{document}

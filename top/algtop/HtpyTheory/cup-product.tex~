@@ -363,6 +363,152 @@
         \textit{skew commutative}.
     \end{definition}
 
+    \begin{example}[Polynomial Rings]
+        An example of a graded ring is
+        $R \left[ \alpha \right] $ or
+        the truncated version: $R \left[ \alpha \right] /
+        \left( \alpha^n \right) $.
+
+        We have seen that
+        $H^{*}\left( \mathbb{R}\mathbb{P}^{2}; \mathbb{Z}/2 \right) 
+        \cong \mathbb{Z}/2 \left[ \alpha \right] /
+        \left( \alpha^{3} \right) $.
+        More generally, we can show that
+        $H^{*}\left( \mathbb{R}\mathbb{P}^{n};
+        \mathbb{Z}/2\right) \cong
+        \mathbb{Z}/2 \left[ \alpha \right] /
+        \left( \alpha^{n+1} \right) $ and
+        $H^{*}\left( \mathbb{R}\mathbb{P}^{\infty};
+        \mathbb{Z}/2\right) \cong
+        \mathbb{Z}/2 \left[ \alpha \right] $, where,
+        in these cases, $\left| \alpha \right| = 1$.
+    \end{example}
+
+    \begin{example}[Exterior Algebras]
+        The \textit{exterior algebra}
+        $\Lambda_R \left[ \alpha_1, \ldots, \alpha_n \right] $ 
+        over a commutative ring $R$ with identity
+        is the free $R$-module with basis
+        the finite products
+        $\alpha_{i_1} \cdots \alpha_{i_k},
+        i_1 < \ldots < i_k$, with associative,
+        distributive multiplication defined by
+        the rules
+        $\alpha_i \alpha_j = - \alpha_j \alpha_i$ for
+        $i\neq j$ and
+        $\alpha_i^2 = 0$ for all $i$.
+        The empty producto f $\alpha_i$ 's is the identity
+        element $1$ in
+        $\Lambda_R \left[ \alpha_1, \ldots, \alpha_n \right] $.
+
+        In view of
+        $\alpha_i \alpha_j = - \alpha_j \alpha_i$,
+        the exterior algebra becomes an
+        anticommutative graded ring by specifying
+        odd dimensions for the generators
+        $\alpha$.
+
+        By the Künneth formula, we have
+        \[
+        H^{*}\left( S^{k_1} \times 
+        \ldots \times S^{k_n} ; \mathbb{Z}\right) 
+        \cong
+        H^{*}(S^{k_1} ; \mathbb{Z}) \otimes_{\mathbb{Z}} \ldots
+        \otimes_{\mathbb{Z}} H^{*}(S^{k_n};\mathbb{Z})
+        \cong \Lambda_{\mathbb{Z}}
+        \left[ \alpha_1, \ldots, \alpha_n \right] 
+        \] 
+        when all the $k_i$ are odd,
+        since the first isomorphism
+        is given by the cross product.
+
+        When some $k_i$ 's are even, one obtains
+        the tensor product of an exterior algebra
+        for the odd-dimensional speheres and truncated
+        polynomial rings
+        $\mathbb{Z} \left[ \alpha \right] /
+        \left( \alpha^2 \right) $ for the even
+        dimensional spheres.
+    \end{example}
+
+    \subsection{The Cross Product}
+    
+    \begin{definition}[First definition of cross product,
+        external cup product]
+        We define the \textit{cross product}, or
+        \textit{external cup product} as it is
+        sometimes called, by
+        the map
+        \[
+        H^{*}(X;R) \times H^{*}(Y;R) \stackrel{\times }{\to} 
+        H^{*}\left( X \times Y; R \right) 
+        \] 
+        given by
+        $a \times b = p_1^{*}(a) \smile p_2^{*}(b)$ where
+        $p_1, p_2$ are the projections of
+        $X \times Y$ onto $X$ and $Y$, respectively.
+    \end{definition}
+
+    \begin{definition}[Cross Product, second definition]
+    Since the cup product is distributive, the cross
+    product is bilinear, hence it induces an
+    $R$-module homomorphism
+
+    \begin{equation*}
+    \begin{tikzcd}
+        H^{*}(X;R) \times H^{*}(Y;R) \ar[dr, "\times "]
+        \ar[d] &\\
+        H^{*}(X;R) \otimes_R H^{*}(Y;R) 
+        \ar[r, "\times "] & H^{*}(X \times Y;R)
+    \end{tikzcd}
+    \end{equation*}
+    which we also call the cross product, given
+    by $a \otimes b \mapsto a \times b$.
+    \end{definition}
+
+    This module homomorphism becomes
+    a ring homomorphism if we define
+    the multiplication in a tensor product
+    of graded rings by
+    $\left( a \otimes b \right) \left( c \otimes d \right) 
+    = (-1)^{\left| b \right| \left| c \right| }
+    ac \otimes bd$ where
+    $\left| x \right| $ denotes the dimension of $x$.
+    
+    This can be seen as follows (note that
+    $ac = a \smile c$ and $bd = b \smile d$ ):
+    \begin{align*}
+        \mu \left( \left( a \otimes b \right) 
+        \left( c \otimes d \right) \right) 
+        &= (-1)^{\left| b \right| \left| c \right| }
+        \mu \left( ac \otimes bd \right) \\
+        &= (-1)^{\left| b \right| \left| c \right| }
+        (a \smile c) \times (b \smile d)\\
+        &= (-1)^{\left| b \right| \left| c \right| }
+        p_1^{*} (a \smile c) \smile
+        p_2^{*}\left( b \smile d \right) \\
+        &= (-1)^{\left| b \right| \left| c \right| }
+        p_1^{*}(a) \smile p_1^{*}(c) \smile
+        p_2^{*}(b) \smile p_2^{*}(d)\\
+        &= p_1^{*}(a) \smile p_2^{*}(b) \smile
+        p_1^{*}(c) \smile p_2^{*}(d)\\
+        &= \left( a \times b \right) \left( c
+        \times d\right) = \mu (a \otimes b) 
+        \mu (c \otimes d)
+    \end{align*}
+
+
+
+    \begin{theorem}[]
+        The cross product $H^{*}(X;R) \otimes_R
+        H^{*}(Y;R) \to H^{*}(X \times Y; R)$ is an
+        isomorphism of rings
+        if $X$ and $Y$ are CW complexes and
+        $H^{k}(Y;R)$ is a finitely generated
+        free $R$-module for all $k$.
+    \end{theorem}
+    
+
 
 
 

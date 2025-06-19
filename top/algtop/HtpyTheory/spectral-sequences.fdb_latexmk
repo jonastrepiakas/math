@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1749807440.8866 "spectral-sequences.tex" "spectral-sequences.pdf" "spectral-sequences" 1749807441.98371 0
+["pdflatex"] 1750341111.7495 "spectral-sequences.tex" "spectral-sequences.pdf" "spectral-sequences" 1750341112.98272 0
   "/etc/texmf/web2c/texmf.cnf" 1718688975.81737 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1000.tfm" 1136768653 3584 2d666ecf6d466d8b007246bc2f94d9da ""
@@ -175,9 +175,9 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1719350542.55051 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1719350620 8213228 2bf4bdc60b7e8eadcc399e002a7ccc4d ""
-  "spectral-sequences.aux" 1749807441.86204 2790 85cba4dba398cb087a6aab7e7d6ac9c3 "pdflatex"
-  "spectral-sequences.out" 1749807441.86304 2494 73d11692ef2ced9b974014c2ce70152c "pdflatex"
-  "spectral-sequences.tex" 1749807439.74501 36313 9920d9ef53e26cc1e0fde7ea620a9563 ""
+  "spectral-sequences.aux" 1750341112.88897 3341 3d2bb1e91fbc02a46fa8e9d8380639db "pdflatex"
+  "spectral-sequences.out" 1750341112.88997 2810 7584837ce266c3007ba38d694b8c2e44 "pdflatex"
+  "spectral-sequences.tex" 1750341111.16395 50577 1c1c633b340a2ae1d53f354a21574c19 ""
   (generated)
   "spectral-sequences.aux"
   "spectral-sequences.log"

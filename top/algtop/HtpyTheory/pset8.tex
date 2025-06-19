@@ -152,8 +152,12 @@
 
 
 
+\title{Assignment 8}
+\author{Jonas Trepiakas}
+\date{}
 
 \begin{document}
+\maketitle
     Recall that the cohomology with integral coefficients
     of $K(\mathbb{Z} /3,2)$ up to degree $6$ is:
     \[
@@ -340,7 +344,11 @@ $H^{7}\left( \tau_{>3}Y; \mathbb{Z} \right)
 Now,
 recall that $\tau_{>3}Y$ is a CW-complex, hence
 its homology and cohomology groups are
-finitely generated abelian!!!. Now
+finitely generated abelian, so we can
+use the structure theorem for
+finitely generated abelian groups and analyse
+its torsion part and torsion free part, into which it
+separates by a direct product. Now
 \[
 0 \to \Ext \left(H_6 (\tau_{>3}Y), \mathbb{Z} \right) 
 \to \underbrace{H^{7}\left( \tau_{>3}Y;\mathbb{Z} \right)}_{\cong
@@ -396,27 +404,7 @@ we obtain
 \] 
 
 
-(3) We have
-\[
-H_* (Y; \mathbb{Z}/3) \cong
-H_* (Y;\mathbb{Z}) \otimes \mathbb{Z}/3
-\cong
-\begin{cases}
-    \mathbb{Z}/3,& k=0,3\\
-    0,& \text{else}
-\end{cases}
-\] 
-and
-\[
-H^{*}\left( K\left( \mathbb{Z}/3,2 \right) ; \mathbb{Z}/3 \right) 
-\cong
-\mathbb{Z}/3 \left<1,a,b,a^2,ab \right>, \quad *\le 5
-\] 
-was given, where
-$\left| a \right| =2$ and
-$\left| b \right| =3$.
-
-By UCT,
+(3) By UCT,
 \[
 0 \to \Ext \left( H_{n-1}(Y), \mathbb{Z}/3 \right) 
 \to H^{n}(Y;\mathbb{Z}/3) \to 
@@ -434,9 +422,10 @@ $H^{4}(Y;\mathbb{Z}/3) \cong
 \cong \mathbb{Z}/3$.
 Furthermore,
 $H^{0}(Y;\mathbb{Z}/3) \cong
-\mathbb{Z}/3$.
+\mathbb{Z}/3$. In all
+other columns, $H^{p}$ vanishes.
 
-Consider the double complex
+So consider the double complex
 \[\begin{tikzcd}
 	& \vdots \\
 	5 & {\mathbb{Z}/3 ab} &&& {\mathbb{Z}/3abx} & {\mathbb{Z}/3aby} \\
@@ -535,38 +524,151 @@ Now proceeding as in step (2), we can conclude all the same things.\\
 \linebreak
 (4) 
 
-We can obtain $X$ by attaching a $6$-cell
-to $Y = X^{(4)}$ by its attaching map
-$\varphi \colon S^{5} \to Y $.
-But note that since
-$ \pi_5(Y) \cong 0$ as we showed above,
-the attaching map can by
-proposition 0.18 in Hatcher be assumed to be constant at
-the basepoint. Furthermore,
+We will make use of the following proposition a few times:
 
-We have that
-$\tau_{\le 5} Y \cong
-K\left( \mathbb{Z}/3, 3 \right) $.
+\begin{proposition}[Hatcher, Proposition 0.18]
+    If $\left( X_1,A \right) $ is a CW pair and we have
+    attaching maps $f,g \colon
+    A \to X_0$ that are homotopic, then
+    $X_0 \sqcup_f X_1 \simeq X_0 \sqcup_g X_1 \rel X_0$.
+\end{proposition}
 
-But $Y$ is $5$-connected, so we may replace it with
-a homotopy equivalent CW complex with cells of
-dimension $\ge 6$ only as well as the
+Now, a CW complex can be constructed by successively
+adding cells
+of higher and higher dimension to the previously
+constructed skeleton (as described in Hatcher
+p. 5), so
+suppose $X$ and $X'$ are spaces which have
+a single $0,3,4$ and $6$ cell
+and such that $H_3(X) \cong H_3(X') \cong \mathbb{Z}/3$.
 
-Suppose $X$ and $X'$ are two spaces
-satisfying the assumptions of the problem.
-Let $Y$ and $Y'$ be the $4$-skeletons of $X$ and $X'$, respectively.
-We saw in problem (1), that $Y \simeq Y'$ because they were
-Moore spaces. Let
-$f \colon Y' \to Y$ be this homotopy equivalence.
-Let $\varphi , \varphi '$ be the attaching maps of the
-$6$-cell.
-Then $f  \circ \varphi '$ is an attaching
-map on $Y$. But since
-$\pi_5 \left( Y \right) \cong 0$, we have
-$f \circ \varphi ' \simeq \varphi $.
-Now
-$X = Y \cup_{\varphi } S^{5} 
-\simeq Y \cup_{f \circ \varphi '} S^{5}$
+Since $X$ and $X'$ are CW complexes, cellular homology tells us from
+the cellular chain complex that the
+attaching maps for each
+CW complex of the $4$-cell is a degree $3$ map.\\
+
+Now, to construct $X$ and $X'$, start with a single
+$0$-cell. Then we attach
+the $3$-cell via the unique attachig map
+$S^2 \to *$ where
+$*$ is the $0$-cell.
+
+This space is necessarily a $3$-sphere.
+
+The attaching map of the $4$-cell is now a map
+$S^3 \to S^3$ which is of degree $3$.
+We use the following lemma:
+\begin{lemma}[]
+    Two maps $f ,g \colon S^{n} \to S^{n}$ have the
+    same degree if and only if they are homotopic.
+\end{lemma}
+
+\begin{proof}
+    If they are homotopic, they have the same degree
+    as degree is a construction on homology.
+
+    Conversely, suppose
+    $\deg f = \deg g$.
+    Recal that the Hurewicz isomorphism is
+    natural with the commutative diagram
+    \begin{equation*}
+    \begin{tikzcd}
+        \pi_n (X,x_0) \ar[d, "h"] \ar[r, "\varphi_*"] &
+        \pi_n(Y,y_0) \ar[d, "h"] \\
+        H_n(X) \ar[r, "\varphi_*"] & H_n(Y)
+    \end{tikzcd}
+    \end{equation*}
+    where $\varphi  \colon X \to Y$ is a map.
+    
+    
+    Now, since $f$ and $g$ might not be
+    basepoint preserving maps (once we choose a basepoint),
+    we need to fix this issue. One way to do this would
+    be for example to compose $f$ and $g$ with a 
+    rotation of the sphere such that it maps the
+    basepoint to itself - noting that rotations are homotopic
+    to the identity, hence also do not change the degrees.
+    Thus we can without issue assume that
+    $f$ and  $g$
+    Using this, we obtain a commutative diagram as follows:
+
+    \begin{equation*}
+    \begin{tikzcd}
+        \pi_n(S^{n}) \ar[r, "f_*"] \ar[d, "\cong"] &
+        \pi_n(S^{n}) \ar[d, "\cong"] \\
+        H_n(S^{n}) \ar[r, "f_* = g_*"] & 
+        H_n(S^{n}) \\
+        \pi_n(S^{n}) \ar[r, "g_*"] \ar[u, "\cong"] &
+        \pi_n(S^{n}) \ar[u, "\cong"]
+    \end{tikzcd}
+    \end{equation*}
+    Thus we find that
+    $f$ and $g$ induce the same
+    maps on $\pi_n$, so
+    in particular,
+    $\left[ f \right]  =
+    f_* \left[ 1 \right] =
+    g_* \left[ 1 \right] = \left[ g \right] $, hence
+    $f$ and $g$ are homotopic.\\
+    \linebreak
+    For $n=1$, where we cannot use the Hurewicz map, we can
+    use that the abelianization map is an isomorphism and then
+    note that $\pi_1(S^{1}) \cong \mathbb{Z}$ is an isomorphism.
+
+\end{proof}
+
+Using this lemma, we can conclude that
+the attaching map
+for the $4$-cell on $X'$ is homotopic to the
+degree $3$-map for the attaching map on $X$, hence using the
+Proposition, we conclude that
+$X^{(4)} \simeq (X')^{(4)} (\rel X^{(3)} = X^{'(3)})$.
+Next, we attach a $6$-cell to each complex.
+But note that we showed in part (3) that
+$\pi_5 (X) = 0 = \pi_5(X')$, so
+suppose $\varphi $ is the attaching map
+$S^{5} \to X^{(4)}$ and
+$\varphi '$ the attaching map
+$S^{5} \to X^{'(4)}$. Then
+both a homotopic to a constant map, say
+$\varphi \simeq c_{p}$ and
+$\varphi ' \simeq c_{p'}$. But also
+$\pi_0$ of either space is trivial, so
+they are path-connected, hence
+$c_{p} \simeq c_{*}$ where
+$*$ is the $0$-cell which, in particular, is contained
+in the $3$-skeleton of both
+$X$ and $X'$. Thus also
+$c_{p'} \simeq c_*$. Let
+$G \colon X^{(4)} \to (X')^{(4)}$ be the homotopy equivalence
+$\rel X^{(3)} = X^{'(3)}$ with homotopy
+inverse $H$, so
+both $G$ and $H$ restrict to the identity on
+the $3$-skeleton. 
+Then $G$ and $H$ extend to maps
+$\tilde{G} \colon X^{(4)} \cup_{c_* }D^{6} \to
+ (X')^{(4)} \cup_{c_*} D^{6}$ and $\tilde{H} \colon
+ (X')^{(4)} \cup_{c_*} D^{6}
+\to X^{(4)} \cup_{c_*}D^{6}$, respectively, by
+being the identity on $D^{6}$.
+Since the homotopies
+$GH \simeq \id$ and $HG \simeq \id$ are also
+the identity on the $3$-skeleton at all times,
+we can extends these homotopies
+to 
+$\tilde{G} \tilde{H} \simeq \id$ and
+$\tilde{H} \tilde{G} \simeq \id$.
+
+And now we are done because
+
+\[
+X = X^{(4)} \cup_{\varphi }D^{6}
+\simeq X^{(4)} \cup_{c_*} D^{6}
+\simeq (X')^{(4)} \cup_{c_*} D^{6}
+\simeq (X')^{(4)} \cup_{\varphi '} D^{6}
+= X'.
+\] 
+
 
 
 

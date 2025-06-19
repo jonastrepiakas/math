@@ -2107,5 +2107,253 @@ $Z_i \to Z_{i-1} \to \ldots \to  Z_0 \to X$.
 \end{proposition}
 
 
+\subsection{Moore-Postnikov factorizations and Whitehead covers}
+
+\begin{definition}[]
+    A map $f \colon X \to Y$ is called
+    \textit{$n$-truncated} if, for all $x \in X$, the map
+    \[
+    f_* \colon \pi_k (X,x) \to \pi_k(Y,f(x))
+    \] 
+    is an isomorphism for $k>n$ and an injection for
+    $k=n$.
+\end{definition}
+
+\begin{definition}[]
+    A space $X$ is called \textit{$n$-truncated} if 
+    $\pi_k (X,x) = 0$ for all $k>n$ and all $x \in X$.
+\end{definition}
+
+\begin{example}[]
+    $K(\pi, n)$ and $\tau_{\le n} X$ are $n$-truncated
+    for any $\pi$ and any $X$.
+\end{example}
+
+\begin{note}
+    $S^{k}$ is not $n$-truncated for any $n$ when
+    $k\ge 2$.
+\end{note}
+
+\begin{exercise}[]
+    Prove this.
+\end{exercise}
+
+\begin{lemma}[Variation of extension lemma]\label{Lemma:DJIZ00B}
+    Let $(X,A)$ be a CW pair such that $X - A$ has only
+    cells of dimension $\ge n+2$. For $Y$ an
+    $n$-truncated space, we have
+    \begin{enumerate}
+        \item for all $f \colon A \to Y$, we can
+            extend $f$ to a map $\tilde{f}\colon X \to Y$.
+        \item If $g,h \colon X \to Y$ are such that
+            $g|_{A} \simeq h|_{A}$, then $g \simeq h$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    The first part is just the extension lemma.
+
+    For the second part, we have a map
+    $g \sqcup h \colon X \times \left\{ 0,1 \right\} \to Y$ and
+    a homotopy $H \colon A \times \left[ 0,1 \right] \to Y$ which
+    glue to give a map
+    \[
+    X \times \left\{ 0,1 \right\} 
+    \cup A \times \left[ 0,1 \right] \stackrel{(g \sqcup h)
+    \cup H}{\to} Y
+    \] 
+    Now, $X \times \left[ 0,1 \right] $ can be
+    obtained from
+    $X \times \left\{ 0,1 \right\} \cup 
+    A \times \left[ 0,1 \right] $ by only attaching cells
+    of dimension $\ge n+2$, so by part (1), we obtain
+    that we can extend the map
+    $\left( g \sqcup h \right) \cup H$ to a map
+    $X \times \left[ 0,1 \right] \to Y$.
+\end{proof}
+
+\begin{corollary}
+    If $(X,A)$ is a CW pair with $X -A$ having cells
+    of dimension
+    $\ge n+2$ only, and if $Y$ is $n$-truncated, then
+    \[
+    \left[ X,Y \right] \stackrel{\cong}{\to} 
+    \left[ A,Y \right] .
+    \] 
+\end{corollary}
+
+\begin{remark}[]
+    If $Y = K\left( \mathbb{Z},k \right) $ for
+    $k\le n$, then we obtain
+    $H^{k}\left( X,\mathbb{Z} \right) \cong 
+    \left[ X,Y \right] \cong \left[ A,Y \right] \cong
+    H^{k}(A,\mathbb{Z})$, which we could also
+    see since $A \hookrightarrow X$ is $(n+1)$-connected.
+\end{remark}
+
+\begin{definition}[Postnikov truncation]
+    An \textit{$n$ th Postnikov truncation} of a space
+    $A$ is a CW pair $(X,A)$ s.t.
+    \begin{enumerate}
+        \item $X-A$ contains only cells of dimension
+            $\ge n+2$.
+        \item $X$ is $n$-truncated.
+    \end{enumerate}
+    In this case, we define $\tau_{\ge n}A := X$.
+\end{definition}
+
+\begin{lemma}[]
+    The $n$ th Postnikov truncation is unique up to
+    homotopy equivalence.
+\end{lemma}
+
+\begin{proof}
+    Suppose $(X,A)$ and $(Y,A)$ are both $n$ th Postnikov truncations.
+    Then Lemma \ref{Lemma:DJIZ00B} implies that
+    the identity maps $A \hookrightarrow  Y$ and $A \hookrightarrow 
+    X$ can be extended to maps $X \to Y$ and $Y \to X$ restricting
+    to the identity on $A$.
+    Part 2 of the lemma then implies that
+    $fg \simeq \id$ and $gf \simeq \id$, which completes the proof.
+\end{proof}
+
+\subsubsection{Postnikov Tower}
+
+Recall the Postnikov tower
+
+\begin{equation*}
+\begin{tikzcd}
+    & \vdots \ar[d] \\
+    & \tau_{\le 3}X \ar[d, "p_3"] \\
+    & \tau_{\le 2}X \ar[d, "p_2"] \\
+    & \tau_{\le 1} X \ar[d, "p_1"] \\
+    X \ar[r, "i_0"] 
+    \ar[ru, "i_1"] \ar[ruu, "i_2"] 
+    \ar[ruuu, "i_3"] & \tau_{\le 0} X
+\end{tikzcd}
+\end{equation*}
+
+\begin{remark}[]
+    Since $\left( \tau_{\le p}X, X \right) $ is
+    $p$-connected, the inclusion induces
+    an isomorphism on $\pi_k$ for $k\le p-1$ and a surjection
+    on $p$, so
+    we have
+
+    \begin{equation*}
+    \begin{tikzcd}
+        \pi_{k}X \ar[r] \ar[rr, bend right, "\cong"]
+        & \pi_k \left( \tau_{\le n}X \right) 
+        \ar[r] & \pi_{k} \left( \tau_{\le n-1}X \right) 
+    \end{tikzcd}
+    \end{equation*}
+    which implies that the latter map is surjective, and that
+    the former map is surjective.
+    But if $gf$ is an isomorphism with $f$ surjective,
+    then $g$ must be injective. Hence
+    the latter map is injective also, so
+    $\pi_k \left( \tau_{\le n}X \right) 
+    \to \pi_{k}\left( \tau_{\le n-1}X \right) $ is an
+    isomorphism for $k\le n-1$.
+    For $k>n$, $\pi_k$ of both is $0$, so
+    the map is also an isomorphism.\\
+    \linebreak
+    Thus we can conclude that
+    $p_n \colon \tau_{\le n}X \to 
+    \tau_{\le n-1}X$ is an isomorphism on
+    $\pi_k$ for $k\neq n$.\\
+    \linebreak
+    From this, we can conclude using the LES of the
+    pair $\left( \tau_{\le n}X, \tau_{\le n-1}X \right) $that
+    $\hofib (p_n)$ is an Eilenberg-MacLane space
+    of type $K\left( \pi_n X , n \right) $:
+    \[
+       \ldots \to  0 \to \underbrace{\pi_{n+1}\left( 
+        \tau_{\le n-1}X \right) }_{\cong 0} \to 
+        \pi_n \left( \hofib (p_n) \right) 
+        \stackrel{\cong}{\to} 
+        \underbrace{\pi_n\left( \tau_{\le n}X \right)}_{\cong 
+        \pi_n X} \to 
+        \underbrace{\pi_n \left( \tau_{\le n-1}X \right)}_{\cong 0}
+        \to \ldots
+    \] 
+\end{remark}
+
+\begin{example}[]
+    For example, since
+    $\pi_3 \left( S^2 \right) \cong \mathbb{Z}$ from
+    the LES of the Hopf fibration, we get
+    \begin{equation*}
+    \begin{tikzcd}
+        K\left( \underbrace{\pi_3 S^2}_{\cong \mathbb{Z}}, 3 \right) 
+        \ar[r] & \tau_{\le 3} S^2 \ar[d] \\
+        K\left( \underbrace{\pi_2 S^2}_{\mathbb{Z}},
+    2 \right) \ar[r] &
+    \tau_{\le 2 } S^2 \ar[d] \\
+    K\left( 0,1 \right) \ar[r] & \tau_{\le 1} S^2
+    \end{tikzcd}
+    \end{equation*}
+
+    So $\tau_{\le 3}S^2$ is a space with
+    $\pi_k \left( \tau_{\le 3}S^2 \right) 
+    \cong 
+    \begin{cases}
+        \mathbb{Z},& k=2,3\\
+        0,& \text{else}
+    \end{cases}$ 
+    by the LES of the homotopy fiber sequence
+    $K\left( \mathbb{Z},3 \right) \to 
+    \tau_{\le 3}S^2 \to 
+    \tau_{\le 2}S^2$.
+\end{example}
 
 
+\begin{definition}[Whitehead cover]
+    The \textit{$n$ th Whitehead cover} of $X$ is the
+    homotopy fiber $\tau_{>n}X$ in
+    \[
+    \tau_{>n}X \to X \to \tau_{\le n}X
+    \] 
+\end{definition}
+
+\begin{note}
+    Note that $\tau_{>n}X$ is the CW model
+    for $(X,*)$ (by its
+    LES) which we know is unique up to homotopy
+    equivalence.
+\end{note}
+
+\begin{example}[]
+    If $X$ is a connected CW complex with universal cover
+    $\tilde{X} \to X$, then
+    $\tilde{X} \simeq \tau_{>1} X$.
+\end{example}
+
+\begin{example}[]
+    The Hopf fibration
+    $S^{1} \to S^3 \to S^2$ is an isomorphism
+    on $\pi_{>2}$ by the LES, and 
+    $S^3$ is $2$-connected, so
+    $S^3 \cong \tau_{>2} S^2$.
+\end{example}
+
+\begin{remark}[]
+    Recall that for a connected $X$, its Whitehead tower is
+    \[
+    \ldots \to \tau_{>n+1}X \to 
+    \tau_{>n}X \to \ldots \to 
+    \tau_{>2} X \to \tau_{>1}X \to X.
+    \] 
+    In particular, by the LES
+    associated to the fibration
+    \[
+    \hofib \left( \tau_{>n} X \to 
+    \tau_{>n-1}X \right) \to 
+    \tau_{>n} X \to \tau_{>n-1}X
+    \] 
+    we find that
+    \[
+    \hofib \left( \tau_{>n}X \to 
+    \tau_{>n-1}X\right) = K\left( \pi_n(X),n-1 \right) 
+    \] 
+\end{remark}

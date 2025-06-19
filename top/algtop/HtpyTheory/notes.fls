@@ -384,6 +384,7 @@ INPUT ./Figures/DIWIOA.png
 INPUT ./Figures/DIWIOA.png
 INPUT ./Figures/DIWIOA.png
 INPUT ./Figures/DIWIOA.png
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm0500.tfm
 INPUT ./pset1.tex
 INPUT ./pset1.tex
 OUTPUT pset1.aux
@@ -396,7 +397,6 @@ OUTPUT Methods-of-Calculation.aux
 INPUT ./Methods-of-Calculation.tex
 INPUT ./Methods-of-Calculation.tex
 INPUT Methods-of-Calculation.tex
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm0500.tfm
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd

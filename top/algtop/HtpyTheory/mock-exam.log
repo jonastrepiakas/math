@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  19 JUN 2025 15:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  19 JUN 2025 18:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**spectral-sequences.tex
-(./spectral-sequences.tex
+**mock-exam.tex
+(./mock-exam.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
 (/usr/share/texlive/texmf-dist/tex/latex/amscls/amsart.cls
@@ -488,32 +488,32 @@ File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count310
 \l__pdf_internal_box=\box65
-) (./spectral-sequences.aux)
-\openout1 = `spectral-sequences.aux'.
+) (./mock-exam.aux)
+\openout1 = `mock-exam.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 158.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 156.
+LaTeX Font Info:    ... okay on input line 156.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 156.
+LaTeX Font Info:    ... okay on input line 156.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 156.
+LaTeX Font Info:    ... okay on input line 156.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 156.
+LaTeX Font Info:    ... okay on input line 156.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 156.
+LaTeX Font Info:    ... okay on input line 156.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 156.
+LaTeX Font Info:    ... okay on input line 156.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 156.
+LaTeX Font Info:    ... okay on input line 156.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 156.
+LaTeX Font Info:    ... okay on input line 156.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 156.
+LaTeX Font Info:    ... okay on input line 156.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 156.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 158.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 156.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -535,102 +535,62 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring ON on input line 158.
- (./spectral-sequences.out) (./spectral-sequences.out)
+Package hyperref Info: Link coloring ON on input line 156.
+ (./mock-exam.out) (./mock-exam.out)
 \@outlinefile=\write4
-\openout4 = `spectral-sequences.out'.
+\openout4 = `mock-exam.out'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 222--257
-
- []
-
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}] [2]
-Underfull \hbox (badness 10000) in paragraph at lines 487--494
-
- []
-
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 505--530
+Underfull \hbox (badness 10000) in paragraph at lines 239--249
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 568--587
+Underfull \hbox (badness 10000) in paragraph at lines 239--249
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 611--643
-
- []
-
-[4]
-Overfull \hbox (8.86229pt too wide) in paragraph at lines 648--650
-[]\T1/cmr/m/n/10 Assume first that $\OML/cmm/m/it/10 X$ \T1/cmr/m/n/10 is simply-connected. Consider
- []
-
-[5]
-Overfull \hbox (16.55869pt too wide) in paragraph at lines 775--782
-[]\T1/cmr/m/n/10 Under the isomorphisms $\OML/cmm/m/it/10 E[] [] H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 B\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 F\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 G\OT1/cmr/m/n/10 ))$ \T1/cmr/m/n/10 and $\OML/cmm/m/it/10 E[] [] H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 B[]\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 F[]\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 G\OT1/cmr/m/n/10 ))$\T1/cmr/m/n/10 ,
- []
-
-[6] [7]
-Overfull \hbox (19.678pt too wide) in paragraph at lines 940--941
-[][]\T1/cmr/bx/n/10 Definition 1.20 \T1/cmr/m/n/10 (Filtration, Associated Graded Complex)\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 A sequence of subcomplexes 
- []
-
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 1026--1032
+Underfull \hbox (badness 10000) in paragraph at lines 251--259
 
  []
 
 
-Overfull \hbox (9.3274pt too wide) in paragraph at lines 1125--1128
-[][]\T1/cmr/bx/n/10 Definition 3.4 \T1/cmr/m/n/10 (Homology spectral sequence)\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 A \T1/cmr/m/it/10 homology spectral sequence (starting
- []
-
-[9] [10]
-Underfull \hbox (badness 10000) in paragraph at lines 1249--1257
+Underfull \hbox (badness 10000) in paragraph at lines 251--259
 
  []
 
-[11] [12] [13]
-Underfull \hbox (badness 10000) in paragraph at lines 1639--1645
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
+Underfull \hbox (badness 10000) in paragraph at lines 283--310
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1654--1658
-
+Overfull \hbox (29.68365pt too wide) in paragraph at lines 349--353
+\T1/cmr/m/n/10 and use the cohomological Leray-Serre spectral sequence to compute $\OML/cmm/m/it/10 H[] []$\T1/cmr/m/n/10 . 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1654--1658
-
- []
-
-[14] (./spectral-sequences.aux)
+[2] (./mock-exam.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
-Package rerunfilecheck Info: File `spectral-sequences.out' has not changed.
-(rerunfilecheck)             Checksum: 7584837CE266C3007BA38D694B8C2E44;2810.
+Package rerunfilecheck Info: File `mock-exam.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 23461 strings out of 474222
- 439616 string characters out of 5748733
- 1954975 words of memory out of 5000000
- 45094 multiletter control sequences out of 15000+600000
- 568064 words of font info for 63 fonts, out of 8000000 for 9000
+ 22989 strings out of 474222
+ 429215 string characters out of 5748733
+ 1953975 words of memory out of 5000000
+ 44703 multiletter control sequences out of 15000+600000
+ 567391 words of font info for 62 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 98i,15n,107p,607b,1134s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on spectral-sequences.pdf (14 pages, 303937 bytes).
+ 98i,21n,107p,598b,1048s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb>
+Output written on mock-exam.pdf (2 pages, 149467 bytes).
 PDF statistics:
- 327 PDF objects out of 1000 (max. 8388607)
- 270 compressed objects within 3 object streams
- 99 named destinations out of 1000 (max. 500000)
- 141 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 106 PDF objects out of 1000 (max. 8388607)
+ 75 compressed objects within 1 object stream
+ 19 named destinations out of 1000 (max. 500000)
+ 13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
