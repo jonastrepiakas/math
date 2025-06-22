@@ -358,6 +358,263 @@ H_{n} \left( \Omega \left( S^3 \vee S^3 \right)  \right)
         \end{enumerate}
     \end{problem}
 
+    \begin{solution}
+        (1) Since $\mathbb{R}\mathbb{P}^{1}$ is a subcomplex
+        of $\mathbb{R}\mathbb{P}^{\infty}$, we can use the LES
+        associated to this pair.
+        In homotopy groups, we get
+        \[
+            \underbrace{
+            \pi_1\left( \mathbb{R}\mathbb{P}^{1} \right)}_{
+        \cong 0} \to 
+        \underbrace{\pi_1\left( \mathbb{R}\mathbb{P}^{\infty} \right)
+        }_{\cong 0}
+        \to \pi_1 \left( \mathbb{R}\mathbb{P}^{\infty},
+        \mathbb{R}\mathbb{P}^{1}\right) \to 
+        \underbrace{\pi_0 \left( 
+        \mathbb{R}\mathbb{P}^{1}\right)}_{\cong 0}
+        \] 
+        hence we find
+        $0 \cong \pi_1 \left( \mathbb{R}\mathbb{P}^{\infty},
+        \mathbb{R}\mathbb{P}^{1}\right) 
+        \cong \pi_1 \left( 
+        \mathbb{R}\mathbb{P}^{\infty} / 
+    \mathbb{R}\mathbb{P}^{1}\right) $.
+    Next, we again get
+    $H^{n}\left( \mathbb{R}\mathbb{P}^{\infty},
+    \mathbb{R}\mathbb{P}^{1}\right) 
+    \cong H^{n}(\mathbb{R}\mathbb{P}^{\infty}/
+    \mathbb{R}\mathbb{P}^{1})$.
+
+    Recall that
+    \[
+    H^{*}\left( \mathbb{R}\mathbb{P}^{\infty} \right) 
+    \cong \mathbb{Z} \left[ \alpha \right] / (2\alpha)
+    \] 
+    where $\left| \alpha \right| = 2$, and
+    \[
+    H^{n}(\mathbb{R}\mathbb{P}^{1})
+    \cong 
+    \begin{cases}
+        \mathbb{Z},& n=0,1\\
+        0,& \text{else}
+    \end{cases}
+    \] 
+
+    Now, $X = \mathbb{R}\mathbb{P}^{\infty} / \mathbb{R}\mathbb{P}^{1}$ 
+    has the cell structure of $\mathbb{R}\mathbb{P}^{\infty}$ 
+    with one cell in each dimension, but with the $1$-cell collapsed,
+    so the singular chain complex becomes
+    \[
+        \ldots \to \mathbb{Z} \stackrel{2}{\to} 
+        \mathbb{Z} \stackrel{0}{\to} \mathbb{Z}
+        \stackrel{2}{\to} \stackrel{0}{\to} \ldots
+        \stackrel{2}{\to} \mathbb{Z}
+        \stackrel{0}{\to} \mathbb{Z} 
+        \to 0 \to \mathbb{Z}
+    \] 
+    where the rightmost $\mathbb{Z}$ is in degree
+    $0$.
+    Dualizing, we get that, since
+    $\Hom \left( \mathbb{Z},\mathbb{Z} \right) 
+    \cong \mathbb{Z}$, and a map
+    $f \colon \mathbb{Z} \to \mathbb{Z}$ induces the
+    map $f^{*} \colon \mathbb{Z} \to \mathbb{Z}$, we obtain
+    \[
+    \mathbb{Z} \to 0 \to \mathbb{Z} \stackrel{0}{\to} 
+    \mathbb{Z} \stackrel{2}{\to} \mathbb{Z}
+    \stackrel{0}{\to} \mathbb{Z}
+    \stackrel{0}{\to} \mathbb{Z} \stackrel{2}{\to} \ldots
+    \] 
+    so
+    \[
+    H^{n}\left( X;\mathbb{Z} \right) 
+    \cong
+    \begin{cases}
+        \mathbb{Z},& n=0,2\\
+        \mathbb{Z}/2,& n>2 \text{ even}\\
+        0,& \text{else}
+    \end{cases}
+    \] 
+    The quotient map
+    $\varphi \colon \mathbb{R}\mathbb{P}^{\infty}
+    \to X$ induces a map
+    $\varphi^{*} \colon
+    H^{*}(X;\mathbb{Z}) \to 
+    H^{*}\left( \mathbb{R}\mathbb{P}^{\infty};
+    \mathbb{Z}\right) 
+    \cong \mathbb{Z}\left[ \alpha \right] 
+    / \left( 2 \alpha \right) $ which is an isomorphism in degrees
+    $\neq 2$ as it is the identity outside this degree.
+    In degree $2$, we want to show that
+    it maps the generator $1$ for
+    $\mathbb{Z} = H^2 \left( X ; \mathbb{Z} \right) $ 
+    to a generator
+    $a \in H^2 \left( \mathbb{R}\mathbb{P}^\infty
+    ; \mathbb{Z}\right) \cong
+    \mathbb{Z} / 2$. But the map
+    $H^{*}(X; \mathbb{Z}) \to 
+    H^{*}\left( \mathbb{R}\mathbb{P}^{\infty};
+    \mathbb{Z}\right) $ is the induces
+    map from the LES of the pair
+    $\left( \mathbb{R}\mathbb{P}^{\infty},
+    \mathbb{R}\mathbb{P}^{1} \right) $.
+    Note that
+    \[
+    H^{*}\left( \mathbb{R}\mathbb{P}^{1};\mathbb{Z} \right) 
+    \cong
+    \mathbb{Z}\left[ y \right] /
+    \left( y^2 \right) 
+    \] 
+    with $\left| y \right| =1$.
+    Thus
+    \[
+    0 \to \underbrace{
+    H^1 \left( \mathbb{R}\mathbb{P}^{1};\mathbb{Z} \right)}_{\cong
+\mathbb{Z} y}
+    \to H^2 (X;\mathbb{Z}) 
+    \to H^2 (\mathbb{R}\mathbb{P}^{\infty};\mathbb{Z})
+    \to \underbrace{H^2 \left( \mathbb{R}\mathbb{P}^{1} \right)}_{
+    \cong 0}
+    \] 
+    is exact, so
+    so $\varphi^{*}$ maps
+    the image of $y$ to $0$.
+    So we obtain
+    \[
+    H^2 (X;\mathbb{Z}) 
+    \] 
+
+    On chain complexes, we have
+    \begin{equation*}
+    \begin{tikzcd}
+        \mathbb{Z} \ar[r] \ar[d, "\varphi^{*} = \id"]
+        & 0 \ar[r] \ar[d, "\varphi^{*} = 0"] & \mathbb{Z} \ar[r, "0"]
+        \ar[d, "\varphi^{*} = \id"] &
+        \mathbb{Z} \ar[r, "2"] \ar[d, "\varphi^{*} = \id"]
+                              & \mathbb{Z}\ar[r, "0"] 
+        \ar[d, "\varphi^{*} = \id"]&
+        \cdots \\
+        \mathbb{Z} \ar[r, "0"] & \mathbb{Z} \ar[r, "2"] &
+        \mathbb{Z} \ar[r, "0"] & \mathbb{Z} \ar[r, "2"] &
+        \mathbb{Z} \ar[r, "0"] & \cdots
+    \end{tikzcd}
+    \end{equation*}
+    Thus in cohomology, the map in degree $2$ becomes
+    the map
+    $\mathbb{Z} \stackrel{1 \mapsto 1}{\to} 
+    \mathbb{Z} / 2$.
+    So letting $x$ be a generator for
+    $H^2 (X; \mathbb{Z})$, we get
+    $\varphi^{*}(x) = a \in 
+    \mathbb{Z} \left[ a \right] / (2a)$.
+    Hence
+    $\varphi^{*}(x^{n}) = a^{n}$ which is a generator
+    of $H^{2n}\left( \mathbb{R}\mathbb{P}^{\infty};
+    \mathbb{Z}\right) $, so we
+    find that
+    \[
+    H^{*}(X;\mathbb{Z}) \cong
+    \mathbb{Z} \left[ x \right] / \left( 2x^2 \right) 
+    \] 
+
+    
+    (2) In general, we have a homotopy fiber sequence
+
+    \[
+    K\left( \pi_2(X), 1 \right) \to 
+    \tau_{>2}X \to \tau_{>1}X \cong X.
+    \] 
+    Now, $H_1(X)\cong ab (\pi_1(X)) \cong 0$ by construction,
+    and so
+    \[
+        0 \to \underbrace{\Ext (H_1(X),\mathbb{Z})}_{\cong 0} \to 
+    \mathbb{Z} \to 
+    \Hom \left( H_2 (X),\mathbb{Z} \right) \to 0
+    \] 
+    and since $\Ext \left( H_2 (X) ,\mathbb{Z} \right) 
+    \cong 0$, $H_2(X)$ has no torsion,
+    so $H_2(X) \cong \mathbb{Z}$ which is the first
+    nontrivial homology group, so
+    $\pi_2 (X) \cong H_2(X) \cong \mathbb{Z}$.
+    Thus $K\left( \pi_2(X),1 \right) 
+    = K\left( \mathbb{Z},1 \right) \cong
+    S^{1}$.\\
+    The cohomological Leray-Serre spectral sequence
+    now gives
+    
+    \[\begin{tikzcd}
+	\vdots \\
+	{\mathbb{Z}a} && {\mathbb{Z}ax} && {\mathbb{Z}/2ax^2} && {\mathbb{Z}/2ax^3} \\
+	{\mathbb{Z}} && {\mathbb{Z}x} && {\mathbb{Z}/2x^2} && {\mathbb{Z}/2x^3} \\
+	&& 2 && 4 && 6
+	\arrow[no head, from=2-1, to=1-1]
+	\arrow[from=2-1, to=3-3]
+	\arrow[from=2-3, to=3-5]
+	\arrow[from=2-5, to=3-7]
+	\arrow[no head, from=3-1, to=2-1]
+	\arrow[no head, from=3-1, to=3-3]
+	\arrow[no head, from=3-3, to=3-5]
+	\arrow[no head, from=3-5, to=3-7]
+\end{tikzcd}\]
+   Now, the homotopy group of
+   $\tau_{>2}X$ is trivial in dimension $1$ and $2$, so
+   the map
+   $\mathbb{Z}a \to \mathbb{Z} x$ must be an isomorphism.
+   Furthermore, we may assume it maps
+   $a$ to $x$ by a change of sign.
+   Now we get
+   $d\left( ax \right) =
+   d(a)x + a d(x) = x^2$. Hence the map
+   $\mathbb{Z} ax \to \mathbb{Z}/2 x^2$ is a surjection, so
+   the kernel is $2\mathbb{Z} \cong
+   \mathbb{Z}$. Likewise,
+   $d\left( ax^{k} \right) 
+   = x^{k+1} + a d(x^{k})$ and
+   $d(x^{k}) = x d(x^{k-1}) = \ldots
+   = x^{k-1} d(x) = 0$, so
+   $d(ax^{k}) = x^{k+1}$. Hence all the maps are surjective, and
+   in the cases where we have maps
+   $\mathbb{Z}/2 \to \mathbb{Z}/2$, it is therefore an isomorphism.
+   Thus,
+   \[
+   H^{k}(\tau_{>2}X) \cong
+   \begin{cases}
+       \mathbb{Z},& k=0,3\\
+       0,& \text{else}
+   \end{cases}
+   \] 
+
+   (3) By UCT,
+   \[
+   H_k \left( \tau_{>2}X \right) \cong
+   \begin{cases}
+       \mathbb{Z},& k=0,3\\
+       0,& \text{else}
+   \end{cases}
+   \] 
+   so by uniqueness of Moore spaces,
+   $\tau_{>2}X \simeq S^3$.\\
+   \linebreak
+   (4) No, a finite CW complex can only have finitely
+   many nonzero cohomology groups, while
+   $X$ has infinitely many.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    \end{solution}
+
 
 
 

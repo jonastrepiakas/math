@@ -2354,6 +2354,6 @@ Recall the Postnikov tower
     we find that
     \[
     \hofib \left( \tau_{>n}X \to 
-    \tau_{>n-1}X\right) = K\left( \pi_n(X),n-1 \right) 
+    \tau_{>n-1}X\right) = K\left( \pi_n(X),n-1 \right) .
     \] 
 \end{remark}

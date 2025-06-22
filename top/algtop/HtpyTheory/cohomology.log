@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  26 MAY 2025 02:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  21 JUN 2025 17:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -610,7 +610,7 @@ Overfull \hbox (19.79596pt too wide) in paragraph at lines 696--701
 [][]\T1/cmr/m/n/10 Directly from the definitions, compute the simplicial cohomology
  []
 
-<Figures/Delta-for-T.png, id=79, 279.0425pt x 276.03125pt>
+<Figures/Delta-for-T.png, id=103, 279.0425pt x 276.03125pt>
 File: Figures/Delta-for-T.png Graphic file (type png)
 <use Figures/Delta-for-T.png>
 Package pdftex.def Info: Figures/Delta-for-T.png  used on input line 715.
@@ -635,7 +635,7 @@ Overfull \hbox (7.41635pt too wide) in paragraph at lines 812--829
 \U/msb/m/n/10 Z[]$\T1/cmr/m/n/10 . The kernel in degree $\OT1/cmr/m/n/10 1$ \T1/cmr/m/n/10 also now becomes $[] [] \U/msb/m/n/10 Z[]$\T1/cmr/m/n/10 , so $\OML/cmm/m/it/10 H[] [] []
  []
 
-<Figures/Delta-RP2-Klein.png, id=95, 646.415pt x 230.8625pt>
+<Figures/Delta-RP2-Klein.png, id=119, 646.415pt x 230.8625pt>
 File: Figures/Delta-RP2-Klein.png Graphic file (type png)
 <use Figures/Delta-RP2-Klein.png>
 Package pdftex.def Info: Figures/Delta-RP2-Klein.png  used on input line 840.
@@ -674,7 +674,21 @@ Overfull \hbox (25.07445pt too wide) in paragraph at lines 1334--1357
 \OML/cmm/m/it/10 h [] \OT1/cmr/m/n/10 = []$ \T1/cmr/m/n/10 which likewise belongs to $\OML/cmm/m/it/10 E$\T1/cmr/m/n/10 , so $\OML/cmm/m/it/10 h [] \OMS/cmsy/m/n/10 ^^Z
  []
 
-[9] [10] (./cohomology.aux)
+[9] [10]
+Overfull \hbox (6.9783pt too wide) in paragraph at lines 1544--1548
+ \T1/cmr/m/n/10 3.2.\T1/cmr/bx/n/10 Wedge product/exterior product.[][] \T1/cmr/m/n/10 Let us define first a bilinear map $\OML/cmm/m/it/10 A[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 V\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^B
+ []
+
+[11]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 1682.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+)
+Underfull \hbox (badness 10000) in paragraph at lines 1721--1726
+
+ []
+
+[12] [13] [14] (./cohomology.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -684,21 +698,21 @@ L3 programming layer <2024-01-22>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `cohomology.out' has not changed.
-(rerunfilecheck)             Checksum: 011D36F7EB136B1AAA29D60618291DA9;1134.
+(rerunfilecheck)             Checksum: 6153B5FB42A7C3EAEEF5BCA22396B5B7;2267.
  ) 
 Here is how much of TeX's memory you used:
- 23491 strings out of 474222
- 441488 string characters out of 5748733
+ 23549 strings out of 474222
+ 442291 string characters out of 5748733
  1961975 words of memory out of 5000000
- 45164 multiletter control sequences out of 15000+600000
- 568064 words of font info for 63 fonts, out of 8000000 for 9000
+ 45183 multiletter control sequences out of 15000+600000
+ 568772 words of font info for 66 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  98i,15n,107p,599b,1036s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on cohomology.pdf (10 pages, 313748 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb>
+Output written on cohomology.pdf (14 pages, 345873 bytes).
 PDF statistics:
- 236 PDF objects out of 1000 (max. 8388607)
- 180 compressed objects within 2 object streams
- 59 named destinations out of 1000 (max. 500000)
- 63 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 315 PDF objects out of 1000 (max. 8388607)
+ 252 compressed objects within 3 object streams
+ 92 named destinations out of 1000 (max. 500000)
+ 111 words of extra memory for PDF output out of 10000 (max. 10000000)
 

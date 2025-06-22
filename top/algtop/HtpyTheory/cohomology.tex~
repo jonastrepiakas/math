@@ -1453,13 +1453,414 @@ B \ar[d, equal] \\
 
 
 
+     \section{Cohomology in terms of geometry}
+
+     \subsection{Terminology}
 
 
+     Recall the following definitions:
+
+     \begin{definition}[$k$-forms]
+         Let
+         \[
+         L^{k}(V) := 
+         \left\{ \text{multilinear forms }
+         \underbrace{V \times \ldots \times V}_{k \text{ times}}
+     \to F \right\} 
+         \] 
+         which equals $\Bil (V)$ when $k = 2$.
+         The elements of $L^{k}(V)$ are called
+         \textit{$k$-forms}.
+     \end{definition}
+
+     \begin{definition}[Alternating $k$-forms]
+         A $k$-form $w \in L^{k}(V)$ is called
+         \textit{alternating} if $w\left( v_1,\ldots,
+         v_k\right) = 0$ for every $k$-tuple of vectors
+         with two vectors equal.
+         The vector space of alternating $k$-forms
+         is denoted
+         $A^{k}(V)$.
+     \end{definition}
+
+     \begin{definition}[]
+         We define an action
+         of $S_k$ on $L^{k}(V)$ as follows.
+         For $\sigma \in S_k$ and $w \in L^{k}(V)$, define
+         $\sigma \cdot w \in L^{k}(V)$ by
+         \[
+         \sigma \cdot w\left( v_1, \ldots, v_k \right) 
+         = 
+         w \left( v_{\sigma (1)},\ldots,
+         v_{\sigma (k)}\right) .
+         \] 
+     \end{definition}
+
+     \begin{definition}[Skew forms]
+         $w \in L^{k}(V)$ is called
+         \textit{skew} if $\sigma \cdot w = 
+         \sgn (\sigma) w$ for all
+         $\sigma \in S_k$.
+     \end{definition}
+
+     \begin{lemma}[]
+         Every alternating $k$-form is skew, and
+         if $\Char F \neq 2$, then every skew
+         $k$-form is alternating.
+     \end{lemma}
+
+     \begin{definition}[]
+         The determinant $\det (A)$ of $A$ is
+         the scalar that satisfies
+         \[
+         w \left( A v_1, \ldots, Av_n \right) 
+         = \det \left( A \right) 
+         w \left( v_1, \ldots, v_n \right) 
+         \] 
+         for all $w \in A^{n}(V)$ and all $v_1,\ldots, v_n$.
+     \end{definition}
+
+     \begin{definition}[]
+         Let $I \subset \left\{ 1,\ldots, n \right\} $ with
+         elements $1 \le i_1 < \ldots < i_k \le n$.
+         We define $k$-forms $y_I = 
+         y_{i_1} \cdots y_{i_k}$ and
+         $\widehat{y_I} = 
+         \Sigma_{\sigma \in S_k} \sgn (\sigma)
+         \sigma \cdot y_I$ in $L^{k}(V)$.
+     \end{definition}
+
+     \begin{theorem}[]
+         Let $0 \le k \le n$. The dimension
+         of $A^{k}(V)$ is 
+         $\begin{pmatrix} n\\k \end{pmatrix} $ and the
+         set of all $\widehat{y_I}$, where
+         $I \subset \left\{ 1, \ldots, n \right\} $ has
+         $k$ elements, is a basis.
+     \end{theorem}
+
+     \subsection{Wedge product/exterior product}
+
+     Let us define first a bilinear map
+      $A^{k}(V) \times A^{l}(V) \to A^{k+l}(V)$
+      for all integers $k,l\ge 0$.
+      Let $m = k+l$.
+
+      Consider the product $S_k \times S_l$ as a
+      subgroup of $S_m$ by letting
+      $\left( \sigma, \tau \right) \in 
+      S_k \times S_l$ act
+      on $\left\{ 1, \ldots, m \right\} $ through the
+      permutation $\pi$ given by
+      \[
+      \pi(i) = \sigma(i), \,
+      \pi(k+j) = k + \tau(j), \quad
+      1 \le i \le k, 1 \le j \le l,
+      \] 
+      which leaves invariant the two sets
+      $\left\{ 1,\ldots, k \right\} $ and
+      $\left\{ k+1,\ldots,m \right\} $.
+      Denote by $\left[ \pi \right] $ the coset
+      in $S_m / \left( S_k \times S_l \right) $ corresponding
+      to a permutation $\pi \in S_m$.
+
+      \begin{lemma}[]
+          Let $w_1 \in L^{k}(V)$ and
+          $w_2 \in L^{l}(V)$. Then
+          \[
+          V^{m} \ni \left( v_1, \ldots,
+          v_m\right) \mapsto 
+          w_1 \left( v_1,\ldots, v_k \right) 
+          w_2 \left( v_{k+1},\ldots, v_m \right) \in F
+          \] 
+          defines an $m$-form $w_1 \cdot  w_2 \in 
+          L^{m}(V)$. If $w_1 \in A^{k}(V)$ and
+          $w_2 \in A^{l}(V)$, then
+          \[
+          w_1 \wedge w_2 = 
+          \Sigma_{\left[ \pi \right] \in 
+          S_m / \left( S_k \times S_l \right) }
+          \sgn (\pi) \pi \cdot \left( w_1 \cdot w_2 \right) 
+          \] 
+          defines an alternating $m$-form
+          $w_1 \wedge w_2 \in A^{m}(V)$.
+      \end{lemma}
+
+      \begin{definition}[Wedge product/exterior product]
+          The alternating $m$-form
+          $w_1 \wedge w_2$ is called the
+          \textit{wedge product} of $w_1 $ and $w_2$.
+          By linear extension, it gives a binary operation
+          on
+          \[
+          A(V) := \bigoplus_{k=1}^{\infty}
+          A^{k}(V) = \bigoplus_{k=1}^{n} A^{k}(V)
+          \] 
+          which becomes an algebra, called the
+          \textit{alternating algebra} of $V$.
+      \end{definition}
+
+      The operation is associative.
+
+      \begin{lemma}[]
+          If $w \in A^{p}(V)$ and
+          $\eta \in A^{q}(V)$, then
+          \[
+          w \wedge \eta = (-1)^{pq} \eta \wedge w.
+          \] 
+          So the wedge product makes
+          $A(V)$ into a graded anticommutative ring.
+      \end{lemma}
+
+      \subsection{The cotagent space}
+
+      Let $M$ be an $m$-dimensional smooth manifold, and let
+      $p \in M$.
+
+      \begin{definition}[]
+          The dual space $(T_pM)^{*}$ of
+          $T_p M$ is denoted $T_p^{*}M$ and called
+          the \textit{cotangent space} of $M$ at $p$. Its
+          elements are called cotangent vectors
+          or covectors.
+      \end{definition}
+
+      \begin{example}[]
+          For $f \in C^{\infty}(M)$,
+          $df_p \in T_p^{*}M = 
+          \Hom \left( T_p M, \mathbb{R} \right) $.
+
+          Hence, in particular for $f$ the coordinate
+          maps, we get that
+          $dx_i(p) = d(x_i)_p \in 
+          T_p^{*}M$ for all $p$ in the domain of the
+          chart for $(x_i) $.
+      \end{example}
+
+      \begin{lemma}[]
+          For $\left( U, (x^{i}) \right) $ a chart
+          on $M$, let $p \in U$. Then
+          the dual basis of
+          $\left (\frac{\partial}{\partial x^{i}}|_p \right)$ is
+          $\left( dx_i(p) \right)$.
+      \end{lemma}
+
+      \begin{proof}
+          \[
+          dx_i(p) \left( \frac{\partial}{\partial x^{j}}|_p \right) 
+          = \frac{\partial x^{i}}{\partial x^{j}}(\widehat{p}) 
+          \frac{d}{dt}|_{x_i(p)} =
+          \delta_{i,j} \frac{d}{dt}|_{x_i(p)}
+          \] 
+          where we used that
+          \[
+          df_p\left( \frac{\partial}{\partial x^{i}}|_{p} \right) 
+          = \frac{\partial \widehat{f}^{j}}{\partial x^{i}}
+          (\widehat{p}) \frac{\partial}{\partial y^{j}}|_{f(p)}
+          \tag{Lee (3.10)}
+          \] 
+      \end{proof}
+      
+      \subsection{Covector fields}
+
+      \begin{definition}[Covector field]
+          A \textit{covector field} $\xi$ on
+          $M$ is an assignment of covectors
+          \[
+          \xi(p) \in T_p^{*}(M)
+          \] 
+          to each $p \in M$. It is called
+          \textit{smooth} if, for each chart
+          $\sigma \colon U \to M$ in a given atlas
+          of $M$, there exist smooth functions
+          $a_1, \ldots, a_m \in C^{\infty}(\sigma(U))$ such that
+          \[
+          \xi (p) = \sum_i a_i(p) dx_i(p)
+          \] 
+          for all $p \in \sigma(U)$. The space of
+          smooth covector fields is denoted
+          $\mathfrak{X}^{*}(M)$.
+      \end{definition}
+
+      \begin{note}
+          Note that a covector $\xi(p)$ can be applied to
+          the tangent vectors in $T_pM$, so
+          if $U \subset M$ is open, for example, and
+          $Y$ is a vector field on $U$, then
+          we can define
+          $\xi (Y) \colon U \to \mathbb{R}$ by
+          \[
+          \xi(Y) (p) = \xi(p) \left( Y(p) \right) .
+          \] 
+      \end{note}
+
+      \begin{lemma}[]
+          Let $\xi$ be a covector field on $M$. Then
+          $\xi$ is smooth if and only if
+          for each open set $U \subset M$ and each smooth
+          vector field $Y \in \mathfrak{X}(U)$, the
+          function $\xi (Y)$ belongs to $C^{\infty}(U)$.
+      \end{lemma}
+
+      \begin{proof}
+          Suppose
+          $\xi$ is smooth. Let $U$ be open and
+          $(x^{i})$ a chart. For each
+          $Y \in \mathfrak{X}(U)$, we write
+          $Y(p) = \Sigma b_j(p) \frac{\partial}{\partial x^{i}}|_{p}$,
+          where the $b_j(p)$ are smooth as functions
+          of $p$ by assumption on $Y$ being smooth.
+          Now
+          \[
+          \xi(Y) (p) = 
+          \xi(p) \left( Y(p) \right) 
+          = \Sigma_i a_i(p) dx_i(p)
+          \left( \Sigma_j b_j(p) \frac{\partial}{\partial x^{i}}
+          |_{p} \right) =
+          \Sigma_i a_i (p) b_i(p)
+          \] 
+          since
+          $dx_i(p) \left( \frac{\partial }{\partial x^{j}}
+          |_{p}\right) = \delta_{i,j}$. Thus
+          $\xi(Y)$ is smooth.\\
+
+          Conversely, suppose $\xi(Y)$ is smooth. Let
+          $Y = \frac{\partial}{\partial x^{i}}$, and
+          $a_i(p) = \xi(p) \left( 
+          \frac{\partial}{\partial x^{i}}|_p \right) $.
+
+          Then $\xi(Y) =
+          \xi (p) \left( Y(p) \right) 
+          = \xi(p) \left( \frac{\partial}{\partial x^{i}}|_p
+          \right) =
+          a_i(p)$ is smooth by assumption.
+          Now, since
+          $\left( dx_i(p) \right) $ is the dual basis
+          to $\left( \frac{\partial}{\partial x^{i}}|_p \right) $,
+          we get that because
+          $\xi(p) \left( \frac{\partial }{\partial x^{i}}|_p
+          \right) = a_i(p)$, we can thus write
+          \[
+          \xi(p) = \sum_{i} a_i(p) dx_i(p).
+          \] 
+          Hence $\xi$ is a smooth covector field as
+          $a_i$ is smooth.
+      \end{proof}
+
+      \begin{note}
+          If $\xi$ is a smooth covector field on
+          $M$ and $\varphi  \in C^{\infty}(M)$, then
+          $\varphi \xi$ is again a smooth covector field on
+          $M$ defined by
+          $\left( \varphi \xi \right) (p) = 
+          \varphi (p) \xi(p)$.
+      \end{note}
+
+      \begin{lemma}[]
+          If $f \in C^{\infty}(M)$, then
+          $df$ is a smooth covector field on $M$.
+          For each chart $\sigma $ on $M$, the expression
+          for $df$ by means of the coordinate basis is
+          \[
+          df = \sum_{i=1}^{m} \frac{\partial (f \circ
+          \sigma)}{\partial u_i} dx_i \tag{A}\label{SMDOAW}
+          \] 
+          The differentials satisfy the rule
+          $d(fg) = g df + f dg$ for all
+          $f,g \in C^{\infty}(M)$.
+      \end{lemma}
+
+      \begin{proof}
+          Smoothness and the rule for 
+          $d(fg)$ follow from
+          \eqref{SMDOAW}.
+          To show \eqref{SMDOAW}, we apply 
+          $df$ at an arbitrary point $p$ in
+          a chart on $M$ first to
+          obtain a covector and then apply this covector
+          to the standard covector basis.
+          So suppose $\left( U, (x^{i}) \right) $ is a 
+          chart and $p \in U$.
+          Then
+          \[
+          df_p \left( \frac{\partial}{\partial x^{i}}|_p \right) 
+          = \frac{\partial \widehat{f}}{\partial x^{i}}(p)
+          \frac{d}{dt}|_{\widehat{p}_i}.
+          \] 
+          So writing
+          $df_p$ in terms of
+          $dx_i(p)$, we get
+          \[
+          df_p = \sum_{i=1}^{m} 
+          \frac{\partial \widehat{f}}{\partial x^{i}}(p)
+          dx_i(p)
+          \] 
+      \end{proof}
+
+      \begin{example}[]
+          Let $M = \mathbb{R}^2$ with coordinates
+          $(x_1, x_2)$ and $f \in C^{\infty}(\mathbb{R}^2)$.
+          Then
+          \[
+          df = \frac{\partial f}{\partial x_1} dx_1 +
+          \frac{\partial f}{\partial x_2} dx_2.
+          \] 
+      \end{example}
+
+      \begin{definition}[Exact covector field]
+          A smooth covector field 
+          $\xi = a_1 dx_1 + a_2 x_2$ with
+          $a_1,a_2 \in C^{\infty}(\mathbb{R}^2)$ is said
+          to be \textit{exact} if it has the form
+          $df$ for some function $f$.
+      \end{definition}
+
+
+
+      \subsection{Differential Forms}
+
+      \begin{definition}[$k$-form]
+          A $k$-form
+          $w$ on $M$ is an assignment of an element
+          \[
+          w(p) \in A^{k}(T_pM)
+          \] 
+          for each $p \in M$.
+      \end{definition}
+
+      \begin{note}
+          Given a chart $\left( U, (x^{i}) \right) $ on
+          $M$, the elements
+          $dx_{i_1} \wedge \ldots \wedge
+          dx_{i_k}$ where $1 \le i_1 < \ldots <
+          i_k \le m$ are $k$-forms on the open
+          subset $\sigma (U)$ of $M$.
+          For each $p \in U$, a basis for
+          $A^{k}\left( T_pM \right) $ is obtained
+          from these elements, so every
+          $k$-form $w$ on $M$ has a unique expression
+          on $U$ given by
+          \[
+          w = 
+          \sum_{I = \left\{ i_1,\ldots,i_k \right\} }
+          a_I dx_{i_1} \wedge \ldots \wedge dx_{i_k}
+          \] 
+          where $a_I \colon U \to \mathbb{R}$.
+      \end{note}
+
+      \begin{definition}[Smooth/differential $k$-form]
+          We call $w$ \textit{smooth} or 
+          \textit{differential} if all the
+          functions $a_I$ are smooth, for each
+          chart $\sigma$ in an atlas of $M$. A
+      \end{definition}
 
 
 
 
 
     %\printbibliography
+
+
 
 \end{document}
