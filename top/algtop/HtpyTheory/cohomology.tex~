@@ -1473,6 +1473,16 @@ B \ar[d, equal] \\
          \textit{$k$-forms}.
      \end{definition}
 
+     \begin{note}
+         We define a $0$-form
+         on $V$ to simply be a linear map
+         $F \to F$. Given such a linear map
+         $f$, we can thus just
+         identify $f$ with
+         $f(1)$, so
+         $L^{0}(V) = F$.
+     \end{note}
+
      \begin{definition}[Alternating $k$-forms]
          A $k$-form $w \in L^{k}(V)$ is called
          \textit{alternating} if $w\left( v_1,\ldots,
@@ -1482,6 +1492,10 @@ B \ar[d, equal] \\
          is denoted
          $A^{k}(V)$.
      \end{definition}
+
+     \begin{note}
+         Again $A^{0}(V) = F$.
+     \end{note}
 
      \begin{definition}[]
          We define an action
@@ -1683,6 +1697,11 @@ B \ar[d, equal] \\
       \end{definition}
 
       \begin{note}
+          The space of smooth \textit{vector} fields
+          on $M$ is denoted $\mathfrak{X}(M)$.
+      \end{note}
+
+      \begin{note}
           Note that a covector $\xi(p)$ can be applied to
           the tangent vectors in $T_pM$, so
           if $U \subset M$ is open, for example, and
@@ -1852,8 +1871,354 @@ B \ar[d, equal] \\
           We call $w$ \textit{smooth} or 
           \textit{differential} if all the
           functions $a_I$ are smooth, for each
-          chart $\sigma$ in an atlas of $M$. A
+          chart $\sigma$ in an atlas of $M$. The
+          space of differential $k$-forms on $M$ is denoted
+          $A^{k}(M)$.
       \end{definition}
+
+      Note that
+      since $A^{0}\left( T_pM \right) = \mathbb{R}$, we
+      get simply that
+      $A^{0}(M) = C^{\infty}(M)$.
+      Likewise,
+      $A^{1}(M) =
+      \mathfrak{X}^{*}(M)$.\\
+      \linebreak
+      
+      \begin{lemma}[]
+          A $k$-form $w$ is smooth if
+          and only if
+          $w \left( X_1, \ldots, X_k \right) \in 
+          C^{\infty}(\Omega)$ for all open sets
+          $\Omega$ and all $X_1, \ldots, X_k \in 
+          \mathfrak{X}(\Omega)$.
+      \end{lemma}
+
+      \begin{lemma}[]
+          Let $w$ be a $k$-form on $M$ and
+          $\varphi $ a real function on $M$, and
+          define the product $\varphi w$ pointwise
+          by
+          \[
+          \varphi w (p) = \varphi (p) w(p).
+          \] 
+          Then $\varphi w$ is a smooth $k$-form if
+          $\varphi $ and $w$ are smooth.
+
+          Let $\theta$ be an $l$-form on $M$, and define
+          the wedge product $\theta \wedge w$ pointwise
+          by 
+          \[
+              \left( \theta \wedge w \right) (p)
+              = \theta (p) \wedge w(p)
+          \] 
+          for each $p$. Then $\theta \wedge w$ is a smooth
+          $k+l$-form if $w$ and $\theta$ are smooth.
+      \end{lemma}
+
+      \begin{proof}
+          The first part is easy.
+          Now, the wedge product of basis elements
+          of the vector space of alternating $k$-forms and
+          $l$-forms
+          is again a basis of
+          the vector space of alternating
+          $(k+l)$-forms.
+      \end{proof}
+
+      \subsection{Pull back}
+
+      \begin{definition}[Pull back of $k$-form]
+          Let $f \colon M \to N$ be a smooth map of
+          manifolds, and let
+          $w \in A^{k}(N)$. We define
+          $f^{*}(w) \in A^{k}(M)$, called the
+          \textit{pull back} of $w$, by
+          \[
+          f^{*}w(p) (v_1,\ldots,v_k) = 
+          w \left( f(p) \right) \left( 
+          df_p (v_1), \ldots, df_p(v_k)\right) 
+          \] 
+          for all $v_1,\ldots, v_k \in T_pM$ and
+          $p \in M$.
+      \end{definition}
+
+      Clearly, the operator
+      $f^{*}w(p)$ is multiplinear and alternating
+      for each $p$, so
+      $f^{*}w(p) \in A^{k}(T_pM)$.
+
+      \begin{question}
+          Is $f^{*}w$ smooth?
+      \end{question}
+
+      To answer this, note first that
+      $f^{*}w$ depends linearly on $w$, and
+      now let
+      \[
+      w = \sum_{I = \left\{ i_1,\ldots, i_k \right\} }
+      a_I dy_{i_1} \wedge \ldots \wedge
+      dy_{i_k}
+      \] 
+      be the expression for $w$ by means of the coordinates
+      of a chart $\tau \colon N \to V$.
+    
+      \begin{lemma}[]\label{Lemma:SJID001}
+          With the notation above,
+          \[
+          f^{*}w = \sum_{I}
+          \left( a_I \circ f \right) 
+          d\left( y_{i_1} \circ f \right) 
+          \wedge \ldots \wedge d\left( y_{i_k} \circ f \right) 
+          \] 
+          on $f^{-1}(\tau^{-1}(V))$. In particular,
+          $f^{*}w$ is smooth.
+      \end{lemma}
+
+      To prove the lemma, we need the following
+      rules:
+      \begin{align*}
+          f^{*}(\varphi w)
+          &= \left( \varphi  \circ f \right) f^{*}w\\
+          f^{*}\left( \theta \wedge w \right) 
+          &= f^{*}(\theta) \wedge f^{*}(w)\\
+          f^{*}(d\varphi )
+          &= d\left( \varphi \circ f \right) 
+      \end{align*}
+
+      We verify them as follows:
+
+      \begin{align*}
+          f^{*}(\varphi w) (p) (v_1, \ldots, v_k)
+          &= (\varphi w) (f(p))
+          \left( df_p(v_1), \ldots,
+          df_p(v_k) \right) \\
+          &= \varphi (f(p))
+          w(f(p))\left( df_p(v_1), \ldots, 
+          df_p (v_k) \right) \\
+          &= \varphi (f(p))
+          f^{*}w (p) \left( v_1,\ldots, v_k \right)\\
+          &= \left( \left( \varphi \circ f \right) 
+          f^{*} w \right) (p)(v_1,\ldots,v_k)
+      \end{align*}
+      giving
+      $f^{*}\left( \varphi w \right) = 
+      \left( \varphi \circ f \right) f^{*}w$.
+      \begin{align*}
+          f^{*}\left( \theta \wedge w \right) (p)
+          \left( v_1,\ldots, v_{k+l} \right) 
+          &= \left( \theta \wedge w \right) 
+          (f(p)) \left( df_p (v_1) ,\ldots,
+          df_p (v_{k+l})\right) \\
+          &=
+          \sum_{\left[ \pi \right] }
+          \sgn (\pi) 
+          \theta (f(p))
+          (df_p(v_{\pi(1)}), \ldots, df_p(v_{\pi(k)}))
+          w (f(p)) 
+          \left( df_p(v_{\pi(k+1)}), \ldots,
+          df_p(v_{\pi(k+l)})\right) \\
+          &=
+          \sum_{\left[ \pi \right] }
+          \sgn (\pi) 
+          f^{*}(\theta) (p)(v_{\pi(1)}, \ldots,
+          v_{\pi(k)})
+          f^{*}(w)(p) \left( v_{\pi(k+1)},\ldots,
+          v_{\pi(k+l)}\right) \\
+          &= \left(f^{*}(\theta) (p)
+          \wedge f^{*}(w)(p) \right) 
+          \left( v_1,\ldots, v_{k+l} \right) \\
+          &= \left( f^{*}(\theta) \wedge
+          f^{*}(w) \right) (p)
+          \left( v_1,\ldots, v_{k+l} \right) .
+      \end{align*}
+      giving
+      $f^{*}(\theta \wedge w) = 
+      f^{*}(\theta) \wedge f^{*}(w)$.
+
+      Now, note that
+      
+
+      \begin{align*}
+          d \left( \varphi \circ f \right)(p) 
+          \left( \frac{\partial}{\partial x^{k}} \right) 
+          &= \sum_{i=1}^{m}
+          \frac{\partial (\varphi \circ f )}{\partial x^{i}}(p) 
+          dx_i (p) \left( \frac{\partial}{\partial x^{k}}|_p
+          \right) \\
+          &= 
+          \frac{\partial \varphi  }{\partial x^{j}} (f(p))
+          \frac{\partial f^{j}}{\partial x^{k}}(p)
+          \frac{d}{dt}|_{\varphi \circ f(p)}
+      \end{align*}
+      while
+      \begin{align*}
+          f^{*}(d\varphi ) (p) \left( \frac{\partial}{\partial
+          x^{k}}|_p \right) 
+          &= d\varphi (f(p))
+           \frac{\partial f^{j}}{\partial 
+          x^{k}} (p)
+          \frac{\partial }{\partial y^{j}}|_{f(p)}\\
+          &= \frac{\partial f^{j}}{\partial x^{k}}(p)
+          \frac{\partial \varphi }{\partial y^{j}}(f(p))
+          \frac{d}{dt}|_{\varphi \circ f(p)}
+      \end{align*}
+      giving $f^{*}(d\varphi )
+      = d \left( \varphi \circ f \right) $.
+
+      \begin{proof}[Proof of Lemma \ref{Lemma:SJID001}]
+          Let
+          \[
+          w = \sum_{I = \left\{ i_1,\ldots,i_k \right\} }
+          a_I dy_{i_1} \wedge \ldots \wedge
+          dy_{i_k}.
+          \] 
+          Then
+          \begin{align*}
+              f^{*}w &=
+              \sum_{I = \left\{ i_1,\ldots,i_k \right\} }
+              \left( a_I \circ f \right) 
+              f^{*}dy_{i_1} \wedge \ldots \wedge
+              f^{*} dy_{i_k}\\
+                     &= 
+                     \sum_{I = \left\{ i_1,\ldots,i_k \right\} }
+                     \left( a_I \circ f \right) 
+                     d \left( y_{i_1} \circ f \right) 
+                     \wedge \ldots \wedge
+                     d\left( y_{i_k} \circ f \right) .
+          \end{align*}
+      \end{proof}
+
+      \begin{definition}[Restriction of a $k$-form to a submanifold]
+          Let
+          $M$ be a submanifold of $N$ and
+          $i \colon M \to N$ the inclusion map. Then
+          we define
+          $w|_M = i^{*}w$, given at $p \in M$ by
+          \[
+          w|_M(p) (v_1,\ldots, v_k) = 
+          w(p) (v_1,\ldots, v_k)
+          \] 
+          for $v_1,\ldots, v_k \in T_pM \subset T_pN$.
+      \end{definition}
+
+      \begin{lemma}[]
+          Let $f \colon M \to N$ be a smooth map between
+          two manifolds of the same dimension $k$. Let
+          $x_1, \ldots, x_k$ denote the coordinate functions of
+          a chart $\sigma$ on $M$, and let $y_1,\ldots, y_k$ 
+          denote the coordinate functions of a chart
+          $\tau$ on $N$. Then
+          \[
+          f^{*}\left( dy_1 \wedge \ldots \wedge
+          dy_k\right) = \det (df) 
+          dx_1 \wedge \ldots \wedge dx_k
+          \] 
+          where $\det (df)$ in $p$ is the determinant of the matrix
+          for $df_p$ with respect to the standard bases for
+          $T_pM$ and $T_{f(p)}N$ given by the charts.
+      \end{lemma}
+
+
+
+      \subsection{Exterior Differentiation}
+
+      Notice that
+      the usual differentiation operator
+      sending a function $f$ to its derivative
+      at a point is an operator
+      \[
+          A^{0}(M) = C^{\infty}(M) \to 
+          \mathfrak{X}^{*}(M) =  A^{1}(M)
+      \] 
+      sending $f \mapsto df$.
+
+      We now define the exterior derivative which
+      is a generalization of this, defined as a map
+      $A(M) \to A(M)$ sending $k$-forms to
+      $(k+1)$-forms.
+
+      \begin{definition}[Exterior differentiation]
+          Fix a chart $\left( U, (x^{i}) \right) $ on
+           a manifold $M$ and let
+           $w \in A^{k}(M)$. We write
+           \[
+           w = \sum_{I} a_I dx_{i_1} \wedge \ldots
+           \wedge dx_{i_k}
+           \] 
+           where $I = \left( i_1,\ldots, i_k \right) $ with
+           $1 \le i_1 < \ldots < i_k \le m = \dim M$, and
+           where $a_I \in C^{\infty}\left( U \right) $ for
+           each $I$. On $U$, we define
+           \[
+           dw = \sum_I da_I \wedge dx_{i_1} \wedge
+           \ldots \wedge d x_{i_k} \tag{$\Omega$} \label{eq:Omega}
+           \] 
+           where $da_I$ is the differential of $a_I$. Then
+           $dw \in A^{k+1}\left( U \right) $.
+           The operator $d$ is called
+           \textit{exterior differentiation}.
+      \end{definition}
+
+      Can we extend this operator to all
+      of $M$ and is it independent of the chart?
+
+      \begin{theorem}[]\label{Thm:LXOOXa1}
+          There exists for each $k \in \mathbb{N} $ a unique
+          map $d \colon A^{k}(M) \to A^{k+1}(M)$ such that
+          \eqref{eq:Omega} holds on $\sigma (U)$ for each
+          chart $\sigma$ in a given atlas
+          for $M$. This map $d$ is independent of the
+          choice of the atlas. Furthermore, these
+          maps have the following properties:
+          \begin{enumerate}
+              \item If $k = 0$, then $d$ agrees with the
+                  differential on functions.
+              \item $d \colon A^{k}(M) \to 
+                  A^{k+1}(M)$ is linear.
+              \item $d\left( \varphi w \right) =
+                  d \varphi \wedge w + \varphi dw$ for
+                  $\varphi \in C^{\infty}(M)$ and
+                  $w \in A^{k}(M)$.
+              \item $d\left( w_1 \wedge w_2 \right) =
+                  dw_1 \wedge w_2 + (-1)^{k} w_1 \wedge
+                  dw_2$ for $w_1 \in A^{k}(M)$ and
+                  $w_2 \in A^{l}(M)$.
+              \item $d\left( df_1 \wedge \ldots \wedge
+                  df_k\right) = 0$ for all
+                  $f_1,\ldots, f_k \in C^{\infty}(M)$.
+              \item $d \left( dw \right) = 0$ for all
+                  $w \in A^{k}(M)$.
+          \end{enumerate}
+      \end{theorem}
+
+
+      \begin{definition}[Differential forms]
+          The elements of $A(M)$ are called differential forms.
+          Thus a differential form is a map which associates
+          to each point $p \in M$ a member of the exterior
+          algebra $A\left( T_pM \right) $ in a smooth
+          manner. The operators of 
+          Theorem \ref{Thm:LXOOXa1} can then be combined
+          into a single linear operator, also denoted
+          $d \colon A(M) \to A(M)$.
+      \end{definition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

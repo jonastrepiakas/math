@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  24 JUN 2025 21:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  26 JUN 2025 21:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**notes.tex
-(./notes.tex
+**products-and-duality.tex
+(./products-and-duality.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
 (/usr/share/texlive/texmf-dist/tex/latex/amscls/amsart.cls
@@ -488,32 +488,32 @@ File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count310
 \l__pdf_internal_box=\box65
-) (./notes.aux)
-\openout1 = `notes.aux'.
+) (./products-and-duality.aux)
+\openout1 = `products-and-duality.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 155.
-LaTeX Font Info:    ... okay on input line 155.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 155.
-LaTeX Font Info:    ... okay on input line 155.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 155.
-LaTeX Font Info:    ... okay on input line 155.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 155.
-LaTeX Font Info:    ... okay on input line 155.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 155.
-LaTeX Font Info:    ... okay on input line 155.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 155.
-LaTeX Font Info:    ... okay on input line 155.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 155.
-LaTeX Font Info:    ... okay on input line 155.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 155.
-LaTeX Font Info:    ... okay on input line 155.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 155.
-LaTeX Font Info:    ... okay on input line 155.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 155.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 158.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 155.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 158.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -535,243 +535,143 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring ON on input line 155.
- (./notes.out) (./notes.out)
+Package hyperref Info: Link coloring ON on input line 158.
+ (./products-and-duality.out) (./products-and-duality.out)
 \@outlinefile=\write4
-\openout4 = `notes.out'.
-
- [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
-Overfull \hbox (52.47818pt too wide) in paragraph at lines 420--425
-[]\T1/cmr/m/n/10 (1) Recall that $[] \OT1/cmr/m/n/10 = []$ \T1/cmr/m/n/10 and that for ideals $\OML/cmm/m/it/10 N; M$\T1/cmr/m/n/10 , $\OML/cmm/m/it/10 NM \OT1/cmr/m/n/10 = []$\T1/cmr/m/n/10 . 
- []
+\openout4 = `products-and-duality.out'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 426--476
+Underfull \hbox (badness 10000) in paragraph at lines 161--162
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 426--476
+Overfull \hbox (1.52371pt too wide) in paragraph at lines 164--172
+\T1/cmr/m/n/10 Then the \T1/cmr/m/it/10 cup product $\OML/cmm/m/it/10 ' ^   \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 C[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 R\OT1/cmr/m/n/10 )$ \T1/cmr/m/n/10 is the cochain whose value on $\OML/cmm/m/it/10 ^^[ [] [] \OT1/cmr/m/n/10 ^^A[] \OMS/cmsy/m/n/10 !
+ []
+
+
+Overfull \hbox (66.62086pt too wide) in paragraph at lines 216--222
+ \T1/cmr/m/n/10 1.0.1.\T1/cmr/m/it/10 Relative cup product.[] \T1/cmr/m/n/10 The cup product formula $[] \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^[\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 ' []   []$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 229--235
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 426--476
-
+Overfull \hbox (10.67062pt too wide) in paragraph at lines 243--254
+\OML/cmm/m/it/10 C[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; B\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 R\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 C[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; A \OMS/cmsy/m/n/10 t \OML/cmm/m/it/10 B\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 R\OT1/cmr/m/n/10 )$ \T1/cmr/m/n/10 where $\OML/cmm/m/it/10 C[] []$ \T1/cmr/m/n/10 is the subgroup of $\OML/cmm/m/it/10 C[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 R\OT1/cmr/m/n/10 )$
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 426--476
-
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
+Overfull \hbox (8.2578pt too wide) in paragraph at lines 353--356
+[][]\T1/cmr/bx/n/10 Definition 2.4 \T1/cmr/m/n/10 (Degree/dimension)\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 The number $[]$ is called the \T1/cmr/m/it/10 degree \T1/cmr/m/n/10 or \T1/cmr/m/it/10 dimension
  []
 
 [2]
-Overfull \hbox (15.97346pt too wide) in paragraph at lines 484--498
-\T1/cmr/m/n/10 such that $\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 k$ \T1/cmr/m/n/10 for some arbitrary $\OML/cmm/m/it/10 k \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 K$\T1/cmr/m/n/10 . Consider the map $\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]; [] ; x[]\OT1/cmr/m/n/10 ) =
+Overfull \hbox (20.85936pt too wide) in paragraph at lines 456--459
+[][]\T1/cmr/bx/n/10 Definition 2.9 \T1/cmr/m/n/10 (Cross Product, second definition)\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 Since the cup product is distributive,
  []
 
 
-Overfull \hbox (4.09047pt too wide) in paragraph at lines 525--557
-[][]\T1/cmr/m/n/10 (i) We claim that $[]$ is a radical, prime and maximal
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 558--578
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 558--578
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 558--578
-
+Overfull \hbox (26.60004pt too wide) in paragraph at lines 472--480
+[]\T1/cmr/m/n/10 This module homomorphism becomes a ring homomorphism if we define the multiplication
  []
 
 [3]
-LaTeX Font Info:    Trying to load font information for U+bbm on input line 600.
- (/usr/share/texlive/texmf-dist/tex/latex/bbm-macros/ubbm.fd
-File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
-)
-Underfull \hbox (badness 10000) in paragraph at lines 599--616
+<Figures/cone-construction.png, id=74, 653.44125pt x 312.16624pt>
+File: Figures/cone-construction.png Graphic file (type png)
+<use Figures/cone-construction.png>
+Package pdftex.def Info: Figures/cone-construction.png  used on input line 548.
+(pdftex.def)             Requested size: 288.0011pt x 137.5822pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 553--562
+
+ []
+
+[4 <./Figures/cone-construction.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 643--646
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 617--627
+Underfull \hbox (badness 10000) in paragraph at lines 643--646
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 617--627
+Underfull \hbox (badness 10000) in paragraph at lines 647--655
 
  []
 
 
-Overfull \hbox (17.87637pt too wide) in paragraph at lines 671--677
-\T1/cmr/m/n/10 Write $\OML/cmm/m/it/10 R \OT1/cmr/m/n/10 = \U/msb/m/n/10 R []$ \T1/cmr/m/n/10 for the polynomial ring in variables $\OML/cmm/m/it/10 X \OT1/cmr/m/n/10 = [][]$\T1/cmr/m/n/10 . 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 714--732
+Underfull \hbox (badness 10000) in paragraph at lines 647--655
 
  []
 
-[4]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 853.
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
-File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-) [5]
-Underfull \hbox (badness 10000) in paragraph at lines 970--1019
+
+Underfull \hbox (badness 10000) in paragraph at lines 656--676
+
+ []
+
+[5]
+Overfull \hbox (36.88515pt too wide) detected at line 795
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 802--814
 
  []
 
 [6]
-Overfull \hbox (29.88116pt too wide) in paragraph at lines 1055--1058
-[]\T1/cmr/m/n/10 Find a ring homomorphims between local rings which is not a local homomorphism. 
+Overfull \hbox (56.50188pt too wide) detected at line 931
+[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1101--1135
-
+Overfull \hbox (5.36324pt too wide) in paragraph at lines 1015--1021
+[]\T1/cmr/m/n/10 In Theorem [][]3.1[][], we constructed a chain contraction for $\OML/cmm/m/it/10 X$\T1/cmr/m/n/10 . I.e., we constructed
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1155--1187
-
- []
-
-
-Overfull \hbox (10.28964pt too wide) in paragraph at lines 1155--1187
-\T1/cmr/m/n/10 (2) Let $\OML/cmm/m/it/10 I$ \T1/cmr/m/n/10 be a radical ideal of $\OML/cmm/m/it/10 R$\T1/cmr/m/n/10 , so $[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 I$\T1/cmr/m/n/10 . By theorem 7.19 (Primary decomposition),
+Overfull \hbox (15.93494pt too wide) detected at line 1053
+[]
  []
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 1228--1239
-
+Overfull \hbox (82.23871pt too wide) detected at line 1068
+[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1269--1320
-
+Overfull \hbox (14.16399pt too wide) in paragraph at lines 1126--1128
+[][]\T1/cmr/bx/n/10 Theorem 3.14 \T1/cmr/m/n/10 (Algebraic Künneth Theorem)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 Let $\OML/cmm/m/it/10 K[]$ \T1/cmr/m/it/10 and $\OML/cmm/m/it/10 L[]$ \T1/cmr/m/it/10 be free chain complexes.
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1269--1320
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1322--1330
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1322--1330
-
- []
-
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 1374--1396
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1399--1427
-
- []
-
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 1501--1608
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1501--1608
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1501--1608
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1501--1608
-
- []
-
-
-Underfull \vbox (badness 7415) has occurred while \output is active []
-
- [10]
-Underfull \hbox (badness 10000) in paragraph at lines 1652--1673
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1700--1747
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1700--1747
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1749--1791
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1749--1791
-
- []
-
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 1811--1813
-
- []
-
-
-Overfull \hbox (12.47757pt too wide) detected at line 1847
-\OML/cmm/m/it/10 uv \OT1/cmr/m/n/10 = [] \OML/cmm/m/it/10 []b[]a[]^^L[]b[]a[] \OT1/cmr/m/n/10 = [] [] [] [] \OML/cmm/m/it/10 b[]a[] \OT1/cmr/m/n/10 = [] [] [] \OML/cmm/m/it/10 a[]:
- []
-
-
-Overfull \hbox (60.88242pt too wide) in paragraph at lines 1847--1866
-\T1/cmr/m/n/10 This shows that $\OML/cmm/m/it/10 A$ \T1/cmr/m/n/10 is generated by $\OML/cmm/m/it/10 a[]; [] ; a[]$ \T1/cmr/m/n/10 as an $\OML/cmm/m/it/10 D \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 R []$
- []
-
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 1882--1891
-
- []
-
-[13] (./notes.aux)
+[8] [9] (./products-and-duality.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
-Package rerunfilecheck Info: File `notes.out' has not changed.
-(rerunfilecheck)             Checksum: C8D3DEACA99D41FEF9B1A61406A0D249;917.
+Package rerunfilecheck Info: File `products-and-duality.out' has not changed.
+(rerunfilecheck)             Checksum: 4348FAB9518D14CFBFCDF148DAF4D344;678.
  ) 
 Here is how much of TeX's memory you used:
- 23031 strings out of 474222
- 429020 string characters out of 5748733
- 1949975 words of memory out of 5000000
- 44670 multiletter control sequences out of 15000+600000
- 569167 words of font info for 69 fonts, out of 8000000 for 9000
+ 22986 strings out of 474222
+ 428775 string characters out of 5748733
+ 1945975 words of memory out of 5000000
+ 44664 multiletter control sequences out of 15000+600000
+ 569438 words of font info for 65 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 98i,15n,107p,594b,1036s stack positions out of 10000i,1000n,20000p,200000b,200000s
- </home/jonas-trepiakas/.texlive2023/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on notes.pdf (13 pages, 299841 bytes).
+ 98i,15n,107p,609b,1107s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb>
+Output written on products-and-duality.pdf (9 pages, 287847 bytes).
 PDF statistics:
- 279 PDF objects out of 1000 (max. 8388607)
- 222 compressed objects within 3 object streams
- 81 named destinations out of 1000 (max. 500000)
- 77 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 213 PDF objects out of 1000 (max. 8388607)
+ 164 compressed objects within 2 object streams
+ 52 named destinations out of 1000 (max. 500000)
+ 58 words of extra memory for PDF output out of 10000 (max. 10000000)
 

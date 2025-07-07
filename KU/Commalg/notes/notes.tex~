@@ -396,7 +396,8 @@
         \item For each of the inclusions above, find an example
             where it is a proper inclusion.
         \item Show that if $I + J = R$, then all
-            the inclusions above are in fact equalities.
+            the inclusions above are in fact equalities
+            (False. Counterexample below)
         \item Prove the following generalization of the
             Chinese Remainder Theorem. Given a ring
             $R$ and finitely many ideals
@@ -468,10 +469,11 @@
     $I + J = (x)$ since
     $3x - 2x = x \in I + J$.\\
     \linebreak
-    (3) Suppose $I + J = R$. Since
-    $1 \in I + J$ then, it suffices to show
-    that $I + J \subset I \cap J$.
-    Let $a$ 
+    (3) This cannot be true: 
+     consider $I = 2\mathbb{Z}, J = 3\mathbb{Z}$. Then
+     $I + J = \mathbb{Z}$ while
+     $I \cap J = 6\mathbb{Z}$.
+    
 \end{proof}
 
 
