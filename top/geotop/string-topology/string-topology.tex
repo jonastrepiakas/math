@@ -1,0 +1,969 @@
+\documentclass[reqno]{amsart}
+\usepackage{amscd, amssymb, amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{quiver}
+%% for identity function 1:
+\usepackage{bbm}
+%%For category theory diagrams:
+\usepackage{tikz-cd}
+
+\usepackage[backend=biber]{biblatex}
+\addbibresource{string-topology.bib}
+
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{solution}{Solution}
+
+
+
+%Inequalities
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%Linear Algebra
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\Group}{Group}
+\DeclareMathOperator{\Ring}{Ring}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\hTop}{hTop}
+\DeclareMathOperator{\Htpy}{Htpy}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\CAT}{CAT}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Fin}{Fin}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\SHomeo}{SHomeo}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Bil}{Bil}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Skew}{Skew}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Quad}{Quad}
+\DeclareMathOperator{\Sin}{Sin}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Teich}{Teich}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\corank}{corank}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Bun}{Bun}
+\DeclareMathOperator{\Sm}{Sm}
+\DeclareMathOperator{\Fr}{Fr}
+\DeclareMathOperator{\Cob}{Cob}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Conf}{Conf}
+\DeclareMathOperator{\UConf}{UConf}
+\DeclareMathOperator{\Map}{Map}
+\DeclareMathOperator{\Ori}{Ori}
+
+
+
+%Row operations
+\newcommand{\elem}[1]{% elementary operations
+\xrightarrow{\substack{#1}}%
+}
+
+\newcommand{\lelem}[1]{% elementary operations (left alignment)
+\xrightarrow{\begin{subarray}{l}#1\end{subarray}}%
+}
+
+%SS
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+
+%NT
+\DeclareMathOperator{\ord}{ord}
+
+%Alg
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\Jac}{Jac}
+
+%Misc
+\newcommand{\SL}{{\mathrm{SL}}}
+\newcommand{\mobgp}{{\mathrm{PSL}_2(\mathbb{C})}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\MCG}{{\mathrm{MCG}}}
+\newcommand{\PMCG}{{\mathrm{PMCG}}}
+\newcommand{\SMCG}{{\mathrm{SMCG}}}
+\newcommand{\ud}{{\mathrm{d}}}
+\newcommand{\Vol}{{\mathrm{Vol}}}
+\newcommand{\Area}{{\mathrm{Area}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\End}{{\mathrm{End}}}
+
+
+\newcommand{\reg}{{\mathtt{reg}}}
+\newcommand{\geo}{{\mathtt{geo}}}
+
+\newcommand{\tori}{{\mathcal{T}}}
+\newcommand{\cpn}{{\mathtt{c}}}
+\newcommand{\pat}{{\mathtt{p}}}
+
+\let\Cap\undefined
+\newcommand{\Cap}{{\mathcal{C}}ap}
+\newcommand{\Push}{{\mathcal{P}}ush}
+\newcommand{\Forget}{{\mathcal{F}}orget}
+
+
+
+
+\begin{document}
+
+\section{Orientations}
+
+We begin by attempting to give complete rigour and detail
+to the definitions of orientation and the many connected
+theorems.\\
+\linebreak
+For this section, we will follow 
+\cite{Bredon} and \cite{Dieck}
+
+\begin{definition}[Local Homology Group]
+    For $h_*(-)$ a homology theory
+    and an $n$-manifold $M$, groups of the form
+    $h_k(M , M-\left\{ x \right\} )$ are called
+    \textit{local homology groups}.
+\end{definition}
+
+For a chart $\varphi  \colon U \to \mathbb{R}^{n}$ 
+on $M$ centered at $x$, we get by excision that
+\[
+h_k(M, M-\left\{ x \right\} ) 
+\cong h_k\left( U, U- \left\{ x \right\}  \right) 
+\stackrel{\varphi_*}{\to} h_k\left( \mathbb{R}^{n},
+\mathbb{R}^{n} - \left\{ 0 \right\} \right) .
+\] 
+Hence for singular homology, we obtain
+$H_n\left( M, M - \left\{ x \right\} ; G \right) 
+\cong G$.
+
+
+\begin{definition}[Local $R$-orientation]
+    Let $R$ be a commutative ring.
+    A generator of
+    $H_n\left( M, M - \left\{ x \right\} ; R \right) 
+    \cong R$ is called a 
+    \textit{local $R$-orientation} of $M$ about $x$.
+\end{definition}
+
+Let $K \subset L \subset M$. The homomorphism
+$r_{K}^{L} \colon h_k (M, M-L) \to 
+h_k(M, M-K)$ induced by inclusion is
+called restriction. We write
+$r_{x}^{L}$ when $K = \left\{ x \right\} $.
+
+\begin{proposition}[]
+    When $A$ is a compact, convex set contained
+    in some chart $\mathbb{R}^{n} \subset M$, then
+    $r_{x}^{A}$ is an isomorphism for each
+    $x \in A$ and the
+    groups are isomorphic to the coefficient group
+    $G$.
+\end{proposition}
+
+\begin{proof}
+    $A$ is contained in the interior of some
+    closed $n$-disk $D \subset \mathbb{R}^{n} \subset M$.
+    Thus there is a commutative diagram
+
+    \begin{equation*}
+    \begin{tikzcd}
+        h_n(M, M-A) \ar[r] & h_n(M, M- \left\{ x \right\} )\\
+        h_n(\mathbb{R}^{n}, \mathbb{R}^{n} - A) 
+        \ar[u, "\cong"] \ar[r] & 
+        h_n(\mathbb{R}^{n}, \mathbb{R}^{n} - \left\{ x \right\} )
+        \ar[u, "\cong"] \\
+        h_n(D, \partial D) 
+        \ar[u, "\cong"] \ar[r, equal] &
+        h_n(D, \partial D) \ar[u, "\cong"]
+    \end{tikzcd}
+    \end{equation*}
+\end{proof}
+
+\begin{definition}[Orientation bundle]
+    We construct a covering
+    $\omega \colon h_k(M, M - \bullet) \to  M$.
+    Define
+    \[
+    h_k(M, M - \bullet) =
+    \bigsqcup_{x \in M} 
+    h_k(M, M- \left\{ x \right\} )
+    \] 
+    where $h_k(M, M - \left\{ x \right\} )$ is
+    the fiber over $x$ and is given
+    the discrete topology.
+
+    Let $U$ be an open neighborhood of
+    $x$ such that $r_{y}^{U}$ is an isomorphism
+    for each $y \in U$.
+    Define bundle charts
+    \[
+    \varphi_{x,U} \colon U \times G
+    \to \omega^{-1} (U), \quad
+    (y,a) \mapsto r_y^{U}\left( r_x^{U} \right)^{-1} (a).
+    \] 
+    We then give $h_k(M, M - \bullet)$ the
+    topology that makes
+    $\varphi_{x,U}$ in a homeomorphism onto
+    an open subset. In particular, since
+    $h_k(M,M-x)$ is given the
+    discrete topology, this is equivalent to
+    the map $\varphi_{x,U}(-,\alpha)$ being a homeomorphism
+    onto an open subset for each
+    $\alpha \in 
+    h_k(M, M- x)$.
+    It then remains to show that the transition maps
+    \[
+    \varphi_{y,V}^{-1} \varphi_{x,U} \colon
+    (U \cap V) \times 
+    h_k(M, M - \left\{ x \right\} )
+    \to \left( U \cap V \right) \times 
+    h_k(M, M- \left\{ y \right\} )
+    \] 
+    are continuous.
+
+    Let $z \in U \cap V$, and choose $W$ such that
+    $z \in W \subset U \cap V$ and
+    $r_{w}^{W}$ is an isomorphism for each $w \in W$.
+
+    Consider the diagram
+
+    \begin{equation*}
+    \begin{tikzcd}
+        h_k(M, M - x) & \ar[l, "r_x^{U}"] 
+        h_k(M, M -U) \ar[r, "r_w^{U}"] 
+        \ar[d, "r_{W}^{U}"] & 
+        h_k(M, M - w) \\
+        & h_k(M, M -W) \ar[ru, "r_w^{W}"] 
+        & h_k(M, M - V) \ar[l, "r_W^{V}"] 
+        \ar[u, "r_w^{V}"] \ar[d, "r_y^{V}"] \\
+        && h_k(M,M-y)
+    \end{tikzcd}
+    \end{equation*}
+
+    Let
+    $\varphi_{x,U,p} \colon
+    h_k(M, M- x) \to 
+    \omega^{-1}(p)$ be defined by
+    \[
+    \varphi_{x,U,p}(y) = 
+    \varphi_{x,U}(p,y).
+    \] 
+    Then for $w \in U \cap V$, we have
+    \[
+    \varphi_{x,U,w}^{-1}
+    \varphi_{y,V,w} = r_y^{V} (r_W^{V})^{-1} (r_w^{W})^{-1}
+    r_w^{W} r_{W}^{U} (r_x^{U})^{-1} = 
+    r_y^{V} (r_W^{V})^{-1} r_{W}^{U} r_x^{U}
+    \] 
+    Firstly, this coincides with the operation of
+    an element of the coefficient group
+    $G$ since it is an isomorphism
+    $G \to G$, and secondly, 
+    note that this does not depend on $w$,
+    so the map
+    \[
+    g_{x,U,y,V} \colon U \cap V \to 
+    G
+    \]  
+    defined by
+    $g_{x,U,y,V}(p) = \varphi_{x,U,p}^{-1}
+    \varphi_{y,V,p}$ is constant, hence continuous.\\
+    \linebreak
+    
+    Thus $\omega$ is indeed a covering map.
+
+    But even moreso, the fibers are groups, so
+    for $A \subset M$, denote by
+    $\Gamma(A)$ the set of continuous
+    sections over $A$ of
+    $\omega$. If
+    $s$ and $t$ are section, we can define
+    $(s+t)(a) = s(a) + t(a)$. Then
+    $s+t$ is again continuous, hence $\Gamma(A)$ is an
+    abelian group.
+
+    Denote by $\Gamma_c(A) \subset 
+    \Gamma(A)$ the subgroup of sections
+    with compact support, i.e., the sections
+    which have values $0$ in the fiber away from
+    a compact set.
+\end{definition}
+
+\begin{proposition}[]\label{Prop:DJIXOZ}
+    Let $z \in h_k(M, M- U)$. Then
+    $y \mapsto r_y^{U} z
+    \in h_k(M, M-y) \subset 
+    h_k(M, M - \bullet)$ is a continuous section of $\omega$
+    over $U$.
+\end{proposition}
+
+
+\begin{proof}
+    The map
+    $U \to U \times G$ by
+    $y \mapsto (y, r_x^{U}z)$ is constant in the second coordinate,
+    hence clearly continuous. Now composing with
+    $\varphi_{x,U}$ gives us the section in question.
+\end{proof}
+
+
+\subsection{Homological Orientation}
+
+If we specify to singular homology with coefficient
+group $R$, and again let $M$ be an $n$-manifold and $A \subset M$,
+then we can define an orientation along
+$A$ as follows
+
+\begin{definition}[$R$-orientation of $M$ along $A$]
+    An \textit{$R$-orientation of $M$ along $A$} is a section
+    $s \in \Gamma(A; R)$ of 
+    $\omega \colon H_n \left( M , M - \bullet ; R \right) 
+    \to M$ such that
+    $s(a) \in 
+    H_n(M, M-a; R) \cong R$ is a generator
+    for each $a \in A$.\\
+
+
+    Thus $s$ glues together the local orientations in a 
+    continuous manner. 
+
+    When $A = M$, we call $s$ an \textit{$R$-orientation of $M$ }.
+\end{definition}
+
+\begin{definition}[Orientation covering]
+    Let $\Ori(M) \subset H_n(M, M - \bullet; \mathbb{Z})$ be the
+    subset of all generators of all fibers. Then
+    the restriction
+    $\Ori (M) \to M$ of $\omega$ gives a $2$-fold
+    covering of $M$, called the
+    \textit{orientation covering} of $M$.
+\end{definition}
+
+\begin{proposition}[]
+    The following are equivalent:
+
+
+    \begin{enumerate}
+        \item $M$ is orientable
+        \item $M$ is orientable along compact subsets.
+        \item The orientation covering is a trivial 
+            $2$-fold covering map.
+        \item The covering $\omega \colon
+            H_n(M, M - \bullet ; \mathbb{Z}) \to M$ is
+            a trivial covering map.
+    \end{enumerate}
+
+\end{proposition}
+
+
+\begin{proof}
+    $(1) \implies (2)$ is a subcase.\\
+    $(2) \implies (3)$. The orientation covering is
+    trivial if and only if the covering over
+    each component is trivial, so we may
+    assume that $M$ is connected. 
+    Now, if a $2$-fold covering
+    $ \tilde{M} \to M$ is trivial, then $\tilde{M}$ splits
+    as $M \times \left\{ p,q \right\} $, and
+    so $\tilde{M}$ cannot be connected.
+    Conversely, if $\tilde{M}$ is not connected, then
+    the covering restricted to each component must be
+    a covering map, so the covering splits as a
+    trivial covering.\\
+    Suppose then that
+    $\Ori(M) \to M$ is non-trivial. Since
+    $\Ori(M)$ is then connected, we can choose
+    a path $\gamma$ 
+    in $\Ori(M)$ between two points of a given
+    fiber. The image $S$ of such a path is compact and connected,
+    and the covering is non-trivial over $S$, so
+    by assumption $(2)$, the orientation covering has
+    a section $s$ over $S$, but then
+    $\gamma(0) = 
+    s \left( \omega (\gamma(0)) \right) = 
+    s \left( \omega \left( \gamma(1) \right)  \right) 
+    = \gamma(1)$, which gives a contradiction.\\
+    $(3) \implies (4)$. 
+
+    Let $s \colon
+    M \to \Ori (M) \cong M \times \left\{ -1,1 \right\} $ be
+    the section $m \mapsto (m,1)$.
+
+Now define a map $\varphi \colon M \times \mathbb{Z} \to 
+H_n(M, M-\bullet; \mathbb{Z})$ by
+$\varphi (m,k) = ks(m)$. This is a bijective map by assumption on $s$ being a section. 
+It is furthermore continuous since $s$ is continuous and
+since fiber-wise operations in $H_n(M,M-\bullet; \mathbb{Z})$
+is continuous.
+Furthermore, it is also a morphism between coverings since it commutes with the
+projections: $\pi_M = \omega \circ \varphi$.
+
+Lastly, one must show that it also has a continuous inverse. For this, we may take an open basis set in $M \times \mathbb{Z}$ - say $U\times \{k\}$, where $\bar{U}$ is a convex subset of $\mathbb{R}^n \subset M$.
+
+Since $\varphi$ is bijective, we obtain that $\varphi(U \times \{k\}) = k s(U)
+= U_\alpha$ if we choose $\alpha$ to be the element in $H_n(M, M-U) \cong \mathbb{Z}$
+which maps to $k$ under $r_{x,U}$ for $x \in U$.
+And by assumption, $U_\alpha$ is a basis open set for
+the topology on $H_n(M, M - \bullet ; \mathbb{Z})$.
+
+Hence $\varphi$ is a homeomorphism, and even an isomorphism of covering spaces
+in the sense that $\pi_M = \omega \circ \varphi$.
+
+\begin{note}
+    We could also say that it is trivial since
+    every point is in the image of some section.
+\end{note}
+
+$(4) \implies (1)$ : If $\omega$ is trivial, then
+it has a section with constant value in the set
+of generators.
+
+\end{proof}
+
+
+
+\subsection{Homology in the Dimension of the Manifold}
+
+Let $M$ be an $n$-manifold and $A \subset M$ a closed subset.
+We will in this section use singular homology with coefficients
+in an abelian group $G$.
+
+
+\begin{proposition}[]
+    For each $\alpha \in H_n(M, M - A ; G)$, the
+    section
+    \[
+    J^{A}(\alpha) \colon
+    A \to H_n(M, M - \bullet; G),
+    \quad x \mapsto r_x^{A} (\alpha)
+    \] 
+    of $\omega$ over $A$ is continuous and has
+    compact support.
+\end{proposition}
+
+\begin{proof}
+    Choose a representative
+    $c \in \Delta_n(M;G)$ representing $\alpha$.
+    There exists a compact set $K$ such that
+    $c$ is contained in $K$.
+    Suppose $A - K$ is nonempty, and let $x \in A - K$.
+    Then the image of $c$ under
+    \[
+    \Delta_n (K ; G) \to 
+    \Delta_n(M;G) \to \Delta_n (M,K;G) 
+    \to \Delta_n (M, M - x ; G)
+    \] 
+    is zero since
+    $K \subset M - x$. Since this image
+    represents
+    $r_x^{A}$, the support of $J^{A}(\alpha)$ is
+    contained in $A \cap K$ which is compact.\\
+    If $A - K$ is empty, $K$ contains $A$, and then
+    the support of $J ^{A}(\alpha)$ is a closed
+    subset of a compact space, hence compact.\\
+    \linebreak
+    The continuity follows from the more general case of
+    Proposition \ref{Prop:DJIXOZ}.
+\end{proof}
+
+Thus we obtain a homomorphism
+\[
+J^{A} \colon H_n(M, M - A; G) \to 
+\Gamma_c (A;G), \quad
+\alpha \mapsto \left( x \mapsto r_x^{A}(\alpha) \right) .
+\] 
+
+
+
+\subsubsection{Direct Limits}
+
+\begin{definition}[]
+    Let $D$ be a directed set and $G_{\alpha}$ an abelian group
+    defined for each $\alpha \in D$. Suppose
+    we are given homomorphisms
+    $f_{\beta, \alpha} \colon G_{\alpha} \to G_{\beta}$ 
+    for each $\beta > \alpha$ in $D$. Assume that for all
+    $\gamma > \beta > \alpha$ in $D$, we have
+    $f_{\gamma, \beta} f_{\beta, \alpha} = f_{\gamma, \alpha}$.
+    Such a system is called a \textit{direct system} of abelian
+    groups. Then $G = \lim_{\rightarrow} G_{\alpha}$ is defined
+    to be the quotient group of the direct sum
+    $G = \bigoplus G_{\alpha}$ modulo the relations
+    $f_{\beta, \alpha}(g) \sim g$ for all $g \in G_\alpha$ and
+    all $\beta > \alpha$.
+
+    \begin{note}
+        Hence the direct limit is just the colimit of the direct
+        system.
+    \end{note}
+\end{definition}
+
+\begin{proposition}[]\label{Prop:OXKXKCL}
+    Suppose we are given an abelian group
+    $A$ with homomorphisms
+    $h_{\alpha} \colon G_{\alpha} \to A$ 
+    such that the cocone commutes.
+    Since $\lim_{\rightarrow} G_{\alpha}$ is the colimit, we
+    have a unique induced homomorphism
+    $h \colon \lim_{\rightarrow} G_{\alpha} \to A$.
+    Then
+    \begin{enumerate}
+        \item $\im h = 
+            \left\{ a \in A \mid a = h_{\alpha}(g) \text{
+            for some } g \text{ and } \alpha \right\} 
+            = \bigcup \im h_{\alpha} $.
+        \item $\ker h = 
+            \left\{ g \in \lim_{\rightarrow} G_{\alpha}  \mid 
+            \exists \alpha \text{ and } 
+        g_{\alpha} \in G_{\alpha} \colon g = 
+    i_{\alpha}(g_{\alpha}) \text{ and }
+h_{\alpha}(g_{\alpha}) = 0\right\} = 
+\bigcup i_{\alpha}(\ker h_{\alpha}) $.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Define $h (g_{\alpha}) = 
+    h_{\alpha}(g_{\alpha})$. Then if
+    $f_{\beta,\alpha}(g_{\alpha}) \sim g_{\alpha}$, we have
+    $h\left( g_{\alpha} \right) 
+    = h_{\alpha}\left( g_{\alpha} \right) 
+    = h_{\beta} \circ f_{\beta,\alpha}(g_{\alpha})
+    = h \left( f_{\beta,\alpha}(g_{\alpha}) \right) $, so
+    $h$ respects the equivalence relations, thus it
+    is well-defined.\\
+    Now property (1) is clear by the way we defined $h$.
+
+    As for (2), note that 
+    if $g$ represents the equivalence class
+    of $g_{\alpha}$ and
+    $h(g) = 0$, then
+    $h_{\alpha}\left( g_{\alpha} \right) = 0$ which
+    is what (2) is saying.
+\end{proof}
+
+\begin{corollary}
+    In the situation of Proposition
+    \ref{Prop:OXKXKCL},
+    $h \colon \lim_{\rightarrow} G_{\alpha} \to A$ is an
+    isomorphism if and only if the following two statements
+    hold true:
+    \begin{enumerate}
+        \item $\forall a \in A, \exists \alpha \in D$ and
+            $g_{\alpha} \in G_{\alpha} \colon
+            h_{\alpha}(g_{\alpha}) = a$, and
+        \item if $h_{\alpha}(g_{\alpha}) = 0$ then
+            $\exists \beta > \alpha \colon f_{\beta,\alpha}
+            (g_{\alpha}) = 0$.
+    \end{enumerate}
+\end{corollary}
+
+\begin{theorem}[]
+    The direct limit is an exact functor.
+    So if we have direct systems
+    $\left\{ A_{\alpha}' \right\} ,
+    \left\{ A_{\alpha} \right\} $ and
+    $\left\{ A_{\alpha}'' \right\} $ based on the same
+    directed set, and if we have
+    an exact sequence
+    $A_{\alpha}' \to A_{\alpha} \to A_{\alpha}''$ for each
+    $\alpha$, where the maps commute with the ones
+    defining the direct systems, then the induced sequence
+    \[
+    \lim_{\rightarrow} A_{\alpha}' \to 
+    \lim_{\rightarrow} A_{\alpha} \to 
+    \lim_{\rightarrow} A_{\alpha}''
+    \] 
+    is exact.
+\end{theorem}
+
+\begin{proof}
+    We have the following diagram, where all
+    maps commute.
+
+\[\begin{tikzcd}
+	{A_{\beta}'} & {A_{\beta}} & {A_{\beta}''} \\
+	{\lim_{\rightarrow}A_{\alpha}'} & {\lim_{\rightarrow}A_{\alpha}} & {\lim_{\rightarrow}A_{\alpha}''}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=1-3, to=2-3]
+	\arrow[from=2-1, to=2-2]
+	\arrow[from=2-2, to=2-3]
+\end{tikzcd}\]
+
+Suppose
+$a \in \lim_{\rightarrow} A_*$ is mapped to zero
+in $\lim_{\rightarrow} A_*''$.
+Then there exists 
+$g \in \lim_{\rightarrow}A_{\alpha}$ such that
+there exists $\beta$ and
+$g_{\beta} \in A_{\beta}$ such that
+$g = i_{\beta}(g_{\beta})$ and
+$h_{\beta}(g_{\beta}) = 0$.
+
+Recall here that
+$h_{\beta}$ is a homomorphism
+$A_{\beta} \to \lim_{\rightarrow}A_*^{''}$ and
+$i_{\beta}$ is the inclusion
+$G_{\beta} \to \lim_{\rightarrow}G_{\alpha}$.
+
+By commutativity of the diagram, there
+then exists $k_{\beta} \in 
+A_{\beta}'$ such that
+
+$i_{\beta} \left( d_{\beta} (k_{\beta}) \right) 
+= d_{\lim_{\rightarrow}} i_{\beta}^{'} (k_{\beta})$.
+Hence the kernel is contained in the image.
+
+Now suppose let $\tilde{k} = 
+d_{\lim_{\rightarrow}} (k) \in 
+\lim_{\rightarrow}A_*$.
+
+Then $\tilde{k} = 
+i_{\beta}\left( d (\overline{k}) \right) 
+= d_{\lim_{\rightarrow}}
+i_{\beta}' \left( \overline{k} \right) $ for
+some $\overline{k} \in A_{\beta}'$.
+
+
+But now
+\[
+d_{\lim_{\rightarrow}} (\tilde{k})
+= d_{\lim_{\rightarrow}}
+i_{\beta} \left( d \left( \overline{k} \right)  \right) 
+= i_{\beta}'' 
+d\left( d \left( \overline{k} \right)  \right) 
+= i_{\beta}'' (0) = 0.
+\] 
+\end{proof}
+
+\begin{theorem}[]
+    Suppose we are given two directed sets
+    $D$ and $E$. Define an order on
+    $D \times E$ by 
+    $\left( \alpha, \beta \right) \ge 
+    \left( \alpha', \beta' \right) $ if and only if
+    $\alpha \ge \alpha'$ and
+    $\beta \ge  \beta'$. Suppose
+    $G_{\alpha, \beta}$ is a direct system
+    based on $D \times E$. Then the maps
+    $G_{\alpha,\beta} \to 
+    \lim_{\rightarrow, \beta} G_{\alpha, \beta}
+    \to \lim_{\rightarrow, \alpha}
+    \left( \lim_{\rightarrow, \beta} G_{\alpha,\beta} \right) $
+    induce an isomorphism
+    \[
+    \lim_{\rightarrow, \alpha,\beta} G_{\alpha, \beta}
+    \stackrel{\cong}{\to} 
+    \lim_{\rightarrow, \alpha} \left( 
+    \lim_{\rightarrow, \beta} 
+G_{\alpha, \beta}\right) .
+    \]  
+\end{theorem}
+
+\begin{proof}
+    Todo
+\end{proof}
+
+\begin{proposition}[]
+    \begin{enumerate}
+        \item 
+    For $A \supset B$ both closed, the following
+    diagram commutes:
+    \begin{equation*}
+    \begin{tikzcd}
+        H_n(M, M - A;G) \ar[r] \ar[d, "J^{A}"] &
+        H_n(M, M - B ; G) \ar[d, "J^{B}"] \\
+        \Gamma_c (A,
+        H_n(M, M - \bullet ; G)) \ar[r] & 
+        \Gamma_c \left( B,
+        H_n(M, M - \bullet; G) \right) 
+    \end{tikzcd}
+    \end{equation*}
+\item  For $A , B \subset M$ both closed, the sequence
+        \begin{align*}
+    0 \to \Gamma_c (A \cup B, 
+    H_n(M, M - \bullet;G)) 
+    &\stackrel{h}{\to} 
+    \Gamma_c \left( A, H_n(M, M - \bullet;G) \right) 
+    \oplus \Gamma_c \left( 
+    B, H_n(M, M - \bullet; G) \right)\\
+    &\stackrel{k}{\to} 
+    \Gamma_c \left( A \cap B,
+    H_n\left( M, M-\bullet; G \right) \right) 
+        \end{align*}
+    is exact, where $h$ is the sum of restrictions and
+    $k$ is the difference of restrictions.
+\item If $A_1 \supset A_2 \supset A_3 \supset \ldots$ are
+    all compact and $A \bigcap A_i  $, then the restriction
+    homomorphisms
+    $\Gamma \left( A_i, H_n \left( M, M - \bullet; G \right)  \right) 
+    \to \Gamma \left( A, H_n \left( M, M- \bullet; G \right) 
+    \right) $ induce an isomorphism
+    \[
+    \lim_{\rightarrow} \Gamma
+    \left( A_i, H_n\left( M, M - \bullet;G \right)  \right) 
+    \stackrel{\cong}{\to} 
+    \Gamma \left( A, H_n (M, M- \bullet;G) \right) 
+    \] 
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    (1) Let $\alpha \in 
+    H_n(M, M - A;G)$, and denote by
+    $\iota$ the inclusion $(M, M-A) \hookrightarrow (M, M-B)$.
+    Then $\iota_* = r_{B}^{A}$, so
+    $J^{B} \left( r_{B}^{A} (\alpha) \right) (x)
+    = r_{x}^{B}\left( r_{B}^{A} (\alpha) \right) $.
+    On the other hand, 
+    $J^{A}(\alpha)|_{B}(x) =
+    J^{A}(\alpha)(x) = 
+    r_x^{A}(\alpha)$.
+    Now, from the composition
+    \[
+        (M, M - A) \hookrightarrow 
+        (M, M - B) \hookrightarrow 
+        (M, M - x)
+    \] 
+    we obtain by taking homology, that
+    $r_x^{A} = r_x^{B} r_{B}^{A}$, which gives the
+    result.\\
+    \linebreak
+    
+    (2) Firstly, a section that is zero on both
+    $A$ and $B$ is then also zero on
+    $A \cup  B$, which gives the injective part
+    of $h$. Now, 
+    suppose $s-t$ is the zero section over $A \cap B$ 
+    for $s$ a section over $A$ and $t$ a section over $B$.
+    Then $s$ and $t$ agree on $A \cap B$, meaning that
+    $s \cup t$ is well-defined and continuous, where
+    $s \cup t$ is $s$ on $A$ and $t$ on $B$, and
+    $h(s \cup t) = (s,t)$. Likewise, if
+    $g$ is a section over $A \cup  B$, then
+    $k \circ h(g) = \left( g|_{A} \right)|_{A \cap B}
+    - \left( g|_{B} \right)|_{A \cap B}
+    = g|_{A \cap B} - g|_{A \cap B}$ is the
+    zero section.\\
+    \linebreak
+    (3) 
+
+\end{proof}
+
+
+\begin{theorem}[]
+    Let $A \subset M$ be closed. Then
+    \begin{enumerate}
+        \item $H_i \left( M , M - A; G \right) = 0$ for $i>n$.
+        \item $J^{A} \colon H_n (M, M - A, G) \to 
+            \Gamma_c (A, 
+            H_n\left( M, M - \bullet;G \right) )$ is an isomorphism.
+    \end{enumerate}
+\end{theorem}
+
+
+
+\begin{lemma}[The Bootstrap Lemma]
+    Let $P_M (A)$ be a statement about compact sets
+    $A$ in a given $n$-manifold $M^{n}$. If
+    $(i), (ii), (iii)$ hold, then $P_M(A)$ is true
+    for all compact $A$ in $M^{n}$.\\
+    If $M^{n}$ is separable metric, and $P_M(A)$ is defined
+    for all closed sets $A$, and if 
+    $(i), (ii), (iii), (iv)$ hold, then $P_M(A)$ is true
+    for all closed sets $A$ in $M$.\\
+    For general $M^{n}$, if $P_M(A)$ is defined for all closed
+    sets $A$ in $M$, for all $M^{n}$, and if all
+    five statement $(i) - (v)$ hold for all $M^{n}$, then
+    $P_M(A)$ is true for all closed $A \subset M$ and
+    all $M^{n}$.
+\end{lemma}
+
+
+
+\section{Intersection Theory}
+
+
+\begin{definition}[$k$-disk bundle]
+    A $k$-disk bundle is a vector bundle whose
+    coordinate transformations are contained in
+    $O(k) \subset \GL (\mathbb{R}^{k})$ and such that
+    the local trivializations have the form
+    $\pi^{-1}(U) \cong U \times D^{k}$.
+\end{definition}
+
+Let $N^{n}$ be a connected, oriented, closed $n$-manifold, and
+$W^{k+n}$ an $(n+k)$-manifold with boundary
+$\partial W$ a $(k-1)$-sphere bundle over $N^{n}$, and let
+$\pi \colon W^{n+k} \to N^{n}$ be a $k$-disk bundle over $N$.
+
+Let us assume also that $W$ is also oriented.
+
+\begin{definition}[]
+    In the above situation, the \textit{Thom class} of the
+    disk bundle $\pi$ is the class $\tau \in 
+    H^{k}\left( W, \partial W \right) $ given by
+    \[
+    \tau = D_W \left( i_* \left[ N \right]  \right) 
+    \] 
+    where $D_W \colon H_{n-k} (W) \to H^{k}(W, \partial W)$ is
+    the inverse of the Poincaré duality isomorphism.\\
+    That is,
+    \[
+    D(a) \cap \left[ M \right]  = a.
+    \] 
+    Thus
+    \[
+    \tau \cap \left[ W \right] =
+    i_* \left[ N \right] .
+    \] 
+\end{definition}
+
+We can deformation retract the punctured disk to its boundary, giving
+$H^{k}(W, W-N) \cong H^{k}(W, \partial W)$, so we will
+sometimes regard
+$\tau$ as being in $H^{k}(W, W-N)$.
+
+\begin{lemma}[]
+    In the above setup, suppose
+    $A \subset N$ is closed. Let
+    $\tilde{A} = \pi^{-1}(A) \subset W$ and
+    $\partial \tilde{A} = \tilde{A} \cap \partial W$.
+    Then
+    $\check{H}^{i}\left( \tilde{A},
+    \partial \tilde{A} \right) = 0$ for 
+    $0<i < k$.
+\end{lemma}
+
+\begin{proof}
+    Suppose first that
+    $A$ is compact convex subset
+    of a Euclidean neighborhood in $N$. It also
+    suffices consider the case where $A$ is connected,
+    so $A \cong D^{n}$.
+    Consider the pullback bundle of $A$ :
+    \begin{equation*}
+    \begin{tikzcd}
+        i^{*}(A) \ar[r] \ar[d] & W \ar[d, "\pi"] \\
+        A \ar[r, hookrightarrow, "i"] & N
+    \end{tikzcd}
+    \end{equation*}
+    Then
+    $i^{*}(A) =
+    A \times_{N} W \cong
+    \pi^{-1}(A)$, so
+    since any vector bundle over a contractible paracompact
+    base space is trivial, we conclude that 
+    the bundle
+    $\tilde{A} \to A$ is trivializable as
+    $\tilde{A} \cong A \times D^{k}$ 
+    and $\partial \tilde{A} \cong
+    A \times S^{k-1}$.
+    Now the steps are as follows: calculate
+    the homology of 
+    $A \times D^{k} $ and
+    $A \times S^{k-1} $, then use UCT to obtain
+    the cohomology, and then use the LES to find the cohomology
+    of
+    $\left( A \times D^{k}, A \times S^{k-1} \right) $.\\
+    Now...
+    But
+    by the Künneth theorem,
+    \[
+    H_m(A \times D^{k}) \cong
+    H_m(A)
+    \] 
+    and
+    \[
+    H_m(A \times S^{k-1}) \cong
+    H_m(A) \oplus H_{m-k+1}(A).
+    \] 
+\end{proof}
+
+
+\begin{lemma}[]
+    The restriction $\tau_x \in 
+    \check{H}^{k}( \tilde{A}, \partial \tilde{A})$ of
+    $\tau$, when $A = \left\{ x \right\} $, is a 
+    generator.
+\end{lemma}
+
+\begin{proof}
+    Note that 
+    $\left( \tilde{A}, \partial \tilde{A} \right) 
+    \cong \left( D^{k}, S^{k-1} \right) $.
+
+    Suppose first that $\tau_x = 0$ for some $x$.
+
+    Now, recall that
+    \[
+    \tau_{A} = 
+    D_W \left( i_* \left[ A \right]  \right) .
+    \] 
+
+    Then
+    $\tau_x = 0$ if and only if
+    $i_* \left[ x \right] = 0$.
+
+
+
+\end{proof}
+
+
+
+\newpage
+\printbibliography
+\end{document}
