@@ -1,15 +1,15 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
 [0] Config.pm:310> INFO - Logfile is 'string-topology.blg'
-[80] biber:340> INFO - === Mon Jul  7, 2025, 11:28:14
-[93] Biber.pm:419> INFO - Reading 'string-topology.bcf'
-[144] Biber.pm:979> INFO - Found 2 citekeys in bib section 0
-[154] Biber.pm:4419> INFO - Processing section 0
-[162] Biber.pm:4610> INFO - Looking for bibtex file 'string-topology.bib' for section 0
-[162] bibtex.pm:1713> INFO - LaTeX decoding ...
-[165] bibtex.pm:1519> INFO - Found BibTeX data source 'string-topology.bib'
-[205] UCollate.pm:68> INFO - Overriding locale 'nil' defaults 'variable = shifted' with 'variable = non-ignorable'
-[205] UCollate.pm:68> INFO - Overriding locale 'nil' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[205] Biber.pm:4239> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'nil'
-[205] Biber.pm:4245> INFO - No sort tailoring available for locale 'nil'
-[207] bbl.pm:660> INFO - Writing 'string-topology.bbl' with encoding 'UTF-8'
-[208] bbl.pm:763> INFO - Output to string-topology.bbl
+[126] biber:340> INFO - === Wed Jul  9, 2025, 13:11:00
+[147] Biber.pm:419> INFO - Reading 'string-topology.bcf'
+[234] Biber.pm:979> INFO - Found 2 citekeys in bib section 0
+[250] Biber.pm:4419> INFO - Processing section 0
+[264] Biber.pm:4610> INFO - Looking for bibtex file 'string-topology.bib' for section 0
+[265] bibtex.pm:1713> INFO - LaTeX decoding ...
+[269] bibtex.pm:1519> INFO - Found BibTeX data source 'string-topology.bib'
+[330] UCollate.pm:68> INFO - Overriding locale 'nil' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[330] UCollate.pm:68> INFO - Overriding locale 'nil' defaults 'variable = shifted' with 'variable = non-ignorable'
+[330] Biber.pm:4239> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'nil'
+[330] Biber.pm:4245> INFO - No sort tailoring available for locale 'nil'
+[333] bbl.pm:660> INFO - Writing 'string-topology.bbl' with encoding 'UTF-8'
+[334] bbl.pm:763> INFO - Output to string-topology.bbl

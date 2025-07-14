@@ -11,6 +11,7 @@
 \usepackage{bbm}
 %%For category theory diagrams:
 \usepackage{tikz-cd}
+\usepackage{todonotes}
 
 \usepackage[backend=biber]{biblatex}
 \addbibresource{string-topology.bib}
@@ -954,9 +955,99 @@ $\tau$ as being in $H^{k}(W, W-N)$.
     D_W \left( i_* \left[ A \right]  \right) .
     \] 
 
+    Then
+    $\tau_x = 0$ if and only if
+    $i_* \left[ x \right] = 0$.
+    But $i_* \colon 
+    H_* \left( N, N - x \right) 
+    \to H_* ($
+
 
 
 \end{proof}
+
+
+\section{Thom-Pontryagin Theory}
+
+We start with an element
+$\left[ f \right]  \in \pi_{n+k}\left( S^{n} \right) $, so
+$f$ is a pointed map
+$S^{n+k} \to S^{n}$.
+
+Now insert a disk in place of the
+base point, and extend $f$ to a map
+$\overline{f}$ which is constant on the
+next disk, taking the disk to the basepoint of
+$S^{n}$, and is $f$ elsewhere.
+There is a deformation retract of the sphere, collapsing
+this disk to a point, and composing with this retract
+gives $f$. Hence we may replace $f$ by a pointed-homotopic map
+which is constant in a small neighborhood of
+the basepoint.
+
+Next, we can remove the base point of
+$S^{n+k}$ and instead consider $f$ as a map
+$\mathbb{R}^{n+k} \to S^{n}$ which is now constant
+to the base point outside some compact
+subset of $\mathbb{R}^{n+k}$.\\
+\linebreak
+By the Smooth Approximation Theorem, we can
+also restrict attention to smooth maps
+$\mathbb{R}^{n+k} \to S^{n}$ and smooth
+homotopies. \todo{Insert theorem}
+
+We regard also $S^{n}$ as the one-point compactification
+of $\mathbb{R}^{n}$, denoted
+$\mathbb{R}_+^{n} = \mathbb{R}^{n} \cup  \left\{ \infty \right\} $.
+
+So suppose now we have a smooth map $f \colon
+\mathbb{R}^{n+k} \to \mathbb{R}_+^{n}$ as above.
+
+If $f$ is not null-homotopic, then it must be surjective, hence
+in particular the image does not have measure $0$, so there
+exists a regular value
+$p \in \mathbb{R}^{n} \subset \mathbb{R}_+^{n}$.
+By following $f$ by a translation in $\mathbb{R}^{n}$,
+we can assume that $p$ is the origin $0 \in \mathbb{R}^{n}$ without
+changing the homotopy class of $f$.
+
+\begin{theorem}[\cite{Bredon}, Thm 11.6]\label{Thm:XLOOQKK}
+    Let $f \colon \mathbb{R}^{n} \to M^{m}$ be a smooth
+    map. Assume that $p \in M^{m}$ is a regular
+    value, let $K = f^{-1} \left\{ p \right\} $, and
+    assume that $K$ is compact. Then there
+    is an open neighborhood $N$ of $K$ inside a tubular neighborhood
+    of $K$, with normal retraction $r \colon N \to K$ ,and
+    an open neighborhood $E \cong \mathbb{R}^{m}$ of
+    $p$ in $M^{m}$ such that the map
+    $r \times f \colon N \to K \times E$ is a diffeomorphism.
+\end{theorem}
+
+Using Theorem \ref{Thm:XLOOQKK}, we find that
+there is a disk $E^{n}$ about $0$ in $\mathbb{R}^{n}$ and
+an embedding $M^{k} \times E^{n} \hookrightarrow 
+N \subset \mathbb{R}^{n k} $ onto an open neighborhood
+$N$ of $M^{k}$ whose inverse $N \to 
+M^{k} \times E^{n}$ is $r \times f$, where
+$r \colon N \to  M^{k}$ is the normal retraction.\\
+\linebreak
+Through another homotopy of $f$, we can assume that
+$E^{n}$ is the open unit disk
+$D^{n}$.\\
+
+We will refer to an embedding
+$g \colon M^{k} \times E^{n} \to \mathbb{R}^{n+k}$, with
+$M^{k}$ compact, as a
+"fattened $k$-manifold".
+
+
+
+
+
+
+
+
+
 
 
 
