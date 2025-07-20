@@ -74,7 +74,7 @@
 \DeclareMathOperator{\Mat}{Mat}
 \DeclareMathOperator{\Fin}{Fin}
 \DeclareMathOperator{\rel}{rel}
-\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\Int}{int}
 \DeclareMathOperator{\sgn}{sgn}
 \DeclareMathOperator{\Homeo}{Homeo}
 \DeclareMathOperator{\SHomeo}{SHomeo}
@@ -715,10 +715,10 @@ G_{\alpha, \beta}\right) .
 \end{theorem}
 
 \begin{proof}
-    Todo
+    \todo{}
 \end{proof}
 
-\begin{proposition}[]
+\begin{proposition}[]\label{Prop:SIDJOXOLLWQU}
     \begin{enumerate}
         \item 
     For $A \supset B$ both closed, the following
@@ -805,7 +805,7 @@ G_{\alpha, \beta}\right) .
 \end{proof}
 
 
-\begin{theorem}[]
+\begin{theorem}[]\label{Thm:OGPAL}
     Let $A \subset M$ be closed. Then
     \begin{enumerate}
         \item $H_i \left( M , M - A; G \right) = 0$ for $i>n$.
@@ -834,8 +834,296 @@ G_{\alpha, \beta}\right) .
 \end{lemma}
 
 
+Now note that for a given abelian group $G$ and
+$g \in G$, the following maps are natural in
+$A \subset M$ (closed):
+\[
+H_n(M, M- A) \cong H_n \left( M, M- A \right) \otimes
+\mathbb{Z} \to H_n(M, M-A) \otimes G
+\to H_n(M, M-A;G)
+\] 
+where the middle map is induced by the homomorphism
+$\mathbb{Z} \to G$ taking $1$ to $g$.
+
+In particular, this induces a map
+\[
+H_n(M, M - \bullet) \to 
+H_n(M, M - \bullet; G)
+\] 
+
+\begin{lemma}[]\label{Lemma:X2948JJD}
+    The sections $\Gamma (A;G)$ of $\omega$ over
+    $A$ correspond bijectively to continuous maps
+    $\lambda \colon \Ori \left( M \right)|_{A} \to G$ with
+    the property $\lambda \circ t = - \lambda$, where
+    $t$ acts on $G$ as multiplication by $-1$.
+\end{lemma}
+
+\begin{proof}
+    We may assume $A$ is connected.\\
+    Let $s \in \Gamma \left( A;G \right) $ be a section
+    of $\omega$ over $A$. That is, 
+    $w \circ s = \id_A$, and
+    $s$ is a map $A \to H_n (M, M - \bullet;G)$. We
+    can define an associated map
+    $\lambda_s \colon \Ori (M)|_{A} \to G$ by
+    sending a generator in the fiber $x \in A$ to
+    $s(x) \in 
+    H_n \left( M, M - \left\{ x \right\} ;G \right) 
+    \cong G$. If one chose the other generator, one
+    would get the negative of the above map, so
+    we have the relation
+    $\lambda_s \circ t = - \lambda_s$. Subject to this relation,
+    we obtain a well-defined map
+    $\Gamma \left( A;G \right) \to 
+    S \subset \Hom \left( \Ori \left( M \right) |_A , G \right) $,
+    where $S$ is the subset for which
+    $\lambda \circ t = - \lambda$ holds.
+    This map is certainly injective, since
+    the image tells us precisely the value of
+    $s$ at any point in $A$.\\
+    It is furthermore surjective, since if
+    $\Ori(M)|_A$ is connected, then 
+    $S$ can only consist of the zero section, and
+    if it is not connected, it consists of a map on two
+    components on which it is constant, and the
+    relation $\lambda \circ t = - \lambda$ then
+    determines that is must the required values
+    to constitute the induced map of a section.
+    \todo{check}
+\end{proof}
+
+\begin{theorem}[]\label{Thm:UDWOQJNX}
+    Suppose $A \subset M$ is a closed connected subset.
+    Then
+    \begin{enumerate}
+        \item $H_n(M,M-A; G) = 0$ if $A$ is not compact.
+        \item $H_n(M, M-A;G) \cong G$ if 
+            $M$ is $R$-orientable along $A$ and $A$ is 
+            compact. Moreover, $H_n(M,M-A;G) \to 
+            H_n(M,M- x ; G)$ is an isomorphism
+            for each $x \in A$.
+        \item $H_n(M, M-A; G) \cong 
+            {}_{2}G = 
+            \left\{ g \in G  \mid 2 g = 0 \right\} $ if
+            $M$ is not orientable along $A$ and $A$ is compact.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    (1) By Lemma \ref{Lemma:XIOOQLSJ}, a section
+    in $\Gamma(A;G)$ is determined by its value at a single
+    point. By the existence of the zero section, if
+    a section is non-zero at any point, then it is non-zero at
+    every point. Therefore, there
+    do not exist non-zero sections with compact support
+    over a non-compact $A$, so by Theorem \ref{Thm:OGPAL},
+    $H_n(M, M-A; G) \cong \Gamma_c (A; G) \cong 0$.\\
+    \linebreak
+    (2) Since $A$ is compact, 
+    $H_n\left( M, M-A; G \right) \cong
+    \Gamma_c \left( A;G \right) =
+    \Gamma \left( A;G \right) $. A section is again
+    determined by a single point. Recall now the commutative
+    diagram
+    \begin{equation*}
+    \begin{tikzcd}
+        H_n \left( M, M-A;G \right) \ar[r, "\cong"] 
+        \ar[d, "r_x^{A}"] & \Gamma(A;G) \ar[d, "b"] \\
+        H_n(M, M-x;G) \ar[r, "\cong"] & 
+        \Gamma \left( \left\{ x \right\} ;G \right) 
+    \end{tikzcd}
+    \end{equation*}
+    from Proposition \ref{Prop:SIDJOXOLLWQU}, the horizontal
+    isomorphisms following from Theorem \ref{Thm:OGPAL}.
+    If $M$ is orientable along $A$, there by definition
+    exists in $\Gamma(A;G)$ an element such that
+    its value at $x$ is a generator.
+    Hence $b$ is an isomorphism, and therefore
+    also $r_x^{A}$ is an isomorphism.\\
+    \linebreak
+    (3) 
+    By Lemma \ref{Lemma:X2948JJD}, 
+    a section in $\Gamma(A;G)$ corresponds to a continuous
+    map $\lambda \colon \Ori (M) |_{A} \to G$ with
+    $\lambda t = - \lambda$.
+    If $M$ is not orientable along $A$, then
+    $\Ori(M)|_{A}$ is connected and
+    therefore $\lambda$ is constant as
+    $G$ has the discrete topology. The relation
+    $\lambda t = - \lambda$ shows that
+    $\lambda$ is in ${}_{2}G$. 
+    Now by the commutative diagram from part (2), note that
+    since $\lambda$ must be constant, firstly
+    $\Gamma (A;G) \cong {}_{2}G$, and
+    secondly,$b$ becomes
+    injective, so
+    $r_{x}^{A} \colon H_n(M,M-A;G) \to 
+    H_n \left( M, M- x ; G \right) \cong G$ is injective and
+    has image ${}_{2}G$, so the
+    $\Hom$ term vanishes.
+\end{proof}
+
+\begin{proposition}[]
+    Let $M$ be an $n$-manifold and $A \subset M$ be a closed
+    connected subset. Then the torsion subgroup
+    of $H_{n-1}(M, M-A; \mathbb{Z})$ is of order $2$ if
+    $A$ is compact and $M$ non-orientable along
+    $A$, and is $0$ otherwise.
+\end{proposition}
+
+\begin{proof}
+    By UCT for homology,
+    \begin{align*}
+       \mathbb{Z}/2
+       \cong {}_{2} \mathbb{Z}/2 \cong H_n(M, M-A; \mathbb{Z}/2) 
+       &\cong
+        H_n (M, M-A) \otimes \mathbb{Z}/2 \oplus
+        \Tor_1 \left( H_{n-1}(M,M-A), \mathbb{Z}/2 \right) \\
+        &\cong \Tor_1 \left( H_{n-1}(M,M-A) , \mathbb{Z}/2 \right)\\
+        &\cong \left\{ 
+        g \in H_{n-1}(M, M-A)  \mid 2g = 0 \right\} .
+    \end{align*}
+    where $H_n \left( M, M-A \right) \cong
+    {}_{2}\mathbb{Z} = 0$, and
+    $H_n\left( M, M-A; \mathbb{Z}/2 \right) \cong
+    {}_{2}\mathbb{Z}/2 \cong \mathbb{Z}/2$ both follow
+    from Theorem \ref{Thm:UDWOQJNX}.
+
+    To see that this is the whole torsions subgroup, note
+    that for odd $k$,
+    \[
+    \Tor_1 \left( H_{n-1}(M,M-A) , \mathbb{Z}/k \right) 
+    \cong H_n (M, M-A; \mathbb{Z}/k) \cong
+    {}_{2}\mathbb{Z}/k \cong 0
+    \] 
+    When $M$ is orientable along $A$ and $A$ is compact, 
+    we simply obtain
+    \[
+    0 \to H_n (M, M-A) \otimes \mathbb{Z}/n
+    \to H_{n}(M, M-A; \mathbb{Z}/n) \to 
+    \Tor_1 \left( H_{n-1}(M, M-A), \mathbb{Z}/n \right) \to 0
+    \] 
+    and since $H_n(M,M-A) \cong \mathbb{Z}$ and
+    $H_{n}\left( M, M-A; \mathbb{Z}/n \right) \cong \mathbb{Z}/n$ 
+    by Theorem \ref{Thm:UDWOQJNX}, we find that
+    $\Tor_1$ vanishes for all $n$.\\
+    If  $A$ is non-compact, then Theorem \ref{Thm:UDWOQJNX}
+    gives that $\Tor_1$ trivially vanishes
+    for all terms.
+    
+\end{proof}
+
+\subsection{Fundamental Class}
+
+\begin{theorem}[]\label{Thm:IXKEK}
+    Let $M$ be a compact connected $n$-manifold. Then
+    one of the following assertions holds:
+    \begin{enumerate}
+        \item $M$ is orientable, $H_n (M) \cong \mathbb{Z}$, and
+            for each $x \in M$, the restriction
+            $H_n(M) \to H_n(M, M-x)$ is an isomorphism.
+        \item $M$ is non-orientable and
+            $H_n(M) = 0$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Special case of Theorem \ref{Thm:UDWOQJNX}.
+\end{proof}
+
+Under the hypothesis of Theorem \ref{Thm:IXKEK}, 
+the orientations of $M$ correspond to the generators
+of $H_n(M)$. Such a generator will be called
+a \textit{fundamental class} or \textit{homological class/orientation}
+of the orientable manifold.
+
+\begin{definition}[Degree]
+    Let $M$ and $N$ be compact oriented $n$-manifolds.
+    Let $N$ be connected and suppose
+    $M$ has components $M_1, \ldots, M_r$. Then
+    we have fundamental classes $z(M_j)$ for each
+    $M_j$ and $z(M) \in H_n(M) \cong
+    \bigoplus_{j} H_n(M_j)$ is the sum of
+    the $z(M_j)$.
+    Now, since $H_n(N) \cong \left< z(N) \right> \cong
+    \mathbb{Z}$, we
+    obtain that there exists a \textit{degree}
+    $d(f) \in \mathbb{Z}$ such that
+    $f_* z(M) = d(f) z(N)$.
+\end{definition}
+
+\begin{lemma}[Properties]
+    \begin{enumerate}
+        \item The degree is a homotopy invariant.
+        \item $d(f \circ g) = d(f) d(g)$.
+        \item A homotopy equivalence has degree
+            $\pm 1$.
+        \item If $M = M_1 \bigsqcup M_2$, then
+            $d(f) = d\left( f|_{M_1} \right) +
+            d\left( f|_{M_2} \right) $.
+        \item If we pass in $M$ or $N$ to the opposite orientation,
+            then the degree changes the sign.
+    \end{enumerate}
+\end{lemma}
+
+\subsubsection{Computations of degrees}
+
+As usual, we can compute degrees in terms of local data of a map.
+
+Let $M$ and $N$ be connected and set
+$K = f^{-1}(p)$. Let $U$ be an open neighborhood of
+$K$ in $M$. Then in particular
+$M - U = \overline{M - U} \subset \Int (M - A) = 
+M - A$, so excision gives the bottom left isomorphism in
+the following diagram, and the top right isomorphism
+follows from Theorem \ref{Thm:IXKEK}:
+
+\begin{equation*}
+\begin{tikzcd}
+    z(M) \ar[dd, mapsto] 
+    \in & H_n(M) \ar[r, "f_*"] \ar[d] & H_n(M) \ar[d, "\cong"]
+        & \ni z(N) \ar[dd, mapsto] \\
+             & H_n(M, M-K) \ar[r, "f_*"] & H_n(N, N-p) &\\
+    z(U,K) \in & H_n(U, U-K) \ar[u, "\cong", "i_*"']
+    \ar[r, "f_*^{U}"] &
+    H_n(N, N-p) \ar[u, "="'] & \ni z(N,p)
+\end{tikzcd}
+\end{equation*}
+
+From the outer rectangle, we get $f_*^{U} z(U,K) = d(f) z(N,p)$, where
+$z(N,p)$ and $z(U,K)$ are the images of
+$z(N)$ and $z(M)$ under the indicated maps.
+
+We want to show additivity of degree as in the case for
+spheres.
+
+So suppose $K$ if finite, and choose
+$U = \bigcup_{x \in K}  U_x$ where the $U_x$ are pair-wise
+disjoint open neighborhoods of $x$. Then
+\[
+\bigoplus_{x \in K} H_n(U_x, U_x - x) \cong
+H_n (U, U-K), \quad H_n (U_x, U_x - x) \cong \mathbb{Z}.
+\] 
+
+The image $z \left( U_x, x \right) $ of $z(M)$ is a generator:
+it is the image under the following isomorphisms
+\[
+H_n (M) \stackrel{\cong}{\to} H_n (M, M- x) \stackrel{\cong}{\to}  
+H_n (U_x, U_x -x)
+\] 
+where the first follows from Theorem 
+\ref{Thm:IXKEK} and the second from
+excision. The local degree 
+$d(f,x)$ is determined by
+$f_* z\left( U_x, x \right) = d(f,x) z(N,p)$, and
+and by additivity above, we have
+$d(f) = \sum_{x \in K} d(f,x)$.
+
+
 
 \section{Intersection Theory}
+
 
 
 \begin{definition}[$k$-disk bundle]
@@ -1043,9 +1331,37 @@ $M^{k}$ compact, as a
 
 
 
+\section{Terminology}
 
+\begin{definition}[Neighborhood retract]
+    If $A \subset X$ and $A$ has a neighborhood in $X$ of
+    which it is a retract, then $A$ is called
+    a \textit{neighborhood retract} (in $X$ ).
+\end{definition}
 
+\begin{note}
+    Saying that $A \hookrightarrow X$ is a cofibration
+    is stronger than saying that $A$ is a neighborhood retract.
+\end{note}
 
+\section{Lemmas}
+
+\begin{lemma}[]\label{Lemma:XIOOQLSJ}
+    Let $\pi \colon W \to N$ be a covering map and
+    $M$ a connected space. Suppose
+    $f,g \colon M \to W$ are maps such that
+    $\pi \circ f = \pi \circ g$ and that
+    $f(x) = g(x)$ for some $x \in M$. Then
+    $f = g$.
+\end{lemma}
+
+\begin{proof}
+    Show that the set
+    \[
+    Z = \left\{ z \in M  \mid f(z) = g(z)\right\} 
+    \] 
+    is closed and open.
+\end{proof}
 
 
 
