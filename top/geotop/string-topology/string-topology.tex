@@ -390,7 +390,7 @@ $A$ as follows
     \textit{orientation covering} of $M$.
 \end{definition}
 
-\begin{proposition}[]
+\begin{proposition}[]\label{Prop:UBCKW}
     The following are equivalent:
 
 
@@ -1120,6 +1120,214 @@ $f_* z\left( U_x, x \right) = d(f,x) z(N,p)$, and
 and by additivity above, we have
 $d(f) = \sum_{x \in K} d(f,x)$.
 
+\begin{proposition}[]
+    Let $M$ be a connected, oriented, closed $n$-manifold.
+    Then there exists for each $k \in \mathbb{Z}$ a map
+    $f \colon M^{n} \to S^{n}$ of degree $k$.
+\end{proposition}
+
+\begin{remark}[]
+    If $f$ is $C^{1}$ in a neighborhood of $x$, then
+    $d(f,x)$ is the sign of the determinant of
+    $D g(0)$ when $Dg(x)$ is regular, where
+    $g$ is $f$ in local coordinates that preserve local orientations.
+    By this we mean that for
+    $\varphi  \colon U_x \to \mathbb{R}^{n}$ centered
+    at $x$, $\varphi_* \colon
+    H_n \left( U_x, U_x -x \right)  \to 
+    H_n \left( \mathbb{R}^{n}, \mathbb{R}^{n} -0 \right) $ sends
+    $z \left( U_x, x \right) $ to the standard generator.
+    Such charts are called \textit{positive} with respect
+    to the given orientations.
+\end{remark}
+
+\begin{proof}
+    If $f \colon M \to S^{n}$ has degree
+    $a$ and $g \colon S^{n} \to S^{n}$ degree $b$, then
+    $gf$ has degree $ab$. Since the proposition is true
+    for $M = S^{n}$, it suffices to find $f$ having
+    degree $\pm 1$. Let
+    $\varphi  \colon D^{n} \to M$ be an embedding. Then
+    we have a map $f \colon M \to D^{n} / S^{n-1}$ which is
+    the inverse of $\varphi $ on $U = \varphi 
+    \left( \Int D^{n} \right) $ and
+    sends $M - U$ to the basepoint. This map has degree
+    $\pm 1$ as can be seen
+    by choosing any neighborhood of
+    $x$ in the interior of $U$ and looking at the
+    determinant of the differential locally.
+\end{proof}
+
+\subsection{Manifolds with Boundary}
+
+\begin{definition}[]
+    For $M$ an $n$-dimensional manifold with boundary, we
+    call $z \in H_n \left( M, \partial M \right) $ a 
+    \textit{fundamental class} if for each $x \in 
+    M - \partial M$, the restriction of $z$ is a generator
+    in $H_n \left( M, M - x \right) $.
+\end{definition}
+
+\begin{theorem}[]\label{Thm:XOGJWQ}
+    Let $M$ be a compact connected $n$-manifold with non-empty
+    boundary. Then one of the following assertions hold:
+    \begin{enumerate}
+        \item $H_n \left( M, \partial M \right) \cong \mathbb{Z}$,
+            and a generator of this group is a fundamental
+            class. The image of a fundamental class under
+            $\partial \colon H_n \left( M, \partial M \right) 
+            \to H_{n-1} \left( \partial M \right) $ is
+            a fundamental class. The interior $M - \partial M$ 
+            is orientable.
+        \item $H_n \left( M , \partial M \right) = 0$, and
+            $M - \partial M$ is not orientable.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    See \cite[Thm 16.5.1]{Dieck}. We will follow that
+    proof and only add a few extra words.
+
+    Let $\kappa \colon [0, \infty [ \times \partial M \to U$
+    be a collar of $M$, i.e., a homeomorphism
+    onto an open neighborhood $U$ of $\partial M$ such that
+    $\kappa (0,x) = x$ for $x \in \partial M$ (See Milnor's
+    $h$-cobordism book for existence).
+    For simplicity of notation, we
+    identify $U$ with $[0, \infty ) \times \partial M$ via
+    $\kappa$ ; similarly, for subsets of $U$.
+    In this sense, $\partial M = 0 \times \partial M$.
+    For
+    $A = M - \left( [0,1) \times \partial M \right) 
+    \subset M - \partial M$, we have isomorphisms
+    \[
+    H_n \left( M, \partial M \right) \cong
+    H_n \left( M, [0,1) \times \partial M \right) 
+    \cong
+    H_n \left( M - \partial M, (0,1) \times \partial M \right) 
+    \cong \Gamma (A).
+    \] 
+    The first one by homotopy equivalence, the second by
+    excision, and the third using Theorem
+    \ref{Thm:OGPAL}.
+
+    Since $A$ is connected, 
+    $\Gamma (A) \cong \mathbb{Z}$ or 
+    $\Gamma (A) \cong 0$. If 
+    $\Gamma(A) \cong \mathbb{Z}$, then
+    $M - \partial M$ is orientable along $A$.
+
+    Let now $A_{\varepsilon} \cong A$ be the complement
+    of $[0, \varepsilon) \times \partial M$. Since
+    each compact subset of $M - \partial M$ is
+    contained in some such $M_{\varepsilon}$ for small enough
+    $\varepsilon$, we see that $M - \partial M$ is orientable
+    along all compact subsets, hence
+    orientable by Proposition \ref{Prop:UBCKW}.
+
+    The isomorphism 
+    $H_n \left( M - \partial M, 
+    \left( 0,1 \right)  \times \partial M \right) \cong
+    \Gamma(A)$ from above says that there exists
+    some $z \in H_n \left( M - \partial M,
+    \left( 0,1 \right) \times \partial M \right) $ which restricts
+    to a generator of $H_n \left( M - \partial M,
+    M - \partial M - x\right) $ for each $x \in A$.
+    For the corresponding element
+    $z \in H_n \left( M, \partial M \right) \cong
+    \mathbb{Z}$, the same assertion holds
+    for any $x \in M - \partial M$ (simply shrink the collar
+    to not contain $x$ ).
+
+    Lastly, we must show that $\partial z$ is a fundamental class.
+    Let $x \in \left( 0,1 \right) \times \partial M$.
+    Consider the diagram:
+
+    \begin{equation*}
+    \begin{tikzcd}
+        H_{n-1}(\partial M) \ar[r, "\cong"] &
+        H_{n-1}\left( \partial M \cup A, A \right) &
+        H_{n-1}\left( \partial I \times \partial M,
+        1 \times \partial M \right) \ar[l, "\cong"] \\
+        H_n (M, \partial M) \ar[r] \ar[u, "\partial"]
+        \ar[dr]&
+        H_n \left( M, \partial M \cup  A \right) 
+        \ar[u, "\cong", "\partial"'] 
+        \ar[d]&
+        H_n \left( I \times \partial M , \partial I 
+        \times \partial M\right) \ar[l, "\cong"] 
+        \ar[u, "\cong", "\partial"'] \\
+        & H_n (M, M-x) & H_n \left( I \times \partial M,
+        I \times \partial M - x \right) 
+        \ar[l, "\cong"]
+    \end{tikzcd}
+    \end{equation*}
+
+    Commutativity of the bottom left triangle tells us that
+    the image of $z$ under 
+    $H_n \left( M, \partial M \right) 
+    \to H_n \left( M, \partial M \cup A \right) $ 
+    gives an element whose restriction
+    gives a generator in $H_n \left( M, M - x \right) $, but
+    then by commutativity of the bottom right square,
+    we get that the restriction of $z$ transferred over
+    by the isomorphism to
+    $H_n \left( I \times \partial M, \partial I \times 
+    \partial M \right) $ is a generator of
+    $H_n \left( I \times \partial M, I \times \partial M
+    - x\right) $ at each point in $(0,1) \times \partial M$. Hence
+    $z$ yields a fundamental class
+    in $H_n \left( I \times \partial M,
+    \partial I \times \partial M \right) $.
+
+    But since $z$ is a generator in
+    $H_n \left( I \times \partial M, \partial I \times 
+    \partial M\right) $, the upper part shows that
+    $z$ is a generator in
+    $H_{n-1}(\partial M)$, thus a fundamental class
+    of $\partial M$ since this characterizes fundamental classes.
+
+\end{proof}
+
+
+\begin{example}[]
+    Suppose that
+    $B \colon M \to \varnothing$ is a cobordism.
+    We have the fundamental classes
+    $z(B) \in H_{n+1}(B, \partial B)$ and
+    $z(M) = \partial z_{B} \in 
+    H_n (M)$ (here we crucially made use of our result
+    in Theorem \ref{Thm:XOGJWQ}). This is already a lot of
+    information. Indeed, suppose $f \colon M \to N$ is a 
+    map which has an extension to $B$ : $F\colon B \to N$.
+    Then the degree of $f$ (if defined) is zero,
+    $d(f) = 0$, for we have
+    $f_* z(M) = f_* \partial z(B) = 
+    F_* i_* \partial z(B) = 0$, since
+    $i_* \partial = 0$ by the exactness of the
+    homology sequence for the pair
+    $\left( B, M \right) $.
+
+    We call maps $f_{\nu} \colon M_{\nu} \to N$ 
+    \textit{orientable bordant} if there exists
+    a compact oriented cobordism 
+    $B \colon M_1 \to M_2$ with orientable
+    boundary $\partial B = M_1 - M_2$ (meaning
+    $\partial z(B) = z(M_1) - z(M_2)$ ) and an extension
+    $F \colon B \to N$ of 
+    $f_1 \sqcup  f_2 \colon M_1 \bigsqcup M_2 \to N$.
+
+    Under these assumptions, we have
+    $d(f_1) = d(f_2)$. This fact
+    is called the \textit{bordism invariance} of the
+    degree; it generalizes the homotopy invariance.
+\end{example}
+
+
+
+
+
+
 
 
 \section{Intersection Theory}
@@ -1362,7 +1570,6 @@ $M^{k}$ compact, as a
     \] 
     is closed and open.
 \end{proof}
-
 
 
 
