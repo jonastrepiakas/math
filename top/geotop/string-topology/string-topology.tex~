@@ -1329,6 +1329,7 @@ $d(f) = \sum_{x \in K} d(f,x)$.
 
 
 
+
 \section{Intersection Theory}
 
 
@@ -1443,20 +1444,13 @@ $\tau$ as being in $H^{k}(W, W-N)$.
     \cong \left( D^{k}, S^{k-1} \right) $.
 
     Suppose first that $\tau_x = 0$ for some $x$.
+    Let $i \colon \tilde{A} \hookrightarrow 
+    W$ be then inclusion, then we have
 
-    Now, recall that
     \[
-    \tau_{A} = 
-    D_W \left( i_* \left[ A \right]  \right) .
+    0 = i_* (0) = i_* \left( \tau_x \cap \beta \right) =
+    \tau \cap i_* \left( \beta \right) .
     \] 
-
-    Then
-    $\tau_x = 0$ if and only if
-    $i_* \left[ x \right] = 0$.
-    But $i_* \colon 
-    H_* \left( N, N - x \right) 
-    \to H_* ($
-
 
 
 \end{proof}

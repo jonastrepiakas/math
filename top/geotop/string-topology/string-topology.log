@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  21 JUL 2025 01:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.6.25)  21 JUL 2025 13:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -975,24 +975,24 @@ Overfull \hbox (19.3468pt too wide) in paragraph at lines 1358--1362
  []
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 1484--1494
+Underfull \hbox (badness 10000) in paragraph at lines 1479--1489
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1522--1533
+Underfull \hbox (badness 10000) in paragraph at lines 1517--1528
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1522--1533
+Underfull \hbox (badness 10000) in paragraph at lines 1517--1528
 
  []
 
 [12] [13]
 
 Package biblatex Warning: Bibliography string 'volume' untranslated
-(biblatex)                at entry 'Bredon' on input line 1578.
+(biblatex)                at entry 'Bredon' on input line 1573.
 
 
 Package biblatex Warning: Using fallback definition for \mkbibdatelong.
@@ -1010,10 +1010,10 @@ Package biblatex Warning: Using fallback definition for \mkbibdatelong.
 
 
 Package biblatex Warning: Bibliography string 'pages' untranslated
-(biblatex)                at entry 'Dieck' on input line 1578.
+(biblatex)                at entry 'Dieck' on input line 1573.
 
 
-Overfull \hbox (12.25908pt too wide) in paragraph at lines 1579--1579
+Overfull \hbox (12.25908pt too wide) in paragraph at lines 1574--1574
 []\T1/cmr/m/n/10 Tammo tom Dieck. \T1/cmr/m/it/10 Algebraic topology\T1/cmr/m/n/10 . EMS Textbooks in Mathematics. European
  []
 
@@ -1037,7 +1037,7 @@ Here is how much of TeX's memory you used:
  1302 hyphenation exceptions out of 8191
  113i,15n,121p,688b,1520s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on string-topology.pdf (14 pages, 302436 bytes).
+Output written on string-topology.pdf (14 pages, 302460 bytes).
 PDF statistics:
  307 PDF objects out of 1000 (max. 8388607)
  254 compressed objects within 3 object streams
