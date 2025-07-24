@@ -15,6 +15,7 @@
 
 \usepackage[backend=biber]{biblatex}
 \addbibresource{string-topology.bib}
+\usepackage{adjustbox}
 
 
 \setlength\parindent{0pt}
@@ -526,7 +527,7 @@ J^{A} \colon H_n(M, M - A; G) \to
 
 
 
-\subsubsection{Direct Limits}
+\subsection{Direct Limits}
 
 \begin{definition}[Directed set]
     A \textit{directed set} $D$ is a partially ordered set such that,
@@ -555,6 +556,20 @@ J^{A} \colon H_n(M, M - A; G) \to
         system.
     \end{note}
 \end{definition}
+
+The inclusions
+$G_{\alpha} \hookrightarrow \bigoplus G_{\alpha}$ induce
+homomorphisms
+$i_{\alpha} \colon G_{\alpha} \to \lim_{\rightarrow}G_{\alpha}$ and
+$i_{\beta} \circ f_{\beta, \alpha} = i_{\alpha}$. Moreover,
+for any $g \in G$, there is a $g_{\alpha}\in G_{\alpha}$ for
+some $\alpha$ such that $g = i_{\alpha} (g_{\alpha})$.
+Also, for any index $\alpha \in D$, and element
+$g_{\alpha} \in G_{\alpha}$, we have
+$i_{\alpha}(g_{\alpha}) = 0$ if and only if
+there exists a  $\beta \ge \alpha$ such that
+$f_{\beta, \alpha}(g_{\alpha}) = 0$. These properties
+characterize the direct limit:
 
 \begin{proposition}[]\label{Prop:OXKXKCL}
     Suppose we are given an abelian group
@@ -616,7 +631,7 @@ h_{\alpha}(g_{\alpha}) = 0\right\} =
     \end{enumerate}
 \end{corollary}
 
-\begin{theorem}[]
+\begin{theorem}[]\label{Thm:Direct-Limit-Functor}
     The direct limit is an exact functor.
     So if we have direct systems
     $\left\{ A_{\alpha}' \right\} ,
@@ -1372,7 +1387,7 @@ $\vartheta_K \in \Gamma \left( K, H_n (M, M - \bullet) \right)
     topological manifolds), then this is also naturally
     isomorphic to singular cohomology.
 
-    \subsubsection{Construction of the duality map}
+    \subsection{Construction of the duality map}
     Suppose $(K, L) \subset (U,V)$ as above (so 
     $L \subset K$ ).
     Then note that since $K \subset U$, we have
@@ -1435,6 +1450,197 @@ $\vartheta_K \in \Gamma \left( K, H_n (M, M - \bullet) \right)
     we will obtain an induced homomorphism
     from $\check{H}$.
 
+    Suppose $i \colon \left( U',V' \right) \hookrightarrow 
+    \left( U,V \right) $ is the inclusion. Let
+    $\left[ f \right] \in 
+    H^{p}\left( U,V;G \right) $ and
+     represent $\vartheta$ as
+     $b+c+d \in \Delta_n (V') + \Delta_n (U' - L) +
+     \Delta_n (M-A)$. Then
+     \[
+     \left[ f \right] \cap \vartheta
+     = \left[ f \cap \left( b + c+ d \right)  \right] 
+     = \left[ f \cap c \right] 
+     = \left[ f \circ i \cap c \right] 
+     = i^{*} \left[ f \right] \cap
+     \vartheta
+     \] 
+     so the homomorphism is compatible with the morphisms
+     in the directed system. Furthermore, choosing a different
+     $A$, say $A'$, we similarly can write
+     $\vartheta$ as
+     $b+c+d \in \Delta_n (V') + \Delta_n (U'-L) + \Delta_n (M-A')$, and
+     again $f \cap d$ becomes zero in homology
+     since it lands inside $M - A \subset M - K$.
+     Hence the homomorphism
+      $\cap \vartheta$ is compatible with changing $A$ and
+      also with the directed system maps. Thus
+      in the direct limit, we get a natural map
+      \[
+      \cap \vartheta \colon
+      \check{H}^{p} (K,L;G) \to H_{n-p} (M-L, M-K;G).
+      \] 
+
+
+      \subsection{Properties of the duality map}
+
+      Now that we have constructed the homomorphism
+      we are interested in, we should prove some properties
+      that might be useful for us.
+
+      In order to do this, we give its (co)chain description.
+
+      Let $\alpha \in \check{H}^{p}(K,L;G)$. Then
+      by the direct limit, there exists
+      some open neighborhood $(U,V)$ of $(K,L)$ such that
+      $\alpha$ is represented by a 
+      $p$-cocycle $f$ of $(U,V)$.
+      Thus $f = 0$ on $V$ and
+      $\delta f = 0$ on $U$.
+      Then extend $f$ trivially to a cochain on all of $M$.
+      We represent the orientation
+      $\vartheta$ by a chain $a = b+c+d \in 
+      \Delta_n (V) + \Delta_n (U-L) + \Delta_n (M-K)$.
+      Then $f \cap \left( b+c+d \right) = 
+      f \cap b + f \cap c + f \cap d$. But
+      $f \cap b = 0$ and
+      $f \cap d$ is a chain in $M - K$, so
+      $\alpha \cap \vartheta$ is represented by
+      $f \cap c$. In the special case for
+      $L = \varnothing$, we take $V = \varnothing$, so
+      $b$ does not come into the consideration then.\\
+
+      Using the above description, we can now show the following lemma
+
+      \begin{lemma}[]
+          The following diagram with arbitrary coefficients
+          has exact rows and commutes:
+
+          \adjustbox{scale=0.9,center}{%
+              \begin{tikzcd}
+              \ldots \ar[r] & \check{H}^{p} (K, L) \ar[d] \ar[r] &
+              \check{H}^{p} (K) \ar[d] \ar[r] &
+              \check{H}^{p}(L) \ar[d] \ar[r] & 
+              \check{H}^{p+1} (K,L) \ar[d] \ar[r] & \ldots\\
+              \ldots \ar[r] & H_{n-p}(M-L, M-K) \ar[r] &
+              H_{n-p}(M, M-K) \ar[r] &
+              H_{n-p}(M, M-L) \ar[r] & H_{n-p-1}(M-L, M-K) \ar[r] &
+              \ldots
+          \end{tikzcd}
+      }
+          where all vertical maps are the cap products with the
+          orientation class $\vartheta$.
+      \end{lemma}
+
+      \begin{proof}
+          The exactness of the top row follows
+          from Theorem \ref{Thm:Direct-Limit-Functor} together
+          with the LES of a pair in singular cohomology.\\
+
+          Let us first check the first two squares.
+          In the first one, if
+          $\left[ f \right]  \in \check{H}^{p}(K,L)$, then
+          going down, we get
+          $\left[ f \right] \cap \vartheta$ which includes
+          into $H_{n-p}(M, M-K)$. In particular, this
+          is represented by
+          $f \cap c$. But in the same way, including first
+          $\left[ f \right] $ into $\check{H}^{p}(K)$ and
+          the capping with $\vartheta$ is still represented
+          by $f \cap c$ (as we discussed above),
+          so we obtain commutativity of the first
+          square.
+          For the second square, suppose
+          let $f \in \Delta^{p}(M;G)$ be such that
+          $f|_{U} \in \Delta^{p}(U;G)$ represents
+          $\alpha \in H^{p}(U;G)$ mapping to the class
+          in question in $\check{H}^{p}(K;G)$.
+          Let $\vartheta$ be represented
+          by $a = b+c+d \in \Delta_n (V) + \Delta_n (U-L) + 
+          \Delta_n (M - K)$. 
+          Then $f \cap a$ is represented by
+          $f \cap b + f \cap c$ in $H_{n-p}(M, M-K)$. But since
+          we have the decomposition
+          $a = 0 + b + (c+d) \in 
+          \Delta_n(\varnothing) + \Delta_n (V - \varnothing) + 
+          \Delta_n (M-L)$, we also have that
+          in $H_n (M, M-L)$, $f \cap a$ becomes
+          $f \cap b$.\\
+          On the other hand, we have
+          $f$ restricting to class which is the image
+          of a class represented by $f|_V$. But then
+           this simply becomes
+           $f|_{V} \cap b = f \cap b$ in
+           $H_{n-p}(M, M-L)$.
+
+
+          For the last square, we must check commutativity.
+
+          Let $f \in \Delta^{p} (M;G)$ such that
+          $f|_{V} \in \Delta^{p}(V;G)$ represents
+          $\alpha \in H^{p}(V;G)$ mapping to
+          the class in $\check{H}^{p}(L;G)$ that we want
+          to
+          chase through the square (we can find such an $f$ by the
+          properties section above the lemma).
+          Thus $\delta f = 0$ on $V$.\\
+          Now represent $\vartheta$ by $a = b+c+d \in 
+          \Delta_n (V) + \Delta_n (U-L) + \Delta_n (M-K)$. This
+          is the decomposition of $a$ appropriate to the
+          $(K,L)$ pair, but we can also decompose
+          $a$ as $a = 0 + b + (c+d) \in 
+          \Delta_n (\varnothing) + \Delta_n (V - \varnothing)
+          + \Delta_n (M - L)$ which is the decomposition
+          with respect to the pair $(L, \varnothing)$, showing
+          that $a$ can be used in the definition
+          of both the cap product for
+          $\check{H}^{p}(L)$ and for
+          $\check{H}^{p+1}(K,L)$ in question. Since
+          $\vartheta$ is a class of
+          $(M, M-K)$, $\partial a$ is a chain in $M - K$. Now, starting
+          with $f$ representing $\alpha$, going to the
+          right gives $\delta f$ and then capping with $a$ when
+          going down gives
+          $\delta f \cap a$. On the other hand,
+          going down with $f$ first gives $f \cap a$ and going
+          right then gives $\partial \left( f \cap a \right) $.
+          Now recall that
+          $\partial \left( f \cap a \right) 
+          = \left( \delta f \right) \cap a \pm f \cap \partial a$, but
+          $f \cap \partial a$ is a chain in $M - K$, so it
+          vanishes on passage to homology, whereby
+          we find that the square commutes.
+      \end{proof}
+
+
+      \begin{lemma}[]
+          Let $K$ and $L$ be compact subsets of the
+          $n$-manifold $M$ with the orientation
+          $\vartheta$. Then the diagram with arbitrary coefficients
+
+          \adjustbox{scale=0.8,center}{%
+          \begin{tikzcd}
+              \ldots \ar[r] & \check{H}^{p}(K \cup L) \ar[d] \ar[r] &
+              \check{H}^{p}(K) \oplus \check{H}^{p}(L) \ar[d] \ar[r]&
+              \check{H}^{p}(K \cap L) \ar[d] \ar[r, "\delta^{*}"] &
+              \check{H}^{p+1}(K \cup L) \ar[d] \ar[r] & \ldots \\
+              \ldots \ar[r] & H_{n-p}(M, M- (K \cup L)) \ar[r] &
+              H_{n-p}(M, M-K) \oplus H_{n-p}(M, M-L) \ar[r] &
+              H_{n-p}(M, M - \left( K \cap L \right) 
+              \ar[r, "\delta_*"] & H_{n-p-1}(M, M - (K \cup L))
+              \ar[r] & \ldots
+          \end{tikzcd}
+      }
+      where the vertical maps are the cap products with
+      $\vartheta$, commutes and has exact rows.
+          
+      \end{lemma}
+
+      
+
+
+
+      
 
 
 \section{Intersection Theory}
