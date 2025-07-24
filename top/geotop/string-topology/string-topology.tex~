@@ -528,6 +528,13 @@ J^{A} \colon H_n(M, M - A; G) \to
 
 \subsubsection{Direct Limits}
 
+\begin{definition}[Directed set]
+    A \textit{directed set} $D$ is a partially ordered set such that,
+    for any two elements $\alpha$ and $\beta$ of $D$, there
+    is a $\tau \in D$ with $\tau \ge \alpha$  and
+    $\tau \ge \beta$.
+\end{definition}
+
 \begin{definition}[]
     Let $D$ be a directed set and $G_{\alpha}$ an abelian group
     defined for each $\alpha \in D$. Suppose
@@ -1324,9 +1331,109 @@ $d(f) = \sum_{x \in K} d(f,x)$.
 \end{example}
 
 
+\section{Duality}
+
+Let $M^{n}$ be orientable and $\vartheta_M \in 
+\Gamma \left( M, H_n (M,M - \bullet) \right) $ an orientation.
+
+For $K \subset M$ compact, $\vartheta_M$ restricts to
+to
+$\vartheta_K \in \Gamma \left( K, H_n (M, M - \bullet) \right)
+    = \Gamma_c (K , H_n (M, M - \bullet)) 
+    \cong H_n (M, M - K)$, so we can regard
+    $\vartheta_K$ as lying in
+    $H_n (M, M - K)$. Let
+    $\vartheta = \left\{ \vartheta_K \right\} $ be the collection
+    of all these, and we then call $\vartheta$ an
+    orientation.
 
 
+    \begin{definition}[]
+        For sets $L \subset K \subset M$, we define
+        \[
+            \check{H}^{p} (K,L;G) =
+            \lim_{\rightarrow} 
+            \left\{ H^{p} (U,V;G)  \mid 
+            \left( U, V \right) \supset (K, L), U, V
+        \text{ open}\right\} .
+        \] 
+    \end{definition}
 
+    This is a directed system since if
+    $\left( U,V \right) $ and
+    $\left( U',V' \right) $ both contain $(K,L)$, the
+    $\left( U \cap U', V \cap V' \right) $ also contains
+    $\left( K, L \right) $, and the maps
+    induced by inclusions of nested open sets satisfy the
+    required relation to be a directed system.\\
+
+    This group is naturally isomorphic to that of Cech cohomology. If
+    $K$ and $L$ are spaces such as ENRs (e.g., CW-complexes or
+    topological manifolds), then this is also naturally
+    isomorphic to singular cohomology.
+
+    \subsubsection{Construction of the duality map}
+    Suppose $(K, L) \subset (U,V)$ as above (so 
+    $L \subset K$ ).
+    Then note that since $K \subset U$, we have
+    $M - U = \overline{M - U} \subset \int (M - K) = M - K$, so
+    by excision,
+    $H_{n-p} (U-L, U -K) \cong
+    H_{n-p}(M-L, M - K)$.
+    Also,
+    $\left\{ V, U - L \right\} $ is an open cover of $U$, hence
+    $H_* \left( 
+    \frac{\Delta_* (V) + \Delta_* (U-L)}{\Delta_* (U - K)}\right) 
+    \cong H_* \left( U, U-K \right) \cong
+    H_* (M, M-K)$ where the first isomorphism follows
+    from Theorem 7.2.2 in Algtop1, and the latter follows
+    from excision.
+
+
+    Now, we have a well-defined cap
+    product
+    \[
+    \Delta^{p} \left( U, V;G \right) \otimes
+    \left[ \frac{\Delta_n (V) + \Delta_n (U - L)}{\Delta_n (U-K)} \right] 
+    \stackrel{\cap}{\to} \Delta_{n-p} \left( U -L, U-K;G \right) 
+    \] 
+    given by $f \cap (b+c) = f\cap b+ f \cap c = f \cap c$, which
+    by the above, induces a cap product
+    \[
+    H^{p}(U,V;G) \otimes
+    H_n(M, M-K) \to H_{n-p} (M - L, M- K;G)
+    \] 
+    which is  natural in $(K,L)$.
+
+    Using the same theorem from Algtop1, we find that
+    for $\gamma \in H_n (M, M-A)$, we can represent $\gamma$ by
+    a chain $b+c+d \in 
+    \Delta_n (V) + \Delta_n (U-L) + \Delta_n (M-K)$, so for
+    $f \in \Delta^{p}(U,V;G)$, we get that
+    \[
+    \left[ f \right] \cap \gamma = 
+    \left[ f \cap (b + c + d) \right] 
+    = \left[ f \cap c \right] \in 
+    H_{n-p} (M-L, M-K;G)
+    \] 
+    since $f \cap b = 0$ as $f$ vanishes on $V$ and
+    $f \cap d$ is a chain in $M-K$.
+
+    Thus by capping with $\vartheta_A$ for
+    $A$ large enough to contain
+    $K$, we obtain a homomorphism
+    \[
+    \cap \vartheta \colon
+    H^{p} \left( U, V ; G \right) \to 
+    H_{n-p} (M-L, M - K;G).
+    \] 
+    Now, recall that the direct limit
+    used for $\check{H}$ has the universal property that it
+    is the colimit under the direct system.
+    So if the above map
+    $\cap \vartheta$ is compatible with the direct system, then
+    we will obtain an induced homomorphism
+    from $\check{H}$.
 
 
 
@@ -1445,12 +1552,80 @@ $\tau$ as being in $H^{k}(W, W-N)$.
 
     Suppose first that $\tau_x = 0$ for some $x$.
     Let $i \colon \tilde{A} \hookrightarrow 
-    W$ be then inclusion, then we have
+    W$ be the inclusion, then we have
 
     \[
     0 = i_* (0) = i_* \left( \tau_x \cap \beta \right) =
-    \tau \cap i_* \left( \beta \right) .
+    \tau \cap i_* \left( \beta \right) ,
     \] 
+    for all $\beta \in H_* \left( \tilde{A},
+    \partial \tilde{A}\right) $.
+
+    Let 
+    $U$ be a neighborhood around $x$ which is evenly covered, so
+    $\pi^{-1}(U) \cong U \times D^{k}$, and
+    $\tilde{A} = \pi^{-1}(x) \cong \left\{ x \right\} \times D^{k}$.
+    Let $i_x \colon \left\{ x \right\} \to 
+    \left\{ x \right\} \times D^{k}$ be the zero section, and
+    similarly for $i_y \colon \left\{ y \right\} \to 
+    \left\{ y \right\} \times D^{k}$. Let
+    $\gamma \colon I \to U$ be a path from $x$ to $y$.
+    Then
+    we can define a path
+    $F \colon I \to 
+    U \times D^{k}$ by
+    $F(t) = (\gamma(t),0) $. Then
+    $F (t) = i_{\gamma(t)} (\gamma(t))$.
+
+    We have a pullback square as follows:
+
+    \begin{equation*}
+    \begin{tikzcd}
+        (X,X') \ar[d, "q"] \ar[r] & (W,W') \ar[d, "p"] \\
+        I \ar[r] & B
+    \end{tikzcd}
+    \end{equation*}
+    
+    Then we have an isomorphism
+    induced by inclusions:
+    \[
+    w_{\#} \colon H_{n} 
+    \left( F_c, F_c' \right) \stackrel{\cong}{\to } 
+    H_{n}(X,X') \stackrel{\cong}{\leftarrow} H_{n}(F_b,F_b')
+    \] 
+    In particular,
+    $i_{c*} = i_{b*} w_{\#}$, so
+    if $i_{c*}\left[ x \right] = 0$, then
+    $i_{b*} \left[ y \right] = i_{b*} w_{\#}\left[ x \right] = 
+     \pm i_{c*} \left[ x \right] = 0 $.
+
+     Thus $\tau_y = 0$ for all $y$ near $x$. Since
+     $N$ is connected, this implies that
+     $\tau_y = 0$ for all $y \in N$.\\
+
+     For closed sets $A \subset N$, let
+     $P_N (A)$ be the statement that
+     $\tau_A = 0$, where
+     $\tau_A = \tau|_{\left( \tilde{A}, \partial \tilde{A} \right) }$.
+
+     Suppose now that $A$ is a convex set in some euclidean 
+     open set in $N$. 
+     Then $\tilde{A}$ is also convex, so
+     $\tau|_A \in \check{H}^{k}(\tilde{A}, \partial \tilde{A}) $.
+     
+     We have that the restriction defines an isomorphism
+     \[
+     H^{n} \left( W, W-\tilde{A} \right) 
+     \to H^{n} \left( W, W - x \right) 
+     \] 
+     for any point $x \in \tilde{A}$.
+     Now, $\tilde{A}$ is closed, so $W - \tilde{A}$ is open, and
+     $\overline{W - \tilde{A}} 
+     \subset \int $
+    
+
+    
+
 
 
 \end{proof}
