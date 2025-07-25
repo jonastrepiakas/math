@@ -203,7 +203,7 @@ h_k(M, M-K)$ induced by inclusion is
 called restriction. We write
 $r_{x}^{L}$ when $K = \left\{ x \right\} $.
 
-\begin{proposition}[]
+\begin{proposition}[]\label{Prop:SIDJAV}
     When $A$ is a compact, convex set contained
     in some chart $\mathbb{R}^{n} \subset M$, then
     $r_{x}^{A}$ is an isomorphism for each
@@ -1354,13 +1354,13 @@ Let $M^{n}$ be orientable and $\vartheta_M \in
 For $K \subset M$ compact, $\vartheta_M$ restricts to
 to
 $\vartheta_K \in \Gamma \left( K, H_n (M, M - \bullet) \right)
-    = \Gamma_c (K , H_n (M, M - \bullet)) 
+  = \Gamma_c (K , H_n (M, M - \bullet)) 
     \cong H_n (M, M - K)$, so we can regard
     $\vartheta_K$ as lying in
     $H_n (M, M - K)$. Let
     $\vartheta = \left\{ \vartheta_K \right\} $ be the collection
     of all these, and we then call $\vartheta$ an
-    orientation.
+orientation.
 
 
     \begin{definition}[]
@@ -1636,6 +1636,7 @@ $\vartheta_K \in \Gamma \left( K, H_n (M, M - \bullet) \right)
           
       \end{lemma}
 
+      
 
 
 
@@ -1743,7 +1744,7 @@ $\tau$ as being in $H^{k}(W, W-N)$.
 \end{proof}
 
 
-\begin{lemma}[]
+\begin{lemma}[]\label{Lemma:NICVN}
     The restriction $\tau_x \in 
     \check{H}^{k}( \tilde{A}, \partial \tilde{A})$ of
     $\tau$, when $A = \left\{ x \right\} $, is a 
@@ -1807,6 +1808,9 @@ $\tau$ as being in $H^{k}(W, W-N)$.
      Thus $\tau_y = 0$ for all $y$ near $x$. Since
      $N$ is connected, this implies that
      $\tau_y = 0$ for all $y \in N$.\\
+     By $\tau$ restricting to zero at every point does not necessarily
+     imply a priori that $\tau$ is zero. But we can use it for a
+     Bootstrap argument.\\
 
      For closed sets $A \subset N$, let
      $P_N (A)$ be the statement that
@@ -1815,25 +1819,241 @@ $\tau$ as being in $H^{k}(W, W-N)$.
 
      Suppose now that $A$ is a convex set in some euclidean 
      open set in $N$. 
-     Then $\tilde{A}$ is also convex, so
-     $\tau|_A \in \check{H}^{k}(\tilde{A}, \partial \tilde{A}) $.
+
+     Note that
+     \[
+         \check{H}^{k}(\tilde{A}, \partial \tilde{A})
+         \cong \check{H}^{k} (W - (W - \tilde{A}) , (W- \tilde{A}))
+         \cong \check{H}^{k} \left( W, W- \tilde{A} \right)
+     \]
+     so we can regard
+     $\tau|_A \in \check{H}^{k}(\tilde{A}, \partial \tilde{A}) $ as
+     living in $\check{H}^{k} (W,\tilde{A})$.
      
      We have that the restriction defines an isomorphism
      \[
      H^{n} \left( W, W-\tilde{A} \right) 
      \to H^{n} \left( W, W - x \right) 
      \] 
-     for any point $x \in \tilde{A}$.
-     Now, $\tilde{A}$ is closed, so $W - \tilde{A}$ is open, and
-     $\overline{W - \tilde{A}} 
-     \subset \int $
-    
+     if $\tilde{A}$ is a compact convex set contained
+     in a Euclidean neighborhood. Since
+     $\tilde{A}$ is locally of the form
+     $C \times D^{k}$ for $C$ convex, we see that for every
+     $x \in \tilde{A}$, there is a ball at $x$ such that
+     its intersection with $\tilde{A}$ is convex. I.e.,
+     $\tilde{A}$ is locally convex. Also, it is closed, so
+     each component is convex by the Tietze-Nakajima Theorem.
+     Since the local structure of
+     $\tilde{A}$ is as
+     $U \times D^{k}$, we can for any two points in
+     $\tilde{A}$ choose a path between the points in the
+     image of $\pi$ below, and run through this path in the
+     zero section above and then run the rest in
+     $D^{k}$ to connect the points. Hence
+     $\tilde{A}$ is also connected, hence convex.
+     Now Proposition \ref{Prop:SIDJAV} gives
+     that
+     $\check{H}^{k}\left( W, W- \tilde{A} \right) 
+     \cong \check{H}^{k} \left( W, W- \tilde{x} \right) $ for
+     $\tilde{x} \in \tilde{A}$.
 
-    
+
+     Also, we have an isomorphism
+     \[
+     H_n \left( W, W - \tilde{A} \right) \cong H_n (N,N-A)
+     \stackrel{\cong}{\to} H_n (N, N - x) \cong
+     H_n (W, W - \pi^{-1}(x)) 
+     \] 
+
+     Let $X = \pi^{-1}(x)$, and $\partial X = 
+     X \cap \partial W$.
+     Let $U$ be a neighborhood of $x$ such that
+     $\pi^{-1}(U) \cong U \times D^{k}$. 
+
+
+     \begin{align*}
+         \check{H}^{k}(W, W - X) 
+         &\cong
+         \check{H}^{k}(W - (W - \pi^{-1}(U)), 
+         (W- X) - (W - \pi^{-1}(U)))\\
+         &\cong \check{H}^{k}(\pi^{-1}(U), \pi^{-1}(U) - X) \\
+         &\cong \check{H}^{k}(X , \partial X)
+     \end{align*}
 
 
 
-\end{proof}
+     Note that
+     $\tau_x = i^{*} \tau_A$ where 
+     $i \colon \pi^{-1}(x) \hookrightarrow \tilde{A}$ is the inclusion, so
+     if $i^{*} \colon
+     H^{k}(\tilde{A}, \partial \tilde{A}) \to 
+     H^{k}\left( \pi^{-1}(x), \pi^{-1}(x) \cap \partial W \right)$
+     is injective, then since
+     $\tau_x = 0$, we obtain $\tau_A = 0$.
+
+
+     Now, because $A$ is a convex set in some
+     Euclidean space, we can shrink $A$ to be small enough
+     so that, when considered in $N$, we have
+     $\pi^{-1}(A) \cong A \times D^{k}$, and this deformation retract
+     onto $\left\{ x \right\} \times D^{k}$, so
+     indeed $i$ must be a homotopy equivalence.
+
+
+     Next, if $P_N(A)$ and $P_N(B)$ hold, then $P_N(A \cup B)$ follows
+     from the diagram
+     \begin{equation*}
+     \begin{tikzcd}
+         \underbrace{H^{k-1}(W \cap W, \partial (W \cap W))}_{= 0}
+         \ar[r] & H^{k}(W \cup W, \partial (W \cup W))
+         \ar[d] \ar[r] & H^{k}(W, \partial W) \oplus H^{k}(W, \partial W)
+         \ar[d] \\ 
+         \underbrace{\check{H}^{k-1} (\tilde{A} \cap
+         \tilde{B}, \partial \left( \tilde{A} \cup \tilde{B})
+ \right)}_{= 0} \ar[r] & \check{H}^{k}(\tilde{A} \cup \tilde{B},
+         \partial \left( \tilde{A} \cup \tilde{B} \right) ) \ar[r] &
+         \check{H}^{k}(\tilde{A}, \partial \tilde{A}) \oplus
+         \check{H}^{k}(\tilde{B}, \partial \tilde{B})
+     \end{tikzcd}
+     \end{equation*}
+
+
+     Here we used Theorem \ref{Thm:Direct-Limit-Functor} to take
+     $\check{H}$ on the bottom row. In this case,
+     the rightmost map is
+     $i_{\left( \tilde{A}, \partial \tilde{A} \right) }^{*} 
+     \oplus i_{\left( \tilde{B}, \partial \tilde{B} \right) }^{*}$, which
+     maps $\left( \tau, \tau \right) $ to
+     $\left( \tau_A, \tau_B \right) $, and the left
+     map is the restriction
+     $i_{\left( \tilde{A} \cup \tilde{B}, 
+     \partial \left( \tilde{A} \cup \tilde{B} \right) \right) }^{*}$.
+
+     The top map is  $j^{*} \oplus - j^{*}$ where
+     $j$ is the inclusion of $W$ into $W$.
+     Hence the map along the top and right arrow takes
+     $\tau$ to $\left( \tau_A, - \tau_B \right) = (0,0)$, and
+     the map along the left takes $\tau$ to
+      $\tau_{A \cup B}$ which is mapped to
+      $(0,0)$ along the bottom injectively. Hence
+      $\tau_{A \cup B} = 0$.\\
+      \linebreak
+      Next suppose $P_N (A_i)$ holds for each set of decreasing
+      sequences of closed sets
+      $ A_1 \supset A_2 \supset \ldots$. Then
+      $\check{H}^{k}(A) = \lim_{\rightarrow} \check{H}^{k}(A_i) = 0 $ since
+      Cech cohomology commutes with direct limits.
+      By assumption, $N$ is closed, so by
+      the Bootstrap lemma, $P_N(N)$ holds. That is,
+      $\tau = 0$, however, this is impossible, since
+      $\tau$ is the image of $\left[ N \right] $ under isomorphisms,
+      and $\left[ N \right] $ is nontrivial by assumption.\\
+      We thus can conclude that $\tau_x \neq 0$ for all $x$.\\
+
+      Suppose next that $\tau_x$ is simply not a generator
+      for some $x$, so
+      say $\tau_x \in H^{k}(D^{k}, S^{k-1}) \cong \mathbb{Z}$ corresponds
+      to $\pm m$. Let $p$ be a prime dividing $m$. Then in passing
+      to $\mathbb{Z}_p$ coefficients, $\tau_x$ becomes trivial,
+      but all of the above goes through the same in this setting,
+      hence we conclude that $\tau_x$ must correspond to
+      $\pm 1$, i.e., a generator.
+
+  \end{proof}
+
+      \begin{corollary}
+          If $N$ is connected, then the Thom class
+          $\tau \in H^{k}(W, \partial W)$ is (up to sign) the
+          unique class whose restriction to the fiber over
+          each point is a generator. 
+      \end{corollary}
+      
+      \begin{proof}
+          The Thom isomorphism gives
+          $\mathbb{Z} \cong H^{0}(N) \cong H^{0}(W) \to H^{k}(W, \partial W)$,
+          so if some class $\alpha \in H^{k}(W, \partial W)$ restricts
+          under $\mathbb{Z} \cong 
+          H^{k}(W , \partial W) \to H^{k}(\pi^{-1}(x), 
+          \pi^{-1}(x) \cap \partial W) \cong 
+          H^{k}(D^{k}, S^{k-1}) \cong \mathbb{Z}$ to a generator, then
+          it must be a generator in
+          $H^{k}(W, \partial W)$ also.
+          By Lemma \ref{Lemma:NICVN} above, $\tau$ does
+          restrict to a generator of each fiber, so
+          $\alpha$ equals $\tau$ up to sign.
+      \end{proof}
+
+      \begin{theorem}[Thom Isomorphism Theorem]
+          For any compact $A \subset N$, the map
+          \[
+          \pi (-) \cup \tau_A \colon
+          \check{H}^{i}(A) \to \check{H}^{i+k}(\tilde{A}, \partial \tilde{A})
+          \] 
+          is an isomorphism.
+      \end{theorem}
+
+
+      \begin{proof}
+          \todo{Bootstrap lemma}.
+      \end{proof}
+
+
+      \subsection{Intersection Product Geometrically}
+
+      Below, manifolds will be assumed to be
+      smooth, compact and oriented, and possibly with boundary.
+
+      Let $i_{N}^{W} \colon N^{n} \to W^{w}$ be a smooth
+      embedding of smooth manifolds with boundary, and assume
+      that $N$ meets $\partial W$ transversally in $\partial N$.
+
+      \begin{definition}[Thom class]
+          In the above situation, denote
+          $i_{N*}^{W} \left[ N \right] \in 
+          H_n (W, \partial W)$ by $\left[ N \right]_W$. Also
+          define $\tau_N^{W} = 
+          D_W \left( \left[ N \right]_W \right) 
+          \in H^{w-n}(W)$, the \textit{Thom class}.
+          Here $D_W \colon H_n(W, \partial W) 
+          \stackrel{\cong}{\to} H^{w-n}(W)$.
+          Thus
+          \[
+          \tau_N^{W} \cap \left[ W \right] =
+          \left[ N \right]_W
+          \] 
+      \end{definition}
+
+
+      \begin{note}
+          The Thom class $\tau_N^{W}$ is actually
+          the image of the Thom class of the normal
+          $(w-n)$-disk bundle $\nu_N^{W}$ of $N$ in $W$ via
+          \[
+          H_{w-n}\left( \text{tube}, \partial \, \text{tube} \right) \cong
+          H^{w-n} (W, W- \text{ tube} \to 
+          H^{w-n}(W)
+          \] 
+          where the first map is the inverse of the excision isomorphism.
+          One can see this by "doubling" $W$ to get rid of the boundary.
+      \end{note}
+
+
+      Suppose that $K^{k}$ and $N^{n}$ are two such submanifolds of
+      $W^{w}$. Then
+      \[
+      \left[ K \right]_W \bullet \left[ N \right]_W = 
+      \left( \tau_K^{W} \cap \left[ W \right]  \right) \bullet
+      \left( \tau_N^{W} \cap \left[ W \right]  \right) 
+      = \left( \tau_N^{W} \cup \tau_K^{W} \right) \cap \left[ W \right] .
+      \] 
+
+      Assume now that
+      $K \pitchfork N$  in $W$. Then
+      $\nu_{K \cap N}^{N} = \nu_{K}^{W}|_{K \cap N}$.
+
+
+
+
 
 
 \section{Thom-Pontryagin Theory}
