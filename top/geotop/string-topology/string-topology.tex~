@@ -106,6 +106,7 @@
 \DeclareMathOperator{\UConf}{UConf}
 \DeclareMathOperator{\Map}{Map}
 \DeclareMathOperator{\Ori}{Ori}
+\DeclareMathOperator{\ev}{ev}
 
 
 
@@ -167,7 +168,7 @@ to the definitions of orientation and the many connected
 theorems.\\
 \linebreak
 For this section, we will follow 
-\cite{Bredon} and \cite{Dieck}
+\cite{Bredon}, \cite{Dieck} and \cite{Dold}.
 
 \begin{definition}[Local Homology Group]
     For $h_*(-)$ a homology theory
@@ -231,7 +232,12 @@ $r_{x}^{L}$ when $K = \left\{ x \right\} $.
     \end{equation*}
 \end{proof}
 
-\begin{definition}[Orientation bundle]
+
+
+
+\subsubsection{The covering map perspective}
+
+\begin{definition}[Orientation bundle - the covering map perspective]
     We construct a covering
     $\omega \colon h_k(M, M - \bullet) \to  M$.
     Define
@@ -359,6 +365,176 @@ $r_{x}^{L}$ when $K = \left\{ x \right\} $.
 \end{proof}
 
 
+
+
+\subsubsection{Local Homology in close-by points}
+
+\begin{lemma}[]\label{Lemma:XHJBIQ}
+    Let $z, z'$ be cycles in $\Delta_n (M , M - x; G)$. Then
+    a neighborhood $V$ of $x$ exists such that
+    $z,z'$ are cycles in $\Delta_n \left( M, M - p; G \right) $ for 
+    all $p \in V$. If the homology classes
+    of $z,z'$ agree at $x$, i.e., $\left[ z \right]_x = 
+    \left[ z' \right]_x \in H_n (M, M - x;G)$, then
+    they agree at all points $q$ in a neighborhood
+    $V' \subset V$.
+\end{lemma}
+
+\begin{remark}[]
+    Hence $H_n (M, M-x;G) \cong = \lim_{\rightarrow}
+    H_n (M, M- U;G)$ taken over neighborhoods
+    of $U$ containing $x$ with maps the inclusions (We will
+    introduce what this means later).
+\end{remark}
+
+\begin{proof}
+    The chains $\partial z, \partial z'$ are finite linear
+    combinations of simplices $\sigma$ with
+    $\im \sigma \subset M - x$. Since 
+    $\im \sigma$ is compact, there
+    is a neighborhood $V_{\sigma}$ of $P$ such that
+    $\im \sigma \subset M - V_{\sigma}$. Using finiteness, 
+    $V = \bigcap_{\sigma} V_{\sigma}$ is then an open
+    neighborhood of $x$ such that
+    $\partial z, \partial z' \in \Delta_n \left( M, M-V;G \right) $.
+    If $\left[ z \right]_x = \left[ z' \right]_x$, then
+    there exists a chain $\partial c$ such that
+    $z -z' - \partial c \in 
+    \Delta_n \left( M - x;G \right) $.
+    So as we just saw, there
+    exists a neighborhood $V'$ of $x$ such that
+    $z-z'- \partial c \in \Delta_n \left( M-V';G \right) $, and we
+    may take $V' \subset V$.
+    Thus for all $q \in V'$,
+    $z-z'- \partial c \in \Delta_n (M-q;G)$.
+\end{proof}
+
+\subsubsection{The topological situation - another perspective}
+
+\begin{proposition}[]
+    We take the same
+    orientation bundle as before:
+    \[
+    \omega \colon H_n (M, M - \bullet;G) \to 
+    M.
+    \] 
+    For the topology on $H_n (M, M - \bullet;G)$, we
+    consider pairs
+    $(V,z)$ where $V$ is an open subset of $M$ and
+    $z \in Z_n (M, M-V;G)$ is a cycle.
+    Then define
+    \[
+    V_z = \left\{ \left[ z \right]_x \in 
+    H_n (M, M -x;G)  \mid x \in V \right\} .
+    \] 
+    The collections of all such 
+    $V_z$ is then the base of the topology on
+    $H_n (M, M - \bullet;G)$.
+    With respect to this topology, the map
+    $\omega$ is a covering map.
+    Furthermore, the maps
+    $(u,v) \mapsto u \pm v$ of
+    $D = \left\{ (u,v) \in 
+    H_n (M, M- \bullet;G) \times H_n (M, M- \bullet;G)
+ \mid \omega u = \omega v \right\} $ into
+ $H_n (M, M- \bullet;G)$ is continuous.
+ Furthermore, the map
+ \[
+ \beta \colon H_n (M, M- \bullet; \mathbb{Z}) \to \mathbb{Z},
+ \quad
+ \beta(u) = \|u\| 
+ \] 
+ is continuous, i.e., locally constant. Hence
+ \[
+ \tilde{M} = \tilde{M}(0) \oplus \tilde{M}(1) \oplus
+ \tilde{M}(2) \oplus \ldots
+ \] 
+ where
+ $\tilde{M} = H_n (M, M - \bullet)$ and
+ $\tilde{M}(n) = 
+ \beta^{-1}(n)$.
+ The restricted maps
+ $\omega|_{\tilde{M}(n)} \colon \tilde{M}(n) \to M$ are
+ covering maps.
+\end{proposition}
+
+\begin{proof}
+    Let $u \in 
+    H_n (M , M - \bullet;G)$ lies in some
+    $V_z$ as defined earlier: if $z \in 
+    Z_n (M, M - x;G)$ represents $u$, then by Lemma
+    \ref{Lemma:XHJBIQ}, there exists an open neighborhood
+    $V$ of $x$, such that $z
+    \in Z_n (M , M-V;G)$, hence
+    $u = \left[ z \right]_x \in V_z $ by definition.\\
+    Now if $u \in V_{z'}' \cap V_{z''}''$, then
+    by definition,
+    $u = \left[ z' \right]_x = \left[ z'' \right]_x$, so
+    by Lemma \ref{Lemma:XHJBIQ}, there
+    exists some neighborhood $V \subset V' \cap V''$ such that
+    $\left[ z' \right]_p = \left[ z'' \right]_p$ for all
+    $p \in V$, so for a representative $z$ (for example,
+    either $z'$ or $z''$ ), we have
+    $\left[ z \right]_p = \left[ z' \right]_p = \left[ z'' \right]_p$ 
+    for all $p \in V$, so
+    $u \in V_z \subset V_{z'}' \cap V_{z''}''$.
+    Thus the set of all $V_z$ is a basis.\\
+    \linebreak
+    Next, we show that $\omega$ is a local homeomorphism.
+    First, it maps $V_z$ onto $V$ bijectively by construction, hence
+    $\omega$ is open and locally bijective. It remains to show continuity.
+    If $W$ is an open neighborhood of
+    $x = \omega (u)$, then $u$ lies in some
+    $V_z$, and hence
+    $(V \cap W)_z$ is a neighborhood of $u$ which maps
+    into $W$ under $\omega$. Hence $\omega$ is continuous.\\
+    \linebreak
+    Next, the map
+    $(u, u') \mapsto u\pm u'$ takes
+    $D \cap (V_z \times V_{z'})$ homeomorphically onto
+    $V_{z \pm z'}$. We just saw that
+    $D \cap \left( V_z \times V_{z'} \right) \cong
+    V_z \cong V \cong V_{z \pm z'}$, which takes
+    $(u,u') \mapsto u \pm u'$. Thus it is, in particular, continuous.\\
+    \linebreak
+    Lastly, we must show that
+    $\beta$ is locally constant and that
+    $\omega$ is a covering map.
+
+    Firstly, given $x \in M$, let $V$ be the interior of some
+    closed ball around $x$. Since
+    $r_x^{V}$ is an isomorphism, we have
+    that, for $z \in Z_n \left( M , M- V; \mathbb{Z} \right) $,
+    $\left[ z \right]_p = r_p^{V} \left[ z \right] $ for
+    each $p \in V$, so
+    $\beta \left( \left[ z \right]_p \right) 
+    = \| \left[ z \right]_p \| = 
+    \|r_p^{V} \left[ z \right] \| = 
+    \|\left[ z \right] \|$, hence
+    $\beta$ is independent of $p$ in $V$, thus constant
+    on $V_z$.\\
+    \linebreak
+    \begin{note}
+        Importantly, the norm is in a sense, the best we can do in
+        the general situation because we only know that
+        $r_p^{V}$ is an isomorphism, \textit{not} the identity.
+        It could swap signs, in particular. We will see that
+        this failure is at the heart of the notion of orientability.
+    \end{note}
+    Lastly, if $\left[ z \right] $ is a generator
+    of $H_n (M, M -V; \mathbb{Z}) \cong \mathbb{Z}$, then
+    $\omega^{-1}(V) = 
+    \bigcup_{g \in G} V_{z \otimes g}$ is a decomposition into disjoint
+    open sets $V_{z \otimes g}$, each of which map
+    homeomorphically onto $V$, so $\omega$ and
+    each $\omega|_{\tilde{M}(n)}$ is a covering map.
+\end{proof}
+
+
+
+
+
+
 \subsection{Homological Orientation}
 
 If we specify to singular homology with coefficient
@@ -374,12 +550,24 @@ $A$ as follows
     $s(a) \in 
     H_n(M, M-a; R) \cong R$ is a generator
     for each $a \in A$.\\
+    I.e., it is a section
+    $s$ such that
+    $\beta \circ s (x) = 1$ for all $x \in A$.
 
 
     Thus $s$ glues together the local orientations in a 
     continuous manner. 
 
     When $A = M$, we call $s$ an \textit{$R$-orientation of $M$ }.
+
+    \begin{note}
+        If $s$ is a nowhere vanishing section, then
+        $a \mapsto \frac{s(a)}{\|s(a)\|}$ is an orientation.
+    \end{note}
+
+
+
+
 \end{definition}
 
 \begin{definition}[Orientation covering]
@@ -522,8 +710,19 @@ Thus we obtain a homomorphism
 \[
 J^{A} \colon H_n(M, M - A; G) \to 
 \Gamma_c (A;G), \quad
-\alpha \mapsto \left( x \mapsto r_x^{A}(\alpha) \right) .
+\alpha \mapsto \left( x \mapsto r_x^{A}(\alpha) \right) 
 \] 
+which is also natural with respect to inclusions: i.e., for
+$A \subset A' \subset M$,
+
+\begin{equation*}
+\begin{tikzcd}
+    H_n (M, M-A';G) \ar[r, "J^{A'}"] \ar[d, "i_*"] & 
+    \Gamma_c(A';G) \ar[d, "\rho"] \\
+    H_n(M, M-A;G) \ar[r, "J^{A}"] & \Gamma_c (A;G)
+\end{tikzcd}
+\end{equation*}
+commutes.
 
 
 
@@ -1345,6 +1544,250 @@ $d(f) = \sum_{x \in K} d(f,x)$.
     degree; it generalizes the homotopy invariance.
 \end{example}
 
+\begin{exercise}[]
+    If $M^{m}$ and $N^{n}$ are manifolds, then show that
+    $M \times N$ is orientable if and only if 
+    $M$ and $N$ are orientable.
+\end{exercise}
+
+\begin{proof}
+    We may assume that $M$ and $N$ are connected.\\
+    Define a map
+    $\mu \colon \tilde{M} \times \tilde{N} \to 
+    \widetilde{M \times N}$ by
+    \[
+    \mu \left( u,v \right) = u \times v
+    \in H_{m+n} \left( \left( M, M-x \right) \times 
+    \left( N, N-y \right) \right) =
+    H_{m+n}\left( M \times N, M \times N - (x,y) \right) 
+    \] 
+    where $\times $ is the cross product.
+
+    Note that
+    $\gamma^{M \times N} \circ \mu = \gamma^{M} \times 
+    \gamma^{N}$.
+    We want to use this map to transfer sections: if
+    $(s,t) \colon M \times N \to \tilde{M} \times \tilde{N}$ are
+    sections, then we want
+    $\mu \circ (s,t)$ to be a section.
+    This requires us to show that $\mu$ is continuous.
+
+    Let $U,V$ be open neighborhoods of $x$ and $y$, respectively, such that
+    $z \in Z_m(M, M-U)$ and
+    $w \in Z_n (N, N-V)$ represent $u,v$, respectively.
+
+    Recall the relative Eilenberg-Zilber chain homotopy equivalence
+    for open sets:
+    \begin{align*}
+    \times \colon \Delta_* (X,U) \otimes
+    \Delta_* (Y,V) \to \Delta_* \left( (X,U) \times (Y,V) \right) 
+    &= \Delta_* \left( X \times Y, X \times V \cup 
+    U \times Y\right)\\
+    &=
+    \Delta_* \left( X \times Y, X \times Y - U \times V \right) 
+    \end{align*}
+    which takes
+    $z \otimes w$ to $z \times w$ which represents
+    $u \times v$. Let
+    $W_{z \times w}$ be a neighborhood of
+    $u \times v$. We can shrink
+    $U$ and $V$ such that
+    $U \times V \subset W$.
+    Then 
+    $\mu$ takes
+    $U_z \times V_{w}$ into
+    $W_{z \times w}$: for $(p,q) \in U \times V$,
+    \[
+    \mu \left( \left( \left[ z \right]_p,
+    \left[ w \right]_q \right)  \right) 
+    =\left[ z \right]_p \times  \left[ w \right]_q
+    = \left[ z \times w \right]_{(p,q)}.
+    \] 
+    Thus $\mu$ is continuous.
+    This gives a bilinear map
+    \[
+    \Gamma A \times \Gamma B \to \Gamma \left( A \times B \right) 
+    \] 
+    for $A \subset M, B \subset N$.
+    Furthermore,
+    the cross product takes a product of generators
+    to a generator by the Künneth theorem, hence it maps
+    a pair of orientations to an orientation which was what we wanted.\\
+    \linebreak
+    For the converse direction, we 
+    note that
+    $\mu$ also satisfies
+    $\beta^{M \times N} \mu \left( u, v \right) 
+    = \beta^{M}(v) \beta^{N}(v)$ since 
+    it is bilinear. Thus
+    $\mu$ restricts to a map
+    \[
+    \mu| \colon \tilde{M}(1) \times \tilde{N}(1) \to 
+    \widetilde{M \times N}(1),
+    \] 
+    and for each point 
+    $w \in \widetilde{M \times N}(1)$, the preimage
+    under $\mu |$ has two points. 
+    Furthermore,
+    since $\gamma^{M \times N} \circ \mu = 
+    \gamma^{M} \times \gamma^{N}$ and
+    $\gamma$ is a local homeomorphism, we find that
+    $\mu$ restricts to
+    a local homeomorphism, hence $\mu$ restricts to a two-sheeted 
+    covering map.
+
+    If either $M$ or $N$ is orientable, then
+    $\tilde{M}(1)$ or $\tilde{N}(1)$ splits as
+    $M \times \left\{ -1,1 \right\} $ or
+    $N \times \left\{ -1,1 \right\} $, respectively, and so
+    the LHS becomes disconnected, and the restriction to each
+    component is a covering map, hence a homeomorphism, so
+    the covering map is trivial.\\
+    Conversely, if the covering map is trivial,
+    then there
+    is a map $q \colon 
+    \tilde{M}(1) \times \tilde{N}(1) \to \left\{ -1,1 \right\} $ 
+    such that
+    $\varphi \colon \tilde{M}(1) \times \tilde{N}(1)
+    \to \widetilde{M \times N}(1) \times \left\{ -1,1 \right\} $ by
+    $\varphi (u,v) = \left( \mu| (u,v), q(u,v) \right) $ 
+    is a homeomorphism.
+    Hence the LHS is not connected, but if
+    $\tilde{M}(1)$ and $\tilde{N}(1)$ are both
+    non-orientable, then they are connected, and so is their product,
+    so we obtain that at least one of them must be orientable.
+    
+
+
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+\end{proof}
+
+\begin{exercise}[]
+    Every manifold has a unique $\mathbb{Z} / 2$-orientation.
+\end{exercise}
+
+\begin{proof}
+    The sections $\Gamma(M; \mathbb{Z}/2)$ of $\omega$  
+    correspond bijectively to continuous maps
+    $\lambda \colon \Ori(M) \to \mathbb{Z}/2$ such that
+    $\lambda \circ t = - \lambda$. Hence we only have
+    the $0$ section and the constant section corresponding to
+    the constant nontrivial map $\Ori(M) \to \mathbb{Z}/2$.
+    The latter is in particular an orientation.
+\end{proof}
+
+
+
+
+
+\begin{exercise}[]
+    If $M$ is a connected manifold such that
+    $\pi_1(M)$ has no subgroups of index $2$, then show that
+    $M$ is orientable.
+\end{exercise}
+
+\begin{proof}
+    If $M$ is not orientable, then $\Ori\left( M \right) $ is a connected
+    covering space. Manifolds are locally-path connected
+    and semi-locally simply connected, so by
+    the classification of covering spaces (using connectedness
+    of $M$ ), 
+    $\Ori(M)$ corresponds to a subgroup of index $2$ of
+    $\pi_1(M)$ \cite[Corollary 6.9]{Bredon}.
+\end{proof}
+
+
+\begin{exercise}[]
+    Let $p \colon M \to N$ be a covering map of $n$-manifolds.
+    Then the pullback of $\Ori(N) \to N$ along $p$ is 
+    $\Ori(M) \to M$.
+\end{exercise}
+
+
+\begin{proof}
+    The pullback of a covering map is a covering map. We have the
+    following diagram
+    
+    \[\begin{tikzcd}
+	{Ori(M)} \\
+	& {Ori(N) \times_N M} && {Ori(N)} \\
+	\\
+	& M && N
+	\arrow[dashed, from=1-1, to=2-2]
+	\arrow["q"', curve={height=12pt}, from=1-1, to=4-2]
+	\arrow[from=2-2, to=2-4]
+	\arrow["{\tilde{\pi}}", from=2-2, to=4-2]
+	\arrow["\pi"', from=2-4, to=4-4]
+	\arrow["p", from=4-2, to=4-4]
+\end{tikzcd}\]
+
+    Since $q$ and $\tilde{\pi}$ are local homeomorphisms and
+    $\tilde{\pi}^{-1} \circ q$ is bijective, we obtain that
+    $\tilde{\pi}^{-1} \circ q$ is a bundle isomorphism. Thus the 
+    pullback is the orientation bundle.
+\end{proof}
+
+\begin{exercise}[]
+    Show that the manifold $\Ori(M)$ is always orientable.
+\end{exercise}
+
+\begin{proof}
+   Recall that the orientation bundle of $\Ori(M)$ is
+   \[
+   \omega_{\Ori(M)} \colon H_n (\Ori(M), \Ori(M) - \bullet) \to \Ori(M)
+   \] 
+
+   But $\omega$ is a local homeomorphism, so
+   \begin{align*}
+   \omega_* \colon H_n(\Ori(M), \Ori(M) - 
+   u) 
+   &\cong H_n \left( \Ori(M) - (\Ori(M) - V_z),
+   (\Ori(M) - u) - (\Ori(M) - V_z)\right) \\
+   &\cong H_n (V_z, V_z - u) \\
+   &\cong H_n \left( V, V- \omega u \right) \\
+   &\cong H_n \left( M, M - \omega u \right) \ni u
+   \end{align*}
+
+   So at the point $u \in \Ori(M)$, we can define
+   $s(u)$ to be the image of $u$ under this line of isomorphisms.
+
+   Note that
+   no $\tilde{M}(n)$ is distinguished from
+   $\tilde{M}(1)$. Indeed, $\tilde{M}(n)$ is homeomorphic
+   to $\tilde{M}(1)$ under the isomorphism
+   $u \mapsto n \cdot u$ from $\tilde{M}(1)$ to $\tilde{M}(n)$ which
+   commutes with $\omega_*$ because $\omega$ is a local
+   homeomorphism.
+
+   \begin{equation*}
+   \begin{tikzcd}
+       H_n \left( \tilde{M}(1), \tilde{M}(1) - u \right) 
+       \ar[d, "\cdot n"] \ar[r, "\omega_*"] & H_n (M, M - \omega u) \ar[d,
+       "\cdot n"] \\
+       H_n \left( \tilde{M}(n), \tilde{M}(n)- nu \right) 
+       \ar[r, "\omega_*"] & H_n (M, M - \omega n u)
+   \end{tikzcd}
+   \end{equation*}
+
+\end{proof}
+
+
+
+
+
+
 
 \section{Duality}
 
@@ -1645,7 +2088,7 @@ orientation.
 
 \section{Intersection Theory}
 
-
+\subsection{The Thom class of a disk bundle}
 
 \begin{definition}[$k$-disk bundle]
     A $k$-disk bundle is a vector bundle whose
@@ -1653,6 +2096,7 @@ orientation.
     $O(k) \subset \GL (\mathbb{R}^{k})$ and such that
     the local trivializations have the form
     $\pi^{-1}(U) \cong U \times D^{k}$.
+    \todo{}
 \end{definition}
 
 Let $N^{n}$ be a connected, oriented, closed $n$-manifold, and
@@ -1660,7 +2104,7 @@ $W^{k+n}$ an $(n+k)$-manifold with boundary
 $\partial W$ a $(k-1)$-sphere bundle over $N^{n}$, and let
 $\pi \colon W^{n+k} \to N^{n}$ be a $k$-disk bundle over $N$.
 
-Let us assume also that $W$ is also oriented.
+Let us assume that $W$ is also oriented.
 
 \begin{definition}[]
     In the above situation, the \textit{Thom class} of the
@@ -1683,9 +2127,81 @@ Let us assume also that $W$ is also oriented.
 \end{definition}
 
 We can deformation retract the punctured disk to its boundary, giving
-$H^{k}(W, W-N) \cong H^{k}(W, \partial W)$, so we will
+$H^{k}(W, W-N) \cong H^{k}(W, \partial W)$\todo{}, so we will
 sometimes regard
 $\tau$ as being in $H^{k}(W, W-N)$.
+
+
+\subsection{Transfer maps}
+
+\textit{Transfer} maps, also called \textit{shriek} or
+\textit{umkehr} maps, are a particular class of maps that exhibit 
+some nice properties. 
+
+We give a definition that suffices for our purposes, but
+this class of maps can be treated more generally (See e.g. \cite{Dold}).
+
+\begin{definition}[Transfer map]
+    If $f \colon N^{n} \to M^{m}$ is a map from a 
+    compact oriented $n$-manifold $N$ to a compact, oriented
+    $m$-manifold $M$, taking 
+    $\partial N$ into $\partial M$, then
+    \[
+    f^{!} \colon H^{n-p} (N) \to H^{m-p}(M) \quad
+    \text{and} \quad 
+    f^{!} \colon H^{n-p}(N, \partial N) \to H^{m-p}(M, \partial M)
+    \] 
+    are defined by
+    \[
+    f^{!} = D_M f_* D_N^{-1}.
+    \] 
+    Similarly,
+    \[
+    f_! \colon H_{m-p}(M) \to H_{n-p}(N) \quad
+    \text{and} \quad
+    f_{!} \colon H_{m-p}(M, \partial M) \to 
+    H_{n-p}(N, \partial N),
+    \] 
+    are both defined by
+    \[
+    f_! = D_N^{-1} f^{*} D_M.
+    \] 
+\end{definition}
+
+Our particular interest will lie in 
+the transfer map $i_!$ when $i$ is an embedding
+of a closed oriented manifold.\\
+\linebreak
+This transfer map and the Thom class of a $k$-disk bundle are
+intimately connected as described in the Thom isomorphism theorem, a
+version of which we now state.
+
+\begin{theorem}[Thom Isomorphism Theorem, first version]
+    If $\pi \colon W \to N$ is a $k$-disk bundle
+    over a connected oriented closed $n$-manifold $N^{n}$, then
+    there is the "Thom Isomorphism"
+    \[
+    H^{p}(N) \stackrel{\pi^{*}}{\to} H^{p}(W)
+    \stackrel{\cup \tau}{\to} H^{p+k}(W, \partial W)
+    \] 
+    which coincides with $i^{!}$. Similarly,
+    $i_! = \pm \pi_* \circ \left( \tau \cap - \right) \colon
+    H_{p+k}\left( W, \partial W \right) \to 
+    H_p (N)$ is an isomorphism.
+\end{theorem}
+
+\begin{proof}
+    Direct computation from the definition \todo{}
+\end{proof}
+
+We can extend this isomorphism a bit to
+disk bundles over base spaces which are not necessarily manifolds,
+but which are embedded in manifolds.
+
+
+
+
+
 
 \begin{lemma}[]
     In the above setup, suppose
@@ -1897,7 +2413,10 @@ $\tau$ as being in $H^{k}(W, W-N)$.
      so that, when considered in $N$, we have
      $\pi^{-1}(A) \cong A \times D^{k}$, and this deformation retract
      onto $\left\{ x \right\} \times D^{k}$, so
-     indeed $i$ must be a homotopy equivalence.
+     indeed $i$ must be a homotopy equivalence (in fact,
+     $\pi^{-1}(A) \cong A \times D^{k}$ directly since
+     $A$ is contractible and vector bundles over contractible spaces are
+     trivial).
 
 
      Next, if $P_N(A)$ and $P_N(B)$ hold, then $P_N(A \cup B)$ follows
@@ -1959,6 +2478,8 @@ $\tau$ as being in $H^{k}(W, W-N)$.
       hence we conclude that $\tau_x$ must correspond to
       $\pm 1$, i.e., a generator.
 
+
+
   \end{proof}
 
       \begin{corollary}
@@ -1983,8 +2504,8 @@ $\tau$ as being in $H^{k}(W, W-N)$.
           $\alpha$ equals $\tau$ up to sign.
       \end{proof}
 
-      \begin{theorem}[Thom Isomorphism Theorem]
-          For any compact $A \subset N$, the map
+      \begin{theorem}[Thom Isomorphism Theorem, second version]
+          In the above situation, for any compact $A \subset N$, the map
           \[
           \pi (-) \cup \tau_A \colon
           \check{H}^{i}(A) \to \check{H}^{i+k}(\tilde{A}, \partial \tilde{A})
@@ -1996,6 +2517,404 @@ $\tau$ as being in $H^{k}(W, W-N)$.
       \begin{proof}
           \todo{Bootstrap lemma}.
       \end{proof}
+
+
+      \subsection{The Thom class arising from the normal bundle
+      of submanifolds}
+
+      Suppose now that
+      $i_{N}^{W} \colon N^{n} \to W^{w}$ is a smooth
+      embedding of a smooth manifold, possibly with boundary,
+      and assume that $N$ meets $\partial W$ transversally
+      in $\partial N$.
+
+      \begin{definition}[]
+          In the above situation, denote 
+          $i_{N*}^{W} \left[ N \right] \in H_n(W, \partial W)$  by
+          $\left[ N \right]_W$, and define
+          $\tau_N^{W} = D_W \left( \left[ N \right]_W \right) 
+          \in H^{w-n}(W)$, which we will also call the Thom class of
+          $N$ in $W$.
+          Here $D_W \colon H_n (W, \partial W) \stackrel{\cong}{\to} 
+          H^{w-n}(W)$.
+      \end{definition}
+
+      We will show that the Thom class
+      $\tau_N^{W}$ is the \textit{image} of the Thom class
+      of the normal $(w-n)$-disk bundle $\nu_N^{W}$ of
+      $N$ in $W$ via
+      \[
+      \varphi \colon H^{w-n}\left( \Xi, \Xi - N \right) \cong
+      H^{w-n}\left( W, W- N \right) 
+      \to H^{w-n}(W)
+      \] 
+      where the first map is the inverse of the
+      excision isomorphism.
+
+      Let $u_N = 
+      D(\left( i_{N}^{\Xi} \right)_* \left[ N \right])
+      \in H^{n-w} \left( \Xi , \Xi - N \right) $ denote
+      the Thom class of the normal disk bundle.
+      Let $u_N^{W, W-N}$ denote the inverse
+      of $u_N$ under the
+      excision isomorphism, and let
+      $u_N^{W}$ denote the image of $u_N^{W , W-N}$ under the
+      restriction homomorphism.
+      Then
+
+      \begin{lemma}[]
+          $\tau_{N}^{W} = u_N^{W} \in 
+          H^{w-n}(W)$.
+      \end{lemma}
+
+      \begin{proof}
+          By Poincaré duality, it suffices to show that
+          \[
+          \left[ N \right]_W = u_{N}^{W} \cap \left[ W \right] 
+          \in H_n(W)
+          \] 
+          Consider the commutative diagram
+
+
+          \adjustbox{scale=1.1,center}{%
+          \begin{tikzcd}
+              H_n(\Xi) \ar[r, "i_{\Xi *}^{W}"] & H_n(W) & 
+              H^{w-n}(W) \otimes H_n(W) \ar[l, "\cap"] \\
+               H^{w-n} (\Xi, \Xi-N) \otimes H_{w}(\Xi, \Xi - N) 
+              \ar[u, "\cap"]
+                & \ar[l]
+              H^{w-n}(W, W-N) \otimes H_w(W, W-N)   \ar[u, "\cap"] & 
+              H^{w-n}(W, W - N) \otimes H_n (W) \ar[u] \ar[l]
+          \end{tikzcd}
+          }
+          The middle map takes
+          $u_N^{W, W-N} \otimes \left[ W \right] $ to
+          $u_{N}^{W,W-N} \cap \left[ W \right] $, and 
+          going around the left square instead, it takes
+          $u_{N}^{W,W-N} \otimes \left[ W \right] 
+          \mapsto u_n \otimes \left[ \Xi \right] \mapsto 
+          u_n \cap \left[ \Xi \right] 
+          = \left( i_N^{\Xi} \right)_* \left[ N \right] \mapsto 
+          \left( i_{\Xi}^{W} \right)_* 
+          \left( i_{N}^{\Xi} \right)_* \left[ N \right] =
+          \left( i_{N}^{W} \right)_* \left[ N \right] =
+          \left[ N \right]_W$
+
+
+          As for the right square, 
+          if we start with
+          $u_N^{W,W-N} \otimes \left[ W \right] $ in the
+          lower right, then this
+          maps to $\left[ N \right]_W $ by
+          construction along the bottom right
+          map and middle map as we just saw, while going the other way around
+          gives
+          $u_N^{W,W-N} \otimes \left[ W \right] 
+          \mapsto u_N^{W} \otimes \left[ W \right] 
+          \mapsto u_N^{W} \cap \left[ W \right] $, so
+          by commutativity,
+          $u_N^{W} \cap \left[ W \right] = \left[ N \right]_W$, from
+          which the result follows.
+
+
+          
+
+
+      \end{proof}
+
+
+
+
+
+
+
+      \subsection{The Intersection Product}
+
+      First, suppose $M^{n}$ is a compact, oriented and connected manifold,
+      possibly with boundary. 
+      Let $D \colon H_i (M, \partial M) \to 
+      H^{n-i}(M)$ or $D \colon H_i (M) \to H^{n-i}(M, \partial M$)
+      be the inverse of the Poincaré duality isomorphism, so
+      \[
+      D(a) \cap \left[ M \right]  = a.
+      \] 
+      
+      \begin{definition}[Intersection Product]
+          We define the intersection product the composite
+          \[
+          \bullet \colon
+          H_p (M) \otimes H_q(M) 
+          \stackrel{D \otimes D}{\to} 
+          H^{n-p}(M) \otimes H^{n-q}(M) 
+          \stackrel{\times }{\to} H^{2n-p-q}(M^2)
+          \stackrel{\Delta^{*}}{\to} H^{2n-p-q}(M)
+          \stackrel{D^{-1}}{\to} H_{p+q-n}(M)
+          \] 
+          or
+          $H_p(M, \partial M) \otimes H_j(M) \to 
+          H_{i+j-n}$ or
+          $H_{i}(M, \partial M) \otimes H_j(M , \partial M) \to
+          H_{i+j-n}(M, \partial M)$.\\
+
+          Thus the intersection product of $a$ and $b$ is
+          \[
+          a \bullet b = 
+          D^{-1} \left( D(b) \cup D(a) \right) 
+          = \left( D (b) \cup  D(a) \right) \cap \left[ M \right] 
+          = D(b) \cap \left( D(a) \cap \left[ M \right]  \right) 
+          = D(b) \cap a.
+          \] 
+      \end{definition}
+
+      \begin{exercise}[]
+          Show that for homology classes
+          $a,b$ of $M^{n}$, 
+          $a \bullet b = 
+          (-1)^{n\left( n - \deg a \right) }\Delta_{!} (b \times a)$,
+          where $\Delta \colon M \to M \times M$ is the
+          diagonal map.
+      \end{exercise}
+
+      \begin{proof}
+          By definition,
+          \begin{align*}
+              \Delta_! (b \times a) 
+              &= D^{-1} \Delta^{*} D_{\left( N, \partial N \right) }
+              \left( b \times a \right) \\
+              &= \Delta^{*} (z) \cap \left[ M \right] 
+          \end{align*}
+          where $z$ is the dual of 
+          $b \times a$, given by
+          $z \cap \left( \left[ M \right] \times \left[ M \right]  \right) 
+          = b \times a$.
+          Let then
+          $x,y$ be the duals of
+          $b$ and $a$, respectively, so
+          $x \cap \left[ M \right] = b$ and
+          $y \cap \left[ M \right] = a$.
+          Note that $\deg x = n - \deg b, \deg y = n - \deg a$.
+          Then
+          $b \times a = 
+          \left( x \cap \left[ M \right]  \right) \times 
+          \left( y \cap \left[ M \right]  \right) =
+          (-1)^{n (n - \deg a)  }
+          \left( x \times y \right) \cap \left( \left[ M \right] \times 
+          \left[ M \right] \right) $. Hence
+          $z = (-1)^{n (n- \deg a)} x \times y$, so since
+          $\Delta^{*}(x \times y) = 
+          x \cup y$ by definition, we obtain
+
+          \begin{align*}
+              (-1)^{n (n- \deg a)} \Delta_! (b \times a) 
+              &= \Delta^{*} (x \times y) \cap \left[ M \right] \\
+              &= \left( x \cup y \right) \cap \left[ M \right] \\
+              &= x \cap \left[ y \cap \left[ M \right]  \right] \\
+              &= D(b) \cap a\\
+              &= a \bullet b.
+          \end{align*}
+
+
+      \end{proof}
+
+      This lets us define the intersection product
+      as follows instead:
+
+      \begin{definition}[]
+      Let $M$ be an oriented manifold, and
+      $\Delta \colon M \to M \times M$ be the
+      diagonal embedding. For arbitrary open pairs
+      $(V,S), (W,T)$ in $M$, consider the maps
+      \begin{align*}
+          H_i(V,S) 
+          &\otimes H_j(W,T) \stackrel{\times }{\to} 
+          H_{i+j}(V \times W, S\times W \cup  V \times T)\\
+          &\to H_{i+j}(V \times W \cup \left( M \times M - 
+          \Delta(M)) , 
+      S \times W \cup  V \times T \cup  (M \times M - 
+  \Delta(M))\right) \\
+          &\stackrel{\Delta_{!}}{\to} 
+          H_{i+j-n}\left( V \cap W, \left( S \cap W \right) \cup 
+          \left( V \cap T \right) \right) 
+      \end{align*}
+      The composite is the intersection product.
+      \end{definition}
+
+
+      \subsection{The Intersection Product as a 
+      Thom-Pontrjagin Construction}
+
+      Let $M$ be a manifold. We claim that
+      $TM \cong N \Delta$, where
+      $N \Delta$ is the normal bundle of the
+      diagonal as embedded in $M \times M$.
+
+      To see this, note first that
+      $T\left( M \times M \right) \cong
+      T M \oplus TM$. The tangent bundle
+      of $\Delta$ now sits inside this as
+      the diagonal:
+      $TM \cong T\Delta \hookrightarrow TM \oplus TM$ induced
+      by the diagonal map. Now,
+      $N \Delta = \left( TM \oplus TM \right) / T\Delta$ by definition,
+      and 
+      for each point $(p,v) \in TM$, 
+      note that
+      $((p,v) \oplus TM) \cap T \Delta  = 
+      \left( (p,v) , (p,v) \right) $, meaning that each
+      class in $N \Delta$ has a unique representative with
+      second coordiante being $0$, hence
+      $\left( TM \oplus TM \right) / T \Delta \cong
+      TM$.\\
+      \linebreak
+      Next, identify $TM$ with
+      $TM_{\varepsilon}$, the subbundle of small vectors, i.e.,
+      length at most $\varepsilon \ll \rho $ for $\rho $ 
+      the injectivity radius of $M $ 
+      [cf. Section \ref{Section:Terminology}].
+      With this identification, the map
+       \[
+      \nu_M \colon TM \hookrightarrow M \times M, \quad
+      \nu_M (x,v) = \left( x, \exp_x(v) \right) 
+      \] 
+      is a tubular neighborhood of $\Delta$ whose image
+      is the $\varepsilon$ neighborhood of the diagonal
+      \[
+      \im \nu_M = U_M
+      = \left\{ \left( x,y \right) \in M \times M
+       \mid  \left| x-y \right| < \varepsilon \right\} .
+      \] 
+      Here the notion of distance makes sense because we
+      assume $M$ is a Riemannian manifold, and
+      under this identification of $TM$,
+      the bundle projection becomes
+    the retraction
+    $r \colon U_M \to M$ by $r(x,y) = x$. 
+
+    From $\nu_M \colon TM \hookrightarrow M \times M$, we obtain
+    a map
+    \[
+    \nu_M^{*} \colon 
+    \Delta^{n}\left( M \times M, M \times M - \Delta(M) \right) 
+    \stackrel{\simeq}{\to} \Delta^{n}\left( TM, TM - M \right) 
+    \] 
+    which is a quasi-isomorphism [cf. Section \ref{Section:Terminology}]
+    as it induces an excision isomorphism.
+
+    In $C^{n}\left( TM, TM - M \right) $, we have
+    a representative of the Thom class for
+    the tangent disk bundle, and we let
+    $\tau_M$ denote the image of this representative
+    under $(\nu_M^{*})^{-1}$, i.e.,
+    $\tau_M = (v_M^{*})^{-1} \left( D\left( i_{M*}^{TM} m
+    \right)  \right) $
+    where $m$ is a representative for
+    $\left[ M \right] $.
+
+    We want to show a couple of things for
+    $\tau_M$. 
+    First\todo{}, we want
+    $\tau_M$ to have the property that
+    \[
+    \tau_M \cap \left[ M \times M \right] = 
+    \Delta_* \left[ M \right]  \in H_n\left( M \times M \right) .
+    \] 
+
+    We can choose $v_{M*}$ to map
+    $\left[ TM \right] $ to $\left[ M \times M \right] \cong
+    \left[ M \right] \times \left[ M \right] $, in which case,
+    certainly,
+    \[
+    v_M^{*}(\tau_M) \cap \left[ TM \right] =
+    i_{M*}^{TM} \left[ M \right],
+    \] 
+    so applying $v_{M*}$, we get
+    \[
+    \tau_M \cap \left[ M \times M \right] =
+    \tau_M \cap
+    v_{M*} \left[ TM \right] = v_{M*} i_{M*}^{TM} \left[ M \right] 
+    = \Delta_* \left[ M \right] .
+    \] 
+    
+
+
+    Secondly, we claim that
+    the following map of chain complexes induces the 
+    intersection product on $H_* (M)$ up to the
+    sign $(-1)^{n (n-q)}$:
+    \[
+    \bullet_{Th} \colon \Delta_p(M) \otimes
+    \Delta_q(M) \stackrel{\times }{\to} \Delta_{p+q}(M \times M)
+    \stackrel{\left[ \tau_M \cap \right] }{\to} 
+    \Delta_{p+q-n}(U_M) \stackrel{r_*}{\to} \Delta_{p+q-n}(M)
+    \] 
+    where the middle map is the following composition:
+    \[
+    \left[ \tau_M \cap \right] \colon
+    \Delta_* (M \times M) \to 
+    \Delta_* \left( M \times M, M \times M - \Delta(M) \right) 
+    \stackrel{\simeq}{\to} \Delta_* \left( U_M, U_M - \Delta(M) \right) 
+    \stackrel{\tau_M \cap}{\to} \Delta_{*-n}(U_M)
+    \] 
+    with the middle map being a chain homotopy inverse to excision.\\
+    \linebreak
+    
+
+
+
+    To see this, consider the following diagram
+
+    \begin{equation*}
+    \begin{tikzcd}
+        \Delta_p (M) \otimes \Delta_q(M) \ar[r, "\times "] &
+        \Delta_{p+q}(M \times M) \ar[r, "{[\tau_M \cap ]} "] &
+        \Delta_{p+q-n} (U_M)
+        \ar[r, bend left, "r_*"]& \Delta_{p+q-n}(M) \ar[l, "\Delta_*"'] \\
+        \Delta^{n-p}(M) \otimes \Delta^{n-q}(M) 
+        \ar[u, "{\cap m \otimes \cap m}"] \ar[r, "\times "] 
+        & \Delta^{2n-p-q}(M \times M) 
+        \ar[u, "{\cap m \times m}"] 
+        \ar[rr, "\Delta^*"]&& \Delta^{2n-p-q}(M) \ar[u,"{\cap m}"]
+    \end{tikzcd}
+    \end{equation*}
+    where $m$ represents $\left[ M \right] $.
+
+    The vertical maps have quasi-inverses as the chain complexes are
+    lower bounded, so we can talk about the top composition, which
+    is $\bullet_{Th}$ compared to the other composition which
+    induces $\bullet$.
+    
+    The left hand square commutes up to
+    chain homotopy and sign 
+    $(-1)^{n(n-q)}$, and the right square commutes directly.
+    Also, $r_* \Delta_* = (r \Delta)_* = \id_*$, so
+    the two compositions commute up to chain homotopy, hence
+    induce the same product on homology.
+    \todo{Check}
+    
+    Thus
+    \[
+    a \bullet b = 
+    (-1)^{n (n - \deg a)} \Delta_! (b \times a)
+    = (-1)^{n (n - \deg a)} a \bullet_{Th} b
+    \] 
+
+    In particular, this tells us that we can think of
+    $\left[ \tau_M \cap \right] $ as counting the intersections
+    with the zero section (at least in the case $p+q=n$ and
+    restriction to a neighborhood of the diagonal
+    otherwise).
+    \todo{}
+
+
+
+
+
+    \newpage
+
+
+
+
+
 
 
       \subsection{Intersection Product Geometrically}
@@ -2024,18 +2943,6 @@ $\tau$ as being in $H^{k}(W, W-N)$.
       \end{definition}
 
 
-      \begin{note}
-          The Thom class $\tau_N^{W}$ is actually
-          the image of the Thom class of the normal
-          $(w-n)$-disk bundle $\nu_N^{W}$ of $N$ in $W$ via
-          \[
-          H_{w-n}\left( \text{tube}, \partial \, \text{tube} \right) \cong
-          H^{w-n} (W, W- \text{ tube} \to 
-          H^{w-n}(W)
-          \] 
-          where the first map is the inverse of the excision isomorphism.
-          One can see this by "doubling" $W$ to get rid of the boundary.
-      \end{note}
 
 
       Suppose that $K^{k}$ and $N^{n}$ are two such submanifolds of
@@ -2049,90 +2956,2240 @@ $\tau$ as being in $H^{k}(W, W-N)$.
 
       Assume now that
       $K \pitchfork N$  in $W$. Then
-      $\nu_{K \cap N}^{N} = \nu_{K}^{W}|_{K \cap N}$.
+      $\nu_{K \cap N}^{N} = \nu_{K}^{W}|_{K \cap N}$ 
+      as a canonical isomorphism of vector bundles.
+      (cf. \cite[VIII, §11]{Dold} for a homological interpretation as well).
+
+      This implies that the Thom class of $K$ in $W$ restricts
+      to the Thom class of $K \cap N$ in $N$, since
+      its restriction to any point gives the generator in the
+      cohomology of the fiber modulo its boundary, and the
+      Thom class is characterized by this.
+
+      Hence $\tau_{K \cap N}^{W} = (i_N^{W})^{*} \left( \tau_K^{W} \right) $.
+
+
+
+
+      \begin{theorem}[]
+          With the assumptions above, including $K \pitchfork N$ in
+          $W$, we have 
+          \[
+          \tau_{K \cap N}^{W} = \tau_K^{W} \cup \tau_N^{W}
+          \] 
+          and, equivalently, 
+          \[
+          \left[ K \cap N \right]_W = \left[ N \right]_W \bullet
+          \left[ K \right]_W.
+          \]
+      \end{theorem}
+
+      \begin{proof}
+          \begin{align*}
+              \left[ K \cap N \right]_W 
+              &=  i_{(K \cap N)*}^{W}
+              \left[ K \cap N \right] \\
+              &= i_{N*}^{W} 
+              i_{(K \cap N)*}^{N}
+              \left[ K \cap N \right] \\
+              &= i_{N*}^{W}
+              \left( \tau_{K \cap N}^{N} \cap \left[ N \right]  \right) \\
+              &=  i_{N*}^{W}
+              \left( i_N^{W*}  (\tau_N^{W}) \cap
+              \left[ N \right] \right) \\
+              &= \tau_{K}^{W} \cap
+              i_{N*}^{W} \left[ N \right] \\
+              &= \tau_{K}^{W} \cap \left( \tau_N^{W} \cap
+              \left[ W \right] \right) \\
+              &= \left( \tau_K^{W} \cup 
+              \tau_N^{W} \right) \cap \left[ W \right] \\
+              &= \left[ N \right]_W \bullet \left[ K \right]_W
+          \end{align*}
+      \end{proof}
+
+
+      \begin{corollary}\label{Cor:DNIZKJ}
+          Note that from proof, we obtain the following line:
+          \[
+          \left[ K \cap N \right]_W = 
+          \tau_K^{W} \cap i_{N*}^{W} \left[ N \right] 
+          = \tau_K^{W} \cap \left[ N \right]_W
+          \] 
+          We interpret this result as saying that for transverse intersections,
+          capping with the Thom class gives the 
+          fundamental class of the intersection in
+          $W$.
+      \end{corollary}
+
+      
+
+
+
+
+
+      \begin{theorem}[]\cite[VI, Theorem 11.10]{Bredon}
+          Let $M^{n}$ be an orientable closed manifold, and let
+          $A , B \subset M$. Let $\alpha \in H_p (A)$ and
+          $\beta \in H_q (B)$ and let 
+          $\alpha_M$ and $\beta_M$ denote their images in
+          $H_* (M)$. If $\alpha_M \bullet \beta_M \neq 0$, then
+          $A \cap B \neq \varnothing$.
+      \end{theorem}
+
+
+
+      \begin{example}[]
+          Take the transverse submanifolds
+          $K = S^{n} \times \left\{ y_0 \right\} $ and
+          $N = \left\{ x_0 \right\} \times S^{m}$ in
+          $S^{n} \times S^{m}$.
+          Then the fundamental classes
+          of $\left[ K \right] $ and $\left[ N \right] $ in
+          $W = S^{n} \times S^{m}$ generate
+          $H_n(W)$ and $H_m(W)$, and
+           the cup product of their duals
+           generate
+           $H^{n+m}(S^{n} \times S^{m})$. This can be seen
+           since
+           $K \cap N = \left( x_0,y_0 \right) $, so
+           \[
+           \left[ N \right]_W \bullet \left[ K \right]_W 
+           = \left[ K \cap N \right]_W =
+           \pm \left[ \left( x_0,y_0 \right)  \right]_W
+           \] 
+           which generates
+           $H_0 (S^{n} \times S^{m})$.
+           Hence
+           $\tau_K^{W} \cup \tau_N^{W}$ is a generator
+           of $H^{n+m}(S^{n} \times S^{m})$.
+
+           Likewise, if $K'$ is a shifted copy of $K$,
+           then $\left[ K \right] \bullet
+           \left[ K \right] = \left[ K \right] \bullet
+           \left[ K' \right] = \left[ \varnothing \right] = 0$, so
+           $\left( \tau_K^{W} \right)^2 = 0$.
+
+      \end{example}
+
+
+      \begin{example}[]
+          Consider $W = \mathbb{C}\mathbb{P}^2$ and
+          consider the copies
+          of $\mathbb{C}\mathbb{P}^{1}$ by
+          $N = \left\{ \left[ z_0: z_1 : 0 \right]  \right\} $ and
+          $K = \left\{ \left[ 0 : z_1 : z_2 \right]  \right\} $.
+          Their intersection is a single point, so
+          since they have transverse intersection,
+          $\left[ N \right] $ and
+          $\left[ K \right] $ are generators of
+          $H_2\left( \mathbb{C}\mathbb{P}^2 \right) $, so
+          $\left[ N \right] = \pm \left[ K \right] $.
+           Thus $\left( \tau_N^{W} \right)^2 = 
+           \tau_N^{W} \cup \tau_K^{W} = 
+           \tau_{N \cap K}^{W}$ is a generator
+           of $H^{4}\left( \mathbb{C}\mathbb{P}^2 \right) $.
+      \end{example}
+
+      \begin{example}[]
+          Let $N$ and $K$ be submanifolds of
+          $W$ and suppose they have an odd number of transverse
+          intersection points. Then
+          $\left[ K \right] \in H_* \left( W; \mathbb{Z}/2 \right) $ is
+          nonzero since
+          $\left[ K \right] \bullet  \left[ N \right] 
+          = \left[ K \cap N \right] = 
+          \left[ \sum_{i=0}^{2k+1} x_i \right] 
+          = $
+      \end{example}
 
 
 
 
 
 
-\section{Thom-Pontryagin Theory}
 
-We start with an element
-$\left[ f \right]  \in \pi_{n+k}\left( S^{n} \right) $, so
-$f$ is a pointed map
-$S^{n+k} \to S^{n}$.
 
-Now insert a disk in place of the
-base point, and extend $f$ to a map
-$\overline{f}$ which is constant on the
-next disk, taking the disk to the basepoint of
-$S^{n}$, and is $f$ elsewhere.
-There is a deformation retract of the sphere, collapsing
-this disk to a point, and composing with this retract
-gives $f$. Hence we may replace $f$ by a pointed-homotopic map
-which is constant in a small neighborhood of
-the basepoint.
 
-Next, we can remove the base point of
-$S^{n+k}$ and instead consider $f$ as a map
-$\mathbb{R}^{n+k} \to S^{n}$ which is now constant
-to the base point outside some compact
-subset of $\mathbb{R}^{n+k}$.\\
-\linebreak
-By the Smooth Approximation Theorem, we can
-also restrict attention to smooth maps
-$\mathbb{R}^{n+k} \to S^{n}$ and smooth
-homotopies. \todo{Insert theorem}
 
-We regard also $S^{n}$ as the one-point compactification
-of $\mathbb{R}^{n}$, denoted
-$\mathbb{R}_+^{n} = \mathbb{R}^{n} \cup  \left\{ \infty \right\} $.
 
-So suppose now we have a smooth map $f \colon
-\mathbb{R}^{n+k} \to \mathbb{R}_+^{n}$ as above.
 
-If $f$ is not null-homotopic, then it must be surjective, hence
-in particular the image does not have measure $0$, so there
-exists a regular value
-$p \in \mathbb{R}^{n} \subset \mathbb{R}_+^{n}$.
-By following $f$ by a translation in $\mathbb{R}^{n}$,
-we can assume that $p$ is the origin $0 \in \mathbb{R}^{n}$ without
-changing the homotopy class of $f$.
 
-\begin{theorem}[\cite{Bredon}, Thm 11.6]\label{Thm:XLOOQKK}
-    Let $f \colon \mathbb{R}^{n} \to M^{m}$ be a smooth
-    map. Assume that $p \in M^{m}$ is a regular
-    value, let $K = f^{-1} \left\{ p \right\} $, and
-    assume that $K$ is compact. Then there
-    is an open neighborhood $N$ of $K$ inside a tubular neighborhood
-    of $K$, with normal retraction $r \colon N \to K$ ,and
-    an open neighborhood $E \cong \mathbb{R}^{m}$ of
-    $p$ in $M^{m}$ such that the map
-    $r \times f \colon N \to K \times E$ is a diffeomorphism.
+
+
+
+
+
+\newpage
+
+
+
+\section{Geometric Homology Theory}
+
+We have seen that the intersection product of two homology classes
+admits a nice geometric description when the homology classes can be
+represented by "nice enough" chains.
+
+
+It is not obvious that this should be possible
+for other operations. 
+Certain homology theories like bordism homology (See e.g. \cite{Dieck})
+seem like promising theories to look at, but
+this is not in gemenral equivalent
+to singular homology classes.
+However, M. Jakob showed that if we add
+some extra cohomological information, then
+we obtain a certain geometric homology theory that is equivalent
+to singular homology and
+ makes it possible to approach
+many operations in a fairly geometric way.
+
+Let us start with constructing this homology theory.
+
+\subsubsection{Geometric cycles}
+Let $X$ be a topological space. Then a geometric cycle is
+a triple $\left( M,a,f \right)$ with
+$f \colon M \to X$ a continuous map,
+$M$ a smooth, compact, connected and oriented manifold without
+boundary, and
+$a \in H^{*}(M;\mathbb{Z})$.
+
+If $M$ is $n$-dimensional and $a \in H^{m}(M;\mathbb{Z})$, then
+$\left( M,a,f \right) $ is assigned degree $n-m$.
+Let $\Delta_{k}'(X)$ be the free abelian group generated
+by all geometric cycles of degree $k$.
+
+We impose the following relation:
+\[
+    \left( M, \lambda a + \mu b , f \right) = 
+    \lambda \left( M,a,f \right) + \mu \left( M,b,f \right) .
+\] 
+
+\subsubsection{Relations}
+
+\begin{enumerate}
+    \item \textit{Bordism relation.} Given a map 
+        $h \colon W \to X$ where $W$ is an oriented bordism between
+        $f(M)$ and $g(N)$, let $i_1 \colon M \hookrightarrow X$ and
+        $i_2 \colon N \hookrightarrow X$ be the canonical inclusions.
+        Then for any $c \in H^{*}(W;\mathbb{Z})$, we impose
+        \[
+            \left( M, i_1^{*}(c),f \right) = 
+            \left( N, i_2^{*}(c),g \right) .
+        \] 
+        This essentially says that we consider 
+        cycles in $X$ to be geometrically homologous if they
+        are connected by a bordism.
+    \item \textit{Vector bundle modification.} 
+        Let $\left( M,a,f \right) $ be a geometric cycle and
+        consider a smooth oriented vector bundle
+        $E \stackrel{\pi}{\to} M$ equipped with a Riemannian metric.
+        Then we can take the unit sphere bundle
+        $S\left( E \oplus 1 \right) = 
+        \left\{ v \in E \oplus 1  \mid \|v\| = 1 \right\} $ of
+        the Whitney sum of $E$ with the trivial bundle over $M$.
+        Consider the zero section $\sigma_0 \colon M \to E$ and
+        any arbitrary nowhere zero section
+        $\sigma_1 \colon M \to \mathbb{R}^{k}$, for example
+         $\sigma_1 (m) = (1,0, \ldots, 0)$.
+         Then $\sigma' = \sigma_0 \oplus \sigma_1 $ is
+         a nonzero section, hence
+         $\sigma := \frac{\sigma'}{\|\sigma'\|} \colon M \to 
+         S \left( E \oplus 1 \right) $ is a section.
+         Let $\sigma^{!}$ be the transfer associated to this
+         section. We then impose
+         \[
+             \left( M, a ,f \right) = 
+             \left( S\left( E \oplus 1 \right) , \sigma^{!}(a), f \pi \right) .
+         \] 
+\end{enumerate}
+
+We denote the equivalence class of the geometric cycle
+$\left( M, a,f \right) $ by $\left[ M, a, f \right] $, and
+$H_q^{'}(X)$ the abelian group of geometric classes
+of degree $q$.
+
+\begin{theorem}[]\cite[Corollary 2.3.6]{Martin1}
+    The morphism
+    \begin{align*}
+        compar \colon H_q^{'} (X) 
+        &\to H_q(X;\mathbb{Z})\\
+        \left[ M,a,f \right] 
+        &\mapsto f_* \left( a \cap \left[ M \right]  \right) 
+    \end{align*}
+    is a group isomorphism.
 \end{theorem}
 
-Using Theorem \ref{Thm:XLOOQKK}, we find that
-there is a disk $E^{n}$ about $0$ in $\mathbb{R}^{n}$ and
-an embedding $M^{k} \times E^{n} \hookrightarrow 
-N \subset \mathbb{R}^{n k} $ onto an open neighborhood
-$N$ of $M^{k}$ whose inverse $N \to 
-M^{k} \times E^{n}$ is $r \times f$, where
-$r \colon N \to  M^{k}$ is the normal retraction.\\
+\begin{theorem}[Cap Product and Poincaré duality]\cite[§3.2, cites M. Jakob]{Chataur}
+    The cap product between $H^{*}(X;\mathbb{Z})$ and
+    $H_*'(X)$ is given by the following formula:
+    \begin{align*}
+        \cap \colon H^{p}(X;\mathbb{Z}) \otimes
+        H_q'(X) \to H_{q-p}'(X)\\
+        u \cap \left[ M,a,f \right] = 
+        \left[ M, f^{*}(u) \cup a, f \right] .
+    \end{align*}
+    Let $M$ be a n $n$-dimensional smooth, compact, orientable manifold
+    without boundary. Then the morphism
+    \begin{align*}
+        H^{p}(M; \mathbb{Z}) 
+        &\to H_{n-p}'(M)\\
+        x
+        &\mapsto \left[ M, x, \id_M \right] 
+    \end{align*}
+    is an isomorphism.
+\end{theorem}
+
+
+\subsubsection{Transfer maps}
+
+We want to carry over transfer maps to geometric homology.
+
+Recall that for a map
+$f \colon N^{n} \to M^{m}$, we defined
+$f_! \colon H_{m-p}(M) \to H_{n-p}(N)$ as the composite
+$f_! = D_N^{-1} f^{*} D_M$.
+
+In the framework of geometric homology, we can
+give a very geometric interpretation of transfer maps.
+
+Following \cite[§3.3]{Chataur}, 
+start with $i \colon X \to Y$ an oriented morphism of
+Hilbert manifolds and suppose
+that the virtual bundle $V(i) = \ker di - \coker di$ 
+has rank $-d$. Define
+\[
+i_! \colon H_p^{'}(Y) \to H_{p-d}'(X)
+\] 
+as follows:
+let $\left[ M,a,f \right] \in H_p'(Y)$ and choose
+a representing cycle $\left( M, a, f \right) $.
+If $f$ is not smooth, we can smoothly homotope it to a smooth
+one \cite[§2.1.6]{Chataur} and moreover, we can choose
+it to be transverse to $i$ \cite[Theorem 2.2.4]{Chataur}.
+So suppose $F \colon M \times I \to Y$ is this homotopy between
+$f$ and $f'$. There are retractions
+$r_L \colon M \times I \to M_L$ and
+$r_R \colon M \times I \to M_R$, where $M_L,M_R$ are the left and
+right boundaries, respectively. 
+It is the clear that
+$\tilde{a} = (r_L)^{*}(a) = (r_R)^{*}(a)$, hence
+$a = i_j^{*}(\tilde{a})$ for $j=1,2$, so
+by  the bordism relation,
+$\left[ M,a,f \right] = \left[ M,a,f' \right] $.
+
+
+Then we can form the pullback:
+
+\begin{equation*}
+\begin{tikzcd}
+    M \times_Y X \ar[r, "f^{*}i"] \ar[d, "\varphi "] & M \ar[d, "f"] \\
+    X \ar[r, "i"] & Y
+\end{tikzcd}
+\end{equation*}
+
+\begin{theorem}[]\cite[Theorem 3.3.1]{Chataur}
+    Let $i \colon X \to Y$ be an oriented morphism of
+    Hilbert manifolds of codimension $d$, and
+    $\left[ M,a,f \right] $ a geometric cycle of
+    $H_{p-a}'(Y)$ such that $f$ and $i$ are transverse. Then set
+    \[
+    i_! \left( \left[ M,a,f \right]  \right) =
+    \left( -1 \right)^{d \left| a \right| }
+    \left[ M \times_Y X , \left( f^{*}i \right)^{*}(a),
+    \varphi \right].
+    \] 
+    This gives a well-defined morphism
+    \[
+    i_! \colon H_*'(Y) \to H_{* -d}'(X)
+    \] 
+    which satisfies
+    \begin{enumerate}
+        \item If we have a pullback of Hilbert manifolds
+            $X,Y$ :
+            \begin{equation*}
+            \begin{tikzcd}
+                X' \ar[r, "j"] \ar[d, "\psi "] & Y' \ar[d, "\varphi "] \\
+                X \ar[r, "i"] & Y
+            \end{tikzcd}
+            \end{equation*}
+            then $i_! \varphi_* = \psi_* j_!$,
+        \item Let $i$ and $j$ be two composable oriented morphisms of
+            Hilbert manifolds. Then $i_! j_! = 
+            \left( ji \right)_!$ 
+        \item Let $i_!^{PT}$ be the composition of the
+            Pontryagin-Thom collapse $\kappa$ and the Thom
+            isomorphism $th$, then the following diagram commutes:
+            \begin{equation*}
+            \begin{tikzcd}
+                H_*'(Y) \ar[d, "compar"'] \ar[r, "i_!"] & 
+                H_{*-d}'(X) \ar[d, "compar"] \\
+                H_*(Y;\mathbb{Z}) \ar[r, "i_!^{PT}"'] &
+                H_{*-d}(X;\mathbb{Z})
+            \end{tikzcd}
+            \end{equation*}
+            
+    \end{enumerate}
+\end{theorem}
+
+
+\subsubsection{The intersection product}
+
+Likewise, we can redefine the intersection product.
+
+First, the cross product in geometric homology is given
+by
+\begin{align*}
+    \times \colon H_p'(X) \otimes H_q'(Y)
+    &\to H_{p+q}'(X \times Y)\\
+    \left[ P,a,f \right] \times \left[ Q,b,g \right] 
+    &= (-1)^{\dim (P) \left| b \right| }
+    \left[ P \times Q , a \times b, f \times g \right],
+\end{align*}
+such that
+if $\tau \colon X \times Y \to Y \times X$ is the
+map interchanging the coordinates, then we have
+\[
+\tau_* \left( \alpha \times \beta \right) = 
+\left( -1 \right)^{\left| \alpha \right| \left| \beta \right| }
+\beta \times \alpha .
+\] 
+
+Suppose now that $M$ is an oriented, compact, $d$-dimensional
+manifold. Let
+$\left[ P,x,f \right] \in H_{n_1}'(M)$ and
+$\left[ Q,y,g \right] \in H_{n_2}'(M)$, and suppose
+$f \pitchfork g$.
+Then we form the pullback
+\begin{equation*}
+\begin{tikzcd}
+    P \times_{M} Q \ar[r, "j", hookrightarrow] \ar[d, "\varphi "] & 
+    P \times Q \ar[d, "f \times g"] \\
+    M \ar[r, "\Delta"] & M \times M
+\end{tikzcd}
+\end{equation*}
+and define
+\[
+\bullet \colon H_{n_1}'(M) \otimes H_{n_2}'(M) 
+\stackrel{\times }{\to} H_{n_1+n_2}'(M \times M) 
+\stackrel{\Delta^{!}}{\to} H_{n_1+n_2-d}^{'}(M).
+\] 
+
+Hence, 
+\[
+\left[ P,a,f \right] \bullet \left[ Q,b,g \right] = 
+(-1)^{d \left( \left| a \right| + \left| b \right|  \right) +
+\dim (P) \left| b \right| }
+\left[ P \times_M Q, j^{*}\left( a \times b \right) ,\varphi  \right] .
+\] 
+For $l \colon P \times_M Q \to P$ and $r \colon P \times_M Q \to Q$ the
+canonical inclusions, we have
+\[
+\left[ P, a, f \right] \bullet
+\left[ Q, b, g \right] = 
+(-1)^{d \left( \left| a \right| + \left| b \right|  \right) +
+\dim(P) \left| b \right| }
+\left[ P \times_M Q, l^{*}(a) \cup r^{*}(b), \varphi  \right] . 
+\] 
+
+This makes $H_{*+d}'(M)$ into a graded commutative algebra.
+
+Note in particular that these definitions work on a chain level,
+so this definition of the intersection product gives
+a very geometric intuition as to what the intersection product does.
+In the transversal case, we take the intersection of the chains.
+Cf. \cite{Chataur} for further details.
+
+
+
+
+\newpage
+
+\section{String Topology}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Product and Coproduct}
+
+Let $LM$ denote the free loop space of
+$M$, i.e.,
+\[
+LM = \Map \left( S^{1}, M \right).
+\] 
+Let $\ev_0 \colon LM \to M$ denote the evaluation at $0$.
+
+We now introduce a product on the homology of the loop space of $M$, called
+the Chas-Sullivan product:
+
+\subsubsection{One approach}
+
+Consider the graded geometric homology group
+$\mathbb{H}_* \left( LM \right) :=
+H_{*+d}'\left( LM;\mathbb{Z} \right) $.
+
+This group has some interesting structural properties, and string
+topology studies these underlying structures.
+
+\subsubsection{The string pullback}
+
+The evaluation map $\ev_0 \colon LM \to M$ is, in fact, a smooth
+fiber bundle.
+To show this, one needs to first specify what the manifold
+structure of $LM$ is. We will skip this part, but
+it is discussed in \cite[§2.3.2]{Chataur}.
+
+
+Because $\ev_0$ is a smooth fiber bundle,
+it can locally be represented as a submersion, hence
+is transverse to any other map, so
+$\ev_0 \times \ev_0$ is transverse to the diagonal map,
+and we can form the pullback 
+
+\begin{equation*}
+\begin{tikzcd}
+    LM \times_M LM \ar[d, "\ev_0"] 
+    \ar[r, "\tilde{\Delta}"] & LM \times LM \ar[d, "\ev_0 \times 
+    \ev_0"]\\
+    M \ar[r, "\Delta"] & M \times M
+\end{tikzcd}
+\end{equation*}
+By transversality, the pullback is again a Hilbert manifold.
+Also $LM \times_M LM \cong \Map (8,M)$, 
+and $\tilde{\Delta}$ is a codimension $d$ embedding.
+As the normal bundle $\nu_{\tilde{\Delta}}$ is the pullback
+of $\nu_{\Delta}$ (cf. Lemma \ref{Lemma:Pullback-Of-Normal-Bundle}),
+and since this last one
+is isomorphic to $TM$.
+But then $\nu_{\Delta}$ admits a structure group reduction to
+$\GL_n^{+}\left( \mathbb{R} \right) $ of its frame bundle,
+and so pulling back along $f^{*}$ the coordinate charts gives
+a structure group reduction of the frame bundle for
+$\nu_{\tilde{\Delta}}$.
+We deduce that $\tilde{\Delta}$ is 
+an oriented morphism.  
+
+\begin{definition}[]
+    A family of closed string in $M$ is a smooth map
+    \[
+    f \colon P \to LM
+    \] 
+    from a compact oriented manifold $P$.
+\end{definition}
+
+\begin{proposition}[]\cite[Prop 2.3.7]{Chataur}
+    The family $P \times Q \stackrel{f \times g}{\to} 
+    LM \times LM$ is transverse to $\tilde{\Delta}$ if and only
+    if $\ev_0 f$ and $\ev_0 g$ are transverse in $M$.
+\end{proposition}
+
+Now let 
+$\left( P,f \right) $ and
+$(Q,g)$ be two families of dimensions $p$ and $q$, respectively, such
+that $f \times g$ is transverse to $\tilde{\Delta}$. Denote by
+$P * Q$ the pullback
+\begin{equation*}\tag{$\Omega$} \label{Eq:Omega}
+\begin{tikzcd}
+    P * Q \ar[r] \ar[d, "\psi "] & P \times Q \ar[d, "f\times g"]\\
+    LM \times_M LM \ar[r, "\tilde{\Delta}"] & LM \times LM
+\end{tikzcd}
+\end{equation*}
+
+So we think of $P * Q$ as the points
+in $P \times Q$ that map under $f \times g$ to
+loops with a common basepoint. 
+The map $\psi$ is the map taking a point in $P * Q$ to this
+tuple of loops.
+
+\subsubsection{Intersection of families of closed strings}
+
+Define a map
+\[
+\star \colon LM \times_M LM \to LM   
+\] 
+by concatinationg loops. That is
+\[
+\star \left( \alpha, \beta \right) = 
+\alpha \star \beta (t) = 
+\begin{cases}
+    \alpha(2t),& t \in \left[ 0,\frac{1}{2} \right] \\
+    \beta (2t-1), & t \in \left[ \frac{1}{2},1 \right] 
+\end{cases}
+\] 
+This is well-defined because we assume only that the loops
+are piecewise smooth.
+
+So for the two families of closed strings
+$(P,f)$ and $(Q,g)$ above, we can define a new
+family of closed strings by taking $P*Q$ and composing
+$\psi $ from \eqref{Eq:Omega} with $\star$:
+ $\left( P * Q, \star \psi  \right) $.
+
+ So we essentially take a point in $P * Q$ and send it to
+ the concatenation of its associated tuple of loops.
+
+
+
+
+
+
+
+We can now for 
+$\left[ P,a,f \right] \in H_{n_1+d}' (LM)$ and
+$\left[ Q,b,g \right] \in H_{n_2+d}'(LM)$, define a 
+loop product $\wedge$ as follows:
+first smooth $f$ and $g$ and make them transverse to
+$\tilde{\Delta}$. Then
+we form the pullback
+$P * Q$.
+
+\begin{definition}[]\cite[Definition 4.2.1]{Chataur}
+    Let $j \colon P * Q \to P \times Q$ be the canonical maps.
+    Then we have the pairing
+    \begin{align*}
+        &\wedge \colon \mathbb{H}_{n_1}'(LM) \otimes
+        \mathbb{H}_{n_2}'(LM) \to \mathbb{H}_{n_1+n_2}'(LM)\\
+        \left[ P,a,f \right] 
+        &\wedge
+        \left[ Q,b,g \right] = 
+        (-1)^{d \left( \left| a \right| + \left| b \right|  \right) 
+        + \dim (P) \left| b \right| }
+        \left[ P* Q , j^{*} (a \times b) , 
+        \star \psi  \right] 
+    \end{align*}
+    which is called the \textit{Chas-Sullivan loop product}.
+\end{definition}
+
+Note in particular, that if we disregard the
+cohomology element, the data consists 
+of $P * Q$ and the associated loops which makes it easy to think
+about loop products.
+
+\begin{proposition}[]
+    The loop product is associative and commutative.
+\end{proposition}
+
+\begin{proof}
+    Associativity follows from associativity
+    of the intersection product, the cup product and also, up to
+    homotopy, of $\star$.
+
+
+    Now consider the map
+    \[
+    E v_1 \colon I \times LM \times LM \to M \times M
+    \] 
+    given by $E v_1 \left( t, \gamma_1, \gamma_2  \right) = 
+    \left( \gamma_1(0), \gamma_2(t) \right) $.
+    We can take the pullback 
+    \begin{equation*}
+    \begin{tikzcd}
+        \Map \left( 8_t, M \right) 
+        \ar[d] \ar[r, "\tilde{\Delta}_t"] & 
+        I \times LM \times LM \ar[d, "Ev_1"] \\
+        M \ar[r, "\Delta"] & M \times M
+    \end{tikzcd}
+    \end{equation*}
+    where $\Map\left( 8_t, M \right) = 
+    \left\{ \left( t, \gamma_1, \gamma_2 \right)  \mid 
+    \gamma_1(0) = \gamma_2(t) \right\} $.
+    We also have a map
+    \[
+    comp_1 \colon \Map\left( 8_t, M \right) \to LM
+    \] 
+    given by
+    \[
+    comp_1 \left( t, \gamma_1, \gamma_2 \right) =
+    \begin{cases}
+        \gamma_2 \left( 2 \theta \right) ,& \theta \in [0, \frac{t}{2})\\
+        \gamma_1 (2 \theta- t),& \theta \in [\frac{t}{2}, \frac{t+1}{2})\\
+        \gamma_2 \left( 2 \theta -1 \right) ,& \theta \in 
+        [ \frac{t+1}{2},1]
+    \end{cases}
+    \] 
+    I.e, we essentially insert $\gamma_1$ into
+    $\gamma_2$ at the point corresponding to $t$.
+
+    Let also $\tau$ denote the interchanging map,
+    $\left( \alpha,\beta  \right) \mapsto \left( \beta, \alpha \right) $.
+    \[
+    \tau \colon LM \times_M LM \to LM \times_M LM.
+    \] 
+
+    We want now to take
+    $I \times P*Q$ and
+    on $\left\{ 0 \right\} \times P*Q$ put
+    $\star \psi$ and on
+    $\left\{ 0 \right\} \times P * Q$ put
+    $\star \tau \psi$.
+
+    \begin{equation*}
+    \begin{tikzcd}
+        \Map(8_t,M) \times_{I \times LM \times LM}
+        I \times P \times Q \ar[r] \ar[d, "\tilde{\psi}"]
+        & I \times P \times Q \ar[d, "\id \times f\times g"] \\
+        \Map(8_t,M) \ar[r, "\tilde{\Delta}_t"] & 
+        I \times LM \times LM
+    \end{tikzcd}
+    \end{equation*}
+    This pullback consists of pairs
+    $\left( \left( t, \gamma_1, \gamma_2 \right) ,
+    \left( t,p,q \right) \right) $ such that
+    $f(p) = \gamma_1$ and $g(q) = \gamma_2$ and
+    $\gamma_1(0) = \gamma_2(t)$, which is thus the same
+    as tuples
+    $\left( t,p,q \right) $ such that
+    $f(p)(0) = g(q)(t)$.
+
+    If $\left( \gamma_1, \gamma_2 \right) \in 
+    LM \times_M LM$, then
+    $\left( 0,p,q \right)$ and
+    $ \left( 1, p,q \right) $ are in the pullback,
+    corresponding under 
+    $comp_1 \circ \tilde{\psi} $ to
+    $\gamma_1 \star \gamma_2$ and $ \gamma_2 \star \gamma_1$, respectively.
+    So this gives a cobordism between
+    \[
+    \left[ P * Q, j^{*}(a \times b), \star \psi \right]
+    \] 
+    and
+    \begin{align*}
+    \left[ P * Q, \tau^{*}\left( j^{*}(a \times b) \right) ,
+    \star \tau \psi\right] 
+    &= (1)^{\left( \dim(P) - d - \left| a \right|  \right) 
+    \left( \dim (Q) - d - \left| b \right|  \right) } 
+    \left[ P * Q , j^{*}(b \times a), \star \tau \psi \right] \\
+    &=
+    (-1)^{\left( \dim(P) - d- \left| a \right| \right)
+    \left( \dim (Q) - d- \left| b \right|  \right) }
+    \left[ Q* P, j^{*}(b \times a), \star \psi \right] 
+    \end{align*}
+    
+\end{proof}
+
+
+
+    
+
+
+
+
+
+
+\subsubsection{The article's approach}
+\todo{Merge the above two subsubsections}
+
+
+The idea to think about for the Chas-Sullivan product is to
+start with a $p$-chain $x \in \Delta_p (LM)$ and a 
+$q$-chain $y \in \Delta_q (LM)$.
+Then taking the intersection of the transverse chains
+$\ev_0 x$ and $\ev_0 y$, which form a $p$- and $q$-chain in $M$,
+gives a $(p+q-n)$-chain $z$ in $M$.
+Along this chain $z$, we can compose the loops of $x$ and $y$, and
+we define $x \wedge y$ to be this element of
+$\Delta_{p+q-n}(LM)$.
+
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Figures/DNOVXJ.jpeg}
+    \caption{The transverse intersection of two $1$-chains and
+    a $2$-chain in a $3$-manifold giving a $0$-chain as a 
+loop product. \cite[From Figure 2]{Chas-Sullivan}}
+    \label{fig:Figures-DNOVXJ-jpeg}
+\end{figure}
+
+\begin{remark}[An orientation convention]\cite[Remark 2.1]{Chas-Sullivan}
+    \label{Remark:Orientation-Convention}
+
+    Let $i \colon K_1 \times K_2 \times \ldots \times K_n 
+    \to M \times \ldots \times M$ be a map such that
+    $i \pitchfork \Delta$.
+    Then $i^{-1}(\Delta)$ is a submanifold of $K_1 \times \ldots \times 
+    K_n$ and taking the normal bundle $N(i^{-1}(\Delta))$, we
+    orient it such that
+    \[
+    \left[ N \left( i^{-1}(\Delta) \right)  \right] 
+    i^{*} \left[ N \Delta \right] = 
+    \left[ K_1 \times \ldots \times K_n \right].
+    \] 
+    \todo{Correct?}
+\end{remark}
+
+
+Next, we will be introducing a grading on our homology soon,
+and therefore, we preemptively denote the
+$(p-n)$-chains of $LM$ by $(LM)_{p}$, and let
+$(LM)_{*} = \bigoplus_{p\ge 0} (LM)_{p}$.
+
+Now for any pair $x\colon \Delta_{p} \to LM$ and
+$y \colon \Delta_q \to LM$, let
+$\Delta_{x \wedge y} = 
+j^{-1}\left( \Delta \right) $ where
+$j$ is the map
+\begin{align*}
+    j \colon &\Delta_p \times \Delta_q \stackrel{\ev_0 x \times \ev_0 y}{\to} 
+    M \times M\\
+             &(u,v) \mapsto \left( \ev_0 x(u), \ev_0 y(v) \right) 
+\end{align*}
+
+Then define $x \wedge y \colon \Delta_{x \wedge y} \to ML$ by
+\[
+    (x \wedge y) (u,v) (*)(s) = 
+    \begin{cases}
+        x(u)(*)(2s),& s \in \left[ 0,\frac{1}{2} \right] \\
+        y(v)(*)(2s-1),& s \in \left[ \frac{1}{2},1 \right] 
+    \end{cases}
+\] 
+And we orient $\Delta_{x \wedge y}$ by
+Remark \ref{Remark:Orientation-Convention}.
+
+
+
+Because of the grading chosen on $\left( LM \right)_{*}$, we
+then have that if $x \in (LM)_{p}$ and
+$y \in (LM)_q$, then
+$x$ is a $(p+n)$ chain and $y$ a $(q+n)$ chain, so
+$x \wedge y$ is a $(p+q+n)$ chain, hence
+in $(LM)_{p+q}$, so 
+$\wedge$ defines a map
+$\left( LM \right)_p \times (LM)_q \to (LM)_{p+q}$.
+
+
+
+\begin{definition}[Chas-Sullivan product $\wedge$]
+    The \textit{Chas-Sullivan product} $\wedge$ is a lift
+    of the intersection product making the following diagram commute:
+
+    \begin{equation*}
+    \begin{tikzcd}
+        H_p(LM) \otimes H_q(LM) \ar[d, "\ev_0 \otimes \ev_0"] 
+        \ar[r, "\wedge"] & H_{p+q-n}(LM) \ar[d, "\ev_0"] \\
+        H_p(M) \otimes H_q(M) \ar[r, "\bullet"] &
+        H_{p+q-n}(M)
+    \end{tikzcd}
+    \end{equation*}
+\end{definition}
+
+We now explain the construction.
+
+Recall the $\varepsilon$-neighborhood $U_M$ of the diagonal
+in $M \times M$ and now just pull this back along
+$\ev_0 \times \ev_0$
+ to $LM \times LM$ :
+ \[
+ U_{CS} = \left( \ev_0 \times \ev_0 \right)^{-1} U_M = 
+ \left\{ \left( \gamma, \lambda \right) \in LM \times LM  \mid 
+ \left| \gamma(0) - \lambda(0) \right| < \varepsilon \right\} .
+ \] 
+ Defining a retraction
+ \[
+ R_{CS} \colon U_{CS} \to LM \times_M LM = 
+ \left\{ \left( \gamma, \lambda \right) \in LM \times LM  \mid 
+ \gamma(0) = \lambda(0) \right\} = 
+ \left( \ev_0 \times \ev_0 \right)^{-1} \left( \Delta_M \subset 
+ M \times M \right) 
+ \] 
+ by concatenating with a "geodesic stick" to connect the loops
+ so that they form a "figure 8":
+ \[
+ R_{CS}\left( \gamma, \lambda \right) = 
+ \left( \gamma, \lambda' \right) \quad \text{with} \quad
+ \lambda' = \overline{\gamma(0) \lambda(0)} \star \lambda
+ \star \overline{\lambda(0) \gamma(0)}
+ \] 
+ where for $x,y \in M$ with $\left| x-y \right| < \rho$,
+ $\overline{xy}$ denotes the unique minimal geodesic path
+ $\left[ 0,1 \right] \to M$ from $x$ to $y$.
+ Figure \ref{fig:Figures-HGFHEIA-png} describes this intuitively.
+
+ \begin{figure}[htpb]
+     \centering
+     \includegraphics[width=0.8\textwidth]{Figures/HGFHEIA.png}
+     \caption{Figures/HGFHEIA.png}
+     \label{fig:Figures-HGFHEIA-png}
+ \end{figure}
+
+ This is a lift of the retraction $r \colon U_M \to M$ in the sense that
+
+ \begin{equation*}
+ \begin{tikzcd}
+     U_{CS} \ar[d, "\ev_0 \times \ev_0"'] \ar[r, "R_{CS}"] & 
+     LM \times_M LM \ar[d, "\ev_0"] \\
+     U_M \ar[r, "r"] & M
+ \end{tikzcd}
+ \end{equation*}
+ commutes.
+ 
+ Pulling back $\tau_M$ along $\ev_0 \times \ev_0$ gives a cochain
+ \[
+ \tau_{CS} := \left( \ev_0 \times \ev_0 \right)^{*} \tau_M
+ \in C^{*} \left( LM \times LM, LM \times LM - LM \times_M LM \right) 
+ \] 
+ 
+ Finally, we define the Chas-Sullivan loop product on chains as
+ follows:
+
+ \begin{definition}[Chas-Sullivan loop Product]
+     The following sequence of chain maps induces the Chas-Sullivan
+     product on homology:
+     \begin{align*}
+         \wedge \colon C_p (LM) \otimes C_{q} (LM) 
+         \stackrel{\times }{\to} C_{p+q}(LM \times LM) 
+         &\stackrel{\left[ \tau_{CS} \cap \right] }{\to} 
+         C_{p+q-n}(U_{CS}) \\
+         &\stackrel{R_{CS}}{\to} C_{p+q-n}\left( LM \times_M LM \right) 
+         \stackrel{\text{concat}}{\to} C_{p+q-n}(LM).
+     \end{align*}
+ \end{definition}
+
+
+ While this definition coincides with the Chas-Sullivan product
+ in homology as described by
+ Cohen-Jones, it is not necessarily clear how it coincides with the
+ original geometric picture.\todo{...}
+
+
+
+ \subsubsection{Coproduct}
+ 
+ Define
+ $e_I \colon LM \times I \to M \times M$ by
+ $e_I\left( \gamma, s \right) = \left( \gamma(0) , \gamma(s) \right) $.
+
+ Set 
+ \[
+ U_{GH} = e_{I}^{-1} U_M = 
+ \left\{ \left( \gamma, s \right) \in LM \times I  \mid 
+ \left| \gamma(0) - \gamma(s) \right| < \varepsilon \right\} , 
+ \] 
+ and we have a commutative diagram
+ \begin{equation*}
+ \begin{tikzcd}
+     U_{GH} \ar[r, "R_{GH}"] \ar[d, "e_I"] & 
+     \mathcal{F} = \left\{ \left( \gamma, s \right) \in LM \times I  \mid 
+ \gamma(0) = \gamma(s) \right\} \ar[r, hookrightarrow] 
+ \ar[d, "e_I"] & LM \times I 
+ \ar[d] \\
+ U_M \ar[r, "r"] & \Delta M \ar[r, hookrightarrow] & 
+ M \times M
+ \end{tikzcd}
+ \end{equation*}
+ defining a retraction map
+ $R_{GH}$ by concatenating with a geodesic stick to force self-intersection:
+
+ \[
+ R_{GH}(\gamma, s) = \left( \gamma', s \right) \quad
+ \text{with} \quad
+ \gamma' = \gamma \left[ 0,s \right] \star
+ \overline{\gamma(s) \gamma(0)} \star_s 
+ \overline{\gamma(0) \gamma(s)} \star
+ \left[ s,0 \right] 
+ \] 
+ where the parametrization is chosen so that the concatenated loop
+ passes through $\gamma(0)$ at time $s$; if $s = 0$ or $1$ as
+ in the case $\gamma(0) = \gamma(s)$ to begin with, the
+ geodesic sticks are of length $0$.
+
+ \begin{definition}[Goresky-Hingston-Sullivan coproduct]
+     The following sequence of chain maps is a chain model for
+     the Goresky-Hingston-Sullivan coproduct:
+     \begin{align*}
+         \vee \colon 
+         &C_p(LM,M) 
+         \stackrel{\times I}{\longrightarrow} 
+         C_{p+1}(LM \times I, LM \times \partial I \cup 
+         M \times I) \stackrel{\left[ \tau_{GH} \cap \right] }{\longrightarrow} 
+         C_{p+1-n}\left( U_{GH}, LM \times \partial I 
+         \cup M \times I \right) \\
+         &\stackrel{R_{GH}}{\longrightarrow} 
+         C_{p+1-n}\left( \mathcal{F}, LM \times \partial I \cup 
+         M \times I\right) \stackrel{cut}{\longrightarrow} 
+         C_{p+q-n}\left( LM \times LM, M \times LM \cup 
+         LM \times M \right) 
+     \end{align*}
+     This induces a well-defined degree $1-n$ map
+     \[
+     \vee \colon H_p (LM,M) \to 
+     H_{p+1-n}\left( LM \times LM, M \times LM \cup 
+     LM \times M \right) .
+     \] 
+ \end{definition}
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Computation via geometric intersection}
+
+\begin{proposition}[]\cite[Propositions 3.1 and 3.7]{Hingston-Wahl}
+    \label{Prop:GHUXIQL}
+    \begin{enumerate}
+        \item 
+    If $Z_1 \colon \Sigma_1 \to LM$ and
+    $Z_2 \colon \Sigma_2 \to LM$ are smooth cycles with the
+    property that the maps
+    $\ev_0 \circ Z_1 \colon \Sigma_1 \to M$ and
+    $\ev_0 \circ Z_2 \colon \Sigma_2 \to M$ are transverse, then
+    the loop product
+    \[
+    Z_1 \wedge Z_2 = \left( Z_1 \star Z_2 \right)|_{\Sigma_1 \times_{ev_0}
+    \Sigma_2} \in H_* \left( LM \right) 
+    \] 
+    is the concatenation of the loops of $Z_1$ and $Z_2$ along
+    the locus of the basepoint-intersections
+    $\Sigma_1 \times_{\ev_0} \Sigma_2 \subset \Sigma_1 \times 
+    \Sigma_2$, oriented as stated in \cite{Hingston-Wahl}
+\item If $Z \colon \left( \Sigma, \Sigma_0 \right) \to 
+    \left( LM, M \right) $ is a smooth relative cycle with the
+    property that the restriction of $e_I \circ (Z \times I) \colon
+    \Sigma \times I \to M \times M$ to $\left( \Sigma
+    - \Sigma_0 \right) \times (0,1)$ is transverse to the diagonal,
+    then
+    \[
+    \vee Z = \text{cut} \circ \left( Z \times I \right) 
+    |_{\overline{\Sigma_{\Delta}}} \in H_* \left( LM \times 
+    LM, M \times LM \cup  LM \times M \right) 
+    \] 
+    for $\overline{\Sigma_{\Delta}}$ the closure in
+    $\Sigma \times I$ of the locus of basepoint self-intersecting
+    loops $\Sigma_{\Delta} \subset \left( \Sigma - \Sigma_0 \right) 
+    \times (0,1)$, oriented as stated in
+    \cite{Hingston-Wahl}.
+    \end{enumerate}
+\end{proposition}
+
+\begin{note}
+    Here $\Sigma_1 \times_{\ev_0} \Sigma_2$ is the
+    pullback
+
+    \begin{equation*}
+    \begin{tikzcd}
+        \Sigma_1 \times_{\ev_0} \Sigma_2 \ar[r] \ar[d] & 
+        \Sigma_2 \ar[d, "\ev_0 \circ Z_2"] \\
+        \Sigma_1 \ar[r, "\ev_0 \circ Z_1"'] & M
+    \end{tikzcd}
+    \end{equation*}
+    
+
+
+\end{note}
+
+
+
+\subsubsection{Lens spaces}
+
+Consider $S^3 \subset \mathbb{C}^2$ as
+$\left( r, \theta \right) = 
+\left( \left( r_1, \theta_1 \right) , 
+\left( r_2, \theta_2 \right) \right) $ with
+$\theta_i \in \mathbb{R} / \mathbb{Z}$ and
+$r_i \ge 0$, satisfying $r_1^2 + r_2^2 = 1$. Here
+we think of
+$S^3$ as
+$\left\{ r_1 e^{i \theta_1} , r_2 e^{i \theta_2} \right\} $ with
+$r_1^2 + r_2^2 = 1$.\\
+In particular, when $r_i$ is zero, 
+$\left( r_i, \theta_i \right) = 0$.\\
+The lens
+space $\mathcal{L}_{p,q} $, for $p,q$ coprime, is
+the quotient space
+$S^3 / \mathbb{Z}/p$ with the $\mathbb{Z}/p$ action defined by
+\[
+    \left( (r_1, \theta_1), (r_2 , \theta_2) \right) 
+    \mapsto 
+    \left( \left( r_1, \theta_1 + \frac{1}{p} \right) ,
+    \left( r_2, \theta_2 + \frac{q}{p} \right) \right) .
+\] 
+
+There is a residual torus action on the lens space by
+\begin{align*}
+    \alpha \colon \left( S^{1} \times S^{1} \right) \times 
+    \mathcal{L}_{p,q} 
+    &\to \mathcal{L}_{p,q},\\
+    \left( (s,t), (r,\theta) \right) 
+    &\mapsto \left( \left( r_1, \theta_1 + \frac{s}{p} \right) ,
+    \left( r_2, \theta_2 + \frac{s q}{p}+t \right) \right) 
+\end{align*}
+
+
+Using this residual torus action, we define cycles 
+$Z_{l,m}$ for pairs of integers $(l,m)$ as follows:
+let
+\[
+\delta_{l,m} \colon S^{1} \to S^{1} \times S^{1}
+\] 
+be the torus knot $t \mapsto \left( lt, mt \right) $ of
+slope $\frac{l}{m}$. We can combine this loop with the
+action $\alpha$ of the torus on $\mathcal{L}_{p,q}$ to get
+a family
+\begin{align*}
+    Z_{l,m} \colon \mathcal{L}_{p,q} 
+    &\to L \mathcal{L}_{p,q}\\
+    \left( r,\theta \right) 
+    &\mapsto 
+    \left[ \gamma_{r,\theta}^{l,m} \colon
+    t \mapsto \alpha \left( \delta_{l,m}(t), (r,\theta) \right) \right] 
+\end{align*}
+associated to each point $(r, \theta)$ in the lens space,
+the loop $\gamma_{r,\theta}^{l,m}$ is based at this point
+and follows the image of $\delta_{l,m}$ along the torus action.
+
+That is, the loop is defined by
+\[
+\gamma_{r, \theta}^{l,m}(t) = 
+\left( \left( r_1, \theta_1 + \frac{lt}{p} \right) ,
+\left( r_2, \theta_2 + \frac{lt q}{p} + 
+mt\right) \right) .
+\] 
+Note now that Lens spaces are manifolds, and
+in particular, $\mathcal{L}_{p,q}$ are compact oriented
+$3$-manifolds, so we can pick a fundamental class
+$\left[ \mathcal{L}_{p,q} \right] $.\\
+Denote by
+\[
+Z_{l,m} = 
+\left( Z_{l,m} \right)_*
+\left[ \mathcal{L}_{p,q} \right] \in H_3 \left( L \mathcal{L}_{p,q} \right) 
+\] 
+\todo{is this the right interpretation. Otherwise,
+how is $Z_{l,m}$ in $H_3\left( L \mathcal{L}_{p,q} \right) $?}
+the associated homology class.
+Suppose we now
+postcompose with $\ev_0$, i.e.,
+we look at the class
+\[
+    \left( \ev_0 \right)_*
+    Z_{l,m} \in 
+H_3 \left( \mathcal{L}_{p,q} \right) 
+\] 
+we note that
+the composition
+$\ev_0 \circ Z_{l,m}$ is just the 
+identity,
+so this just sends
+$\left[ \mathcal{L}_{p,q} \right] $ to itself.
+Thus also $Z_{l,m} \in 
+H_3 \left( L \mathcal{L}_{p,q} \right) $ is non-trivial.\\
 \linebreak
-Through another homotopy of $f$, we can assume that
-$E^{n}$ is the open unit disk
-$D^{n}$.\\
 
-We will refer to an embedding
-$g \colon M^{k} \times E^{n} \to \mathbb{R}^{n+k}$, with
-$M^{k}$ compact, as a
-"fattened $k$-manifold".
+\subsubsection{The loop product of the classes
+$Z_{l,m}$}
+
+Let $Z_1 = Z_{l_1, m_1}$ and
+$Z_2 = Z_{l_2, m_2}$.
+Since $\ev_0 \circ Z_i$ is the identity for both $i$,
+$\ev_0 \circ Z_1$ is transverse to
+$\ev_0 \circ Z_2$.
+
+Furthermore, the locus of basepoint-intersections
+is the pullback
+\begin{equation*}
+\begin{tikzcd}
+    \mathcal{L}_{p,q} \times_{\ev_0} 
+    \mathcal{L}_{p,q} \ar[r] \ar[d] & \mathcal{L}_{p,q} \ar[d, "
+    \ev_0 \circ Z_2"] \\
+    \mathcal{L}_{p,q} \ar[r, "\ev_0 \circ Z_1"'] & \mathcal{L}_{p,q}
+\end{tikzcd}
+\end{equation*}
+so
+\begin{align*}
+    \mathcal{L}_{p,q} \times_{\ev_0} \mathcal{L}_{p,q}
+    &= \left\{ \left( \left( r_1,\theta_1 \right) ,
+        \left( r_2, \theta_2 \right) \right)  \in \mathcal{L}_{p,q} \times 
+    \mathcal{L}_{p,q}  \mid 
+    (r_1,\theta_1) = \ev_0 Z_1 (r_1, \theta_1) = \ev_0 Z_2 (r_2, \theta_2)
+    = \left( r_2, \theta_2 \right) 
+\right\}\\
+    &= \Delta \mathcal{L}_{p,q}
+\end{align*}
+
+Hence using Proposition \ref{Prop:GHUXIQL}, we obtain
+that $Z_{l_1, m_1} \wedge
+Z_{l_2, m_2}$ sends each point $\left( r, \theta \right) $
+of $\mathcal{L}_{p,q} \cong \Delta
+\mathcal{L}_{p,q}$ to the concatenated loop
+$Z_{l_1,m_1} \star Z_{l_2,m_2}$ based at
+$(r, \theta)$,
+where $\star$ is the concatenation of the loops in the image
+at their common basepoint.
+
+\begin{proposition}[]
+    The Chas-Sullivan loop product of the classes
+    $Z_{l,m} \in H_3 \left( L \mathcal{L}_{p,q} \right) $ defined
+    above is given by summing the indices:
+    \[
+    Z_{l_1,m_1} \wedge Z_{l_2,m_2} = 
+    Z_{l_1+l_2 , m_1+m_2}.
+    \] 
+\end{proposition}
+
+\begin{proof}
+    By the above considerations and
+    Proposition \ref{Prop:GHUXIQL}, have
+    \[
+    Z_{l_1,m_1} \wedge
+    Z_{l_2,m_2}  
+    = \left( Z_{l_1,m_1}\star Z_{l_2,m_2} \right) |_{\Delta \mathcal{L}_{p,q}}
+    \colon \mathcal{L}_{p,q} \cong
+    \Delta \mathcal{L}_{p,q} \to L \mathcal{L}_{p,q}
+    \] 
+    where $\star$ is the concatenation of the loops in the image
+    at their common basepoint, i.e.,
+    it is the map
+    $\mathcal{L}_{p,q} \to L \mathcal{L}_{p,q}$ sending
+    $\left( r, \theta \right) \mapsto 
+    \gamma_{r, \theta}^{l_1, m_1} * \gamma_{r, \theta}^{l_2, m_2}$ which
+    is the image under the torus action of the
+    concatenated loops
+    $\left( l_1,m_1 \right) $ and $\left( l_2,m_2 \right) $ in the
+    torus. Concatenation corresponds to addition
+    in the fundamental group, so the
+    concatenation becomes
+    $\left( l_1,m_1 \right) * \left( l_2,m_2 \right) =
+    \left( l_1+l_2, m_1+m_2 \right) $, so 
+    $\gamma_{r,\theta}^{l_1,m_1} * \gamma_{r,\theta}^{l_2, m_2} =
+    \gamma_{r, \theta}^{l_1+l_2, m_1+m_2}$.
+    This homotopy descends to the lens space, so
+    up to homotopy in the codomain,
+    $Z_{l_1,m_1} \wedge Z_{l_2,m_2} = 
+    Z_{l_1+l_2, m_1+m_2}$, and thus the classes
+    agree in $H_{3} \left( L \mathcal{L}_{p,q} \right) $.
+\end{proof}
+
+
+Now that we have determined the loop product of the
+classes, we turn to coproducts.
+
+\subsubsection{$B$-classes}
+
+
+Recall that the coproduct is a degree $1-3 = -2$ map on
+$H_* (L \mathcal{L}_{p,q}, \mathcal{L}_{p,q})$:
+\[
+\vee \colon H_3 \left( L \mathcal{L}_{p,q}, \mathcal{L}_{p,q} \right) 
+\to H_1 \left( L \mathcal{L}_{p,q} \times L \mathcal{L}_{p,q},
+\mathcal{L}_{p,q} \times L \mathcal{L}_{p,q} \cup 
+L \mathcal{L}_{p,q} \times \mathcal{L}_{p,q} \right) 
+\] 
+
+The coproduct of the classes
+$Z_{l,m}$ will be given in terms of $B$-classes in the
+target.
+
+
+Let $\lambda \colon S^{1} \to \mathcal{L}_{p,q}$ be the
+loop defined by $\lambda(t) = \left( (1, \frac{t}{p}),
+0
+\right) $ tracing the points $(r,\theta) \in \mathcal{L}_{p,q}$ 
+with $\left( r_2, \theta_2 \right) = 0$. Then
+$\lambda$ is a generator of
+$\pi_1 \mathcal{L}_{p,q} \cong \mathbb{Z} / p$:
+it has order $p$ as can be seen by lifting it to $S^3$.
+\todo{}
+
+Note that
+\[
+    Z_{1,0}\left( (1,0), 0 \right) =
+    \gamma_{\left( (1,0), 0 \right) }^{1,0} = 
+    \left[ t \mapsto \left( (1, \frac{t}{p}), 0  \right)  \right] = 
+    \lambda
+\] 
+Projecting a path
+from $\left( \left( 1,0 \right) , 0 \right) $ to
+$\left( 0, (1,0) \right) $ under
+$Z_{1,0}$ gives a free homotopy
+from
+$\gamma_{\left( (1,0),0 \right) }^{1,0}$ to
+$\gamma_{\left( 0, (1,0) \right) }^{1,0}$. Note that
+\[
+\gamma_{\left( 0, (1,0) \right) }^{1,0} = 
+\left[ t \mapsto \left( 0, (1, \frac{qt}{p}) \right)  \right] 
+= ( \lambda' )^{\star q}
+\] 
+for $\lambda' \colon S^{1} \to \mathcal{L}_{p,q}$ defined
+by $\lambda' (t) = \left( 0, (1, \frac{t}{p}) \right) $.
+
+\begin{definition}[]
+    Define the $1$-cycles $B_{k,k'}$ and
+    $B_{k,k'}'$ in
+    $\mathcal{L}_{p,q}$ as follows:
+    let $\lambda_s \colon S^{1} \to \mathcal{L}_{p,q}$ be the
+    rotation of $\lambda$, based at $\lambda(s)$,:
+    \[
+    \lambda_s (t) = \lambda (s+t).
+    \] 
+    Similarly for $\lambda'$.
+    Define
+    \begin{align*}
+        B_{k,k'} \colon S^{1} 
+        &\to L \mathcal{L}_{p,q} \times_{\mathcal{L}_{p,q}}
+        L \mathcal{L}_{p,q} \subset L \mathcal{L}_{p,q} \times 
+        L \mathcal{L}_{p,q},\\
+        s 
+        &\mapsto \left( (\lambda_s)^{\star k},
+        (\lambda_s)^{\star k' }\right) 
+    \end{align*}
+    We also denote by
+    $B_{k,k'} \in H_1 \left( L \mathcal{L}_{p,q}
+    \times_{\mathcal{L}_{p,q}} L \mathcal{L}_{p,q} \right) $ 
+    or $H_1 \left( L \mathcal{L}_{p,q} \times L \mathcal{L}_{p,q} \right) $ 
+    the associated homology class
+    $\left( B_{k,k'} \right)_* \left[ S^{1} \right] $.
+    Then the evaluation $\left( \ev_0 \right)_* \colon
+    H_1 \left( L \mathcal{L}_{p,q} \times_{\mathcal{L}_{p,q}}
+    L \mathcal{L}_{p,q}\right) \to 
+    H_1 \left( \mathcal{L}_{p,q} \right) $ takes
+     \[
+     B_{k,k'} = \left( B_{k,k'} \right)_* \left[ S^{1} \right] 
+     \mapsto \left( ev_0 \circ B_{k,k'} \right)_* \left[ S^{1} \right] 
+     = \lambda_* \left[ S^{1} \right] = 
+     \left[ \lambda \right] 
+     \] 
+     Define $B_{k,k'}'$ in the same way by
+     replacing $\lambda$ by $\lambda'$ above.
+\end{definition}
+
+
+
+\begin{lemma}[]\cite[Lemma 2.6]{Naef-Rivera-Wahl}
+    Let $B_{k,k'}' \colon S^{1} \to L \mathcal{L}_{p,q} \times_{
+    \mathcal{L}_{p,q}} L \mathcal{L}_{p,q}$ be the family of
+    figure eights based at the points of $\lambda'$ defined
+    by $B_{k,k'}'(s) = 
+    \left( (\lambda_s')^{\star k}, (\lambda_s')^{\star k'} \right) $. Then
+    \[
+    B_{k,k'} = q B_{qk,qk'}' \in 
+    H_1 \left( L \mathcal{L}_{p,q} 
+    \times_{\mathcal{L}_{p,q}} L \mathcal{L}_{p,q} \right) 
+    \] 
+    is the sum of $q$ copies of the class
+    $B_{qk,qk'}'$.
+\end{lemma}
+
+\begin{proof}
+    As above, projecting a path from
+    $\left( (1,0), 0 \right) $ to
+    $\left( 0 ,(1,0) \right) $ under $Z_{1,0}$ in
+    $\mathcal{L}_{p,q}$ gives an explicit free homotopy
+    $\lambda \simeq_h \left( \lambda' \right)^{\star q} \colon
+    S^{1} \to \mathcal{L}_{p,q}$.
+    Let $h \colon S^{1} \times I \to \mathcal{L}_{p,q}$ be
+    the evaluation of
+    $Z_{1,0}$ along the line
+    $\left( \left( \sqrt{1-\tau^2} ,0 \right) (\tau ,0) \right) ,
+    \tau \in \left[ 0,1 \right] $, giving the formula
+    \[
+    h(s,t) = 
+    \left( \left( \sqrt{1-\tau^2} , \frac{s}{p} \right) ,
+    \left( \tau, \frac{qs}{p} \right) \right) \in \mathcal{L}_{p,q}. 
+    \] 
+    Then there is a lift
+    $H \colon S^{1} \times I \to L \mathcal{L}_{p,q} \times_{\mathcal{L}_{p,q}} 
+    L \mathcal{L}_{p,q}$ of $h$ consisting of loops
+    based at the value of $h$, defined by
+    \[
+    H(s,\tau) = 
+    \left( \left[ t \mapsto \left( \left( \sqrt{1- \tau^2} ,
+    \frac{s+ kt}{p}\right)  \right) , 
+    \left( \tau, \frac{q (s+kt)}{p} \right) \right]
+    ,
+    \left[ t \mapsto \left( \left( \sqrt{1- \tau^2} ,
+    \frac{s+ k't}{p}\right) , 
+\left( \tau, \frac{q (s+k't)}{p} \right) \right)  \right] \right)
+    \] 
+    which starts at 
+    \[
+    H(s,0) = \left( \left[ t \mapsto \left( \left( 1, \frac{s+kt}{p} \right) ,
+    0 \right)  \right] ,
+    \left[ t \mapsto \left( \left( 
+    1 , \frac{s+k't}{p}\right) ,
+0 \right)  \right] \right)
+= \left( (\lambda_s)^{\star k} ,
+(\lambda_s)^{\star k'} \right) = 
+B_{k,k'},
+    \] 
+    and similarly,
+    \[
+    H(s,1) = 
+    \left( \left[ t \mapsto 
+    \left( 0,
+\left( 1, \frac{q(s+kt)}{p} \right) \right) \right] 
+\left[ t \mapsto \left( 0,
+\left( 1, \frac{q(s+k't)}{p} \right) \right)  \right] \right) =
+\left( (\lambda_{qs}')^{\star qk}, (\lambda_{qs}')^{\star qk'} \right) 
+    \] 
+    which, in homology, represents $q B_{qk,qk'}'$.
+\end{proof}
+
+
+
+\begin{lemma}[]\cite[Lemma 2.7]{Naef-Rivera-Wahl}
+    We have that
+    \begin{enumerate}
+        \item $B_{k,k'} = B_{h,h'} \in 
+            H_1 \left( L \mathcal{L}_{p,q} \times 
+            L \mathcal{L}_{p,q} \right) $ if and only if
+            $k = h \mod{p}$ and
+            $k' = h' \mod{p}$.
+        \item The relative classes
+            \[
+                \left\{ B_{k,k'} \right\}_{\substack{0 < k < p \\ 0 < k' <p}}
+                \in H_1 \left( L \mathcal{L}_{p,q} \times 
+                L \mathcal{L}_{p,q}, \mathcal{L}_{p,q}
+            \times L \mathcal{L}_{p,q} \cup 
+        L \mathcal{L}_{p,q} \times \mathcal{L}_{p,q} \right) 
+            \] 
+            are linearly independent over $\mathbb{Z}/p$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    \todo{}
+\end{proof}
+
+
+\begin{proposition}[]\cite[Proposition 2.8]{Naef-Rivera-Wahl}
+    The coproduct of the classes $Z_{l,m} \in H_3 \left( L \mathcal{L}_{p,q},
+    \mathcal{L}_{p,q} \right) $ with $l,m \ge 0$ is given by
+    the formula
+    \[
+    \vee Z_{l,m} = 
+    \sum_{\substack{0 < k < l \\ k, (l-k) \neq 0 \mod{p}}}
+    B_{k,l-k} + q' 
+    \sum_{\substack{0 < k < ql+pm \\ k,(l-kq')\neq 0 \mod{p}}}
+    B_{kq', l-kq'}
+    \] 
+    where $q'$ is the multiplicative inverse of $q \mod{p}$.
+\end{proposition}
+
+\begin{proof}
+    We want to make use of (2) in
+    Proposition \ref{Prop:GHUXIQL}.
+
+    To do this, we need $e_I \circ \left( Z \times I \right) 
+    \colon \mathcal{L}_{p,q} \times I \to 
+    \mathcal{L}_{p,q} \times \mathcal{L}_{p,q}$ 
+    restricted to
+    $(L \mathcal{L}_{p,q} - \mathcal{L}_{p,q}) \times (0,1) $
+    to be transverse
+    to the diagonal, where
+    $e_I$ evaluates the loops at $0$ and
+    $s \in \left( 0,1 \right)  \subset I$ (here
+    $\mathcal{L}_{p,q} \subset L \mathcal{L}_{p,q}$ is the
+    locus of constant loops).\\
+    \linebreak
+    Recall that
+    $Z_{l,m}$ takes
+    $\left( r, \theta \right) $ to
+    $\left[ \gamma_{r,\theta}^{l,m} \colon
+    t\mapsto \alpha \left( \delta_{l,m}(t), (r, \theta) \right) \right] $.
+    If $(l,m)= (0,0)$, then $\delta_{0,0}$ is constant
+    at $(0,0)$ and so
+    $\alpha$ is constant at
+    $\left( r, \theta \right) $, so $Z_{0,0}$ maps
+    $(r, \theta)$ to the constant loop at $(r, \theta)$. Thus
+    $Z_{0,0} = 0 \in H_3 \left( L \mathcal{L}_{p,q},
+    \mathcal{L}_{p,q} \right) $.\\
+    \linebreak
+    Conversely, if
+    $Z_{l,m}(r, \theta)$ is constant then
+    $\left[ \gamma_{r, \theta}^{l,m} \colon
+    t \mapsto 
+\left( \left( r_1, \theta_1 + \frac{lt}{p} \right) ,
+\left( r_2, \theta_2 + \frac{ltq}{p} +mt \right) \right) \right] $ 
+    is constant at 
+    $(r, \theta)$, so $l$ and $m$ must be $0$, hence
+    if $(l,m) \neq (0,0)$, $Z_{l,m}$ has no constant
+    cycles in its image.
+
+    We can assume that $(l,m) \neq (0,0)$ and work
+    with $\left( \Sigma , \Sigma_0 \right) = 
+    \left( \mathcal{L}_{p,q}, \varnothing \right) $.
+
+    \textit{Transversality:} represent the homology
+    class of $Z_{l,m}$ by the homotopic family
+    $\tilde{Z}_{l,m} \colon \mathcal{L}_{p,q} \to 
+    L \mathcal{L}_{p,q}$ defined by
+    $\tilde{Z}_{l,m}(r, \theta) = 
+    \tilde{\gamma}_{r,\theta}^{l,m}$ for
+    $\tilde{\gamma}_{r, \theta}^{l,m} \colon S^{1} \to 
+    \mathcal{L}_{p,q}$  the loop based at 
+    $(r , \theta)$ given by
+    \[
+    \tilde{\gamma}_{r, \theta}^{l,m} (t) = 
+    \left( \left( \tilde{r}_{1}(t), \theta_1 + 
+    \frac{lt}{p} \right), 
+    \left( \tilde{r}_{2}(t), \theta_2 + \frac{ql+pm}{p}t \right) 
+\right), 
+    \] 
+    where $\left( \tilde{r}_1(t), \tilde{r}_2(t) \right) $ is a
+    deformation of $\left( r_1,r_2 \right) $ with
+    $\left( \tilde{r}_1 (t) , \tilde{r}_2(t) \right) =
+    \left( r_1,r_2 \right) $ only for $r_1 = 0$ or
+    $r_2 = 0$, or when $t = 0$ or $1$.
+    For example, 
+    we can let
+    \[
+    \tilde{r}_1(t) = 
+    \begin{cases}
+        (1-2t) r_1 + 2t r_1^2,& t \in \left[ 0,\frac{1}{2} \right] \\
+        r_1^2 (2-2t) + r_1 (2t-1),& t \in \left[ \frac{1}{2},1 \right] 
+    \end{cases}
+    \] 
+    and $\tilde{r}_2(t) = 
+    \sqrt{1 - \tilde{r}_1(t)^2} $.\\
+    \linebreak
+
+    We can visualize this as follows: 
+    foliate $S^{4} \cong \mathbb{R}^3 \cup \left\{ \infty \right\} $ 
+    by tori. Then for fixed radii, the
+    angle coordinates trace out a torus.
+    Then $\mathbb{Z}/p$ still acts on this torus, and 
+    it is on this quotient torus, that
+    $\gamma_{r, \theta}^{l,m}$ lives.
+    So understanding self-intersections amounts to
+    understanding self-intersections on this quotient torus of the
+    torus knot one is interested in.
+
+    For example, if
+    $m = 0$, then for $l\ge 1$,
+    $Z_{l,m}\left( r , \theta \right) $ has
+    $l-1$ self-intersections.
+
+    But for large $l$ and $m$, these loops will have many self-intersections.
+    What $\tilde{Z}_{l,m}$ does is that
+    it makes it so that, as we vary $t$, we also vary
+    the radius such that only the torus knots
+    corresponding to the endpoints
+    live on the original torus knot corresponding to
+    $Z_{l,m}$. See Figure \ref{fig:Figures-foliating-tori-jpg}
+
+
+    \begin{figure}[htpb]
+        \centering
+        \includegraphics[width=1\textwidth]{Figures/foliating-tori.jpg}
+        \caption{Figures/foliating-tori.jpg}
+        \label{fig:Figures-foliating-tori-jpg}
+    \end{figure}
 
 
 
 
-\section{Terminology}
+
+
+
+
+    Then the map $e_I \circ \left( \tilde{Z}_{l,m}\times \id \right) 
+    |_{\mathcal{L}_{p,q} \times  (0,1)}$ intersects
+    the diagonal when $\tilde{\gamma}_{r,\theta}^{l,m}$ has a 
+    self-intersection $\tilde{\gamma}_{r, \theta}^{l,m}(0)=
+    \tilde{\gamma}_{r,\theta}^{l,m}(t)$ for
+    some $t \in (0,1)$.
+
+
+    Since the $r$ coordinates must match, such a self-intersection can
+    only happen for $ r_1 = 0$
+    or $r_2 = 0$ since otherwise
+    $\tilde{r}_i(t) \neq \tilde{r}_i(0) = r_i$.
+
+    For $r_2 = 0$, we have that
+    $\tilde{r}_1(t) = r_1 = 1$ and
+    $\tilde{r}_2 (t) = r_2 = 0$, and
+    \[
+    \tilde{\gamma}_{r, \theta}^{l,m} (t) = 
+    \left( \left( 1, \theta_1 + \frac{lt}{p} \right) , 0 \right) 
+    \] 
+    The first angle coincides with
+    $\theta_1$ precisely when
+    $\frac{lt}{p} = \in \frac{1}{p}\mathbb{Z}$, i.e., when
+    $t \in \frac{1}{l} \mathbb{Z} \cap (0,1)$.
+
+    When $r_1 = 0$, we get
+    \[
+    \tilde{\gamma}_{r, \theta}^{l,m}(t) = 
+    \left( 0, \left( 1, \theta_2 + \frac{ql+pm}{p}t \right)  \right) 
+    \] 
+    Since $\gcd (p,q) = 1$, Bezout gives that
+    $ \frac{k}{p} = 0$ in the second coordinate, so 
+     the second angle coincides with $\theta_2$ whenever
+     $\frac{ql+pm}{p}t \in \frac{1}{p} \mathbb{Z}$.
+
+     This yields the following parameters:
+
+     \[
+     \begin{cases}
+         0 < t = \frac{a}{l} < 1, \text{ for some } a \in \mathbb{N} ,& 
+         r_2 = 0\\
+         0 < t = \frac{b}{ql+pm} < 1 \text{ for some } b \in \mathbb{N} ,&
+         r_1 = 0.
+     \end{cases}
+     \] 
+     So the locus of self-intersections of 
+     $\tilde{Z}_{l,m} \times \id|_{\mathcal{L}_{p,q} \times (0,1)}$ is
+     \[
+     \Sigma_{\Delta} = 
+     \left( \lambda \times I_1 \right) \cup 
+     \left( \lambda'\times I_2 \right) \subset \mathcal{L}_{p,q} \times 
+     (0,1)
+     \] 
+     where $I_1 = \left\{ \frac{1}{l}, \ldots,
+     \frac{l-1}{l}\right\} $, 
+     $I_2 = \left\{ \frac{1}{ql+pm}, \ldots, \frac{ql+pm-1}{ql+pm} \right\} $,
+     and $\lambda, \lambda'$ are the loops parametrizing the
+     points with $r_2 = 0$ and $r_1 = 0$, respectively.\\
+     Note that $\lambda$ and $\lambda'$ correspond to the
+     two degenerate cases of tori in the foliation.
+
+     We need to check transversality at these points.
+
+     Note that $e_I \circ \left( \tilde{Z}_{l,m} \times \id \right) $ takes
+     points with $r_i$ coordinates $0$ to points of the same form
+     in the diagonal.
+
+
+
+
+
+
+
+
+\end{proof}
+
+
+
+
+\newpage
+
+\subsection{A new operation}
+
+
+Consider the $3$-simplex
+$\Delta^3 = \left\{ \left( x_1,x_2,x_3 \right) \in \mathbb{R}^3  \mid 
+0 \le x_1 \le x_2 \le x_3 \le 1\right\} $, and
+consider the homology group
+
+Since $\left( \Delta^3, \partial \Delta^3 \right) 
+\cong \left( D^3, S^2 \right) $,
+so
+\[
+H_3 \left( \Delta^3 / \partial \Delta^3 \right) \cong
+H_3 \left( D^3, S^2 \right) \cong
+\mathbb{Z}.
+\] 
+We want to see if we can construct an interesting
+homomorphism
+\[
+H_3 \left( L \mathcal{L}_{p,q} \right) \to 
+H_0 \left( L \mathcal{L}_{p,q} \right) 
+\cong \mathbb{Z}^{p}
+\] 
+\todo{Need to reference this last isomorphism}
+
+By the above, we can consider "products" of the form
+\[
+H_3 \left( L \mathcal{L}_{p,q} \right) \otimes
+H_3 \left( \Delta^3 / \partial \Delta^3 \right) 
+\to H_0 \left( L \mathcal{L}_{p,q} \right) 
+\] 
+or more generally,
+\[
+H_p \left( LM \right) \otimes
+H_q \left( \Delta^3 / \partial \Delta^3 \right) \to 
+H_{p+q-2n}\left( LM \right) 
+\] 
+which is only really interesting for
+$q = 0,3$.\\
+\linebreak
+
+
+
+
+Let $E \colon
+LM \times \Delta^3 / \partial \Delta^3 \to 
+M^{4}$ be defined by
+$E\left(\gamma, \left( x_1,x_2,x_3 \right)  \right) = 
+\left( \gamma(0), \gamma(x_2), \gamma(x_1),
+\gamma(x_3)\right)  $. Define
+a map $\Delta \times \Delta\colon M^2 \hookrightarrow M^{4}$ by
+$\Delta \times \Delta \left( m,n \right) = 
+\left( m,m,n,n \right) $.
+Form the pullback
+\begin{equation*}
+\begin{tikzcd}
+    LM \times_{M^{4}} \Delta^3 / \partial \Delta^3
+    \ar[r] \ar[d] & LM \times \Delta^3 / \partial \Delta^3
+    \ar[d, "E"] \\
+    M^2 \ar[r, "\Delta \times \Delta"] & M^{4}
+\end{tikzcd}
+\end{equation*}
+
+This pullback consists of loops $\gamma$ for which
+there exist some
+$0 < x_1 < x_2 < x_3 < 1$ such that
+$\gamma (0) = \gamma(x_2)$ and
+$\gamma(x_1) = \gamma(x_3)$.
+
+On this space, we define an operation
+
+$\Upsilon \colon LM \times_{M^{4}} \Delta^3 / \partial \Delta^3 \to 
+LM$ given by
+concatinating the loop as shown in the figure
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figures/UGWINZKQ.jpeg}
+    \caption{$\Upsilon$ of a loop $\gamma$}
+    \label{fig:Figures-UGWINZKQ-jpeg}
+\end{figure}
+
+
+
+(or $\Upsilon$ could potentially be some other operation).
+
+
+Now similarly to the construction of the coproduct, we can define a map
+$LM \times \Delta^{3} /\partial \Delta^3 \to LM \times_{M^{4}} \Delta^{3}
+/ \partial \Delta^3$ by,
+for an element
+$\left( \gamma, \left( x_1,x_2,x_3 \right)  \right) $, inserting
+a geodesic stick between $\gamma(0)$ and $\gamma(x_2)$ as well
+as another geodesic stick between $\gamma(x_1)$ and 
+$\gamma(x_3)$, and then forming the desired loop by concatinating
+the different parts.
+
+
+To make this precise, let us start by
+considering the diagonal embedding
+$\Delta \times \Delta \colon M \times M 
+\hookrightarrow M^2 \times M^2$.
+Its normal bundle is isomorphic to
+the tangent bundle $T(M \times M) \cong TM \oplus TM$.
+Again identify $T\left( M \times M \right) $ with
+$T\left( M \times M \right)_{\varepsilon}$,
+$\varepsilon \ll \rho$, $\rho$ the injectivity radius of $M \times M$.
+
+Then the map
+\[
+\nu_{M \times M} \colon T\left( M \times M \right) 
+\hookrightarrow M^{4} \quad
+\nu_{M \times M}\left( \left( x,v \right) ,
+\left( y,u \right) \right) =
+\left( x, \exp_x v, y, \exp_y u \right) 
+\] 
+gives a tubular neighborhood
+of $\Delta \times \Delta$, with image the
+$\varepsilon$-image of the diagonal
+\[
+\nu_{M \times M} \colon T\left( M \times M \right) 
+\stackrel{\cong}{\to} U_1 
+= \left\{ \left( x,x',y,y' \right)  \mid 
+\left| x-x' \right| , \left| y-y' \right| < \varepsilon \right\} 
+\] 
+and under this identification, the bundle projection
+map $T\left( M \times M \right) \to M \times M$ becomes
+the retraction
+$r \colon U_1 \to M \times M$ by
+$r\left( x,x',y,y' \right) = \left( x,y \right) $.
+
+Let
+$\tau_{M \times M}$ be the image of a cochain representative
+for the Thom class for
+$T\left( M \times M \right) $ under
+the quasi-isomorphism
+\[
+C^{2n}\left( T(M \times M), T(M \times M) - M \times M \right) 
+\stackrel{\simeq}{\to} 
+C^{2n} \left( M^{4}, M^{4} - \Delta \times \Delta(M^2) \right) 
+\] 
+
+Now let
+
+\[
+    U_{2} = E^{-1}(U_1) = 
+    \left\{ \left( \gamma, \left( x_1,x_2,x_3 \right)  \right)  \mid 
+    \left| \gamma(0) - \gamma(x_2) \right| ,
+    \left| \gamma(x_1)- \gamma(x_3) \right| < \varepsilon \right\} 
+\]
+and set
+$\tau_{\Delta^3} = 
+E^{*}(\tau_{M \times M})$.
+
+
+
+On this neighborhood, we can concatenate with the desired geodesic sticks,
+so we obtain a retraction
+$R \colon U_2 \to LM \times_{M^{4}} \Delta^3 / \partial \Delta^3$ sending
+\[
+R (\gamma, \left( x_1,x_2,x_3 \right) )
+= \left( \gamma', \left( x_1,x_2,x_3 \right)  \right) 
+\] 
+where $\gamma'$ is the desired loop \todo{details}
+such that
+the following diagram commutes:
+
+\begin{equation*}
+\begin{tikzcd}
+    U_2 \ar[d, "E"] \ar[r, "R"] & LM \times_{M^{4}} \Delta^3 / \partial \Delta^3
+    \ar[r, hookrightarrow] \ar[d, "E"] & LM \times \Delta^3 / 
+    \partial \Delta^3 \ar[d, "E"] \\
+    U_1 \ar[r, "r"] & \Delta (M \times M) \ar[r, hookrightarrow] & M^{4}
+\end{tikzcd}
+\end{equation*}
+
+
+Now define the following operation composite:
+
+\begin{align*}
+    \wedge_{\Delta^3} \colon C_p(LM) \otimes 
+    C_q(\Delta^{3} / \partial \Delta^3) \stackrel{\times }{\longrightarrow} 
+    C_{p+q}\left( LM \times \Delta^3 / \partial \Delta^3 \right) 
+    &\stackrel{\left[ \tau_{\Delta^3} \cap \right] }{\longrightarrow} 
+    C_{p+q-2n} (U_2) \\
+    &\stackrel{R}{\longrightarrow} C_{p+q-2n}
+    \left( LM \times_M \Delta^3 / \partial \Delta^3 \right) 
+    \stackrel{\Upsilon}{\longrightarrow} C_{p+q-2n}(LM).
+\end{align*}
+
+where the middle map
+$\left[ \tau_{\Delta^3} \cap  \right] $ is defined as the composite
+
+\begin{align*}
+    \left[ \tau_{\Delta^3}\cap \right] 
+    &\colon
+C_{*}\left( LM \times \Delta^3 / \partial \Delta^3 \right) 
+\to C_{*}\left( LM \times \Delta^3 / \partial \Delta^3 , LM \times \Delta^3 
+    / \partial \Delta^3 - 
+LM \times_M \Delta^3 / \partial \Delta^3 \right) \\
+    &\stackrel{\sim}{\longrightarrow} 
+C_* \left( U_2, U_2 - LM \times_M \Delta^3 / \partial \Delta^3 \right) 
+         \stackrel{\tau_{\Delta^3} \cap}{\longrightarrow} 
+        C_{* - 2n}\left( U_2 \right) 
+\end{align*}
+
+Note that for $A \in C_* \left( LM \times \Delta^3 / \partial \Delta^3
+\right) $, $\left[ \tau_{\Delta^3} \cap \right] (A) = 
+\tau_{\Delta^3} \cap \rho (A)$ where
+$\rho \colon C_* \left( LM \times \Delta^3 / \partial \Delta^3 \right) 
+\to C_* \left( LM \times \Delta^3 / \partial \Delta^3 \right) $ is a
+chain map which subdivides simplices in such a way
+that $\rho (A)$ is homologous to $A$ and every
+simplex $\sigma$ in $\rho (A)$ has support
+in either $U_2$ or $LM \times \Delta^3 / \partial \Delta^3 -
+U_{2, \varepsilon_0}$, and hence
+$\tau_{\Delta^3} \cap \rho (A)$ has support
+in $U_{2}$.
+Capping with the Thom class then kills all the simplices with support
+in $LM \times \Delta^3 / \partial \Delta^3 - 
+U_{2, \varepsilon_0}$ (Cf. \cite{Hingston-Wahl}).\\
+
+Hence, for example, we obtain a product
+\[
+\wedge_{\Delta^3} \colon
+H_{3}\left( L \mathcal{L}_{p,q} \right) 
+\otimes H_3\left( \Delta^3 / \partial \Delta^3 \right) 
+\cong H_3 \left( L \mathcal{L}_{p,q} \right) \to 
+H_{0}\left( L \mathcal{L}_{p,q} \right) 
+\cong \mathbb{Z}^{p}
+\] 
+
+\todo{Reference for
+$H_0 \left( L \mathcal{L}_{p,q} \right) \cong
+\mathbb{Z}^{p}$}
+
+
+Consider now the classes
+$Z_{l,m}$ from before.
+
+We are interested in whether $Z_{l,m}$ has transverse self-intersections
+so as to compute
+$\Upsilon Z_{l,m}$.
+
+Now, $Z_{l,m}$ maps $\left( r, \theta \right) $ to
+
+\[
+    \gamma_{r,\theta}^{l,m}(t) =
+    \left( \left( r_1, \theta_1 + \frac{lt}{p} \right) ,
+    \left( r_2, \theta_2 + \frac{ltq}{p}+mt \right) \right) .
+\] 
+
+As before, we could also replace
+$Z_{l,m}$ with
+the homotopic $\tilde{Z}_{l,m}$ given by
+\[
+\tilde{\gamma}_{r, \theta}^{l,m}(t) = 
+\left( \left( \tilde{r}_1 (t), \theta_1 + \frac{lt}{p} \right) ,
+\left( \tilde{r}_2 (t), \theta_2 + \frac{ql+pm}{p} t \right) \right) 
+\] 
+
+For this to have
+$\tilde{\gamma}_{r,\theta}^{l,m}(x_2) = \tilde{\gamma}_{r,\theta}^{l,m}(0)$,
+with $x_2 \in (0,1)$,
+we must have
+that $\tilde{r}_i(t) = r_i$, but
+$r_i = \tilde{r}_i(0) \neq \tilde{r}_i(t)$ if
+$r_i \neq 0,1$,
+hence as before, it can only coincide when
+$r_1$ or $r_2$ is zero.
+
+Let us work out an explicit example.
+
+Suppose $\left( l,m \right) = (1,2)$, so if
+$r_1 = 0$,
+\[ 
+    \tilde{Z}_{l,m}\left( 0,\theta_1, 1, \theta_2 \right) =
+    \tilde{\gamma}_{r, \theta}^{1,2}
+(t) = \left( 0 , \left(
+1, \theta_2 + \frac{q+2p}{p}t \right) \right). \] 
+
+This gives the self-intersections
+$\frac{q+2p}{p}t \in \frac{q}{p}\mathbb{Z}$, i.e.,
+$t \in \frac{q}{q+2p}\mathbb{Z} \cap (0,1)$.
+For example if $(p,q) = (2,3)$, this would be the set
+$\left\{ \frac{3}{7}, \frac{6}{7} \right\} $.
+
+If instead $r_2 = 0$, then
+the condition becomes $t \in \left\{ 0,1 \right\} \cap
+\left( 0,1 \right) = \varnothing$.
+
+
+
+
+But we also need two more points,
+$x_1,x_3$ such that
+$0 < x_1 < x_2 < x_3 < 1$ and
+$\tilde{\gamma}_{r, \theta}^{1,2}(x_1) = 
+\tilde{\gamma}_{r, \theta}^{1,2}(x_3)$.
+
+When $r_1 = 0$, this amounts to
+\[
+    (x_3-x_1) (q+2p) \in q \mathbb{Z}, \quad \text{that is} \quad
+    x_3 - x_1 \in \frac{q}{q+2p}\mathbb{Z}
+\] 
+If $(p,q) = (2,3)$ then
+$\frac{q}{q+2p} = \frac{3}{7}$, so
+$x_3 - x_1 \in \frac{3}{7}\mathbb{Z}$.
+Naturally, there are quite a lot of such intersection points.
+
+
+
+We don't necessarily even need to change to
+$\tilde{Z}_{l,m}$. Suppose
+we choose the points
+$x_1, x_2,x_3$.
+
+Since $Z_{l,m}(r , \theta)$ is contained in
+a torus, our loops
+$\Upsilon Z_{l,m}(r, \theta)$ will
+be
+$Z_{l,m}[x_2,x_1] \star Z_{l,m}[x_3, x_2] \star
+Z_{l,m}[0, x_3] \star Z_{l,m}[x_1, 0]$.
+
+Now, let $S^{1} \times S^{1} / \mathbb{Z}/p$ denote the torus quotiented
+out by the action of $\mathbb{Z}/p$ on it.
+Then we find that
+\[
+\pi_1 \left( S^{1} \times S^{1} / \mathbb{Z}/p \right) \cong
+\left<a,b,c  \mid ab^{q} = c^{p} \right>^{ab}
+\] 
+
+So $Z_{l,m}(r, \theta)$ corresponds to
+$c^{l} b^{m}$.
+
+Now, in
+$S^{1} \times S^{1} / \mathbb{Z}/p$, we can
+take a path from $Z_{l,m}\left( r,\theta \right) (x_1) = 
+Z_{l,m}\left( r, \theta \right) (x_3)$ to
+$Z_{l,m}(r, \theta) (0)$ and we can homotope our
+loop $Z_{l,m}\left( r ,\theta \right) $ such that
+$Z_{l,m}\left( r, \theta \right) (0) = 
+Z_{l,m}(r, \theta)(x_i)$ for $i = 1,2,3$.
+See figure \ref{fig:Figures-NGIWKZN-jpeg}
+
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Figures/NGIWKZN.jpeg}
+    \caption{}
+    \label{fig:Figures-NGIWKZN-jpeg}
+\end{figure}
+
+
+But in this loop, each of the segments
+$Z_{l,m}[x_i, x_j]$ is a loop of its own, hence
+lies in
+$\pi_1\left( S^{1} \times S^{1} / \mathbb{Z}/p \right) $ which is
+abelian, so in particular,
+\begin{align*}
+    \wedge_{\Delta^3} Z_{l,m}(r, \theta)
+    &=
+    Z_{l,m}[x_2,x_1] \star Z_{l,m}[x_3,x_2] 
+    \star Z_{l,m}[0,x_3] \star
+    Z_{l,m}[x_1,0]\\
+    &\simeq 
+    Z_{l,m}[0,x_3] \star Z_{l,m} [x_3, x_2] \star
+    Z_{l,m}[x_2,x_1] \star Z_{l,m}[x_1,0]\\
+    &=
+    \overline{ Z_{l,m} (r , \theta)}
+\end{align*}
+where the bar denotes the inverse loop.
+
+
+We could likewise define other operations. For example, consider the
+following operation, which we will denote by
+$\tilde{\Upsilon}$:
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figures/NUIZKUW.jpeg}
+    \caption{$\tilde{\Upsilon}$}
+    \label{fig:Figures-NUIZKUW-jpeg}
+\end{figure}
+
+Using the same approach as before, this becomes
+$\gamma \mapsto \gamma[x_2,0] \star \gamma[x_2, 1]$, i.e,
+first half up to $x_2$ is $\gamma$ reversed up to
+$x_2$, and the second part is $\gamma$ normally.
+
+I believe this doesn't change the loop - i.e., 
+$\tilde{\Upsilon} \left( \gamma \right) = \gamma$. Question mark???
+
+
+\begin{question}
+    We have the following composition:
+
+    \[
+    C_{3}(\mathcal{L}_{p,q})
+    \stackrel{Z_{l,m}}{\to} 
+    C_3 \left( L \mathcal{L}_{p,q} \right) 
+    \stackrel{\times \Delta^3 / \partial \Delta^3}{\to} 
+    C_{6}\left( L \mathcal{L}_{p,q} \times 
+    \Delta^3 / \partial \Delta^3 \right) 
+    \stackrel{R \circ \left[ \tau_{\Delta^3}\cap \right] }{\to} 
+    C_{0} \left( L \mathcal{L}_{p,q} \times_M 
+    \Delta^3 / \partial \Delta^3 \right),
+    \] 
+    and we are interested in what the image of this composition is.
+\end{question}
+
+    By definition, it will be a finite sum
+    of loops with marked points, $\left( \gamma, \left( x_1,x_2,x_3 \right) 
+    \right) $, in
+    $L \mathcal{L}_{p,q} \times_M \Delta^3 / \partial \Delta^3$ 
+    with coefficients in $\mathbb{Z}$.
+
+    Let us consider what this composition is doing.
+    For some chain $\sigma$ in $\mathcal{L}_{p,q}$,
+    we apply $Z_{l,m}$ to give a chain
+    in $L \mathcal{L}_{p,q}$.
+    Then we take the cross product with
+    the quotient $3$-chain $\Delta^3 \to \Delta^3 / \partial \Delta^3$,
+    which gives a $6$-chain in
+    $L \mathcal{L}_{p,q} \times \Delta^3 / \partial \Delta^3$.
+    Then $\left[ \tau_{\Delta^3} \cap \right] $ subdivides
+    this chain until simplices
+    are either in
+    $U_2$ or its complement, but still remaining homologous
+    to the original chain, and then we apply
+    $\tau_{\Delta^3}$, which has support in $U_2$,
+    essentially only leaves the chains contained in $U_2$.
+     In $U_2$, we can apply
+    $R$, and the resulting $0$-chain is the image.
+    But furthermore, if
+    the subdivided chain is transverse
+    to $L \mathcal{L}_{p,q} \times_M \Delta^3 / \partial \Delta^3$, the by
+    Corollary \ref{Cor:DNIZKJ}, capping with the Thom
+    class will just give us the intersection of the chain with
+    $L \mathcal{L}_{p,q} \times_M \Delta^3 / \partial \Delta^3$.
+
+    So the problem reduces to 
+    figuring out how to make $Z_{l,m} \times \Delta^3 / \partial \Delta^3$ 
+    traverse to $L \mathcal{L}_{p,q} \times_M \Delta^3 / \partial \Delta^3$.
+    But since we know that
+    we must end in $C_0$ of the latter, we know that we must reduce
+    to finite intersections.
+
+    So let us start with the $\tilde{Z}_{l,m}$ from \cite{Naef-Rivera-Wahl}.
+
+    Recall that its locus of self-intersection was
+    \[
+    \Sigma_{\Delta} = \left( \lambda \times I_1 \right) \cup 
+    \left( \lambda' \times I_2 \right) \subset 
+    \mathcal{L}_{p,q} \times (0,1)
+    \] 
+    where
+    $I_1 = \left\{ \frac{1}{l},\ldots, \frac{l-1}{l} \right\} $ and
+    $I_2 = \left\{ \frac{1}{pl+pm}, \ldots,
+    \frac{ql+pm-1}{ql+pm}\right\} $, and
+    $\lambda, \lambda'$ are the loops parametrizing the
+    degenerate tori (circles) at the endpoints
+    $r_2 = 0$ and $r_1 = 0$, respectively.
+    
+    Now suppose $x_2$ is a point such that
+    for $\gamma = Z_{l,m}\left( (1,0), \theta \right) $,
+    $\gamma(0) = \gamma(x_2)$.
+    That is,
+    $\left( \left( 1, \theta_1 + \frac{l x_2}{p} \right)  , 0  \right) 
+    = \left( (1, \theta_1), 0 \right) $.
+    By adding $\frac{\theta p}{l}$ to $x_2$, we may assume that
+    $\gamma = \lambda$, and suppose $x_2 \in I_1$.
+
+    For $0 < x_1 < x_2 < x_3 < 1$, if
+    $\lambda(x_1 ) = \lambda(x_3)$, then
+    $x_3 - x_1  \in  \frac{1}{l} \mathbb{Z}$.
+    If $l>1$, there are infinitely many such pairs.
+    
+    For this, we must essentially break the periodicity in
+    the angle coordinate.
+    One possibility could be to
+    let $\theta_1 (t) = 
+    \theta_1 + \sin(\pi t)$.
+
+    Then for some $0 < x_1 < x_2 < x_3 < 1$ to satisfy the
+    criterion, say for $r_1 = 1$ and $r_2 = 0$, we need
+    $\theta_1 + \sin(\pi x_2) + \frac{l x_2}{p}
+    = \theta_1(x_2) + \frac{l x_2}{p} = 
+    \theta_1(0) = \theta_1$, so
+    $\sin \left( \pi x_2 \right) = 
+    \frac{lx_2}{p}$ which only
+    has one possible solution for each $x_2 \in (0,1)$ and
+    all $l,m$.
+
+    
+    Let $g(t) = \sin\left( \alpha(l,m) t \right) -
+    t \sin(\alpha(l,m))$.
+    Consider the functions
+    $\tilde{\theta}_1(t) =  
+    \theta_1 + \frac{lt}{p}  + g(t)$ and
+    $\tilde{\theta}_2 (t) = 
+    \theta_2 + \frac{lqt}{p} + 
+    g(t)$, and
+    define $Z_{l,m}'(r, \theta) = 
+    \gamma = 
+    \left[ t\mapsto \left( \left( \tilde{r}_1(t), \tilde{\theta}_1 (t) \right) , 
+    \left( \tilde{r}_2 (t) , \tilde{\theta}_2 (t) \right) \right) \right] $.
+    For $Z_{l,m}'(r, \theta)$ to be in
+    $L \mathcal{L}_{p,q} \times_{\mathcal{L}_{p,q}}
+    \Delta^3 / \partial \Delta^3$, we would need
+    for some $0 < x_1 < x_2 < x_3 < 1$ that
+    $\gamma(x_1) = \gamma(x_3)$ and
+    $\gamma(0) = \gamma(x_2)$. Just as before,
+    we deduce that
+    $r_1 = 0$ or $r_2 = 0$.
+    Next if 
+    $\gamma(x_1) = \gamma(x_3)$, we must have
+    $g(x_1) - g(x_3) = 
+    \frac{l}{p}(x_3- x_1)$ or
+    $(\frac{lq}{p} + m)(x_3-x_1)$.
+    
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    \newpage
+
+    \begin{equation*}
+    \begin{tikzcd}
+        C_3 (L \mathcal{L}_{p,q}) \otimes
+        C_{3}\left( \Delta^3 / \partial \Delta^3 \right) 
+        \ar[r, "\times "] \ar[d] & C_6 \left( L \mathcal{L}_{p,q} \times 
+        \Delta^3 / \partial \Delta^3 \right) 
+        \ar[r, "{\left[ \tau_{\Delta^3} \cap \right]}"]
+        \ar[d, "E_*"] &
+        C_0 (U_2) \ar[r, "R"] \ar[d, "E_*"] 
+        & C_0 \left( L \mathcal{L}_{p,q} \times_M 
+        \Delta^3 / \partial \Delta^3 \right) \ar[d, "r \circ ev_{old}"] \\
+            C_3 (\mathcal{L}_{p,q}^2)
+            \otimes C_3 (\mathcal{L}_{p,q}^2) \ar[r, "\times "] 
+            \ar[rrr, bend right, "\bullet"]& 
+            C_6 (\mathcal{L}_{p,q}^{4}) \ar[r, "{\left[ \tau_{M \times M}\cap \right] }"]
+            & C_0 (U_1) \ar[r,
+            "r"] & C_0 (\mathcal{L}_{p,q}^2)
+    \end{tikzcd}
+    \end{equation*}
+    
+    So now for
+    an arbitrary 
+    $\sigma \in C_3 \left( \mathcal{L}_{p,q} \right) $, we
+    have that the composite that we are interested in is
+    the same as
+    $\bullet \ev'
+    (Z_{l,m} \circ \sigma \otimes \Delta^3 / \partial \Delta^3 )$
+
+
+
+
+
+
+
+
+    We can again look at
+    $\tilde{Z}_{l,m}$ instead.
+
+    Recall the intersection product as the following composition
+
+    \[
+    \bullet_{Th} \colon \Delta_p(M) \otimes
+    \Delta_q(M) \stackrel{\times }{\to} \Delta_{p+q}(M \times M)
+    \stackrel{\left[ \tau_M \cap \right] }{\to} 
+    \Delta_{p+q-n}(U_M) \stackrel{r_*}{\to} \Delta_{p+q-n}(M)
+    \] 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+
+
+\section{Terminology}\label{Section:Terminology}
 
 \begin{definition}[Neighborhood retract]
     If $A \subset X$ and $A$ has a neighborhood in $X$ of
@@ -2144,6 +5201,32 @@ $M^{k}$ compact, as a
     Saying that $A \hookrightarrow X$ is a cofibration
     is stronger than saying that $A$ is a neighborhood retract.
 \end{note}
+
+
+
+\begin{definition}[Exponential Map]
+    Let $M$ be a smooth manifold and
+    $p \in M$. One can define the notion of a straight line
+    through the point $p$.
+
+    Let $v \in T_pM$ be a tangent vector to the manifold
+    at $p$. Then there is a unique geodesic 
+    $\gamma_v \colon \left[ 0,1 \right] \to M$ satisfying
+    $\gamma_v (0) = p$ with initial tangent vector
+    $\gamma_v' (0) = v$.
+    The corresponding \textit{exponential map} is defined
+    by $\exp_p (v) = \gamma_v(1)$.
+\end{definition}
+
+\begin{definition}[Injectivity Radius]
+      The injectivity
+      radius of a Riemannian manifold at a point $p$
+      is the supremum of
+      all radii for which the exponential map
+      at $p$ is a diffeomorphism onto its image.
+\end{definition}
+
+
 
 \section{Lemmas}
 
@@ -2163,6 +5246,41 @@ $M^{k}$ compact, as a
     \] 
     is closed and open.
 \end{proof}
+
+\begin{lemma}[]\label{Lemma:Pullback-Of-Normal-Bundle}
+    Suppose $A \subset Y$, and  $f \colon X \to Y$ is transverse to 
+    $A$. Then we claim that
+    $f^{*}\left( N_A Y \right) \cong 
+    N_{f^{-1}A}(X)$. That is, the pullback of the normal bundle
+    of $A$ in $Y$ is the normal bundle of the preimage of $A$ in $X$.
+\end{lemma}
+
+\begin{proof}
+    We have an induced map pointwise
+    \begin{equation*}
+    \begin{tikzcd}
+        T_x X \ar[r, "df"] \ar[d] & T_{f(x)}Y \ar[d] \\
+        (N_{f^{-1}(A)}X)_x = 
+        T_{x}X / T_{x}f^{-1}(A) \ar[r, "\overline{df}", dashed] &
+        T_{f(x)}Y / T_{f(x)}A = (N_A Y)_{f(x)}
+    \end{tikzcd}
+    \end{equation*}
+    defining
+    $\overline{df} \colon N_{f^{-1}(A)}X \to 
+    N_A Y$.
+    We also have the bundle map
+    $\pi \colon N_{f^{-1}}(A) X \to X$, thus inducing a map
+    $\varphi \colon N_{f^{-1}}X \to 
+    f^{*}N_A Y$ by $\varphi \left( x, \left[ v \right]  \right) 
+    = \left( x , \overline{df}\left[ v \right]  \right) $.
+    Now, $\overline{df}$ can be seen to be injective directly,
+    and surjectivity of $\overline{df}$ follows
+    from surjectivity of $df$ which follows
+    directly from our assumption of transversality.
+\end{proof}
+
+
+
 
 
 

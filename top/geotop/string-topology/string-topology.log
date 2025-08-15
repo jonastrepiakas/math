@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.7.22)  25 JUL 2025 16:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.7.22)  15 AUG 2025 02:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -800,29 +800,29 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 (./string-topology.aux)
 \openout1 = `string-topology.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 161.
-LaTeX Font Info:    ... okay on input line 161.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 161.
-LaTeX Font Info:    ... okay on input line 161.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 161.
-LaTeX Font Info:    ... okay on input line 161.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 161.
-LaTeX Font Info:    ... okay on input line 161.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 161.
-LaTeX Font Info:    ... okay on input line 161.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 161.
-LaTeX Font Info:    ... okay on input line 161.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 161.
-LaTeX Font Info:    ... okay on input line 161.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 161.
-LaTeX Font Info:    ... okay on input line 161.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 161.
-LaTeX Font Info:    ... okay on input line 161.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 161.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 162.
+LaTeX Font Info:    ... okay on input line 162.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 162.
+LaTeX Font Info:    ... okay on input line 162.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 162.
+LaTeX Font Info:    ... okay on input line 162.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 162.
+LaTeX Font Info:    ... okay on input line 162.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 162.
+LaTeX Font Info:    ... okay on input line 162.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 162.
+LaTeX Font Info:    ... okay on input line 162.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 162.
+LaTeX Font Info:    ... okay on input line 162.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 162.
+LaTeX Font Info:    ... okay on input line 162.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 162.
+LaTeX Font Info:    ... okay on input line 162.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 162.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 161.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 162.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -844,7 +844,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring ON on input line 161.
+Package hyperref Info: Link coloring ON on input line 162.
  (./string-topology.out) (./string-topology.out)
 \@outlinefile=\write5
 \openout5 = `string-topology.out'.
@@ -854,7 +854,7 @@ Package biblatex Info: ... file 'nil.lbx' not found.
 
 
 Package biblatex Warning: Language 'nil' not supported.
-(biblatex)                Using dummy definitions on input line 161.
+(biblatex)                Using dummy definitions on input line 162.
 
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
@@ -864,235 +864,570 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'string-topology.bbl' found.
 (./string-topology.bbl)
-Package biblatex Info: Reference section=0 on input line 161.
-Package biblatex Info: Reference segment=0 on input line 161.
+Package biblatex Info: Reference section=0 on input line 162.
+Package biblatex Info: Reference segment=0 on input line 162.
 
-Underfull \hbox (badness 10000) in paragraph at lines 165--171
+Underfull \hbox (badness 10000) in paragraph at lines 166--172
 
  []
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
-Underfull \hbox (badness 10000) in paragraph at lines 319--324
+Underfull \hbox (badness 10000) in paragraph at lines 325--330
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 319--324
+Underfull \hbox (badness 10000) in paragraph at lines 325--330
 
  []
 
 
-Overfull \hbox (2.39067pt too wide) in paragraph at lines 364--368
+Overfull \hbox (14.13202pt too wide) in paragraph at lines 384--388
+[]\T1/cmr/m/it/10 Remark. []\T1/cmr/m/n/10 Hence $\OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M; M \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 G\OT1/cmr/m/n/10 ) []= [][] \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M; M \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 U\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 G\OT1/cmr/m/n/10 )$ \T1/cmr/m/n/10 taken over neighborhoods
+ []
+
+[2]
+Overfull \hbox (9.1239pt too wide) in paragraph at lines 451--459
+\T1/cmr/m/it/10 where $[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M; M \OMS/cmsy/m/n/10 ^^@ ^^O\OT1/cmr/m/n/10 )$ \T1/cmr/m/it/10 and $[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 ^^L[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 )$\T1/cmr/m/it/10 . The restricted maps $\OML/cmm/m/it/10 !\OMS/cmsy/m/n/10 j[] [] [] []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 !
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 462--503
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 462--503
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 462--503
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 504--517
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 504--517
+
+ []
+
+[3]
+Overfull \hbox (2.39067pt too wide) in paragraph at lines 540--544
  \T1/cmr/m/n/10 1.1.\T1/cmr/bx/n/10 Homological Orientation.[][] \T1/cmr/m/n/10 If we specify to singular homology with coefficient
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 370--377
-
- []
-
-[2] [3]
-Underfull \hbox (badness 10000) in paragraph at lines 507--519
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 695--707
 
  []
 
-
-Overfull \hbox (47.32172pt too wide) in paragraph at lines 588--595
+[5]
+Overfull \hbox (47.32172pt too wide) in paragraph at lines 787--794
 []$[] \OML/cmm/m/it/10 h \OT1/cmr/m/n/10 = [] = [] \OML/cmm/m/it/10 i[]\OT1/cmr/m/n/10 ([] \OML/cmm/m/it/10 h[]\OT1/cmr/m/n/10 )$\T1/cmr/m/it/10 . 
  []
 
-[4]
-Package hyperref Info: bookmark level for unknown todo defaults to 0 on input line 740.
+[6]
+Package hyperref Info: bookmark level for unknown todo defaults to 0 on input line 939.
 
-Overfull \hbox (6.63322pt too wide) in paragraph at lines 746--748
+Overfull \hbox (6.63322pt too wide) in paragraph at lines 945--947
 [][]\T1/cmr/m/it/10 For $\OML/cmm/m/it/10 A \OMS/cmsy/m/n/10 ^^[ \OML/cmm/m/it/10 B$ \T1/cmr/m/it/10 both closed, the following diagram commutes: 
  []
 
 
-Overfull \hbox (31.19342pt too wide) detected at line 769
+Overfull \hbox (31.19342pt too wide) detected at line 968
 []
  []
 
 
-Overfull \hbox (8.94124pt too wide) in paragraph at lines 772--778
+Overfull \hbox (8.94124pt too wide) in paragraph at lines 971--977
 \T1/cmr/m/it/10 homomorphisms $\OT1/cmr/m/n/10 ^^@ [] \OMS/cmsy/m/n/10 ! \OT1/cmr/m/n/10 ^^@ []$ \T1/cmr/m/it/10 induce
  []
 
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 803--808
+
+Underfull \hbox (badness 10000) in paragraph at lines 1002--1007
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 803--808
+Underfull \hbox (badness 10000) in paragraph at lines 1002--1007
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 809--826
+Underfull \hbox (badness 10000) in paragraph at lines 1008--1025
 
- []
-
-
-Overfull \hbox (1.97522pt too wide) in paragraph at lines 877--882
-[][]\T1/cmr/bx/n/10 Lemma 1.19. []\T1/cmr/m/it/10 The sections $\OT1/cmr/m/n/10 ^^@(\OML/cmm/m/it/10 A\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 G\OT1/cmr/m/n/10 )$ \T1/cmr/m/it/10 of $\OML/cmm/m/it/10 !$ \T1/cmr/m/it/10 over $\OML/cmm/m/it/10 A$ \T1/cmr/m/it/10 correspond bijectively to continuous
- []
-
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 936--951
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 958--987
-
- []
-
-
-Overfull \hbox (25.21034pt too wide) in paragraph at lines 958--987
-\T1/cmr/m/n/10 (3) By Lemma [][]1.19[][], a section in $\OT1/cmr/m/n/10 ^^@(\OML/cmm/m/it/10 A\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 G\OT1/cmr/m/n/10 )$ \T1/cmr/m/n/10 corresponds to a continuous map $\OML/cmm/m/it/10 ^^U [] []  []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 j[] !
- []
-
-
-Overfull \hbox (40.80861pt too wide) detected at line 1008
-[]
  []
 
 [7]
-Overfull \hbox (12.66301pt too wide) detected at line 1028
+Overfull \hbox (1.97522pt too wide) in paragraph at lines 1076--1081
+[][]\T1/cmr/bx/n/10 Lemma 1.21. []\T1/cmr/m/it/10 The sections $\OT1/cmr/m/n/10 ^^@(\OML/cmm/m/it/10 A\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 G\OT1/cmr/m/n/10 )$ \T1/cmr/m/it/10 of $\OML/cmm/m/it/10 !$ \T1/cmr/m/it/10 over $\OML/cmm/m/it/10 A$ \T1/cmr/m/it/10 correspond bijectively to continuous
+ []
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 1135--1150
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1157--1186
+
+ []
+
+
+Overfull \hbox (25.21034pt too wide) in paragraph at lines 1157--1186
+\T1/cmr/m/n/10 (3) By Lemma [][]1.21[][], a section in $\OT1/cmr/m/n/10 ^^@(\OML/cmm/m/it/10 A\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 G\OT1/cmr/m/n/10 )$ \T1/cmr/m/n/10 corresponds to a continuous map $\OML/cmm/m/it/10 ^^U [] []  []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 j[] !
+ []
+
+
+Overfull \hbox (40.80861pt too wide) detected at line 1207
+[]
+ []
+
+
+Overfull \hbox (12.66301pt too wide) detected at line 1227
 \OT1/cmr/m/n/10 0 \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M; M \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 A\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 
  \U/msb/m/n/10 Z\OML/cmm/m/it/10 =n \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M; M \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 A\OT1/cmr/m/n/10 ; \U/msb/m/n/10 Z\OML/cmm/m/it/10 =n\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ! [][] [] ! \OT1/cmr/m/n/10 0
  []
 
-
-Overfull \hbox (1.91124pt too wide) in paragraph at lines 1045--1048
+[9]
+Overfull \hbox (1.91124pt too wide) in paragraph at lines 1244--1247
 []$\OML/cmm/m/it/10 M$ \T1/cmr/m/it/10 is orientable, $\OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M\OT1/cmr/m/n/10 ) [] \U/msb/m/n/10 Z$\T1/cmr/m/it/10 , and for each $\OML/cmm/m/it/10 x \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 M$\T1/cmr/m/it/10 , the restriction $\OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 !
  []
 
-[8]
-Overfull \hbox (22.36151pt too wide) in paragraph at lines 1152--1164
+[10]
+Overfull \hbox (22.36151pt too wide) in paragraph at lines 1351--1363
 \T1/cmr/m/n/10 orientations. By this we mean that for $\OML/cmm/m/it/10 ' [] [] U[] \OMS/cmsy/m/n/10 ! \U/msb/m/n/10 R[]$ \T1/cmr/m/n/10 centered at $\OML/cmm/m/it/10 x$\T1/cmr/m/n/10 , $\OML/cmm/m/it/10 '[] [] [] H[] [] \OMS/cmsy/m/n/10 !
  []
 
 
-Overfull \hbox (7.14792pt too wide) in paragraph at lines 1194--1196
-[][]\T1/cmr/bx/n/10 Theorem 1.27. []\T1/cmr/m/it/10 Let $\OML/cmm/m/it/10 M$ \T1/cmr/m/it/10 be a compact connected $\OML/cmm/m/it/10 n$\T1/cmr/m/it/10 -manifold with non-empty boundary.
+Overfull \hbox (7.14792pt too wide) in paragraph at lines 1393--1395
+[][]\T1/cmr/bx/n/10 Theorem 1.29. []\T1/cmr/m/it/10 Let $\OML/cmm/m/it/10 M$ \T1/cmr/m/it/10 be a compact connected $\OML/cmm/m/it/10 n$\T1/cmr/m/it/10 -manifold with non-empty boundary.
  []
 
-[9]
-Overfull \hbox (89.04802pt too wide) in paragraph at lines 1250--1263
+
+Overfull \hbox (89.04802pt too wide) in paragraph at lines 1449--1462
 \T1/cmr/m/n/10 exists some $\OML/cmm/m/it/10 z \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 H[] []$ \T1/cmr/m/n/10 which restricts to a generator of $\OML/cmm/m/it/10 H[] []$
  []
 
-
-Overfull \hbox (4.35315pt too wide) in paragraph at lines 1288--1304
+[11]
+Overfull \hbox (4.35315pt too wide) in paragraph at lines 1487--1503
 \OML/cmm/m/it/10 H[] [] \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 H[] []$ \T1/cmr/m/n/10 gives an element whose restriction gives a generator
  []
 
 
-Overfull \hbox (9.56972pt too wide) in paragraph at lines 1288--1304
+Overfull \hbox (9.56972pt too wide) in paragraph at lines 1487--1503
 \T1/cmr/m/n/10 that the restriction of $\OML/cmm/m/it/10 z$ \T1/cmr/m/n/10 transferred over by the isomorphism to $\OML/cmm/m/it/10 H[] []$
  []
 
-[10]
-Overfull \hbox (21.27542pt too wide) in paragraph at lines 1354--1364
-[]\T1/cmr/m/n/10 For $\OML/cmm/m/it/10 K \OMS/cmsy/m/n/10 ^^Z \OML/cmm/m/it/10 M$ \T1/cmr/m/n/10 compact, $\OML/cmm/m/it/10 #[]$ \T1/cmr/m/n/10 restricts to to $\OML/cmm/m/it/10 #[] \OMS/cmsy/m/n/10 2 \OT1/cmr/m/n/10 ^^@ [] = ^^@[](\OML/cmm/m/it/10 K; H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M; M \OMS/cmsy/m/n/10 ^^@
- []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1377--1384
-
- []
-
-
-Overfull \hbox (7.80396pt too wide) in paragraph at lines 1437--1440
-[]\T1/cmr/m/n/10 Thus by capping with $\OML/cmm/m/it/10 #[]$ \T1/cmr/m/n/10 for $\OML/cmm/m/it/10 A$ \T1/cmr/m/n/10 large enough to contain $\OML/cmm/m/it/10 K$\T1/cmr/m/n/10 , we obtain a homomorphism 
- []
-
-[11]
-Overfull \hbox (27.40678pt too wide) in paragraph at lines 1487--1490
- \T1/cmr/m/n/10 2.2.\T1/cmr/bx/n/10 Properties of the duality map.[][] \T1/cmr/m/n/10 Now that we have constructed the homomorphism
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1493--1512
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1536--1539
-
+Overfull \hbox (15.70987pt too wide) detected at line 1563
+\OML/cmm/m/it/10 ^^V [] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 u \OMS/cmsy/m/n/10 ^^B \OML/cmm/m/it/10 v \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 H[] [] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 H[] []
  []
 
 [12]
-Overfull \hbox (3.65685pt too wide) in paragraph at lines 1651--1656
-[][]\T1/cmr/bx/n/10 Definition 3.1 \T1/cmr/m/n/10 ($\OML/cmm/m/it/10 k$\T1/cmr/m/n/10 -disk bundle)\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 A $\OML/cmm/m/it/10 k$\T1/cmr/m/n/10 -disk bundle is a vector bundle whose coordinate
+Underfull \hbox (badness 10000) in paragraph at lines 1610--1624
+
  []
 
 
-Overfull \hbox (10.75883pt too wide) in paragraph at lines 1651--1656
-\T1/cmr/m/n/10 transformations are contained in $\OML/cmm/m/it/10 O\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 k\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^Z []\OT1/cmr/m/n/10 (\U/msb/m/n/10 R[]\OT1/cmr/m/n/10 )$ \T1/cmr/m/n/10 and such that the local trivializations
+Overfull \hbox (10.23291pt too wide) in paragraph at lines 1627--1638
+\T1/cmr/m/n/10 and for each point $\OML/cmm/m/it/10 w \OMS/cmsy/m/n/10 2 []\OT1/cmr/m/n/10 (1)$\T1/cmr/m/n/10 , the preimage under $\OML/cmm/m/it/10 ^^V\OMS/cmsy/m/n/10 j$ \T1/cmr/m/n/10 has two points. Furthermore,
  []
 
 
-Overfull \hbox (19.3468pt too wide) in paragraph at lines 1671--1675
-\T1/cmr/m/n/10 where $\OML/cmm/m/it/10 D[] [] [] H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 W\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 W; @W\OT1/cmr/m/n/10 )$ \T1/cmr/m/n/10 is the inverse of the Poincaré duality isomorphism. 
+Overfull \hbox (14.09767pt too wide) in paragraph at lines 1639--1659
+[]$ \T1/cmr/m/n/10 such that $\OML/cmm/m/it/10 ' [] [] []\OT1/cmr/m/n/10 (1) \OMS/cmsy/m/n/10 ^^B []\OT1/cmr/m/n/10 (1) \OMS/cmsy/m/n/10 ! []\OT1/cmr/m/n/10 (1) \OMS/cmsy/m/n/10 ^^B []$ \T1/cmr/m/n/10 by $\OML/cmm/m/it/10 '\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 u; v\OT1/cmr/m/n/10 ) = []$
+ []
+
+
+Overfull \hbox (1.27289pt too wide) in paragraph at lines 1702--1709
+\T1/cmr/m/n/10 are locally-path connected and semi-locally simply connected, so by the classification
  []
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 1808--1814
-
- []
-
-[14]
-Overfull \hbox (48.13428pt too wide) detected at line 1918
+Overfull \hbox (52.24753pt too wide) detected at line 1761
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1932--1952
-
+Overfull \hbox (21.27542pt too wide) in paragraph at lines 1797--1807
+[]\T1/cmr/m/n/10 For $\OML/cmm/m/it/10 K \OMS/cmsy/m/n/10 ^^Z \OML/cmm/m/it/10 M$ \T1/cmr/m/n/10 compact, $\OML/cmm/m/it/10 #[]$ \T1/cmr/m/n/10 restricts to to $\OML/cmm/m/it/10 #[] \OMS/cmsy/m/n/10 2 \OT1/cmr/m/n/10 ^^@ [] = ^^@[](\OML/cmm/m/it/10 K; H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M; M \OMS/cmsy/m/n/10 ^^@
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1932--1952
+Underfull \hbox (badness 10000) in paragraph at lines 1820--1827
 
+ []
+
+[14]
+Overfull \hbox (7.80396pt too wide) in paragraph at lines 1880--1883
+[]\T1/cmr/m/n/10 Thus by capping with $\OML/cmm/m/it/10 #[]$ \T1/cmr/m/n/10 for $\OML/cmm/m/it/10 A$ \T1/cmr/m/n/10 large enough to contain $\OML/cmm/m/it/10 K$\T1/cmr/m/n/10 , we obtain a homomorphism 
+ []
+
+
+Overfull \hbox (27.40678pt too wide) in paragraph at lines 1930--1933
+ \T1/cmr/m/n/10 2.2.\T1/cmr/bx/n/10 Properties of the duality map.[][] \T1/cmr/m/n/10 Now that we have constructed the homomorphism
  []
 
 [15]
-Overfull \hbox (8.93434pt too wide) in paragraph at lines 1953--1961
-[]\T1/cmr/m/n/10 Suppose next that $\OML/cmm/m/it/10 ^^\[]$ \T1/cmr/m/n/10 is simply not a generator for some $\OML/cmm/m/it/10 x$\T1/cmr/m/n/10 , so say $\OML/cmm/m/it/10 ^^\[] \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 D[]; S[]\OT1/cmr/m/n/10 ) []
+Underfull \hbox (badness 10000) in paragraph at lines 1936--1955
+
  []
 
 
-Overfull \hbox (1.20831pt too wide) in paragraph at lines 1972--1984
-\T1/cmr/m/n/10 some class $\OML/cmm/m/it/10  \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 W; @W\OT1/cmr/m/n/10 )$ \T1/cmr/m/n/10 restricts under $\U/msb/m/n/10 Z [] \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 W; @W\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 \
- []
+Underfull \hbox (badness 10000) in paragraph at lines 1979--1982
 
-
-Overfull \hbox (2.44675pt too wide) in paragraph at lines 1972--1984
-\OML/cmm/m/it/10 @W\OT1/cmr/m/n/10 ) [] \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 D[]; S[]\OT1/cmr/m/n/10 ) [] \U/msb/m/n/10 Z$ \T1/cmr/m/n/10 to a generator, then it must be a generator in $\OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 W; @W\OT1/cmr/m/n/10 )$
  []
 
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 2077--2087
-
+Overfull \hbox (3.65685pt too wide) in paragraph at lines 2094--2100
+[][]\T1/cmr/bx/n/10 Definition 3.1 \T1/cmr/m/n/10 ($\OML/cmm/m/it/10 k$\T1/cmr/m/n/10 -disk bundle)\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 A $\OML/cmm/m/it/10 k$\T1/cmr/m/n/10 -disk bundle is a vector bundle whose coordinate
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2115--2126
-
+Overfull \hbox (10.75883pt too wide) in paragraph at lines 2094--2100
+\T1/cmr/m/n/10 transformations are contained in $\OML/cmm/m/it/10 O\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 k\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^Z []\OT1/cmr/m/n/10 (\U/msb/m/n/10 R[]\OT1/cmr/m/n/10 )$ \T1/cmr/m/n/10 and such that the local trivializations
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2115--2126
+Overfull \hbox (19.3468pt too wide) in paragraph at lines 2115--2119
+\T1/cmr/m/n/10 where $\OML/cmm/m/it/10 D[] [] [] H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 W\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 W; @W\OT1/cmr/m/n/10 )$ \T1/cmr/m/n/10 is the inverse of the Poincaré duality isomorphism. 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2171--2178
 
  []
 
 [17] [18]
+Underfull \hbox (badness 10000) in paragraph at lines 2324--2330
+
+ []
+
+[19]
+Overfull \hbox (48.13428pt too wide) detected at line 2437
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2451--2471
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2451--2471
+
+ []
+
+
+Overfull \hbox (8.93434pt too wide) in paragraph at lines 2472--2480
+[]\T1/cmr/m/n/10 Suppose next that $\OML/cmm/m/it/10 ^^\[]$ \T1/cmr/m/n/10 is simply not a generator for some $\OML/cmm/m/it/10 x$\T1/cmr/m/n/10 , so say $\OML/cmm/m/it/10 ^^\[] \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 D[]; S[]\OT1/cmr/m/n/10 ) []
+ []
+
+
+Overfull \hbox (1.20831pt too wide) in paragraph at lines 2493--2505
+\T1/cmr/m/n/10 some class $\OML/cmm/m/it/10  \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 W; @W\OT1/cmr/m/n/10 )$ \T1/cmr/m/n/10 restricts under $\U/msb/m/n/10 Z [] \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 W; @W\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 \
+ []
+
+
+Overfull \hbox (2.44675pt too wide) in paragraph at lines 2493--2505
+\OML/cmm/m/it/10 @W\OT1/cmr/m/n/10 ) [] \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 D[]; S[]\OT1/cmr/m/n/10 ) [] \U/msb/m/n/10 Z$ \T1/cmr/m/n/10 to a generator, then it must be a generator in $\OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 W; @W\OT1/cmr/m/n/10 )$
+ []
+
+
+Overfull \hbox (6.99454pt too wide) in paragraph at lines 2508--2509
+[][]\T1/cmr/bx/n/10 Theorem 3.8 \T1/cmr/m/n/10 (Thom Isomorphism Theorem, second version)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 In the above situation,
+ []
+
+[20]
+Overfull \hbox (68.76143pt too wide) detected at line 2652
+\OMS/cmsy/m/n/10 ^^O [] [] \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 
+ \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M\OT1/cmr/m/n/10 ) [] \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 
+ \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M\OT1/cmr/m/n/10 ) [] \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M[]\OT1/cmr/m/n/10 ) [] \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M\OT1/cmr/m/n/10 ) [] \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M\OT1/cmr/m/n/10 )
+ []
+
+
+Overfull \hbox (3.96921pt too wide) in paragraph at lines 2652--2658
+\T1/cmr/m/n/10 or $\OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M; @M\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 
+ \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 H[]$ \T1/cmr/m/n/10 or $\OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M; @M\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 
+ \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M; @M\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M; @M\OT1/cmr/m/n/10 )$\T1/cmr/m/n/10 . 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2652--2658
+
+ []
+
+[21]
+Overfull \hbox (10.95898pt too wide) in paragraph at lines 2670--2676
+[][]\T1/cmr/bx/n/10 Exercise 3.12. []\T1/cmr/m/n/10 Show that for homology classes $\OML/cmm/m/it/10 a; b$ \T1/cmr/m/n/10 of $\OML/cmm/m/it/10 M[]$\T1/cmr/m/n/10 , $\OML/cmm/m/it/10 a \OMS/cmsy/m/n/10 ^^O \OML/cmm/m/it/10 b \OT1/cmr/m/n/10 = (\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 1)[]^^A[](\OML/cmm/m/it/10 b \OMS/cmsy/m/n/10 ^^B
+ []
+
+
+Overfull \hbox (9.36777pt too wide) detected at line 2738
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2751--2775
+
+ []
+
+[22]
+Overfull \hbox (3.9389pt too wide) in paragraph at lines 2840--2844
+[]\T1/cmr/m/n/10 Secondly, we claim that the following map of chain complexes induces the intersection
+ []
+
+
+Overfull \hbox (55.59521pt too wide) detected at line 2857
+[]  [] [] \OT1/cmr/m/n/10 ^^A[](\OML/cmm/m/it/10 M \OMS/cmsy/m/n/10 ^^B \OML/cmm/m/it/10 M\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ! \OT1/cmr/m/n/10 ^^A[] [] [] ^^A[] [] [] ^^A[](\OML/cmm/m/it/10 U[]\OT1/cmr/m/n/10 )
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2857--2860
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2857--2860
+
+ []
+
+
+Overfull \hbox (38.31342pt too wide) detected at line 2878
+[]
+ []
+
+[23] [24]
+Overfull \hbox (3.7592pt too wide) in paragraph at lines 2930--2939
+[][]\T1/cmr/bx/n/10 Definition 3.14 \T1/cmr/m/n/10 (Thom class)\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 In the above situation, denote $\OML/cmm/m/it/10 i[] [] \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 W; @W\OT1/cmr/m/n/10 )$
+ []
+
+[25] [26]
+Overfull \hbox (32.77737pt too wide) in paragraph at lines 3182--3200
+\T1/cmr/m/n/10 metric. Then we can take the unit sphere bundle $\OML/cmm/m/it/10 S [] \OT1/cmr/m/n/10 = []$
+ []
+
+[27] [28]
+Overfull \hbox (1.93735pt too wide) in paragraph at lines 3357--3363
+[]\T1/cmr/m/n/10 Suppose now that $\OML/cmm/m/it/10 M$ \T1/cmr/m/n/10 is an oriented, compact, $\OML/cmm/m/it/10 d$\T1/cmr/m/n/10 -dimensional manifold. Let $[] \OMS/cmsy/m/n/10 2
+ []
+
+[29] [30] [31]
+Overfull \hbox (2.25063pt too wide) in paragraph at lines 3653--3661
+[]\T1/cmr/m/n/10 If $[] \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 LM \OMS/cmsy/m/n/10 ^^B[] \OML/cmm/m/it/10 LM$\T1/cmr/m/n/10 , then $[]$ and $[]$ are in the pullback, corresponding
+ []
+
+<Figures/DNOVXJ.jpeg, id=422, 1676.2625pt x 698.61pt>
+File: Figures/DNOVXJ.jpeg Graphic file (type jpg)
+<use Figures/DNOVXJ.jpeg>
+Package pdftex.def Info: Figures/DNOVXJ.jpeg  used on input line 3705.
+(pdftex.def)             Requested size: 323.9978pt x 135.02916pt.
+[32 <./Figures/DNOVXJ.jpeg>]
+
+LaTeX Warning: Marginpar on page 33 moved.
+
+
+Overfull \hbox (64.07922pt too wide) detected at line 3802
+\OML/cmm/m/it/10 R[] [] [] U[] \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 LM \OMS/cmsy/m/n/10 ^^B[] \OML/cmm/m/it/10 LM \OT1/cmr/m/n/10 = [] = [][] []
+ []
+
+<Figures/HGFHEIA.png, id=435, 897.3525pt x 197.73875pt>
+File: Figures/HGFHEIA.png Graphic file (type png)
+<use Figures/HGFHEIA.png>
+Package pdftex.def Info: Figures/HGFHEIA.png  used on input line 3818.
+(pdftex.def)             Requested size: 288.0011pt x 63.46173pt.
+[33 <./Figures/HGFHEIA.png>]
+Overfull \hbox (42.80487pt too wide) detected at line 3853
+[]
+ []
+
+
+Overfull \hbox (55.35608pt too wide) detected at line 3920
+[]
+ []
+
+[34]
+Overfull \hbox (3.98985pt too wide) in paragraph at lines 3954--3959
+\T1/cmr/m/it/10 is the concatenation of the loops of $\OML/cmm/m/it/10 Z[]$ \T1/cmr/m/it/10 and $\OML/cmm/m/it/10 Z[]$ \T1/cmr/m/it/10 along the locus of the basepoint-
+ []
+
+[35]
+Underfull \hbox (badness 10000) in paragraph at lines 4081--4091
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4081--4091
+
+ []
+
+
+Overfull \hbox (82.78828pt too wide) detected at line 4121
+[]
+ []
+
+
+Overfull \hbox (25.2201pt too wide) in paragraph at lines 4183--4185
+ \T1/cmr/m/n/10 5.2.3.$\OML/cmm/m/it/10 B$\T1/cmr/m/it/10 -classes.[] \T1/cmr/m/n/10 Recall that the coproduct is a degree $\OT1/cmr/m/n/10 1 \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 3 = \OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 2$ \T1/cmr/m/n/10 map on $\OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 L\OMS/cmsy/m/n/10 L[]\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 L[]\OT1/cmr/m/n/10 )$\T1/cmr/m/n/10 : 
+ []
+
+[36]
+Overfull \hbox (1.20851pt too wide) in paragraph at lines 4230--4235
+[][]\T1/cmr/bx/n/10 Definition 5.10. []\T1/cmr/m/n/10 Define the $\OT1/cmr/m/n/10 1$\T1/cmr/m/n/10 -cycles $\OML/cmm/m/it/10 B[]$ \T1/cmr/m/n/10 and $\OML/cmm/m/it/10 B[]$ \T1/cmr/m/n/10 in $\OMS/cmsy/m/n/10 L[]$ \T1/cmr/m/n/10 as follows: let $\OML/cmm/m/it/10 ^^U[] [] [] S[] \OMS/cmsy/m/n/10 !
+ []
+
+
+Overfull \hbox (13.89774pt too wide) in paragraph at lines 4248--4259
+\T1/cmr/m/n/10 We also denote by $\OML/cmm/m/it/10 B[] \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 H[] []$ \T1/cmr/m/n/10 or $\OML/cmm/m/it/10 H[] []$ \T1/cmr/m/n/10 the associated
+ []
+
+
+Overfull \hbox (6.42482pt too wide) in paragraph at lines 4248--4259
+\T1/cmr/m/n/10 homology class $[][] []$. Then the evaluation $[][]  [] [] \OML/cmm/m/it/10 H[] [] \OMS/cmsy/m/n/10 !
+ []
+
+
+Overfull \hbox (112.38077pt too wide) detected at line 4316
+\OML/cmm/m/it/10 H\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s; ^^\\OT1/cmr/m/n/10 ) = []
+ []
+
+
+Overfull \hbox (48.68344pt too wide) detected at line 4327
+\OML/cmm/m/it/10 H\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s; \OT1/cmr/m/n/10 0) = [] = [] = \OML/cmm/m/it/10 B[];
+ []
+
+[37]
+Overfull \hbox (43.65623pt too wide) detected at line 4337
+\OML/cmm/m/it/10 H\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s; \OT1/cmr/m/n/10 1) = [] = []
+ []
+
+
+Overfull \hbox (35.23439pt too wide) in paragraph at lines 4368--4372
+[][]\T1/cmr/bx/n/10 Proposition 5.13. []\T1/cmr/m/it/10 [[][]8[][], Proposition 2.8] The coproduct of the classes $\OML/cmm/m/it/10 Z[] \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 H[] []$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4386--4421
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4386--4421
+
+ []
+
+
+Overfull \hbox (22.81955pt too wide) in paragraph at lines 4386--4421
+\T1/cmr/m/n/10 Conversely, if $\OML/cmm/m/it/10 Z[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 r; ^^R\OT1/cmr/m/n/10 )$ \T1/cmr/m/n/10 is constant then $[]$
+ []
+
+[38]
+Underfull \hbox (badness 10000) in paragraph at lines 4455--4459
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4455--4459
+
+ []
+
+<Figures/foliating-tori.jpg, id=498, 3276.24pt x 1842.885pt>
+File: Figures/foliating-tori.jpg Graphic file (type jpg)
+<use Figures/foliating-tori.jpg>
+Package pdftex.def Info: Figures/foliating-tori.jpg  used on input line 4487.
+(pdftex.def)             Requested size: 360.0pt x 202.49301pt.
+[39 <./Figures/foliating-tori.jpg>] [40]
+Overfull \hbox (64.81526pt too wide) in paragraph at lines 4583--4587
+ \T1/cmr/m/n/10 5.3.\T1/cmr/bx/n/10 A new operation.[][] \T1/cmr/m/n/10 Consider the $\OT1/cmr/m/n/10 3$\T1/cmr/m/n/10 -simplex $\OT1/cmr/m/n/10 ^^A[] = []$\T1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4616--4620
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4616--4620
+
+ []
+
+
+Overfull \hbox (27.2312pt too wide) in paragraph at lines 4624--4634
+[]\T1/cmr/m/n/10 Let $\OML/cmm/m/it/10 E [] [] LM \OMS/cmsy/m/n/10 ^^B \OT1/cmr/m/n/10 ^^A[]\OML/cmm/m/it/10 =@\OT1/cmr/m/n/10 ^^A[] \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 M[]$ \T1/cmr/m/n/10 be defined by $\OML/cmm/m/it/10 E [] \OT1/cmr/m/n/10 = []$\T1/cmr/m/n/10 .
+ []
+
+<Figures/UGWINZKQ.jpeg, id=508, 2055.68pt x 1357.07pt>
+File: Figures/UGWINZKQ.jpeg Graphic file (type jpg)
+<use Figures/UGWINZKQ.jpeg>
+Package pdftex.def Info: Figures/UGWINZKQ.jpeg  used on input line 4657.
+(pdftex.def)             Requested size: 288.0011pt x 190.11275pt.
+[41 <./Figures/UGWINZKQ.jpeg>]
+Overfull \hbox (4.537pt too wide) in paragraph at lines 4711--4716
+[]\T1/cmr/m/n/10 Let $\OML/cmm/m/it/10 ^^\[]$ \T1/cmr/m/n/10 be the image of a cochain representative for the Thom class for $\OML/cmm/m/it/10 T []$
+ []
+
+
+Overfull \hbox (122.24777pt too wide) detected at line 4768
+[]
+ []
+
+
+Overfull \hbox (26.33394pt too wide) detected at line 4784
+[]
+ []
+
+
+Overfull \hbox (56.02867pt too wide) in paragraph at lines 4786--4801
+[]\T1/cmr/m/n/10 Note that for $\OML/cmm/m/it/10 A \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 C[] []$\T1/cmr/m/n/10 , $[] \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 ^^\[] \OMS/cmsy/m/n/10 \ \OML/cmm/m/it/10 ^^Z\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A\OT1/cmr/m/n/10 )$ \T1/cmr/m/n/10 where $\OML/cmm/m/it/10 ^^Z [] [] C[] [] \OMS/cmsy/m/n/10 !
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4786--4801
+
+ []
+
+[42]
+<Figures/NGIWKZN.jpeg, id=523, 3340.48pt x 1188.44pt>
+File: Figures/NGIWKZN.jpeg Graphic file (type jpg)
+<use Figures/NGIWKZN.jpeg>
+Package pdftex.def Info: Figures/NGIWKZN.jpeg  used on input line 4928.
+(pdftex.def)             Requested size: 251.9989pt x 89.6369pt.
+ [43]
+<Figures/NUIZKUW.jpeg, id=531, 1913.1475pt x 845.1575pt>
+File: Figures/NUIZKUW.jpeg Graphic file (type jpg)
+<use Figures/NUIZKUW.jpeg>
+Package pdftex.def Info: Figures/NUIZKUW.jpeg  used on input line 4960.
+(pdftex.def)             Requested size: 288.0011pt x 127.21951pt.
+
+Overfull \hbox (31.9749pt too wide) detected at line 4987
+\OML/cmm/m/it/10 C[]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 L[]\OT1/cmr/m/n/10 ) [] \OML/cmm/m/it/10 C[] [] [] C[] [] [] C[] [] ;
+ []
+
+[44 <./Figures/NGIWKZN.jpeg> <./Figures/NUIZKUW.jpeg>]
+Overfull \hbox (34.04065pt too wide) in paragraph at lines 5075--5100
+\T1/cmr/m/n/10 and $[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 ^^R[] \OT1/cmr/m/n/10 + [] + \OML/cmm/m/it/10 g\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )$\T1/cmr/m/n/10 , and define $\OML/cmm/m/it/10 Z[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 r; ^^R\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 ^^M \OT1/cmr/m/n/10 = []$\T1/cmr/m/n/10 .
+ []
+
+[45]
+Overfull \hbox (92.85754pt too wide) detected at line 5150
+[]
+ []
+
+[46]
+Overfull \hbox (6.3629pt too wide) in paragraph at lines 5228--5233
+[][]\T1/cmr/bx/n/10 Definition 6.3 \T1/cmr/m/n/10 (Injectivity Radius)\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 The injectivity radius of a Riemannian manifold
+ []
+
+[47]
 
 Package biblatex Warning: Bibliography string 'volume' untranslated
-(biblatex)                at entry 'Bredon' on input line 2171.
+(biblatex)                at entry 'Bredon' on input line 5295.
 
 
 Package biblatex Warning: Using fallback definition for \mkbibdatelong.
@@ -1100,6 +1435,29 @@ Package biblatex Warning: Using fallback definition for \mkbibdatelong.
 (biblatex)                If you see this message, the .lbx file could not be
 (biblatex)                loaded, is faulty or does not contain a definition
 (biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'and' untranslated
+(biblatex)                at entry 'Chas-Sullivan' on input line 5295.
+
+
+Package biblatex Warning: Bibliography string 'in' untranslated
+(biblatex)                at entry 'Chas-Sullivan' on input line 5295.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 5295.
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
+
+Package biblatex Warning: Bibliography string 'in' untranslated
+(biblatex)                at entry 'Chataur' on input line 5295.
 
 
 Package biblatex Warning: Using fallback definition for \mkbibdatelong.
@@ -1110,37 +1468,123 @@ Package biblatex Warning: Using fallback definition for \mkbibdatelong.
 
 
 Package biblatex Warning: Bibliography string 'pages' untranslated
-(biblatex)                at entry 'Dieck' on input line 2171.
+(biblatex)                at entry 'Chataur' on input line 5295.
 
 
-Overfull \hbox (12.25908pt too wide) in paragraph at lines 2172--2172
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'pages' untranslated
+(biblatex)                at entry 'Dieck' on input line 5295.
+
+
+Overfull \hbox (12.25908pt too wide) in paragraph at lines 5296--5296
 []\T1/cmr/m/n/10 Tammo tom Dieck. \T1/cmr/m/it/10 Algebraic topology\T1/cmr/m/n/10 . EMS Textbooks in Mathematics. European
  []
 
-[19] (./string-topology.aux)
+
+Package biblatex Warning: Bibliography string 'volume' untranslated
+(biblatex)                at entry 'Dold' on input line 5295.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'pages' untranslated
+(biblatex)                at entry 'Dold' on input line 5295.
+
+
+Overfull \hbox (6.69612pt too wide) in paragraph at lines 5296--5296
+[]\T1/cmr/m/n/10 Albrecht Dold. \T1/cmr/m/it/10 Lectures on algebraic topology\T1/cmr/m/n/10 . Second. [] 200. Grundlehren
+ []
+
+
+Package biblatex Warning: Bibliography string 'and' untranslated
+(biblatex)                at entry 'Hingston-Wahl' on input line 5295.
+
+
+Package biblatex Warning: Bibliography string 'in' untranslated
+(biblatex)                at entry 'Hingston-Wahl' on input line 5295.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Overfull \hbox (7.2319pt too wide) in paragraph at lines 5296--5296
+[]\T1/cmr/m/n/10 Nancy Hingston [] Nathalie Wahl. ``Product and coproduct in string topology''.
+ []
+
+
+Package biblatex Warning: Bibliography string 'in' untranslated
+(biblatex)                at entry 'Martin1' on input line 5295.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'pages' untranslated
+(biblatex)                at entry 'Martin1' on input line 5295.
+
+
+Overfull \hbox (3.39357pt too wide) in paragraph at lines 5296--5296
+[]\T1/cmr/m/n/10 Martin Jakob. ``A bordism-type description of homology''. []\T1/cmr/m/it/10 Manuscripta Math.\T1/cmr/m/n/10 :
+ []
+
+
+Package biblatex Warning: Bibliography string 'and' untranslated
+(biblatex)                at entry 'Naef-Rivera-Wahl' on input line 5295.
+
+
+Package biblatex Warning: Bibliography string 'in' untranslated
+(biblatex)                at entry 'Naef-Rivera-Wahl' on input line 5295.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+[48] (./string-topology.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `string-topology.out' has not changed.
-(rerunfilecheck)             Checksum: B3D27347B4E8C3C49B5EBE2B71070919;2655.
+(rerunfilecheck)             Checksum: 2F383EC1F1152826C0F9AB64C58B32E9;4900.
 Package logreq Info: Writing requests to 'string-topology.run.xml'.
 \openout1 = `string-topology.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 32484 strings out of 474222
- 630401 string characters out of 5748733
- 1954975 words of memory out of 5000000
- 53991 multiletter control sequences out of 15000+600000
- 569438 words of font info for 65 fonts, out of 8000000 for 9000
+ 33923 strings out of 474222
+ 665630 string characters out of 5748733
+ 1959975 words of memory out of 5000000
+ 55298 multiletter control sequences out of 15000+600000
+ 569751 words of font info for 66 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 113i,23n,121p,688b,1520s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on string-topology.pdf (19 pages, 336555 bytes).
+ 113i,23n,121p,688b,1648s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
+Output written on string-topology.pdf (48 pages, 1273280 bytes).
 PDF statistics:
- 362 PDF objects out of 1000 (max. 8388607)
- 303 compressed objects within 4 object streams
- 108 named destinations out of 1000 (max. 500000)
- 133 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 699 PDF objects out of 1000 (max. 8388607)
+ 600 compressed objects within 6 object streams
+ 236 named destinations out of 1000 (max. 500000)
+ 235 words of extra memory for PDF output out of 10000 (max. 10000000)
 
