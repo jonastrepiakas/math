@@ -163,12 +163,14 @@
 
 \section{Orientations}
 
-We begin by attempting to give complete rigour and detail
-to the definitions of orientation and the many connected
+We begin by trying to develop the notion of orientation and some of the
+connected
 theorems.\\
 \linebreak
-For this section, we will follow 
-\cite{Bredon}, \cite{Dieck} and \cite{Dold}.
+For this section, we will closely follow 
+\cite{Bredon}, \cite{Dieck} and \cite{Dold}, and the section is
+essentially a collection of different parts of the different books with
+added details in some places.
 
 \begin{definition}[Local Homology Group]
     For $h_*(-)$ a homology theory
@@ -936,7 +938,7 @@ G_{\alpha, \beta}\right) .
 \end{theorem}
 
 \begin{proof}
-    \todo{}
+    Left out for lack of time. See \cite[Theorem D.5]{Bredon}
 \end{proof}
 
 \begin{proposition}[]\label{Prop:SIDJOXOLLWQU}
@@ -1072,7 +1074,7 @@ H_n(M, M - \bullet) \to
 H_n(M, M - \bullet; G)
 \] 
 
-\begin{lemma}[]\label{Lemma:X2948JJD}
+\begin{lemma}[]\label{Lemma:X2948JJD}\cite{Dieck}
     The sections $\Gamma (A;G)$ of $\omega$ over
     $A$ correspond bijectively to continuous maps
     $\lambda \colon \Ori \left( M \right)|_{A} \to G$ with
@@ -1100,7 +1102,7 @@ H_n(M, M - \bullet; G)
     S \subset \Hom \left( \Ori \left( M \right) |_A , G \right) $,
     where $S$ is the subset for which
     $\lambda \circ t = - \lambda$ holds.
-    This map is certainly injective, since
+    This map is injective, since
     the image tells us precisely the value of
     $s$ at any point in $A$.\\
     It is furthermore surjective, since if
@@ -1111,7 +1113,6 @@ H_n(M, M - \bullet; G)
     relation $\lambda \circ t = - \lambda$ then
     determines that is must the required values
     to constitute the induced map of a section.
-    \todo{check}
 \end{proof}
 
 \begin{theorem}[]\label{Thm:UDWOQJNX}
@@ -2091,12 +2092,12 @@ orientation.
 \subsection{The Thom class of a disk bundle}
 
 \begin{definition}[$k$-disk bundle]
-    A $k$-disk bundle is a vector bundle whose
-    coordinate transformations are contained in
-    $O(k) \subset \GL (\mathbb{R}^{k})$ and such that
+    A $k$-disk bundle is the restriction of a vector bundle so that its
+    coordinate transformations map
+    the unit disk into itself and such that
     the local trivializations have the form
     $\pi^{-1}(U) \cong U \times D^{k}$.
-    \todo{}
+    See \cite{Bredon} for a more detailed definition.
 \end{definition}
 
 Let $N^{n}$ be a connected, oriented, closed $n$-manifold, and
@@ -2127,7 +2128,7 @@ Let us assume that $W$ is also oriented.
 \end{definition}
 
 We can deformation retract the punctured disk to its boundary, giving
-$H^{k}(W, W-N) \cong H^{k}(W, \partial W)$\todo{}, so we will
+$H^{k}(W, W-N) \cong H^{k}(W, \partial W)$, so we will
 sometimes regard
 $\tau$ as being in $H^{k}(W, W-N)$.
 
@@ -2191,7 +2192,8 @@ version of which we now state.
 \end{theorem}
 
 \begin{proof}
-    Direct computation from the definition \todo{}
+    Fairly straightforward computation from the definitions. 
+    See \cite{Bredon}.
 \end{proof}
 
 We can extend this isomorphism a bit to
@@ -2515,7 +2517,9 @@ but which are embedded in manifolds.
 
 
       \begin{proof}
-          \todo{Bootstrap lemma}.
+          An application of the Bootstrap lemma. Left out
+          for lack of time.
+          (Cf. e.g. \cite{Dold} or \cite{Bredon})
       \end{proof}
 
 
@@ -2812,8 +2816,7 @@ but which are embedded in manifolds.
 
     We want to show a couple of things for
     $\tau_M$. 
-    First\todo{}, we want
-    $\tau_M$ to have the property that
+    We want $\tau_M$ to have the property that
     \[
     \tau_M \cap \left[ M \times M \right] = 
     \Delta_* \left[ M \right]  \in H_n\left( M \times M \right) .
@@ -2822,7 +2825,6 @@ but which are embedded in manifolds.
     We can choose $v_{M*}$ to map
     $\left[ TM \right] $ to $\left[ M \times M \right] \cong
     \left[ M \right] \times \left[ M \right] $, in which case,
-    certainly,
     \[
     v_M^{*}(\tau_M) \cap \left[ TM \right] =
     i_{M*}^{TM} \left[ M \right],
@@ -2861,7 +2863,8 @@ but which are embedded in manifolds.
 
 
 
-    To see this, consider the following diagram
+    To see this, we follow
+    \cite{Hingston-Wahl}: consider the following diagram
 
     \begin{equation*}
     \begin{tikzcd}
@@ -2889,7 +2892,6 @@ but which are embedded in manifolds.
     Also, $r_* \Delta_* = (r \Delta)_* = \id_*$, so
     the two compositions commute up to chain homotopy, hence
     induce the same product on homology.
-    \todo{Check}
     
     Thus
     \[
@@ -2898,12 +2900,9 @@ but which are embedded in manifolds.
     = (-1)^{n (n - \deg a)} a \bullet_{Th} b
     \] 
 
-    In particular, this tells us that we can think of
-    $\left[ \tau_M \cap \right] $ as counting the intersections
-    with the zero section (at least in the case $p+q=n$ and
-    restriction to a neighborhood of the diagonal
-    otherwise).
-    \todo{}
+    In particular, this gives some intuition that we can think of
+    $\left[ \tau_M \cap \right] $ as 
+    intersecting with the diagonal under the assumption of transversality.
 
 
 
@@ -3018,9 +3017,14 @@ but which are embedded in manifolds.
           We interpret this result as saying that for transverse intersections,
           capping with the Thom class gives the 
           fundamental class of the intersection in
-          $W$.
+          $W$, which gives another interesting property for the
+          Thom class.
       \end{corollary}
 
+          To use the above proof, we do seem to require
+          that the chain is some form of nice space, like a closed manifold,
+          and it is not immediately clear that this interpretation
+          works on chains.
       
 
 
@@ -3431,7 +3435,7 @@ Let $\ev_0 \colon LM \to M$ denote the evaluation at $0$.
 We now introduce a product on the homology of the loop space of $M$, called
 the Chas-Sullivan product:
 
-\subsubsection{One approach}
+\subsubsection{A Geometric Homology Approach}
 
 Consider the graded geometric homology group
 $\mathbb{H}_* \left( LM \right) :=
@@ -3685,8 +3689,12 @@ about loop products.
 
 
 
-\subsubsection{The article's approach}
-\todo{Merge the above two subsubsections}
+\subsubsection{A Chain-level approach}
+We now turn to an approach to the Chas-Sullivan product which lives on the
+chain level. We base the remaining parts of these notes on
+\cite{Naef-Rivera-Wahl} and \cite{Hingston-Wahl}.\\
+\linebreak
+
 
 
 The idea to think about for the Chas-Sullivan product is to
@@ -3709,61 +3717,6 @@ loop product. \cite[From Figure 2]{Chas-Sullivan}}
     \label{fig:Figures-DNOVXJ-jpeg}
 \end{figure}
 
-\begin{remark}[An orientation convention]\cite[Remark 2.1]{Chas-Sullivan}
-    \label{Remark:Orientation-Convention}
-
-    Let $i \colon K_1 \times K_2 \times \ldots \times K_n 
-    \to M \times \ldots \times M$ be a map such that
-    $i \pitchfork \Delta$.
-    Then $i^{-1}(\Delta)$ is a submanifold of $K_1 \times \ldots \times 
-    K_n$ and taking the normal bundle $N(i^{-1}(\Delta))$, we
-    orient it such that
-    \[
-    \left[ N \left( i^{-1}(\Delta) \right)  \right] 
-    i^{*} \left[ N \Delta \right] = 
-    \left[ K_1 \times \ldots \times K_n \right].
-    \] 
-    \todo{Correct?}
-\end{remark}
-
-
-Next, we will be introducing a grading on our homology soon,
-and therefore, we preemptively denote the
-$(p-n)$-chains of $LM$ by $(LM)_{p}$, and let
-$(LM)_{*} = \bigoplus_{p\ge 0} (LM)_{p}$.
-
-Now for any pair $x\colon \Delta_{p} \to LM$ and
-$y \colon \Delta_q \to LM$, let
-$\Delta_{x \wedge y} = 
-j^{-1}\left( \Delta \right) $ where
-$j$ is the map
-\begin{align*}
-    j \colon &\Delta_p \times \Delta_q \stackrel{\ev_0 x \times \ev_0 y}{\to} 
-    M \times M\\
-             &(u,v) \mapsto \left( \ev_0 x(u), \ev_0 y(v) \right) 
-\end{align*}
-
-Then define $x \wedge y \colon \Delta_{x \wedge y} \to ML$ by
-\[
-    (x \wedge y) (u,v) (*)(s) = 
-    \begin{cases}
-        x(u)(*)(2s),& s \in \left[ 0,\frac{1}{2} \right] \\
-        y(v)(*)(2s-1),& s \in \left[ \frac{1}{2},1 \right] 
-    \end{cases}
-\] 
-And we orient $\Delta_{x \wedge y}$ by
-Remark \ref{Remark:Orientation-Convention}.
-
-
-
-Because of the grading chosen on $\left( LM \right)_{*}$, we
-then have that if $x \in (LM)_{p}$ and
-$y \in (LM)_q$, then
-$x$ is a $(p+n)$ chain and $y$ a $(q+n)$ chain, so
-$x \wedge y$ is a $(p+q+n)$ chain, hence
-in $(LM)_{p+q}$, so 
-$\wedge$ defines a map
-$\left( LM \right)_p \times (LM)_q \to (LM)_{p+q}$.
 
 
 
@@ -3857,7 +3810,8 @@ $\ev_0 \times \ev_0$
  While this definition coincides with the Chas-Sullivan product
  in homology as described by
  Cohen-Jones, it is not necessarily clear how it coincides with the
- original geometric picture.\todo{...}
+ original geometric picture.
+ However, Proposition \ref{Prop:GHUXIQL} guarantees tells us that it does.
 
 
 
@@ -4068,8 +4022,6 @@ Z_{l,m} =
 \left( Z_{l,m} \right)_*
 \left[ \mathcal{L}_{p,q} \right] \in H_3 \left( L \mathcal{L}_{p,q} \right) 
 \] 
-\todo{is this the right interpretation. Otherwise,
-how is $Z_{l,m}$ in $H_3\left( L \mathcal{L}_{p,q} \right) $?}
 the associated homology class.
 Suppose we now
 postcompose with $\ev_0$, i.e.,
@@ -4200,9 +4152,7 @@ loop defined by $\lambda(t) = \left( (1, \frac{t}{p}),
 \right) $ tracing the points $(r,\theta) \in \mathcal{L}_{p,q}$ 
 with $\left( r_2, \theta_2 \right) = 0$. Then
 $\lambda$ is a generator of
-$\pi_1 \mathcal{L}_{p,q} \cong \mathbb{Z} / p$:
-it has order $p$ as can be seen by lifting it to $S^3$.
-\todo{}
+$\pi_1 \mathcal{L}_{p,q} \cong \mathbb{Z} / p$.
 
 Note that
 \[
@@ -4359,10 +4309,6 @@ B_{k,k'},
             are linearly independent over $\mathbb{Z}/p$.
     \end{enumerate}
 \end{lemma}
-
-\begin{proof}
-    \todo{}
-\end{proof}
 
 
 \begin{proposition}[]\cite[Proposition 2.8]{Naef-Rivera-Wahl}
@@ -4600,7 +4546,6 @@ H_3 \left( L \mathcal{L}_{p,q} \right) \to
 H_0 \left( L \mathcal{L}_{p,q} \right) 
 \cong \mathbb{Z}^{p}
 \] 
-\todo{Need to reference this last isomorphism}
 
 By the above, we can consider "products" of the form
 \[
@@ -4809,9 +4754,6 @@ H_{0}\left( L \mathcal{L}_{p,q} \right)
 \cong \mathbb{Z}^{p}
 \] 
 
-\todo{Reference for
-$H_0 \left( L \mathcal{L}_{p,q} \right) \cong
-\mathbb{Z}^{p}$}
 
 
 Consider now the classes
@@ -5097,6 +5039,12 @@ $\tilde{\Upsilon} \left( \gamma \right) = \gamma$. Question mark???
     $g(x_1) - g(x_3) = 
     \frac{l}{p}(x_3- x_1)$ or
     $(\frac{lq}{p} + m)(x_3-x_1)$.
+
+    If we simply choose $\alpha(l,m)$ to be small enough, we
+    can guarantee that this never happens.
+    Thus $Z_{l,m}'$ does not intersect
+    $L \mathcal{L}_{p,q} \times_{\mathcal{L}_{p,q}} \Delta^3 / 
+    \partial \Delta^3$.
     
 
 
