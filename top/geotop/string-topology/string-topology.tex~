@@ -157,9 +157,18 @@
 \newcommand{\Forget}{{\mathcal{F}}orget}
 
 
+\title{String Topology via Geometric Intersection}
 
+\author{Jonas Trepiakas}
+\date{}
 
 \begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\newpage
 
 \section{Orientations}
 
@@ -1024,6 +1033,7 @@ G_{\alpha, \beta}\right) .
     zero section.\\
     \linebreak
     (3) 
+    Left out for lack of time. See \cite{Bredon}.
 
 \end{proof}
 
@@ -2056,8 +2066,11 @@ orientation.
           we find that the square commutes.
       \end{proof}
 
+      The following Lemma and subsequent theorem require
+      a bit of work to prove, and we will skip this because of time constraints.
 
-      \begin{lemma}[]
+
+      \begin{lemma}[]\cite[Lemma 8.2]{Bredon}
           Let $K$ and $L$ be compact subsets of the
           $n$-manifold $M$ with the orientation
           $\vartheta$. Then the diagram with arbitrary coefficients
@@ -2077,9 +2090,47 @@ orientation.
       }
       where the vertical maps are the cap products with
       $\vartheta$, commutes and has exact rows.
-          
       \end{lemma}
 
+      \begin{theorem}[Poincaré-Alexander-Lefschetz Duality]
+          \cite[Theorem 8.3]{Bredon}
+          Let $M^{n}$ be an $n$-manifold oriented by
+          $\vartheta$, and let $K \supset L$ be compact
+          subsets of $M$. Then the cap product
+          \[
+          \cap \vartheta \colon
+          \check{H}^{p}(K,L;G) \to H_{n-p}(M-L, M-K;G)
+          \] 
+      \end{theorem}
+
+      \begin{corollary}[Poincaré-Lefschetz Duality]\cite[Corollary 8.4]{Bredon}
+          If $M^{n}$ is a compact orientable $n$-manifold
+          and $L \subset M^{n}$ is closed, then we have the following
+          diagram with exact rows and all vertical (cap products
+          with the orientation class) being isomorphisms:
+          \begin{equation*}
+          \begin{tikzcd}
+              \ldots \ar[r] & \check{H}^{p}(M,L) \ar[r]
+              \ar[d, "\cong"] & \check{H}^{p}(M)
+              \ar[r] \ar[d, "\cong"] 
+              & \check{H}^{p}(L) \ar[r] \ar[d, "\cong"] 
+              & \check{H}^{p+1}(M,L)
+              \ar[r] \ar[d, "\cong"] & \ldots \\
+              \ldots \ar[r] & H_{n-p}(M-L) \ar[r] & 
+              H_{n-p}(M) \ar[r] & H_{n-p}(M, M-L) \ar[r] &
+              H_{n-p-1}(M-L) \ar[r] & \ldots
+          \end{tikzcd}
+          \end{equation*}
+          The isomorphism involving $M$ alone is called
+          \textit{Poincaré duality}. This holds
+          with arbitrary coefficients, and 
+          $M^{n}$ need not be orientable for
+          $\mathbb{Z} / 2$ as the base ring.
+      \end{corollary}
+
+
+
+    
       
 
 
@@ -2093,7 +2144,7 @@ orientation.
 
 \begin{definition}[$k$-disk bundle]
     A $k$-disk bundle is the restriction of a vector bundle so that its
-    coordinate transformations map
+    coordinate transformations are linear maps which map
     the unit disk into itself and such that
     the local trivializations have the form
     $\pi^{-1}(U) \cong U \times D^{k}$.
@@ -2247,18 +2298,9 @@ but which are embedded in manifolds.
     the cohomology, and then use the LES to find the cohomology
     of
     $\left( A \times D^{k}, A \times S^{k-1} \right) $.\\
-    Now...
-    But
-    by the Künneth theorem,
-    \[
-    H_m(A \times D^{k}) \cong
-    H_m(A)
-    \] 
-    and
-    \[
-    H_m(A \times S^{k-1}) \cong
-    H_m(A) \oplus H_{m-k+1}(A).
-    \] 
+    From here on, one can complete the proof using the
+    Künneth theorem and the Bootstrap lemma.
+    We will skip this for lack of time, but see \cite[Lemma 11.4]{Bredon}.
 \end{proof}
 
 
@@ -2668,6 +2710,7 @@ but which are embedded in manifolds.
           = D(b) \cap \left( D(a) \cap \left[ M \right]  \right) 
           = D(b) \cap a.
           \] 
+          In particular, note the change in order of $a$ and $b$.
       \end{definition}
 
       \begin{exercise}[]
@@ -3128,6 +3171,11 @@ but which are embedded in manifolds.
 
 
 \section{Geometric Homology Theory}
+
+For this section, we will closely follow \cite{Chataur} and
+recount some of the material developed there.\\
+\linebreak
+
 
 We have seen that the intersection product of two homology classes
 admits a nice geometric description when the homology classes can be
@@ -4080,7 +4128,16 @@ of $\mathcal{L}_{p,q} \cong \Delta
 $Z_{l_1,m_1} \star Z_{l_2,m_2}$ based at
 $(r, \theta)$,
 where $\star$ is the concatenation of the loops in the image
-at their common basepoint.
+at their common basepoint.\\
+\linebreak
+
+
+We may as whether we can determined the loop product and
+coproduct of these classes. Computations of both are carried
+out in \ref{Naef-Rivera-Wahl} and we recount some of it here in
+shorter form, following the source material closely.\\
+
+Firstly, we turn to the product.
 
 \begin{proposition}[]
     The Chas-Sullivan loop product of the classes
@@ -4218,6 +4275,7 @@ by $\lambda' (t) = \left( 0, (1, \frac{t}{p}) \right) $.
 
 
 
+
 \begin{lemma}[]\cite[Lemma 2.6]{Naef-Rivera-Wahl}
     Let $B_{k,k'}' \colon S^{1} \to L \mathcal{L}_{p,q} \times_{
     \mathcal{L}_{p,q}} L \mathcal{L}_{p,q}$ be the family of
@@ -4233,60 +4291,6 @@ by $\lambda' (t) = \left( 0, (1, \frac{t}{p}) \right) $.
     $B_{qk,qk'}'$.
 \end{lemma}
 
-\begin{proof}
-    As above, projecting a path from
-    $\left( (1,0), 0 \right) $ to
-    $\left( 0 ,(1,0) \right) $ under $Z_{1,0}$ in
-    $\mathcal{L}_{p,q}$ gives an explicit free homotopy
-    $\lambda \simeq_h \left( \lambda' \right)^{\star q} \colon
-    S^{1} \to \mathcal{L}_{p,q}$.
-    Let $h \colon S^{1} \times I \to \mathcal{L}_{p,q}$ be
-    the evaluation of
-    $Z_{1,0}$ along the line
-    $\left( \left( \sqrt{1-\tau^2} ,0 \right) (\tau ,0) \right) ,
-    \tau \in \left[ 0,1 \right] $, giving the formula
-    \[
-    h(s,t) = 
-    \left( \left( \sqrt{1-\tau^2} , \frac{s}{p} \right) ,
-    \left( \tau, \frac{qs}{p} \right) \right) \in \mathcal{L}_{p,q}. 
-    \] 
-    Then there is a lift
-    $H \colon S^{1} \times I \to L \mathcal{L}_{p,q} \times_{\mathcal{L}_{p,q}} 
-    L \mathcal{L}_{p,q}$ of $h$ consisting of loops
-    based at the value of $h$, defined by
-    \[
-    H(s,\tau) = 
-    \left( \left[ t \mapsto \left( \left( \sqrt{1- \tau^2} ,
-    \frac{s+ kt}{p}\right)  \right) , 
-    \left( \tau, \frac{q (s+kt)}{p} \right) \right]
-    ,
-    \left[ t \mapsto \left( \left( \sqrt{1- \tau^2} ,
-    \frac{s+ k't}{p}\right) , 
-\left( \tau, \frac{q (s+k't)}{p} \right) \right)  \right] \right)
-    \] 
-    which starts at 
-    \[
-    H(s,0) = \left( \left[ t \mapsto \left( \left( 1, \frac{s+kt}{p} \right) ,
-    0 \right)  \right] ,
-    \left[ t \mapsto \left( \left( 
-    1 , \frac{s+k't}{p}\right) ,
-0 \right)  \right] \right)
-= \left( (\lambda_s)^{\star k} ,
-(\lambda_s)^{\star k'} \right) = 
-B_{k,k'},
-    \] 
-    and similarly,
-    \[
-    H(s,1) = 
-    \left( \left[ t \mapsto 
-    \left( 0,
-\left( 1, \frac{q(s+kt)}{p} \right) \right) \right] 
-\left[ t \mapsto \left( 0,
-\left( 1, \frac{q(s+k't)}{p} \right) \right)  \right] \right) =
-\left( (\lambda_{qs}')^{\star qk}, (\lambda_{qs}')^{\star qk'} \right) 
-    \] 
-    which, in homology, represents $q B_{qk,qk'}'$.
-\end{proof}
 
 
 
@@ -4326,6 +4330,15 @@ B_{k,k'},
 \end{proposition}
 
 \begin{proof}
+
+    We will only give the part of the proof that is necessary for
+    us to understand the next section.\\
+    \linebreak
+    
+
+
+
+
     We want to make use of (2) in
     Proposition \ref{Prop:GHUXIQL}.
 
@@ -4501,15 +4514,11 @@ B_{k,k'},
      and $\lambda, \lambda'$ are the loops parametrizing the
      points with $r_2 = 0$ and $r_1 = 0$, respectively.\\
      Note that $\lambda$ and $\lambda'$ correspond to the
-     two degenerate cases of tori in the foliation.
-
-     We need to check transversality at these points.
-
-     Note that $e_I \circ \left( \tilde{Z}_{l,m} \times \id \right) $ takes
-     points with $r_i$ coordinates $0$ to points of the same form
-     in the diagonal.
-
-
+     two degenerate cases of tori in the foliation.\\
+     \linebreak
+     The rest of the proof is a check of transversality at these
+     points. We will skip this part and refer the reader to
+     \cite{Naef-Rivera-Wahl}.
 
 
 
@@ -4523,7 +4532,7 @@ B_{k,k'},
 
 \newpage
 
-\subsection{A new operation}
+\subsection{Other potential operations}
 
 
 Consider the $3$-simplex
@@ -4685,7 +4694,7 @@ $R \colon U_2 \to LM \times_{M^{4}} \Delta^3 / \partial \Delta^3$ sending
 R (\gamma, \left( x_1,x_2,x_3 \right) )
 = \left( \gamma', \left( x_1,x_2,x_3 \right)  \right) 
 \] 
-where $\gamma'$ is the desired loop \todo{details}
+where $\gamma'$ is the desired loop
 such that
 the following diagram commutes:
 
@@ -4755,13 +4764,14 @@ H_{0}\left( L \mathcal{L}_{p,q} \right)
 \] 
 
 
-
+\begin{question}
 Consider now the classes
 $Z_{l,m}$ from before.
+One could ask what the operation $\Upsilon$ does to
+$Z_{l,m}$ on points where it satisfies the desired condition.
+\end{question}
 
-We are interested in whether $Z_{l,m}$ has transverse self-intersections
-so as to compute
-$\Upsilon Z_{l,m}$.
+
 
 Now, $Z_{l,m}$ maps $\left( r, \theta \right) $ to
 
@@ -4771,69 +4781,7 @@ Now, $Z_{l,m}$ maps $\left( r, \theta \right) $ to
     \left( r_2, \theta_2 + \frac{ltq}{p}+mt \right) \right) .
 \] 
 
-As before, we could also replace
-$Z_{l,m}$ with
-the homotopic $\tilde{Z}_{l,m}$ given by
-\[
-\tilde{\gamma}_{r, \theta}^{l,m}(t) = 
-\left( \left( \tilde{r}_1 (t), \theta_1 + \frac{lt}{p} \right) ,
-\left( \tilde{r}_2 (t), \theta_2 + \frac{ql+pm}{p} t \right) \right) 
-\] 
-
-For this to have
-$\tilde{\gamma}_{r,\theta}^{l,m}(x_2) = \tilde{\gamma}_{r,\theta}^{l,m}(0)$,
-with $x_2 \in (0,1)$,
-we must have
-that $\tilde{r}_i(t) = r_i$, but
-$r_i = \tilde{r}_i(0) \neq \tilde{r}_i(t)$ if
-$r_i \neq 0,1$,
-hence as before, it can only coincide when
-$r_1$ or $r_2$ is zero.
-
-Let us work out an explicit example.
-
-Suppose $\left( l,m \right) = (1,2)$, so if
-$r_1 = 0$,
-\[ 
-    \tilde{Z}_{l,m}\left( 0,\theta_1, 1, \theta_2 \right) =
-    \tilde{\gamma}_{r, \theta}^{1,2}
-(t) = \left( 0 , \left(
-1, \theta_2 + \frac{q+2p}{p}t \right) \right). \] 
-
-This gives the self-intersections
-$\frac{q+2p}{p}t \in \frac{q}{p}\mathbb{Z}$, i.e.,
-$t \in \frac{q}{q+2p}\mathbb{Z} \cap (0,1)$.
-For example if $(p,q) = (2,3)$, this would be the set
-$\left\{ \frac{3}{7}, \frac{6}{7} \right\} $.
-
-If instead $r_2 = 0$, then
-the condition becomes $t \in \left\{ 0,1 \right\} \cap
-\left( 0,1 \right) = \varnothing$.
-
-
-
-
-But we also need two more points,
-$x_1,x_3$ such that
-$0 < x_1 < x_2 < x_3 < 1$ and
-$\tilde{\gamma}_{r, \theta}^{1,2}(x_1) = 
-\tilde{\gamma}_{r, \theta}^{1,2}(x_3)$.
-
-When $r_1 = 0$, this amounts to
-\[
-    (x_3-x_1) (q+2p) \in q \mathbb{Z}, \quad \text{that is} \quad
-    x_3 - x_1 \in \frac{q}{q+2p}\mathbb{Z}
-\] 
-If $(p,q) = (2,3)$ then
-$\frac{q}{q+2p} = \frac{3}{7}$, so
-$x_3 - x_1 \in \frac{3}{7}\mathbb{Z}$.
-Naturally, there are quite a lot of such intersection points.
-
-
-
-We don't necessarily even need to change to
-$\tilde{Z}_{l,m}$. Suppose
-we choose the points
+Suppose we choose the points
 $x_1, x_2,x_3$.
 
 Since $Z_{l,m}(r , \theta)$ is contained in
@@ -4892,9 +4840,12 @@ abelian, so in particular,
 \end{align*}
 where the bar denotes the inverse loop.
 
+The question is whether this would also
+work for other $\tilde{Z}_{l,m}$ for example. Does
+it simplify to a simpler form?
 
 We could likewise define other operations. For example, consider the
-following operation, which we will denote by
+following operation
 $\tilde{\Upsilon}$:
 
 \begin{figure}[htpb]
@@ -4907,10 +4858,15 @@ $\tilde{\Upsilon}$:
 Using the same approach as before, this becomes
 $\gamma \mapsto \gamma[x_2,0] \star \gamma[x_2, 1]$, i.e,
 first half up to $x_2$ is $\gamma$ reversed up to
-$x_2$, and the second part is $\gamma$ normally.
+$x_2$, and the second part is $\gamma$ normally.\\
+\linebreak
 
-I believe this doesn't change the loop - i.e., 
-$\tilde{\Upsilon} \left( \gamma \right) = \gamma$. Question mark???
+
+What does this do to a loop?\\
+\linebreak
+
+
+We now turn to a different question.
 
 
 \begin{question}
@@ -4983,14 +4939,6 @@ $\tilde{\Upsilon} \left( \gamma \right) = \gamma$. Question mark???
     degenerate tori (circles) at the endpoints
     $r_2 = 0$ and $r_1 = 0$, respectively.
     
-    Now suppose $x_2$ is a point such that
-    for $\gamma = Z_{l,m}\left( (1,0), \theta \right) $,
-    $\gamma(0) = \gamma(x_2)$.
-    That is,
-    $\left( \left( 1, \theta_1 + \frac{l x_2}{p} \right)  , 0  \right) 
-    = \left( (1, \theta_1), 0 \right) $.
-    By adding $\frac{\theta p}{l}$ to $x_2$, we may assume that
-    $\gamma = \lambda$, and suppose $x_2 \in I_1$.
 
     For $0 < x_1 < x_2 < x_3 < 1$, if
     $\lambda(x_1 ) = \lambda(x_3)$, then
@@ -4999,19 +4947,7 @@ $\tilde{\Upsilon} \left( \gamma \right) = \gamma$. Question mark???
     
     For this, we must essentially break the periodicity in
     the angle coordinate.
-    One possibility could be to
-    let $\theta_1 (t) = 
-    \theta_1 + \sin(\pi t)$.
 
-    Then for some $0 < x_1 < x_2 < x_3 < 1$ to satisfy the
-    criterion, say for $r_1 = 1$ and $r_2 = 0$, we need
-    $\theta_1 + \sin(\pi x_2) + \frac{l x_2}{p}
-    = \theta_1(x_2) + \frac{l x_2}{p} = 
-    \theta_1(0) = \theta_1$, so
-    $\sin \left( \pi x_2 \right) = 
-    \frac{lx_2}{p}$ which only
-    has one possible solution for each $x_2 \in (0,1)$ and
-    all $l,m$.
 
     
     Let $g(t) = \sin\left( \alpha(l,m) t \right) -
@@ -5041,8 +4977,9 @@ $\tilde{\Upsilon} \left( \gamma \right) = \gamma$. Question mark???
     $(\frac{lq}{p} + m)(x_3-x_1)$.
 
     If we simply choose $\alpha(l,m)$ to be small enough, we
-    can guarantee that this never happens.
-    Thus $Z_{l,m}'$ does not intersect
+    can guarantee that this never happens - for example
+    looking at the functions' graphs.
+    So $Z_{l,m}'$ can be made to not intersect
     $L \mathcal{L}_{p,q} \times_{\mathcal{L}_{p,q}} \Delta^3 / 
     \partial \Delta^3$.
     
@@ -5067,56 +5004,6 @@ $\tilde{\Upsilon} \left( \gamma \right) = \gamma$. Question mark???
 
 
 
-
-
-    \newpage
-
-    \begin{equation*}
-    \begin{tikzcd}
-        C_3 (L \mathcal{L}_{p,q}) \otimes
-        C_{3}\left( \Delta^3 / \partial \Delta^3 \right) 
-        \ar[r, "\times "] \ar[d] & C_6 \left( L \mathcal{L}_{p,q} \times 
-        \Delta^3 / \partial \Delta^3 \right) 
-        \ar[r, "{\left[ \tau_{\Delta^3} \cap \right]}"]
-        \ar[d, "E_*"] &
-        C_0 (U_2) \ar[r, "R"] \ar[d, "E_*"] 
-        & C_0 \left( L \mathcal{L}_{p,q} \times_M 
-        \Delta^3 / \partial \Delta^3 \right) \ar[d, "r \circ ev_{old}"] \\
-            C_3 (\mathcal{L}_{p,q}^2)
-            \otimes C_3 (\mathcal{L}_{p,q}^2) \ar[r, "\times "] 
-            \ar[rrr, bend right, "\bullet"]& 
-            C_6 (\mathcal{L}_{p,q}^{4}) \ar[r, "{\left[ \tau_{M \times M}\cap \right] }"]
-            & C_0 (U_1) \ar[r,
-            "r"] & C_0 (\mathcal{L}_{p,q}^2)
-    \end{tikzcd}
-    \end{equation*}
-    
-    So now for
-    an arbitrary 
-    $\sigma \in C_3 \left( \mathcal{L}_{p,q} \right) $, we
-    have that the composite that we are interested in is
-    the same as
-    $\bullet \ev'
-    (Z_{l,m} \circ \sigma \otimes \Delta^3 / \partial \Delta^3 )$
-
-
-
-
-
-
-
-
-    We can again look at
-    $\tilde{Z}_{l,m}$ instead.
-
-    Recall the intersection product as the following composition
-
-    \[
-    \bullet_{Th} \colon \Delta_p(M) \otimes
-    \Delta_q(M) \stackrel{\times }{\to} \Delta_{p+q}(M \times M)
-    \stackrel{\left[ \tau_M \cap \right] }{\to} 
-    \Delta_{p+q-n}(U_M) \stackrel{r_*}{\to} \Delta_{p+q-n}(M)
-    \] 
 
 
 

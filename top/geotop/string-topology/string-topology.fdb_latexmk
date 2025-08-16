@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber string-topology"] 1755242972.00404 "string-topology.bcf" "string-topology.bbl" "string-topology" 1755243091.76389 0
-  "string-topology.bcf" 1755243091.67647 110084 d034d10b5c9f77dfb79dda7ac25f9477 "pdflatex"
+["biber string-topology"] 1755251661.59084 "string-topology.bcf" "string-topology.bbl" "string-topology" 1755251679.67224 0
+  "string-topology.bcf" 1755251679.5953 110529 35680fad34d3be177abc0319a466e2f3 "pdflatex"
   "string-topology.bib" 1754399824.2931 2256 907bc2e24e3accc53de826ad10461bc6 ""
   (generated)
   "string-topology.bbl"
   "string-topology.blg"
   (rewritten before read)
-["pdflatex"] 1755243089.97432 "string-topology.tex" "string-topology.pdf" "string-topology" 1755243091.76412 0
+["pdflatex"] 1755251677.67642 "string-topology.tex" "string-topology.pdf" "string-topology" 1755251679.67247 0
   "/etc/texmf/web2c/texmf.cnf" 1753187780.39935 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1000.tfm" 1136768653 3584 2d666ecf6d466d8b007246bc2f94d9da ""
@@ -212,6 +212,7 @@
   "/usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb" 1636152094 145408 43d44302ca7d82d487f511f83e309505 ""
   "/usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb" 1636152094 109713 30d6420127e1c84309fa7008a69b7170 ""
   "/usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb" 1753188113.21393 154599 ded6d7c21788a8930eadc7fef7518942 ""
+  "/usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb" 1753188113.21474 164227 3df942b4ff2124425d8fb1b6d3e01c7a ""
   "/usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb" 1636152094 138258 6525c253f16cededa14c7fd0da7f67b2 ""
   "/usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb" 1636152094 186554 e8f0fa8ca05e038f257a06405232745f ""
   "/usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb" 1636152094 169201 9ebf99020dde51a5086e186761a34e8f ""
@@ -224,11 +225,12 @@
   "Figures/NUIZKUW.jpeg" 1755038959.42104 64066 f7b51b55003159eb71c43b8c92bc8a16 ""
   "Figures/UGWINZKQ.jpeg" 1755038942.21028 101518 412b7f9fa947f715f176ed3666db19a9 ""
   "Figures/foliating-tori.jpg" 1754926151.57682 363602 fe99c2cf6cf7e947b35a9e70429bc587 ""
-  "string-topology.aux" 1755243091.67447 11723 00a4677dff67df2037a3a4d8beb92f67 "pdflatex"
-  "string-topology.bbl" 1755242972.41803 10180 9d0caa8ec997872739f5d5bdaaff5646 "biber string-topology"
-  "string-topology.out" 1755243091.67447 4899 d8286c273b9d1581686cc156cec051e2 "pdflatex"
-  "string-topology.run.xml" 1755243091.6777 2356 cf95a71a4506a57045d2799f471fa2c1 "pdflatex"
-  "string-topology.tex" 1755243088.42795 170016 f44d9c2919d8986ca65be6b99a4a0341 ""
+  "string-topology.aux" 1755251679.5923 11904 68dc12a7a2cbf830a4e36eb36f8f1eb9 "pdflatex"
+  "string-topology.bbl" 1755251662.04157 10180 9d0caa8ec997872739f5d5bdaaff5646 "biber string-topology"
+  "string-topology.out" 1755251679.5933 4954 ee141e36c18b95ab59a261c8cecb910f "pdflatex"
+  "string-topology.run.xml" 1755251679.5963 2356 cf95a71a4506a57045d2799f471fa2c1 "pdflatex"
+  "string-topology.tex" 1755251675.20438 166647 d176ae527e9e10ce992ef0d914eca961 ""
+  "string-topology.toc" 1755251679.5963 4048 09134be1ef17fe50a29595b6d736d602 "pdflatex"
   (generated)
   "string-topology.aux"
   "string-topology.bcf"
@@ -236,4 +238,5 @@
   "string-topology.out"
   "string-topology.pdf"
   "string-topology.run.xml"
+  "string-topology.toc"
   (rewritten before read)
